@@ -36,6 +36,8 @@ NB : chez moi, cela se termine par un **Segmentation fault**
 
 Une astuce serait https://github.com/UKPLab/sentence-transformers/issues/2332 mais j'ai toujours le core dump
 
+ou https://github.com/UKPLab/sentence-transformers/issues/2228#issuecomment-1837129592 descendre PyTorch à la 2.0.* : à tester
+
 ```bash
 $ export OMP_NUM_THREADS=1
 $ python main.py
