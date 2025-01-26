@@ -1,0 +1,5 @@
+<svg id="IconTeardown" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <rect id="Background" width="20" height="20" fill="none"/>
+  <path id="Tracé" d="M5.778,15.444A1.56,1.56,0,0,0,7.333,17h6.222a1.56,1.56,0,0,0,1.556-1.556V6.111H5.778ZM15.889,3.778H13.167L12.389,3H8.5l-.778.778H5V5.333H15.889Z" transform="translate(-1)" fill="#19233e"/>
+  <path id="Tracé-2" data-name="Tracé" d="M9.848,7.956H7.783V10h-.91V7.956H4.848V7.043H6.873V5h.91V7.043H9.848Z" transform="translate(9.643 1.036) rotate(45)" fill="#fff"/>
+</svg>

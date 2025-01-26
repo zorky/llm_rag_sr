@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Getting Information About Your Groups – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="Getting-Information-About-Your-Groups.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/Getting-Information-About-Your-Groups.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Obtenir-des-informations-sur-vos-groupes.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Getting Information About Your Groups</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can list the groups in your account, the users in a group, the managed policies attached to a group, or the groups to which a user belongs.</p>
+</div>
+<div class="paragraph">
+<p>To modify users in a group, see <a href="Adding-or-Removing-a-User-from-a-Group.html" class="xref page">Adding or Removing a User from a Group</a>. To modify the name or path of a group, see <a href="Modifying-a-Group.html" class="xref page">Modifying a Group</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Cockpit v2_0"><a class="anchor" href="Getting-Information-About-Your-Groups.html#Cockpit v2_0"></a>Getting Information About Your Groups Using Cockpit v2</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_listing_the_groups_in_your_account"><a class="anchor" href="Getting-Information-About-Your-Groups.html#_listing_the_groups_in_your_account"></a>Listing the Groups in Your Account</h3>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>See the <strong>EIM Groups</strong> dashboard.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_listing_the_users_in_a_group"><a class="anchor" href="Getting-Information-About-Your-Groups.html#_listing_the_users_in_a_group"></a>Listing the Users in a Group</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In the <strong>EIM Groups</strong> dashboard, click the <span class="image"><img src="_images/IconView.svg" alt="IconView"></span> details icon of the group for which you want to list the users.<br>
+The EIM group details panel appears.</p>
+</li>
+<li>
+<p>Click the <strong>Added Users</strong> tab.</p>
+</li>
+<li>
+<p>The list of users added to the group appears.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_listing_the_managed_policies_attached_to_a_group"><a class="anchor" href="Getting-Information-About-Your-Groups.html#_listing_the_managed_policies_attached_to_a_group"></a>Listing the Managed Policies Attached to a Group</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In the <strong>EIM Groups</strong> dashboard, click the <span class="image"><img src="_images/IconView.svg" alt="IconView"></span> details icon of the group for which you want to list the managed policies attached to.<br>
+The EIM group details panel appears.</p>
+</li>
+<li>
+<p>Click the <strong>Attached Managed Policies</strong> tab.</p>
+</li>
+<li>
+<p>The list of managed policies attached to the group appears.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="OSC CLI_1"><a class="anchor" href="Getting-Information-About-Your-Groups.html#OSC CLI_1"></a>Getting Information About Your Groups Using OSC CLI</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_listing_the_groups_in_your_account_2"><a class="anchor" href="Getting-Information-About-Your-Groups.html#_listing_the_groups_in_your_account_2"></a>Listing the Groups in Your Account</h3>
+<div class="paragraph">
+<p>The <strong>ReadUserGroups</strong> command lists all the user groups of the account.<br>
+The response can be filtered using either the PathPrefix or the UserGroupIds.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api ReadUserGroups --profile "default" \
+    --Filters '{
+        "PathPrefix": "/ex",
+        "UserGroupIds": ["ug-12345678"]
+      }' \
+    --FirstItem 1 \
+    --ResultsPerPage 30</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Filters</code>: (optional) One or more filters.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>PathPrefix</code>: (optional) The path prefix of the groups. If not specified, it is set to a slash (<code>/</code>).</p>
+</li>
+<li>
+<p><code>UserGroupIds</code>: (optional) The IDs of the user groups.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>FirstItem</code>: (optional) The item starting the list of groups requested.</p>
+</li>
+<li>
+<p><code>ResultsPerPage</code>: (optional) The maximum number of items that can be returned in a single response (by default, <code>100</code>).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadUserGroups</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>HasMoreItems</code>: If true, there are more items to return using the <code>FirstItem</code> parameter in a new request.</p>
+</li>
+<li>
+<p><code>MaxResultsLimit</code>: Indicates maximum results defined for the operation.</p>
+</li>
+<li>
+<p><code>MaxResultsTruncated</code>: If true, indicates whether requested page size is more than allowed.</p>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>UserGroups</code>: A list of user groups.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CreationDate</code>: The date and time (UTC) of creation of the user group.</p>
+</li>
+<li>
+<p><code>LastModificationDate</code>: The date and time (UTC) of the last modification of the user group.</p>
+</li>
+<li>
+<p><code>Name</code>: The name of the user group.</p>
+</li>
+<li>
+<p><code>Orn</code>: The Outscale Resource Name (ORN) of the user group. For more information, see <a href="Resource-Identifiers.html" target="_blank" rel="noopener">Resource Identifiers</a>.</p>
+</li>
+<li>
+<p><code>Path</code>: The path to the user group.</p>
+</li>
+<li>
+<p><code>UserGroupId</code>: The ID of the user group.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "HasMoreItems": true,
+  "MaxResultsLimit": 30,
+  "MaxResultsTruncated": true,
+  "UserGroups": [
+    {
+      "CreationDate": "2010-10-01T12:34:56.789Z",
+      "LastModificationDate": "2010-10-01T12:34:56.789Z",
+      "Name": "example-usergroup",
+      "Orn": "orn:ows:idauth::012345678910:usergroup/example/usergroup-example",
+      "Path": "/example/",
+      "UserGroupId": "ug-12345678"
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_listing_the_users_in_a_group_2"><a class="anchor" href="Getting-Information-About-Your-Groups.html#_listing_the_users_in_a_group_2"></a>Listing the Users in a Group</h3>
+<div class="paragraph">
+<p>The <strong>ReadUserGroup</strong> command lists information about a specified user group, including its users.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api ReadUserGroup --profile "default" \
+    --Path "/example/" \
+    --UserGroupName "example-usergroup"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Path</code>: (optional) The path to the group. If not specified, it is set to a slash (<code>/</code>).</p>
+</li>
+<li>
+<p><code>UserGroupName</code>: The name of the group.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadUserGroup</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>UserGroup</code>: Information about the user group.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CreationDate</code>: The date and time (UTC) of creation of the user group.</p>
+</li>
+<li>
+<p><code>LastModificationDate</code>: The date and time (UTC) of the last modification of the user group.</p>
+</li>
+<li>
+<p><code>Name</code>: The name of the user group.</p>
+</li>
+<li>
+<p><code>Orn</code>: The Outscale Resource Name (ORN) of the user group. For more information, see <a href="Resource-Identifiers.html" target="_blank" rel="noopener">Resource Identifiers</a>.</p>
+</li>
+<li>
+<p><code>Path</code>: The path to the user group.</p>
+</li>
+<li>
+<p><code>UserGroupId</code>: The ID of the user group.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Users</code>: A list of EIM users.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CreationDate</code>: The date and time (UTC) of creation of the EIM user.</p>
+</li>
+<li>
+<p><code>LastModificationDate</code>: The date and time (UTC) of the last modification of the EIM user.</p>
+</li>
+<li>
+<p><code>Path</code>: The path to the EIM user.</p>
+</li>
+<li>
+<p><code>UserEmail</code>: The email address of the EIM user.</p>
+</li>
+<li>
+<p><code>UserId</code>: The ID of the EIM user.</p>
+</li>
+<li>
+<p><code>UserName</code>: The name of the EIM user.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "UserGroup": {
+    "CreationDate": "2010-10-01T12:34:56.789Z",
+    "LastModificationDate": "2010-10-01T12:34:56.789Z",
+    "Name": "example-usergroup",
+    "Orn": "orn:ows:idauth::012345678910:usergroup/example/usergroup-example",
+    "Path": "/example/",
+    "UserGroupId": "ug-12345678"
+  },
+  "Users": [
+    {
+      "CreationDate": "2010-10-01T12:34:56.789Z",
+      "LastModificationDate": "2010-10-01T12:34:56.789Z",
+      "Path": "/example/",
+      "UserEmail": "user@example.com",
+      "UserId": "ABCDEFGHIJKLMNOPQRSTUVWXYZ12345",
+      "UserName": "example-user"
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_listing_the_groups_for_a_user"><a class="anchor" href="Getting-Information-About-Your-Groups.html#_listing_the_groups_for_a_user"></a>Listing the Groups for a User</h3>
+<div class="paragraph">
+<p>The <strong>ReadUserGroupsPerUser</strong> command lists the groups a specified user belongs to.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api ReadUserGroupsPerUser --profile "default" \
+    --UserName "example-user" \
+    --UserPath "/example/"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>UserName</code>: The name of the user.</p>
+</li>
+<li>
+<p><code>UserPath</code>: (optional) The path to the user (by default, <code>/</code>).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadUserGroupsPerUser</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>UserGroups</code>: A list of user groups.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CreationDate</code>: The date and time (UTC) of creation of the user group.</p>
+</li>
+<li>
+<p><code>LastModificationDate</code>: The date and time (UTC) of the last modification of the user group.</p>
+</li>
+<li>
+<p><code>Name</code>: The name of the user group.</p>
+</li>
+<li>
+<p><code>Orn</code>: The Outscale Resource Name (ORN) of the user group. For more information, see <a href="Resource-Identifiers.html" target="_blank" rel="noopener">Resource Identifiers</a>.</p>
+</li>
+<li>
+<p><code>Path</code>: The path to the user group.</p>
+</li>
+<li>
+<p><code>UserGroupId</code>: The ID of the user group.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "UserGroups": [
+    {
+      "CreationDate": "2010-10-01T12:34:56.789Z",
+      "LastModificationDate": "2010-10-01T12:34:56.789Z",
+      "Name": "example-usergroup",
+      "Orn": "orn:ows:idauth::012345678910:usergroup/example/usergroup-example",
+      "Path": "/example/",
+      "UserGroupId": "ug-12345678"
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="oapi-cli_2"><a class="anchor" href="Getting-Information-About-Your-Groups.html#oapi-cli_2"></a>Getting Information About Your Groups Using oapi-cli</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_listing_the_groups_in_your_account_3"><a class="anchor" href="Getting-Information-About-Your-Groups.html#_listing_the_groups_in_your_account_3"></a>Listing the Groups in Your Account</h3>
+<div class="paragraph">
+<p>The <strong>ReadUserGroups</strong> command lists all the user groups of the account.<br>
+The response can be filtered using either the PathPrefix or the UserGroupIds.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" ReadUserGroups \
+    --Filters '{
+        "PathPrefix": "/ex",
+        "UserGroupIds": ["ug-12345678"]
+      }' \
+    --FirstItem 1 \
+    --ResultsPerPage 30</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Filters</code>: (optional) One or more filters.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>PathPrefix</code>: (optional) The path prefix of the groups. If not specified, it is set to a slash (<code>/</code>).</p>
+</li>
+<li>
+<p><code>UserGroupIds</code>: (optional) The IDs of the user groups.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>FirstItem</code>: (optional) The item starting the list of groups requested.</p>
+</li>
+<li>
+<p><code>ResultsPerPage</code>: (optional) The maximum number of items that can be returned in a single response (by default, <code>100</code>).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadUserGroups</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>HasMoreItems</code>: If true, there are more items to return using the <code>FirstItem</code> parameter in a new request.</p>
+</li>
+<li>
+<p><code>MaxResultsLimit</code>: Indicates maximum results defined for the operation.</p>
+</li>
+<li>
+<p><code>MaxResultsTruncated</code>: If true, indicates whether requested page size is more than allowed.</p>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>UserGroups</code>: A list of user groups.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CreationDate</code>: The date and time (UTC) of creation of the user group.</p>
+</li>
+<li>
+<p><code>LastModificationDate</code>: The date and time (UTC) of the last modification of the user group.</p>
+</li>
+<li>
+<p><code>Name</code>: The name of the user group.</p>
+</li>
+<li>
+<p><code>Orn</code>: The Outscale Resource Name (ORN) of the user group. For more information, see <a href="Resource-Identifiers.html" target="_blank" rel="noopener">Resource Identifiers</a>.</p>
+</li>
+<li>
+<p><code>Path</code>: The path to the user group.</p>
+</li>
+<li>
+<p><code>UserGroupId</code>: The ID of the user group.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "HasMoreItems": true,
+  "MaxResultsLimit": 30,
+  "MaxResultsTruncated": true,
+  "UserGroups": [
+    {
+      "CreationDate": "2010-10-01T12:34:56.789Z",
+      "LastModificationDate": "2010-10-01T12:34:56.789Z",
+      "Name": "example-usergroup",
+      "Orn": "orn:ows:idauth::012345678910:usergroup/example/usergroup-example",
+      "Path": "/example/",
+      "UserGroupId": "ug-12345678"
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_listing_the_users_in_a_group_3"><a class="anchor" href="Getting-Information-About-Your-Groups.html#_listing_the_users_in_a_group_3"></a>Listing the Users in a Group</h3>
+<div class="paragraph">
+<p>The <strong>ReadUserGroup</strong> command lists information about a specified user group, including its users.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" ReadUserGroup \
+    --Path "/example/" \
+    --UserGroupName "example-usergroup"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Path</code>: (optional) The path to the group. If not specified, it is set to a slash (<code>/</code>).</p>
+</li>
+<li>
+<p><code>UserGroupName</code>: The name of the group.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadUserGroup</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>UserGroup</code>: Information about the user group.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CreationDate</code>: The date and time (UTC) of creation of the user group.</p>
+</li>
+<li>
+<p><code>LastModificationDate</code>: The date and time (UTC) of the last modification of the user group.</p>
+</li>
+<li>
+<p><code>Name</code>: The name of the user group.</p>
+</li>
+<li>
+<p><code>Orn</code>: The Outscale Resource Name (ORN) of the user group. For more information, see <a href="Resource-Identifiers.html" target="_blank" rel="noopener">Resource Identifiers</a>.</p>
+</li>
+<li>
+<p><code>Path</code>: The path to the user group.</p>
+</li>
+<li>
+<p><code>UserGroupId</code>: The ID of the user group.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Users</code>: A list of EIM users.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CreationDate</code>: The date and time (UTC) of creation of the EIM user.</p>
+</li>
+<li>
+<p><code>LastModificationDate</code>: The date and time (UTC) of the last modification of the EIM user.</p>
+</li>
+<li>
+<p><code>Path</code>: The path to the EIM user.</p>
+</li>
+<li>
+<p><code>UserEmail</code>: The email address of the EIM user.</p>
+</li>
+<li>
+<p><code>UserId</code>: The ID of the EIM user.</p>
+</li>
+<li>
+<p><code>UserName</code>: The name of the EIM user.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "UserGroup": {
+    "CreationDate": "2010-10-01T12:34:56.789Z",
+    "LastModificationDate": "2010-10-01T12:34:56.789Z",
+    "Name": "example-usergroup",
+    "Orn": "orn:ows:idauth::012345678910:usergroup/example/usergroup-example",
+    "Path": "/example/",
+    "UserGroupId": "ug-12345678"
+  },
+  "Users": [
+    {
+      "CreationDate": "2010-10-01T12:34:56.789Z",
+      "LastModificationDate": "2010-10-01T12:34:56.789Z",
+      "Path": "/example/",
+      "UserEmail": "user@example.com",
+      "UserId": "ABCDEFGHIJKLMNOPQRSTUVWXYZ12345",
+      "UserName": "example-user"
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_listing_the_groups_for_a_user_2"><a class="anchor" href="Getting-Information-About-Your-Groups.html#_listing_the_groups_for_a_user_2"></a>Listing the Groups for a User</h3>
+<div class="paragraph">
+<p>The <strong>ReadUserGroupsPerUser</strong> command lists the groups a specified user belongs to.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" ReadUserGroupsPerUser \
+    --UserName "example-user" \
+    --UserPath "/example/"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>UserName</code>: The name of the user.</p>
+</li>
+<li>
+<p><code>UserPath</code>: (optional) The path to the user (by default, <code>/</code>).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadUserGroupsPerUser</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>UserGroups</code>: A list of user groups.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CreationDate</code>: The date and time (UTC) of creation of the user group.</p>
+</li>
+<li>
+<p><code>LastModificationDate</code>: The date and time (UTC) of the last modification of the user group.</p>
+</li>
+<li>
+<p><code>Name</code>: The name of the user group.</p>
+</li>
+<li>
+<p><code>Orn</code>: The Outscale Resource Name (ORN) of the user group. For more information, see <a href="Resource-Identifiers.html" target="_blank" rel="noopener">Resource Identifiers</a>.</p>
+</li>
+<li>
+<p><code>Path</code>: The path to the user group.</p>
+</li>
+<li>
+<p><code>UserGroupId</code>: The ID of the user group.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "UserGroups": [
+    {
+      "CreationDate": "2010-10-01T12:34:56.789Z",
+      "LastModificationDate": "2010-10-01T12:34:56.789Z",
+      "Name": "example-usergroup",
+      "Orn": "orn:ows:idauth::012345678910:usergroup/example/usergroup-example",
+      "Path": "/example/",
+      "UserGroupId": "ug-12345678"
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI_3"><a class="anchor" href="Getting-Information-About-Your-Groups.html#AWS CLI_3"></a>Getting Information About Your Groups Using AWS CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Before you begin:</strong> Install and configure AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="_listing_the_groups_in_your_account_4"><a class="anchor" href="Getting-Information-About-Your-Groups.html#_listing_the_groups_in_your_account_4"></a>Listing the Groups in Your Account</h3>
+<div class="paragraph">
+<p>To list the groups in your account, use the <strong>list-groups</strong> command following this syntax:</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws iam list-groups \
+    --profile YOUR_PROFILE \
+    --path-prefix / \
+    --endpoint https://eim.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optional) <code>profile</code>: The named profile you want to use, created when configuring AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+<li>
+<p>(optional) <code>path-prefix</code>: The path prefix of the groups you want to list. If not specified, it is set to a slash (/), which lists all the groups.</p>
+</li>
+<li>
+<p><code>endpoint</code>: The endpoint corresponding to the Region you want to send the request to. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>list-groups</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Groups</code>: Information about one or more groups. This element contains the following information:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Path</code>: The path for the group.</p>
+</li>
+<li>
+<p><code>CreateDate</code>: The date and time of creation of the group.</p>
+</li>
+<li>
+<p><code>GroupId</code>: The group ID.</p>
+</li>
+<li>
+<p><code>Arn</code>: The OUTSCALE Resource Name (ORN) of the group.</p>
+</li>
+<li>
+<p><code>GroupName</code>: The group name.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"Groups": [
+  {
+      "Path": "/",
+      "CreateDate": "2016-05-12T06:30:24.165Z",
+      "GroupId": "LMGPOKFGVV8K6LEXAMPLE",
+      "Arn": "arn:aws:iam::123456789012:group/GROUP_NAME",
+      "GroupName": "GROUP_NAME"
+  },
+  {
+      "Path": "/",
+      "CreateDate": "2016-05-24T16:01:32.124Z",
+      "GroupId": "GTXCYYUIXZR2JD8YEXAMPLE",
+      "Arn": "arn:aws:iam::123456789012:group/GROUP_NAME_2",
+      "GroupName": "GROUP_NAME_2"
+  },
+]</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_listing_the_users_in_a_group_4"><a class="anchor" href="Getting-Information-About-Your-Groups.html#_listing_the_users_in_a_group_4"></a>Listing the Users in a Group</h3>
+<div class="paragraph">
+<p>To get the list of users in a group, use the <strong>get-group</strong> command following this syntax:</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws iam get-group \
+    --profile YOUR_PROFILE \
+    --group-name GROUP_NAME \
+    --endpoint https://eim.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optional) <code>profile</code>: The named profile you want to use, created when configuring AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>group-name</code>: The name of the group whose users you want to list.</p>
+</li>
+<li>
+<p><code>endpoint</code>: The endpoint corresponding to the Region you want to send the request to. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>get-group</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Group</code>: Information about the group. This element contains the following information:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Path</code>: The path for the group.</p>
+</li>
+<li>
+<p><code>CreateDate</code>: The date and time of creation of the group.</p>
+</li>
+<li>
+<p><code>GroupId</code>: The group ID.</p>
+</li>
+<li>
+<p><code>Arn</code>: The OUTSCALE Resource Name (ORN) of the group.</p>
+</li>
+<li>
+<p><code>GroupName</code>: The group name.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Users</code>: Information about one or more users that are in the group. This element contains the following information:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>UserName</code>: The user name.</p>
+</li>
+<li>
+<p><code>Path</code>: The path for the user.</p>
+</li>
+<li>
+<p><code>CreateDate</code>: The date and time of creation of the user.</p>
+</li>
+<li>
+<p><code>UserId</code>: The user ID.</p>
+</li>
+<li>
+<p><code>Arn</code>: The OUTSCALE Resource Name (ORN) of the user.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "Group": {
+      "Path": "/",
+      "CreateDate": "2016-05-24T16:01:32.124Z",
+      "GroupId": "GTXCYYUIXZR2JD8YEXAMPLE",
+      "Arn": "arn:aws:iam::123456789012:group/GROUP_NAME",
+      "GroupName": "GROUP_NAME"
+    },
+        "Users": [
+            {
+                "UserName": "Jane",
+                "Path": "/division/subdivision/",
+                "CreateDate": "2016-05-12T06:30:24.165Z",
+                "UserId": "1234567890000",
+                "Arn": "arn:aws:iam::123456789012:user/USER_NAME"
+            },
+            {
+                "UserName": "John",
+                "Path": "/division/subdivision/",
+                "CreateDate": "2016-04-12T09:15:08Z",
+                "UserId": "0000987654321",
+                "Arn": "arn:aws:iam::123456789012:user/USER_NAME_2"
+            }
+]
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_listing_the_groups_for_a_user_3"><a class="anchor" href="Getting-Information-About-Your-Groups.html#_listing_the_groups_for_a_user_3"></a>Listing the Groups for a User</h3>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>In Cockpit, the list of groups to which a user belongs is available on the Groups page, when you click <strong>Add/remove group <span class="icon"><i class="fa fa-plus"></i></span></strong> . For more information, see <a href="Adding-or-Removing-a-User-from-a-Group.html" class="xref page">Adding or Removing a User from a Group</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>To get the list of groups to which a user belongs, use the <strong>list-groups-for-user</strong> command following this syntax:</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws iam list-groups-for-user \
+    --profile YOUR_PROFILE \
+    --user-name USER_NAME \
+    --endpoint https://eim.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optional) <code>profile</code>: The named profile you want to use, created when configuring AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>user-name</code>: The name of the user.</p>
+</li>
+<li>
+<p><code>endpoint</code>: The endpoint corresponding to the Region you want to send the request to. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>list-groups-for-user</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Groups</code>: Information about one or more groups the specified user belongs to. This element contains the following information:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Path</code>: The path for the group.</p>
+</li>
+<li>
+<p><code>CreateDate</code>: The date and time of creation of the group.</p>
+</li>
+<li>
+<p><code>GroupId</code>: The group ID.</p>
+</li>
+<li>
+<p><code>Arn</code>: The OUTSCALE Resource Name (ORN) of the group.</p>
+</li>
+<li>
+<p><code>GroupName</code>: The group name.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"Groups": [
+  {
+      "Path": "/",
+      "CreateDate": "2016-05-12T06:30:24.165Z",
+      "GroupId": "LMGPOKFGVV8K6LEXAMPLE",
+      "Arn": "arn:aws:iam::123456789012:group/GROUP_NAME",
+      "GroupName": "GROUP_NAME"
+  },
+  {
+      "Path": "/",
+      "CreateDate": "2016-05-24T16:01:32.124Z",
+      "GroupId": "GTXCYYUIXZR2JD8YEXAMPLE",
+      "Arn": "arn:aws:iam::123456789012:group/GROUP_NAME_2",
+      "GroupName": "GROUP_NAME_2"
+  },
+]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="About-EIM-Groups.html" class="xref page">About EIM Groups</a></p>
+</li>
+<li>
+<p><a href="Creating-a-Group.html" class="xref page">Creating a Group</a></p>
+</li>
+<li>
+<p><a href="Adding-or-Removing-a-User-from-a-Group.html" class="xref page">Adding or Removing a User from a Group</a></p>
+</li>
+<li>
+<p><a href="Modifying-a-Group.html" class="xref page">Modifying a Group</a></p>
+</li>
+<li>
+<p><a href="Attaching-a-Managed-Policy-to-a-User-or-a-Group.html" class="xref page">Attaching a Managed Policy to a User or a Group</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Corresponding API Methods</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#readusergroups" class="xref page">ReadUserGroups(OUTSCALE API)</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readusergroup" class="xref page">ReadUserGroup(OUTSCALE API)</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readusergroupsperuser" class="xref page">ReadUserGroupsPerUser(OUTSCALE API)</a></p>
+</li>
+<li>
+<p><a href="../../eim.html#listgroups" class="xref page">ListGroups (EIM)</a></p>
+</li>
+<li>
+<p><a href="../../eim.html#getgroup" class="xref page">GetGroup (EIM)</a></p>
+</li>
+<li>
+<p><a href="../../eim.html#listgroupsforuser" class="xref page">ListGroupsForUser (EIM)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ and Amazon Web Services™ are trademarks of Amazon Technologies, Inc or its affiliates in the United States and/or other countries.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

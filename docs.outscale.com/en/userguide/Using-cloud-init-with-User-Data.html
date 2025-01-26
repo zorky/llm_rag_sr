@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Using cloud-init with User Data – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="Using-cloud-init-with-User-Data.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/Using-cloud-init-with-User-Data.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Utiliser-cloud-init-avec-les-user-data.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Using cloud-init with User Data</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This technical guide provides a step-by-step approach to using cloud-init in an OUTSCALE <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">virtual machine (VM)</span>, to implement automation in the Cloud environment.</p>
+</div>
+<div class="paragraph">
+<p>Indeed, when you create a VM in the OUTSCALE Cloud, you can transmit user data to this VM. These user data are used to execute scripts or automated configuration tasks.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_prerequisites"><a class="anchor" href="Using-cloud-init-with-User-Data.html#_prerequisites"></a>Prerequisites</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Ensure the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>This page assumes a knowledge of cloud-init. For a more general introduction to that tool, see <a href="Introduction-to-cloud-init.html" class="xref page">Introduction to cloud-init</a>.</p>
+</li>
+<li>
+<p>The <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span> must have a public DNS name, accessible from the internet.</p>
+</li>
+<li>
+<p>The security group of the VM must authorize SSH, HTTP, and HTTPS connections.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>By default, user data scripts and cloud-init directives are executed only on the first start cycle of the VM.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_method_of_user_data_definition"><a class="anchor" href="Using-cloud-init-with-User-Data.html#_method_of_user_data_definition"></a>Method of User Data Definition</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can define user data for your <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span> in different ways:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>With the Cockpit web interface</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>It is the latter method that will be used for the step-by-step approach in the rest of this page.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>By API request with a Base64-encoded text string</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The following example shows how to specify the content of a local file as a Base64-encoded text string in a command-line request:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api CreateVms \
+    --ImageId "ami-abcd1234" \
+    --KeypairName "my-key-pair" \
+    --VmType "tinav4.c1r1p2" \
+    --SubnetId "Subnet-abcd1234" \
+    --SecurityGroupIds "['sg-abcd1234']" \
+    --UserData "$(cat my_script | base64)"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="Installing-and-Configuring-OSC-CLI.html" class="xref page">Installing and Configuring OSC CLI</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_step_by_step_approach_user_data_in_cockpit_with_mime_type_files_as_input"><a class="anchor" href="Using-cloud-init-with-User-Data.html#_step_by_step_approach_user_data_in_cockpit_with_mime_type_files_as_input"></a>Step-by-Step Approach: User Data in Cockpit with MIME-type Files as Input</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_1_create_a_vm"><a class="anchor" href="Using-cloud-init-with-User-Data.html#_1_create_a_vm"></a>1/ Create a <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span></h3>
+<div class="paragraph">
+<p>Follow the VM creation procedure in the page <a href="Creating-VMs.html" class="xref page">Creating VMs</a>, until you reach the <strong>User Data / Cloud-init</strong> screen.</p>
+</div>
+<div class="paragraph">
+<p>In the next steps, we use a VM created from an Ubuntu OUTSCALE Machine Image (OMI).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_2_write_the_user_data"><a class="anchor" href="Using-cloud-init-with-User-Data.html#_2_write_the_user_data"></a>2/ Write the User Data</h3>
+<div class="sect3 tab">
+<h4 id="Example 1: Modification of the Hostname (via text/cloud-config Content)_0"><a class="anchor" href="Using-cloud-init-with-User-Data.html#Example 1: Modification of the Hostname (via text/cloud-config Content)_0"></a>Example 1: Modification of the Hostname (via text/cloud-config Content)</h4>
+<div class="paragraph">
+<p>In this example, we request a modification of the hostname (implicitly using the <strong>set_hostname</strong> module of <strong>cloud_init_modules</strong> that is configured by default in the official Ubuntu OMI).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">Content-Type: text/cloud-config; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename="cloud-config.txt"
+#cloud-config
+##Update hostname at first boot
+hostname: test-userdata</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3 tab">
+<h4 id="Example 2: Installation of Packages (via text/cloud-config Content)_1"><a class="anchor" href="Using-cloud-init-with-User-Data.html#Example 2: Installation of Packages (via text/cloud-config Content)_1"></a>Example 2: Installation of Packages (via text/cloud-config Content)</h4>
+<div class="paragraph">
+<p>In this example, we request the installation of the python-pip package. To do so, we must first enable the <strong>package-update-upgrade-install</strong> module (which is by default disabled in the official Ubuntu OMI) by explicitly calling the <strong>cloud_config_modules</strong> directive.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">Content-Type: text/cloud-config; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename="cloud-config.txt"
+#cloud-config
+cloud_config_modules:
+- package-update-upgrade-install
+package_update: true
+cloud_final_modules:
+- [scripts-user, always]
+##Install python-pip package
+packages:
+ - python-pip</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3 tab">
+<h4 id="Example 3: Writing to Files or to the Console Output (via text/x-shellscript Content)_2"><a class="anchor" href="Using-cloud-init-with-User-Data.html#Example 3: Writing to Files or to the Console Output (via text/x-shellscript Content)_2"></a>Example 3: Writing to Files or to the Console Output (via text/x-shellscript Content)</h4>
+<div class="paragraph">
+<p>In this example, we request the execution of some instructions defined in shell scripts (<strong>/bin/sh</strong> and <strong>/bin/bash</strong>):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Writing to the console output (<strong>/dev/ttyS0</strong>)</p>
+</li>
+<li>
+<p>Writing to new files (<strong>/root/output.txt</strong> and <strong>/tmp/output.txt</strong>)</p>
+</li>
+<li>
+<p>Modifying existing files (<strong>/root/.bashrc</strong> and <strong>/root/.vimrc</strong>)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The text/x-shellscript content type provides the user script that the <strong>cloud_final_modules</strong> module of cloud-init must execute.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">Content-Type: text/x-shellscript; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename="userdata.txt"
+#!/bin/sh
+##Writing in file
+echo "Hello there. This is written with append." &gt;&gt; /root/output.txt
+##Writing to console
+echo "Hello there." &gt;&gt; /dev/ttyS0
+#!/bin/bash
+##Writing in file
+/bin/echo "Hello there." &gt;&gt; /tmp/output.txt
+
+cat &gt; /root/.bashrc &lt;&lt;EOF
+set -o vi
+unalias -a
+alias ll='ls -l'
+EOF
+touch /root/.vimrc
+cat &gt; /root/.vimrc &lt;&lt;EOF
+set t_ti= t_te=
+set compatible
+set expandtab ts=2 sw=2 ai
+EOF</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3 tab">
+<h4 id="Example 4: Combination of text/cloud-config and text/x-shellscript Contents_3"><a class="anchor" href="Using-cloud-init-with-User-Data.html#Example 4: Combination of text/cloud-config and text/x-shellscript Contents_3"></a>Example 4: Combination of text/cloud-config and text/x-shellscript Contents</h4>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Cloud-init behaves differently depending on the format of user data. One of the most widespread formats for user data scripts, aside from the shell format, is the cloud-config format.</p>
+</li>
+<li>
+<p>By default, cloud-init authorizes only one content type at a time in the user data.</p>
+</li>
+<li>
+<p>A multipart MIME-type file enables the script to switch the way the user data are executed by cloud-init. For more information on multipart MIME-type files, see <a href="https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive" target="_blank" rel="noopener">Mime Multi Part Archive</a> on the cloud-init website.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In this example, we request the execution of scripts by successively using the text/cloud-config and text/x-shellscript content types seen previously, in one multipart MIME-type file.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">Content-Type: multipart/mixed; boundary="//"
+MIME-Version: 1.0
+
+--//
+Content-Type: text/cloud-config; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename="cloud-config.txt"
+
+#cloud-config
+package_update: true
+# update hostname
+hostname: test-userdata
+
+--//
+Content-Type: text/x-shellscript; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename="userdata.txt"
+#!/bin/bash
+/bin/echo "Hello there." &gt;&gt; /tmp/output.txt
+--//</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>In this combined case:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Start the user data by the header:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">Content-Type: multipart/mixed; boundary="//"
+MIME-Version: 1.0</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Prepend each cloud-config part and x-shellscript part with the characters <code>--//</code>.</p>
+</li>
+<li>
+<p>End the user data with the characters <code>--//</code>.</p>
+</li>
+</ol>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_3_paste_the_user_data_in_the_free_section_clound_init_field"><a class="anchor" href="Using-cloud-init-with-User-Data.html#_3_paste_the_user_data_in_the_free_section_clound_init_field"></a>3/ Paste the User Data in the Free Section / Clound-init Field</h3>
+<div class="paragraph">
+<p>Paste the user data in the <strong>Free section / Clound-init</strong> field of the User Data / Cloud-init screen of Cockpit.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_4_confirm_the_vm_creation"><a class="anchor" href="Using-cloud-init-with-User-Data.html#_4_confirm_the_vm_creation"></a>4/ Confirm the VM Creation</h3>
+<div class="paragraph">
+<p>Click <strong>Next</strong> and then the final confirmation button to create the VM.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_verification_of_the_user_data"><a class="anchor" href="Using-cloud-init-with-User-Data.html#_verification_of_the_user_data"></a>Verification of the User Data</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To verify the user data transmitted to the <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span>, you can <a href="Accessing-Your-VMs.html" class="xref page">connect to the VM</a> and launch the following Curl command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ curl http://169.254.169.254/latest/user-data</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To verify that the instructions are executed, you can check:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The console output in Cockpit. For more information, see <a href="Viewing-the-Console-Output-of-a-VM.html" class="xref page">Viewing the Console Output of a VM</a>.</p>
+</li>
+<li>
+<p>The logs of cloud-init, available in the file <strong>/var/log/cloud-init-output.log</strong> in the case of an Ubuntu VM.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>VMs created from CentOS official OMIs do not include cloud-init-output.log.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Introduction-to-cloud-init.html" class="xref page">Introduction to cloud-init</a></p>
+</li>
+<li>
+<p><a href="Using-Metadata-and-User-Data.html" class="xref page">Using Metadata and User Data</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>À propos des Net access points – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="À-propos-des-Net-access-points.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/À-propos-des-Net-access-points.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/About-Net-Access-Points.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">À propos des <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span> access points</h1>
+<div id="preamble" class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>Les <span class="tooltip" data-tooltip="VPC endpoint dans les API AWS-compliant">Net access points</span> (points d&#8217;accès réseau) permettent aux <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machines virtuelles (VM)</span> placées dans un Net d&#8217;accéder à un autre service OUTSCALE en utilisant une connexion privée, sans utiliser une connexion VPN ou DirectLink.</p>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus sur les services OUTSCALE, voir <a href="À-propos-des-API.html" class="xref page">À propos des API</a> et <a href="OUTSCALE-Object-Storage-OOS.html" class="xref page">OUTSCALE Object Storage (OOS)</a>.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Les Net access points vous permettent de créer une connexion privée entre votre Net et un autre service OUTSCALE au sein de la même Région que le Net. Avec un Net access point, les VM de votre Net communiquent avec les ressources de l&#8217;autre service en utilisant leurs IP. Lorsque vous utilisez cette solution, le trafic réseau reste au sein du réseau OUTSCALE.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Lorsqu&#8217;un Net access point est créé, une <span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">IP publique</span> est automatiquement allouée à votre compte et utilisée pour le Net access point. Cette IP publique n&#8217;est pas connectée à Internet. Elle n&#8217;est pas facturée mais est comptabilisée dans votre quota.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Lorsque vous créez un Net access point, vous spécifiez le nom de la prefix list du service, qui correspond à la liste des préfixes réseau utilisés par ce service en notation CIDR. Chaque prefix list est composée d&#8217;un ID au format <code>pl-xxxxxxxx</code>, et d&#8217;un nom au format <code>com.outscale.&lt;REGION&gt;.&lt;SERVICE&gt;</code> pour identifier le service auquel elle est associée.</p>
+</div>
+<div class="paragraph">
+<p>Vous devez également spécifier une ou plusieurs route tables à associer au Net access point, lorsque vous créez celui-ci ou après sa création. Les routes appropriées sont ensuite automatiquement ajoutées à ces route tables pour router le trafic des Subnets qui leurs sont associés destiné au service vers le Net access point. Ces routes ont l&#8217;ID de la prefix list correspondante en destination, représentant la plage d&#8217;IP utilisée par le service, et l&#8217;ID du Net access point en target. Toutes les VM placées dans ces Subnets utilisent donc le Net access point pour accéder au service au sein de la Région du Net.</p>
+</div>
+<div class="paragraph">
+<div class="title">Architecture d&#8217;un Net access point</div>
+<p><span class="image"><img src="_images/FR-sch-General-NetAccessPoint.png" alt="FR sch General NetAccessPoint"></span></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Si vous ne spécifiez aucune route table lorsque vous créez le Net access point, vous devez les ajouter ultérieurement afin d&#8217;automatiquement créer les routes appropriées dans les route tables que vous spécifiez. Pour en savoir plus, voir <a href="Ajouter-ou-retirer-une-route-table-associée-à-un-Net-access-point.html" class="xref page">Ajouter ou retirer une route table associée à un Net access point</a>.</p>
+</li>
+<li>
+<p>La plage d&#8217;IP la plus spécifique correspondant à la destination étant utilisée pour déterminer les routes qui s&#8217;appliquent, si les route tables contiennent une route dirigeant tout le trafic Internet (bloc CIDR 0.0.0.0/0) vers un <span class="tooltip" data-tooltip="Internet gateway dans les API AWS-compliant">internet service</span> ou un <span class="tooltip" data-tooltip="NAT gateway dans les API AWS-compliant">NAT service</span>, la route utilisant le Net access point est priviligiée par rapport à la route vers Internet lorsque le trafic est destiné au service au sein de la Région. La route vers Internet est utilisée pour tout autre trafic Internet, incluant le trafic vers les autres services OUTSCALE ou le trafic vers ce service dans une autre Région.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Le security group par défaut de votre Net autorise tout les flux sortants. Si vous avez créé votre propre security group ou modifié la règle pour les flux sortants de ce security group par défaut, vous devez ajouter une règle autorisant le trafic sortant vers le service approprié. Pour cela, vous pouvez utiliser l&#8217;ID de sa prefix list. Pour en savoir plus, voir <a href="Ajouter-des-règles-à-un-security-group.html" class="xref page">Ajouter des règles à un security group</a>.</p>
+</div>
+<div class="paragraph">
+<p>Vous ne pouvez pas transférer un Net access point vers un autre Net. Vous devez en créer un nouveau et, si besoin, supprimer le précédent.</p>
+</div>
+<div class="paragraph">
+<p>Un Net access point peut être dans un des états suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Pending : Le processus de création est en cours.</p>
+</li>
+<li>
+<p>Available : Le Net access point est créé et peut être utilisé pour envoyer du trafic vers un service OUTSCALE.</p>
+</li>
+<li>
+<p>Deleting : Le processus de suppression est en cours.</p>
+</li>
+<li>
+<p>Deleted : Le Net access point est supprimé.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Créer-un-Net-access-point.html" class="xref page">Créer un Net access point</a></p>
+</li>
+<li>
+<p><a href="À-propos-des-route-tables.html" class="xref page">À propos des route tables</a></p>
+</li>
+<li>
+<p><a href="À-propos-des-security-groups.html" class="xref page">À propos des security groups</a></p>
+</li>
+</ul>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

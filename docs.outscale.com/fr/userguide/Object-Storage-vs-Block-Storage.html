@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Object Storage vs Block Storage – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Object-Storage-vs-Block-Storage.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Object-Storage-vs-Block-Storage.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Object-Storage-VS-Block-Storage.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Object Storage vs Block Storage</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cette page a pour but de vous aider à comprendre les principales différences et avantages entre les solutions OUTSCALE Object Storage et Block Storage. Cette comparaison se concentre principalement sur les différences fondamentales en matière d&#8217;architecture, de performance, de scalabilité et de compatibilité aux cas d&#8217;utilisation. En examinant ces aspects, nous visons à fournir une compréhension claire des points forts de chaque type de stockage, ce qui vous aidera à prendre des décisions éclairées en fonction de vos besoins spécifiques.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_définitions"><a class="anchor" href="Object-Storage-vs-Block-Storage.html#_définitions"></a>Définitions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<div class="title">Object Storage VS Block Storage</div>
+<p><span class="image"><img src="_images/FR-sch-OOS-OOSvsBSU.png" alt="FR sch OOS OOSvsBSU"></span></p>
+</div>
+<div class="sect2">
+<h3 id="_object_storage"><a class="anchor" href="Object-Storage-vs-Block-Storage.html#_object_storage"></a>Object Storage</h3>
+<div class="paragraph">
+<p>OUTSCALE Object Storage (OOS) organise les données sous forme d&#8217;unités distinctes appelées objets, chacune étant associée à des metadata et à un identifiant unique. Cela facilite le stockage et la restauration des données dans les systèmes distribués. Les objets sont stockés en blocs puis distribués dans la solution RING de Scality - une architecture de stockage d&#8217;objets en forme d&#8217;anneau basée sur une approche peer-to-peer. Pour en savoir plus, voir <a href="Mécanismes-de-résilience-d-OOS.html" class="xref page">Mécanismes de résilience d&#8217;OOS</a>.</p>
+</div>
+<div class="paragraph">
+<p>Du point de vue de l&#8217;utilisateur, OOS permet de stocker des données dans des conteneurs appelés buckets. Cela permet de gérer de grandes quantités de données non structurées tout en fournissant des méthodes simples pour récupérer et examiner des listes complètes d&#8217;objets et de buckets. Pour en savoir plus, voir <a href="Outils-pour-utiliser-OOS.html" class="xref page">Outils pour utiliser OOS</a>.</p>
+</div>
+<div class="paragraph">
+<p>OOS est donc idéal pour la scalabilité et la gestion des données d&#8217;une manière très accessible, en évitant les complexités des systèmes de fichiers hiérarchiques traditionnels.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_block_storage"><a class="anchor" href="Object-Storage-vs-Block-Storage.html#_block_storage"></a>Block Storage</h3>
+<div class="paragraph">
+<p>OUTSCALE Block Storage organise les données en blocs de données de taille fixe, chacun ayant un identifiant unique. Cela permet de stocker et d&#8217;accéder aux données dans des unités appelées blocs. Cette méthode traite les volumes de stockage comme des disques durs individuels qui sont accessibles par un système d&#8217;exploitation basé sur un serveur par le biais de commandes de bas niveau. Ces blocs peuvent être configurés et formatés avec un système de fichiers, géré par le système d&#8217;exploitation, ce qui permet aux applications d&#8217;interagir avec le stockage comme s&#8217;il s&#8217;agissait d&#8217;un disque dur local.</p>
+</div>
+<div class="paragraph">
+<p>Dans une configuration typique de stockage par blocs, comme pour les systèmes NetApp, les disques physiques sont configurés en grands agrégats appelés matrices de disques. Ces matrices de disques apparaissent collectivement comme un volume unique de stockage, qui peut à son tour être segmenté en partitions logiques plus petites qui améliorent la gestion et les performances en répartissant les opérations sur plusieurs disques.</p>
+</div>
+<div class="paragraph">
+<p>Du point de vue de l&#8217;utilisateur, OUTSCALE Block Storage implique la création de volumes qui, au départ, n&#8217;occupent pas la totalité de la capacité sélectionnée, mais qui peuvent s&#8217;étendre progressivement au fur et à mesure de l&#8217;ajout de données. Au fur et à mesure que les volumes se remplissent, les données sont donc redistribuées vers d&#8217;autres unités de stockage afin de gérer l&#8217;espace de manière efficace. Cette configuration nécessite une certaine anticipation de vos besoins spécifiques en matière de stockage, car les coûts peuvent être plus élevés, mais elle offre des solutions de stockage performantes et scalable adaptées à vos besoins. Pour en savoir plus, voir <a href="Travailler-avec-les-volumes.html" class="xref page">Travailler avec les volumes</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tableau_de_comparaison"><a class="anchor" href="Object-Storage-vs-Block-Storage.html#_tableau_de_comparaison"></a>Tableau de comparaison</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Catégorie</th>
+<th class="tableblock halign-left valign-top">Object Storage</th>
+<th class="tableblock halign-left valign-top">Block Storage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Architecture</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Les données sont gérées sous forme d&#8217;objets dans des espaces de noms plats appelés buckets.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Les données sont organisées en blocs de données de taille fixe, qui sont gérés dans des volumes de stockage.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Accessibilité</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Accès via AWS CLI (s3api, s3 et s3cmd).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Accès via Cockpit et les CLI OSC et AWS.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Accessibilité de la donnée</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Accessible à tout moment et en tout lieu et plus flexible que les solutions dépendantes au matériel.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nécessite d&#8217;être spécifiquement attaché à une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machine virtuelle (VM)</span> pour l&#8217;utiliser.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mutabilité des données</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Impossible.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Possible.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Scalabilité</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hautement scalable horizontalement, idéal pour de grandes quantités de données non-structurées.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hautement scalable.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Recommendations</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Idéal pour le partage de données entre plusieurs serveurs ; le stockage d&#8217;objets peut émuler les systèmes de fichiers.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Idéal pour les tâches nécessitant de très bonnes performances.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Compatibilité aux cas d&#8217;utilisation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Idéal pour les données volumineuses, les fichiers multimédias, les sauvegardes et l&#8217;archivage. Accessible à distance sur différents réseaux.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nécessaire pour les systèmes d&#8217;exploitation (OS). Optimal pour les bases de données et les applications nécessitant des écritures continues et intensives.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conclusion"><a class="anchor" href="Object-Storage-vs-Block-Storage.html#_conclusion"></a>Conclusion</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Block Storage est conçu pour les environnements où l&#8217;accès fréquent et rapide aux données est crucial, ce qui le rend adapté aux systèmes exigeant la persistance des données et une faible latence. Il peut néanmoins ne pas être aussi économique pour des scénarios tels que l&#8217;archivage ou la sauvegarde, où les données sont consultées moins fréquemment. Dans ces cas là, Object Storage peut être plus rentable grâce à son modèle de tarification basé sur l&#8217;accès plutôt que sur la capacité de stockage.</p>
+</div>
+<div class="paragraph">
+<p>Object Storage offre plusieurs avantages, en particulier dans les environnements où la croissance des données est imprévisible. Il offre une scalabilité illimitée sans les contraintes physiques des systèmes de stockage en bloc et se caractérise par une conformité API avec des mécanismes tels que l&#8217;access key et la secret key (AK/SK). Il n&#8217;est donc plus nécessaire de planifier à l&#8217;avance la capacité de stockage, permettant ainsi aux entreprises de s&#8217;adapter en douceur à l&#8217;évolution de leurs besoins en matière de données. En outre, Object Storage sécurise les données dès leur stockage, renforçant efficacement la sécurité des données.</p>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Mécanismes-de-résilience-d-OOS.html" class="xref page">Mécanismes de résilience d&#8217;OOS</a></p>
+</li>
+<li>
+<p><a href="Outils-pour-utiliser-OOS.html" class="xref page">Outils pour utiliser OOS</a></p>
+</li>
+<li>
+<p><a href="Travailler-avec-les-volumes.html" class="xref page">Travailler avec les volumes</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

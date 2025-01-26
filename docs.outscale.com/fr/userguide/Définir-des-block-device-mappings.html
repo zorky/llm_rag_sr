@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Définir des block device mappings – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Définir-des-block-device-mappings.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Définir-des-block-device-mappings.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Defining-Block-Device-Mappings.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Définir des block device mappings</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>À l&#8217;aide de block device mappings, vous pouvez attacher directement des volumes Block Storage Unit (BSU) à une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machine virtuelle (VM)</span> lorsque vous la créez grâce au block device mapping de l&#8217;OMI utilisée ou créer une OMI depuis un snapshot.</p>
+</div>
+<div class="paragraph">
+<p>Le block device mapping vous permet de :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Définir le nom du périphérique pour le volume BSU</p>
+</li>
+<li>
+<p>Empêcher un volume BSU défini par l&#8217;OMI d&#8217;être affecté à un nom de périphérique</p>
+</li>
+<li>
+<p>Spécifier si un volume BSU est créé à partir d&#8217;un snapshot ou à partir de rien, et si le volume est supprimé ou détaché lorsque la VM est terminée</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="OSC CLI_0"><a class="anchor" href="Définir-des-block-device-mappings.html#OSC CLI_0"></a>Définir des block device mappings avec OSC CLI</h2>
+<div class="sectionbody">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Voir les exemples de commande <a href="../../api%3Fconsole.html#createvms" class="xref page">CreateVms</a> et <a href="../../api%3Fconsole.html#createimage" class="xref page">CreateImage</a> dans la documentation de l&#8217;API OUTSCALE.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="oapi-cli_1"><a class="anchor" href="Définir-des-block-device-mappings.html#oapi-cli_1"></a>Définir des block device mappings avec oapi-cli</h2>
+<div class="sectionbody">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Voir les exemples de commande <a href="../../api.html#createvms" target="_blank" rel="noopener">CreateVms</a> et <a href="../../api.html#createimage" target="_blank" rel="noopener">CreateImage</a> dans la documentation de l&#8217;API OUTSCALE.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI_2"><a class="anchor" href="Définir-des-block-device-mappings.html#AWS CLI_2"></a>Définir des block device mappings avec AWS CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Avant de commencer :</strong> Installez et configurez AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Pour définir un block device mapping, paramétrez l&#8217;attribut <code>block-device-mappings</code> de la commande <strong>run-instances</strong> ou <strong>register-image</strong> en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">  {
+    "DeviceName": "string",
+    "Ebs": {
+      "SnapshotId": "string",
+      "VolumeSize": integer,
+      "DeleteOnTermination": true or false,
+      "VolumeType": "standard",
+      "Iops": integer,
+    },
+    "NoDevice": "string"
+  }</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous pouvez paramétrer cet attribut soit directement dans la commande, soit via un fichier texte (en spécifiant <code>file://MAP_PATH</code>, où <code>MAP_PATH</code> est le chemin de votre fichier définissant le block device mapping).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Cet attribut contient les éléments suivants que vous devez spécifier :<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeviceName</code> : Le nom de périphérique associé au volume.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Le nom de périphérique utilisé pour le volume système doit être /dev/sda1. Pour tout autre volume, vous devez utiliser un nom de périphérique au format /dev/xvdX ou /dev/xvdXX. Pour en savoir plus, voir <a href="À-propos-des-volumes.html#_attachement_des_volumes_et_noms_de_périphériques" class="xref page">À propos des volumes &gt; Attachement des volumes et noms de périphériques</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>Ebs</code> : Informations pour affecter un volume à <code>DeviceName</code>. Cet élément requiert les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>SnapshotId</code> : L&#8217;ID d&#8217;un snapshot si vous voulez créer un volume à partir d&#8217;un snapshot.</p>
+</li>
+<li>
+<p>(optionnel) <code>VolumeSize</code> : La taille du volume à créer, en gibioctets (Gio).</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Si vous spécifiez un ID de snapshot, la taille du volume doit être au moins égale à la taille du snapshot.</p>
+</li>
+<li>
+<p>Si vous spécifiez un ID de snapshot mais aucune taille de volume, le volume est créé avec une taille similaire à celle du snapshot.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel)<code>DeleteOnTermination</code> : Par défaut ou si paramétré sur <code>true</code>, le volume est supprimé lorsque vous terminez l&#8217;<span class="tooltip" data-tooltip="machine virtuelle (VM) dans l'API OUTSCALE">instance</span>. Si paramétré sur <code>false</code>, il n&#8217;est pas supprimé lorsque vous terminez l&#8217;instance.<br></p>
+</li>
+<li>
+<p>(optionnel) <code>VolumeType</code> : Le type de volume (<code>standard</code> | <code>gp2</code> | <code>io1</code>). Pour en savoir plus, voir <a href="À-propos-des-volumes.html#_types_de_volumes_et_iops" class="xref page">À propos des volumes &gt; Types de volumes et IOPS</a>. Par défaut, un volume <code>standard</code> est créé.</p>
+</li>
+<li>
+<p>(optionnel) <code>Iops</code> : Le nombre d&#8217;IOPS.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Le nombre maximal d&#8217;IOPS autorisé pour les volumes <code>io1</code> est 13000 avec un ratio de performance maximum de 300 IOPS par gibioctet.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous devez spécifier ce paramètre uniquement lorsque vous créez un volume <code>io1</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>NoDevice</code> : Empêche un volume d&#8217;être affecté à <code>DeviceName</code>, si l&#8217;OMI utilisée en définit un pour <code>DeviceName</code>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour utiliser ce paramètre, spécifiez n&#8217;importe quelle valeur autre que nulle, par exemple une chaîne de texte vide ("").</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Dans l&#8217;exemple suivant, les block device mappings :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Attachent un volume créé à partir du snapshot snap-123456789, associé à /dev/xvdb</p>
+</li>
+<li>
+<p>Attachent un volume Magnetic vide d&#8217;une taille de 100 Gio, associé à /dev/xvdc et qui est supprimé lorsque l&#8217;instance est terminée</p>
+</li>
+<li>
+<p>Empêchent un volume défini par l&#8217;OMI d&#8217;être affecté à /dev/xvde au lancement de l&#8217;instance</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de block device mappings</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[
+   {
+    "DeviceName": "/dev/xvdb",
+    "Ebs": {
+            "SnapshotId": "snap-123456789"
+           }
+    },
+   {
+    "DeviceName": "/dev/xvdc",
+    "Ebs": {
+            "VolumeSize": 100,
+            "DeleteOnTermination": true
+           }
+    },
+   {
+    "DeviceName": "/dev/xvde",
+    "NoDevice": ""
+   }
+]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-volumes.html" class="xref page">À propos des volumes</a></p>
+</li>
+<li>
+<p><a href="Créer-des-VM.html" class="xref page">Créer des VM</a></p>
+</li>
+<li>
+<p><a href="Créer-une-OMI-depuis-un-snapshot.html" class="xref page">Créer une OMI depuis un snapshot</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Méthodes API correspondantes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#createvms" class="xref page">CreateVms (API OUTSCALE)</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#createimage" class="xref page">CreateImage (API OUTSCALE)</a></p>
+</li>
+<li>
+<p><a href="../../fcu.html#runinstances" class="xref page">RunInstances (FCU)</a></p>
+</li>
+<li>
+<p><a href="../../fcu.html#registerimage" class="xref page">RegisterImage (FCU)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

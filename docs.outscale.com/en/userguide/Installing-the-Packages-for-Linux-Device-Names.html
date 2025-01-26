@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Installing the Packages for Linux Device Names – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="Installing-the-Packages-for-Linux-Device-Names.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/Installing-the-Packages-for-Linux-Device-Names.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Installer-les-paquets-pour-les-noms-de-périphériques-Linux.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Installing the Packages for Linux Device Names</h1>
+<div id="preamble" class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>If you want to migrate a Linux <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">virtual machine (VM)</span> from VMWare, VirtualBox, or Amazon Web Services (AWS) to an OUTSCALE Linux VM, you have to install a package to configure udev rules. For more information about the migration procedure, see <a href="Migrating-a-Linux-VM-to-the-OUTSCALE-Cloud.html" class="xref page">Migrating a Linux VM to the OUTSCALE Cloud</a>.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="About-Volumes.html#_volumes_attachment_and_device_names" class="xref page">About Volumes &gt; Volumes Attachment and Device Names</a>.</p>
+</div>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Connect to your VM and open a terminal.</p>
+</li>
+<li>
+<p>Download the OUTSCALE package you need in the directory of your choice using one of the following methods:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For CentOS VMs, with the following url: <a href="https://oos.eu-west-2.outscale.com/omi/packages/osc-udev-rules-20160519-1.x86_64.rpm" target="_blank" rel="noopener">https://oos.eu-west-2.outscale.com/omi/packages/osc-udev-rules-20160519-1.x86_64.rpm</a></p>
+</li>
+<li>
+<p>For Ubuntu VMs, with the following url: <a href="https://oos.eu-west-2.outscale.com/omi/packages/osc-udev-rules-20190314_amd64.deb" target="_blank" rel="noopener">https://oos.eu-west-2.outscale.com/omi/packages/osc-udev-rules-20190314_amd64.deb</a></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">&gt; wget URL</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Install the package on the VM using one of the following methods:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For CentOS VMs:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">&gt; rpm -i osc-udev-rules-20160519-1.x86_64.rpm</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>For Ubuntu VMs:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">&gt; dpkg -i osc-udev-rules-20190314_amd64.deb</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>If the <code>Wrong volumes names in your /etc/fstab</code> warning message appears, contact our Support team or modify your /etc/fstab file:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Open your /etc/fstab file in a text editor.</p>
+</li>
+<li>
+<p>Modify the device names for attached volumes that are in the /dev/sdX format to the /dev/xvdX format, X being the same letter in both formats.</p>
+<div class="listingblock">
+<div class="title">/etc/fstab File Sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">cat /etc/fstab
+proc        /proc       proc        defaults,nosuid,nodev,noexec,relatime       0 0
+sysfs       /sys        sysfs       defaults,nosuid,nodev,noexec,relatime       0 0
+tmpfs       /dev/shm        tmpfs       defaults,nosuid,nodev               0 0
+devpts      /dev/pts        devpts      defaults,nosuid,noexec,relatime,mode=620        0 0
+/dev/vda1       /           ext4        defaults,noatime,nodiratime             0 0
+none        /selinux        selinuxfs       noauto,defaults                 0 0
+/dev/xvdd   /mnt/d      ext3        defaults                    0 0
+/dev/xvdh   /mnt/h      ext3        defaults                    0 0</code></pre>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You must use the <strong>/dev/vda1</strong> device name for the root file system (root device).</p>
+</div>
+<div class="paragraph">
+<p>You must use a <code>/dev/xvdX</code> device name format for any other volume.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>To check that no device names in the /dev/sdX format remain in the /etc/fstab file of your VM, execute in any directory the osc-check_vdsd script contained in the package and installed in /usr/local/bin:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">&gt; osc-check_vdsd</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the output is empty and you only changed all <code>sd</code> into <code>xvd</code>, your modifications are correct.</p>
+</div>
+</li>
+<li>
+<p>Reboot your VM.<br>
+The package is installed and you can see the links between /dev/xvdX and /dev/sdY device names in the /dev directory.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Related Page</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Accessing-Your-VMs.html" class="xref page">Accessing Your VMs</a></p>
+</li>
+</ul>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ and Amazon Web Services™ are trademarks of Amazon Technologies, Inc or its affiliates in the United States and/or other countries.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

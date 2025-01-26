@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>About OUTSCALE Marketplace – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="About-OUTSCALE-Marketplace.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/About-OUTSCALE-Marketplace.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/À-propos-d-OUTSCALE-Marketplace.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">About OUTSCALE Marketplace</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>OUTSCALE Marketplace is a catalog of OUTSCALE machine images (OMIs) and outsourced products provided by 3DS OUTSCALE seller partners.</p>
+</div>
+<div class="paragraph">
+<p>You can use the Marketplace as a buyer, a seller partner, or both. You can log in to the Marketplace as an administrator, a user, or both, depending on your roles in your organization.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>You must have an account for the cloudgouv-eu-west-1 Region to use the Marketplace. For more information, see <a href="About-Your-Account.html" class="xref page">About Your Account</a>.</p>
+</li>
+<li>
+<p>3DS OUTSCALE provides support on its infrastructure services and on the Marketplace platform, but does not provide support on the seller partners' products. For more information, see <a href="Technical-Support.html" class="xref page">Technical Support</a>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>For more information about seller partnership with 3DS OUTSCALE, see the <a href="https://marketplace.outscale.com/become-partner" target="_blank" rel="noopener">Becoming a seller partner</a> page.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_general_information"><a class="anchor" href="About-OUTSCALE-Marketplace.html#_general_information"></a>General Information</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_access"><a class="anchor" href="About-OUTSCALE-Marketplace.html#_access"></a>Access</h3>
+<div class="paragraph">
+<p>You can access OUTSCALE Marketplace using the following URL: <a href="https://marketplace.outscale.com" target="_blank" rel="noopener">https://marketplace.outscale.com</a>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>After 24 hours of inactivity, your account is logged out.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_products"><a class="anchor" href="About-OUTSCALE-Marketplace.html#_products"></a>Products</h3>
+<div class="sect3">
+<h4 id="_omis"><a class="anchor" href="About-OUTSCALE-Marketplace.html#_omis"></a>OMIs</h4>
+<div class="paragraph">
+<p>OMIs are templates for <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">virtual machines (VMs)</span> containing at least an Operating System (OS) and possibly software applications and configurations like block device mappings. For more information, see <a href="About-OMIs.html" class="xref page">About OMIs</a> and <a href="Creating-an-OMI.html" class="xref page">Creating an OMI</a>.</p>
+</div>
+<div class="paragraph">
+<p>Seller partners can configure an hourly and yearly offer per VM type, a free/open source, a bring your own license (BYOL), or a subscription offer for their OMI products.</p>
+</div>
+<div class="paragraph">
+<p>When an OMI product is published on the Marketplace, a copy of the OMI is automatically created in order to be distributed by 3DS OUTSCALE.<br></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>In the case of an hourly and yearly offer per VM type, the copy of the OMI is private and is shared to buyers once the subscription is complete.</p>
+</li>
+<li>
+<p>In the case of a free/open source or BYOL offer, the copy of the OMI is public.</p>
+</li>
+<li>
+<p>In the case of a subscription offer, the copy of the OMI is private and is shared to buyers at the subscription activation date.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>By default, OMI products are published in the cloudgouv-eu-west-1 Region, and can also be published in the eu-west-2 Region at their creation. For more information, see <a href="Creating-and-Publishing-an-OMI-Product.html#_General_Information" class="xref page">Creating and Publishing an OMI Product &gt; General Information</a>.</p>
+</div>
+<div class="paragraph">
+<p>Seller partners can publish, modify, and unpublish OMI product versions. For more information, see <a href="Managing-OMI-Product-Versions.html" class="xref page">Managing OMI Product Versions</a>. Seller partners can also unpublish OMI products, that is all their versions at once. For more information, see <a href="Unpublishing-a-Product.html#_Unpublishing_an_OMI_Product" class="xref page">Unpublishing a Product &gt; Unpublishing an OMI Product</a>. In all cases, subscribers, and organization administrators are automatically informed by email.</p>
+</div>
+<div class="paragraph">
+<p>Each OMI product is associated to a unique product code for consumption monitoring and billing purposes. Each VM created from an OMI has the same associated product code. For more information, see <a href="Creating-VMs.html" class="xref page">Creating VMs</a>.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="Subscribing-To-an-OMI-Product.html" class="xref page">Subscribing To an OMI Product</a> and <a href="Creating-and-Publishing-an-OMI-Product.html" class="xref page">Creating and Publishing an OMI Product</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_outsourced_products"><a class="anchor" href="About-OUTSCALE-Marketplace.html#_outsourced_products"></a>Outsourced Products</h4>
+<div class="paragraph">
+<p>Outsourced products are Software as a Service (SaaS) and Platform as a Service (PaaS) solutions.</p>
+</div>
+<div class="paragraph">
+<p>The billing of outsourced products is managed by seller partners outside of the Marketplace.</p>
+</div>
+<div class="paragraph">
+<p>Seller partners can unpublish outsourced products from the Marketplace, and are responsible for informing subscribers and organization administrators of their depublication. For more information, see <a href="Unpublishing-a-Product.html#_Unpublishing_an_Outsourced_Product" class="xref page">Unpublishing a Product &gt; Unpublishing an Outsourced Product</a>.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="Subscribing-To-an-Outsourced-Product.html" class="xref page">Subscribing To an Outsourced Product</a> and <a href="Creating-and-Publishing-an-Outsourced-Product.html" class="xref page">Creating and Publishing an Outsourced Product</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_mistral_llm_services"><a class="anchor" href="About-OUTSCALE-Marketplace.html#_mistral_llm_services"></a>Mistral LLM Services</h4>
+<div class="paragraph">
+<p>Mistral LLM services are offers combining a Mistral large language model (LLM), a VM and a flexible GPU (fGPU), which you can subscribe to from the catalog. You can then deploy these services on an inference <span class="tooltip" data-tooltip="virtual machine (VM) in OUTSCALE API">instance</span> dedicated to a LLM, from the My Services page. For more information, see <a href="Subscribing-To-a-Mistral-LLM-Service-and-Deploying-it.html" class="xref page">Subscribing To a Mistral LLM Service and Deploying it</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_organization"><a class="anchor" href="About-OUTSCALE-Marketplace.html#_organization"></a>Organization</h3>
+<div class="paragraph">
+<p>An organization is an entity associated to an OUTSCALE account and a Region. Each organization has a first administrator, who creates the organization, and may have secondary administrators.<br></p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>To create an organization as first administrator on the Marketplace, you must have an OUTSCALE account. For more information, see <a href="About-Your-Account.html" class="xref page">About Your Account</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The type of an organization can be buyer, seller partner, or both. The administrators and users of a same partner seller organization manage the same showcase and products, and the administrators and users of a same buyer organization manage the same product subscriptions.</p>
+</div>
+<div class="paragraph">
+<p>3DS OUTSCALE can define an organization as belonging to the Nuage public market of the Union des groupements d&#8217;achats publics (UGAP). A seller partner organization can create subscription offers for OMI products, and buyer organizations can subscribe to these offers. For more information, see <a href="https://www.ugap.fr/informatique-et-telephonie-2/telecom-reseaux-serveur-13034/solutions-d-infrastructure-de-stockage-et-cloud-437/cloud-103007/cloud-public-iaas-paas-125402?totalNews=1" target="_blank" rel="noopener">UGAP&#8217;s official website (French only)</a>, <a href="Creating-a-Nuage-public-Offer-UGAP.html" class="xref page">Creating a Nuage public Offer (UGAP)</a>, and <a href="Subscribing-To-a-Nuage-public-Offer-UGAP.html" class="xref page">Subscribing To a Nuage public Offer (UGAP)</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_buyers_and_seller_partners"><a class="anchor" href="About-OUTSCALE-Marketplace.html#_buyers_and_seller_partners"></a>Buyers and Seller Partners</h3>
+<div class="paragraph">
+<p>The type of your organization can be buyer, seller partner, or both.</p>
+</div>
+<div class="paragraph">
+<p>As a buyer, you can browse and filter the product catalog, view seller partner showcases and products, estimate the price of product subscriptions, see seller partner resources, subscribe to products, and view your subscriptions. For more information, see <a href="Buyer.html" class="xref page">Buyer</a>.<br></p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You do not need a Marketplace account to browse the product catalog, but an account is required to subscribe to products.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>As a seller partner, you can create the showcase of your company to describe your activity, and create and publish products in the product catalog. For more information, see <a href="Seller-Partner.html" class="xref page">Seller Partner</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_administrators_and_users"><a class="anchor" href="About-OUTSCALE-Marketplace.html#_administrators_and_users"></a>Administrators and Users</h3>
+<div class="paragraph">
+<p>Two kinds of accounts can log in to the Marketplace: administrators and users, each having different roles through permissions. A same account can be both administrator and user.</p>
+</div>
+<div class="paragraph">
+<p>Administrators can manage Marketplace accounts, that is create and delete them, and modify their information and roles. For more information, see <a href="Managing-Marketplace-Accounts-as-a-Seller-Partner.html" class="xref page">Managing Marketplace Accounts as a Seller Partner</a> and <a href="Managing-Marketplace-Accounts-as-a-Buyer.html" class="xref page">Managing Marketplace Accounts as a Buyer</a>.<br></p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Each account created on the Marketplace implies the creation of an Elastic Identity Management (EIM) user on the OUTSCALE Cloud. The created EIM users belong to a group with a policy attached.</p>
+</div>
+<div class="paragraph">
+<p>These EIM resources, marked by a <code>marketplace_</code> prefix in the APIs and Cockpit, must not be modified nor deleted for the corresponding Marketplace accounts to be functional.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="Elastic-Identity-Management-EIM.html" class="xref page">Elastic Identity Management (EIM)</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Administrators can also add OUTSCALE accounts to the organization to automatically share the permissions to the OMIs the organization subscribes to with these accounts. For more information, see <a href="Managing-OUTSCALE-Accounts-as-a-Seller-Partner.html" class="xref page">Managing OUTSCALE Accounts as a Seller Partner</a> and <a href="Managing-OUTSCALE-Accounts-as-a-Buyer.html" class="xref page">Managing OUTSCALE Accounts as a Buyer</a>.</p>
+</div>
+<div class="paragraph">
+<p>By default, the first administrator of an organization has both an administrator role and a user role, while secondary administrators only have an administrator role.</p>
+</div>
+<div class="paragraph">
+<p>Users can perform all the actions allowed by the type or types of their organizations on the Marketplace, except managing users. For more information, see <a href="Buyer-User.html" class="xref page">Buyer User</a> or <a href="Seller-Partner-User.html" class="xref page">Seller Partner User</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_account"><a class="anchor" href="About-OUTSCALE-Marketplace.html#_account"></a>Account</h2>
+<div class="sectionbody">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>In the <strong>cloudgouv-eu-west-1</strong> Region, accounts have no default API access rules. You therefore need to create API access rules for all the IPs that need to access the API, either on account creation or by using the <a href="../../api%3Fconsole.html#createapiaccessrule" class="xref page">CreateApiAccessRule</a> method. For more information, see <a href="Managing-API-Access-Rules.html" class="xref page">Managing API Access Rules</a>.</p>
+</li>
+<li>
+<p>OUTSCALE Marketplace&#8217;s IP is the following: 148.253.98.37/32.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_organization_creation_and_login"><a class="anchor" href="About-OUTSCALE-Marketplace.html#_organization_creation_and_login"></a>Organization Creation and Login</h3>
+<div class="paragraph">
+<p>You can create an organization as first administrator via the login page of the Marketplace. An email is then sent to the email address of your OUTSCALE account to define the password for your Marketplace administrator account. Once your password is defined, you can log in to the Marketplace from the login page. Your organization must be validated for you to be able to fully use the Marketplace. For more information, see <a href="Creating-an-Organization-as-a-Buyer.html" class="xref page">Creating an Organization as a Buyer</a> and <a href="Creating-an-Organization-as-a-Seller-Partner.html" class="xref page">Creating an Organization as a Seller Partner</a>.</p>
+</div>
+<div class="paragraph">
+<p>As a user or secondary administrator, you can log in to the Marketplace once your first administrator has created your account on the Marketplace and you have defined a password for your account via the received email.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The password definition link in the email is valid for 24 hours.</p>
+</li>
+<li>
+<p>All passwords must comply with the following requirements:</p>
+</li>
+<li>
+<p>At least 12 characters</p>
+</li>
+<li>
+<p>At least one lowercase character</p>
+</li>
+<li>
+<p>At least one uppercase character</p>
+</li>
+<li>
+<p>At least one number</p>
+</li>
+<li>
+<p>At least one special character</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_authentication"><a class="anchor" href="About-OUTSCALE-Marketplace.html#_authentication"></a>Authentication</h3>
+<div class="sect3">
+<h4 id="_two_factor_authentication"><a class="anchor" href="About-OUTSCALE-Marketplace.html#_two_factor_authentication"></a>Two-Factor Authentication</h4>
+<div class="paragraph">
+<p>You can increase the security of your account by using two-factor authentication (2FA) on the Marketplace. This feature adds an extra step of authentication to the basic login procedure by requiring a one-time password (OTP) from an OTP application on your smartphone or other device. For more information, see <a href="Enabling-or-Disabling-Two-Factor-Authentication-for-OUTSCALE-Marketplace.html" class="xref page">Enabling or Disabling Two-Factor Authentication for OUTSCALE Marketplace</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_multi_factor_authentication"><a class="anchor" href="About-OUTSCALE-Marketplace.html#_multi_factor_authentication"></a>Multi-Factor Authentication</h4>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>OUTSCALE Marketplace does not currently support multi-factor authentication using client certificates (CAs). Therefore, if you secure your account with an API access rule which includes a CA as a criterion, you can no longer access OUTSCALE Marketplace. For more information, see <a href="About-API-Access-Rules.html" class="xref page">About API Access Rules</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_password_modification_and_reset"><a class="anchor" href="About-OUTSCALE-Marketplace.html#_password_modification_and_reset"></a>Password Modification and Reset</h3>
+<div class="paragraph">
+<p>As a logged-in administrator or user, you can modify your password at any time in the authentication parameters available from the menu in the top right corner of the interface.</p>
+</div>
+<div class="paragraph">
+<p>As an administrator or a user, you can reset your password at any time by clicking the <strong>Forgot your password?</strong> button on the Marketplace login page. An email is then sent to you with a link to reset your password.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The password reset link in the email is valid for 5 minutes.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Glossary.html" class="xref page">Glossary</a></p>
+</li>
+<li>
+<p><a href="https://en.outscale.com/terms-of-service/" target="_blank" rel="noopener">General Terms and Conditions of Sale</a></p>
+</li>
+<li>
+<p><a href="About-Regions-and-Subregions.html" class="xref page">About Regions and Subregions</a></p>
+</li>
+<li>
+<p><a href="Technical-Support.html" class="xref page">Technical Support</a></p>
+</li>
+<li>
+<p><a href="About-Your-Account.html" class="xref page">About Your Account</a></p>
+</li>
+<li>
+<p><a href="Buyer.html" class="xref page">Buyer</a></p>
+</li>
+<li>
+<p><a href="Seller-Partner.html" class="xref page">Seller Partner</a></p>
+</li>
+<li>
+<p><a href="About-OMIs.html" class="xref page">About OMIs</a></p>
+</li>
+<li>
+<p><a href="Creating-an-OMI.html" class="xref page">Creating an OMI</a></p>
+</li>
+<li>
+<p><a href="Creating-VMs.html" class="xref page">Creating VMs</a></p>
+</li>
+<li>
+<p><a href="Managing-OMI-Product-Versions.html" class="xref page">Managing OMI Product Versions</a></p>
+</li>
+<li>
+<p><a href="Unpublishing-a-Product.html" class="xref page">Unpublishing a Product</a></p>
+</li>
+<li>
+<p><a href="Managing-Marketplace-Accounts-as-a-Seller-Partner.html" class="xref page">Managing Marketplace Accounts as a Seller Partner</a></p>
+</li>
+<li>
+<p><a href="Managing-Marketplace-Accounts-as-a-Buyer.html" class="xref page">Managing Marketplace Accounts as a Buyer</a></p>
+</li>
+<li>
+<p><a href="Elastic-Identity-Management-EIM.html" class="xref page">Elastic Identity Management (EIM)</a></p>
+</li>
+<li>
+<p><a href="Managing-OUTSCALE-Accounts-as-a-Seller-Partner.html" class="xref page">Managing OUTSCALE Accounts as a Seller Partner</a></p>
+</li>
+<li>
+<p><a href="Managing-OUTSCALE-Accounts-as-a-Buyer.html" class="xref page">Managing OUTSCALE Accounts as a Buyer</a></p>
+</li>
+<li>
+<p><a href="Enabling-or-Disabling-Two-Factor-Authentication-for-OUTSCALE-Marketplace.html" class="xref page">Enabling or Disabling Two-Factor Authentication for OUTSCALE Marketplace</a></p>
+</li>
+<li>
+<p><a href="About-API-Access-Rules.html" class="xref page">About API Access Rules</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Corresponding API Methods</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#3ds-outscale-api-apiaccessrule" class="xref page">ApiAccessRule (OUTSCALE API)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Obtenir des informations sur les metadata d&#8217;un objet – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Obtenir-des-informations-sur-les-metadata-d-un-objet.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Obtenir-des-informations-sur-les-metadata-d-un-objet.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Getting-Information-About-the-Metadata-of-an-Object.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Obtenir des informations sur les metadata d&#8217;un objet</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez obtenir des informations sur les metadata (métadonnées) d&#8217;un objet sans pour autant avoir à le télécharger.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour utiliser cette commande, vous devez avoir la permission <code>read</code> sur l&#8217;objet. Pour en savoir plus, voir  <a href="Gérer-les-accès-à-vos-objets.html" class="xref page">Gérer les accès à vos objets</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI (s3api)"><a class="anchor" href="Obtenir-des-informations-sur-les-metadata-d-un-objet.html#AWS CLI (s3api)"></a>Obtenir des informations sur les metadata d&#8217;un objet avec AWS CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Avant de commencer :</strong> Installez et configurez AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Pour obtenir des informations sur les metadata d&#8217;un objet, utilisez la commande <strong>head-object</strong> en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws s3api head-object \
+    --profile YOUR_PROFILE \
+    --bucket BUCKET \
+    --if-match "\"12345a6b76656da1b64f287c8627af7\"" \
+    --if-modified-since "2022-01-20" \
+    --if-none-match "\"12345a6b76656da1b64f287c8627af7\"" \
+    --if-unmodified-since "2022-01-20" \
+    --key OBJECT \
+    --version-id qAfAAsAAuA00kclkg0A0AAuAAjaAtA. \
+    --part-number "1" \
+    --endpoint https://oos.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>profile</code> : Le profil nommé que vous voulez utiliser, créé pendant la configuration d&#8217;AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>bucket</code> : Le nom du bucket dans lequel l&#8217;objet est stocké.</p>
+</li>
+<li>
+<p>(optionnel) <code>if-match</code> : Ne demande l&#8217;objet que si son ETag correspond à celui que vous avez indiqué pour cet attribut.</p>
+</li>
+<li>
+<p>(optionnel) <code>if-modified-since</code> : Ne demande l’objet que s’il a été modifié après la date (au format ISO 8601) indiquée pour cet attribut.</p>
+</li>
+<li>
+<p>(optionnel) <code>if-none-match</code> : Ne demande l&#8217;objet que si son ETag ne correspond pas à celui que vous avez indiqué pour cet attribut.</p>
+</li>
+<li>
+<p>(optionnel) <code>if-unmodified-since</code> : Ne demande l’objet que s’il n’a pas été modifié depuis la date (au format ISO 8601) indiquée pour cet attribut.</p>
+</li>
+<li>
+<p><code>key</code> : Le nom de l’objet duquel vous souhaitez récupérer les metadata.</p>
+</li>
+<li>
+<p>(optionnel) <code>version-id</code> : L’ID de la version de l’objet à partir de laquelle vous souhaitez récupérer les metadata. Pour en savoir plus, voir <a href="Utiliser-le-bucket-versioning.html" class="xref page">Utiliser le bucket versioning</a>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si l&#8217;attribut <code>version-id</code> commence par un tiret ("-"), vous devez le spécifier en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">--version-id=-qAfAAsAAuA00kclkg0A0AAuAAjaAtA.</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>part-number</code> : Le numéro du dépôt du téléchargement (entre <code>1</code> and <code>10000</code>, les deux inclus). Pour en savoir plus, voir <a href="Utiliser-un-dépôt-partitionné.html" class="xref page">Utiliser un dépôt partitionné</a>.</p>
+</li>
+<li>
+<p><code>endpoint</code> : Le endpoint correspondant à la Région à laquelle vous voulez envoyer la requête. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>La commande <strong>head-object</strong> renvoie les éléments suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteMarker</code> : Si <code>true</code>, indique que l&#8217;objet récupéré est un delete marker. Pour en savoir plus, voir <a href="Lister-les-versions-d-un-objet.html" class="xref page">Lister les versions d&#8217;un objet</a>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si <code>false</code>, l&#8217;élément n&#8217;est pas renvoyé dans le résultat.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><code>AcceptRanges</code> : Indique les requêtes d&#8217;intervalle que le serveur prend en charge pour l&#8217;objet.</p>
+</li>
+<li>
+<p><code>Expiration</code> : Si une règle de cycle de vie a été appliquée à l&#8217;objet, renvoie les détails sur sa configuration. Pour en savoir plus, voir <a href="Gérer-le-cycle-de-vie-de-vos-buckets.html" class="xref page">Gérer le cycle de vie de vos buckets</a>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>expiry-date</code> : Date et heure d&#8217;expiration de l&#8217;objet.</p>
+</li>
+<li>
+<p><code>rule-id</code> : Le nom donné à la règle de cycle de vie.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>LastModified</code> : Date et heure à laquelle l&#8217;objet a été modifié pour la dernière fois.</p>
+</li>
+<li>
+<p><code>ContentLength</code> : La taille de l&#8217;objet, en octets.</p>
+</li>
+<li>
+<p><code>ETag</code> : L&#8217;ETag de l&#8217;objet.<br></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si la commande s3 de haut niveau a été utilisée pour déposer l&#8217;objet dans un bucket et si cet objet était suffisamment volumineux (généralement 5 Mo ou plus), le nombre de parties composant l&#8217;objet reconstitué sera contenu dans son ETag. Ceci est indiqué par un tiret et le nombre correspondant à la fin de l&#8217;ETag (par exemple, l&#8217;objet a été divisé en 15 parties si l&#8217;ETag se termine par <code>-15</code>). Pour en savoir plus, voir <a href="Tutoriel-Utiliser-un-dépôt-partitionné-avec-AWS-CLI-s3.html" class="xref page">Tutoriel : Utiliser un dépôt partitionné avec AWS CLI (s3)</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>MissingMeta</code> : Dans le cas de headers non conventionnels, le nombre d&#8217;entrées de metadata non renvoyées.</p>
+</li>
+<li>
+<p><code>VersionId</code> : L&#8217;ID de la version de l&#8217;objet que vous demandez à récupérer.</p>
+</li>
+<li>
+<p><code>CacheControl</code> : Indique les directives de mise en cache adéquates lors du traitement de l&#8217;objet.</p>
+</li>
+<li>
+<p><code>ContentDisposition</code> : Indique comment le contenu est affiché.</p>
+</li>
+<li>
+<p><code>ContentEncoding</code> : Le format d&#8217;encodage de l&#8217;objet.</p>
+</li>
+<li>
+<p><code>ContentLanguage</code> : La langue dans laquelle le contenu de l&#8217;objet se trouve, en code de langue.</p>
+</li>
+<li>
+<p><code>ContentType</code> : Le type MIME (Multipurpose Internet Mail Extensions) de l&#8217;objet.</p>
+</li>
+<li>
+<p><code>Expires</code> : Date et heure à laquelle l&#8217;objet ne peut plus être mis en cache et est considéré comme obsolète.</p>
+</li>
+<li>
+<p><code>WebsiteRedirectLocation</code> : Si l&#8217;objet se trouve dans un bucket configuré comme site web, indique l&#8217;URL. Pour en savoir plus, voir <a href="Gérer-un-site-web-sur-bucket.html" class="xref page">Gérer un site web sur bucket</a>.</p>
+</li>
+<li>
+<p><code>Metadata</code> : Une carte des entrées de metadata supplémentaires que vous avez éventuellement spécifiées.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>key</code> : Le nom de la metadata.</p>
+</li>
+<li>
+<p><code>value</code> : La valeur de la metadata.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>PartsCount</code> : Si vous avez spécifié un attribut <code>part-number</code> dans votre requête, le nombre de parties composant l&#8217;objet. Pour en savoir plus, voir <a href="Utiliser-un-dépôt-partitionné.html" class="xref page">Utiliser un dépôt partitionné</a>.</p>
+</li>
+<li>
+<p><code>ObjectLockMode</code> : Si Object Lock est activité sur le bucket contenant l&#8217;objet, indique son mode. Pour en savoir plus, voir <a href="Configurer-un-Object-Lock-par-défaut-sur-un-bucket.html" class="xref page">Configurer un Object Lock par défaut sur un bucket</a>.</p>
+</li>
+<li>
+<p><code>ObjectLockRetainUntilDate</code> : Si une période de rétention a été appliquée à l&#8217;objet, indique la date durant laquelle l&#8217;objet est verrouillé. Pour en savoir plus, voir <a href="Configurer-un-Object-Lock-spécifique-sur-un-objet.html" class="xref page">Configurer un Object Lock spécifique sur un objet</a>.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de résultat</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "DeleteMarker": true,
+    "AcceptRanges": "bytes",
+    "Expiration": {
+        "expiry-date": "Thu, 20 Jan 2022 13:18:18 GMT",
+        "rule-id": "id"
+    },
+    "LastModified": "Thu, 20 Jan 2022 13:18:18 GMT",
+    "ContentLength": 1534068,
+    "ETag": "\"15943a31a76656da1b64f287c8627af7\"",
+    "MissingMeta": "2",
+    "VersionId": "12345",
+    "CacheControl": "no-cache",
+    "ContentDisposition": "inline",
+    "ContentEncoding": "gzip",
+    "ContentLanguage": "en",
+    "ContentType": "application/pdf",
+    "Expires": "Thu, 20 Jan 2022 13:18:18 GMT",
+    "WebsiteRedirectLocation": "example.com",
+    "Metadata": {
+        "key": "value"
+    },
+    "PartsCount": "4",
+    "ObjectLockMode": "COMPLIANCE",
+    "ObjectLockRetainUntilDate": "2023-11-18T08:23:48.027000+00:00"
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-d-OOS.html" class="xref page">À propos d&#8217;OOS</a></p>
+</li>
+<li>
+<p><a href="Utiliser-un-dépôt-partitionné.html" class="xref page">Utiliser un dépôt partitionné</a></p>
+</li>
+<li>
+<p><a href="Utiliser-le-bucket-versioning.html" class="xref page">Utiliser le bucket versioning</a></p>
+</li>
+<li>
+<p><a href="Gérer-le-cycle-de-vie-de-vos-buckets.html" class="xref page">Gérer le cycle de vie de vos buckets</a></p>
+</li>
+<li>
+<p><a href="Gérer-Object-Lock.html" class="xref page">Gérer Object Lock</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

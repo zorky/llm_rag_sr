@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>À propos des API – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="À-propos-des-API.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/À-propos-des-API.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/About-the-APIs.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">À propos des API</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez gérer vos ressources du Cloud OUTSCALE avec plusieurs interfaces de programmation applicatives (API).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>D&#8217;autres outils sont disponibles pour gérer vos ressources, dont l&#8217;interface web Cockpit. Pour en savoir plus, voir <a href="Outils-du-Cloud.html" class="xref page">Outils du Cloud</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_api_outscale"><a class="anchor" href="À-propos-des-API.html#_api_outscale"></a>API OUTSCALE</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>3DS OUTSCALE expose son API publique. Cette API est le principal moyen de gérer vos ressources dans le Cloud OUTSCALE, car toutes les fonctionnalités OUTSCALE sont développées d&#8217;abord pour cette API.</p>
+</div>
+<div class="paragraph">
+<p>L&#8217;API OUTSCALE est accessible depuis un unique endpoint pour tous les services.</p>
+</div>
+<div class="paragraph">
+<p>La documentation de l&#8217;API OUTSCALE est accessible <a href="../../api%3Fconsole.html" class="xref page">ici</a>.</p>
+</div>
+<div class="paragraph">
+<p>Une description OpenAPI est également disponible dans ce <a href="https://github.com/outscale/osc-api" target="_blank" rel="noopener">dépôt GitHub</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_api_aws_compliant"><a class="anchor" href="À-propos-des-API.html#_api_aws_compliant"></a>API AWS-compliant</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>3DS OUTSCALE fournit aussi des API conformes à Amazon Web Services (AWS). Ces API sont accessibles depuis différents endpoints selon le service.</p>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus sur la compatibilité des appels entre les API développées par 3DS OUTSCALE et les API développées par AWS, voir <a href="Matrice-de-compatibilité-avec-AWS.html" class="xref page">Matrice de compatibilité avec les API AWS</a>.</p>
+</div>
+<div class="paragraph">
+<p>Les documentations des API AWS-compliant sont accessibles via les liens suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../fcu.html" class="xref page">Flexible Compute Unit (FCU)</a></p>
+</li>
+<li>
+<p><a href="../../lbu.html" class="xref page">Load Balancer Unit (LBU)</a></p>
+</li>
+<li>
+<p><a href="../../eim.html" class="xref page">Elastic Identity Management (EIM)</a></p>
+</li>
+<li>
+<p><a href="../../icu.html" class="xref page">Internal Call Unit (ICU)</a></p>
+</li>
+<li>
+<p><a href="../../directlink.html" class="xref page">DirectLink</a></p>
+</li>
+<li>
+<p><a href="Référence-API-OOS.html" class="xref page">OUTSCALE Object Storage (OOS)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_différences_entre_les_noms_de_ressource"><a class="anchor" href="À-propos-des-API.html#_différences_entre_les_noms_de_ressource"></a>Différences entre les noms de ressource</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Certaines ressources portent un nom différent dans l&#8217;API OUTSCALE et dans les API AWS. Le tableau ci-dessous présente ces différences.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Ressource OUTSCALE</th>
+<th class="tableblock halign-left valign-top">Ressource AWS ou AWS-compliant correspondante</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="tooltip" data-tooltip="customer gateway dans les API AWS-compliant">client gateway</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="tooltip" data-tooltip="client gateway dans l'API OUTSCALE">customer gateway</span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DirectLink</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Direct Connect connection ou DirectLink connection</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="tooltip" data-tooltip="virtual interface privée dans les API AWS-compliant">DirectLink interface</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="tooltip" data-tooltip="DirectLink interface dans l'API OUTSCALE">virtual interface privée</span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="tooltip" data-tooltip="Internet gateway dans les API AWS-compliant">internet service</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="tooltip" data-tooltip="Internet service dans l'API OUTSCALE">internet gateway</span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keypair</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">key pair ou keypair</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="tooltip" data-tooltip="NAT gateway dans les API AWS-compliant">NAT service</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="tooltip" data-tooltip="NAT service dans l'API OUTSCALE">NAT gateway</span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="tooltip" data-tooltip="Net dans l'API OUTSCALE">Virtual Private Cloud (VPC)</span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="tooltip" data-tooltip="VPC endpoint dans les API AWS-compliant">Net access point</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="tooltip" data-tooltip="Net access point dans l'API OUTSCALE">VPC endpoint</span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="tooltip" data-tooltip="VPC peering connection dans les API AWS-compliant">Net peering</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="tooltip" data-tooltip="Net peering dans l'API OUTSCALE">VPC peering connection</span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="tooltip" data-tooltip="flexible network interface (FNI) dans les API AWS-compliant">network interface card (NIC)</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">elastic network interface (ENI) ou <span class="tooltip" data-tooltip="network interface card (NIC) dans l'API OUTSCALE">flexible network interface (FNI)</span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">public IP</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Elastic IP (EIP) ou <span class="tooltip" data-tooltip="IP publique dans l'API OUTSCALE">External IP (EIP)</span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Subregion</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="tooltip" data-tooltip="Sous-région dans l'API OUTSCALE">Availability Zone (AZ)</span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="tooltip" data-tooltip="virtual private gateway dans les API AWS-compliant">virtual gateway</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="tooltip" data-tooltip="Virtual gateway dans l'API OUTSCALE">virtual private gateway</span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="tooltip" data-tooltip="instance dans les API AWS-compliant">virtual machine (VM)</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="tooltip" data-tooltip="machine virtuelle (VM) dans l'API OUTSCALE">instance</span></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Matrice-de-compatibilité-avec-AWS.html" class="xref page">Matrice de compatibilité avec AWS</a></p>
+</li>
+<li>
+<p><a href="À-propos-des-signatures-de-demandes-d-API.html" class="xref page">À propos des signatures de demandes d&#8217;API</a></p>
+</li>
+<li>
+<p><a href="Référence-des-endpoints-d-API.html" class="xref page">Référence des endpoints d&#8217;API</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Debian-11-2023.11.17-0 – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="Debian-11-2023.11.17-0.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/Debian-11-2023.11.17-0.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Debian-11-2023.11.17-0.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Debian-11-2023.11.17-0</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This topic contains technical specifications for the Debian-11-2023.11.17-0 OUTSCALE Machine Image (OMI).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_omi_ids"><a class="anchor" href="Debian-11-2023.11.17-0.html#_omi_ids"></a>OMI IDs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This OMI has the following IDs depending on the Regions:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Region</th>
+<th class="tableblock halign-left valign-top">eu-west-2</th>
+<th class="tableblock halign-left valign-top">us-east-2</th>
+<th class="tableblock halign-left valign-top">us-west-1</th>
+<th class="tableblock halign-left valign-top">cloudgouv-eu-west-1</th>
+<th class="tableblock halign-left valign-top">ap-northeast-1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">ID</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ami-92fd685b</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ami-f4bb253c</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ami-ac6afeaf</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ami-80c952c7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ami-2bb8803a</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Specifications</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Specification</th>
+<th class="tableblock halign-left valign-top">Information</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Official image used</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://cdimage.debian.org/images/cloud/bullseye/latest/debian-11-genericcloud-amd64.qcow2" target="_blank" rel="noopener">https://cdimage.debian.org/images/cloud/bullseye/latest/debian-11-genericcloud-amd64.qcow2</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kernel options added</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N/A</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Custom packages added</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">osc-udev-rules-20190314_amd64.deb</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud-Init configuration</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">20_user.cfg</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">system_info:
+  default_user:
+    name: outscale</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">99_metadata.cfg</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">disable-ec2-metadata: false
+
+datasource_list: [ Ec2 ]
+datasource:
+  Ec2:
+    strict_id: false
+    metadata_urls: [ 'http://169.254.169.254:80' ]
+    timeout: 5
+    max_wait: 10</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default SSH configuration</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">X11Forwarding no
+PermitTunnel no
+PermitRootLogin no
+RSAAuthentication yes
+PubkeyAuthentication yes
+PasswordAuthentication no
+UseDNS no
+ChallengeResponseAuthentication no
+GSSAPIAuthentication no</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SSH user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>outscale</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_package_list"><a class="anchor" href="Debian-11-2023.11.17-0.html#_package_list"></a>Package List</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">Listing...
+adduser/oldstable,now 3.118+deb11u1 all [installed]
+apparmor/oldstable,now 2.13.6-10 amd64 [installed]
+apt-listchanges/oldstable,now 3.24 all [installed]
+apt-utils/oldstable,now 2.2.4 amd64 [installed]
+apt/oldstable,now 2.2.4 amd64 [installed]
+base-files/oldstable,now 11.1+deb11u8 amd64 [installed]
+base-passwd/oldstable,now 3.5.51 amd64 [installed]
+bash-completion/oldstable,now 1:2.11-2 all [installed]
+bash/oldstable,now 5.1-2+deb11u1 amd64 [installed]
+bind9-host/oldstable,oldstable-security,now 1:9.16.44-1~deb11u1 amd64 [installed]
+bind9-libs/oldstable,oldstable-security,now 1:9.16.44-1~deb11u1 amd64 [installed,automatic]
+bsdextrautils/oldstable,oldstable-security,now 2.36.1-8+deb11u1 amd64 [installed,automatic]
+bsdutils/oldstable,oldstable-security,now 1:2.36.1-8+deb11u1 amd64 [installed]
+ca-certificates/oldstable,now 20210119 all [installed]
+chrony/oldstable,now 4.0-8+deb11u2 amd64 [installed]
+cloud-guest-utils/oldstable,now 0.31-2 all [installed]
+cloud-image-utils/oldstable,now 0.31-2 all [installed,automatic]
+cloud-init/oldstable,now 20.4.1-2+deb11u1 all [installed]
+cloud-initramfs-growroot/oldstable,now 0.18.debian8 all [installed]
+cloud-utils/oldstable,now 0.31-2 all [installed,automatic]
+coreutils/oldstable,now 8.32-4+b1 amd64 [installed]
+cpio/oldstable,now 2.13+dfsg-7.1~deb11u1 amd64 [installed,automatic]
+cron/oldstable,now 3.0pl1-137 amd64 [installed,automatic]
+curl/oldstable-security,now 7.74.0-1.3+deb11u10 amd64 [installed]
+dash/oldstable,now 0.5.11+git20200708+dd9ef66-5 amd64 [installed]
+dbus/oldstable,now 1.12.28-0+deb11u1 amd64 [installed,automatic]
+debconf/oldstable,now 1.5.77 all [installed]
+debian-archive-keyring/oldstable,now 2021.1.1+deb11u1 all [installed]
+debianutils/oldstable,now 4.11.2 amd64 [installed]
+diffutils/oldstable,now 1:3.7-5 amd64 [installed]
+distro-info-data/oldstable,now 0.51+deb11u4 all [installed,automatic]
+dmsetup/oldstable,now 2:1.02.175-2.1 amd64 [installed,automatic]
+dpkg/oldstable,now 1.20.13 amd64 [installed]
+e2fsprogs/oldstable,now 1.46.2-2 amd64 [installed]
+ethtool/oldstable,now 1:5.9-1 amd64 [installed]
+fdisk/oldstable,oldstable-security,now 2.36.1-8+deb11u1 amd64 [installed,automatic]
+file/oldstable,oldstable-security,now 1:5.39-3+deb11u1 amd64 [installed,automatic]
+findutils/oldstable,now 4.8.0-1 amd64 [installed]
+gcc-10-base/oldstable,now 10.2.1-6 amd64 [installed]
+gcc-9-base/oldstable,now 9.3.0-22 amd64 [installed]
+gdisk/oldstable,now 1.0.6-1.1 amd64 [installed,automatic]
+genisoimage/oldstable,now 9:1.1.11-3.2 amd64 [installed,automatic]
+gettext-base/oldstable,now 0.21-4 amd64 [installed,automatic]
+gpgv/oldstable,oldstable-security,now 2.2.27-2+deb11u2 amd64 [installed]
+grep/oldstable,now 3.6-1+deb11u1 amd64 [installed]
+groff-base/oldstable,now 1.22.4-6 amd64 [installed,automatic]
+grub-cloud-amd64/oldstable,now 0.0.5 amd64 [installed]
+grub-common/oldstable-security,now 2.06-3~deb11u6 amd64 [installed,automatic]
+grub-efi-amd64-bin/oldstable-security,now 2.06-3~deb11u6 amd64 [installed,automatic]
+grub-efi-amd64-signed/oldstable-security,now 1+2.06+3~deb11u6 amd64 [installed,automatic]
+grub-pc-bin/oldstable-security,now 2.06-3~deb11u6 amd64 [installed,automatic]
+grub2-common/oldstable-security,now 2.06-3~deb11u6 amd64 [installed,automatic]
+gzip/oldstable,oldstable-security,now 1.10-4+deb11u1 amd64 [installed]
+hostname/oldstable,now 3.23 amd64 [installed]
+ifupdown/oldstable,now 0.8.36 amd64 [installed]
+init-system-helpers/oldstable,now 1.60 all [installed]
+init/oldstable,now 1.60 amd64 [installed]
+initramfs-tools-core/oldstable,now 0.140 all [installed,automatic]
+initramfs-tools/oldstable,now 0.140 all [installed,automatic]
+iproute2/oldstable,now 5.10.0-4 amd64 [installed,automatic]
+iptables/oldstable,now 1.8.7-1 amd64 [installed]
+iputils-ping/oldstable,now 3:20210202-1 amd64 [installed]
+isc-dhcp-client/oldstable,now 4.4.1-2.3+deb11u2 amd64 [installed]
+klibc-utils/oldstable,now 2.0.8-6.1 amd64 [installed,automatic]
+kmod/oldstable,now 28-1 amd64 [installed,automatic]
+less/oldstable,now 551-2 amd64 [installed]
+libacl1/oldstable,now 2.2.53-10 amd64 [installed]
+libaio1/oldstable,now 0.3.112-9 amd64 [installed,automatic]
+libapparmor1/oldstable,now 2.13.6-10 amd64 [installed,automatic]
+libapt-pkg6.0/oldstable,now 2.2.4 amd64 [installed]
+libargon2-1/oldstable,now 0~20171227-0.2 amd64 [installed,automatic]
+libattr1/oldstable,now 1:2.4.48-6 amd64 [installed]
+libaudit-common/oldstable,now 1:3.0-2 all [installed]
+libaudit1/oldstable,now 1:3.0-2 amd64 [installed]
+libblkid1/oldstable,oldstable-security,now 2.36.1-8+deb11u1 amd64 [installed]
+libbpf0/oldstable,now 1:0.3-2 amd64 [installed,automatic]
+libbrotli1/oldstable,now 1.0.9-2+b2 amd64 [installed,automatic]
+libbsd0/oldstable,now 0.11.3-1+deb11u1 amd64 [installed,automatic]
+libbz2-1.0/oldstable,now 1.0.8-4 amd64 [installed]
+libc-bin/oldstable-security,now 2.31-13+deb11u7 amd64 [installed]
+libc-l10n/oldstable-security,now 2.31-13+deb11u7 all [installed,automatic]
+libc6/oldstable-security,now 2.31-13+deb11u7 amd64 [installed]
+libcap-ng0/oldstable,now 0.7.9-2.2+b1 amd64 [installed]
+libcap2-bin/oldstable,now 1:2.44-1 amd64 [installed,automatic]
+libcap2/oldstable,now 1:2.44-1 amd64 [installed,automatic]
+libcbor0/oldstable,now 0.5.0+dfsg-2 amd64 [installed,automatic]
+libcom-err2/oldstable,now 1.46.2-2 amd64 [installed]
+libcrypt1/oldstable,now 1:4.4.18-4 amd64 [installed]
+libcryptsetup12/oldstable,oldstable-security,now 2:2.3.7-1+deb11u1 amd64 [installed,automatic]
+libcurl3-gnutls/oldstable-security,now 7.74.0-1.3+deb11u10 amd64 [installed,automatic]
+libcurl4/oldstable-security,now 7.74.0-1.3+deb11u10 amd64 [installed,automatic]
+libdb5.3/oldstable,now 5.3.28+dfsg1-0.8 amd64 [installed]
+libdbus-1-3/oldstable,now 1.12.28-0+deb11u1 amd64 [installed,automatic]
+libdebconfclient0/oldstable,now 0.260 amd64 [installed]
+libdevmapper1.02.1/oldstable,now 2:1.02.175-2.1 amd64 [installed,automatic]
+libdns-export1110/oldstable,now 1:9.11.19+dfsg-2.1 amd64 [installed,automatic]
+libedit2/oldstable,now 3.1-20191231-2+b1 amd64 [installed,automatic]
+libefiboot1/oldstable,now 37-6 amd64 [installed,automatic]
+libefivar1/oldstable,now 37-6 amd64 [installed,automatic]
+libelf1/oldstable,now 0.183-1 amd64 [installed,automatic]
+libestr0/oldstable,now 0.1.10-2.1+b1 amd64 [installed,automatic]
+libexpat1/oldstable,oldstable-security,now 2.2.10-2+deb11u5 amd64 [installed,automatic]
+libext2fs2/oldstable,now 1.46.2-2 amd64 [installed]
+libfastjson4/oldstable,now 0.99.9-1 amd64 [installed,automatic]
+libfdisk1/oldstable,oldstable-security,now 2.36.1-8+deb11u1 amd64 [installed,automatic]
+libffi7/oldstable,now 3.3-6 amd64 [installed]
+libfido2-1/oldstable,now 1.6.0-2 amd64 [installed,automatic]
+libfreetype6/oldstable,now 2.10.4+dfsg-1+deb11u1 amd64 [installed,automatic]
+libfstrm0/oldstable,now 0.6.0-1+b1 amd64 [installed,automatic]
+libfuse2/oldstable,now 2.9.9-5 amd64 [installed,automatic]
+libgcc-s1/oldstable,now 10.2.1-6 amd64 [installed]
+libgcrypt20/oldstable,now 1.8.7-6 amd64 [installed]
+libgdbm6/oldstable,now 1.19-2 amd64 [installed,automatic]
+libglib2.0-0/oldstable,now 2.66.8-1 amd64 [installed,automatic]
+libgmp10/oldstable,now 2:6.2.1+dfsg-1+deb11u1 amd64 [installed]
+libgnutls30/oldstable,oldstable-security,now 3.7.1-5+deb11u3 amd64 [installed]
+libgpg-error0/oldstable,now 1.38-2 amd64 [installed]
+libgpm2/oldstable,now 1.20.7-8 amd64 [installed,automatic]
+libgssapi-krb5-2/oldstable,now 1.18.3-6+deb11u4 amd64 [installed]
+libhogweed6/oldstable,now 3.7.3-1 amd64 [installed]
+libicu67/oldstable,now 67.1-7 amd64 [installed,automatic]
+libidn2-0/oldstable,now 2.3.0-5 amd64 [installed]
+libip4tc2/oldstable,now 1.8.7-1 amd64 [installed,automatic]
+libip6tc2/oldstable,now 1.8.7-1 amd64 [installed,automatic]
+libisc-export1105/oldstable,now 1:9.11.19+dfsg-2.1 amd64 [installed,automatic]
+libjson-c5/oldstable,oldstable-security,now 0.15-2+deb11u1 amd64 [installed,automatic]
+libk5crypto3/oldstable,now 1.18.3-6+deb11u4 amd64 [installed]
+libkeyutils1/oldstable,now 1.6.1-2 amd64 [installed]
+libklibc/oldstable,now 2.0.8-6.1 amd64 [installed,automatic]
+libkmod2/oldstable,now 28-1 amd64 [installed,automatic]
+libkrb5-3/oldstable,now 1.18.3-6+deb11u4 amd64 [installed]
+libkrb5support0/oldstable,now 1.18.3-6+deb11u4 amd64 [installed]
+libldap-2.4-2/oldstable,oldstable-security,now 2.4.57+dfsg-3+deb11u1 amd64 [installed,automatic]
+liblmdb0/oldstable,now 0.9.24-1 amd64 [installed,automatic]
+liblognorm5/oldstable,now 2.0.5-1.1 amd64 [installed,automatic]
+liblz4-1/oldstable,now 1.9.3-2 amd64 [installed]
+liblzma5/oldstable,oldstable-security,now 5.2.5-2.1~deb11u1 amd64 [installed]
+libmagic-mgc/oldstable,oldstable-security,now 1:5.39-3+deb11u1 amd64 [installed,automatic]
+libmagic1/oldstable,oldstable-security,now 1:5.39-3+deb11u1 amd64 [installed,automatic]
+libmaxminddb0/oldstable,now 1.5.2-1 amd64 [installed,automatic]
+libmd0/oldstable,now 1.0.3-3 amd64 [installed,automatic]
+libmnl0/oldstable,now 1.0.4-3 amd64 [installed,automatic]
+libmount1/oldstable,oldstable-security,now 2.36.1-8+deb11u1 amd64 [installed]
+libmpdec3/oldstable,now 2.5.1-1 amd64 [installed,automatic]
+libncurses6/oldstable,now 6.2+20201114-2+deb11u2 amd64 [installed,automatic]
+libncursesw6/oldstable,now 6.2+20201114-2+deb11u2 amd64 [installed,automatic]
+libnetfilter-conntrack3/oldstable,now 1.0.8-3 amd64 [installed,automatic]
+libnettle8/oldstable,now 3.7.3-1 amd64 [installed]
+libnewt0.52/oldstable,now 0.52.21-4+b3 amd64 [installed,automatic]
+libnfnetlink0/oldstable,now 1.0.1-3+b1 amd64 [installed,automatic]
+libnftnl11/oldstable,now 1.1.9-1 amd64 [installed,automatic]
+libnghttp2-14/oldstable,now 1.43.0-1 amd64 [installed,automatic]
+libnsl2/oldstable,now 1.3.0-2 amd64 [installed]
+libp11-kit0/oldstable,now 0.23.22-1 amd64 [installed]
+libpam-modules-bin/oldstable,now 1.4.0-9+deb11u1 amd64 [installed]
+libpam-modules/oldstable,now 1.4.0-9+deb11u1 amd64 [installed]
+libpam-runtime/oldstable,now 1.4.0-9+deb11u1 all [installed]
+libpam-systemd/oldstable,oldstable-updates,now 247.3-7+deb11u4 amd64 [installed]
+libpam0g/oldstable,now 1.4.0-9+deb11u1 amd64 [installed]
+libpcap0.8/oldstable,now 1.10.0-2 amd64 [installed,automatic]
+libpci3/oldstable,now 1:3.7.0-5 amd64 [installed,automatic]
+libpcre2-8-0/oldstable,now 10.36-2+deb11u1 amd64 [installed]
+libpcre3/oldstable,now 2:8.39-13 amd64 [installed]
+libpipeline1/oldstable,now 1.5.3-1 amd64 [installed,automatic]
+libpng16-16/oldstable,now 1.6.37-3 amd64 [installed,automatic]
+libpopt0/oldstable,now 1.18-2 amd64 [installed,automatic]
+libprocps8/oldstable,now 2:3.3.17-5 amd64 [installed,automatic]
+libprotobuf-c1/oldstable,now 1.3.3-1+b2 amd64 [installed,automatic]
+libpsl5/oldstable,now 0.21.0-1.2 amd64 [installed,automatic]
+libpython3-stdlib/oldstable,now 3.9.2-3 amd64 [installed,automatic]
+libpython3.9-minimal/oldstable,now 3.9.2-1 amd64 [installed,automatic]
+libpython3.9-stdlib/oldstable,now 3.9.2-1 amd64 [installed,automatic]
+libreadline8/oldstable,now 8.1-1 amd64 [installed,automatic]
+librtmp1/oldstable,now 2.4+20151223.gitfa8646d.1-2+b2 amd64 [installed,automatic]
+libsasl2-2/oldstable,oldstable-security,now 2.1.27+dfsg-2.1+deb11u1 amd64 [installed,automatic]
+libsasl2-modules-db/oldstable,oldstable-security,now 2.1.27+dfsg-2.1+deb11u1 amd64 [installed,automatic]
+libseccomp2/oldstable,now 2.5.1-1+deb11u1 amd64 [installed]
+libselinux1/oldstable,now 3.1-3 amd64 [installed]
+libsemanage-common/oldstable,now 3.1-1 all [installed]
+libsemanage1/oldstable,now 3.1-1+b2 amd64 [installed]
+libsepol1/oldstable,now 3.1-1 amd64 [installed]
+libslang2/oldstable,now 2.3.2-5 amd64 [installed,automatic]
+libsmartcols1/oldstable,oldstable-security,now 2.36.1-8+deb11u1 amd64 [installed]
+libsqlite3-0/oldstable,now 3.34.1-3 amd64 [installed,automatic]
+libss2/oldstable,now 1.46.2-2 amd64 [installed]
+libssh2-1/oldstable,now 1.9.0-2 amd64 [installed,automatic]
+libssl1.1/oldstable,now 1.1.1w-0+deb11u1 amd64 [installed]
+libstdc++6/oldstable,now 10.2.1-6 amd64 [installed]
+libsystemd0/oldstable,oldstable-updates,now 247.3-7+deb11u4 amd64 [installed]
+libtasn1-6/oldstable,now 4.16.0-2+deb11u1 amd64 [installed]
+libtinfo6/oldstable,now 6.2+20201114-2+deb11u2 amd64 [installed]
+libtirpc-common/oldstable,oldstable-security,now 1.3.1-1+deb11u1 all [installed]
+libtirpc3/oldstable,oldstable-security,now 1.3.1-1+deb11u1 amd64 [installed]
+libuchardet0/oldstable,now 0.0.7-1 amd64 [installed,automatic]
+libudev1/oldstable,oldstable-updates,now 247.3-7+deb11u4 amd64 [installed]
+libunistring2/oldstable,now 0.9.10-4 amd64 [installed]
+liburing1/oldstable,now 0.7-3 amd64 [installed,automatic]
+libutempter0/oldstable,now 1.2.1-2 amd64 [installed,automatic]
+libuuid1/oldstable,oldstable-security,now 2.36.1-8+deb11u1 amd64 [installed]
+libuv1/oldstable,now 1.40.0-2 amd64 [installed,automatic]
+libwrap0/oldstable,now 7.6.q-31 amd64 [installed,automatic]
+libxml2/oldstable,oldstable-security,now 2.9.10+dfsg-6.7+deb11u4 amd64 [installed,automatic]
+libxtables12/oldstable,now 1.8.7-1 amd64 [installed,automatic]
+libxxhash0/oldstable,now 0.8.0-2 amd64 [installed]
+libyaml-0-2/oldstable,now 0.2.2-1 amd64 [installed,automatic]
+libzstd1/oldstable,now 1.4.8+dfsg-2.1 amd64 [installed]
+linux-base/oldstable,now 4.6 all [installed,automatic]
+linux-image-5.10.0-26-cloud-amd64/oldstable,now 5.10.197-1 amd64 [installed,automatic]
+linux-image-cloud-amd64/oldstable,now 5.10.197-1 amd64 [installed]
+locales/oldstable-security,now 2.31-13+deb11u7 all [installed,automatic]
+login/oldstable,now 1:4.8.1-1 amd64 [installed]
+logrotate/oldstable,now 3.18.0-2+deb11u2 amd64 [installed]
+logsave/oldstable,now 1.46.2-2 amd64 [installed]
+lsb-base/oldstable,now 11.1.0 all [installed]
+lsb-release/oldstable,now 11.1.0 all [installed,automatic]
+man-db/oldstable,now 2.9.4-2 amd64 [installed]
+manpages/oldstable,now 5.10-1 all [installed]
+mawk/oldstable,now 1.3.4.20200120-2 amd64 [installed]
+media-types/oldstable,now 4.0.0 all [installed,automatic]
+mokutil/oldstable,now 0.6.0-2~deb11u1 amd64 [installed,automatic]
+mount/oldstable,oldstable-security,now 2.36.1-8+deb11u1 amd64 [installed]
+nano/oldstable,now 5.4-2+deb11u2 amd64 [installed]
+ncurses-base/oldstable,now 6.2+20201114-2+deb11u2 all [installed]
+ncurses-bin/oldstable,now 6.2+20201114-2+deb11u2 amd64 [installed]
+net-tools/oldstable,now 1.60+git20181103.0eebece-1 amd64 [installed,automatic]
+netbase/oldstable,now 6.3 all [installed]
+openssh-client/oldstable,now 1:8.4p1-5+deb11u2 amd64 [installed,automatic]
+openssh-server/oldstable,now 1:8.4p1-5+deb11u2 amd64 [installed]
+openssh-sftp-server/oldstable,now 1:8.4p1-5+deb11u2 amd64 [installed,automatic]
+openssl/oldstable,now 1.1.1w-0+deb11u1 amd64 [installed,automatic]
+osc-udev-rules/now 20190314 amd64 [installed,local]
+passwd/oldstable,now 1:4.8.1-1 amd64 [installed]
+pci.ids/oldstable,now 0.0~2021.02.08-1 all [installed,automatic]
+pciutils/oldstable,now 1:3.7.0-5 amd64 [installed]
+perl-base/oldstable,now 5.32.1-4+deb11u2 amd64 [installed]
+procps/oldstable,now 2:3.3.17-5 amd64 [installed,automatic]
+psmisc/oldstable,now 23.4-2 amd64 [installed]
+python-apt-common/oldstable,now 2.2.1 all [installed,automatic]
+python3-apt/oldstable,now 2.2.1 amd64 [installed,automatic]
+python3-attr/oldstable,now 20.3.0-1 all [installed,automatic]
+python3-blinker/oldstable,now 1.4+dfsg1-0.3 all [installed,automatic]
+python3-certifi/oldstable,now 2020.6.20-1 all [installed,automatic]
+python3-cffi-backend/oldstable,now 1.14.5-1 amd64 [installed,automatic]
+python3-chardet/oldstable,now 4.0.0-1 all [installed,automatic]
+python3-configobj/oldstable,now 5.0.6-4 all [installed,automatic]
+python3-cryptography/oldstable,now 3.3.2-1 amd64 [installed,automatic]
+python3-dbus/oldstable,now 1.2.16-5 amd64 [installed,automatic]
+python3-debconf/oldstable,now 1.5.77 all [installed,automatic]
+python3-debian/oldstable,now 0.1.39 all [installed,automatic]
+python3-debianbts/oldstable,now 3.1.0 all [installed,automatic]
+python3-distro-info/oldstable,now 1.0 all [installed,automatic]
+python3-distutils/oldstable,now 3.9.2-1 all [installed,automatic]
+python3-httplib2/oldstable,now 0.18.1-3 all [installed,automatic]
+python3-idna/oldstable,now 2.10-1 all [installed,automatic]
+python3-importlib-metadata/oldstable,now 1.6.0-2 all [installed,automatic]
+python3-jinja2/oldstable,now 2.11.3-1 all [installed,automatic]
+python3-json-pointer/oldstable,now 2.0-2 all [installed,automatic]
+python3-jsonpatch/oldstable,now 1.25-3 all [installed,automatic]
+python3-jsonschema/oldstable,now 3.2.0-3 all [installed,automatic]
+python3-jwt/oldstable,now 1.7.1-2 all [installed,automatic]
+python3-lib2to3/oldstable,now 3.9.2-1 all [installed,automatic]
+python3-markupsafe/oldstable,now 1.1.1-1+b3 amd64 [installed,automatic]
+python3-minimal/oldstable,now 3.9.2-3 amd64 [installed,automatic]
+python3-more-itertools/oldstable,now 4.2.0-3 all [installed,automatic]
+python3-oauthlib/oldstable,now 3.1.0-2 all [installed,automatic]
+python3-pkg-resources/oldstable,now 52.0.0-4 all [installed,automatic]
+python3-pycurl/oldstable,now 7.43.0.6-5 amd64 [installed,automatic]
+python3-pyrsistent/oldstable,now 0.15.5-1+b3 amd64 [installed,automatic]
+python3-pysimplesoap/oldstable,now 1.16.2-3 all [installed,automatic]
+python3-reportbug/oldstable,now 7.10.3+deb11u1 all [installed,automatic]
+python3-requests/oldstable,now 2.25.1+dfsg-2 all [installed,automatic]
+python3-setuptools/oldstable,now 52.0.0-4 all [installed,automatic]
+python3-six/oldstable,now 1.16.0-2 all [installed,automatic]
+python3-urllib3/oldstable,now 1.26.5-1~exp1 all [installed,automatic]
+python3-yaml/oldstable,now 5.3.1-5 amd64 [installed,automatic]
+python3-zipp/oldstable,now 1.0.0-3 all [installed,automatic]
+python3.9-minimal/oldstable,now 3.9.2-1 amd64 [installed,automatic]
+python3.9/oldstable,now 3.9.2-1 amd64 [installed,automatic]
+python3/oldstable,now 3.9.2-3 amd64 [installed,automatic]
+qemu-utils/oldstable,now 1:5.2+dfsg-11+deb11u3 amd64 [installed,automatic]
+readline-common/oldstable,now 8.1-1 all [installed,automatic]
+reportbug/oldstable,now 7.10.3+deb11u1 all [installed]
+resolvconf/oldstable,now 1.87 all [installed]
+rsyslog/oldstable,oldstable-security,now 8.2102.0-2+deb11u1 amd64 [installed]
+runit-helper/oldstable,now 2.10.3 all [installed,automatic]
+screen/oldstable,now 4.8.0-6 amd64 [installed]
+sed/oldstable,now 4.7-1 amd64 [installed]
+sensible-utils/oldstable,now 0.0.14 all [installed,automatic]
+shim-helpers-amd64-signed/oldstable,now 1+15.7+1~deb11u1 amd64 [installed,automatic]
+shim-signed-common/oldstable,now 1.39~1+deb11u1+15.7-1~deb11u1 all [installed,automatic]
+shim-signed/oldstable,now 1.39~1+deb11u1+15.7-1~deb11u1 amd64 [installed,automatic]
+shim-unsigned/oldstable,now 15.7-1~deb11u1 amd64 [installed,automatic]
+socat/oldstable,now 1.7.4.1-3 amd64 [installed]
+sudo/oldstable,oldstable-security,now 1.9.5p2-3+deb11u1 amd64 [installed]
+systemd-sysv/oldstable,oldstable-updates,now 247.3-7+deb11u4 amd64 [installed,automatic]
+systemd/oldstable,oldstable-updates,now 247.3-7+deb11u4 amd64 [installed,automatic]
+sysvinit-utils/oldstable,now 2.96-7+deb11u1 amd64 [installed]
+tar/oldstable,now 1.34+dfsg-1 amd64 [installed]
+tcpdump/oldstable,now 4.99.0-2+deb11u1 amd64 [installed]
+traceroute/oldstable,now 1:2.1.0-2+deb11u1 amd64 [installed]
+tzdata/oldstable,now 2021a-1+deb11u10 all [installed]
+ucf/oldstable,now 3.0043 all [installed,automatic]
+udev/oldstable,oldstable-updates,now 247.3-7+deb11u4 amd64 [installed,automatic]
+unattended-upgrades/oldstable,now 2.8 all [installed]
+util-linux/oldstable,oldstable-security,now 2.36.1-8+deb11u1 amd64 [installed]
+uuid-runtime/oldstable,oldstable-security,now 2.36.1-8+deb11u1 amd64 [installed]
+vim-common/oldstable,now 2:8.2.2434-3+deb11u1 all [installed,automatic]
+vim-runtime/oldstable,now 2:8.2.2434-3+deb11u1 all [installed,automatic]
+vim-tiny/oldstable,now 2:8.2.2434-3+deb11u1 amd64 [installed]
+vim/oldstable,now 2:8.2.2434-3+deb11u1 amd64 [installed]
+wget/oldstable,now 1.21-1+deb11u1 amd64 [installed,automatic]
+whiptail/oldstable,now 0.52.21-4+b3 amd64 [installed]
+xxd/oldstable,now 2:8.2.2434-3+deb11u1 amd64 [installed,automatic]
+xz-utils/oldstable,oldstable-security,now 5.2.5-2.1~deb11u1 amd64 [installed]
+zlib1g/oldstable,oldstable-security,now 1:1.2.11.dfsg-2+deb11u2 amd64 [installed]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="About-OMIs.html" class="xref page">About OMIs</a></p>
+</li>
+<li>
+<p><a href="Official-OMIs-Reference.html" class="xref page">Official OMIs Reference</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

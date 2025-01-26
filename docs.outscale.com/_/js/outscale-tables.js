@@ -1,0 +1,1 @@
+for(tbl of document.querySelectorAll("table.tableblock"))new JSTable(tbl,{sortable:!0,searchable:!1,addQueryParams:!1,layout:{bottom:""}});

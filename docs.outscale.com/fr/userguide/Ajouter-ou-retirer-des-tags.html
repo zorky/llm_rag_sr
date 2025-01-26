@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Ajouter ou retirer des tags – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Ajouter-ou-retirer-des-tags.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Ajouter-ou-retirer-des-tags.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Adding-or-Removing-Tags.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Ajouter ou retirer des tags</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez ajouter des tags à vos ressources déjà existantes pour les identifier et les classer. Les tags vous permettent d&#8217;inventorier vos ressources.</p>
+</div>
+<div class="paragraph">
+<p>Un tag est la combinaison d&#8217;une clé et d&#8217;une valeur. Si un tag avec la même clé existe déjà pour la ressource spécifiée, aucun nouveau tag n&#8217;est créé : la valeur du tag existant est mise à jour.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez également ajouter des tags à des <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machines virtuelles (VM)</span> ou à des snapshots lors de leur création. Pour en savoir plus, voir <a href="Créer-des-VM.html" class="xref page">Créer des VM</a> et <a href="Créer-un-snapshot-d-un-volume.html" class="xref page">Créer un snapshot d&#8217;un volume</a>.</p>
+</div>
+<div class="paragraph">
+<p>Pour ajouter des tags à vos load balancers, voir <a href="Ajouter-ou-retirer-des-tags-à-vos-load-balancers.html" class="xref page">Ajouter ou retirer des tags à vos load balancers</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Cockpit v2_0"><a class="anchor" href="Ajouter-ou-retirer-des-tags.html#Cockpit v2_0"></a>Ajouter ou retirer des tags avec Cockpit v2</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Cochez la case de la ressource dont vous voulez modifier les tags.<br>
+La ressource est sélectionnée.</p>
+</li>
+<li>
+<p>Cliquez sur <span class="image"><img src="_images/IconTag.svg" alt="IconTag"></span> <strong>Modifier les tags</strong>.<br>
+La boîte de dialogue MODIFIER LES TAGS apparaît.</p>
+</li>
+<li>
+<p>(optionnel) Pour ajouter un tag à la ressource, cliquez sur <span class="image"><img src="_images/IconAddFull.svg" alt="IconAddFull"></span> <strong>Ajouter un nouveau tag</strong> et entrez une clé et une valeur.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>La valeur est optionnelle. Vous pouvez ajouter un tag en spécifiant une clé uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>La valeur du tag doit contenir 255 caractères maximum. Cependant, la clé du tag n&#8217;est pas limitée en longueur.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) Pour retirer un tag, cliquez sur <span class="image"><img src="_images/IconTerminate.svg" alt="IconTerminate"></span>.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Mettre à jour les tags</strong>.<br>
+Les tags sont ajoutés à ou retirés de la ressource sélectionnée.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous pouvez également mettre à jour la clé ou la valeur des tags existants à tout moment dans la boîte de dialogue MODIFIER LES TAGS.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="OSC CLI_1"><a class="anchor" href="Ajouter-ou-retirer-des-tags.html#OSC CLI_1"></a>Ajouter ou retirer des tags avec OSC CLI</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_ajouter_des_tags"><a class="anchor" href="Ajouter-ou-retirer-des-tags.html#_ajouter_des_tags"></a>Ajouter des tags</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateTags</strong> command adds one or more tags to the specified resources.<br>
+If a tag with the same key already exists for the resource, the tag value is replaced.<br>
+You can tag the following resources using their IDs:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="tooltip" data-tooltip="customer gateway dans les API AWS-compliant">Client gateways</span> (cgw-xxxxxxxx)<br></p>
+</li>
+<li>
+<p>DHCP options (dopt-xxxxxxxx)<br></p>
+</li>
+<li>
+<p>Images (ami-xxxxxxxx)<br></p>
+</li>
+<li>
+<p><span class="tooltip" data-tooltip="Internet gateway dans les API AWS-compliant">Internet services</span> (igw-xxxxxxxx)<br></p>
+</li>
+<li>
+<p>Keypairs (key-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)<br></p>
+</li>
+<li>
+<p><span class="tooltip" data-tooltip="NAT gateway dans les API AWS-compliant">NAT services</span> (nat-xxxxxxxx)<br></p>
+</li>
+<li>
+<p><span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span> endpoints (vpce-xxxxxxxx)<br></p>
+</li>
+<li>
+<p><span class="tooltip" data-tooltip="VPC peering connection dans les API AWS-compliant">Net peerings</span> (vpcx-xxxxxxxx)<br></p>
+</li>
+<li>
+<p>Nets (vpc-xxxxxxxx)<br></p>
+</li>
+<li>
+<p><span class="tooltip" data-tooltip="flexible network interface (FNI) dans les API AWS-compliant">Network interface cards (NIC)</span> (eni-xxxxxxxx)<br></p>
+</li>
+<li>
+<p>OMI export tasks (image-export-xxxxxxxx)<br></p>
+</li>
+<li>
+<p>OMIs (ami-xxxxxxxx)<br></p>
+</li>
+<li>
+<p><span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">Public IPs</span> (eipalloc-xxxxxxxx)<br></p>
+</li>
+<li>
+<p>Route tables (rtb-xxxxxxxx)<br></p>
+</li>
+<li>
+<p>Security groups (sg-xxxxxxxx)<br></p>
+</li>
+<li>
+<p>Snapshot export tasks (snap-export-xxxxxxxx)</p>
+</li>
+<li>
+<p>Snapshots (snap-xxxxxxxx)<br></p>
+</li>
+<li>
+<p>Subnets (subnet-xxxxxxxx)<br></p>
+</li>
+<li>
+<p><span class="tooltip" data-tooltip="virtual private gateway dans les API AWS-compliant">Virtual gateways</span> (vgw-xxxxxxxx)<br></p>
+</li>
+<li>
+<p><span class="tooltip" data-tooltip="instance dans les API AWS-compliant">Virtual machines (VMs)</span> (i-xxxxxxxx)<br></p>
+</li>
+<li>
+<p>Volumes (vol-xxxxxxxx)<br></p>
+</li>
+<li>
+<p>VPN connections (vpn-xxxxxxxx)<br></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="../../en/userguide/About-Tags.html" target="_blank" rel="noopener">About Tags</a>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api CreateTags --profile "default" \
+    --ResourceIds '["i-12345678"]' \
+    --Tags '[
+        {
+          "Key": "key1",
+          "Value": "value1"
+        }
+      ]'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>ResourceIds</code>: One or more resource IDs.</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags to add to the specified resources.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: (optional) The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: (optional) The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateTags</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_retirer_des_tags"><a class="anchor" href="Ajouter-ou-retirer-des-tags.html#_retirer_des_tags"></a>Retirer des tags</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>DeleteTags</strong> command deletes one or more tags from the specified resources.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api DeleteTags --profile "default" \
+    --ResourceIds '["i-12345678"]' \
+    --Tags '[
+        {
+          "Key": "key1",
+          "Value": "value1"
+        }
+      ]'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>ResourceIds</code>: One or more resource IDs.</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags to delete (if you set a tag value, only the tags matching exactly this value are deleted).</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: (optional) The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: (optional) The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>DeleteTags</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="oapi-cli_2"><a class="anchor" href="Ajouter-ou-retirer-des-tags.html#oapi-cli_2"></a>Ajouter ou retirer des tags avec oapi-cli</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_ajouter_des_tags_2"><a class="anchor" href="Ajouter-ou-retirer-des-tags.html#_ajouter_des_tags_2"></a>Ajouter des tags</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateTags</strong> command adds one or more tags to the specified resources.<br>
+If a tag with the same key already exists for the resource, the tag value is replaced.<br>
+You can tag the following resources using their IDs:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="tooltip" data-tooltip="customer gateway dans les API AWS-compliant">Client gateways</span> (cgw-xxxxxxxx)<br></p>
+</li>
+<li>
+<p>DHCP options (dopt-xxxxxxxx)<br></p>
+</li>
+<li>
+<p>Images (ami-xxxxxxxx)<br></p>
+</li>
+<li>
+<p><span class="tooltip" data-tooltip="Internet gateway dans les API AWS-compliant">Internet services</span> (igw-xxxxxxxx)<br></p>
+</li>
+<li>
+<p>Keypairs (key-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)<br></p>
+</li>
+<li>
+<p><span class="tooltip" data-tooltip="NAT gateway dans les API AWS-compliant">NAT services</span> (nat-xxxxxxxx)<br></p>
+</li>
+<li>
+<p><span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span> endpoints (vpce-xxxxxxxx)<br></p>
+</li>
+<li>
+<p><span class="tooltip" data-tooltip="VPC peering connection dans les API AWS-compliant">Net peerings</span> (vpcx-xxxxxxxx)<br></p>
+</li>
+<li>
+<p>Nets (vpc-xxxxxxxx)<br></p>
+</li>
+<li>
+<p><span class="tooltip" data-tooltip="flexible network interface (FNI) dans les API AWS-compliant">Network interface cards (NIC)</span> (eni-xxxxxxxx)<br></p>
+</li>
+<li>
+<p>OMI export tasks (image-export-xxxxxxxx)<br></p>
+</li>
+<li>
+<p>OMIs (ami-xxxxxxxx)<br></p>
+</li>
+<li>
+<p><span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">Public IPs</span> (eipalloc-xxxxxxxx)<br></p>
+</li>
+<li>
+<p>Route tables (rtb-xxxxxxxx)<br></p>
+</li>
+<li>
+<p>Security groups (sg-xxxxxxxx)<br></p>
+</li>
+<li>
+<p>Snapshot export tasks (snap-export-xxxxxxxx)</p>
+</li>
+<li>
+<p>Snapshots (snap-xxxxxxxx)<br></p>
+</li>
+<li>
+<p>Subnets (subnet-xxxxxxxx)<br></p>
+</li>
+<li>
+<p><span class="tooltip" data-tooltip="virtual private gateway dans les API AWS-compliant">Virtual gateways</span> (vgw-xxxxxxxx)<br></p>
+</li>
+<li>
+<p><span class="tooltip" data-tooltip="instance dans les API AWS-compliant">Virtual machines (VMs)</span> (i-xxxxxxxx)<br></p>
+</li>
+<li>
+<p>Volumes (vol-xxxxxxxx)<br></p>
+</li>
+<li>
+<p>VPN connections (vpn-xxxxxxxx)<br></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="../../en/userguide/About-Tags.html" target="_blank" rel="noopener">About Tags</a>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" CreateTags \
+    --ResourceIds '["i-12345678"]' \
+    --Tags '[
+        {
+          "Key": "key1",
+          "Value": "value1"
+        }
+      ]'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>ResourceIds</code>: One or more resource IDs.</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags to add to the specified resources.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: (optional) The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: (optional) The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateTags</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_retirer_des_tags_2"><a class="anchor" href="Ajouter-ou-retirer-des-tags.html#_retirer_des_tags_2"></a>Retirer des tags</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>DeleteTags</strong> command deletes one or more tags from the specified resources.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" DeleteTags \
+    --ResourceIds '["i-12345678"]' \
+    --Tags '[
+        {
+          "Key": "key1",
+          "Value": "value1"
+        }
+      ]'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>ResourceIds</code>: One or more resource IDs.</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags to delete (if you set a tag value, only the tags matching exactly this value are deleted).</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: (optional) The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: (optional) The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>DeleteTags</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI_3"><a class="anchor" href="Ajouter-ou-retirer-des-tags.html#AWS CLI_3"></a>Ajouter ou retirer des tags avec AWS CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Avant de commencer :</strong> Installez et configurez AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="_ajouter_des_tags_3"><a class="anchor" href="Ajouter-ou-retirer-des-tags.html#_ajouter_des_tags_3"></a>Ajouter des tags</h3>
+<div class="paragraph">
+<p>Pour ajouter un ou plusieurs tags, utilisez la commande <strong>create-tags</strong> en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws ec2 create-tags \
+    --profile YOUR_PROFILE \
+    --resources sg-12345678 i-12345678\
+    --tags Key=Name,Value=SG1 Key=Name2,Value=I1 \
+    --endpoint https://fcu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>profile</code> : Le profil nommé que vous voulez utiliser, créé pendant la configuration d&#8217;AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>resources</code> : L&#8217;ID d&#8217;une ou plusieurs ressources auxquelles vous voulez ajouter un tag. Pour en savoir plus, voir <a href="À-propos-des-tags.html" class="xref page">À propos des ressources &gt; Types de ressources</a>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si vous spécifiez plusieurs ressources, chaque tag est ajouté à chacune d&#8217;entre elles.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><code>tags</code> : Les tags que vous voulez ajouter à une ressource spécifique. Ces attributs contiennent les éléments suivants que vous devez spécifier pour chaque tag :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>key</code> : La clé du tag.</p>
+</li>
+<li>
+<p><code>value</code> : La valeur du tag.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si vous souhaitez spécifier une clé uniquement, vous pouvez spécifier une chaîne de caractères vide pour l&#8217;élément <code>value</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>La valeur du tag doit contenir 255 caractères maximum. Cependant, la clé du tag n&#8217;est pas limitée en longueur.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>endpoint</code> : Le endpoint correspondant à la Région à laquelle vous voulez envoyer la requête. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Les tags sont ajoutés aux ressources spécifiées.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_retirer_des_tags_3"><a class="anchor" href="Ajouter-ou-retirer-des-tags.html#_retirer_des_tags_3"></a>Retirer des tags</h3>
+<div class="paragraph">
+<p>Pour retirer un ou plusieurs tags, utilisez la commande <strong>delete-tags</strong> en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws ec2 delete-tags \
+    --profile YOUR_PROFILE \
+    --resources sg-12345678 i-12345678 \
+    --tags Key=Name,Value=SG1 Key=Name2,Value=I1 \
+    --endpoint https://fcu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>profile</code> : Le profil nommé que vous voulez utiliser, créé pendant la configuration d&#8217;AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>resources</code> : L&#8217;ID d&#8217;une ou plusieurs ressources desquelles vous voulez retirer les tags spécifiés.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si vous spécifiez plusieurs ressources, les tags sont retirés de chacune d&#8217;entre elles.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><code>tags</code> : Les tags que vous voulez retirer des ressources spécifiées. Cet attribut contient les éléments suivants que vous devez spécifier pour chaque tag :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>key</code> : La clé du tag.</p>
+</li>
+<li>
+<p>(optionnel) <code>value</code> : La valeur du tag.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Si vous ne spécifiez aucune valeur, tous les tags qui ont la même clé sont retirés.<br></p>
+</li>
+<li>
+<p>Si vous spécifiez une chaîne de caractères vide pour la valeur, le tag est retiré seulement si sa valeur est une chaîne de caractères vide.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>endpoint</code> : Le endpoint correspondant à la Région à laquelle vous voulez envoyer la requête. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Les tags sont retirés des ressources spécifiées.</p>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-tags.html" class="xref page">À propos des tags</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-les-tags-associés-à-une-ressource.html" class="xref page">Obtenir des informations sur les tags associés à une ressource</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Méthodes API correspondantes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#createtags" class="xref page">CreateTags (API OUTSCALE)</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#deletetags" class="xref page">DeleteTags (API OUTSCALE)</a></p>
+</li>
+<li>
+<p><a href="../../fcu.html#createtags" class="xref page">CreateTags (FCU)</a></p>
+</li>
+<li>
+<p><a href="../../fcu.html#deletetags" class="xref page">DeleteTags (FCU)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

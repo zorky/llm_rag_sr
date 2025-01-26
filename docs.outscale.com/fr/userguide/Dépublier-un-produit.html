@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Dépublier un produit – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Dépublier-un-produit.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Dépublier-un-produit.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Unpublishing-a-Product.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Dépublier un produit</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>En tant que vendeur partenaire sur OUTSCALE Marketplace, vous pouvez dépublier vos produits de la Marketplace.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez dépublier un produit OMI parce que l&#8217;OMI a atteint sa fin de vie, ou pour tout autre motif. Dans les deux cas, les souscripteurs et les administrateurs de leurs organisations sont automatiquement informés par e-mail. Les souscripteurs qui ont déjà créé des <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machines virtuelles</span> (machine virtuelle (VM)) à partir de l&#8217;OMI qui est par la suite dépubliée peuvent continuer à utiliser ces VM.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez également dépublier des produits infogérés, mais les souscripteurs n&#8217;en sont pas automatiquement informés par e-mail par 3DS OUTSCALE. Dans ce cas, les vendeurs partenaires ont la responsabilité d&#8217;en informer leurs souscripteurs.</p>
+</div>
+<div class="paragraph">
+<p>Lorsqu&#8217;un produit est dépublié, sa date de modification et son statut de publication sont mis à jour dans le tableau Mes produits.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Attention"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Dépublier un produit implique que :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Les acheteurs ne pourront plus consulter le produit dans le catalogue de la Marketplace ni y souscrire.</p>
+</li>
+<li>
+<p>Vous ne pourrez plus consulter, modifier, ni republier le produit.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous pouvez également dépublier des versions spécifiques d&#8217;OMI. Pour en savoir plus, voir <a href="Gérer-les-versions-d-un-produit-OMI.html" class="xref page">Gérer les versions d&#8217;un produit OMI</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Dépublier un produit OMI_0"><a class="anchor" href="Dépublier-un-produit.html#Dépublier un produit OMI_0"></a>Dépublier un produit OMI</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_dans_le_cas_dune_fin_de_vie"><a class="anchor" href="Dépublier-un-produit.html#_dans_le_cas_dune_fin_de_vie"></a>Dans le cas d&#8217;une fin de vie</h3>
+<div class="paragraph">
+<p>Pour dépublier un produit OMI pour motif de fin de vie :</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans le coin supérieur droit de l&#8217;interface, cliquez sur votre nom d&#8217;utilisateur ou votre adresse e-mail.<br>
+Un menu déroulant apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Mes produits</strong>.<br>
+La page Mes produits apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Dépublier</strong> <span class="image"><img src="_images/ico-Marketplace-Unpublish.svg" alt="ico Marketplace Unpublish"></span> sur la ligne produit souhaitée.<br>
+La boîte de dialogue Dépublication de produit apparaît.</p>
+</li>
+<li>
+<p>Sélectionnez le motif de dépublication <strong>Fin de vie de produit</strong> et cliquez sur <strong>Suivant</strong>.</p>
+</li>
+<li>
+<p>Spécifiez la date de fin de vie.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Les vendeurs partenaires doivent respecter un délai de prévenance d&#8217;au moins 3 mois entre l&#8217;annonce de la fin de vie du produit OMI et sa dépublication. Cela implique que la date de fin de vie du produit OMI doit être au moins 3 mois après la date à laquelle cette procédure est réalisée.</p>
+</div>
+<div class="paragraph">
+<p>3DS OUSCALE envoie des e-mails de rappel le jour où le vendeur partenaire décide de dépublier le produit OMI, 5 jours avant la dépublication et le jour de la dépublication.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) Spécifiez un produit de remplacement.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Dépublier</strong>.<br>
+La page produit est immédiatement supprimée du catalogue et le produit OMI sera dépublié de la Marketplace à la date spécifiée. Les souscripteurs et les administrateurs de l&#8217;organisation sont automatiquement informés par e-mail.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Dépublier un produit infogéré_1"><a class="anchor" href="Dépublier-un-produit.html#Dépublier un produit infogéré_1"></a>Dépublier un produit infogéré</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Pour dépublier un produit infogéré :</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans le coin supérieur droit de l&#8217;interface, cliquez sur votre nom d&#8217;utilisateur ou votre adresse e-mail.<br>
+Un menu déroulant apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Mes produits</strong>.<br>
+La page Mes produits apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur le bouton <strong>Dépublier</strong> <span class="image"><img src="_images/ico-Marketplace-Unpublish.svg" alt="ico Marketplace Unpublish"></span> sur la ligne du produit souhaité.<br>
+La boîte de dialogue Dépublication de produit apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Dépublier</strong>.<br>
+Le produit est dépublié de la Marketplace.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-d-OUTSCALE-Marketplace.html" class="xref page">À propos d&#8217;OUTSCALE Marketplace</a></p>
+</li>
+<li>
+<p><a href="Créer-et-publier-un-produit-OMI.html" class="xref page">Créer et publier un produit OMI</a></p>
+</li>
+<li>
+<p><a href="Créer-et-publier-un-produit-infogéré.html" class="xref page">Créer et publier un produit infogéré</a></p>
+</li>
+<li>
+<p><a href="Gérer-les-versions-d-un-produit-OMI.html" class="xref page">Gérer les versions d&#8217;un produit OMI</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

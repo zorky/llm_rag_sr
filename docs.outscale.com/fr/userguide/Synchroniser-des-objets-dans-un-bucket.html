@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Synchroniser des objets dans un bucket – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Synchroniser-des-objets-dans-un-bucket.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Synchroniser-des-objets-dans-un-bucket.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Synchronizing-Objects-to-a-Bucket.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Synchroniser des objets dans un bucket</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez synchroniser des répertoires entiers depuis votre machine en local ou depuis un bucket vers un autre bucket à l&#8217;aide de la commande <code>sync</code>, en vous assurant que seuls les objets nouveaux ou modifiés sont transférés.<br></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>sync</code> synchronise les objets en comparant d&#8217;abord leurs tailles ; si les tailles correspondent, la commande vérifie ensuite leur horodotage de dernière modification. Toute divergence déclenche la synchronisation.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Vous pouvez également supprimer automatiquement les objets qui ont été supprimés en local.</p>
+</div>
+<div class="paragraph">
+<p>Cette fonctionnalité est utile pour optimiser votre stockage tout en évitant toute action manuelle inutile, mais aussi pour gérer vos sites web avec des mises à jour de contenu efficaces.<br></p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>sync</code> ignore les répertoires vides. Par conséquent, les dossiers vides dans le répertoire source ne seront pas copiés dans le répertoire de destination. Cette fonctionnalité ne peut pas être désactivée.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI (s3)"><a class="anchor" href="Synchroniser-des-objets-dans-un-bucket.html#AWS CLI (s3)"></a>Synchroniser des objets dans un bucket avec AWS CLI (s3)</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Avant de commencer :</strong> Installez et configurez AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Pour synchroniser un objet avec l&#8217;un de vos buckets, utilisez la commande <strong>sync</strong> en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws s3 sync PATH/TO/DIRECTORY_TO_SYNC or s3://BUCKET_TO_SYNC s3://YOUR_BUCKET/ \
+    --profile YOUR_PROFILE \
+    --dryrun \
+    --include \
+    --exclude \
+    --follow-symlinks \
+    --acl \
+    --no-guess-mime-type \
+    --website-redirect \
+    --cache-control \
+    --content-disposition \
+    --content-encoding \
+    --content-language \
+    --content-type \
+    --expires \
+    --only-show-errors \
+    --no-progress \
+    --page-size \
+    --request-payer \
+    --metadata \
+    --metadata-directive \
+    --copy-props \
+    --size-only \
+    --exact-timestamps \
+    --delete \
+    --debug \
+    --no-sign-request \
+    --no-paginate \
+    --endpoint https://oos.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>PATH/TO/DIRECTORY_TO_SYNC</code> ou <code>s3://BUCKET_TO_SYNC/</code> : Le chemin d&#8217;accès au répertoire sur votre machine en local ou le contenu du bucket (si vous avez les permissions appropriées) que vous souhaitez synchroniser.</p>
+</li>
+<li>
+<p><code>s3://YOUR_BUCKET</code> : Le nom du bucket dans lequel vous souhaitez que le répertoire soit synchronisé.</p>
+</li>
+<li>
+<p>(optionnel) <code>profile</code> : Le profil nommé que vous voulez utiliser, créé pendant la configuration d&#8217;AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p>(optionnel) <code>dryrun</code> : Fournit une vue d&#8217;ensemble des opérations effectuées par la commande sans pour autant l&#8217;exécuter. Vous pouvez utiliser cet attribut comme mesure de sécurité pour examiner l&#8217;impact d&#8217;une commande avant de l&#8217;exécuter.</p>
+</li>
+<li>
+<p>(optionnel) <code>include</code> : Spécifie des règles pour inclure des fichiers dans l&#8217;opération de synchronisation, en remplaçant les règles d&#8217;exclusion globales et en s&#8217;assurant que les fichiers spécifiques soient toujours synchronisés.</p>
+</li>
+<li>
+<p>(optionnel) <code>exclude</code> : Spécifie des règles pour exclure des fichiers de l&#8217;opération de synchronisation, ce qui permet de filtrer les fichiers ou les répertoires indésirables.</p>
+</li>
+<li>
+<p>(optionnel) <code>follow-symkinks</code> : Suit les liens symboliques dans le répertoire source, en téléchargeant le contenu cible dans le bucket sous le nom du lien symbolique, dans la mesure où S3 ne prend pas en charge les liens symboliques.</p>
+</li>
+<li>
+<p>(optionnel) <code>acl</code> : Les permissions que vous accordez pour votre objet (<code>private</code> | <code>public-read</code> | <code>public-read-write</code> | <code>authenticated-read</code> | <code>bucket-owner-read</code> | <code>bucket-owner-full-control</code>).</p>
+</li>
+<li>
+<p>(optionnel) <code>no-guess-mime-type</code> : Empêche la configuration automatique d&#8217;un type MIME basé sur l&#8217;extension du fichier. Cette fonctionnalité est utile si vous devez vous assurer qu&#8217;un <code>content-type</code> (type de contenu) spécifique est utilisé.</p>
+</li>
+<li>
+<p>(optionnel) <code>website-redirect</code> : Si vous avez configuré le bucket comme site web, redirige les requêtes pour cet objet vers un autre objet dans le même bucket ou vers une URL externe.</p>
+</li>
+<li>
+<p>(optionnel) <code>cache-control</code> : Comment vous souhaitez que l&#8217;objet soit traité en termes de mise en cache (<code>max-age</code> | <code>max-stale</code> | <code>min-fresh</code> | <code>no-cache</code> | <code>no-store</code> | <code>no-transform</code> | <code>only-if-cached</code> | <code>stale-if-error</code>).</p>
+</li>
+<li>
+<p>(optionnel) <code>content-disposition</code> : Comment vous souhaitez que l&#8217;objet soit affiché lorsque vous y accédez par le biais d&#8217;un navigateur (<code>"inline"</code> | <code>"attachment"</code>  | <code>"attachment; filename="&lt;NOM_DU_FICHIER&gt;""</code>)</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>inline</code> : Si possible, demande au navigateur d&#8217;afficher le contenu à l&#8217;intérieur de la fenêtre du navigateur. Cet attribut est utile pour les images, les PDF et autres types de médias que les navigateurs peuvent facilement interpréter.</p>
+</li>
+<li>
+<p><code>attachment</code> : Quel que soit le type de fichier, demande au navigateur de télécharger le contenu au lieu de l&#8217;afficher en ligne. Le fichier est ainsi enregistré localement.</p>
+</li>
+<li>
+<p><code>"attachment; filename="&lt;NOM_DU_FICHIER&gt;""</code> : Quel que soit le type de fichier, demande au navigateur de télécharger le contenu au lieu de l&#8217;afficher en ligne. Le fichier est ainsi enregistré localement sous le nom de fichier spécifié.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>content-encoding</code> : Le format d&#8217;encodage de l&#8217;objet (<code>gzip</code> | <code>compress</code> | <code>deflate</code> | <code>identity</code> | <code>br</code>).</p>
+</li>
+<li>
+<p>(optionnel) <code>content-language</code> : La langue dans laquelle le contenu de l&#8217;objet est rédigé, en code de langue (format ISO 639).</p>
+</li>
+<li>
+<p>(optionnel) <code>content-type</code> : Le type MIME (Multipurpose Internet Mail Extensions) de l&#8217;objet.<br></p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Un attribut <code>content-type</code> mal défini ou absent peut entraîner une mauvaise interprétation ou un mauvais traitement des objets par les navigateurs. En conséquence, vous pouvez rencontrer des difficultés pour accéder à vos objets ou les visualiser à l&#8217;aide de votre navigateur préféré.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>expires</code> : La date et l&#8217;heure, au format UTC, à laquelle vous considérez que l&#8217;objet ne peut plus être mis en cache et est considéré comme périmé.</p>
+</li>
+<li>
+<p>(optionnel) <code>only-show-errors</code> : Limite la sortie aux seules erreurs, ce qui facilite la détection des problèmes dans les scripts ou les environnements automatisés.</p>
+</li>
+<li>
+<p>(optionnel) <code>no-progress</code> : Désactive l&#8217;affichage de la progression pendant l&#8217;opération de synchronisation. Cette fonction est utile pour les scripts ou les journaux pour lesquels vous n&#8217;avez pas besoin de mises à jour de progression en temps réel.</p>
+</li>
+<li>
+<p>(optionnel) <code>page-size</code> : Détermine le nombre de requêtes effectuées lors d&#8217;un appel. Une taille de page plus petite augmente le nombre d&#8217;appels mais aide à éviter les dépassements de délai en récupérant moins d&#8217;éléments à chaque requête. Par exemple, si vous avez un bucket de 120 objets et que vous fixez la taille de la page à 10, la CLI devra effectuer 12 requêtes pour récupérer tous les objets. Si vous fixez la taille de la page à 60, seulement 2 requêtes seront nécessaires.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>La valeur par défaut est <code>1000</code>.</p>
+</li>
+<li>
+<p>Les valeurs minimales et maximales sont <code>1</code> and <code>1000</code>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>request-payer</code> : Configure l&#8217;opération pour qu&#8217;elle soit effectuée en tant que demandeur-payeur, ce qui signifie que c&#8217;est le demandeur plutôt que le propriétaire du bucket qui paie le coût du transfert de données.</p>
+</li>
+<li>
+<p>(optionnel) <code>metadata</code> : Une carte des entrées de metadata supplémentaires que vous pouvez indiquer librement.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>key</code> : Le nom de la metadata.</p>
+</li>
+<li>
+<p><code>value</code> : La valeur de la metadata.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>metadata-directive</code> : Indique si les metadata doivent être copiées à partir de l&#8217;objet source ou remplacées par les metadata fournies dans la requête (<code>COPY</code> ou <code>REPLACE</code>).</p>
+</li>
+<li>
+<p>(optionnel) <code>copy-props</code> : Détermine les propriétés que vous souhaitez copier depuis l&#8217;objet source (<code>none</code> | <code>metadata-directive</code> | <code>default</code>).</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>none</code> ne copie aucune des propriétés de l&#8217;objet source.</p>
+</li>
+<li>
+<p><code>metadata-directive</code> copie les valeurs suivantes depuis l&#8217;objet source : <code>content-type</code>, <code>content-language</code>, <code>content-encoding</code>, <code>content-disposition</code>, <code>cache-control</code>, <code>expires</code>, et <code>metadata</code>.</p>
+</li>
+<li>
+<p><code>default-value</code> copie les tags et les metadata spécifiées par la valeur <code>metadata-directive</code> de l&#8217;objet source.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>size-only</code> : Ordonne à la commande de n&#8217;utiliser que la taille du fichier, et non l&#8217;heure de la dernière modification, pour déterminer si un fichier doit être copié. Cette fonctionnalité permet de réduire le nombre de requêtes HTTP HEAD pendant la synchronisation.</p>
+</li>
+<li>
+<p>(optionnel) <code>exact-timestamps</code> : Utilise des horodatages précis pour comparer les fichiers, garantissant que seuls les fichiers dont l&#8217;horodatage est le plus récent sont copiés, ce qui permet un contrôle plus granulaire de ce qui est considéré comme un fichier "plus récent".</p>
+</li>
+<li>
+<p>(optionnel) <code>delete</code> : Supprime les fichiers du répertoire de destination qui n&#8217;ont pas d&#8217;équivalent dans le répertoire source, ce qui garantit que le répertoire de destination reflète exactement le répertoire source.</p>
+</li>
+<li>
+<p>(optionnel) <code>debug</code> : Si inclus, renvoie un rapport détaillé de l&#8217;opération. Cet attribut est utile pour analyser et résoudre les problèmes que vous pouvez rencontrer.</p>
+</li>
+<li>
+<p>(optionnel) <code>no-sign-request</code> : Effectue l&#8217;opération sans signer la demande. Ceci est utile pour accéder à des ressources publiques sans utiliser vos informations d&#8217;identification.</p>
+</li>
+<li>
+<p>(optionnel) <code>no-paginate</code> : Désactive la pagination de la sortie. Cette fonction est utile pour les commandes qui produisent un grand volume de données.</p>
+</li>
+<li>
+<p><code>endpoint</code> : Le endpoint correspondant à la Région à laquelle vous voulez envoyer la requête. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Page connexe</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

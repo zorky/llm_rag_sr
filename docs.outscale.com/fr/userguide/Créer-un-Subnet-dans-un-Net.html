@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Créer un Subnet dans un Net – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Créer-un-Subnet-dans-un-Net.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Créer-un-Subnet-dans-un-Net.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Creating-a-Subnet-in-a-Net.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Créer un Subnet dans un Net</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez créer un ou plusieurs Subnets dans un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span> pour pouvoir lancer des ressources dans celui-ci. Les Subnets sont placés dans des <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Sous-régions</span> de la Région de votre Net.</p>
+</div>
+<div class="paragraph">
+<p>Une fois votre Subnet créé, il est recommandé de créer un security group et une route table qui lui sont dédiés. Pour en savoir plus, voir <a href="Créer-un-security-group.html" class="xref page">Créer un security group</a> et <a href="Créer-une-route-table.html" class="xref page">Créer une route table</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Cockpit v2_0"><a class="anchor" href="Créer-un-Subnet-dans-un-Net.html#Cockpit v2_0"></a>Créer un Subnet avec Cockpit v2</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Avant de commencer :</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Créer un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span>. Pour en savoir plus, voir <a href="Créer-un-Net.html" class="xref page">Créer un Net</a>.</p>
+</li>
+<li>
+<p>(optionnel) Pour désactiver la fonctionnalité permettant aux <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machines virtuelles (VM)</span> d&#8217;un même Subnet de communiquer entre elles sans règles de security group requises, ajoutez un tag à votre Net avec <code>osc.fcu.enable_lan_security_groups</code> pour clé. Pour en savoir plus sur comment ajouter un tag, voir <a href="Ajouter-ou-retirer-des-tags.html" class="xref page">Ajouter ou retirer des tags</a>. Pour en savoir plus sur cette fonctionnalité, voir <a href="À-propos-des-Nets.html#_routage_et_sécurité_dun_subnet" class="xref page">À propos des VPC &gt; Routage et sécurité d&#8217;un subnet</a>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Ce tag doit être ajouté à votre Net avant de créer des Subnets dans celui-ci.</p>
+</li>
+<li>
+<p>La valeur de ce tag n&#8217;est pas prise en compte, vous pouvez donc spécifier n&#8217;importe quelle valeur pour ce tag.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous pouvez également effectuer cette action en créant un Net. Pour en savoir plus, voir <a href="Créer-un-Net.html" class="xref page">Créer un Net</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans le dashboard <strong>Nets</strong>, cliquez sur l&#8217;icône de détails <span class="image"><img src="_images/IconView.svg" alt="IconView"></span> du Net dans lequel vous souhaitez créer un Subnet.<br>
+Le volet des Subnets apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <span class="image"><img src="_images/IconAddFull.svg" alt="IconAddFull"></span> <strong>Créer un Subnet</strong>.<br>
+La boîte de dialogue CRÉER UN SUBNET apparaît.</p>
+</li>
+<li>
+<p>Dans le champ <strong>Nom</strong>, tapez un nom pour le Subnet.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Cette action ajoute un tag Name de 255 caractères maximum. Vous pouvez utiliser tous les caractères, y compris les lettres accentuées.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Dans le champ <strong>Plage d&#8217;IP</strong>, tapez la plage d&#8217;IP pour le Subnet, en notation CIDR.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Le bloc CIDR du Subnet doit faire partie du bloc CIDR du Net.</p>
+</li>
+<li>
+<p>Si vous créez plusieurs Subnets dans un Net, leurs blocs CIDR ne doivent pas se chevaucher.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Dans la liste <strong>Sous-région</strong>, sélectionnez la Sous-région dans laquelle vous voulez créer le Subnet.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Créer un Subnet</strong>.<br>
+Le Subnet est créé dans le Net.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="OSC CLI_1"><a class="anchor" href="Créer-un-Subnet-dans-un-Net.html#OSC CLI_1"></a>Créer un Subnet avec OSC CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Avant de commencer :</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Créer un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span>. Pour en savoir plus, voir <a href="Créer-un-Net.html" class="xref page">Créer un Net</a>.</p>
+</li>
+<li>
+<p>(optionnel) Pour désactiver la fonctionnalité permettant aux <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machines virtuelles (VM)</span> d&#8217;un même Subnet de communiquer entre elles sans règles de security group requises, ajoutez un tag à votre Net avec <code>osc.fcu.enable_lan_security_groups</code> pour clé. Pour en savoir plus sur comment ajouter un tag, voir <a href="Ajouter-ou-retirer-des-tags.html" class="xref page">Ajouter ou retirer des tags</a>. Pour en savoir plus sur cette fonctionnalité, voir <a href="À-propos-des-Nets.html#_routage_et_sécurité_dun_subnet" class="xref page">À propos des VPC &gt; Routage et sécurité d&#8217;un subnet</a>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Ce tag doit être ajouté à votre Net avant de créer des Subnets dans celui-ci.</p>
+</li>
+<li>
+<p>La valeur de ce tag n&#8217;est pas prise en compte, vous pouvez donc spécifier n&#8217;importe quelle valeur pour ce tag.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateSubnet</strong> command creates a Subnet in an existing Net.<br>
+To create a Subnet in a Net, you have to provide the ID of the Net and the IP range for the Subnet (its network range). Once the Subnet is created, you cannot modify its IP range.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="../../en/userguide/About-Nets.html" target="_blank" rel="noopener">About Nets</a>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api CreateSubnet --profile "default" \
+    --NetId "vpc-12345678" \
+    --IpRange "10.0.0.0/18"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>IpRange</code>: The IP range in the Subnet, in CIDR notation (for example, <code>10.0.0.0/16</code>).<br>
+The IP range of the Subnet can be either the same as the Net one if you create only a single Subnet in this Net, or a subset of the Net one. In case of several Subnets in a Net, their IP ranges must not overlap. The smallest Subnet you can create uses a /29 netmask (eight IPs). For more information, see <a href="../../en/userguide/About-Nets.html" target="_blank" rel="noopener">About Nets</a>.</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net for which you want to create a Subnet.</p>
+</li>
+<li>
+<p><code>SubregionName</code>: (optional) The name of the <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Subregion</span> in which you want to create the Subnet.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateSubnet</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Subnet</code>: Information about the Subnet.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AvailableIpsCount</code>: The number of available IPs in the Subnets.</p>
+</li>
+<li>
+<p><code>IpRange</code>: The IP range in the Subnet, in CIDR notation (for example, <code>10.0.0.0/16</code>).</p>
+</li>
+<li>
+<p><code>MapPublicIpOnLaunch</code>: If true, a <span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">public IP</span> is assigned to the <span class="tooltip" data-tooltip="flexible network interface (FNI) dans les API AWS-compliant">network interface cards (NICs)</span> created in the specified Subnet.</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net in which the Subnet is.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the Subnet (<code>pending</code> | <code>available</code> | <code>deleted</code>).</p>
+</li>
+<li>
+<p><code>SubnetId</code>: The ID of the Subnet.</p>
+</li>
+<li>
+<p><code>SubregionName</code>: The name of the Subregion in which the Subnet is located.</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the Subnet.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "Subnet": {
+    "Tags": [],
+    "SubregionName": "eu-west-2a",
+    "SubnetId": "subnet-12345678",
+    "AvailableIpsCount": 16379,
+    "IpRange": "10.0.0.0/18",
+    "MapPublicIpOnLaunch": false,
+    "State": "available",
+    "NetId": "vpc-12345678"
+  },
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="oapi-cli_2"><a class="anchor" href="Créer-un-Subnet-dans-un-Net.html#oapi-cli_2"></a>Créer un Subnet avec oapi-cli</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Avant de commencer :</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Créer un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span>. Pour en savoir plus, voir <a href="Créer-un-Net.html" class="xref page">Créer un Net</a>.</p>
+</li>
+<li>
+<p>(optionnel) Pour désactiver la fonctionnalité permettant aux <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machines virtuelles (VM)</span> d&#8217;un même Subnet de communiquer entre elles sans règles de security group requises, ajoutez un tag à votre Net avec <code>osc.fcu.enable_lan_security_groups</code> pour clé. Pour en savoir plus sur comment ajouter un tag, voir <a href="Ajouter-ou-retirer-des-tags.html" class="xref page">Ajouter ou retirer des tags</a>. Pour en savoir plus sur cette fonctionnalité, voir <a href="À-propos-des-Nets.html#_routage_et_sécurité_dun_subnet" class="xref page">À propos des VPC &gt; Routage et sécurité d&#8217;un subnet</a>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Ce tag doit être ajouté à votre Net avant de créer des Subnets dans celui-ci.</p>
+</li>
+<li>
+<p>La valeur de ce tag n&#8217;est pas prise en compte, vous pouvez donc spécifier n&#8217;importe quelle valeur pour ce tag.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateSubnet</strong> command creates a Subnet in an existing Net.<br>
+To create a Subnet in a Net, you have to provide the ID of the Net and the IP range for the Subnet (its network range). Once the Subnet is created, you cannot modify its IP range.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="../../en/userguide/About-Nets.html" target="_blank" rel="noopener">About Nets</a>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" CreateSubnet \
+    --NetId "vpc-12345678" \
+    --IpRange "10.0.0.0/18"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>IpRange</code>: The IP range in the Subnet, in CIDR notation (for example, <code>10.0.0.0/16</code>).<br>
+The IP range of the Subnet can be either the same as the Net one if you create only a single Subnet in this Net, or a subset of the Net one. In case of several Subnets in a Net, their IP ranges must not overlap. The smallest Subnet you can create uses a /29 netmask (eight IPs). For more information, see <a href="../../en/userguide/About-Nets.html" target="_blank" rel="noopener">About Nets</a>.</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net for which you want to create a Subnet.</p>
+</li>
+<li>
+<p><code>SubregionName</code>: (optional) The name of the <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Subregion</span> in which you want to create the Subnet.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateSubnet</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Subnet</code>: Information about the Subnet.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AvailableIpsCount</code>: The number of available IPs in the Subnets.</p>
+</li>
+<li>
+<p><code>IpRange</code>: The IP range in the Subnet, in CIDR notation (for example, <code>10.0.0.0/16</code>).</p>
+</li>
+<li>
+<p><code>MapPublicIpOnLaunch</code>: If true, a <span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">public IP</span> is assigned to the <span class="tooltip" data-tooltip="flexible network interface (FNI) dans les API AWS-compliant">network interface cards (NICs)</span> created in the specified Subnet.</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net in which the Subnet is.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the Subnet (<code>pending</code> | <code>available</code> | <code>deleted</code>).</p>
+</li>
+<li>
+<p><code>SubnetId</code>: The ID of the Subnet.</p>
+</li>
+<li>
+<p><code>SubregionName</code>: The name of the Subregion in which the Subnet is located.</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the Subnet.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "Subnet": {
+    "Tags": [],
+    "SubregionName": "eu-west-2a",
+    "SubnetId": "subnet-12345678",
+    "AvailableIpsCount": 16379,
+    "IpRange": "10.0.0.0/18",
+    "MapPublicIpOnLaunch": false,
+    "State": "available",
+    "NetId": "vpc-12345678"
+  },
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI_3"><a class="anchor" href="Créer-un-Subnet-dans-un-Net.html#AWS CLI_3"></a>Créer un subnet avec AWS CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Avant de commencer :</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Installez et configurez AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p>Créer un <span class="tooltip" data-tooltip="Net dans l'API OUTSCALE">VPC</span>. Pour en savoir plus, voir <a href="Créer-un-Net.html" class="xref page">Créer un Net</a>.</p>
+</li>
+<li>
+<p>(optionnel) Pour désactiver la fonctionnalité permettant aux <span class="tooltip" data-tooltip="machine virtuelle (VM) dans l'API OUTSCALE">instances</span> d&#8217;un même subnet de communiquer entre elles sans règles de security group requises, ajoutez un tag à votre VPC avec `osc.fcu.enable_lan_security_groups`pour clé. Pour en savoir plus sur comment ajouter un tag, voir <a href="Ajouter-ou-retirer-des-tags.html" class="xref page">Ajouter ou retirer des tags</a>. Pour en savoir plus sur cette fonctionnalité, voir <a href="À-propos-des-Nets.html#_routage_et_sécurité_dun_subnet" class="xref page">À propos des VPC &gt; Routage et sécurité d&#8217;un subnet</a>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Ce tag doit être ajouté à votre VPC avant de créer des subnets dans celui-ci.</p>
+</li>
+<li>
+<p>La valeur de ce tag n&#8217;est pas prise en compte, vous pouvez donc spécifier n&#8217;importe quelle valeur pour ce tag.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Pour créer un subnet, utilisez la commande <strong>create-subnet</strong> en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws ec2 create-subnet \
+    --profile YOUR_PROFILE \
+    --vpc-id vpc-12345678 \
+    --cidr-block 10.1.0.0/24 \
+    --availability-zone eu-west-2a \
+    --endpoint https://fcu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>profile</code> : Le profil nommé que vous voulez utiliser, créé pendant la configuration d&#8217;AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>vpc-id</code> : L&#8217;ID du VPC dans lequel vous souhaitez créer un subnet.</p>
+</li>
+<li>
+<p><code>cidr-block</code> : La plage d&#8217;IP pour le subnet, en notation CIDR.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Le bloc CIDR du subnet doit faire partie du bloc CIDR du VPC.</p>
+</li>
+<li>
+<p>Si vous créez plusieurs subnets dans un VPC, leurs blocs CIDR ne doivent pas se chevaucher.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>availability-zone</code> : L&#8217;<span class="tooltip" data-tooltip="Sous-région dans l'API OUTSCALE">AZ</span> dans laquelle vous souhaitez créer le subnet.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si vous ne spécifiez aucune <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Sous-région</span>, la Sous-région A est utilisée par défaut.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><code>endpoint</code> : Le endpoint correspondant à la Région à laquelle vous voulez envoyer la requête. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>La commande <strong>create-subnet</strong> renvoie les éléments suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Subnet</code> : Informations à propos du subnet nouvellement créé. Cet élement contient les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VpcId</code> : Le VPC dans lequel est le subnet.</p>
+</li>
+<li>
+<p><code>CidrBlock</code> : La plage d&#8217;IP pour le subnet, en notation CIDR.</p>
+</li>
+<li>
+<p><code>State</code> : L&#8217;état du subnet. Pour en savoir plus, voir <a href="À-propos-des-Nets.html" class="xref page">À propos des Nets</a>.</p>
+</li>
+<li>
+<p><code>AvailabilityZone</code> : L&#8217;AZ dans laquelle est le subnet.</p>
+</li>
+<li>
+<p><code>SubnetId</code> : L&#8217;ID du subnet.</p>
+</li>
+<li>
+<p><code>AvailableIpAddressCount</code> : Le nombre d&#8217;IP inutilisées dans le subnet.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de résultat</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json"> {
+    "Subnet": {
+        "VpcId": "vpc-12345678",
+        "CidrBlock": "10.1.0.0/24",
+        "State": "available",
+        "AvailabilityZone": "eu-west-2a",
+        "SubnetId": "subnet-87654321",
+        "AvailableIpAddressCount": 242
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Le subnet est créé.</p>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-Nets.html" class="xref page">À propos des Nets</a></p>
+</li>
+<li>
+<p><a href="Créer-un-Net.html" class="xref page">Créer un Net</a></p>
+</li>
+<li>
+<p><a href="À-propos-des-Régions-et-Sous-régions.html" class="xref page">À propos des Régions et Sous-régions</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Méthodes API correspondantes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#createsubnet" class="xref page">CreateSubnet (API OUTSCALE)</a></p>
+</li>
+<li>
+<p><a href="../../fcu.html#createsubnet" class="xref page">CreateSubnet (FCU)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

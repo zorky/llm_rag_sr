@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>About VM Lifecycle – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="About-VM-Lifecycle.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/About-VM-Lifecycle.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/À-propos-du-cycle-de-vie-des-VM.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">About VM Lifecycle</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Flexible Compute Unit (FCU) <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">virtual machines (VMs)</span> have a specific lifecycle from the moment you create them to their termination. You can manage their lifecycle which implies different consequences regarding its allocated or attached resources.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="About-VM-Lifecycle.html#_overview"></a>Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<div class="title"><span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span> Lifecycle</div>
+<p><span class="image"><img src="_images/sch-FCU-InstanceLifecycle.png" alt="sch FCU InstanceLifecycle"></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_creation"><a class="anchor" href="About-VM-Lifecycle.html#_creation"></a>Creation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Creating a <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span> corresponds to both creating it and then starting it. Once the VM is created, it enters the pending state until it is created, started, and ready to use. The state of the VM then changes to running.<br>
+Creating a VM allocates the corresponding physical resources to it. You define the hardware of its host computer thanks to a VM type, and the OS, configuration, and possibly software applications installed on it thanks to an OUTSCALE machine image (OMI). For more information, see <a href="About-OMIs.html" class="xref page">About OMIs</a>.</p>
+</div>
+<div class="paragraph">
+<p>The VM receives a unique VM ID, and a private IP and an associated private DNS name that can only be contacted within the Cloud. If you create a VM in the public Cloud, it also receives a <span class="tooltip" data-tooltip="External IP (EIP) in AWS-Compliant APIs">public IP</span> and an associated public DNS name. This public IP is temporary and changes every time you stop and start the VM. For more information, see <a href="About-VMs.html#_general_information_about_vms" class="xref page">About VMs &gt; General Information About VMs</a>.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>To fix a public IP to a VM of the public Cloud or to add a fixed public IP to a VM in a <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span>, you can attach a public IP to it, and then use the osc.fcu.eip.auto-attach OUTSCALE tag to fix it through the stop and start process. For more information, see <a href="About-Public-IPs.html" class="xref page">About Public IPs</a>.</p>
+</li>
+<li>
+<p>To create a VM in the public Cloud without a public IP and a public DNS name, use the private-only OUTSCALE tag.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="Configuring-a-VM-with-User-Data-and-OUTSCALE-Tags.html" class="xref page">Configuring a VM with User Data and OUTSCALE Tags</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can also attach <span class="tooltip" data-tooltip="flexible network interface (FNI) in AWS-Compliant APIs">network interface cards (NICs)</span> to a VM at creation or afterward to partition its network. For more information, see <a href="Network-Interface-Cards-NICs.html" class="xref page">Network Interface Cards (NICs)</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_stop_and_start"><a class="anchor" href="About-VM-Lifecycle.html#_stop_and_start"></a>Stop and Start</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can stop a running <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span> at any time, and then start it again. Stopping a VM using the API corresponds to shutting it down using the operating system (OS) command.</p>
+</div>
+<div class="paragraph">
+<p>You can also force a VM to stop. When doing so, the VM stops without properly exiting running applications.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Forcing a VM to stop may damage its system.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>When you stop a VM, it enters the stopping state, and then changes to stopped. When you start a stopped VM, it enters the pending state, and then changes to running.</p>
+</div>
+<div class="paragraph">
+<p>When stopping and starting a VM, it keeps:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Its VM ID</p>
+</li>
+<li>
+<p>Its private DNS and IP</p>
+</li>
+<li>
+<p>The <span class="tooltip" data-tooltip="External IP (EIP) in AWS-Compliant APIs">public IP</span> attached to it and fixed using the osc.fcu.eip.auto-attach OUTSCALE tag (if so)</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If the VM is not tagged with the osc.fcu.eip.auto-attach OUTSCALE tag, the public IP is detached from the VM when stopping it.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Volumes attached to it (if so)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>However, the public IP and public DNS name assigned to a VM of the public Cloud at creation change through the stop and start process. Data stored in the memory is also erased when stopping the VM.</p>
+</div>
+<div class="paragraph">
+<p>When a VM is stopped, you can modify its attributes like its VM type (amount of vCores and memory). For more information, see <a href="Modifying-a-VM-Attribute.html" class="xref page">Modifying a VM Attribute</a>.</p>
+</div>
+<div class="paragraph">
+<p>It is also recommended to stop the VM if you want to treat a volume attached to it. To do so, you need to detach the volume from the VM once it is stopped and to attach it to another VM to treat it. When reattaching the volume to the original stopped VM, beware of using the same device name as the one specified in its block device mapping before starting the VM again. For more information, see <a href="Attaching-a-Volume-to-a-VM.html" class="xref page">Attaching a Volume to a VM</a>, <a href="Detaching-a-Volume-from-a-VM.html" class="xref page">Detaching a Volume from a VM</a> and <a href="Defining-Block-Device-Mappings.html" class="xref page">Defining Block Device Mappings</a>. If the VM you want to stop is registered with a load balancer, it is recommended to deregister it before stopping it, and to start it before registering it again if needed. For more information, see <a href="Load-Balancing-Unit-LBU.html" class="xref page">Load Balancing Unit (LBU)</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_force_stop"><a class="anchor" href="About-VM-Lifecycle.html#_force_stop"></a>Force Stop</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If regular stop does not work on your <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span>, you can also force it to stop. Forcing the VM to stop corresponds to unplugging a computer, which means that the system may not stop properly.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Forcing a VM to stop may damage its system and lose data. Ensure that you no longer need it or that you have backed it up.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can view the console output of the VM to check if there is any issue or problem going on. To do so, see <a href="Viewing-the-Console-Output-of-a-VM.html" class="xref page">Viewing the Console Output of a VM</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following list presents the general causes why a VM cannot stop properly:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A process is running, which prevents to stop the VM.<br>
+The most frequent reason is that a process is using a filesystem, which means that an operation on the volume is not finished yet. This prevents the filesystem to be unmounted, which is required to stop the VM. Therefore, you need to ensure that no process is using a filesystem (for example, NFS or CRFS). If there is any, do one of the following three options before trying again to stop the VM:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Wait until the process ends.</p>
+</li>
+<li>
+<p>Stop the process.</p>
+</li>
+<li>
+<p>Unmount the volume on which the process is running.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>An update is in progress (for example, a Windows update).</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Do not force a VM to stop during an update, as it may damage your VM or prevent it from starting again. Some updates may take a lot of time (up to several hours) on small VM types.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>There are issues with your ACPI calls, required by VMs to stop properly. The two main issues are:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The VM has crashed. In this case ACPI calls are ignored.</p>
+</li>
+<li>
+<p>The pci-hotplug and acpiphp modules are not installed on your VM, so ACPI calls are not supported. This may happen if you used your own custom OMI to create your VM.<br>
+You can check the /etc/modules directory to check whether they are installed or not:</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell"># /etc/modules: kernel modules to load at boot time.
+#
+# This file contains the names of kernel modules that should be loaded
+# at boot time, one per line. Lines beginning with "#" are ignored.
+# Parameters can be specified after the module name.
+pci-hotplug
+acpiphp</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the modules are not installed, you can create your own custom OMI using an official OMI, and then create a new VM.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If the VM does not stop when using a Force Stop, contact our Support team. Beware that the support will have no other choice but shutting the VM down which may corrupt your data. Ensure you have backed it up.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_reboot"><a class="anchor" href="About-VM-Lifecycle.html#_reboot"></a>Reboot</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can reboot a running <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span> at any time if needed using the API, which corresponds to rebooting the OS. When rebooting, the VM restarts without going through the stop and start process.<br>
+The VM is still running and keeps all its allocated resources. Besides, data stored in its memory remains available after rebooting a VM.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_termination"><a class="anchor" href="About-VM-Lifecycle.html#_termination"></a>Termination</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can terminate a <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span> that you no longer need. Terminated VMs cannot be recovered. The VM enters in the <code>shutting-down</code> state, and then changes to <code>terminated</code> once the termination is completed. The VM remains visible in the <code>terminated</code> state for 1 hour, without any possibility to recover it.</p>
+</div>
+<div class="paragraph">
+<p>When terminating a VM, its corresponding physical resources are released and data stored in its memory is erased. If a <span class="tooltip" data-tooltip="External IP (EIP) in AWS-Compliant APIs">public IP</span> is attached to the VM, it is released but still allocated to your account.</p>
+</div>
+<div class="paragraph">
+<p>The behavior of BSU volumes when terminating the VM they are attached to depends on the block device mapping. By default, the root device of the VM is deleted while other volumes attached to it are detached. For more information about how to set this behavior, see <a href="Defining-Block-Device-Mappings.html" class="xref page">Defining Block Device Mappings</a>.</p>
+</div>
+<div class="paragraph">
+<p>You can also configure two types of termination protection:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DisableApiTermination</code>: This attribute enables you to prevent VM termination (by default, enables termination).</p>
+</li>
+<li>
+<p><code>InstanceInitiatedShutDownBehavior</code>: This attribute enables you to define the VM behavior when you stop or terminate it. By default or it set to <code>stop</code>, the VM stops. If set to <code>restart</code>, the VM stops then automatically restarts. If set to <code>terminate</code>, the VM stops and is terminated. You can, for example, automatically terminate a VM at the end of an application by setting this attribute to <code>terminate</code> and asking the VM to stop when the running application is closed.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These two termination protection attributes can be defined when creating the VM and modified afterward. For more information, see <a href="Modifying-a-VM-Attribute.html" class="xref page">Modifying a VM Attribute</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="About-VMs.html" class="xref page">About VMs</a></p>
+</li>
+<li>
+<p><a href="Creating-VMs.html" class="xref page">Creating VMs</a></p>
+</li>
+<li>
+<p><a href="Stopping-and-Starting-VMs.html" class="xref page">Stopping and Starting VMs</a></p>
+</li>
+<li>
+<p><a href="Rebooting-VMs.html" class="xref page">Rebooting VMs</a></p>
+</li>
+<li>
+<p><a href="Terminating-VMs.html" class="xref page">Terminating VMs</a></p>
+</li>
+<li>
+<p><a href="Infrastructure-Maintenance.html" class="xref page">Infrastructure Maintenance</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

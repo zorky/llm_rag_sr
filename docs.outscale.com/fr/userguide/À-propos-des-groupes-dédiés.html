@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>À propos des groupes dédiés – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="À-propos-des-groupes-dédiés.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/À-propos-des-groupes-dédiés.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/About-Dedicated-Groups.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">À propos des groupes dédiés</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Par défaut, les <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> sont placées sur des serveurs partagés entre les différents comptes OUTSCALE. Cependant, vous pouvez utiliser des groupes dédiés pour créer vos VM sur des serveurs qui sont alloués uniquement à votre usage.</p>
+</div>
+<div class="paragraph">
+<p>Les serveurs alloués à un groupe dédié ne sont pas partagés avec des VM associées à d&#8217;autres groupes dédiés, avec des VM non dédiées ou avec d&#8217;autres comptes.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Cette fonctionnalité est actuellement en bêta. Pour en savoir plus sur les services bêta, voir le <a href="Glossaire.html" class="xref page">Glossaire</a> et nos <a href="https://fr.outscale.com/cgucgv/" target="_blank" rel="noopener">Conditions générales de ventes et d&#8217;utilisation</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_informations_générales"><a class="anchor" href="À-propos-des-groupes-dédiés.html#_informations_générales"></a>Informations générales</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Utiliser les groupes dédiés vous permet de bénéficier de la capacité maximum d&#8217;un ou plusieurs serveurs, en fonction de la capacité des serveurs et du nombre de <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> que vous créez dans vos groupes dédiés. Cela garantit que seules les VM que vous créez dans un groupe dédié sont déployées sur des serveurs qui sont alloués à votre usage.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez créer des groupes dédiés de même configuration. Un serveur spécifique sera assigné à chaque groupe dédié.</p>
+</div>
+<div class="paragraph">
+<p>Un groupe dédié est composé des éléments suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountId</code> : l&#8217;ID du compte du propriétaire du groupe dédié.</p>
+</li>
+<li>
+<p><code>CpuGeneration</code> : la génération du processeur des VM du groupe dédié. Pour en savoir plus, voir <a href="Types-de-VM.html" class="xref page">Types de VM</a>.</p>
+</li>
+<li>
+<p><code>DedicatedGroupdId</code> : l&#8217;ID du groupe dédié. Cet ID doit être utilisé comme allocation des VM ou des <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span> que vous créez. Pour en savoir plus, voir <a href="Créer-des-VM.html" class="xref page">Créer des VM</a> et <a href="Créer-un-Net.html" class="xref page">Créer un Net</a>.</p>
+</li>
+<li>
+<p><code>Name</code> : un nom pour le groupe dédié.</p>
+</li>
+<li>
+<p><code>NetIds</code> : les ID des Nets dans le groupe dédié.</p>
+</li>
+<li>
+<p><code>SubregionName</code> : la <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Sous-région</span> dans laquelle le groupe dédié est créé.</p>
+</li>
+<li>
+<p><code>VmIds</code> : les ID des VM dans le groupe dédié.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Créer des VM dans des groupes dédiés vous permet d&#8217;utiliser la virtualisation imbriquée. Pour en savoir plus, <a href="À-propos-des-VM.html" class="xref page">À propos des VM</a> et <a href="Activer-la-virtualisation-imbriquée.html" class="xref page">Activer la virtualisation imbriquée</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_groupes_dédiés_et_vm"><a class="anchor" href="À-propos-des-groupes-dédiés.html#_groupes_dédiés_et_vm"></a>Groupes dédiés et VM</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez créer autant de <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> que nécessaire dans un groupe dédié. Si la capacité d&#8217;un serveur est dépassée, plusieurs serveurs vous sont alloués pour répondre au nombre de VM demandé.</p>
+</div>
+<div class="paragraph">
+<p>Pour créer des VM dans un groupe dédié, vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>l&#8217;ID d&#8217;un groupé dédié comme allocation de la VM.</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Attention"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Il n&#8217;est pas possible de modifier l&#8217;allocation d&#8217;une VM après sa création. Pour en savoir plus, voir <a href="Créer-des-VM.html" class="xref page">Créer des VM</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>l&#8217;indicateur de performance <code>highest</code> (1). Seules les VM avec cet indicateur de performance sont supportées dans les groupes dédiés. Pour en savoir plus, voir <a href="Types-de-VM.html" class="xref page">Types de VM</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Si vous souhaitez créer des VM dans un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span> et dans un groupe dédié, vous devez créer un Net avec l&#8217;ID d&#8217;un groupe dédié comme allocation. Ensuite, créez une VM avec le même ID de groupe dédié comme allocation. Sinon, la VM ne peut pas être créée.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si deux VM sont dans un groupe dédié, mais sont dans deux Net différents, les Nets seront situés sur le même serveur.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_allocation_et_libération_des_serveurs"><a class="anchor" href="À-propos-des-groupes-dédiés.html#_allocation_et_libération_des_serveurs"></a>Allocation et libération des serveurs</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_allocation_des_serveurs"><a class="anchor" href="À-propos-des-groupes-dédiés.html#_allocation_des_serveurs"></a>Allocation des serveurs</h3>
+<div class="paragraph">
+<p>Un serveur est alloué dès qu&#8217;une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> est créée dans un groupe dédié.</p>
+</div>
+<div class="paragraph">
+<p>Lorsqu&#8217;une VM est créée, elle est à l&#8217;état pending et les ressources matérielles correspondantes lui sont allouées. Cela inclut l&#8217;allocation d&#8217;un serveur dédié à votre usage. Pour en savoir plus sur le cycle de vie des VM, voir <a href="À-propos-du-cycle-de-vie-des-VM.html" class="xref page">À propos du cycle de vie des VM</a>.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous pouvez obtenir des informations à propos du serveur sur lequel votre VM est créée en accédant aux metadata à partir de la VM elle-même. Pour en savoir plus, voir <a href="Accéder-aux-metadata-et-user-data-d-une-VM.html" class="xref page">Accéder aux metadata et user data d&#8217;une VM</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_libération_des_serveurs"><a class="anchor" href="À-propos-des-groupes-dédiés.html#_libération_des_serveurs"></a>Libération des serveurs</h3>
+<div class="paragraph">
+<p>Un serveur est libéré lorsque toutes les VMs sur ce serveur sont terminées.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si toutes les VM d&#8217;un serveur alloué à un groupe dédié sont terminées, le serveur est automatiquement libéré. Si vous créez de nouvelles VM dans ce même groupe dédié, un autre serveur peut être alloué pour les nouvelles VM.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-VM.html" class="xref page">À propos des VM</a></p>
+</li>
+<li>
+<p><a href="À-propos-des-Nets.html" class="xref page">À propos des Nets</a></p>
+</li>
+<li>
+<p><a href="Créer-un-groupe-dédié.html" class="xref page">Créer un groupe dédié</a></p>
+</li>
+<li>
+<p><a href="Activer-la-virtualisation-imbriquée.html" class="xref page">Activer la virtualisation imbriquée</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Méthodes API correspondantes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#creatededicatedgroup" class="xref page">CreateDedicatedGroup (API OUTSCALE)</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readdedicatedgroups" class="xref page">ReadDedicatedGroups (API OUTSCALE)</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#updatededicatedgroup" class="xref page">UpdateDedicatedGroup (API OUTSCALE)</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#deletededicatedgroup" class="xref page">DeleteDedicatedGroup (API OUTSCALE)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

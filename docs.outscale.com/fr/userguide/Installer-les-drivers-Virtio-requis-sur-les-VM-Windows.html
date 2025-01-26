@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Installer les drivers Virtio requis sur les VM Windows – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Installer-les-drivers-Virtio-requis-sur-les-VM-Windows.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Installer-les-drivers-Virtio-requis-sur-les-VM-Windows.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Installing-the-Required-Virtio-Drivers-on-Windows-VMs.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Installer les drivers Virtio requis sur les VM Windows</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Les <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machines virtuelles (VM)</span> Windows requièrent la dernière version stable des drivers Virtio pour fonctionner correctement sur les hyperviseurs OUTSCALE. Cette version est installée sur les OUTSCALE machine images (OMI) officielles Windows pour les six drivers (balloon, netkvm, viostor, vioscsi, vioser, and viorng).</p>
+</div>
+<div class="paragraph">
+<p>Si vous avez créé des VM utilisant des OMI plus anciennes, la bonne version des drivers Virtio peut ne pas y être installée. Vous devez donc installer la dernière version stable sur ces VM.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si vous installez d&#8217;autres versions des drivers Virtio, la stabilité de vos VM n&#8217;est pas garantie et ces versions ne sont pas supportées.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus sur les drivers Virtio, voir le <a href="https://docs.fedoraproject.org/en-US/quick-docs/creating-windows-virtual-machines-using-virtio-drivers/index.html" target="_blank" rel="noopener">site du projet Fedora</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_identifier_votre_version_des_drivers_virtio"><a class="anchor" href="Installer-les-drivers-Virtio-requis-sur-les-VM-Windows.html#_identifier_votre_version_des_drivers_virtio"></a>Identifier votre version des drivers Virtio</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Pour identifier les drivers Virtio installés et leur version, exécutez la commande suivante sur votre <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-powershell hljs" data-lang="powershell">(Get-WindowsDriver -Online -All) | Where-Object {$_.ProviderName -like "*Red*"} | Select-Object * | Format-Table -Autosize | Out-String -Width 4096 | Out-File C:\drivers.txt</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Cette commande renvoie des informations sur chaque driver Virtio installé sur la VM, y compris sa version comme premier élément de chaque ligne :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">Version         Driver   OriginalFileName                                                                              Inbox CatalogFile ClassName   ClassGuid                              ClassDescription    BootCritical DriverSignature
+-------         ------   ----------------                                                                              ----- ----------- ---------   ---------                              ----------------    ------------ ---------------
+62.72.104.12600 oem1.inf C:\Windows\System32\DriverStore\FileRepository\viostor.inf_amd64_f57bb5cb6f66201a\viostor.inf False viostor.cat SCSIAdapter {4D36E97B-E325-11CE-BFC1-08002BE10318} Storage controllers         True          Signed
+62.72.104.12600 oem2.inf C:\Windows\System32\DriverStore\FileRepository\netkvm.inf_amd64_86f72247bd094099\netkvm.inf   False netkvm.cat  Net         {4D36E972-E325-11CE-BFC1-08002BE10318} Network adapters           False          Signed
+62.72.104.12600 oem3.inf C:\Windows\System32\DriverStore\FileRepository\balloon.inf_amd64_ac8e1013d5702f6a\balloon.inf False Balloon.cat System      {4D36E97D-E325-11CE-BFC1-08002BE10318} System devices              True          Signed
+62.72.104.12600 oem4.inf C:\Windows\System32\DriverStore\FileRepository\viorng.inf_amd64_80b3998b603cc617\viorng.inf   False viorng.cat  System      {4D36E97D-E325-11CE-BFC1-08002BE10318} System devices              True          Signed
+62.72.104.12600 oem5.inf C:\Windows\System32\DriverStore\FileRepository\vioscsi.inf_amd64_9e5fd570349e223c\vioscsi.inf False vioscsi.cat SCSIAdapter {4D36E97B-E325-11CE-BFC1-08002BE10318} Storage controllers         True          Signed
+62.72.104.12600 oem6.inf C:\Windows\System32\DriverStore\FileRepository\vioser.inf_amd64_8f2b8fc4022897b3\vioser.inf   False vioser.cat  System      {4D36E97D-E325-11CE-BFC1-08002BE10318} System devices              True          Signed</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Si la colonne Version n&#8217;indique pas la dernière version stable pour les six drivers, ou si l&#8217;un d&#8217;eux manque, vous devez les télécharger et les installer sur votre VM. Pour en savoir plus, voir la procédure <a href="Installer-les-drivers-Virtio-requis-sur-les-VM-Windows.html#_installer_la_dernière_version_des_drivers_virtio">Installer la dernière version des drivers Virtio</a> ci-dessous.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installer_la_dernière_version_des_drivers_virtio"><a class="anchor" href="Installer-les-drivers-Virtio-requis-sur-les-VM-Windows.html#_installer_la_dernière_version_des_drivers_virtio"></a>Installer la dernière version des drivers Virtio</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Si la version des drivers Virtio installée sur votre <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> n&#8217;est pas la dernière version stable, vous devez l&#8217;installer. Vous pouvez également supprimer les anciennes versions qui ne sont plus utilisées.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Avant de commencer :</strong> Installer ou mettre à jour un driver peut endommager la VM. Il est fortement recommandé de créer un snapshot du volume système de la VM avant la procédure suivante. Pour en savoir plus, voir <a href="Créer-un-snapshot-d-un-volume.html" class="xref page">Créer un snapshot d&#8217;un volume</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Pour télécharger le fichier iso contenant la dernière version stable des drivers Virtio pour Windows, cliquez sur le lien suivant depuis votre VM : <a href="https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso" target="_blank" rel="noopener">https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso</a>.<br>
+Le fichier est téléchargé sur votre VM.</p>
+</li>
+<li>
+<p>Ouvrez le fichier .iso et récupérez les drivers en suivant ce chemin d&#8217;accès :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">:\\DRIVER_NAME\2k16\amd64\DRIVER_NAME.inf</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Pour chaque driver, faites un clic croit sur le fichier .inf et cliquez sur <strong>Installer</strong>.<br>
+Les drivers sélectionnés sont installés sur la VM.</p>
+</li>
+<li>
+<p>Pour supprimer les anciens drivers :</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Identifiez les drivers et leurs versions installés sur la VM en utilisant la procédure <a href="Installer-les-drivers-Virtio-requis-sur-les-VM-Windows.html#_identifier_votre_version_des_drivers_virtio">Identifier votre version des drivers Virtio</a> ci-dessus, ou en exécutant la commande suivante :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-powershell hljs" data-lang="powershell">Pnputil.exe -e</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Pour chaque driver que vous souhaitez supprimer, exécutez la commande suivante en utilisant le published name du driver, au format oemX.inf :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-powershell hljs" data-lang="powershell">Pnputil.exe -d oemX.inf</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Le published name du driver au format oemX est affiché dans la colonne Driver.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Référence-des-OMI-officielles.html" class="xref page">Référence des OMI officielles</a></p>
+</li>
+<li>
+<p><a href="Créer-des-VM.html" class="xref page">Créer des VM</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

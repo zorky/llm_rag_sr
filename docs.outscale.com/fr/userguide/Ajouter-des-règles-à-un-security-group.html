@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Ajouter des règles à un security group – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Ajouter-des-règles-à-un-security-group.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Ajouter-des-règles-à-un-security-group.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Adding-Rules-to-a-Security-Group.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Ajouter des règles à un security group</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez ajouter des règles pour les flux entrants à des security groups. Vous pouvez également ajouter des règles pour les flux sortants aux security groups que vous créez pour un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span>.</p>
+</div>
+<div class="paragraph">
+<p>Les règles de security groups vous permettent d&#8217;autoriser les flux dans un protocole et sur les ports que vous spécifiez, venant soit d&#8217;une IP unique ou d&#8217;une plage d&#8217;IP (publiques, privées ou externes), soit d&#8217;un autre security group. Lorsque vous ajoutez une règle à un security group, celle-ci est automatiquement appliquée aux <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machines virtuelles (VM)</span> auxquelles le security group est associé.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Cockpit v2_0"><a class="anchor" href="Ajouter-des-règles-à-un-security-group.html#Cockpit v2_0"></a>Ajouter des règles à un security group avec Cockpit v2</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans le dashboard <strong>Security Groups</strong>, cliquez sur l&#8217;icône de détails <span class="image"><img src="_images/IconView.svg" alt="IconView"></span> du security group auquel vous voulez ajouter une règle.<br>
+Le volet des security group rules apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <span class="image"><img src="_images/IconAddFull.svg" alt="IconAddFull"></span> <strong>Créer une règle d&#8217;entrée</strong> pour ajouter une règle d&#8217;entrée, ou, le cas échéant, sur l&#8217;onglet <strong>Règles de sortie</strong> puis sur <span class="image"><img src="_images/IconAddFull.svg" alt="IconAddFull"></span> <strong>Créer une règle de sortie</strong>.<br>
+La boîte de dialogue CRÉER DES RÈGLES D&#8217;ENTRÉE ou CRÉER DES RÈGLES DE SORTIE apparaît.</p>
+</li>
+<li>
+<p>Pour définir une règle, spécifiez les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Service</strong> : Le service (par exemple, <strong>SSH</strong> or <strong>HTTP</strong>). Pour en savoir plus sur les services disponibles, voir <a href="À-propos-des-règles-des-security-groups.html" class="xref page">À propos des règles des security groups</a>.</p>
+</li>
+<li>
+<p><strong>Protocole</strong> : Le protocole IP (<strong>tcp</strong>, <strong>udp</strong>, <strong>icmp</strong>, ou <strong>Tous</strong>), le cas échéant.</p>
+</li>
+<li>
+<p><strong>Port/ICMP</strong> : Les numéros de ports ou types ICMP, le cas échéant. Cela peut être :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Une valeur ou plus, séparées par des points-virgules</p>
+</li>
+<li>
+<p>Une plage de valeurs, séparées par un trait d&#8217;union</p>
+</li>
+<li>
+<p>Pour TCP et UDP : un numéro de port seul entre 0 et 65535, ou une plage de numéros de ports.</p>
+</li>
+<li>
+<p>Pour ICMP : un numéro de type seul entre 0 et 255, ou un numéro de type et numéro de code, ou -1 pour indiquer tous les types ICMP.</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Attention"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Évitez d&#8217;ouvrir des flux sur tous les ports (<code>1-65535</code>), car cela vous empêche de les contrôler efficacement. Ouvrez des flux uniquement sur les ports dont vous avez besoin.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Plage d&#8217;IP/Security group</strong> : La cible de la règle. Cela peut être :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Une IP en notation CIDR</p>
+</li>
+<li>
+<p>Une plage d&#8217;IP en notation CIDR</p>
+</li>
+<li>
+<p>Un autre security group, spécifié par ID ou par nom</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si le bouton <strong>Mon IP</strong> ne fonctionne pas, vérifiez si une extension de navigateur bloque des scripts sur la page.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Pour ajouter plusieurs règles à la fois, cliquez sur <span class="image"><img src="_images/IconAddFull.svg" alt="IconAddFull"></span> <strong>Ajouter une règle</strong> et répétez l&#8217;étape 3.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Créer</strong>.<br>
+La ou les règles sont ajoutées au security group.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="OSC CLI_1"><a class="anchor" href="Ajouter-des-règles-à-un-security-group.html#OSC CLI_1"></a>Ajouter des règles à un security group avec OSC CLI</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateSecurityGroupRule</strong> command adds one or more rules to a security group.<br>
+Use the <code>SecurityGroupId</code> parameter to specify the security group for which you want to create a rule.<br>
+Use the <code>Flow</code> parameter to specify if you want an inbound rule or an outbound rule.</p>
+</div>
+<div class="paragraph">
+<p>An inbound rule allows the security group to receive traffic:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Either from a specific IP range (<code>IpRange</code> parameter) on a specific port range (<code>FromPortRange</code> and <code>ToPortRange</code> parameters) and specific protocol (<code>IpProtocol</code> parameter).</p>
+</li>
+<li>
+<p>Or from another specific security group (<code>SecurityGroupAccountIdToLink</code> and <code>SecurityGroupNameToLink</code> parameters).<br></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>(<span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span> only) An outbound rule works similarly but allows the security group to send traffic rather than receive traffic.<br></p>
+</div>
+<div class="paragraph">
+<p>Alternatively, you can use the <code>Rules</code> parameter to add several rules at the same time.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The modifications are effective as quickly as possible, but a small delay may occur.<br></p>
+</li>
+<li>
+<p>By default, traffic between two security groups is allowed through both public and private IPs. To restrict traffic to private IPs only, contact our Support team at <a href="mailto:support@outscale.com">support@outscale.com</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="../../en/userguide/About-Security-Group-Rules.html" target="_blank" rel="noopener">About Security Group Rules</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Creating an inbound rule from an IP range</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api CreateSecurityGroupRule --profile "default" \
+    --Flow "Inbound" \
+    --SecurityGroupId "sg-12345678" \
+    --FromPortRange 80 \
+    --ToPortRange 80 \
+    --IpProtocol "tcp" \
+    --IpRange "10.0.0.0/16"</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Creating an inbound rule from another security group</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api CreateSecurityGroupRule --profile "default" \
+    --Flow "Inbound" \
+    --SecurityGroupId "sg-12345678" \
+    --Rules '[
+        {
+          "FromPortRange": 22,
+          "ToPortRange": 22,
+          "IpProtocol": "tcp",
+          "SecurityGroupsMembers": [{"AccountId": "123456789012", "SecurityGroupName": "another-security-group"}]
+        }
+      ]'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Flow</code>: The direction of the flow: <code>Inbound</code> or <code>Outbound</code>. You can specify <code>Outbound</code> for Nets only.</p>
+</li>
+<li>
+<p><code>FromPortRange</code>: (optional) The beginning of the port range for the TCP and UDP protocols, or an ICMP type number. If you specify this parameter, you cannot specify the <code>Rules</code> parameter and its subparameters.</p>
+</li>
+<li>
+<p><code>IpProtocol</code>: (optional) The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>, or <code>-1</code> for all protocols). By default, <code>-1</code>. In a Net, this can also be an IP protocol number. For more information, see the <a href="https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml" target="_blank" rel="noopener">IANA.org website</a>. If you specify this parameter, you cannot specify the <code>Rules</code> parameter and its subparameters.</p>
+</li>
+<li>
+<p><code>IpRange</code>: (optional) The IP range for the security group rule, in CIDR notation (for example, 10.0.0.0/16). If you specify this parameter, you cannot specify the <code>Rules</code> parameter and its subparameters.</p>
+</li>
+<li>
+<p><code>Rules</code>: (optional) Information about the security group rule to create. If you specify this parent parameter and its subparameters, you cannot specify the following parent parameters: <code>FromPortRange</code>, <code>IpProtocol</code>, <code>IpRange</code>, and <code>ToPortRange</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>FromPortRange</code>: (optional) The beginning of the port range for the TCP and UDP protocols, or an ICMP type number.</p>
+</li>
+<li>
+<p><code>IpProtocol</code>: (optional) The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>, or <code>-1</code> for all protocols). By default, <code>-1</code>. In a Net, this can also be an IP protocol number. For more information, see the <a href="https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml" target="_blank" rel="noopener">IANA.org website</a>.</p>
+</li>
+<li>
+<p><code>IpRanges</code>: (optional) One or more IP ranges for the security group rules, in CIDR notation (for example, <code>10.0.0.0/16</code>).</p>
+</li>
+<li>
+<p><code>SecurityGroupsMembers</code>: (optional) Information about one or more source or destination security groups.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountId</code>: (optional) The account ID that owns the source or destination security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupId</code>: (optional) The ID of a source or destination security group that you want to link to the security group of the rule.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: (optional) (Public Cloud only) The name of a source or destination security group that you want to link to the security group of the rule.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ServiceIds</code>: (optional) One or more service IDs to allow traffic from a Net to access the corresponding OUTSCALE services. For more information, see <a href="../../api%3Fconsole.html#readnetaccesspointservices" class="xref page">ReadNetAccessPointServices</a>.</p>
+</li>
+<li>
+<p><code>ToPortRange</code>: (optional) The end of the port range for the TCP and UDP protocols, or an ICMP code number.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>SecurityGroupAccountIdToLink</code>: (optional) The account ID that owns the source or destination security group specified in the <code>SecurityGroupNameToLink</code> parameter.</p>
+</li>
+<li>
+<p><code>SecurityGroupId</code>: The ID of the security group for which you want to create a rule.</p>
+</li>
+<li>
+<p><code>SecurityGroupNameToLink</code>: (optional) The ID of a source or destination security group that you want to link to the security group of the rule.</p>
+</li>
+<li>
+<p><code>ToPortRange</code>: (optional) The end of the port range for the TCP and UDP protocols, or an ICMP code number. If you specify this parameter, you cannot specify the <code>Rules</code> parameter and its subparameters.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateSecurityGroupRule</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>SecurityGroup</code>: Information about the security group.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountId</code>: The account ID that has been granted permission.</p>
+</li>
+<li>
+<p><code>Description</code>: The description of the security group.</p>
+</li>
+<li>
+<p><code>InboundRules</code>: The inbound rules associated with the security group.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>FromPortRange</code>: The beginning of the port range for the TCP and UDP protocols, or an ICMP type number.</p>
+</li>
+<li>
+<p><code>IpProtocol</code>: The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>, or <code>-1</code> for all protocols). By default, <code>-1</code>. In a Net, this can also be an IP protocol number. For more information, see the <a href="https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml" target="_blank" rel="noopener">IANA.org website</a>.</p>
+</li>
+<li>
+<p><code>IpRanges</code>: One or more IP ranges for the security group rules, in CIDR notation (for example, <code>10.0.0.0/16</code>).</p>
+</li>
+<li>
+<p><code>SecurityGroupsMembers</code>: Information about one or more source or destination security groups.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountId</code>: The account ID that owns the source or destination security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupId</code>: The ID of a source or destination security group that you want to link to the security group of the rule.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: (Public Cloud only) The name of a source or destination security group that you want to link to the security group of the rule.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ServiceIds</code>: One or more service IDs to allow traffic from a Net to access the corresponding OUTSCALE services. For more information, see <a href="../../api%3Fconsole.html#readnetaccesspointservices" class="xref page">ReadNetAccessPointServices</a>.</p>
+</li>
+<li>
+<p><code>ToPortRange</code>: The end of the port range for the TCP and UDP protocols, or an ICMP code number.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net for the security group.</p>
+</li>
+<li>
+<p><code>OutboundRules</code>: The outbound rules associated with the security group.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>FromPortRange</code>: The beginning of the port range for the TCP and UDP protocols, or an ICMP type number.</p>
+</li>
+<li>
+<p><code>IpProtocol</code>: The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>, or <code>-1</code> for all protocols). By default, <code>-1</code>. In a Net, this can also be an IP protocol number. For more information, see the <a href="https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml" target="_blank" rel="noopener">IANA.org website</a>.</p>
+</li>
+<li>
+<p><code>IpRanges</code>: One or more IP ranges for the security group rules, in CIDR notation (for example, <code>10.0.0.0/16</code>).</p>
+</li>
+<li>
+<p><code>SecurityGroupsMembers</code>: Information about one or more source or destination security groups.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountId</code>: The account ID that owns the source or destination security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupId</code>: The ID of a source or destination security group that you want to link to the security group of the rule.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: (Public Cloud only) The name of a source or destination security group that you want to link to the security group of the rule.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ServiceIds</code>: One or more service IDs to allow traffic from a Net to access the corresponding OUTSCALE services. For more information, see <a href="../../api%3Fconsole.html#readnetaccesspointservices" class="xref page">ReadNetAccessPointServices</a>.</p>
+</li>
+<li>
+<p><code>ToPortRange</code>: The end of the port range for the TCP and UDP protocols, or an ICMP code number.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>SecurityGroupId</code>: The ID of the security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: The name of the security group.</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the security group.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Creating an inbound rule from an IP range</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "SecurityGroup": {
+    "Tags": [],
+    "SecurityGroupName": "security-group-example",
+    "OutboundRules": [
+      {
+        "FromPortRange": -1,
+        "IpProtocol": "-1",
+        "ToPortRange": -1,
+        "IpRanges": [
+          "0.0.0.0/0"
+        ]
+      }
+    ],
+    "SecurityGroupId": "sg-12345678",
+    "AccountId": "123456789012",
+    "Description": "Example of security group",
+    "InboundRules": [
+      {
+        "FromPortRange": 80,
+        "IpProtocol": "tcp",
+        "ToPortRange": 80,
+        "IpRanges": [
+          "10.0.0.0/16"
+        ]
+      }
+    ],
+    "NetId": "vpc-12345678"
+  },
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Creating an inbound rule from another security group</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "SecurityGroup": {
+    "Tags": [],
+    "SecurityGroupName": "security-group-example",
+    "OutboundRules": [
+      {
+        "FromPortRange": -1,
+        "IpProtocol": "-1",
+        "ToPortRange": -1,
+        "IpRanges": [
+          "0.0.0.0/0"
+        ]
+      }
+    ],
+    "SecurityGroupId": "sg-12345678",
+    "AccountId": "123456789012",
+    "Description": "Example of security group",
+    "InboundRules": [
+      {
+        "FromPortRange": 22,
+        "IpProtocol": "tcp",
+        "ToPortRange": 22,
+        "SecurityGroupsMembers": [
+          {
+            "SecurityGroupName": "another-security-group",
+            "SecurityGroupId": "sg-87654321",
+            "AccountId": "987654321098"
+          }
+        ]
+      }
+    ],
+    "NetId": "vpc-12345678"
+  },
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="oapi-cli_2"><a class="anchor" href="Ajouter-des-règles-à-un-security-group.html#oapi-cli_2"></a>Ajouter des règles à un security group avec oapi-cli</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateSecurityGroupRule</strong> command adds one or more rules to a security group.<br>
+Use the <code>SecurityGroupId</code> parameter to specify the security group for which you want to create a rule.<br>
+Use the <code>Flow</code> parameter to specify if you want an inbound rule or an outbound rule.</p>
+</div>
+<div class="paragraph">
+<p>An inbound rule allows the security group to receive traffic:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Either from a specific IP range (<code>IpRange</code> parameter) on a specific port range (<code>FromPortRange</code> and <code>ToPortRange</code> parameters) and specific protocol (<code>IpProtocol</code> parameter).</p>
+</li>
+<li>
+<p>Or from another specific security group (<code>SecurityGroupAccountIdToLink</code> and <code>SecurityGroupNameToLink</code> parameters).<br></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>(<span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span> only) An outbound rule works similarly but allows the security group to send traffic rather than receive traffic.<br></p>
+</div>
+<div class="paragraph">
+<p>Alternatively, you can use the <code>Rules</code> parameter to add several rules at the same time.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The modifications are effective as quickly as possible, but a small delay may occur.<br></p>
+</li>
+<li>
+<p>By default, traffic between two security groups is allowed through both public and private IPs. To restrict traffic to private IPs only, contact our Support team at <a href="mailto:support@outscale.com">support@outscale.com</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="../../en/userguide/About-Security-Group-Rules.html" target="_blank" rel="noopener">About Security Group Rules</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Creating an inbound rule from an IP range</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" CreateSecurityGroupRule \
+    --Flow "Inbound" \
+    --SecurityGroupId "sg-12345678" \
+    --FromPortRange 80 \
+    --ToPortRange 80 \
+    --IpProtocol "tcp" \
+    --IpRange "10.0.0.0/16"</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Creating an inbound rule from another security group</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" CreateSecurityGroupRule \
+    --Flow "Inbound" \
+    --SecurityGroupId "sg-12345678" \
+    --Rules '[
+        {
+          "FromPortRange": 22,
+          "ToPortRange": 22,
+          "IpProtocol": "tcp",
+          "SecurityGroupsMembers": [{"AccountId": "123456789012", "SecurityGroupName": "another-security-group"}]
+        }
+      ]'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Flow</code>: The direction of the flow: <code>Inbound</code> or <code>Outbound</code>. You can specify <code>Outbound</code> for Nets only.</p>
+</li>
+<li>
+<p><code>FromPortRange</code>: (optional) The beginning of the port range for the TCP and UDP protocols, or an ICMP type number. If you specify this parameter, you cannot specify the <code>Rules</code> parameter and its subparameters.</p>
+</li>
+<li>
+<p><code>IpProtocol</code>: (optional) The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>, or <code>-1</code> for all protocols). By default, <code>-1</code>. In a Net, this can also be an IP protocol number. For more information, see the <a href="https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml" target="_blank" rel="noopener">IANA.org website</a>. If you specify this parameter, you cannot specify the <code>Rules</code> parameter and its subparameters.</p>
+</li>
+<li>
+<p><code>IpRange</code>: (optional) The IP range for the security group rule, in CIDR notation (for example, 10.0.0.0/16). If you specify this parameter, you cannot specify the <code>Rules</code> parameter and its subparameters.</p>
+</li>
+<li>
+<p><code>Rules</code>: (optional) Information about the security group rule to create. If you specify this parent parameter and its subparameters, you cannot specify the following parent parameters: <code>FromPortRange</code>, <code>IpProtocol</code>, <code>IpRange</code>, and <code>ToPortRange</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>FromPortRange</code>: (optional) The beginning of the port range for the TCP and UDP protocols, or an ICMP type number.</p>
+</li>
+<li>
+<p><code>IpProtocol</code>: (optional) The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>, or <code>-1</code> for all protocols). By default, <code>-1</code>. In a Net, this can also be an IP protocol number. For more information, see the <a href="https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml" target="_blank" rel="noopener">IANA.org website</a>.</p>
+</li>
+<li>
+<p><code>IpRanges</code>: (optional) One or more IP ranges for the security group rules, in CIDR notation (for example, <code>10.0.0.0/16</code>).</p>
+</li>
+<li>
+<p><code>SecurityGroupsMembers</code>: (optional) Information about one or more source or destination security groups.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountId</code>: (optional) The account ID that owns the source or destination security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupId</code>: (optional) The ID of a source or destination security group that you want to link to the security group of the rule.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: (optional) (Public Cloud only) The name of a source or destination security group that you want to link to the security group of the rule.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ServiceIds</code>: (optional) One or more service IDs to allow traffic from a Net to access the corresponding OUTSCALE services. For more information, see <a href="../../api%3Fconsole.html#readnetaccesspointservices" class="xref page">ReadNetAccessPointServices</a>.</p>
+</li>
+<li>
+<p><code>ToPortRange</code>: (optional) The end of the port range for the TCP and UDP protocols, or an ICMP code number.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>SecurityGroupAccountIdToLink</code>: (optional) The account ID that owns the source or destination security group specified in the <code>SecurityGroupNameToLink</code> parameter.</p>
+</li>
+<li>
+<p><code>SecurityGroupId</code>: The ID of the security group for which you want to create a rule.</p>
+</li>
+<li>
+<p><code>SecurityGroupNameToLink</code>: (optional) The ID of a source or destination security group that you want to link to the security group of the rule.</p>
+</li>
+<li>
+<p><code>ToPortRange</code>: (optional) The end of the port range for the TCP and UDP protocols, or an ICMP code number. If you specify this parameter, you cannot specify the <code>Rules</code> parameter and its subparameters.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateSecurityGroupRule</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>SecurityGroup</code>: Information about the security group.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountId</code>: The account ID that has been granted permission.</p>
+</li>
+<li>
+<p><code>Description</code>: The description of the security group.</p>
+</li>
+<li>
+<p><code>InboundRules</code>: The inbound rules associated with the security group.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>FromPortRange</code>: The beginning of the port range for the TCP and UDP protocols, or an ICMP type number.</p>
+</li>
+<li>
+<p><code>IpProtocol</code>: The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>, or <code>-1</code> for all protocols). By default, <code>-1</code>. In a Net, this can also be an IP protocol number. For more information, see the <a href="https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml" target="_blank" rel="noopener">IANA.org website</a>.</p>
+</li>
+<li>
+<p><code>IpRanges</code>: One or more IP ranges for the security group rules, in CIDR notation (for example, <code>10.0.0.0/16</code>).</p>
+</li>
+<li>
+<p><code>SecurityGroupsMembers</code>: Information about one or more source or destination security groups.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountId</code>: The account ID that owns the source or destination security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupId</code>: The ID of a source or destination security group that you want to link to the security group of the rule.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: (Public Cloud only) The name of a source or destination security group that you want to link to the security group of the rule.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ServiceIds</code>: One or more service IDs to allow traffic from a Net to access the corresponding OUTSCALE services. For more information, see <a href="../../api%3Fconsole.html#readnetaccesspointservices" class="xref page">ReadNetAccessPointServices</a>.</p>
+</li>
+<li>
+<p><code>ToPortRange</code>: The end of the port range for the TCP and UDP protocols, or an ICMP code number.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net for the security group.</p>
+</li>
+<li>
+<p><code>OutboundRules</code>: The outbound rules associated with the security group.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>FromPortRange</code>: The beginning of the port range for the TCP and UDP protocols, or an ICMP type number.</p>
+</li>
+<li>
+<p><code>IpProtocol</code>: The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>, or <code>-1</code> for all protocols). By default, <code>-1</code>. In a Net, this can also be an IP protocol number. For more information, see the <a href="https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml" target="_blank" rel="noopener">IANA.org website</a>.</p>
+</li>
+<li>
+<p><code>IpRanges</code>: One or more IP ranges for the security group rules, in CIDR notation (for example, <code>10.0.0.0/16</code>).</p>
+</li>
+<li>
+<p><code>SecurityGroupsMembers</code>: Information about one or more source or destination security groups.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountId</code>: The account ID that owns the source or destination security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupId</code>: The ID of a source or destination security group that you want to link to the security group of the rule.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: (Public Cloud only) The name of a source or destination security group that you want to link to the security group of the rule.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ServiceIds</code>: One or more service IDs to allow traffic from a Net to access the corresponding OUTSCALE services. For more information, see <a href="../../api%3Fconsole.html#readnetaccesspointservices" class="xref page">ReadNetAccessPointServices</a>.</p>
+</li>
+<li>
+<p><code>ToPortRange</code>: The end of the port range for the TCP and UDP protocols, or an ICMP code number.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>SecurityGroupId</code>: The ID of the security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: The name of the security group.</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the security group.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Creating an inbound rule from an IP range</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "SecurityGroup": {
+    "Tags": [],
+    "SecurityGroupName": "security-group-example",
+    "OutboundRules": [
+      {
+        "FromPortRange": -1,
+        "IpProtocol": "-1",
+        "ToPortRange": -1,
+        "IpRanges": [
+          "0.0.0.0/0"
+        ]
+      }
+    ],
+    "SecurityGroupId": "sg-12345678",
+    "AccountId": "123456789012",
+    "Description": "Example of security group",
+    "InboundRules": [
+      {
+        "FromPortRange": 80,
+        "IpProtocol": "tcp",
+        "ToPortRange": 80,
+        "IpRanges": [
+          "10.0.0.0/16"
+        ]
+      }
+    ],
+    "NetId": "vpc-12345678"
+  },
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Creating an inbound rule from another security group</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "SecurityGroup": {
+    "Tags": [],
+    "SecurityGroupName": "security-group-example",
+    "OutboundRules": [
+      {
+        "FromPortRange": -1,
+        "IpProtocol": "-1",
+        "ToPortRange": -1,
+        "IpRanges": [
+          "0.0.0.0/0"
+        ]
+      }
+    ],
+    "SecurityGroupId": "sg-12345678",
+    "AccountId": "123456789012",
+    "Description": "Example of security group",
+    "InboundRules": [
+      {
+        "FromPortRange": 22,
+        "IpProtocol": "tcp",
+        "ToPortRange": 22,
+        "SecurityGroupsMembers": [
+          {
+            "SecurityGroupName": "another-security-group",
+            "SecurityGroupId": "sg-87654321",
+            "AccountId": "987654321098"
+          }
+        ]
+      }
+    ],
+    "NetId": "vpc-12345678"
+  },
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI_3"><a class="anchor" href="Ajouter-des-règles-à-un-security-group.html#AWS CLI_3"></a>Ajouter des règles à un security group avec AWS CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Avant de commencer :</strong> Installez et configurez AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="_ajouter_des_règles_pour_les_flux_entrants_à_un_security_group"><a class="anchor" href="Ajouter-des-règles-à-un-security-group.html#_ajouter_des_règles_pour_les_flux_entrants_à_un_security_group"></a>Ajouter des règles pour les flux entrants à un security group</h3>
+<div class="paragraph">
+<p>Pour ajouter une ou plusieurs règles pour les flux entrants, utilisez la commande <strong>authorize-security-group-ingress</strong> en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws ec2 authorize-security-group-ingress \
+    --profile YOUR_PROFILE \
+    --group-name my-security-group \
+    --group-id NOT_SPECIFIED \
+    --protocol NOT_SPECIFIED \
+    --port NOT_SPECIFIED \
+    --cidr NOT_SPECIFIED \
+    --source-group NOT_SPECIFIED \
+    --group-owner NOT_SPECIFIED \
+    --ip-permissions "[ \
+                        { \
+                        \"IpProtocol\": \"tcp\", \
+                        \"FromPort\": 22, \
+                        \"ToPort\": 22, \
+                        \"IpRanges\": [ \
+                                        { \
+                                        \"CidrIp\": \"10.0.0.0/16\" \
+                                        } \
+                                      ], \
+                        \"UserIdGroupPairs\": [ \
+                                                { \
+                                                \"UserId\": \"123456789000\", \
+                                                \"GroupName\": \"dev-sg\", \
+                                                \"GroupId\": \"sg-87654321\" \
+                                                } \
+                                              ] \
+                        } \
+                      ]" \
+    --endpoint https://fcu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>profile</code> : Le profil nommé que vous voulez utiliser, créé pendant la configuration d&#8217;AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p>(optionnel) <code>group-name</code> : Le nom du security group, si vous êtes dans le Cloud public.</p>
+</li>
+<li>
+<p>(optionnel) <code>group-id</code> : L&#8217;ID du security group.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Parmi les attributs qui suivent, vous devez spécifier soit :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>les attributs <code>protocol</code>, <code>port</code> et <code>cidr</code></p>
+</li>
+<li>
+<p>les attributs <code>protocol</code>, <code>port</code>, <code>source-group</code> et <code>group-owner</code></p>
+</li>
+<li>
+<p>l&#8217;attribut <code>ip-permissions</code></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>protocol</code> : Le nom de protocole (<code>tcp</code>, <code>udp</code>, <code>icmp</code>, ou <code>-1</code> pour tous les protocoles). Par défaut, <code>-1</code>. Dans un <span class="tooltip" data-tooltip="Net dans l'API OUTSCALE">VPC</span>, cette valeur peut aussi être un numéro de protocole IP. Pour en savoir plus, voir le <a href="https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml" target="_blank" rel="noopener">site IANA.org</a>.</p>
+</li>
+<li>
+<p>(optionnel) <code>port</code> : Le port en tant que nombre entier, ou la plage de ports sous la forme <code>min-max</code> pour les protocoles TCP et UDP, ou le numéro de type de message et de code ICMP sous la forme <code>type-code</code> (<code>-1</code> pour indiquer tous les types de messages ICMP).</p>
+</li>
+<li>
+<p>(optionnel) <code>cidr</code> : La plage d&#8217;IP que vous voulez autoriser, en notation CIDR (préfixe <code>/32</code> pour une IP individuelle).</p>
+</li>
+<li>
+<p>(optionnel) <code>source-group</code> : Le nom ou l&#8217;ID du security group source dont vous voulez autoriser les flux.</p>
+</li>
+<li>
+<p>(optionnel) <code>group-owner</code> : L&#8217;ID de compte du propriétaire du security group source, s&#8217;il appartient à un autre compte.</p>
+</li>
+<li>
+<p>(optionnel) <code>ip-permissions</code> : Un ensemble d&#8217;autorisations que vous pouvez utiliser pour ajouter plusieurs règles dans une même requête. Cet attribut contient les éléments suivants que vous devez spécifier :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>IpProtocol</code> : Le nom de protocole (<code>tcp</code>, <code>udp</code>, <code>icmp</code>, ou <code>-1</code> pour tous les protocoles). Par défaut, <code>-1</code>. Dans un VPC, cette valeur peut aussi être un numéro de protocole IP. Pour en savoir plus, voir le <a href="https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml" target="_blank" rel="noopener">site IANA.org</a>.</p>
+</li>
+<li>
+<p>(optionnel) <code>FromPort</code> : Le début de la plage de port pour les protocoles TCP et UDP, ou un numéro de type de message ICMP (<code>-1</code> pour indiquer tous les types de message ICMP).</p>
+</li>
+<li>
+<p>(optionnel) <code>ToPort</code> : La fin de la plage de ports pour les protocoles TCP et UDP, ou le numéro d&#8217;un code ICMP (<code>-1</code> pour indiquer tous les codes ICMP).</p>
+</li>
+<li>
+<p>(optionnel) <code>IpRanges</code> : Une ou plusieurs plages d&#8217;IP.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>CidrIp</code> : La plage d&#8217;IP.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>UserIdGroupPairs</code> : Informations sur un ou plusieurs comptes ou security groups pour autoriser les flux venant de security groups d&#8217;autres comptes. Cet attribut contient les éléments suivants que vous devez spécifier :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>UserId</code> : L&#8217;ID de compte du propriétaire du security group référencé.</p>
+</li>
+<li>
+<p>(optionnel) <code>GroupName</code> : Le nom du security group référencé.</p>
+</li>
+<li>
+<p>(optionnel) <code>GroupId</code> : L&#8217;ID du security group référencé.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>endpoint</code> : Le endpoint correspondant à la Région à laquelle vous voulez envoyer la requête. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Les règles spécifiées pour les flux entrants sont ajoutées au security group.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_vpc_uniquement_ajouter_des_règles_pour_les_flux_sortants_à_un_security_group"><a class="anchor" href="Ajouter-des-règles-à-un-security-group.html#_vpc_uniquement_ajouter_des_règles_pour_les_flux_sortants_à_un_security_group"></a>(VPC uniquement) Ajouter des règles pour les flux sortants à un security group</h3>
+<div class="paragraph">
+<p>Pour ajouter une ou plusieurs règles pour les flux sortants, utilisez la commande <strong>authorize-security-group-egress</strong> en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws ec2 authorize-security-group-egress \
+    --profile YOUR_PROFILE \
+    --group-id my-security-group \
+    --protocol NOT_SPECIFIED \
+    --port NOT_SPECIFIED \
+    --cidr NOT_SPECIFIED \
+    --source-group NOT_SPECIFIED \
+    --group-owner NOT_SPECIFIED \
+    --ip-permissions "[ \
+                        { \
+                        \"IpProtocol\": \"tcp\", \
+                        \"FromPort\": 22, \
+                        \"ToPort\": 22, \
+                        \"IpRanges\": [ \
+                                        { \
+                                        \"CidrIp\": \"10.0.0.0/16\" \
+                                        } \
+                                      ], \
+                        \"UserIdGroupPairs\": [ \
+                                                { \
+                                                \"UserId\": \"123456789000\", \
+                                                \"GroupName\": \"dev-sg\", \
+                                                \"GroupId\": \"sg-87654321\" \
+                                                } \
+                                              ], \
+                        \"PrefixListIds\": [ \
+                                             { \
+                                             \"PrefixListId\": \"pl-12345678\" \
+                                             } \
+                                           ] \
+                        } \
+                      ]" \
+    --endpoint https://fcu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>profile</code> : Le profil nommé que vous voulez utiliser, créé pendant la configuration d&#8217;AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>group-id</code> : L&#8217;ID du security group.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Parmi les attributs qui suivent, vous devez spécifier soit :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>les attributs <code>protocol</code>, <code>port</code> et <code>cidr</code></p>
+</li>
+<li>
+<p>les attributs <code>protocol</code>, <code>port</code>, <code>source-group</code> et <code>group-owner</code></p>
+</li>
+<li>
+<p>l&#8217;attribut <code>ip-permissions</code></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>protocol</code> : Le nom de protocole (<code>tcp</code>, <code>udp</code>, <code>icmp</code>, ou <code>-1</code> pour tous les protocoles). Par défaut, <code>-1</code>. Dans un VPC, cette valeur peut aussi être un numéro de protocole IP. Pour en savoir plus, voir le <a href="https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml" target="_blank" rel="noopener">site IANA.org</a>.</p>
+</li>
+<li>
+<p>(optionnel) <code>port</code> : Le port en tant que nombre entier, ou la plage de ports sous la forme <code>min-max</code> pour les protocoles TCP et UDP, ou le numéro de type de message et de code ICMP sous la forme <code>type-code</code> (<code>-1</code> pour indiquer tous les types de messages ICMP).</p>
+</li>
+<li>
+<p>(optionnel) <code>cidr</code> : La plage d&#8217;IP que vous voulez autoriser, en notation CIDR (préfixe <code>/32</code> pour une IP individuelle).</p>
+</li>
+<li>
+<p>(optionnel) <code>source-group</code> : Le nom ou l&#8217;ID du security group source vers lequel vous voulez autoriser les flux.</p>
+</li>
+<li>
+<p>(optionnel) <code>group-owner</code> : L&#8217;ID de compte du propriétaire du security group source, s&#8217;il appartient à un autre compte.</p>
+</li>
+<li>
+<p>(optionnel) <code>ip-permissions</code> : Un ensemble d&#8217;autorisations que vous pouvez utiliser pour ajouter plusieurs règles dans une même requête. Cet attribut contient les éléments suivants que vous devez spécifier :</p>
+</li>
+<li>
+<p>(optionnel) <code>IpProtocol</code> : Le nom de protocole (<code>tcp</code>, <code>udp</code>, <code>icmp</code>, ou <code>-1</code> pour tous les protocoles). Par défaut, <code>-1</code>. Dans un VPC, cette valeur peut aussi être un numéro de protocole IP. Pour en savoir plus, voir le <a href="https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml" target="_blank" rel="noopener">site IANA.org</a>.</p>
+</li>
+<li>
+<p>(optionnel) <code>FromPort</code> : Le début de la plage de port pour les protocoles TCP et UDP, ou un numéro de type de message ICMP (<code>-1</code> pour indiquer tous les types de message ICMP).</p>
+</li>
+<li>
+<p>(optionnel) <code>IpRanges</code> : Une ou plusieurs plages d&#8217;IP.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>CidrIp</code> : La plage d&#8217;IP.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>ToPort</code> : La fin de la plage de ports pour les protocoles TCP et UDP, ou le numéro d&#8217;un code ICMP (<code>-1</code> pour indiquer tous les codes ICMP).</p>
+</li>
+<li>
+<p>(optionnel) <code>UserIdGroupPairs</code> : Informations sur un ou plusieurs comptes ou security groups pour autoriser les flux vers des security groups d&#8217;autres comptes. Cet attribut contient les éléments suivants que vous devez spécifier :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>UserId</code> : L&#8217;ID de compte du propriétaire du security group référencé.</p>
+</li>
+<li>
+<p>(optionnel) <code>GroupName</code> : Le nom du security group référencé.</p>
+</li>
+<li>
+<p>(optionnel) <code>GroupId</code> : L&#8217;ID du security group référencé.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>PrefixListIds</code> : Un ou plusieurs ID de prefix list. Pour en savoir plus, voir <a href="Obtenir-des-informations-sur-les-prefix-lists.html" class="xref page">Obtenir des informations sur les prefix lists</a>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>PrefixListId</code> : L&#8217;ID d&#8217;une prefix list.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>endpoint</code> : Le endpoint correspondant à la Région à laquelle vous voulez envoyer la requête. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Les règles spécifiées pour les flux sortants sont ajoutées au security group.</p>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-security-groups.html" class="xref page">À propos des security groups</a></p>
+</li>
+<li>
+<p><a href="À-propos-des-règles-des-security-groups.html" class="xref page">À propos des règles des security groups</a></p>
+</li>
+<li>
+<p><a href="Créer-un-security-group.html" class="xref page">Créer un security group</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Méthodes API correspondantes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#createsecuritygrouprule" class="xref page">CreateSecurityGroupRule (API OUTSCALE)</a></p>
+</li>
+<li>
+<p><a href="../../fcu.html#authorizesecuritygroupingress" class="xref page">AuthorizeSecurityGroupIngress (FCU)</a></p>
+</li>
+<li>
+<p><a href="../../fcu.html#authorizesecuritygroupegress" class="xref page">AuthorizeSecurityGroupEgress (FCU)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

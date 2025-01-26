@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Increasing the Size of a Volume – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="Increasing-the-Size-of-a-Volume.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/Increasing-the-Size-of-a-Volume.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Augmenter-la-taille-d-un-volume.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Increasing the Size of a Volume</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can extend the storage capacity of an existing volume without losing the data stored on it.</p>
+</div>
+<div class="paragraph">
+<p>You can resize any volume, whether it is the root device where the operating system of the <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">virtual machine (VM)</span> is installed, or a secondary volume of the VM.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Linux Instance_0"><a class="anchor" href="Increasing-the-Size-of-a-Volume.html#Linux Instance_0"></a>Linux VM</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_increasing_the_size_of_a_root_device_in_linux"><a class="anchor" href="Increasing-the-Size-of-a-Volume.html#_increasing_the_size_of_a_root_device_in_linux"></a>Increasing the Size of a Root Device in Linux</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Stop the <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span>. For more information, see <a href="Stopping-and-Starting-VMs.html" class="xref page">Stopping and Starting VMs</a>.</p>
+</li>
+<li>
+<p>Update the size of the volume. For more information, see the <a href="../../api%3Fconsole.html#updatevolume" class="xref page">UpdateVolume</a> method in the documentation of the OUTSCALE API, which includes an OSC CLI command sample.</p>
+</li>
+<li>
+<p>Start the VM. For more information, see <a href="Stopping-and-Starting-VMs.html" class="xref page">Stopping and Starting VMs</a>.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>For VMs created from official OUTSCALE Machine Images (OMIs), the cloud-init package automatically adjusts the file system of the root device after it is resized. For more information, see the <a href="https://cloudinit.readthedocs.io/en/latest/" target="_blank" rel="noopener">cloud-init official documentation</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_increasing_the_size_of_a_secondary_volume_in_linux"><a class="anchor" href="Increasing-the-Size-of-a-Volume.html#_increasing_the_size_of_a_secondary_volume_in_linux"></a>Increasing the Size of a Secondary Volume in Linux</h3>
+<div class="sect3">
+<h4 id="_unmount_the_volume"><a class="anchor" href="Increasing-the-Size-of-a-Volume.html#_unmount_the_volume"></a>Unmount the Volume</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Connect to your VM. For more information, see <a href="Accessing-Your-VMs.html" class="xref page">Accessing Your VMs</a>.</p>
+</li>
+<li>
+<p>(optional) To get the device name of the volume you want to unmount, run the following command to display the list of devices attached to the VM:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ lsblk</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>To unmount the volume, run the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ sudo umount /dev/DEVICE_NAME</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_increase_the_size_of_the_volume"><a class="anchor" href="Increasing-the-Size-of-a-Volume.html#_increase_the_size_of_the_volume"></a>Increase the Size of the Volume</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Detach the volume from the VM. For more information, see <a href="Detaching-a-Volume-from-a-VM.html" class="xref page">Detaching a Volume from a VM</a>.</p>
+</li>
+<li>
+<p>Update the size of the volume. For more information, see the <a href="../../api%3Fconsole.html#updatevolume" class="xref page">UpdateVolume</a> method in the documentation of the OUTSCALE API, which includes an OSC CLI command sample.</p>
+</li>
+<li>
+<p>Reattach the volume to the VM. For more information, <a href="Attaching-a-Volume-to-a-VM.html" class="xref page">Attaching a Volume to a VM</a>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_configure_the_file_system_of_the_volume"><a class="anchor" href="Increasing-the-Size-of-a-Volume.html#_configure_the_file_system_of_the_volume"></a>Configure the File System of the Volume</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Inside the VM, to remount the volume at <strong>/MOUNT_POINT</strong>, run the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ sudo mount /dev/DEVICE_NAME /MOUNT_POINT</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Resize the file system of the volume:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>To resize an ext4 file system, run the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ sudo resize2fs /dev/DEVICE_NAME</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>To resize an XFS file system, run the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ sudo xfs_growfs /dev/DEVICE_NAME</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>(optional) Run the <code>df -hT</code> command to view the sizes of your file systems.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The file system of the volume is configured.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Windows Instance_1"><a class="anchor" href="Increasing-the-Size-of-a-Volume.html#Windows Instance_1"></a>Windows VM</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_increasing_the_size_of_a_root_device_in_windows"><a class="anchor" href="Increasing-the-Size-of-a-Volume.html#_increasing_the_size_of_a_root_device_in_windows"></a>Increasing the Size of a Root Device in Windows</h3>
+<div class="sect3">
+<h4 id="_increase_the_size_of_the_volume_2"><a class="anchor" href="Increasing-the-Size-of-a-Volume.html#_increase_the_size_of_the_volume_2"></a>Increase the Size of the Volume</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Stop the <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span>. For more information, see <a href="Stopping-and-Starting-VMs.html" class="xref page">Stopping and Starting VMs</a>.</p>
+</li>
+<li>
+<p>Update the size of the volume. For more information, see the <a href="../../api%3Fconsole.html#updatevolume" class="xref page">UpdateVolume</a> method in the documentation of the OUTSCALE API, which includes an OSC CLI command sample.</p>
+</li>
+<li>
+<p>Start the VM. For more information, see <a href="Stopping-and-Starting-VMs.html" class="xref page">Stopping and Starting VMs</a>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_configure_the_file_system_of_the_volume_2"><a class="anchor" href="Increasing-the-Size-of-a-Volume.html#_configure_the_file_system_of_the_volume_2"></a>Configure the File System of the Volume</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Connect to your VM. For more information, see <a href="Accessing-a-Windows-VM.html" class="xref page">Accessing a Windows VM</a>.</p>
+</li>
+<li>
+<p>Click the <strong>Start</strong> menu, type <strong>diskmgmt.msc</strong>, and click the program that appears.</p>
+</li>
+<li>
+<p>Right-click the volume and select <strong>Extend volume</strong>.<br>
+The <strong>Extend Volume Wizard</strong> appears.</p>
+</li>
+<li>
+<p>Keep the default information and click <strong>Next.</strong></p>
+</li>
+<li>
+<p>Click <strong>Finish</strong> to validate.<br>
+The volume is configured, and its file system appears in the <strong>Disk Management</strong> list.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_increasing_the_size_of_a_secondary_volume_in_windows"><a class="anchor" href="Increasing-the-Size-of-a-Volume.html#_increasing_the_size_of_a_secondary_volume_in_windows"></a>Increasing the Size of a Secondary Volume in Windows</h3>
+<div class="sect3">
+<h4 id="_increase_the_size_of_the_volume_3"><a class="anchor" href="Increasing-the-Size-of-a-Volume.html#_increase_the_size_of_the_volume_3"></a>Increase the Size of the Volume</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Connect to your VM. For more information, see <a href="Accessing-a-Windows-VM.html" class="xref page">Accessing a Windows VM</a>.</p>
+</li>
+<li>
+<p>Click the <strong>Start</strong> menu, type <strong>diskmgmt.msc</strong>, and click the program that appears.</p>
+</li>
+<li>
+<p>In the bottom-left panel, right-click the disk corresponding to the volume you want to unmount, then click <strong>Offline</strong>.</p>
+</li>
+<li>
+<p>Detach the volume from the VM. For more information, see <a href="Detaching-a-Volume-from-a-VM.html" class="xref page">Detaching a Volume from a VM</a>.</p>
+</li>
+<li>
+<p>Update the size of the volume. For more information, see the <a href="../../api%3Fconsole.html#updatevolume" class="xref page">UpdateVolume</a> method in the documentation of the OUTSCALE API, which includes an OSC CLI command sample.</p>
+</li>
+<li>
+<p>Reattach the volume to the VM. For more information, <a href="Attaching-a-Volume-to-a-VM.html" class="xref page">Attaching a Volume to a VM</a>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_configure_the_file_system_of_the_volume_3"><a class="anchor" href="Increasing-the-Size-of-a-Volume.html#_configure_the_file_system_of_the_volume_3"></a>Configure the File System of the Volume</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Inside the VM, in the bottom-left panel, right-click the disk corresponding to the volume you want to mount, then click <strong>Online</strong>.</p>
+</li>
+<li>
+<p>Right-click the volume and select <strong>Extend volume</strong>.<br>
+The <strong>Extend Volume Wizard</strong> appears.</p>
+</li>
+<li>
+<p>Keep the default information and click <strong>Next.</strong></p>
+</li>
+<li>
+<p>Click <strong>Finish</strong> to validate.<br>
+The volume is configured, and its file system appears in the <strong>Disk Management</strong> list.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="About-Volumes.html" class="xref page">About Volumes</a></p>
+</li>
+<li>
+<p><a href="Windows-Reference.html" class="xref page">Windows Reference</a></p>
+</li>
+<li>
+<p><a href="Official-OMIs-Reference.html" class="xref page">Official OMIs Reference</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

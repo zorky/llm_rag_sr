@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Référence pour la configuration d&#8217;un site web sur bucket – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Référence-pour-la-configuration-d-un-site-web-sur-bucket.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Référence-pour-la-configuration-d-un-site-web-sur-bucket.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Bucket-Website-Configuration-Reference.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Référence pour la configuration d&#8217;un site web sur bucket</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>La configuration d&#8217;un site web sur bucket est un ensemble de fichiers que vous pouvez utiliser comme exemples pour votre site web sur bucket.</p>
+</div>
+<div class="paragraph">
+<p>En effet, une configuration classique de site web sur bucket comprend au moins un fichier HTML d&#8217;index et un fichier HTML d&#8217;erreur, ainsi qu&#8217;un fichier de configuration.</p>
+</div>
+<div class="paragraph">
+<p>Tandis que le fichier d&#8217;index (le plus souvent appelé <code>index.html</code>) est le fichier renvoyé par défaut lorsqu&#8217;un utilisateur accède à la racine de votre domaine, le fichier d&#8217;erreur (le plus souvent appelé <code>error.html</code>) est le fichier renvoyé lorsqu&#8217;une erreur se produit sur votre site web.</p>
+</div>
+<div class="paragraph">
+<p>En revanche, le fichier de configuration (généralement au format JSON) sert de schéma de conduite à suivre concernant le comportement de votre bucket lorsqu&#8217;on y accède en tant que site web. Vous pouvez y spécifier vos fichiers d&#8217;index et d&#8217;erreur ainsi que d&#8217;autres règles de configuration.</p>
+</div>
+<div class="paragraph">
+<p>Cette page décrit les éléments que vous pouvez spécifier dans la configuration d&#8217;un site web. Une fois les fichiers nécessaires rédigés, vous devez les appliquer à votre bucket. Pour en savoir plus, voir <a href="Créer-un-site-web-sur-bucket.html" class="xref page">Créer un site web sur bucket</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exemples_de_fichiers_dindex_et_derreur"><a class="anchor" href="Référence-pour-la-configuration-d-un-site-web-sur-bucket.html#_exemples_de_fichiers_dindex_et_derreur"></a>Exemples de fichiers d&#8217;index et d&#8217;erreur</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Il s&#8217;agit d&#8217;exemples, ce qui signifie qu&#8217;ils sont délibérément simplifiés à des fins de test.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de configuration pour index.html</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-html hljs" data-lang="html">&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Mon site web sur bucket&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Bonjour et bienvenue sur mon site web sur bucket !&lt;/h1&gt;
+    &lt;p&gt;Ce site web est statique.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de configuration pour error.html</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-html hljs" data-lang="html">&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;404&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Oups!&lt;/h1&gt;
+    &lt;p&gt;Il semble qu'un problème est survenu.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_structure_de_configuration_du_site_web"><a class="anchor" href="Référence-pour-la-configuration-d-un-site-web-sur-bucket.html#_structure_de_configuration_du_site_web"></a>Structure de configuration du site web</h2>
+<div class="sectionbody">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Certains attributs sont mutuellement exclusifs lors de la configuration d&#8217;un bucket pour l&#8217;hébergement d&#8217;un site web, ce qui signifie qu&#8217;ils ne peuvent pas être utilisés ensemble :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RedirectAllRequestsTo</code> et <code>RoutingRules</code> sont incompatibles. En effet, le premier est utile si vous souhaitez que toutes les requêtes vers le bucket soient redirigées vers un seul nom d&#8217;hôte (transformant ainsi le bucket entier en une redirection) alors que le second est utilisé pour des redirections plus granulaires basées sur des conditions spécifiques (comme des codes d&#8217;erreur ou des préfixes de clés).</p>
+</li>
+<li>
+<p>Parce que <code>RedirectAllRequestsTo</code> redirige toutes les requêtes vers un domaine spécifié, il est aussi naturellement incompatible avec le fait d&#8217;avoir un <code>IndexDocument</code> et un <code>ErrorDocument</code>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_structure_de_configuration_du_site_web_avec_des_redirections"><a class="anchor" href="Référence-pour-la-configuration-d-un-site-web-sur-bucket.html#_structure_de_configuration_du_site_web_avec_des_redirections"></a>Structure de configuration du site web avec des redirections</h3>
+<div class="listingblock">
+<div class="title">Structure de configuration possible pour website.json</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "RedirectAllRequestsTo": {
+        "HostName": "www.example.com",
+        "Protocol": "https"
+    }
+}</code></pre>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribut</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>RedirectAllRequestsTo</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lorsque cette option est spécifiée, toutes les requêtes adressées au bucket sont redirigées vers un nom d&#8217;hôte spécifique.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>HostName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Spécifie le nom de domaine vers lequel tout le trafic du bucket est redirigé, ce qui en fait un paramètre de redirection global.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Protocol</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Le protocole à utiliser pour la redirection. Les valeurs possibles sont <code>http</code> ou <code>https</code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_structure_de_configuration_du_site_web_avec_des_règles_de_routage"><a class="anchor" href="Référence-pour-la-configuration-d-un-site-web-sur-bucket.html#_structure_de_configuration_du_site_web_avec_des_règles_de_routage"></a>Structure de configuration du site web avec des règles de routage</h3>
+<div class="listingblock">
+<div class="title">Structure de configuration possible pour website.json</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "IndexDocument": {
+        "Suffix": "index.html"
+    },
+    "ErrorDocument": {
+        "Key": "error.html"
+    },
+    "RoutingRules": [
+        {
+            "Condition": {
+                "HttpErrorCodeReturnedEquals": "404",
+                "KeyPrefixEquals": "old-content/"
+            },
+            "Redirect": {
+                "HostName": "www.example.com",
+                "HttpRedirectCode": "302",
+                "Protocol": "https",
+                "ReplaceKeyPrefixWith": "new-content/"
+            }
+        },
+        {
+            "Condition": {
+                "HttpErrorCodeReturnedEquals": "404",
+                "KeyPrefixEquals": "old-file.html"
+            },
+            "Redirect": {
+                "HostName": "www.example.com",
+                "HttpRedirectCode": "302",
+                "Protocol": "https",
+                "ReplaceKeyWith": "new-file.html"
+            }
+        }
+    ]
+}</code></pre>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribut</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>IndexDocument</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Définit la page par défaut servant de document d&#8217;index pour le site web du bucket.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Suffix</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Spécifie le nom de fichier du document d&#8217;index, généralement <code>index.html</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ErrorDocument</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Définit le document d&#8217;erreur renvoyé en cas d&#8217;erreur client 4xx. Une erreur client 4xx se produit lorsque la demande contient une mauvaise syntaxe ou qu&#8217;elle ne peut être traitée.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Key</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Spécifie le nom de fichier du document d&#8217;erreur, habituellement <code>error.html</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>RoutingRules</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Définit les règles de redirection des requêtes, sous certaines conditions.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Condition</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Définit les conditions sous lesquelles la redirection spécifiée est appliquée.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>HttpErrorCodeReturnedEquals</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Le code d&#8217;erreur HTTP entraînant la redirection. Les codes couramment utilisés sont <code>404</code> (<code>Not Found</code>) ou <code>403</code> (<code>Forbidden</code>).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>KeyPrefixEquals</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Le préfixe de la clé de l&#8217;objet demandé déclenchant la redirection dans le bucket. Il peut être utilisé pour rediriger les requêtes vers des dossiers ou des fichiers spécifiques. Par exemple, l&#8217;utilisation de <code>old-content/</code> redirigera toutes les requêtes d&#8217;objets dans le dossier <code>old-content</code>, tandis que <code>old-file.html</code> redirigera spécifiquement les requêtes vers ce fichier. Cet attribut est particulièrement utile pour mettre en place des redirections conditionnelles basées sur la structure des objets stockés.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Redirect</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Spécifie l&#8217;action de redirection qui doit être exécutée lorsque la condition est remplie.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>HostName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Spécifie le nom de domaine où les requêtes sont redirigées en fonction de conditions spécifiques. Cet attribut est utile pour les redirections ciblées.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>HttpRedirectCode</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Le code d&#8217;état HTTP à renvoyer pour la redirection (<code>301</code> pour une redirection permanente et <code>302</code> pour une redirection temporaire).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Protocol</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Le protocole à utiliser pour la redirection. Les valeurs possibles sont <code>http</code> ou <code>https</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ReplaceKeyPrefixWith</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Spécifie la chaîne qui remplacera le préfixe de clé correspondant à <code>KeyPrefixEquals</code> dans la requête de redirection.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ReplaceKeyWith</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Définit la clé spécifique à utiliser dans la demande de redirection. Elle remplace l&#8217;ensemble de la clé correspondant à la condition.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

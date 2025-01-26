@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>À propos de DirectLink – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="À-propos-de-DirectLink.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/À-propos-de-DirectLink.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/About-DirectLink.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">À propos de DirectLink</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez créer des connexions DirectLink entre votre réseau et l&#8217;infrastructure OUTSCALE pour accéder à vos ressources dans un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span> sans passer par un fournisseur d&#8217;accès à Internet. Les <span class="tooltip" data-tooltip="virtual interface privée dans les API AWS-compliant">DirectLink interfaces</span> vous permettent de configurer ces connexions en spécifiant à quel Net vous souhaitez vous connecter grâce à votre connexion.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_informations_générales_sur_les_connexions_directlink"><a class="anchor" href="À-propos-de-DirectLink.html#_informations_générales_sur_les_connexions_directlink"></a>Informations générales sur les connexions DirectLink</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Une connexion DirectLink correspond à une connexion physique entre votre réseau et un site DirectLink, qui correspond à un site physique de l&#8217;infrastructure OUTSCALE. Cette connexion est une fibre optique 1 Gb Ethernet ou 10 Gb Ethernet qui vous permet d&#8217;accéder directement à vos ressources Cloud placées dans la Région correspondant à ce site sans passer par Internet. Un site correspondant à une <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Sous-région</span> d&#8217;une Région, vous pouvez vous connecter à n&#8217;importe quel site de cette Région pour accéder à vos ressources dans l&#8217;ensemble de celle-ci.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Si vos ressources sont placées dans une seule Sous-région d&#8217;une Région, nous vous recommandons de créer une connexion entre votre réseau et le site correspondant pour réduire le phénomène de latence.</p>
+</li>
+<li>
+<p>Vous pouvez également faire une demande pour héberger vos propres équipements de sécurité et de réseau dans un des datacenters de 3DS OUTSCALE, au sein d&#8217;une connexion DirectLink. Pour en savoir plus, voir le <a href="https://fr.outscale.com/infrastructures-reseaux/directlink/outscale-hosted-directlink/" target="_blank" rel="noopener">service Hosted DirectLink</a> sur notre site officiel.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Une extrémité de ce cable est connectée à votre routeur et l&#8217;autre extrémité est connectée à un routeur DirectLink OUTSCALE à travers la meet-me-room (MMR) du data center. Pour créer une connexion DirectLink, votre réseau doit :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Avoir un routeur ou une fibre optique dans le même data center que le site DirectLink.</p>
+</li>
+<li>
+<p>Être connecté à un routeur DirectLink par une fibre monomode avec un connecteur LC : 1000BASE-LX (1310nm) pour 1 Gb Ethernet ou 10GBASE-LR (1310nm) pour 10 Gb Ethernet.</p>
+</li>
+<li>
+<p>Avoir un routeur qui prend en charge le Border Gateway Protocol (BGP) et qui est configuré pour communiquer avec le routeur DirectLink à l&#8217;aide de l&#8217;Autonomous System Number (ASN) de 3DS OUTSCALE. Le routeur DirectLink devient ainsi votre neighbor.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>L&#8217;ASN de 3DS OUTSCALE dépend de la Région :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>50624 pour les Régions eu-west-2 et cloudgouv-eu-west-1</p>
+</li>
+<li>
+<p>53306 pour la Région us-east-2</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Si votre réseau interne ne se trouve pas dans le même data center que le site DirectLink, vous pouvez demander à un prestataire de service réseau d&#8217;y amener une fibre pour vous. Lorsque vous demandez une connexion DirectLink, 3DS OUTSCALE vous envoie une lettre d&#8217;autorisation (Letter of Authorization - LOA) qui vous autorise à connecter votre réseau au routeur DirectLink correspondant. Vous devez ensuite donner cette lettre à votre prestataire de service réseau afin qu&#8217;il demande au data center de connecter votre fibre optique au routeur DirectLink pour créer la connexion.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez créer des connexions DirectLink pour accéder à vos ressources se trouvant dans des <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Nets</span> uniquement. Par défaut, un Net ne peut pas être joint par Internet. Les connexions DirectLink vous permettent de joindre votre Net directement depuis votre réseau interne, réduisant ainsi le phénomène de latence et améliorant le débit. Le Net dans lequel se trouvent vos ressources doit comporter au moins un Subnet et une <span class="tooltip" data-tooltip="virtual private gateway dans les API AWS-compliant">virtual gateway</span> attachée à celui-ci.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Les security groups utilisés pour le Net doivent autoriser les flux venant de votre réseau interne.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Une connexion peut être dans un des états suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>pending</code> : 3DS OUTSCALE a approuvé la connexion et vous a envoyé la LOA. La connexion est en cours d&#8217;initialisation.</p>
+</li>
+<li>
+<p><code>available</code> : Le lien réseau est connecté à votre routeur et au routeur DirectLink, et la connexion est prête.</p>
+</li>
+<li>
+<p><code>disabled</code> : Le lien réseau est déconnecté.</p>
+</li>
+<li>
+<p><code>deleted</code> : La connexion est supprimée.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_connexions_directlink_et_directlink_interfaces"><a class="anchor" href="À-propos-de-DirectLink.html#_connexions_directlink_et_directlink_interfaces"></a>Connexions DirectLink et DirectLink interfaces</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Pour accéder à vos ressources avec une connexion DirectLink, vous devez configurer cette connexion avec une ou plusieurs <span class="tooltip" data-tooltip="virtual interface privée dans les API AWS-compliant">DirectLink interfaces</span>. Une DirectLink interface correspond à un chemin réseau entre votre réseau interne et un de vos <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Nets</span>, spécifié grâce à la <span class="tooltip" data-tooltip="virtual private gateway dans les API AWS-compliant">virtual gateway</span> attachée à celui-ci. Vous devez créer une DirectLink interface pour chaque Net auquel vous souhaitez accéder, et vous pouvez créer plusieurs DirectLink interfaces utilisant la même connexion DirectLink.</p>
+</div>
+<div class="paragraph">
+<p>Lorsque vous créez une DirectLink interface, vous spécifiez :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Une connexion DirectLink :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Avec Cockpit, le nom et l&#8217;ID d&#8217;une connexion DirectLink.</p>
+</li>
+<li>
+<p>Avec AWS CLI, l&#8217;ID d&#8217;une connexion DirectLink.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Un nom pour la DirectLink interface.</p>
+</li>
+<li>
+<p>Un VLAN pour chaque DirectLink interface, afin de partitionner la connexion en plusieurs chemins d&#8217;accès réseau. Vous devez utiliser un VLAN unique pour chaque DirectLink interface créée pour une même connexion DirectLink.</p>
+</li>
+<li>
+<p>Le Border Gateway Protocol (BGP) Autonomous System Number (ASN). Pour en savoir plus, voir la section <a href="À-propos-de-DirectLink.html#_informations_générales_sur_les_connexions_directlink">Informations générales sur les connexions DirectLink</a> ci-dessus.</p>
+</li>
+<li>
+<p>Une DirectLink interface dans l&#8217;état <code>available</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus, voir <a href="Créer-une-DirectLink-interface.html" class="xref page">Créer une DirectLink interface</a>.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez également créer une DirectLink interface dont le propriétaire est un autre utilisateur OUTSCALE. Ce type de DirectLink interface se nomme DirectLink interface hébergée. Elle doit être confirmée par son propriétaire avant de pouvoir envoyer du trafic réseau. Pour en savoir plus, voir <a href="Créer-une-DirectLink-interface-hébergée.html" class="xref page">Créer une DirectLink interface hébergée</a> et <a href="Accepter-une-DirectLink-interface-hébergée.html" class="xref page">Accepter une DirectLink interface hébergée</a>.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez également mettre à jour la maximum transmission unit (MTU) de votre DirectLink interface. La MTU est la taille en octets du paquet le plus volumineux pouvant être transmis via la connexion. Pour en savoir plus, voir <a href="Modifier-la-MTU-d-une-DirectLink-interface.html" class="xref page">Modifier la MTU d&#8217;une DirectLink interface</a>.<br></p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>La MTU d&#8217;une DirectLink interface est limitée à 1500 octets.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Une DirectLink interface peut être dans un des états suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>confirming</code> : La virtual interface est en attente de confirmation de son propriétaire. Après 7 jours, si la virtual interface n&#8217;est pas confirmée, son état devient <code>expired</code>.</p>
+</li>
+<li>
+<p><code>pending</code> : La virtual interface est créée et reste à l&#8217;état <code>pending</code> jusqu&#8217;à ce que votre routeur et le routeur DirectLink soient configurés.</p>
+</li>
+<li>
+<p><code>available</code> : La virtual interface peut envoyer du trafic réseau.</p>
+</li>
+<li>
+<p><code>deleting</code> : La virtual interface est en cours de suppression. Elle reste à l&#8217;état <code>deleting</code> jusqu&#8217;à ce que 3DS OUTSCALE déconfigure le routeur DirectLink.</p>
+</li>
+<li>
+<p><code>deleted</code> : La virtual interface est supprimée et ne peut plus envoyer de trafic réseau.</p>
+</li>
+<li>
+<p><code>rejected</code> : La virtual interface a été supprimée alors qu&#8217;elle était à l&#8217;état <code>confirming</code>.</p>
+</li>
+<li>
+<p><code>expired</code> : Le propriétaire de la virtual interface n&#8217;a pas confirmé sa création dans le délai de 7 jours. La virtual interface ne pouvant plus être utilisée, vous devez en créer une nouvelle.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Le schéma suivant montre une infrastructure DirectLink :</p>
+</div>
+<div class="paragraph">
+<div class="title">Connexion DirectLink</div>
+<p><span class="image"><img src="_images/FR-sch-DL-Connections.png" alt="FR sch DL Connections"></span></p>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Gérer-vos-connexions.html" class="xref page">Gérer vos connexions</a></p>
+</li>
+<li>
+<p><a href="Configurer-une-connexion-avec-des-DirectLink-interfaces.html" class="xref page">Configurer une connexion avec des DirectLink interfaces</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

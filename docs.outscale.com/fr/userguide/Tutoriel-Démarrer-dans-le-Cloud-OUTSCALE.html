@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Tutoriel : Démarrer dans le Cloud OUTSCALE – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Tutoriel-Démarrer-dans-le-Cloud-OUTSCALE.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Tutoriel-Démarrer-dans-le-Cloud-OUTSCALE.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Tutorial-Getting-Started-with-the-OUTSCALE-Cloud.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Tutoriel : Démarrer dans le Cloud OUTSCALE</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Dans ce tutoriel, vous apprenez comment créer et vous connecter à votre première <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machine virtuelle (VM)</span> dans le Cloud 3DS OUTSCALE.</p>
+</div>
+<div class="paragraph">
+<p>Une VM est une machine virtuelle dans le Cloud public ou dans un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span>, un réseau virtuel isolé dans le Cloud. Pour en savoir plus, voir <a href="À-propos-des-VM.html" class="xref page">À propos des VM</a> et <a href="À-propos-des-Nets.html" class="xref page">À propos des Nets</a>.</p>
+</div>
+<div class="paragraph">
+<p>Ce tutoriel utilise :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cockpit, une interface web développée par 3DS OUTSCALE qui vous permet de créer et gérer vos ressources dans le Cloud 3DS OUTSCALE. Pour en savoir plus, voir <a href="À-propos-de-Cockpit.html" class="xref page">À propos de Cockpit</a>.</p>
+</li>
+<li>
+<p>OSC CLI, une interface en ligne de commande (CLI) développée par 3DS OUTSCALE, compatible avec l&#8217;API OUTSCALE ainsi que tous les services de l&#8217;API AWS-compliant y compris Internal Call Unit (ICU). Pour en savoir plus, voir <a href="Installer-et-configurer-OSC-CLI.html" class="xref page">Installer et configurer OSC CLI</a>.</p>
+</li>
+<li>
+<p>AWS CLI, une CLI développée par Amazon Web Services, compatible avec tous les service de l&#8217;API AWS-compliant à l&#8217;exception d&#8217;Internal Call Unit (ICU). Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Notre équipe Support est disponible pour vous aider, si nécessaire. Pour en savoir plus, voir <a href="Support-technique.html" class="xref page">Support technique</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Cockpit v2_0"><a class="anchor" href="Tutoriel-Démarrer-dans-le-Cloud-OUTSCALE.html#Cockpit v2_0"></a>Démarrer dans le Cloud 3DS OUTSCALE avec Cockpit v2</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>(optionnel) Pour vous connecter de manière sécurisée à vos <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span>, créez une keypair. Pour en savoir plus, voir <a href="Créer-une-keypair.html#_Créer_une_keypair_avec_Cockpit%C2%A0v2" class="xref page">Créer une keypair</a>.</p>
+</li>
+<li>
+<p>(optionnel) Pour gérer les flux entrants et sortants de vos VM, créez un security group. Pour en savoir plus, voir <a href="Créer-un-security-group.html" class="xref page">Créer un security group</a>.</p>
+</li>
+<li>
+<p>Créer votre première VM. Pour en savoir plus, voir <a href="Créer-des-VM.html#_Créer_des_VM_avec_Cockpit%C2%A0v2" class="xref page">Créer des VM avec Cockpit v2</a>.<br>
+Votre VM est créée et configurée.</p>
+</li>
+<li>
+<p>Connectez-vous à votre VM. Pour en savoir plus, voir <a href="Accéder-à-vos-VM.html" class="xref page">Accéder à vos VM</a>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="OSC CLI_1"><a class="anchor" href="Tutoriel-Démarrer-dans-le-Cloud-OUTSCALE.html#OSC CLI_1"></a>Démarrer dans le Cloud 3DS OUTSCALE avec OSC CLI</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_installer_et_configurer_osc_cli"><a class="anchor" href="Tutoriel-Démarrer-dans-le-Cloud-OUTSCALE.html#_installer_et_configurer_osc_cli"></a>Installer et configurer OSC CLI</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Installer et configurer OSC CLI pour votre compte. Pour en savoir plus, voir <a href="Installer-et-configurer-OSC-CLI.html" class="xref page">Installer et configurer OSC CLI</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_créer_votre_première_keypair"><a class="anchor" href="Tutoriel-Démarrer-dans-le-Cloud-OUTSCALE.html#_créer_votre_première_keypair"></a>Créer votre première keypair</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Pour vous connecter de manière sécurisée à vos <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span>, vous devez créer une keypair en utilisant la commande <strong>CreateKeypair</strong> suivante :</p>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api CreateKeypair \
+    --KeypairName MyKeypair</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour en savoir plus, voir <a href="../../api%3Fconsole.html#createkeypair" class="xref page">CreateKeyPair</a> dans la documentation de l&#8217;API OUTSCALE.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_créer_votre_premier_security_group"><a class="anchor" href="Tutoriel-Démarrer-dans-le-Cloud-OUTSCALE.html#_créer_votre_premier_security_group"></a>Créer votre premier security group</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Pour gérer les flux entrants et sortants de vos VM, vous devez créer un security group en utilisant la commande <strong>CreateSecurityGroup</strong> suivante :</p>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api CreateSecurityGroup \
+    --SecurityGroupName my-security-group \
+    --Description "SECURITY_GROUP_DESCRIPTION"</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour en savoir plus, voir <a href="../../api%3Fconsole.html#createsecuritygroupp" class="xref page">CreateSecurityGroup</a> dans la documentation de l&#8217;API OUTSCALE.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Pour autoriser les flux dans un protocole et sur des ports spécifiques, vous devez ajouter des règles au security group en utilisant la commande <strong>CreateSecurityGroupRule</strong> suivante :</p>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api CreateSecurityGroupRule \
+    --SecurityGroupId sg-xxxxxxxx \
+    --Flow Inbound \
+    --IpProtocol tcp \
+    --FromPortRange 22 \
+    --ToPortRange 22 \
+    --IpRange xx.xx.xx.xx/32</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>où <code>xx.xx.xx.xx</code> est l&#8217;IP de votre ordinateur actuel.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour en savoir plus, voir <a href="../../api%3Fconsole.html#createsecuritygrouprule" class="xref page">CreateSecurityGroupRule</a> dans la documentation de l&#8217;API OUTSCALE.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_créer_et_accéder_à_votre_première_vm"><a class="anchor" href="Tutoriel-Démarrer-dans-le-Cloud-OUTSCALE.html#_créer_et_accéder_à_votre_première_vm"></a>Créer et accéder à votre première VM</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Pour créer votre première VM, utilisez la commande <strong>CreateVms</strong> en suivant cette syntaxe :</p>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api CreateVms \
+    --ImageId ami-xxxxxxxx \
+    --KeypairName MyKeypair \
+    --SecurityGroupIds '["sg-xxxxxxxx"]' \
+    --MinVmsCount 1 \
+    --MaxVmsCount 1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>où <code>ami-xxxxxxxx</code> est l&#8217;ID de l&#8217;OMI à utiliser pour créer la VM. Pour en savoir plus, voir <a href="À-propos-des-OMI.html" class="xref page">À propos des OMI</a> et <a href="Référence-des-OMI-officielles.html" class="xref page">Référence des OMI officielles</a>.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour en savoir plus, voir <a href="../../api%3Fconsole.html#createvms" class="xref page">CreateVms</a> dans la documentation de l&#8217;API OUTSCALE.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Pour vous connecter à votre VM, voir <a href="Accéder-à-vos-VM.html" class="xref page">Accéder à vos VM</a>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="oapi-cli_2"><a class="anchor" href="Tutoriel-Démarrer-dans-le-Cloud-OUTSCALE.html#oapi-cli_2"></a>Démarrer dans le Cloud 3DS OUTSCALE avec OSCoapi-cli</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_installer_et_configurer_oapi_cli"><a class="anchor" href="Tutoriel-Démarrer-dans-le-Cloud-OUTSCALE.html#_installer_et_configurer_oapi_cli"></a>Installer et configurer oapi-cli</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Installer et configurer oapi-cli pour votre compte. Pour en savoir plus, voir <a href="Installer-et-configurer-oapi-cli.html" class="xref page">Installer et configurer oapi-cli</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_créer_votre_première_keypair_2"><a class="anchor" href="Tutoriel-Démarrer-dans-le-Cloud-OUTSCALE.html#_créer_votre_première_keypair_2"></a>Créer votre première keypair</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Pour vous connecter de manière sécurisée à vos <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span>, vous devez créer une keypair en utilisant la commande <strong>CreateKeypair</strong> suivante :</p>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli CreateKeypair \
+    --KeypairName MyKeypair</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour en savoir plus, voir <a href="../../api%3Fconsole.html#createkeypair" target="_blank" rel="noopener">CreateKeyPair</a> dans la documentation de l&#8217;API OUTSCALE.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_créer_votre_premier_security_group_2"><a class="anchor" href="Tutoriel-Démarrer-dans-le-Cloud-OUTSCALE.html#_créer_votre_premier_security_group_2"></a>Créer votre premier security group</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Pour gérer les flux entrants et sortants de vos VM, vous devez créer un security group en utilisant la commande <strong>CreateSecurityGroup</strong> suivante :</p>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli CreateSecurityGroup \
+    --SecurityGroupName my-security-group \
+    --Description "SECURITY_GROUP_DESCRIPTION"</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour en savoir plus, voir <a href="../../api%3Fconsole.html#createsecuritygroupp" target="_blank" rel="noopener">CreateSecurityGroup</a> dans la documentation de l&#8217;API OUTSCALE.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Pour autoriser les flux dans un protocole et sur des ports spécifiques, vous devez ajouter des règles au security group en utilisant la commande <strong>CreateSecurityGroupRule</strong> suivante :</p>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli CreateSecurityGroupRule \
+    --SecurityGroupId sg-xxxxxxxx \
+    --Flow Inbound \
+    --IpProtocol tcp \
+    --FromPortRange 22 \
+    --ToPortRange 22 \
+    --IpRange xx.xx.xx.xx/32</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>où <code>xx.xx.xx.xx</code> est l&#8217;IP de votre ordinateur actuel.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour en savoir plus, voir <a href="../../api%3Fconsole.html#createsecuritygrouprule" target="_blank" rel="noopener">CreateSecurityGroupRule</a> dans la documentation de l&#8217;API OUTSCALE.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_créer_et_accéder_à_votre_première_vm_2"><a class="anchor" href="Tutoriel-Démarrer-dans-le-Cloud-OUTSCALE.html#_créer_et_accéder_à_votre_première_vm_2"></a>Créer et accéder à votre première VM</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Pour créer votre première VM, utilisez la commande <strong>CreateVms</strong> en suivant cette syntaxe :</p>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli CreateVms \
+    --ImageId ami-xxxxxxxx \
+    --KeypairName MyKeypair \
+    --SecurityGroupIds '["sg-xxxxxxxx"]' \
+    --MinVmsCount 1 \
+    --MaxVmsCount 1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>où <code>ami-xxxxxxxx</code> est l&#8217;ID de l&#8217;OMI à utiliser pour créer la VM. Pour en savoir plus, voir <a href="À-propos-des-OMI.html" class="xref page">À propos des OMI</a> et <a href="Référence-des-OMI-officielles.html" class="xref page">Référence des OMI officielles</a>.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour en savoir plus, voir <a href="../../api%3Fconsole.html#createvms" target="_blank" rel="noopener">CreateVms</a> dans la documentation de l&#8217;API OUTSCALE.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Pour vous connecter à votre VM, voir <a href="Accéder-à-vos-VM.html" class="xref page">Accéder à vos VM</a>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI_3"><a class="anchor" href="Tutoriel-Démarrer-dans-le-Cloud-OUTSCALE.html#AWS CLI_3"></a>Démarrer dans le Cloud 3DS OUTSCALE avec AWS CLI</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_installer_et_configurer_aws_cli"><a class="anchor" href="Tutoriel-Démarrer-dans-le-Cloud-OUTSCALE.html#_installer_et_configurer_aws_cli"></a>Installer et configurer AWS CLI</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Installez et configurez AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_créer_votre_première_keypair_3"><a class="anchor" href="Tutoriel-Démarrer-dans-le-Cloud-OUTSCALE.html#_créer_votre_première_keypair_3"></a>Créer votre première keypair</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Pour vous connecter de manière sécurisée à vos <span class="tooltip" data-tooltip="machine virtuelle (VM) dans l'API OUTSCALE">instances</span>, vous devez créer une keypair. Pour cela, utilisez la commande <strong>create-key-pair</strong> en suivant cette syntaxe :</p>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws ec2 create-key-pair \
+    --profile YOUR_PROFILE \
+    --key-name MyKeypair \
+    --endpoint https://fcu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour en savoir plus, voir <a href="Créer-une-keypair.html" class="xref page">Créer une keypair</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_créer_votre_premier_security_group_3"><a class="anchor" href="Tutoriel-Démarrer-dans-le-Cloud-OUTSCALE.html#_créer_votre_premier_security_group_3"></a>Créer votre premier security group</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Pour gérer les flux entrants et sortants de votre instance, vous devez créer un security group en utilisant la commande <strong>create-security-group</strong> suivante :</p>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws ec2 create-security-group \
+    --profile YOUR_PROFILE \
+    --group-name my-security-group \
+    --description SECURITY_GROUP_DESCRIPTION \
+    --endpoint https://fcu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour en savoir plus, voir <a href="Créer-un-security-group.html" class="xref page">Créer un security group</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Pour autoriser les flux dans un protocole et sur des ports spécifiques, vous devez ajouter des règles au security group en utilisant la commande <strong>authorize-security-group-ingress</strong> suivante :</p>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws ec2 authorize-security-group-ingress \
+    --profile YOUR_PROFILE \
+    --group-name my-security-group \
+    --protocol tcp \
+    --port 22 \
+    --cidr xx.xx.xx.xx/32 \
+    --endpoint https://fcu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>où <code>xx.xx.xx.xx</code> est l&#8217;IP de votre ordinateur actuel.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour en savoir plus, voir <a href="Ajouter-des-règles-à-un-security-group.html" class="xref page">Ajouter des règles à un security group</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_lancer_et_accéder_à_votre_première_instance"><a class="anchor" href="Tutoriel-Démarrer-dans-le-Cloud-OUTSCALE.html#_lancer_et_accéder_à_votre_première_instance"></a>Lancer et accéder à votre première instance</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Pour lancer votre première instance, utilisez la commande <strong>run-instances</strong> en suivant cette syntaxe :</p>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws ec2 run-instances \
+    --profile YOUR_PROFILE \
+    --image-id ami-xxxxxxxx \
+    --key-name MyKeypair \
+    --security-groups my-security-group \
+    --endpoint https://fcu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>où <code>ami-xxxxxxxx</code> est l&#8217;ID de l&#8217;OMI à utiliser pour lancer l&#8217;instance. Pour en savoir plus, voir <a href="À-propos-des-OMI.html" class="xref page">À propos des OMI</a> et <a href="Référence-des-OMI-officielles.html" class="xref page">Référence des OMI officielles</a>.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour en savoir plus, voir <a href="Créer-des-VM.html" class="xref page">Créer des VM</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Pour vous connecter à votre instance, voir <a href="Accéder-à-vos-VM.html" class="xref page">Accéder à vos VM</a>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-VM.html" class="xref page">À propos des VM</a></p>
+</li>
+<li>
+<p><a href="À-propos-des-Nets.html" class="xref page">À propos des Nets</a></p>
+</li>
+<li>
+<p><a href="À-propos-des-keypairs.html" class="xref page">À propos des keypairs</a></p>
+</li>
+<li>
+<p><a href="À-propos-des-security-groups.html" class="xref page">À propos des security groups</a></p>
+</li>
+<li>
+<p><a href="À-propos-des-règles-des-security-groups.html" class="xref page">À propos des règles des security groups</a></p>
+</li>
+<li>
+<p><a href="Arrêter-et-démarrer-des-VM.html" class="xref page">Arrêter et démarrer des VM</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

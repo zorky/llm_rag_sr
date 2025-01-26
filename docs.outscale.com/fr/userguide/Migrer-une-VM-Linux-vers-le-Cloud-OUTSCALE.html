@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Migrer une VM Linux vers le Cloud OUTSCALE – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Migrer-une-VM-Linux-vers-le-Cloud-OUTSCALE.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Migrer-une-VM-Linux-vers-le-Cloud-OUTSCALE.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Migrating-a-Linux-VM-to-the-OUTSCALE-Cloud.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Migrer une VM Linux vers le Cloud OUTSCALE</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez migrer une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machine virtuelle (VM)</span> Linux VMWare, VirtualBox ou Amazon Web Services (AWS) vers une VM Linux OUTSCALE. Pour en savoir plus sur les machines virtuelles (VM) OUTSCALE, voir <a href="À-propos-des-VM.html" class="xref page">À propos des VM</a>.</p>
+</div>
+<div class="paragraph">
+<p>Les procédures suivantes sont des instructions génériques que vous pouvez suivre selon votre situation. Vous pouvez les ajustez selon vos besoins.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_migrer_la_vm_depuis_vmware_ou_virtualbox"><a class="anchor" href="Migrer-une-VM-Linux-vers-le-Cloud-OUTSCALE.html#_migrer_la_vm_depuis_vmware_ou_virtualbox"></a>Migrer la VM depuis VMWare ou VirtualBox</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Avant de commencer :</strong> Assurez-vous d&#8217;avoir :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Le service SSH installé</p>
+</li>
+<li>
+<p>La clé SSH ou le login/password autorisé à distance (<code>/etc/sshd/sshd_config</code>)</p>
+</li>
+<li>
+<p>Le security group paramétré pour autoriser les connexions à la <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Créez une VM Linux OUTSCALE. Pour en savoir plus, voir <a href="Créer-des-VM.html" class="xref page">Créer des VM</a>.</p>
+</li>
+<li>
+<p>Attachez deux volumes xvdb et xvdc à cette VM. Pour en savoir plus, voir <a href="Attacher-un-volume-à-une-VM.html" class="xref page">Attacher un volume à une VM</a>.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous pouvez augmenter la vitesse de la copie en utilisant un volume <code>io1</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Formatez le volume xvdb au format ext4 :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ mkfs -t ext4 /dev/xvdb</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Créez le point de montage :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ mkdir -p /mnt/source</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Montez le volume xvdb :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ mount /dev/xvdb /mnt/source</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Le volume est monté.</p>
+</div>
+</li>
+<li>
+<p>Copiez le volume principal de votre VM Linux non OUTSCALE vers le volume de votre VM Linux OUTSCALE en utilisant la commande suivante :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ scp -i keypair.rsa convertible.vmdk user@outscale_ip:/mnt/source</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Le nom de l&#8217;utilisateur par défaut dépend de l&#8217;OMI utilisée :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>outscale</code> pour les OMI Ubuntu 18 et Centos 7 publiées depuis le 20 décembre 2018</p>
+</li>
+<li>
+<p><code>ubuntu</code> pour les OMI Ubuntu plus anciennes</p>
+</li>
+<li>
+<p><code>centos</code> pour les OMI Centos 7 et OMI Centos 6 plus anciennes</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Le volume est copié.</p>
+</div>
+</li>
+<li>
+<p>Installez le paquet qemu and et convertissez vos fichiers :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ qemu-img convert -f vmdk /mnt/source/convertible.vmdk -O raw /mnt/source/converted.raw</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Copiez vos fichiers vers la partition cible (le volume /dev/xvdc) bit par bit :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ dd if=/root/converted.raw of=/dev/xvdc bs=16k status=progress</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Les fichiers de votre VM Linux non OUTSCALE sont migrés vers la VM Linux OUTSCALE.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_migrer_la_vm_depuis_aws"><a class="anchor" href="Migrer-une-VM-Linux-vers-le-Cloud-OUTSCALE.html#_migrer_la_vm_depuis_aws"></a>Migrer la VM depuis AWS</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Avant de commencer :</strong> Assurez-vous d&#8217;avoir :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Le service SSH installé</p>
+</li>
+<li>
+<p>La clé SSH ou le login/password autorisé à distance (<code>/etc/sshd/sshd_config</code>)</p>
+</li>
+<li>
+<p>Le security group paramétré pour autoriser les connexions à la <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Créez une VM Linux OUTSCALE. Pour en savoir plus, voir <a href="Créer-des-VM.html" class="xref page">Créer des VM</a>.</p>
+</li>
+<li>
+<p>Attachez deux volumes xvdb et xvdc à cette VM. Pour en savoir plus, voir <a href="Attacher-un-volume-à-une-VM.html" class="xref page">Attacher un volume à une VM</a>.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous pouvez augmenter la vitesse de la copie en utilisant un volume <code>io1</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Formatez le volume xvdb au format ext4 :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ mkfs -t ext4 /dev/xvdb</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Créez le point de montage :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ mkdir -p /mnt/source</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Montez le volume xvdb :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ mount /dev/xvdb /mnt/source</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Le volume est monté.</p>
+</div>
+</li>
+<li>
+<p>Créez une autre VM Linux AWS.</p>
+</li>
+<li>
+<p>Attachez le bootdisk de votre nouvelle VM Linux AWS à la VM que vous voulez migrer.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si vous n&#8217;attachez pas le bootdisk, l&#8217;accès r/w est demandé pendant la copie et ralentit le processus</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Le bootdisk est attaché.</p>
+</div>
+</li>
+<li>
+<p>Ajoutez un troisième volume à la VM Linux AWS.</p>
+</li>
+<li>
+<p>Compressez les volumes de la VM Linux AWS dans un fichier au format zip, en utilisant les commandes suivantes :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ sudo chown -r ec2-user:root /mnt
+$ sudo mkfs -t ext4 /dev/hdc
+$ sudo mount /dev/hdc
+$ sudo dd if=/dev/hdb | gzip -c &gt; /mnt/aws.raw</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Le volume est compressé dans un fichier zip.</p>
+</div>
+</li>
+<li>
+<p>Copiez le fichier aws.raw reçu depuis la VM Linux AWS dans la VM Linux OUTSCALE :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ scp -i keypair.rsa aws.raw user@outscale_ip:/mnt/source</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Le nom de l&#8217;utilisateur par défaut dépend de l&#8217;OMI utilisée :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>outscale</code> pour les OMI Ubuntu 18 et Centos 7 publiées depuis le 20 décembre 2018</p>
+</li>
+<li>
+<p><code>ubuntu</code> pour les OMI Ubuntu plus anciennes</p>
+</li>
+<li>
+<p><code>centos</code> pour les OMI Centos 7 et OMI Centos 6 plus anciennes</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Le fichier est copié.</p>
+</div>
+</li>
+<li>
+<p>Décompressez les données :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ gunzip -c /mnt/source/aws.raw &gt; /dev/xvdc</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Les fichiers de votre VM Linux AWS sont migrés vers la VM Linux OUTSCALE.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configurer_la_vm_linux_migrée"><a class="anchor" href="Migrer-une-VM-Linux-vers-le-Cloud-OUTSCALE.html#_configurer_la_vm_linux_migrée"></a>Configurer la VM Linux migrée</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_faire_un_chroot_sur_la_partition"><a class="anchor" href="Migrer-une-VM-Linux-vers-le-Cloud-OUTSCALE.html#_faire_un_chroot_sur_la_partition"></a>Faire un chroot sur la partition</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Créez le point de montage/target :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ mkdir -p /mnt/target</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Tapez les commandes suivantes pour monter les différents fichiers obligatoires, où X est le numéro de la partition contenant le système d&#8217;exploitation :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ mount /dev/xvdcX /mnt/target
+$ mount --rbind /dev /mnt/target/dev
+$ mount -t proc /proc /mnt/target/proc
+$ mount --rbind /sys /mnt/target/sys</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Créez le nouveau chemin :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ export PATH=$PATH:/bin:/sbin</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Faites un chroot sur la partition que vous avez créée :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ chroot /mnt/target</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Le chroot est fait sur la partition.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_autoriser_lidentification_en_root"><a class="anchor" href="Migrer-une-VM-Linux-vers-le-Cloud-OUTSCALE.html#_autoriser_lidentification_en_root"></a>Autoriser l&#8217;identification en root</h3>
+<div class="paragraph">
+<p>Autorisez l&#8217;identification en root uniquement avec SSH et une clé dans <code>/etc/ssh_config</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configurer_grub"><a class="anchor" href="Migrer-une-VM-Linux-vers-le-Cloud-OUTSCALE.html#_configurer_grub"></a>Configurer GRUB</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Changez la configuration de GRUB (peut être en grub2 si celui-ci est appliqué) :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ /boot/grub/grub.cfg</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Vérifiez les paramètres de GRUB dans le fichier <code>/etc/default/grub</code>.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Vérifiez si le nom du volume est vda au lieu de sda ou hda. Si ce n&#8217;est pas le cas, changez-le.</p>
+</li>
+<li>
+<p>Ajoutez les options suivantes à votre ligne kernel dans GRUB :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ GRUB_CMDLINE_LINUX_DEFAULT="elevator=deadline console=tty0 console=ttyS0,38400n8"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>GRUB est modifié.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Appliquez la configuration de GRUB :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ grub-mkconfig</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Installez la nouvelle configuration de GRUB :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ grub-install</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_vérifier_les_derniers_éléments"><a class="anchor" href="Migrer-une-VM-Linux-vers-le-Cloud-OUTSCALE.html#_vérifier_les_derniers_éléments"></a>Vérifier les derniers éléments</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Vérifiez si les noms de volumes sont alignés dans le dossier <code>/etc/fstab</code>.</p>
+</li>
+<li>
+<p>Mettez en place le paquet de règles udev. Pour en savoir plus, voir <a href="Installer-les-paquets-pour-les-noms-de-périphériques-Linux.html" class="xref page">Installer les paquets pour les noms de périphériques Linux</a>.</p>
+</li>
+<li>
+<p>Si votre <code>/etc/rc.local</code> ne contient pas la clé SSH, utilisez le script suivant pour rafraîchir le fichier <code>authorized_keys</code> :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$  sed -i '/^exit 0/d' /etc/rc.local
+    cat &gt;&gt; /etc/rc.local &lt;&lt;EOF
+    /bin/mkdir -p /root/.ssh #LINE_TO_STRIP
+    wget http://169.254.169.254/latest/meta-data/public-keys/0/openssh-key -O - &gt; /root/.ssh/authorized_keys
+    /bin/chmod 700 /root/.ssh -R
+    wget http://169.254.169.254/latest/meta-data/local-hostname -O - | cut -d '.' -f 1 &gt; /etc/hostname; #LINE_TO_STRIP
+    hostname -F /etc/hostname #LINE_TO_STRIP
+    sed -i '/^.*LINE_TO_STRIP.*$/d' /etc/rc.local; #LINE_TO_STRIP
+    EOF</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Nettoyez les éléments sensibles de votre <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span>. Pour en savoir plus, voir <a href="Nettoyage-des-VM-Linux-pour-créer-des-OMI.html" class="xref page">Nettoyage des VM Linux pour créer des OMI</a>.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous pouvez vérifier le nettoyage avec soit <code>yum -y clean all</code>, soit <code>apt-get -y clean all</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_démarrer_la_vm"><a class="anchor" href="Migrer-une-VM-Linux-vers-le-Cloud-OUTSCALE.html#_démarrer_la_vm"></a>Démarrer la VM</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Vérifiez et nettoyez les programmes autorisés au démarrage à l&#8217;exception du <code>ssh</code>.</p>
+</li>
+<li>
+<p>Créez un snapshot de votre volume. Pour en savoir plus, voir <a href="Créer-un-snapshot-d-un-volume.html" class="xref page">Créer un snapshot d&#8217;un volume</a>.<br>
+Votre snapshot est créé.</p>
+</li>
+<li>
+<p>Créez une OUTSCALE machine image (OMI) à partir du snapshot que vous avez créé. Pour en savoir plus, voir <a href="Créer-une-OMI-depuis-un-snapshot.html" class="xref page">Créer une OMI depuis un snapshot</a>.<br>
+L&#8217;OMI est créée.</p>
+</li>
+<li>
+<p>Créez la <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> depuis l&#8217;OMI que vous avez créée. Pour en savoir plus, voir <a href="Créer-des-VM.html" class="xref page">Créer des VM</a>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-VM.html" class="xref page">À propos des VM</a></p>
+</li>
+<li>
+<p><a href="Créer-des-VM.html" class="xref page">Créer des VM</a></p>
+</li>
+<li>
+<p><a href="Attacher-un-volume-à-une-VM.html" class="xref page">Attacher un volume à une VM</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

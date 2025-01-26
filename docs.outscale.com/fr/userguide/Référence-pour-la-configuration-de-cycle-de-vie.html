@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Référence pour la configuration de cycle de vie – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Référence-pour-la-configuration-de-cycle-de-vie.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Référence-pour-la-configuration-de-cycle-de-vie.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Lifecycle-Configuration-Reference.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Référence pour la configuration de cycle de vie</h1>
+<div id="preamble" class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>Une configuration de cycle de vie est un fichier JSON dans lequel vous définissez les règles que vous souhaitez appliquer aux objets de votre bucket. Avec une configuration de cycle de vie, vous pouvez appliquer une date d&#8217;expiration aux objets stockés dans un bucket.</p>
+</div>
+<div class="paragraph">
+<p>Cette page décrit les éléments que vous pouvez définir dans un fichier de configuration de cycle de vie. Une fois ce fichier rédigé, vous devez l&#8217;appliquer à votre bucket. Pour en savoir plus, voir <a href="Appliquer-une-configuration-de-cycle-de-vie-à-votre-bucket.html" class="xref page">Appliquer une configuration de cycle de vie à votre bucket</a>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Un délai est à prévoir lors de la suppression.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous pouvez également spécifier ces règles directement sur la même ligne, sous la forme d’une chaîne JSON.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Pour créer une configuration de cycle de vie, vous devez créer un fichier JSON suivant cette structure :</p>
+</div>
+<div class="listingblock">
+<div class="title">Structure de la configuration</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+   "Rules": [
+      {
+         "ID": "string",
+         "Status": "Enabled",
+         "Expiration": {
+            "Date": "2050-01-01T00:00:00Z",
+            "Days": integer,
+            "ExpiredObjectDeleteMarker": false
+         },
+         "NoncurrentVersionExpiration": {
+            "NoncurrentDays": integer
+         },
+         "AbortIncompleteMultipartUpload": {
+            "DaysAfterInitiation": integer
+         },
+         "Filter": {
+            "And": {
+               "Prefix": "string",
+               "Tags": [
+                  {
+                     "Key": "test",
+                     "Value": "test"
+                  }
+               ]
+            }
+         }
+      }
+   ]
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Le fichier contient les attributs suivants :</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 11.1111%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribut</th>
+<th class="tableblock halign-left valign-top">Requis</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Rules</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Oui</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Une ou plusieurs règles de la configuration de cycle de vie.<br></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>L&#8217;ordre dans lequel les règles sont indiquées n&#8217;est pas significatif.</p>
+</div>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Non</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Un nom unique pour la règle.<br></p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>L&#8217;ID peut comprendre n&#8217;importe quel type de caractère et ne doit pas dépasser 255 caractères.</p>
+</div>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Status</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Oui</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Si <code>Enabled</code>, la règle est appliquée. Si <code>Disabled</code>, la règle n&#8217;est pas appliquée.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Expiration</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Non</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Indique la date d&#8217;expiration des objets.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>La suppression des objets expirés est asynchrone. Cela signifie qu&#8217;un délai est à prévoir entre le moment où l&#8217;objet est marqué comme expiré et celui où il est effectivement supprimé du bucket. Ce processus de suppression se déroule en arrière-plan et est géré par OUTSCALE Object Storage. Vous n&#8217;êtes plus facturé pour le stockage des objets une fois qu&#8217;ils ont expiré.</p>
+</div>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Days</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Non</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>La durée de vie des objets, en jours.<br></p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Lorsque vous créez une règle de cycle de vie, le nombre de jours spécifiés sont ajoutés à l&#8217;heure de création de votre objet, puis arrondis à minuit UTC. Par exemple, si vous créez un objet le 1er février 2024 à 06:00 UTC et que vous définissez une règle de cycle de vie de 1 jour, l&#8217;objet expirera le 3 février 2024 à minuit UTC.</p>
+</div>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Date</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Non</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>La durée de vie des objets, en utilisant un horodotage. L&#8217;horodotage doit être au format ISO 8601 (par exemple <code>2050-01-01T00:00:00Z</code>). L&#8217;action est appliquée dès que la date spécifiée est atteinte. <br></p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>L&#8217;heure est toujours minuit UTC. Spécifier une heure différente (par exemple <code>2050-01-01T16:00:00Z</code>) ne renverra pas d&#8217;erreur, mais l&#8217;action sera toujours automatiquement appliquée à minuit UTC à la date spécifiée.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous pouvez spécifier une action de cycle de vie et la définir à une date antérieure. Tous les objets concernés seront alors immédiatement qualifiés pour cette action.</p>
+</div>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ExpiredObjectDeleteMarker</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Non</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Si <code>true</code>, les delete markers expirés d&#8217;un objet sont supprimés lorsqu&#8217;aucune version plus ancienne de l&#8217;objet n&#8217;y est attachée. Cela permet d&#8217;éviter d&#8217;accumuler des delete markers inutiles dans un bucket. Pour en savoir plus, voir <a href="À-propos-des-delete-markers.html" class="xref page">À propos des delete markers</a>.<br></p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Cette règle est incompatible avec les attributs <code>Days</code> ou <code>Date</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NoncurrentVersionExpiration</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Non</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Si <code>true</code>, les versions non actuelles de vos objets sont automatiquement supprimées lorsqu&#8217;elles atteindront la durée spécifiée dans leur cycle de vie. Pour en savoir plus, voir <a href="Activer-ou-désactiver-le-versioning-d-un-bucket.html" class="xref page">Activer ou désactiver le versioning d&#8217;un bucket</a>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NoncurrentDays</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Non</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>La durée de vie, en jours, des versions non actuelles de vos objets.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AbortIncompleteMultipartUpload</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Non</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Indique quand un dépôt partitionné incomplet est annulé. Pour en savoir plus, voir <a href="Utiliser-un-dépôt-partitionné.html" class="xref page">Utiliser un dépôt partitionné</a>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DaysAfterInitiation</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Non</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Le nombre de jours après lesquels un dépôt partitionné incomplet est annulé.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Filter</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Oui</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Indique les objets auxquels la ou les règles s&#8217;appliquent.<br></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Les objets sont identifiés par un préfixe et/ou un ou plusieurs tags.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Pour ne pas utiliser le filtrage, utilisez un filtre vide :</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>         "Filter": {}</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Pour filtrer avec un préfixe, utilisez la structure suivante :</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>         "Filter": {
+            "Prefix": "string"
+         }</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Pour filtrer avec un ou plusieurs tags, utilisez la structure suivante, avec une chaîne de caractères vide pour <code>Prefix</code> :</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>         "Filter": {
+            "And": {
+               "Prefix": "",
+               "Tags": [
+                  {
+                     "Key": "test",
+                     "Value": "test"
+                  }
+               ]
+            }
+         }</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Pour fitrer avec un préfixe et un ou plusieurs tags, utilisez la structure suivante :</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>         "Filter": {
+            "And": {
+               "Prefix": "string",
+               "Tags": [
+                  {
+                     "Key": "test",
+                     "Value": "test"
+                  }
+               ]
+            }
+         }</pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si une règle de cycle de vie utilise le filtrage par tag, vous ne pourrez pas définir les règles <code>ExpiredObjectDeleteMarker</code> et <code>AbortIncompleteMultipartUpload</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-d-OOS.html" class="xref page">À propos d&#8217;OOS</a></p>
+</li>
+<li>
+<p><a href="Appliquer-une-configuration-de-cycle-de-vie-à-votre-bucket.html" class="xref page">Appliquer une configuration de cycle de vie à votre bucket</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-la-configuration-de-cycle-de-vie-de-votre-bucket.html" class="xref page">Obtenir des informations sur la configuration de cycle de vie de votre bucket</a></p>
+</li>
+<li>
+<p><a href="Supprimer-une-configuration-de-cycle-de-vie.html" class="xref page">Supprimer une configuration de cycle de vie</a></p>
+</li>
+</ul>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Initialiser un volume depuis une VM – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Initialiser-un-volume-depuis-une-VM.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Initialiser-un-volume-depuis-une-VM.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Initializing-a-Volume-from-a-VM.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Initialiser un volume depuis une VM</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Après avoir attaché un volume à une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machine virtuelle (VM)</span>, vous devez initialiser le volume pour le rendre utilisable.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="VM Linux_0"><a class="anchor" href="Initialiser-un-volume-depuis-une-VM.html#VM Linux_0"></a>VM Linux</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Avant de commencer :</strong> Attachez le volume à votre <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span>. Pour en savoir plus, voir <a href="Attacher-un-volume-à-une-VM.html" class="xref page">Attacher un volume à une VM</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="_nouveau_volume_vide_uniquement_créer_le_système_de_fichiers_du_volume"><a class="anchor" href="Initialiser-un-volume-depuis-une-VM.html#_nouveau_volume_vide_uniquement_créer_le_système_de_fichiers_du_volume"></a>(nouveau volume vide uniquement) Créer le système de fichiers du volume</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Connectez-vous à votre VM. Pour en savoir plus, voir <a href="Accéder-à-vos-VM.html" class="xref page">Accéder à vos VM</a>.</p>
+</li>
+<li>
+<p>(optionnel) Pour obtenir le nom de périphérique du volume que vous voulez monter, exécutez la commande suivante pour afficher la liste des périphériques attachés à la VM :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ lsblk</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À l&#8217;intérieur de la VM, un périphérique que vous avez nommé <strong>xvdX</strong> ou <strong>xvdXX</strong> dans votre compte OUTSCALE est typiquement renommé <strong>sdY</strong> ou <strong>sdYY</strong>. Pour en savoir plus, voir <a href="À-propos-des-volumes.html#_VM_linux" class="xref page">À propos des volumes &gt; VM Linux</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) Pour vérifier que le volume est vide, exécutez la commande suivante :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ sudo file -s /dev/DEVICE_NAME</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Si la commande renvoie uniquement <code>data</code>, le volume n&#8217;a pas de système de fichiers et vous devez en créer un.<br>
+Si la commande renvoie autre chose, le volume a déjà un système de fichiers.</p>
+</div>
+</li>
+<li>
+<p>Pour créer et formater un système de fichiers xfs sur l&#8217;ensemble du volume, exécutez la commande suivante :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ sudo mkfs -t xfs /dev/DEVICE_NAME</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Nous déconseillons le partitionnement des volumes et l&#8217;utilisation de LVM sur le Cloud OUTSCALE, car ces pratiques dégradent les performances des volumes. Nous recommandons d&#8217;utiliser directement les volumes tels quels.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_monter_le_volume"><a class="anchor" href="Initialiser-un-volume-depuis-une-VM.html#_monter_le_volume"></a>Monter le volume</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Pour créer un répertoire qui servira de point de montage pour le volume, exécutez la commande suivante :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ sudo mkdir /MOUNT_POINT</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Pour monter le volume sur le point de montage, exécutez la commande suivante :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ sudo mount /dev/DEVICE_NAME /MOUNT_POINT</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour confirmer la réussite du montage, vous pouvez exécuter la commande <code>df -hT</code> pour afficher la liste de tous les volumes montés sur la VM.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Le volume est initialisé depuis votre VM et prêt à être utilisé.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_optionnel_rendre_le_montage_permanent"><a class="anchor" href="Initialiser-un-volume-depuis-une-VM.html#_optionnel_rendre_le_montage_permanent"></a>(optionnel) Rendre le montage permanent</h3>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Attention"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Pour que le montage du volume persiste lors de redémarrages, vous devez modifier le fichier <strong>/etc/fstab</strong>, qui configure et monte les volumes de la VM.</p>
+</li>
+<li>
+<p>Selon votre distribution, il peut être nécessaire d&#8217;installer des dépendances supplémentaires.</p>
+</li>
+<li>
+<p>Afin d&#8217;éviter toute potentielle perte d&#8217;accès à vos données, il est recommandé de créer une sauvegarde de ce fichier avant de le modifier, en utilisant la commande suivante :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ sudo cp /etc/fstab /etc/fstab.orig</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Ouvrez le fichier <strong>/etc/fstab</strong> en utilisant la commande suivante :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ sudo vim /etc/fstab</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Appuyez sur <strong>i</strong> pour activer le mode d&#8217;insertion, puis ajoutez la ligne suivante à la fin du fichier :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">/dev/DEVICE_NAME    /MOUNT_POINT    xfs defaults,nofail 0   2</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>L&#8217;option <code>nofail</code> permet de monter le volume même s&#8217;il est détaché de la VM. De cette façon, aucune erreur ne sera renvoyée si le volume est introuvable lors du démarrage de la VM.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus sur les options de configuration possibles, voir par exemple la <a href="https://doc.ubuntu-fr.org/mount_fstab" target="_blank" rel="noopener">page fstab</a> dans la documentation d&#8217;Ubuntu.</p>
+</div>
+</li>
+<li>
+<p>Appuyez sur <strong>Échap</strong>, puis tapez <strong>:wq</strong> pour enregistrer le fichier.</p>
+</li>
+<li>
+<p>(optionnel) Pour vérifier la validité du fichier, exécutez la commande suivante pour le relancer :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ sudo mount -a</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Si la commande renvoie un message d&#8217;erreur, les options contenues dans le fichier ne sont pas valides. Vous devez alors restaurer le fichier original et le reconfigurer.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour restaurer le fichier <strong>/etc/fstab</strong> original, exécutez la commande suivante :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ sudo mv /etc/fstab.orig /etc/fstab</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="VM Windows_1"><a class="anchor" href="Initialiser-un-volume-depuis-une-VM.html#VM Windows_1"></a>VM Windows</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Avant de commencer :</strong> Attachez le volume à votre <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span>. Pour en savoir plus, voir <a href="Attacher-un-volume-à-une-VM.html" class="xref page">Attacher un volume à une VM</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Connectez-vous à votre VM. Pour en savoir plus, voir <a href="Accéder-à-une-VM-Windows.html" class="xref page">Accéder à une VM Windows</a>.</p>
+</li>
+<li>
+<p>Cliquez sur le menu <strong>Démarrer</strong>, tapez <strong>diskmgmt.msc</strong> et cliquez sur le programme qui apparaît.</p>
+</li>
+<li>
+<p>Dans le panneau en bas à gauche, faites un clic droit sur le disque correspondant au volume que vous voulez monter, puis cliquez sur <strong>En ligne</strong>.</p>
+</li>
+<li>
+<p>(nouveau disque vide uniquement) Si vous montez le disque pour la première fois, effectuez les actions suivantes :</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Faites un clic droit sur le disque, puis cliquez sur <strong>Initialiser le disque</strong>.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>OK</strong> pour valider.</p>
+</li>
+<li>
+<p>Faites un clic droit sur l&#8217;espace non alloué du disque, puis cliquez sur <strong>Nouveau volume simple&#8230;&#8203;</strong> et suivez les instructions à l&#8217;écran.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Le volume est initialisé et prêt à être utilisé.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-volumes.html" class="xref page">À propos des volumes</a></p>
+</li>
+<li>
+<p><a href="Créer-un-volume.html" class="xref page">Créer un volume</a></p>
+</li>
+<li>
+<p><a href="Attacher-un-volume-à-une-VM.html" class="xref page">Attacher un volume à une VM</a></p>
+</li>
+<li>
+<p><a href="Accéder-à-vos-VM.html" class="xref page">Accéder à vos VM</a></p>
+</li>
+<li>
+<p><a href="Référence-Windows.html" class="xref page">Référence Windows</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

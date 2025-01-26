@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Référence des fichiers manifestes – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Référence-des-fichiers-manifestes.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Référence-des-fichiers-manifestes.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Manifest-File-Reference.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Référence des fichiers manifestes</h1>
+<div id="preamble" class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>Un fichier manifeste est un fichier qui est nécessaire pour importer une image machine OUTSCALE (OMI) depuis un bucket OUTSCALE Object Storage (OOS). Pour en savoir plus, voir <a href="Copier-une-OMI-vers-d-autres-Régions.html" class="xref page">Copier une OMI vers d&#8217;autres Régions</a>.</p>
+</div>
+<div class="paragraph">
+<p>Un fichier manifeste peut être créé de deux façons :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Automatiquement : Lorsque vous pouvez exportez une OMI vers un bucket via Cockpit ou la méthode API CreateImageExportTask, le fichier manifeste et toutes les snapshots nécessaires sont automatiquement créés directement dans le bucket.</p>
+</li>
+<li>
+<p>Manuellement : Vous pouvez aussi manuellement rédiger le fichier manifeste correspondant à l&#8217;OMI, puis le déposer manuellement ainsi que toutes les snapshots nécessaires dans le bucket, mais cela requiert davantages d&#8217;étapes.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Une fois que le fichier manifeste existe dans le bucket, l&#8217;OMI peut être importée.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Pour rédiger manuellement un fichier manifeste, vous devez créer un fichier JSON en suivant cette structure :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de fichier manifeste</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "Version": 1,
+  "Image": {
+    "Name": "image-example",
+    "Description": "",
+    "Architecture": "x86_64",
+    "Type": "machine",
+    "ProductTypes": [
+      "0001"
+    ],
+    "Public": false,
+    "Snapshots": [
+      {
+        "DeleteOnTermination": false,
+        "Device": "/dev/sda1",
+        "Filename": "snap-11111111-aaaaaaaa.qcow2.gz",
+        "Iops": null,
+        "PreSignedUrl": "https://oos.eu-west-2.outscale.com/&lt;BUCKET&gt;/snap-11111111-aaaaaaaa.qcow2.gz?&lt;...&gt;",
+        "Size": 10737418240,
+        "VolumeType": "standard"
+      },
+      {
+        "DeleteOnTermination": false,
+        "Device": "/dev/sda2",
+        "Filename": "snap-22222222-aaaaaaaa.qcow2.gz",
+        "Iops": null,
+        "PreSignedUrl": "https://oos.eu-west-2.outscale.com/&lt;BUCKET&gt;/snap-22222222-aaaaaaaa.qcow2.gz?&lt;...&gt;",
+        "Size": 21474836480,
+        "VolumeType": "standard"
+      }
+    ]
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ce fichier contient les attributs suivants :</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 11.1111%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute</th>
+<th class="tableblock halign-left valign-top">Required</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Version</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Oui</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>La version du fichier manifeste (toujours <code>1</code>).</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Image</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Oui</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Informations à propos de l&#8217;OMI que vous voulez exporter.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Non</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Le nom de l&#8217;OMI.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Ce nom doit être unique et doit contenir entre 3 et 128 caractères. Les caractères autorisés sont a-z, A-Z, 0-9, l&#8217;espace et [_()/.-].</p>
+</div>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Description</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Non</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Une description pour l&#8217;OMI.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Cette description peut contenir n&#8217;importe quel caractère Unicode, sans limite de longueur.</p>
+</div>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Architecture</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Non</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>L&#8217;architecture de l&#8217;OMI (<code>i386</code> ou <code>x86_64</code>).</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Type</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Non</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Le type d&#8217;OMI (toujours <code>machine</code>).</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ProductTypes</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Oui</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Les codes produit associés à l&#8217;OMI.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Public</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Non</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Si l&#8217;OMI est publique ou privée.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Snapshots</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Oui</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Informations à propos des snapshots associés à l&#8217;OMI.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DeleteOnTermination</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Non</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Si <code>true</code>, le volume est supprimé quand la <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> est terminée. Si <code>false</code>, le snapshot n&#8217;est pas supprimé quand la VM est terminée.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Device</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Oui</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Le nom de périphérique du volume. Pour un volume système, vous devez utiliser <code>/dev/sda1</code>. Pour d&#8217;autres volumes, vous devez utiliser <code>/dev/sdX</code>, <code>/dev/sdXX</code>, <code>/dev/xvdX</code>, ou <code>/dev/xvdXX</code> (où le premier <code>X</code> est une lettre entre <code>b</code> et <code>z</code>, et le second <code>X</code> est une lettre entre <code>a</code> et <code>z</code>).</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Filename</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Oui</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Le nom de fichier du snapshot dans le bucket.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Iops</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Non</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Le nombre d&#8217;opérations de lecture/écriture par seconde (IOPS) (uniquement pour les volumes <code>io1</code>). Le nombre maxium d&#8217;IOPS autorisé est de <code>13000</code> avec un ratio de performance maximum de 300 IOPS par gibioctet.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PreSignedUrl</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Oui</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>L&#8217;URL pré-signée du fichier du snapshot. Pour en savoir plus, voir <a href="Créer-une-URL-pré-signée.html" class="xref page">Créer une URL pré-signée</a>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Size</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Oui</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>La taille du snapshot décompressé, en octets.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>VolumeType</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Non</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Le type de volume (<code>standard</code> | <code>gp2</code> | <code>io1</code>). Pour en savoir plus, voir <a href="À-propos-des-volumes.html#_types_de_volumes_et_iops" class="xref page">À propos des volumes &gt; Types de volumes et IOPS</a>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-OMI.html" class="xref page">À propos des OMI</a></p>
+</li>
+<li>
+<p><a href="Déposer-un-objet-dans-un-bucket.html" class="xref page">Déposer un objet dans un bucket</a></p>
+</li>
+<li>
+<p><a href="Exporter-une-OMI-vers-un-bucket.html" class="xref page">Exporter une OMI vers un bucket</a></p>
+</li>
+<li>
+<p><a href="Importer-une-OMI-depuis-un-bucket.html" class="xref page">Importer une OMI depuis un bucket</a></p>
+</li>
+<li>
+<p><a href="Créer-une-URL-pré-signée.html" class="xref page">Créer une URL pré-signée</a></p>
+</li>
+</ul>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

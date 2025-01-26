@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Modifier les attributs d&#8217;une OMI – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Modifier-les-attributs-d-une-OMI.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Modifier-les-attributs-d-une-OMI.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Modifying-the-Attributes-of-an-OMI.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Modifier les attributs d&#8217;une OMI</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez modifier les attributs d&#8217;une image machine OUTSCALE (OMI), tels que sa description, ses permissions ou sa confidentialité.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez également partager une OUTSCALE machine image (OMI) privée que vous avez créée, ou que vous avez copiée, avec un ou plusieurs comptes dans la même Région.</p>
+</div>
+<div class="paragraph">
+<p>Partager une OMI avec d&#8217;autres comptes leur permet d&#8217;accéder à cette OMI et de créer d&#8217;autres <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machines virtuelles (VM)</span> similaires à partir de celle-ci. Vous pouvez copier une OMI qu&#8217;un autre compte a partagé avec vous, à condition que les deux comptes soient dans la même Région. Vous pouvez également partager une copie que vous avez créée depuis une OMI partagée avec d&#8217;autres comptes. Pour en savoir plus, voir <a href="Copier-une-OMI.html" class="xref page">Copier une OMI</a>.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez gérer qui peut accéder à une OMI en ajoutant ou en rentirant des permissions. Pour obtenir des informations sur les comptes qui ont les permissions pour une OMI, voir <a href="Obtenir-des-informations-sur-vos-OMI.html#_obtenir_des_informations_sur_un_attribut_dune_omi" class="xref page">Obtenir des informations sur vos OMI &gt; Obtenir des informations sur un attribut d&#8217;une OMI</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Cockpit v2_0"><a class="anchor" href="Modifier-les-attributs-d-une-OMI.html#Cockpit v2_0"></a>Modifier les attributs d&#8217;une image avec Cockpit v2</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_modifier_les_permissions_dune_image"><a class="anchor" href="Modifier-les-attributs-d-une-OMI.html#_modifier_les_permissions_dune_image"></a>Modifier les permissions d&#8217;une image</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans le dashboard <strong>Images</strong>, cochez la case de l&#8217;image que vous voulez partager.<br>
+L&#8217;image est sélectionnée.</p>
+</li>
+<li>
+<p>Cliquez sur <span class="image"><img src="_images/IconLock.svg" alt="IconLock"></span> <strong>Modifier les permissions</strong>.<br>
+La boîte de dialogue MODIFIER LES PERMISSIONS D&#8217;UNE IMAGE apparaît.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Une liste des ID de comptes des utilisateurs autorisés à utiliser l&#8217;image apparaît, le cas échéant.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Pour partager l&#8217;image sélectionnée avec un ou plusieurs utilisateurs, cliquez sur <span class="image"><img src="_images/IconAddFull.svg" alt="IconAddFull"></span> <strong>Ajouter</strong> et tapez leurs IDs séparés par une virgule dans le champ <strong>Account ID</strong>.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour retirer les permissions à un utilisateur, cliquez sur <span class="image"><img src="_images/IconDeleteRed.svg" alt="IconDeleteRed"></span> à côté de son ID.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Cliquez sur <strong>Modifier</strong>.<br>
+L&#8217;image est partagée avec les utilisateurs que vous avez spécifiés.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_modifier_la_confidentialité_dune_image"><a class="anchor" href="Modifier-les-attributs-d-une-OMI.html#_modifier_la_confidentialité_dune_image"></a>Modifier la confidentialité d&#8217;une image</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans le dashboard <strong>Images</strong>, cochez la case de l&#8217;image dont vous voulez modifier la confidentialité.<br>
+L&#8217;image est sélectionnée.</p>
+</li>
+<li>
+<p>Cliquez sur <span class="image"><img src="_images/IconLock.svg" alt="IconLock"></span> <strong>Modifier la confidentialité</strong>.<br>
+La boîte de dialogue MODIFIER LA CONFIDENTIALITÉ D&#8217;UNE IMAGE apparaît.</p>
+</li>
+<li>
+<p>Si vous voulez rendre votre image publique, activez <strong>Cloud public</strong>.</p>
+</li>
+<li>
+<p>Si vous voulez que votre image reste privée, laissez <strong>Cloud public</strong> désactivé.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Modifier</strong>.<br>
+La confidentialité de l&#8217;image est modifiée.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="OSC CLI_1"><a class="anchor" href="Modifier-les-attributs-d-une-OMI.html#OSC CLI_1"></a>Modifier les attributs d&#8217;une OMI avec OSC CLI</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>UpdateImage</strong> command modifies the access permissions for an OUTSCALE machine image (OMI).<br>
+You must specify either the <code>Additions</code> or the <code>Removals</code> parameter.<br>
+After sharing an OMI with an account, the other account can create a copy of it that they own. For more information about copying OMIs, see <a href="../../api%3Fconsole.html#createimage" class="xref page">CreateImage</a>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Adding permission</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api UpdateImage --profile "default" \
+    --ImageId "ami-12345678" \
+    --PermissionsToLaunch '{
+        "Additions": {
+          "AccountIds": ["987654321098"]
+        }
+      }'</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Removing permission</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api UpdateImage --profile "default" \
+    --ImageId "ami-12345678" \
+    --PermissionsToLaunch '{
+        "Removals": {
+          "AccountIds": ["987654321098"]
+        }
+      }'</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Making an image public to everyone</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api UpdateImage --profile "default" \
+    --ImageId "ami-12345678" \
+    --PermissionsToLaunch '{
+        "Additions": {
+          "GlobalPermission": True
+        }
+      }'</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Making an image private to everyone</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api UpdateImage --profile "default" \
+    --ImageId "ami-12345678" \
+    --Description "Private image" \
+    --PermissionsToLaunch '{
+        "Removals": {
+          "GlobalPermission": True
+        }
+      }'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Description</code>: (optional) A new description for the image.</p>
+</li>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>ImageId</code>: The ID of the OMI you want to modify.</p>
+</li>
+<li>
+<p><code>PermissionsToLaunch</code>: (optional) Information about the permissions for the resource.<br>
+Specify either the <code>Additions</code> or the <code>Removals</code> parameter.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Additions</code>: (optional) Permissions for the resource.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountIds</code>: (optional) One or more account IDs that the permission is associated with.</p>
+</li>
+<li>
+<p><code>GlobalPermission</code>: (optional) A global permission for all accounts.<br>
+(Request) Set this parameter to true to make the resource public (if the parent parameter is <code>Additions</code>) or to make the resource private (if the parent parameter is <code>Removals</code>).<br>
+(Response) If true, the resource is public. If false, the resource is private.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Removals</code>: (optional) Permissions for the resource.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountIds</code>: (optional) One or more account IDs that the permission is associated with.</p>
+</li>
+<li>
+<p><code>GlobalPermission</code>: (optional) A global permission for all accounts.<br>
+(Request) Set this parameter to true to make the resource public (if the parent parameter is <code>Additions</code>) or to make the resource private (if the parent parameter is <code>Removals</code>).<br>
+(Response) If true, the resource is public. If false, the resource is private.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>UpdateImage</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Image</code>: Information about the OMI.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountAlias</code>: The account alias of the owner of the OMI.</p>
+</li>
+<li>
+<p><code>AccountId</code>: The account ID of the owner of the OMI.</p>
+</li>
+<li>
+<p><code>Architecture</code>: The architecture of the OMI.</p>
+</li>
+<li>
+<p><code>BlockDeviceMappings</code>: One or more block device mappings.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Bsu</code>: Information about the BSU volume to create.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteOnVmDeletion</code>: By default or if set to true, the volume is deleted when terminating the <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span>. If false, the volume is not deleted when terminating the VM.</p>
+</li>
+<li>
+<p><code>Iops</code>: The number of I/O operations per second (IOPS). This parameter must be specified only if you create an <code>io1</code> volume. The maximum number of IOPS allowed for <code>io1</code> volumes is <code>13000</code> with a maximum performance ratio of 300 IOPS per gibibyte.</p>
+</li>
+<li>
+<p><code>SnapshotId</code>: The ID of the snapshot used to create the volume.</p>
+</li>
+<li>
+<p><code>VolumeSize</code>: The size of the volume, in gibibytes (GiB).<br>
+If you specify a snapshot ID, the volume size must be at least equal to the snapshot size.<br>
+If you specify a snapshot ID but no volume size, the volume is created with a size similar to the snapshot one.</p>
+</li>
+<li>
+<p><code>VolumeType</code>: The type of the volume (<code>standard</code> | <code>io1</code> | <code>gp2</code>). If not specified in the request, a <code>standard</code> volume is created.<br>
+For more information about volume types, see <a href="../../en/userguide/About-Volumes.html#_volume_types_and_iops" target="_blank" rel="noopener">About Volumes &gt; Volume Types and IOPS</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>DeviceName</code>: The device name for the volume. For a root device, you must use <code>/dev/sda1</code>. For other volumes, you must use <code>/dev/sdX</code>, <code>/dev/sdXX</code>, <code>/dev/xvdX</code>, or <code>/dev/xvdXX</code> (where the first <code>X</code> is a letter between <code>b</code> and <code>z</code>, and the second <code>X</code> is a letter between <code>a</code> and <code>z</code>).</p>
+</li>
+<li>
+<p><code>VirtualDeviceName</code>: The name of the virtual device (<code>ephemeralN</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>CreationDate</code>: The date and time (UTC) at which the OMI was created.</p>
+</li>
+<li>
+<p><code>Description</code>: The description of the OMI.</p>
+</li>
+<li>
+<p><code>FileLocation</code>: The location from which the OMI files were created.</p>
+</li>
+<li>
+<p><code>ImageId</code>: The ID of the OMI.</p>
+</li>
+<li>
+<p><code>ImageName</code>: The name of the OMI.</p>
+</li>
+<li>
+<p><code>ImageType</code>: The type of the OMI.</p>
+</li>
+<li>
+<p><code>PermissionsToLaunch</code>: Permissions for the resource.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountIds</code>: One or more account IDs that the permission is associated with.</p>
+</li>
+<li>
+<p><code>GlobalPermission</code>: A global permission for all accounts.<br>
+(Request) Set this parameter to true to make the resource public (if the parent parameter is <code>Additions</code>) or to make the resource private (if the parent parameter is <code>Removals</code>).<br>
+(Response) If true, the resource is public. If false, the resource is private.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ProductCodes</code>: The product codes associated with the OMI.</p>
+</li>
+<li>
+<p><code>RootDeviceName</code>: The name of the root device.</p>
+</li>
+<li>
+<p><code>RootDeviceType</code>: The type of root device used by the OMI (always <code>bsu</code>).</p>
+</li>
+<li>
+<p><code>State</code>: The state of the OMI (<code>pending</code> | <code>available</code> | <code>failed</code>).</p>
+</li>
+<li>
+<p><code>StateComment</code>: Information about the change of state.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>StateCode</code>: The code of the change of state.</p>
+</li>
+<li>
+<p><code>StateMessage</code>: A message explaining the change of state.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the OMI.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Adding permission</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "Image": {
+    "StateComment": {},
+    "State": "available",
+    "RootDeviceType": "bsu",
+    "RootDeviceName": "/dev/sda1",
+    "ProductCodes": [
+      "0001"
+    ],
+    "PermissionsToLaunch": {
+      "GlobalPermission": false,
+      "AccountIds": [
+        "987654321098"
+      ]
+    },
+    "AccountId": "123456789012",
+    "Tags": [],
+    "Description": "",
+    "ImageId": "ami-12345678",
+    "BlockDeviceMappings": [
+      {
+        "DeviceName": "/dev/sda1",
+        "Bsu": {
+          "VolumeType": "standard",
+          "DeleteOnVmDeletion": true,
+          "VolumeSize": 50,
+          "SnapshotId": "snap-12345678"
+        }
+      }
+    ],
+    "ImageType": "machine",
+    "CreationDate": "2010-10-01T12:34:56.789Z",
+    "FileLocation": "123456789012/image-example",
+    "Architecture": "x86_64",
+    "ImageName": "image-example"
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Removing permission</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "Image": {
+    "StateComment": {},
+    "State": "available",
+    "RootDeviceType": "bsu",
+    "RootDeviceName": "/dev/sda1",
+    "ProductCodes": [
+      "0001"
+    ],
+    "PermissionsToLaunch": {
+      "GlobalPermission": false,
+      "AccountIds": []
+    },
+    "AccountId": "123456789012",
+    "Tags": [],
+    "Description": "",
+    "ImageId": "ami-12345678",
+    "BlockDeviceMappings": [
+      {
+        "DeviceName": "/dev/sda1",
+        "Bsu": {
+          "VolumeType": "standard",
+          "DeleteOnVmDeletion": true,
+          "VolumeSize": 50,
+          "SnapshotId": "snap-12345678"
+        }
+      }
+    ],
+    "ImageType": "machine",
+    "CreationDate": "2010-10-01T12:34:56.789Z",
+    "FileLocation": "123456789012/image-example",
+    "Architecture": "x86_64",
+    "ImageName": "image-example"
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Making an image public to everyone</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "Image": {
+    "StateComment": {},
+    "State": "available",
+    "RootDeviceType": "bsu",
+    "RootDeviceName": "/dev/sda1",
+    "ProductCodes": [
+      "0001"
+    ],
+    "PermissionsToLaunch": {
+      "GlobalPermission": true,
+      "AccountIds": []
+    },
+    "AccountId": "123456789012",
+    "Tags": [],
+    "Description": "",
+    "ImageId": "ami-12345678",
+    "BlockDeviceMappings": [
+      {
+        "DeviceName": "/dev/sda1",
+        "Bsu": {
+          "VolumeType": "standard",
+          "DeleteOnVmDeletion": true,
+          "VolumeSize": 50,
+          "SnapshotId": "snap-12345678"
+        }
+      }
+    ],
+    "ImageType": "machine",
+    "CreationDate": "2010-10-01T12:34:56.789Z",
+    "FileLocation": "123456789012/image-example",
+    "Architecture": "x86_64",
+    "ImageName": "image-example"
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Making an image private to everyone</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "Image": {
+    "StateComment": {},
+    "State": "available",
+    "RootDeviceType": "bsu",
+    "RootDeviceName": "/dev/sda1",
+    "ProductCodes": [
+      "0001"
+    ],
+    "PermissionsToLaunch": {
+      "GlobalPermission": false,
+      "AccountIds": []
+    },
+    "AccountId": "123456789012",
+    "Tags": [],
+    "Description": "Private image",
+    "ImageId": "ami-12345678",
+    "BlockDeviceMappings": [
+      {
+        "DeviceName": "/dev/sda1",
+        "Bsu": {
+          "VolumeType": "standard",
+          "DeleteOnVmDeletion": true,
+          "VolumeSize": 50,
+          "SnapshotId": "snap-12345678"
+        }
+      }
+    ],
+    "ImageType": "machine",
+    "CreationDate": "2010-10-01T12:34:56.789Z",
+    "FileLocation": "123456789012/image-example",
+    "Architecture": "x86_64",
+    "ImageName": "image-example"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="oapi-cli_2"><a class="anchor" href="Modifier-les-attributs-d-une-OMI.html#oapi-cli_2"></a>Modifier les attributs d&#8217;une OMI avec oapi-cli</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>UpdateImage</strong> command modifies the access permissions for an OUTSCALE machine image (OMI).<br>
+You must specify either the <code>Additions</code> or the <code>Removals</code> parameter.<br>
+After sharing an OMI with an account, the other account can create a copy of it that they own. For more information about copying OMIs, see <a href="../../api%3Fconsole.html#createimage" class="xref page">CreateImage</a>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Adding permission</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" UpdateImage \
+    --ImageId "ami-12345678" \
+    --PermissionsToLaunch '{
+        "Additions": {
+          "AccountIds": ["987654321098"]
+        }
+      }'</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Removing permission</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" UpdateImage \
+    --ImageId "ami-12345678" \
+    --PermissionsToLaunch '{
+        "Removals": {
+          "AccountIds": ["987654321098"]
+        }
+      }'</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Making an image public to everyone</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" UpdateImage \
+    --ImageId "ami-12345678" \
+    --PermissionsToLaunch '{
+        "Additions": {
+          "GlobalPermission": True
+        }
+      }'</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Making an image private to everyone</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" UpdateImage \
+    --ImageId "ami-12345678" \
+    --Description "Private image" \
+    --PermissionsToLaunch '{
+        "Removals": {
+          "GlobalPermission": True
+        }
+      }'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Description</code>: (optional) A new description for the image.</p>
+</li>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>ImageId</code>: The ID of the OMI you want to modify.</p>
+</li>
+<li>
+<p><code>PermissionsToLaunch</code>: (optional) Information about the permissions for the resource.<br>
+Specify either the <code>Additions</code> or the <code>Removals</code> parameter.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Additions</code>: (optional) Permissions for the resource.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountIds</code>: (optional) One or more account IDs that the permission is associated with.</p>
+</li>
+<li>
+<p><code>GlobalPermission</code>: (optional) A global permission for all accounts.<br>
+(Request) Set this parameter to true to make the resource public (if the parent parameter is <code>Additions</code>) or to make the resource private (if the parent parameter is <code>Removals</code>).<br>
+(Response) If true, the resource is public. If false, the resource is private.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Removals</code>: (optional) Permissions for the resource.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountIds</code>: (optional) One or more account IDs that the permission is associated with.</p>
+</li>
+<li>
+<p><code>GlobalPermission</code>: (optional) A global permission for all accounts.<br>
+(Request) Set this parameter to true to make the resource public (if the parent parameter is <code>Additions</code>) or to make the resource private (if the parent parameter is <code>Removals</code>).<br>
+(Response) If true, the resource is public. If false, the resource is private.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>UpdateImage</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Image</code>: Information about the OMI.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountAlias</code>: The account alias of the owner of the OMI.</p>
+</li>
+<li>
+<p><code>AccountId</code>: The account ID of the owner of the OMI.</p>
+</li>
+<li>
+<p><code>Architecture</code>: The architecture of the OMI.</p>
+</li>
+<li>
+<p><code>BlockDeviceMappings</code>: One or more block device mappings.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Bsu</code>: Information about the BSU volume to create.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteOnVmDeletion</code>: By default or if set to true, the volume is deleted when terminating the <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span>. If false, the volume is not deleted when terminating the VM.</p>
+</li>
+<li>
+<p><code>Iops</code>: The number of I/O operations per second (IOPS). This parameter must be specified only if you create an <code>io1</code> volume. The maximum number of IOPS allowed for <code>io1</code> volumes is <code>13000</code> with a maximum performance ratio of 300 IOPS per gibibyte.</p>
+</li>
+<li>
+<p><code>SnapshotId</code>: The ID of the snapshot used to create the volume.</p>
+</li>
+<li>
+<p><code>VolumeSize</code>: The size of the volume, in gibibytes (GiB).<br>
+If you specify a snapshot ID, the volume size must be at least equal to the snapshot size.<br>
+If you specify a snapshot ID but no volume size, the volume is created with a size similar to the snapshot one.</p>
+</li>
+<li>
+<p><code>VolumeType</code>: The type of the volume (<code>standard</code> | <code>io1</code> | <code>gp2</code>). If not specified in the request, a <code>standard</code> volume is created.<br>
+For more information about volume types, see <a href="../../en/userguide/About-Volumes.html#_volume_types_and_iops" target="_blank" rel="noopener">About Volumes &gt; Volume Types and IOPS</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>DeviceName</code>: The device name for the volume. For a root device, you must use <code>/dev/sda1</code>. For other volumes, you must use <code>/dev/sdX</code>, <code>/dev/sdXX</code>, <code>/dev/xvdX</code>, or <code>/dev/xvdXX</code> (where the first <code>X</code> is a letter between <code>b</code> and <code>z</code>, and the second <code>X</code> is a letter between <code>a</code> and <code>z</code>).</p>
+</li>
+<li>
+<p><code>VirtualDeviceName</code>: The name of the virtual device (<code>ephemeralN</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>CreationDate</code>: The date and time (UTC) at which the OMI was created.</p>
+</li>
+<li>
+<p><code>Description</code>: The description of the OMI.</p>
+</li>
+<li>
+<p><code>FileLocation</code>: The location from which the OMI files were created.</p>
+</li>
+<li>
+<p><code>ImageId</code>: The ID of the OMI.</p>
+</li>
+<li>
+<p><code>ImageName</code>: The name of the OMI.</p>
+</li>
+<li>
+<p><code>ImageType</code>: The type of the OMI.</p>
+</li>
+<li>
+<p><code>PermissionsToLaunch</code>: Permissions for the resource.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountIds</code>: One or more account IDs that the permission is associated with.</p>
+</li>
+<li>
+<p><code>GlobalPermission</code>: A global permission for all accounts.<br>
+(Request) Set this parameter to true to make the resource public (if the parent parameter is <code>Additions</code>) or to make the resource private (if the parent parameter is <code>Removals</code>).<br>
+(Response) If true, the resource is public. If false, the resource is private.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ProductCodes</code>: The product codes associated with the OMI.</p>
+</li>
+<li>
+<p><code>RootDeviceName</code>: The name of the root device.</p>
+</li>
+<li>
+<p><code>RootDeviceType</code>: The type of root device used by the OMI (always <code>bsu</code>).</p>
+</li>
+<li>
+<p><code>State</code>: The state of the OMI (<code>pending</code> | <code>available</code> | <code>failed</code>).</p>
+</li>
+<li>
+<p><code>StateComment</code>: Information about the change of state.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>StateCode</code>: The code of the change of state.</p>
+</li>
+<li>
+<p><code>StateMessage</code>: A message explaining the change of state.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the OMI.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Adding permission</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "Image": {
+    "StateComment": {},
+    "State": "available",
+    "RootDeviceType": "bsu",
+    "RootDeviceName": "/dev/sda1",
+    "ProductCodes": [
+      "0001"
+    ],
+    "PermissionsToLaunch": {
+      "GlobalPermission": false,
+      "AccountIds": [
+        "987654321098"
+      ]
+    },
+    "AccountId": "123456789012",
+    "Tags": [],
+    "Description": "",
+    "ImageId": "ami-12345678",
+    "BlockDeviceMappings": [
+      {
+        "DeviceName": "/dev/sda1",
+        "Bsu": {
+          "VolumeType": "standard",
+          "DeleteOnVmDeletion": true,
+          "VolumeSize": 50,
+          "SnapshotId": "snap-12345678"
+        }
+      }
+    ],
+    "ImageType": "machine",
+    "CreationDate": "2010-10-01T12:34:56.789Z",
+    "FileLocation": "123456789012/image-example",
+    "Architecture": "x86_64",
+    "ImageName": "image-example"
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Removing permission</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "Image": {
+    "StateComment": {},
+    "State": "available",
+    "RootDeviceType": "bsu",
+    "RootDeviceName": "/dev/sda1",
+    "ProductCodes": [
+      "0001"
+    ],
+    "PermissionsToLaunch": {
+      "GlobalPermission": false,
+      "AccountIds": []
+    },
+    "AccountId": "123456789012",
+    "Tags": [],
+    "Description": "",
+    "ImageId": "ami-12345678",
+    "BlockDeviceMappings": [
+      {
+        "DeviceName": "/dev/sda1",
+        "Bsu": {
+          "VolumeType": "standard",
+          "DeleteOnVmDeletion": true,
+          "VolumeSize": 50,
+          "SnapshotId": "snap-12345678"
+        }
+      }
+    ],
+    "ImageType": "machine",
+    "CreationDate": "2010-10-01T12:34:56.789Z",
+    "FileLocation": "123456789012/image-example",
+    "Architecture": "x86_64",
+    "ImageName": "image-example"
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Making an image public to everyone</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "Image": {
+    "StateComment": {},
+    "State": "available",
+    "RootDeviceType": "bsu",
+    "RootDeviceName": "/dev/sda1",
+    "ProductCodes": [
+      "0001"
+    ],
+    "PermissionsToLaunch": {
+      "GlobalPermission": true,
+      "AccountIds": []
+    },
+    "AccountId": "123456789012",
+    "Tags": [],
+    "Description": "",
+    "ImageId": "ami-12345678",
+    "BlockDeviceMappings": [
+      {
+        "DeviceName": "/dev/sda1",
+        "Bsu": {
+          "VolumeType": "standard",
+          "DeleteOnVmDeletion": true,
+          "VolumeSize": 50,
+          "SnapshotId": "snap-12345678"
+        }
+      }
+    ],
+    "ImageType": "machine",
+    "CreationDate": "2010-10-01T12:34:56.789Z",
+    "FileLocation": "123456789012/image-example",
+    "Architecture": "x86_64",
+    "ImageName": "image-example"
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Making an image private to everyone</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "Image": {
+    "StateComment": {},
+    "State": "available",
+    "RootDeviceType": "bsu",
+    "RootDeviceName": "/dev/sda1",
+    "ProductCodes": [
+      "0001"
+    ],
+    "PermissionsToLaunch": {
+      "GlobalPermission": false,
+      "AccountIds": []
+    },
+    "AccountId": "123456789012",
+    "Tags": [],
+    "Description": "Private image",
+    "ImageId": "ami-12345678",
+    "BlockDeviceMappings": [
+      {
+        "DeviceName": "/dev/sda1",
+        "Bsu": {
+          "VolumeType": "standard",
+          "DeleteOnVmDeletion": true,
+          "VolumeSize": 50,
+          "SnapshotId": "snap-12345678"
+        }
+      }
+    ],
+    "ImageType": "machine",
+    "CreationDate": "2010-10-01T12:34:56.789Z",
+    "FileLocation": "123456789012/image-example",
+    "Architecture": "x86_64",
+    "ImageName": "image-example"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI_3"><a class="anchor" href="Modifier-les-attributs-d-une-OMI.html#AWS CLI_3"></a>Modifier les attributs d&#8217;une OMI avec AWS CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Avant de commencer :</strong> Installez et configurez AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p>Pour modifier les attributs d&#8217;une OMI et ajouter ou retirer des permissions, utilisez la commande <strong>modify-image-attribute</strong> en suivant cette syntaxe :</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws ec2 modify-image-attribute \
+    --profile YOUR_PROFILE \
+    --description NOT_SPECIFIED \
+    --image-id ami-12345678 \
+    --launch-permission "{\"Add\":[{\"UserId\":\"123456789000\"}]}" \
+    --endpoint https://fcu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>profile</code> : Le profil nommé que vous voulez utiliser, créé pendant la configuration d&#8217;AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>image-id</code> : L&#8217;ID de l&#8217;OMI.</p>
+</li>
+<li>
+<p>(optionnel) <code>description</code> : La nouvelle description de l&#8217;OMI.</p>
+</li>
+<li>
+<p>(optionnel) <code>launch-permissions</code> : Une ou plusieurs permissions d&#8217;accéder et d&#8217;utiliser l&#8217;OMI. Cet attribut requiert au moins un des deux éléments suivants :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Add</code> : Une ou plusieurs permissions à ajouter. Pour ajouter une permission pour un compte, utilisez l&#8217;élément <code>UserId</code>.</p>
+</li>
+<li>
+<p><code>Remove</code> : Une ou plusieurs permissions à retirer. Pour retirer une permission à un compte, utilisez l&#8217;élément <code>UserId</code>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous ne pouvez pas modifier les attributs <code>description</code> et <code>launch-permissions</code> dans la même commande.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>endpoint</code> : Le endpoint correspondant à la Région à laquelle vous voulez envoyer la requête. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Les attributs de l&#8217;OMI sont modifiés.</p>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-OMI.html" class="xref page">À propos des OMI</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-vos-OMI.html" class="xref page">Obtenir des informations sur vos OMI</a></p>
+</li>
+<li>
+<p><a href="Créer-une-OMI-depuis-une-VM.html" class="xref page">Créer une OMI depuis une VM</a></p>
+</li>
+<li>
+<p><a href="Créer-une-OMI-depuis-un-snapshot.html" class="xref page">Créer une OMI depuis un snapshot</a></p>
+</li>
+<li>
+<p><a href="Copier-une-OMI.html" class="xref page">Copier une OMI</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Méthodes API correspondantes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#updateimage" class="xref page">UpdateImage (API OUTSCALE)</a></p>
+</li>
+<li>
+<p><a href="../../fcu.html#modifyimageattribute" class="xref page">ModifyImageAttribute (FCU)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

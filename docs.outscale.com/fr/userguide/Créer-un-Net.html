@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Créer un Net – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Créer-un-Net.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Créer-un-Net.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Creating-a-Net.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Créer un Net</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez créer un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span> pour isoler vos ressources dans un réseau virtuel dédié à votre compte.</p>
+</div>
+<div class="paragraph">
+<p>Cockpit v2 vous permet de créer un Net uniquement (version basique), ou de créer un Net avec ses ressources associées (Subnets, <span class="tooltip" data-tooltip="Internet gateway dans les API AWS-compliant">internet service</span>, NAT service) et de le configurer dans une même requête de création.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Cockpit v2_0"><a class="anchor" href="Créer-un-Net.html#Cockpit v2_0"></a>Créer un Net avec Cockpit v2</h2>
+<div class="sectionbody">
+<details>
+<summary class="title">Version basique :</summary>
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans le dashboard <strong>Nets</strong>, cliquez sur <span class="image"><img src="_images/IconAddFull.svg" alt="IconAddFull"></span> <strong>Créer un Net</strong>.<br>
+La boîte de dialogue CRÉER UN NET apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>ou accéder à la version basique</strong> en bas de la boîte de dialogue.</p>
+</li>
+<li>
+<p>Dans le champ <strong>Nom</strong>, tapez un nom pour le Net.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Cette action ajoute un tag Name de 255 caractères maximum. Vous pouvez utiliser tous les caractères, y compris les lettres accentuées.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Dans le champ <strong>Plage d&#8217;IP</strong>, tapez la plage d&#8217;IP pour votre Net, en notation CIDR.</p>
+</li>
+<li>
+<p>(optionnel) Depuis la liste <strong>Allocation des VM</strong>, sélectionnez <strong>Dédiée</strong> pour placer les machines virtuelles (VM) créées dans le Net sur des serveurs dédiés. Pour en savoir plus, voir <a href="À-propos-des-VM.html#_allocation_des_vm_et_vm_dédiées" class="xref page">À propos des VM &gt; Allocation des VM et VM dédiées</a>.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Créer</strong>.<br>
+Le Net est créé.</p>
+</li>
+<li>
+<p>(optionnel) Pour désactiver la fonctionnalité permettant aux VM d&#8217;un même Subnet de communiquer entre elles sans règles de security group requises, ajoutez un tag à votre Net avec <code>osc.fcu.enable_lan_security_groups</code> pour clé. Pour en savoir plus sur comment ajouter un tag, voir <a href="Ajouter-ou-retirer-des-tags.html" class="xref page">Ajouter ou retirer des tags</a>. Pour en savoir plus sur cette fonctionnalité, voir <a href="À-propos-des-Nets.html#_routage_et_sécurité_dun_subnet" class="xref page">À propos des VPC &gt; Routage et sécurité d&#8217;un subnet</a>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Ce tag doit être ajouté à votre Net avant de créer des Subnets dans celui-ci.</p>
+</li>
+<li>
+<p>La valeur de ce tag n&#8217;est pas prise en compte, vous pouvez donc spécifier n&#8217;importe quelle valeur pour ce tag.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</details>
+<div class="sect2">
+<h3 id="_ouvrir_la_fenêtre_créer_un_net"><a class="anchor" href="Créer-un-Net.html#_ouvrir_la_fenêtre_créer_un_net"></a>Ouvrir la fenêtre Créer un Net</h3>
+<div class="paragraph">
+<p>Dans le dashboard <strong>Nets &amp; Subnets</strong>, cliquez sur <span class="image"><img src="_images/IconAddFull.svg" alt="IconAddFull"></span> <strong>Créer un Net</strong>.<br>
+La boîte de dialogue CRÉER UN NET apparaît.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_vérifier_les_ressources_disponibles"><a class="anchor" href="Créer-un-Net.html#_vérifier_les_ressources_disponibles"></a>Vérifier les ressources disponibles</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Consultez la liste pour vérifier si vous avez suffisamment de ressources disponibles avant de commencer.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Commencer</strong>.<br>
+L&#8217;écran de sélection Net &amp; Subnets apparaît.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configurer_votre_net"><a class="anchor" href="Créer-un-Net.html#_configurer_votre_net"></a>Configurer votre Net</h3>
+<div class="sect3">
+<h4 id="_taper_la_plage_dip_du_net_sélectionner_le_nombre_de_subnets_et_modifier_leurs_attributs"><a class="anchor" href="Créer-un-Net.html#_taper_la_plage_dip_du_net_sélectionner_le_nombre_de_subnets_et_modifier_leurs_attributs"></a>Taper la plage d&#8217;IP du Net, sélectionner le nombre de Subnets, et modifier leurs attributs</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Tapez la plage d&#8217;IP pour votre Net et sélectionnez son masque de sous-réseau depuis la liste.</p>
+</li>
+<li>
+<p>Sélectionnez le nombre de Subnets que vous voulez créer à l&#8217;aide des boutons plus <span class="image"><img src="_images/IconPlusButton.svg" alt="IconPlusButton"></span> et moins <span class="image"><img src="_images/IconMinusButton.svg" alt="IconMinusButton"></span>.</p>
+</li>
+<li>
+<p>(optionnel) Modifiez l&#8217;allocation du Subnet, tapez un nom pour chaque Subnet, et sélectionnez sa <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Sous-région</span>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Le bloc CIDR du Subnet doit faire partie du bloc CIDR du Net.</p>
+</li>
+<li>
+<p>Si vous créez plusieurs Subnets dans un Net, leurs blocs CIDR ne doivent pas se chevaucher.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Cliquez sur <strong>Suivant</strong>.<br>
+L&#8217;écran de sélection <span class="tooltip" data-tooltip="Internet gateway dans les API AWS-compliant">Internet service</span> apparaît.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configurer_votre_internet_service"><a class="anchor" href="Créer-un-Net.html#_configurer_votre_internet_service"></a>Configurer votre internet service</h3>
+<div class="sect3">
+<h4 id="_choisir_un_nom_et_diriger_le_trafic_internet"><a class="anchor" href="Créer-un-Net.html#_choisir_un_nom_et_diriger_le_trafic_internet"></a>Choisir un nom et diriger le trafic internet</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans le champ <strong>Nom de l&#8217;internet service</strong>, tapez un nom pour l&#8217;internet service.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Cette action ajoute un tag Name de 255 caractères maximum. Vous pouvez utiliser tous les caractères, y compris les lettres accentuées.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Depuis la liste, sélectionnez le Subnet vers lequel la route table dirigera le trafic réseau.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Suivant</strong>.<br>
+L&#8217;écran de sélection <span class="tooltip" data-tooltip="NAT gateway dans les API AWS-compliant">NAT service</span> apparaît.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configurer_votre_nat_service"><a class="anchor" href="Créer-un-Net.html#_configurer_votre_nat_service"></a>Configurer votre NAT service</h3>
+<div class="sect3">
+<h4 id="_choisir_un_nom_et_sélectionner_une_ip_publique"><a class="anchor" href="Créer-un-Net.html#_choisir_un_nom_et_sélectionner_une_ip_publique"></a>Choisir un nom et sélectionner une <span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">IP publique</span></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans le champ <strong>Nom du NAT service</strong>, tapez un nom pour le NAT service.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Cette action ajoute un tag Name de 255 caractères maximum. Vous pouvez utiliser tous les caractères, y compris les lettres accentuées.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Sélectionnez :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Sélectionner une IP publique</strong> pour sélectionner l&#8217;IP publique que vous voulez associer au NAT service.</p>
+</li>
+<li>
+<p><strong>Créer une nouvelle IP publique</strong> pour créer une nouvelle IP publique et l&#8217;associer au NAT service.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cliquez sur <strong>Suivant</strong>.<br>
+L&#8217;écran de sélection Connexion des Subnets apparaît.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configurer_la_connexion_des_subnets"><a class="anchor" href="Créer-un-Net.html#_configurer_la_connexion_des_subnets"></a>Configurer la connexion des Subnets</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Sélectionnez les Subnets que vous voulez connecter à votre NAT service.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Les Subnets seront connectés à internet de manière indirecte au moyen d’une IP publique unique. Une route vers l’internet service sera créée dans chaque route table vers le NAT service.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour ce faire, vous devez avoir créé au moins deux Subnets sur l&#8217;écran de sélection du Net et des Subnets.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Cliquez sur <strong>Suivant</strong>.<br>
+L&#8217;écran Récapitulatif apparaît.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_confirmer_la_création"><a class="anchor" href="Créer-un-Net.html#_confirmer_la_création"></a>Confirmer la création</h3>
+<div class="sect3">
+<h4 id="_choisir_le_nom_du_net_et_vérifier_vos_paramètres"><a class="anchor" href="Créer-un-Net.html#_choisir_le_nom_du_net_et_vérifier_vos_paramètres"></a>Choisir le nom du Net et vérifier vos paramètres</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Tapez un nom pour le Net.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Cette action ajoute un tag Name de 255 caractères maximum. Vous pouvez utiliser tous les caractères, y compris les lettres accentuées.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Vérifiez l&#8217;ensemble des paramètres du Net et de ses ressources associées.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Créer</strong>.<br>
+Votre Net et ses ressources associées sont créés.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="OSC CLI_1"><a class="anchor" href="Créer-un-Net.html#OSC CLI_1"></a>Créer un Net avec OSC CLI</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateNet</strong> command creates a <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span> with a specified IP range.<br>
+The IP range (network range) of your Net must be between a /28 netmask (16 IPs) and a /16 netmask (65536 IPs).</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="../../en/userguide/About-Nets.html" target="_blank" rel="noopener">About Nets</a>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api CreateNet --profile "default" \
+    --IpRange "10.0.0.0/16"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>IpRange</code>: The IP range for the Net, in CIDR notation (for example, <code>10.0.0.0/16</code>).</p>
+</li>
+<li>
+<p><code>Tenancy</code>: (optional) The tenancy options for the <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VMs</span>:<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>default</code> if a VM created in a Net can be launched with any tenancy.<br></p>
+</li>
+<li>
+<p><code>dedicated</code> if it can be launched with dedicated tenancy VMs running on single-tenant hardware.<br></p>
+</li>
+<li>
+<p><code>dedicated group ID</code>: if it can be launched in a dedicated group on single-tenant hardware.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateNet</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Net</code>: Information about the Net.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DhcpOptionsSetId</code>: The ID of the DHCP options set (or <code>default</code> if you want to associate the default one).</p>
+</li>
+<li>
+<p><code>IpRange</code>: The IP range for the Net, in CIDR notation (for example, <code>10.0.0.0/16</code>).</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the Net (<code>pending</code> | <code>available</code> | <code>deleting</code>).</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the Net.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Tenancy</code>: The VM tenancy in a Net.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "Net": {
+    "Tags": [],
+    "DhcpOptionsSetId": "dopt-12345678",
+    "IpRange": "10.0.0.0/16",
+    "Tenancy": "default",
+    "NetId": "vpc-12345678",
+    "State": "available"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="oapi-cli_2"><a class="anchor" href="Créer-un-Net.html#oapi-cli_2"></a>Créer un Net avec oapi-cli</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateNet</strong> command creates a <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span> with a specified IP range.<br>
+The IP range (network range) of your Net must be between a /28 netmask (16 IPs) and a /16 netmask (65536 IPs).</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="../../en/userguide/About-Nets.html" target="_blank" rel="noopener">About Nets</a>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" CreateNet \
+    --IpRange "10.0.0.0/16"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>IpRange</code>: The IP range for the Net, in CIDR notation (for example, <code>10.0.0.0/16</code>).</p>
+</li>
+<li>
+<p><code>Tenancy</code>: (optional) The tenancy options for the <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VMs</span>:<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>default</code> if a VM created in a Net can be launched with any tenancy.<br></p>
+</li>
+<li>
+<p><code>dedicated</code> if it can be launched with dedicated tenancy VMs running on single-tenant hardware.<br></p>
+</li>
+<li>
+<p><code>dedicated group ID</code>: if it can be launched in a dedicated group on single-tenant hardware.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateNet</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Net</code>: Information about the Net.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DhcpOptionsSetId</code>: The ID of the DHCP options set (or <code>default</code> if you want to associate the default one).</p>
+</li>
+<li>
+<p><code>IpRange</code>: The IP range for the Net, in CIDR notation (for example, <code>10.0.0.0/16</code>).</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the Net (<code>pending</code> | <code>available</code> | <code>deleting</code>).</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the Net.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Tenancy</code>: The VM tenancy in a Net.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "Net": {
+    "Tags": [],
+    "DhcpOptionsSetId": "dopt-12345678",
+    "IpRange": "10.0.0.0/16",
+    "Tenancy": "default",
+    "NetId": "vpc-12345678",
+    "State": "available"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI_3"><a class="anchor" href="Créer-un-Net.html#AWS CLI_3"></a>Créer un VPC avec AWS CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Avant de commencer :</strong> Installez et configurez AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Pour créer un <span class="tooltip" data-tooltip="Net dans l'API OUTSCALE">VPC</span>, utilisez la commande <strong>create-vpc</strong> en suivant cette syntaxe :</p>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws ec2 create-vpc \
+    --profile YOUR_PROFILE \
+    --cidr-block 10.0.0.0/16 \
+    --instance-tenancy default \
+    --endpoint https://fcu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>profile</code> : Le profil nommé que vous voulez utiliser, créé pendant la configuration d&#8217;AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>cidr-block</code> : La plage d&#8217;IP pour le VPC, en notation CIDR.</p>
+</li>
+<li>
+<p>(optionnel) <code>instance-tenancy</code> : L&#8217;option d&#8217;allocation pour les instances lancées dans le VPC (<code>default</code> | <code>dedicated</code>). Pour en savoir plus, voir <a href="À-propos-des-VM.html#_allocation_des_vm_et_vm_dédiées" class="xref page">À propos des VM &gt; Allocation des VM et VM dédiées</a>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si vous ne spécifiez aucune option, l&#8217;option d&#8217;allocation est paramétrée sur <code>default</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><code>endpoint</code> : Le endpoint correspondant à la Région à laquelle vous voulez envoyer la requête. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+<div class="paragraph">
+<p>La commande <strong>create-vpc</strong> renvoie les éléments suivants :</p>
+</div>
+</li>
+<li>
+<p><code>Vpc</code> : Informations à propos du VPC nouvellement créé. Cet élément contient les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>InstanceTenancy</code> : L&#8217;option d&#8217;allocation pour les instances lancées dans un VPC. Pour en savoir plus, voir <a href="À-propos-des-VM.html#_allocation_des_vm_et_vm_dédiées" class="xref page">À propos des VM &gt; Allocation des VM et VM dédiées</a>.</p>
+</li>
+<li>
+<p><code>State</code> : L&#8217;état du VPC. Pour en savoir plus, voir <a href="À-propos-des-Nets.html" class="xref page">À propos des Nets</a>.</p>
+</li>
+<li>
+<p><code>VpcId</code> : L&#8217;ID du VPC.</p>
+</li>
+<li>
+<p><code>CidrBlock</code> : La plage d&#8217;IP pour le VPC, en notation CIDR.</p>
+<div class="listingblock">
+<div class="title">Exemple de résultat</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json"> {
+    "Vpc": {
+        "InstanceTenancy": "default",
+        "State": "available",
+        "VpcId": "vpc-12345678",
+        "CidrBlock": "10.0.0.0/16",
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Le VPC est créé.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>(optionnel) Pour désactiver la fonctionnalité permettant aux instances d&#8217;un même subnet de communiquer entre elles sans règles de security group requises, ajoutez un tag à votre VPC avec <code>osc.fcu.enable_lan_security_groups</code> pour clé. Pour en savoir plus sur comment ajouter un tag, voir <a href="Ajouter-ou-retirer-des-tags.html" class="xref page">Ajouter ou retirer des tags</a>. Pour en savoir plus sur cette fonctionnalité, voir <a href="À-propos-des-Nets.html#_routage_et_sécurité_dun_subnet" class="xref page">À propos des VPC &gt; Routage et sécurité d&#8217;un subnet</a>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Ce tag doit être ajouté à votre VPC avant de créer des subnets dans celui-ci.</p>
+</li>
+<li>
+<p>La valeur de ce tag n&#8217;est pas prise en compte, vous pouvez donc spécifier n&#8217;importe quelle valeur pour ce tag.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Page connexe</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-Nets.html" class="xref page">À propos des Nets</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Méthodes API correspondantes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#createnet" class="xref page">CreateNet (API OUTSCALE)</a></p>
+</li>
+<li>
+<p><a href="../../fcu.html#createvpc" class="xref page">CreateVpc (FCU)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>À propos des security groups – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="À-propos-des-security-groups.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/À-propos-des-security-groups.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/About-Security-Groups.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">À propos des security groups</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Les security groups vous permettent de gérer le trafic vers et depuis vos <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machines virtuelles (VM)</span> selon vos besoins et votre architecture.</p>
+</div>
+<div class="paragraph">
+<p>Chaque VM, dans le Cloud public comme dans un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span>, est créée derrière au moins un security group auquel vous pouvez ajouter ou retirer des règles. Pour en savoir plus, voir <a href="À-propos-des-règles-des-security-groups.html" class="xref page">À propos des règles des security groups</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_informations_générales"><a class="anchor" href="À-propos-des-security-groups.html#_informations_générales"></a>Informations générales</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Un security group est un appareil réseau virtuel agissant comme un pare-feu et un switch, qui autorise ou interdit les flux entrants ou sortants d&#8217;une ou plusieurs <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span>. Ils permettent donc aux VM de communiquer entre elles ou avec des services ou appareils externes selon les règles que vous spécifiez.</p>
+</div>
+<div class="paragraph">
+<p>Lorsque vous créez une VM, vous devez spécifier un ou plusieurs security groups à associer à celle-ci.</p>
+</div>
+<div class="paragraph">
+<p>Les security groups sont soit alloués pour le Cloud public, soit pour un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span> que vous spécifiez.</p>
+</div>
+<div class="paragraph">
+<p>Des security groups par défaut sont fournis pour le Cloud public et pour chacun de vos Nets. Ces security groups par défaut ont pour nom <code>default</code> et apparaissent dans votre compte.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour identifier vos ressources plus facilement, vous pouvez leur ajouter des tags. Pour en savoir plus, voir <a href="Ajouter-ou-retirer-des-tags.html" class="xref page">Ajouter ou retirer des tags</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Si vous ne souhaitez pas utiliser les security groups par défaut pour vos VM, vous pouvez créer vos propres security groups. Lorsque vous les créez, vous devez choisir entre un security group pour le Cloud public ou pour un Net spécifique. Vous pouvez créer plusieurs security groups selon les différents rôles de vos VM et les flux entrants et sortants nécessaires. Chaque security group doit avoir un nom unique.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Si vous ne spécifiez aucun security group lorsque vous créez une VM, le security group par défaut correspondant est utilisé.</p>
+</li>
+<li>
+<p>Pour associer vos propres security groups à une VM, vous devez les créer préalablement.<br>
+Cockpit vous permet de créer un security group lorsque vous créez une VM. Pour en savoir plus, voir <a href="Créer-des-VM.html" class="xref page">Créer des VM</a>.</p>
+</li>
+<li>
+<p>Vous pouvez modifier les security groups associés à une VM à tout moment.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Vous pouvez ajouter ou retirer des règles, à la fois pour les security groups par défaut et vos propres security groups, afin de contrôler les flux, selon votre architecture et vos besoins.</p>
+</div>
+<div class="paragraph">
+<p>3DS OUTSCALE attribue un ID au format sg-xxxxxxxx à tout security group, par défaut ou que vous créez. Les security groups que vous créez vous appartiennent et vous pouvez les supprimer à tout moment si besoin. Vous ne pouvez cependant pas supprimer les security groups par défaut.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_security_groups_pour_le_cloud_public"><a class="anchor" href="À-propos-des-security-groups.html#_security_groups_pour_le_cloud_public"></a>Security groups pour le Cloud public</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Si votre <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> est dans le Cloud public, vous pouvez uniquement utiliser des security groups alloués au Cloud public. Lorsque vous créez une VM dans le Cloud public, vous devez spécifier un security group qui se trouve dans la même Région que la VM.</p>
+</div>
+<div class="paragraph">
+<p>Les security groups pour le Cloud public vous permettent de spécifier des règles uniquement pour les flux entrants, et autorisent tous les flux sortants de la VM. Les VM dans le Cloud public ayant une <span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">IP publique</span>, elles peuvent accéder à Internet.</p>
+</div>
+<div class="paragraph">
+<p>3DS OUTSCALE fournit un security group pour le Cloud public par défaut pour votre compte. Les règles initiales de ce security group pour les flux entrants par défaut autorisent uniquement les VM associées à ce même security group à communiquer entre elles, en protocoles TCP, UDP et ICMP.</p>
+</div>
+<div class="paragraph">
+<p>Les security groups que vous créez pour le Cloud public ne contiennent aucune règle initiale pour les flux entrants.</p>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus, voir <a href="À-propos-des-règles-des-security-groups.html" class="xref page">À propos des règles des security groups</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_security_groups_pour_les_nets"><a class="anchor" href="À-propos-des-security-groups.html#_security_groups_pour_les_nets"></a>Security groups pour les Nets</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Si votre <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> est dans un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span>, vous pouvez uniquement utiliser des security groups alloués à ce Net.</p>
+</div>
+<div class="paragraph">
+<p>Les security groups dans un Net agissent au niveau de la VM et non au niveau du Subnet. Ils vous permettent de spécifier des règles pour les flux entrants et sortants.</p>
+</div>
+<div class="paragraph">
+<p>Lorsque vous créez un Net, 3DS OUTSCALE crée un security group par défaut alloué à ce Net. Les règles initiales de ces security groups pour les flux entrants autorisent uniquement les VM associées à ce même security group à communiquer entre elles, en protocoles TCP, UDP et ICMP. Leurs règles initiales pour les flux sortants autorisent tous les flux sortant de la VM.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Les security groups par défaut dans les Nets sont créés avec des règles autorisant tous les flux sortants.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Les security groups que vous créez pour un Net ne contiennent aucune règle initiale pour les flux entrants et contiennent une règle initiale pour les flux sortants qui autorise tous les flux sortants de la VM.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Les règles initiales pour les flux sortants autorisent tous les flux sortants y compris vers Internet, mais les VM peuvent accéder à Internet uniquement si un <span class="tooltip" data-tooltip="Internet gateway dans les API AWS-compliant">internet service</span> est attaché à un Net et que le CIDR 0.0.0.0/0 est routé vers l&#8217;internet service.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus, voir <a href="À-propos-des-règles-des-security-groups.html" class="xref page">À propos des règles des security groups</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-VM.html" class="xref page">À propos des VM</a></p>
+</li>
+<li>
+<p><a href="À-propos-des-règles-des-security-groups.html" class="xref page">À propos des règles des security groups</a></p>
+</li>
+<li>
+<p><a href="À-propos-des-security-groups-dans-LBU.html" class="xref page">À propos des security groups dans LBU</a></p>
+</li>
+<li>
+<p><a href="Isolation-des-ressources.html" class="xref page">Isolation des ressources</a></p>
+</li>
+<li>
+<p><a href="Référence-des-quotas-de-security-groups.html" class="xref page">Référence des quotas de security groups</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

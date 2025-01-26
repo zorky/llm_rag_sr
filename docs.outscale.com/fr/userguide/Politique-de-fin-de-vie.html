@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Politique de fin de vie – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Politique-de-fin-de-vie.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Politique-de-fin-de-vie.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/End-of-Life-Policy.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Politique de fin de vie</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>3DS OUTSCALE s&#8217;emploie à accroître et améliorer son offre de produits. Avec le temps, certains produits atteignent leur état de fin de vie et ne sont plus vendus, maintenus ni supportés par 3DS OUTSCALE. Pour vous accompagner dans le processus de transition, différentes phases de cycle de vie ont été définies.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_phases"><a class="anchor" href="Politique-de-fin-de-vie.html#_phases"></a>Phases</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22%;">
+<col style="width: 78%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">État</th>
+<th class="tableblock halign-left valign-top">Définition générique</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Fin de commercialisation</strong><br>
+ou End of Sale (EOS)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>La date à laquelle un produit est susceptible de ne peut plus être disponible en achat ou en renouvellement.</p>
+</div>
+<div class="paragraph">
+<p>À compter de cette date, vous pouvez toujours utiliser le produit mais aucune nouvelle fonctionnalité n&#8217;est implémentée. La Qualité de service (SLA) est toujours applicable, y compris pour le support technique.</p>
+</div>
+<div class="paragraph">
+<p>3DS OUTSCALE informe ses clients lorsqu&#8217;un produit de remplacement est disponible.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Fin de support et maintenance</strong><br>
+ou End of Support and Maintenance (EOSM)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>La date à laquelle un produit n&#8217;est plus corrigé ni supporté.</p>
+</div>
+<div class="paragraph">
+<p>À compter de cette date, vous pouvez toujours utiliser le produit à vos risques et périls. La Qualité de service (SLA) n&#8217;est plus applicable, à l&#8217;exception de la garantie de Durabilité qui reste effective jusqu&#8217;à la fin de vie.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Fin de vie</strong><br>
+ou End of Life (EOL)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">La date à laquelle un produit n&#8217;est plus utilisable. Le produit ainsi que toutes les données y étant stockées sont retirés de nos Régions. Toute information relative est supprimée de nos sites et documentations.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Attention"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Comme indiqué dans les Conditions Générales de Vente et d&#8217;Utilisation (CGVU) de 3DS OUTSCALE, le client est seul responsable juridiquement et techniquement de son système (y compris les données, quelque soit leur provenance).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Les services en bêta sont uniquement soumis à l&#8217;état de fin de vie. Pour consulter la définition des services bêta, voir le <a href="Glossaire.html" class="xref page">Glossaire</a>. Pour en savoir plus sur ces services, voir nos <a href="https://fr.outscale.com/cgucgv/" target="_blank" rel="noopener">Conditions générales de ventes et d&#8217;utilisation</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_produits_en_fin_de_vie"><a class="anchor" href="Politique-de-fin-de-vie.html#_produits_en_fin_de_vie"></a>Produits en fin de vie</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Le tableau suivant liste les produits qui ont été ou seront dépréciés ainsi que les jalons correspondants pour vous accompagner dans vos transitions de fin de vie.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>3DS OUTSCALE se réserve le droit de réviser ce tableau à sa convenance.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 13%;">
+<col style="width: 13%;">
+<col style="width: 13%;">
+<col style="width: 36%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Produit</th>
+<th class="tableblock halign-left valign-top">EOS</th>
+<th class="tableblock halign-left valign-top">EOSM</th>
+<th class="tableblock halign-left valign-top">EOL</th>
+<th class="tableblock halign-left valign-top">Information</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Internal Call Unit (ICU)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">31-12-2024</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">31-01-2025</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Produit équivalent : <a href="../../api%3Fconsole.html" class="xref page">API OUTSCALE</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cockpit v1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20-10-2023</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">29-12-2023</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Produit équivalent : <a href="À-propos-de-Cockpit.html" class="xref page">Cockpit v2</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Génération de CPU TINA v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">29-02-2024</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30-04-2024</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Produit équivalent : <a href="Types-de-VM.html" class="xref page">Génération de CPU TINA v5</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Génération de CPU TINA v3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">31-10-2023</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">31-12-2023</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Produit équivalent : <a href="Types-de-VM.html" class="xref page">Génération de CPU TINA v5</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Génération de CPU TINA v2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30-06-2023</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">31-08-2023</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Produit équivalent : <a href="Types-de-VM.html" class="xref page">Génération de CPU TINA v5</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">O2S (OUTSCALE Second Screen)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">18-10-2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bêta de OUTSCALE Key Management Service (OKMS)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">08-02-2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Object Storage Unit (OSU)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">22-12-2020</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">22-05-2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">22-12-2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Produit équivalent : <a href="À-propos-d-OOS.html" class="xref page">OUTSCALE Object Storage (OOS)</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Support-technique.html" class="xref page">Support technique</a></p>
+</li>
+<li>
+<p><a href="https://fr.outscale.com/cgucgv/" target="_blank" rel="noopener">Conditions générales de vente et d&#8217;utilisation (CGVU)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

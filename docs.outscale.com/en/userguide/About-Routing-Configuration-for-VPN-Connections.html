@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>About Routing Configuration for VPN Connections – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="About-Routing-Configuration-for-VPN-Connections.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/About-Routing-Configuration-for-VPN-Connections.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/À-propos-des-configurations-de-routage-des-connexions-VPN.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">About Routing Configuration for VPN Connections</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>A VPN connection relies on two types of routes that you need to configure, between your corporate network and one of your <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Nets</span> in the OUTSCALE Cloud.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_route_types"><a class="anchor" href="About-Routing-Configuration-for-VPN-Connections.html#_route_types"></a>Route Types</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A VPN connection relies on two types of routes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span> routes: traffic inside the Net, between the <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">virtual machines (VMs)</span> and the <span class="tooltip" data-tooltip="virtual private gateway in AWS-Compliant APIs">virtual gateway</span>. To get information about these routes, see <a href="Getting-Information-About-Your-Route-Tables.html" class="xref page">Getting Information About Your Route Tables</a>.</p>
+</li>
+<li>
+<p>VPN routes: traffic inside the VPN tunnel, between the virtual gateway and the <span class="tooltip" data-tooltip="customer gateway in AWS-Compliant APIs">client gateway</span>. To get information about these routes, see <a href="Getting-Information-About-Your-VPN-Connections.html" class="xref page">Getting Information About Your VPN Connections</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Both types of routes use the CIDR of your corporate network as destination, and the ID of the virtual gateway as target.</p>
+</div>
+<div class="paragraph">
+<div class="title">VPN Connection Routes</div>
+<p><span class="image"><img src="_images/sch-General-VPNConnectionRoutes.png" alt="sch General VPNConnectionRoutes"></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_static_and_dynamic_routing"><a class="anchor" href="About-Routing-Configuration-for-VPN-Connections.html#_static_and_dynamic_routing"></a>Static and Dynamic Routing</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To enable <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VMs</span> in your <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span> to reach the <span class="tooltip" data-tooltip="customer gateway in AWS-Compliant APIs">client gateway</span>, you must specify the type of routing for the VPN connection, and update the route table in the Subnet of the Net accordingly:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>For static routing, you need to create new VPN routes. For more information, see <a href="Creating-a-VPN-Connection-Route.html" class="xref page">Creating a VPN Connection Route</a>.</p>
+</li>
+<li>
+<p>For dynamic routing, you do not need to create VPN routes. However, you must use devices that support the Border Gateway Protocol (BGP). For more information, see the <a href="About-Routing-Configuration-for-VPN-Connections.html#_bgp_asn">BGP ASN</a> section below.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>You cannot change the type of routing after creating the VPN connection.</p>
+</li>
+<li>
+<p>You can use a default or custom route table.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuration"><a class="anchor" href="About-Routing-Configuration-for-VPN-Connections.html#_configuration"></a>Configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<div class="title">VPN Connection Routing Flowchart</div>
+<p><span class="image"><img src="_images/sch-General-VPNConnectionRoutingFlowChart.png" alt="sch General VPNConnectionRoutingFlowChart" width="500"></span></p>
+</div>
+<div class="sect2">
+<h3 id="_route_propagation"><a class="anchor" href="About-Routing-Configuration-for-VPN-Connections.html#_route_propagation"></a>Route Propagation</h3>
+<div class="paragraph">
+<p>You can enable route propagation to a route table associated with a Subnet of the <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span>. This action automatically updates the route table to include routes from the Net pointing to the <span class="tooltip" data-tooltip="virtual private gateway in AWS-Compliant APIs">virtual gateway</span>. Route propagation is not mandatory, and works for both static and dynamic routing. You can use a default or custom route table. For more information, see <a href="Enabling-Route-Propagation.html" class="xref page">Enabling Route Propagation</a>.</p>
+</div>
+<div class="paragraph">
+<p>Otherwise, you need to manually update the route table with each route. For more information, see <a href="Creating-a-Route.html" class="xref page">Creating a Route</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_bgp_asn"><a class="anchor" href="About-Routing-Configuration-for-VPN-Connections.html#_bgp_asn"></a>BGP ASN</h3>
+<div class="paragraph">
+<p>The Border Gateway Protocol (BGP) is a dynamic routing protocol that relies on Autonomous System Numbers (ASN). In a VPN connection using BGP, the <span class="tooltip" data-tooltip="customer gateway in AWS-Compliant APIs">client gateway</span> advertises an ASN to help the virtual gateway find a path to it through the internet.</p>
+</div>
+<div class="paragraph">
+<p>To use BGP, your resources must support dynamic routing. The BGP is not mandatory: you can choose static routing, even though your resources do support dynamic routing.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you connect several client gateways in the same network with a single virtual gateway, these client gateways must all use the same BGP ASN.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Otherwise, you need to create new VPN routes manually. For more information, see <a href="Creating-a-VPN-Connection-Route.html" class="xref page">Creating a VPN Connection Route</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="About-VPN-Connections.html" class="xref page">About VPN Connections</a></p>
+</li>
+<li>
+<p><a href="About-Route-Tables.html" class="xref page">About Route Tables</a></p>
+</li>
+<li>
+<p><a href="Managing-Routes-for-Your-VPN-Connections.html" class="xref page">Managing Routes for Your VPN Connections</a></p>
+</li>
+<li>
+<p><a href="Tutorial-Setting-Up-a-VPN-Connection.html" class="xref page">Tutorial: Setting Up a VPN Connection</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

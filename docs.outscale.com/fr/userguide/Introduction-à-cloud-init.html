@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Introduction à cloud-init – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Introduction-à-cloud-init.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Introduction-à-cloud-init.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Introduction-to-cloud-init.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Introduction à cloud-init</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Ce guide technique constitue une introduction générale à l&#8217;outil cloud-init. Cloud-init est un outil open source qui permet de personnaliser une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machine virtuelle (VM)</span> Linux lors du premier démarrage de cette VM.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez par exemple utiliser cloud-init pour installer des paquets, écrire des fichiers, ou configurer des utilisateurs du système d&#8217;exploitation ou des paramètres de sécurité. Comme cloud-init s&#8217;exécute pendant le premier démarrage de la VM, aucune étape manuelle ou supplémentaire n&#8217;est ensuite requise pour appliquer la configuration.</p>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus sur cloud-init, voir <a href="https://cloudinit.readthedocs.io/en/latest/" target="_blank" rel="noopener">la documentation officielle de cloud-init</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_fichier_cloud_config"><a class="anchor" href="Introduction-à-cloud-init.html#_fichier_cloud_config"></a>Fichier cloud-config</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Un fichier cloud-config est un script conçu pour être exécuté par le processus cloud-init.</p>
+</div>
+<div class="paragraph">
+<p>Le format de cloud-config utilise une syntaxe déclarative capable de réaliser de nombreuses tâches courantes, tout en conservant la souplesse d&#8217;un script pour des fonctionnalités plus complexes.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Cloud-init est compatible avec la plupart des distributions Linux. Par exemple, vous n&#8217;avez pas besoin d&#8217;indiquer des commandes spécifiques telles que <strong>apt-get install</strong> ou <strong>yum install</strong> dans votre script pour installer un paquet. À la place, vous pouvez définir une liste des paquets à installer, puis cloud-init se charge automatiquement d&#8217;utiliser l&#8217;outil de gestion de paquets natif correspondant à la distribution de la <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_format_yaml_de_cloud_config"><a class="anchor" href="Introduction-à-cloud-init.html#_format_yaml_de_cloud_config"></a>Format YAML de cloud-config</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Le fichier cloud-config utilise le format de sérialisation de données YAML. Le format YAML a été créé pour être à la fois facile à comprendre par les humains et facile à analyser par les programmes.</p>
+</div>
+<div class="paragraph">
+<p>Voici un exemple de fichier cloud-config que nous allons analyser :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">#cloud-config
+users:
+ - name: demo
+   groups: sudo
+   shell: /bin/bash
+   sudo: ['ALL=(ALL) NOPASSWD:ALL']
+   ssh-authorized-keys:
+     - ssh-rsa
+runcmd:
+ - touch /test.txt</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Chaque fichier cloud-config doit commencer par la mention <code>#cloud-config</code>. Cette mention indique au programme cloud-init que le contenu doit être interprété comme un fichier cloud-config. C&#8217;est l&#8217;équivalent pour un fichier de script ordinaire d&#8217;indiquer l&#8217;interpréteur à utiliser pour exécuter le fichier.</p>
+</div>
+<div class="paragraph">
+<p>Le fichier ci-dessus a deux directives de niveau supérieur : <strong>users</strong> et <strong>runcmd</strong>. Ces deux mentions servent de clés. Les valeurs de ces clés sont indiquées sur des lignes indentées.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exemples_de_directives_cloud_config"><a class="anchor" href="Introduction-à-cloud-init.html#_exemples_de_directives_cloud_config"></a>Exemples de directives cloud-config</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Les exemples suivants représentent quelques cas d&#8217;usage courants.</p>
+</div>
+<div class="paragraph">
+<p>D&#8217;autres exemples figurent dans la machine où est installé cloud-init, dans le répertoire <strong>/usr/share/doc/cloud-init/examples</strong>.</p>
+</div>
+<div class="sect2">
+<h3 id="_gérer_les_utilisateurs"><a class="anchor" href="Introduction-à-cloud-init.html#_gérer_les_utilisateurs"></a>Gérer les utilisateurs</h3>
+<div class="paragraph">
+<p>Pour définir de nouveaux utilisateurs dans le système d&#8217;exploitation, vous pouvez utiliser la directive <strong>users</strong>. Chaque nouvel utilisateur doit être précédé d&#8217;un tiret. Pour chaque utilisateur, des paramètres sont définis avec des paires clé-valeur :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">#cloud-config
+users:
+ - first-user-parameter: value
+   first-user-parameter: value
+
+ - second-user-parameter: value
+   second-user-parameter: value
+   second-user-parameter: value</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Voici un exemple pour créer un nouvel utilisateur nommé <code>demo</code> :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">#cloud-config
+users:
+ - name: demo
+   groups: sudo
+   shell: /bin/bash
+   sudo: ['ALL=(ALL) NOPASSWD:ALL']
+   ssh-authorized-keys:
+     - ssh-rsa</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_gérer_les_paquets"><a class="anchor" href="Introduction-à-cloud-init.html#_gérer_les_paquets"></a>Gérer les paquets</h3>
+<div class="paragraph">
+<p>Pour mettre à jour la base de données apt dans les distributions basées sur Debian, vous pouvez définir la directive <strong>package_update</strong> sur <code>true</code>. Cette directive correspond à une commande <strong>apt-get update</strong> dans le terminal. La valeur par défaut de cette directive est <code>true</code>. Vous n&#8217;avez donc à vous soucier de cette directive que si vous voulez la désactiver :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">#cloud-config
+package_update: false</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pour mettre à niveau tous les paquets de la <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> au moment du premier démarrage, vous pouvez utiliser la directive <strong>package_upgrade</strong>. Cette directive correspond à une commande <strong>apt-get upgrade</strong> dans le terminal. La valeur de cette directive est <code>false</code> par défaut. Assurez-vous donc de la définir sur <code>true</code> si vous voulez l&#8217;activer :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">#cloud-config
+package_upgrade: true</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pour installer des paquets supplémentaires, vous pouvez lister les noms des paquets à la suite d&#8217;une directive <strong>packages</strong>. Chaque paquet de la liste peut prendre l&#8217;une des formes suivantes :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Le nom du paquet.</p>
+</li>
+<li>
+<p>Une liste entre crochets avec deux éléments. Le premier élément est le nom du paquet et le second élément est le numéro de version du paquet :</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">#cloud-config
+packages:
+  - package_1
+  - package_2
+  - [package_3, version_num]</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>L&#8217;utilisation de la directive <strong>packages</strong> définit automatiquement <strong>package_update</strong> sur <code>true</code>, même si vous avez précédemment défini cette dernière sur <code>false</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_écrire_des_fichiers_sur_le_disque"><a class="anchor" href="Introduction-à-cloud-init.html#_écrire_des_fichiers_sur_le_disque"></a>Écrire des fichiers sur le disque</h3>
+<div class="paragraph">
+<p>Pour écrire des fichiers sur le disque, vous pouvez utiliser la directive <strong>write_files</strong>. Les deux clés requises pour cette directive sont les suivantes :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>path</strong>, qui définit l&#8217;emplacement où écrire le fichier.</p>
+</li>
+<li>
+<p><strong>content</strong>, le texte à écrire dans le fichier.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Par exemple, si vous voulez écrire un fichier à l&#8217;emplacement <strong>/test.txt</strong> de la VM avec le texte suivant :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">Here is a line.
+Another line is here.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>La partie de cloud-config à spécifier est la suivante :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">#cloud-config
+write_files:
+  - path: /test.txt
+    content: |
+      Here is a line.
+      Another line is here.</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour un texte multilignes, vous devez spécifier une barre verticale (<code>|</code>) sur la ligne <code>content</code>, suivie à la ligne d&#8217;un bloc indenté spécifiant le texte.</p>
+</div>
+<div class="paragraph">
+<p>Les fichiers binaires doivent eux inclure la mention <code>!! binary |</code> au lieu de la simple barre verticale.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_exécuter_des_commandes_arbitraires"><a class="anchor" href="Introduction-à-cloud-init.html#_exécuter_des_commandes_arbitraires"></a>Exécuter des commandes arbitraires</h3>
+<div class="paragraph">
+<p>Pour exécuter des commandes arbitraires, vous pouvez utiliser la directive <strong>runcmd</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Cette directive prend une liste d&#8217;éléments à exécuter. Ces éléments peuvent être spécifiés de deux manières :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Si l&#8217;élément de liste est une simple chaîne de texte, l&#8217;intégralité de l&#8217;élément sera transmise au processus de shell <strong>sh</strong> à exécuter.</p>
+</li>
+<li>
+<p>Si l&#8217;élément de liste est lui-même une liste entre crochets, le premier élément est interprété comme le nom de la commande à exécuter et les éléments suivants sont transmis comme arguments de cette commande.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">#cloud-config
+runcmd:
+ - echo "modified some_file"
+ - [cat, some_file]
+ - [sed, -i, -e, 's/here/there/g', some_file]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Toute sortie sera écrite dans la sortie standard ainsi que dans le fichier <strong>/var/log/cloud-init-output.log</strong> de la VM.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_utilisation_de_cloud_init_chez_outscale"><a class="anchor" href="Introduction-à-cloud-init.html#_utilisation_de_cloud_init_chez_outscale"></a>Utilisation de cloud-init chez OUTSCALE</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Dans les <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> OUTSCALE, vous devez spécifier le contenu du fichier cloud-config dans les user data de la VM pour appliquer une configuration cloud-init. Pour en savoir plus, voir <a href="Utiliser-cloud-init-avec-les-user-data.html" class="xref page">Utiliser cloud-init avec les user data</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Utiliser-cloud-init-avec-les-user-data.html" class="xref page">Utiliser cloud-init avec les user data</a></p>
+</li>
+<li>
+<p><a href="https://cloudinit.readthedocs.io/" target="_blank" rel="noopener">Documentation officielle de cloud-init</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

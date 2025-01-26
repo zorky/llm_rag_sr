@@ -1,0 +1,2675 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Obtenir des informations sur vos VM – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Obtenir-des-informations-sur-vos-VM.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Obtenir-des-informations-sur-vos-VM.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Getting-Information-About-Your-VMs.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Obtenir des informations sur vos VM</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez obtenir des informations sur vos <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machines virtuelles (VM)</span>, leurs états et leurs attributs.</p>
+</div>
+<div class="paragraph">
+<p>Des informations sur vos VM sont également disponibles depuis les VM elles-mêmes. Pour en savoir plus, voir <a href="Accéder-aux-metadata-et-user-data-d-une-VM.html" class="xref page">Accéder aux metadata et user data d&#8217;une VM</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Cockpit v2_0"><a class="anchor" href="Obtenir-des-informations-sur-vos-VM.html#Cockpit v2_0"></a>Obtenir des informations sur vos VM avec Cockpit v2</h2>
+<div class="sectionbody">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Voir le dashboard <strong>VMs</strong>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="OSC CLI_1"><a class="anchor" href="Obtenir-des-informations-sur-vos-VM.html#OSC CLI_1"></a>Obtenir des informations sur vos VM avec OSC CLI</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_obtenir_des_informations_sur_vos_vm"><a class="anchor" href="Obtenir-des-informations-sur-vos-VM.html#_obtenir_des_informations_sur_vos_vm"></a>Obtenir des informations sur vos <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span></h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadVms</strong> command lists one or more of your virtual machines (VMs).<br>
+If you provide one or more VM IDs, this action returns a description for all of these VMs. If you do not provide any VM ID, this action returns a description for all of the VMs that belong to you. If you provide an invalid VM ID, an error is returned. If you provide the ID of a VM that does not belong to you, the description of this VM is not included in the response. The refresh interval for data returned by this action is one hour, meaning that a terminated VM may appear in the response.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api ReadVms --profile "default" \
+    --Filters '{
+        "VmIds": ["i-12345678"]
+      }'</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api ReadVms --profile "default" \
+    --Filters '{
+        "TagKeys": ["env"],
+        "TagValues": ["prod", "test"]
+      }'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Filters</code>: (optional) One or more filters.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Architectures</code>: (optional) The architectures of the VMs (<code>i386</code> | <code>x86_64</code>).</p>
+</li>
+<li>
+<p><code>BlockDeviceMappingDeleteOnVmDeletion</code>: (optional) Whether the BSU volumes are deleted when terminating the VMs.</p>
+</li>
+<li>
+<p><code>BlockDeviceMappingDeviceNames</code>: (optional) The device names for the BSU volumes (in the format <code>/dev/sdX</code>, <code>/dev/sdXX</code>, <code>/dev/xvdX</code>, or <code>/dev/xvdXX</code>).</p>
+</li>
+<li>
+<p><code>BlockDeviceMappingLinkDates</code>: (optional) The link dates for the BSU volumes mapped to the VMs (for example, <code>2016-01-23T18:45:30.000Z</code>).</p>
+</li>
+<li>
+<p><code>BlockDeviceMappingStates</code>: (optional) The states for the BSU volumes (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p>
+</li>
+<li>
+<p><code>BlockDeviceMappingVolumeIds</code>: (optional) The volume IDs of the BSU volumes.</p>
+</li>
+<li>
+<p><code>ClientTokens</code>: (optional) The idempotency tokens provided when launching the VMs.</p>
+</li>
+<li>
+<p><code>CreationDates</code>: (optional) The dates when the VMs were launched.</p>
+</li>
+<li>
+<p><code>ImageIds</code>: (optional) The IDs of the OMIs used to launch the VMs.</p>
+</li>
+<li>
+<p><code>IsSourceDestChecked</code>: (optional) Whether the source/destination checking is enabled (true) or disabled (false).</p>
+</li>
+<li>
+<p><code>KeypairNames</code>: (optional) The names of the keypairs used when launching the VMs.</p>
+</li>
+<li>
+<p><code>LaunchNumbers</code>: (optional) The numbers for the VMs when launching a group of several VMs (for example, <code>0</code>, <code>1</code>, <code>2</code>, and so on).</p>
+</li>
+<li>
+<p><code>Lifecycles</code>: (optional) Whether the VMs are Spot <span class="tooltip" data-tooltip="machine virtuelle (VM) dans l'API OUTSCALE">Instances</span> (spot).</p>
+</li>
+<li>
+<p><code>NetIds</code>: (optional) The IDs of the <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Nets</span> in which the VMs are running.</p>
+</li>
+<li>
+<p><code>NicAccountIds</code>: (optional) The IDs of the <span class="tooltip" data-tooltip="flexible network interface (FNI) dans les API AWS-compliant">NICs</span>.</p>
+</li>
+<li>
+<p><code>NicDescriptions</code>: (optional) The descriptions of the NICs.</p>
+</li>
+<li>
+<p><code>NicIsSourceDestChecked</code>: (optional) Whether the source/destination checking is enabled (true) or disabled (false).</p>
+</li>
+<li>
+<p><code>NicLinkNicDeleteOnVmDeletion</code>: (optional) Whether the NICs are deleted when the VMs they are attached to are deleted.</p>
+</li>
+<li>
+<p><code>NicLinkNicDeviceNumbers</code>: (optional) The device numbers the NICs are attached to.</p>
+</li>
+<li>
+<p><code>NicLinkNicLinkNicDates</code>: (optional) The dates and times (UTC) when the NICs were attached to the VMs.</p>
+</li>
+<li>
+<p><code>NicLinkNicLinkNicIds</code>: (optional) The IDs of the NIC attachments.</p>
+</li>
+<li>
+<p><code>NicLinkNicStates</code>: (optional) The states of the attachments.</p>
+</li>
+<li>
+<p><code>NicLinkNicVmAccountIds</code>: (optional) The account IDs of the owners of the VMs the NICs are attached to.</p>
+</li>
+<li>
+<p><code>NicLinkNicVmIds</code>: (optional) The IDs of the VMs the NICs are attached to.</p>
+</li>
+<li>
+<p><code>NicLinkPublicIpAccountIds</code>: (optional) The account IDs of the owners of the <span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">public IPs</span> associated with the NICs.</p>
+</li>
+<li>
+<p><code>NicLinkPublicIpLinkPublicIpIds</code>: (optional) The association IDs returned when the public IPs were associated with the NICs.</p>
+</li>
+<li>
+<p><code>NicLinkPublicIpPublicIpIds</code>: (optional) The allocation IDs returned when the public IPs were allocated to their accounts.</p>
+</li>
+<li>
+<p><code>NicLinkPublicIpPublicIps</code>: (optional) The public IPs associated with the NICs.</p>
+</li>
+<li>
+<p><code>NicMacAddresses</code>: (optional) The Media Access Control (MAC) addresses of the NICs.</p>
+</li>
+<li>
+<p><code>NicNetIds</code>: (optional) The IDs of the Nets where the NICs are located.</p>
+</li>
+<li>
+<p><code>NicNicIds</code>: (optional) The IDs of the NICs.</p>
+</li>
+<li>
+<p><code>NicPrivateIpsLinkPublicIpAccountIds</code>: (optional) The account IDs of the owner of the public IPs associated with the private IPs.</p>
+</li>
+<li>
+<p><code>NicPrivateIpsLinkPublicIpIds</code>: (optional) The public IPs associated with the private IPs.</p>
+</li>
+<li>
+<p><code>NicPrivateIpsPrimaryIp</code>: (optional) Whether the private IPs are the primary IPs associated with the NICs.</p>
+</li>
+<li>
+<p><code>NicPrivateIpsPrivateIps</code>: (optional) The private IPs of the NICs.</p>
+</li>
+<li>
+<p><code>NicSecurityGroupIds</code>: (optional) The IDs of the security groups associated with the NICs.</p>
+</li>
+<li>
+<p><code>NicSecurityGroupNames</code>: (optional) The names of the security groups associated with the NICs.</p>
+</li>
+<li>
+<p><code>NicStates</code>: (optional) The states of the NICs (<code>available</code> | <code>in-use</code>).</p>
+</li>
+<li>
+<p><code>NicSubnetIds</code>: (optional) The IDs of the Subnets for the NICs.</p>
+</li>
+<li>
+<p><code>NicSubregionNames</code>: (optional) The <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Subregions</span> where the NICs are located.</p>
+</li>
+<li>
+<p><code>Platforms</code>: (optional) The platforms. Use windows if you have Windows VMs. Otherwise, leave this filter blank.</p>
+</li>
+<li>
+<p><code>PrivateIps</code>: (optional) The private IPs of the VMs.</p>
+</li>
+<li>
+<p><code>ProductCodes</code>: (optional) The product codes associated with the OMI used to create the VMs.</p>
+</li>
+<li>
+<p><code>PublicIps</code>: (optional) The public IPs of the VMs.</p>
+</li>
+<li>
+<p><code>ReservationIds</code>: (optional) The IDs of the reservation of the VMs, created every time you launch VMs. These reservation IDs can be associated with several VMs when you launch a group of VMs using the same launch request.</p>
+</li>
+<li>
+<p><code>RootDeviceNames</code>: (optional) The names of the root devices for the VMs (for example, <code>/dev/sda1</code>)</p>
+</li>
+<li>
+<p><code>RootDeviceTypes</code>: (optional) The root devices types used by the VMs (always <code>ebs</code>)</p>
+</li>
+<li>
+<p><code>SecurityGroupIds</code>: (optional) The IDs of the security groups for the VMs (only in the public Cloud).</p>
+</li>
+<li>
+<p><code>SecurityGroupNames</code>: (optional) The names of the security groups for the VMs (only in the public Cloud).</p>
+</li>
+<li>
+<p><code>StateReasonCodes</code>: (optional) The reason codes for the state changes.</p>
+</li>
+<li>
+<p><code>StateReasonMessages</code>: (optional) The messages describing the state changes.</p>
+</li>
+<li>
+<p><code>StateReasons</code>: (optional) The reasons explaining the current states of the VMs. This filter is like the <code>StateReasonCodes</code> one.</p>
+</li>
+<li>
+<p><code>SubnetIds</code>: (optional) The IDs of the Subnets for the VMs.</p>
+</li>
+<li>
+<p><code>SubregionNames</code>: (optional) The names of the Subregions of the VMs.</p>
+</li>
+<li>
+<p><code>TagKeys</code>: (optional) The keys of the tags associated with the VMs.</p>
+</li>
+<li>
+<p><code>TagValues</code>: (optional) The values of the tags associated with the VMs.</p>
+</li>
+<li>
+<p><code>Tags</code>: (optional) The key/value combination of the tags associated with the VMs, in the following format: &quot;Filters&quot;:{&quot;Tags&quot;:[&quot;TAGKEY=TAGVALUE&quot;]}.</p>
+</li>
+<li>
+<p><code>Tenancies</code>: (optional) The tenancies of the VMs (<code>dedicated</code> | <code>default</code> | <code>host</code>).</p>
+</li>
+<li>
+<p><code>VmIds</code>: (optional) One or more IDs of VMs.</p>
+</li>
+<li>
+<p><code>VmSecurityGroupIds</code>: (optional) The IDs of the security groups for the VMs.</p>
+</li>
+<li>
+<p><code>VmSecurityGroupNames</code>: (optional) The names of the security group for the VMs.</p>
+</li>
+<li>
+<p><code>VmStateCodes</code>: (optional) The state codes of the VMs: <code>-1</code> (quarantine), <code>0</code> (pending), <code>16</code> (running), <code>32</code> (shutting-down), <code>48</code> (terminated), <code>64</code> (stopping), and <code>80</code> (stopped).</p>
+</li>
+<li>
+<p><code>VmStateNames</code>: (optional) The state names of the VMs (<code>pending</code> | <code>running</code> | <code>stopping</code> | <code>stopped</code> | <code>shutting-down</code> | <code>terminated</code> | <code>quarantine</code>).</p>
+</li>
+<li>
+<p><code>VmTypes</code>: (optional) The VM types (for example, t2.micro). For more information, see <a href="../../en/userguide/VM-Types.html" target="_blank" rel="noopener">VM Types</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>NextPageToken</code>: (optional) The token to request the next page of results. Each token refers to a specific page.</p>
+</li>
+<li>
+<p><code>ResultsPerPage</code>: (optional) The maximum number of logs returned in a single response (between <code>1</code> and <code>1000</code>, both included). By default, <code>100</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadVms</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>NextPageToken</code>: The token to request the next page of results. Each token refers to a specific page.</p>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Vms</code>: Information about one or more VMs.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Architecture</code>: The architecture of the VM (<code>i386</code> | <code>x86_64</code>).</p>
+</li>
+<li>
+<p><code>BlockDeviceMappings</code>: The block device mapping of the VM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Bsu</code>: Information about the created BSU volume.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteOnVmDeletion</code>: If true, the volume is deleted when terminating the VM. If false, the volume is not deleted when terminating the VM.</p>
+</li>
+<li>
+<p><code>LinkDate</code>: The date and time (UTC) at which the volume was attached to the VM, in ISO 8601 date-time format.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the volume.</p>
+</li>
+<li>
+<p><code>VolumeId</code>: The ID of the volume.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>DeviceName</code>: The name of the device.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>BsuOptimized</code>: This parameter is not available. It is present in our API for the sake of historical compatibility with AWS.</p>
+</li>
+<li>
+<p><code>ClientToken</code>: The idempotency token provided when launching the VM.</p>
+</li>
+<li>
+<p><code>CreationDate</code>: The date and time (UTC) at which the VM was created.</p>
+</li>
+<li>
+<p><code>DeletionProtection</code>: If true, you cannot delete the VM unless you change this parameter back to false.</p>
+</li>
+<li>
+<p><code>Hypervisor</code>: The hypervisor type of the VMs (<code>ovm</code> | <code>xen</code>).</p>
+</li>
+<li>
+<p><code>ImageId</code>: The ID of the OMI used to create the VM.</p>
+</li>
+<li>
+<p><code>IsSourceDestChecked</code>: (Net only) If true, the source/destination check is enabled. If false, it is disabled.</p>
+</li>
+<li>
+<p><code>KeypairName</code>: The name of the keypair used when launching the VM.</p>
+</li>
+<li>
+<p><code>LaunchNumber</code>: The number for the VM when launching a group of several VMs (for example, <code>0</code>, <code>1</code>, <code>2</code>, and so on).</p>
+</li>
+<li>
+<p><code>NestedVirtualization</code>: If true, nested virtualization is enabled. If false, it is disabled.</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net in which the VM is running.</p>
+</li>
+<li>
+<p><code>Nics</code>: (Net only) The network interface cards (NICs) the VMs are attached to.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountId</code>: The account ID of the owner of the NIC.</p>
+</li>
+<li>
+<p><code>Description</code>: The description of the NIC.</p>
+</li>
+<li>
+<p><code>IsSourceDestChecked</code>: (Net only) If true, the source/destination check is enabled. If false, it is disabled.</p>
+</li>
+<li>
+<p><code>LinkNic</code>: Information about the network interface card (NIC).</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteOnVmDeletion</code>: If true, the NIC is deleted when the VM is terminated.</p>
+</li>
+<li>
+<p><code>DeviceNumber</code>: The device index for the NIC attachment (between <code>1</code> and <code>7</code>, both included).</p>
+</li>
+<li>
+<p><code>LinkNicId</code>: The ID of the NIC to attach.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the attachment (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>LinkPublicIp</code>: Information about the public IP associated with the NIC.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>PublicDnsName</code>: The name of the public DNS.</p>
+</li>
+<li>
+<p><code>PublicIp</code>: The public IP associated with the NIC.</p>
+</li>
+<li>
+<p><code>PublicIpAccountId</code>: The account ID of the owner of the public IP.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>MacAddress</code>: The Media Access Control (MAC) address of the NIC.</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net for the NIC.</p>
+</li>
+<li>
+<p><code>NicId</code>: The ID of the NIC.</p>
+</li>
+<li>
+<p><code>PrivateDnsName</code>: The name of the private DNS.</p>
+</li>
+<li>
+<p><code>PrivateIps</code>: The private IP or IPs of the NIC.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>IsPrimary</code>: If true, the IP is the primary private IP of the NIC.</p>
+</li>
+<li>
+<p><code>LinkPublicIp</code>: Information about the public IP associated with the NIC.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>PublicDnsName</code>: The name of the public DNS.</p>
+</li>
+<li>
+<p><code>PublicIp</code>: The public IP associated with the NIC.</p>
+</li>
+<li>
+<p><code>PublicIpAccountId</code>: The account ID of the owner of the public IP.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>PrivateDnsName</code>: The name of the private DNS.</p>
+</li>
+<li>
+<p><code>PrivateIp</code>: The private IP.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>SecurityGroups</code>: One or more IDs of security groups for the NIC.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SecurityGroupId</code>: The ID of the security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: The name of the security group.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>State</code>: The state of the NIC (<code>available</code> | <code>attaching</code> | <code>in-use</code> | <code>detaching</code>).</p>
+</li>
+<li>
+<p><code>SubnetId</code>: The ID of the Subnet for the NIC.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>OsFamily</code>: Indicates the operating system (OS) of the VM.</p>
+</li>
+<li>
+<p><code>Performance</code>: The performance of the VM (<code>medium</code> | <code>high</code> |  <code>highest</code>).</p>
+</li>
+<li>
+<p><code>Placement</code>: Information about the placement of the VM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SubregionName</code>: The name of the Subregion. If you specify this parameter, you must not specify the <code>Nics</code> parameter.</p>
+</li>
+<li>
+<p><code>Tenancy</code>: The tenancy of the VM (<code>default</code>, <code>dedicated</code>, or a dedicated group ID).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>PrivateDnsName</code>: The name of the private DNS.</p>
+</li>
+<li>
+<p><code>PrivateIp</code>: The primary private IP of the VM.</p>
+</li>
+<li>
+<p><code>ProductCodes</code>: The product codes associated with the OMI used to create the VM.</p>
+</li>
+<li>
+<p><code>PublicDnsName</code>: The name of the public DNS.</p>
+</li>
+<li>
+<p><code>PublicIp</code>: The public IP of the VM.</p>
+</li>
+<li>
+<p><code>ReservationId</code>: The reservation ID of the VM.</p>
+</li>
+<li>
+<p><code>RootDeviceName</code>: The name of the root device for the VM (for example, <code>/dev/sda1</code>).</p>
+</li>
+<li>
+<p><code>RootDeviceType</code>: The type of root device used by the VM (always <code>bsu</code>).</p>
+</li>
+<li>
+<p><code>SecurityGroups</code>: One or more security groups associated with the VM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SecurityGroupId</code>: The ID of the security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: The name of the security group.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>State</code>: The state of the VM (<code>pending</code> | <code>running</code> | <code>stopping</code> | <code>stopped</code> | <code>shutting-down</code> | <code>terminated</code> | <code>quarantine</code>).</p>
+</li>
+<li>
+<p><code>StateReason</code>: The reason explaining the current state of the VM.</p>
+</li>
+<li>
+<p><code>SubnetId</code>: The ID of the Subnet for the VM.</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the VM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>UserData</code>: The Base64-encoded MIME user data.</p>
+</li>
+<li>
+<p><code>VmId</code>: The ID of the VM.</p>
+</li>
+<li>
+<p><code>VmInitiatedShutdownBehavior</code>: The VM behavior when you stop it. If set to <code>stop</code>, the VM stops. If set to <code>restart</code>, the VM stops then automatically restarts. If set to <code>terminate</code>, the VM stops and is deleted.</p>
+</li>
+<li>
+<p><code>VmType</code>: The type of VM. For more information, see <a href="../../en/userguide/VM-Types.html" target="_blank" rel="noopener">VM Types</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "Vms": [
+    {
+      "VmType": "tinav5.c1r1p2",
+      "VmInitiatedShutdownBehavior": "stop",
+      "State": "running",
+      "StateReason": "",
+      "RootDeviceType": "ebs",
+      "RootDeviceName": "/dev/sda1",
+      "IsSourceDestChecked": true,
+      "KeypairName": "keypair-example",
+      "ImageId": "ami-12345678",
+      "DeletionProtection": false,
+      "Architecture": "x86_64",
+      "NestedVirtualization": false,
+      "BlockDeviceMappings": [
+        {
+          "DeviceName": "/dev/sda1",
+          "Bsu": {
+            "VolumeId": "vol-12345678",
+            "State": "attached",
+            "LinkDate": "2010-10-01T12:34:56.789Z",
+            "DeleteOnVmDeletion": true
+          }
+        }
+      ],
+      "VmId": "i-12345678",
+      "ReservationId": "r-12345678",
+      "Hypervisor": "xen",
+      "Placement": {
+        "Tenancy": "default",
+        "SubregionName": "eu-west-2a"
+      },
+      "ProductCodes": [
+        "0001"
+      ],
+      "CreationDate": "2010-10-01T12:34:56.789Z",
+      "UserData": "",
+      "SubnetId": "subnet-12345678",
+      "PrivateIp": "10.0.0.4",
+      "SecurityGroups": [
+        {
+          "SecurityGroupName": "security-group-example",
+          "SecurityGroupId": "sg-12345678"
+        }
+      ],
+      "BsuOptimized": false,
+      "LaunchNumber": 0,
+      "NetId": "vpc-12345678",
+      "Nics": [
+        {
+          "SubnetId": "subnet-12345678",
+          "State": "in-use",
+          "LinkNic": {
+            "State": "attached",
+            "DeviceNumber": 0,
+            "LinkNicId": "eni-attach-12345678",
+            "DeleteOnVmDeletion": true
+          },
+          "IsSourceDestChecked": true,
+          "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal",
+          "Description": "Primary network interface",
+          "AccountId": "123456789012",
+          "SecurityGroups": [
+            {
+              "SecurityGroupName": "security-group-example",
+              "SecurityGroupId": "sg-12345678"
+            }
+          ],
+          "MacAddress": "A1:B2:C3:D4:E5:F6",
+          "NetId": "vpc-12345678",
+          "NicId": "eni-12345678",
+          "PrivateIps": [
+            {
+              "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal",
+              "PrivateIp": "10.0.0.4",
+              "IsPrimary": true
+            }
+          ]
+        }
+      ],
+      "Performance": "high",
+      "Tags": [
+        {
+          "Value": "prod",
+          "Key": "env"
+        }
+      ],
+      "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal"
+    }
+  ],
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_obtenir_des_informations_sur_létat_de_vos_vm"><a class="anchor" href="Obtenir-des-informations-sur-vos-VM.html#_obtenir_des_informations_sur_létat_de_vos_vm"></a>Obtenir des informations sur l&#8217;état de vos VM</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadVmsState</strong> command lists the status of one or more virtual machines (VMs).</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api ReadVmsState --profile "default" \
+    --AllVms True</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api ReadVmsState --profile "default" \
+    --Filters '{
+        "SubregionNames": ["eu-west-2a"]
+      }'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AllVms</code>: (optional) If true, includes the status of all VMs. By default or if set to false, only includes the status of running VMs.</p>
+</li>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Filters</code>: (optional) One or more filters.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>MaintenanceEventCodes</code>: (optional) The code for the scheduled event (<code>system-reboot</code> | <code>system-maintenance</code>).</p>
+</li>
+<li>
+<p><code>MaintenanceEventDescriptions</code>: (optional) The description of the scheduled event.</p>
+</li>
+<li>
+<p><code>MaintenanceEventsNotAfter</code>: (optional) The latest date and time (UTC) the event can end.</p>
+</li>
+<li>
+<p><code>MaintenanceEventsNotBefore</code>: (optional) The earliest date and time (UTC) the event can start.</p>
+</li>
+<li>
+<p><code>SubregionNames</code>: (optional) The names of the Subregions of the VMs.</p>
+</li>
+<li>
+<p><code>VmIds</code>: (optional) One or more IDs of VMs.</p>
+</li>
+<li>
+<p><code>VmStates</code>: (optional) The states of the VMs (<code>pending</code> | <code>running</code> | <code>stopping</code> | <code>stopped</code> | <code>shutting-down</code> | <code>terminated</code> | <code>quarantine</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>NextPageToken</code>: (optional) The token to request the next page of results. Each token refers to a specific page.</p>
+</li>
+<li>
+<p><code>ResultsPerPage</code>: (optional) The maximum number of logs returned in a single response (between <code>1</code> and <code>1000</code>, both included). By default, <code>100</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadVmsState</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>NextPageToken</code>: The token to request the next page of results. Each token refers to a specific page.</p>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>VmStates</code>: Information about one or more VM states.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>MaintenanceEvents</code>: One or more scheduled events associated with the VM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Code</code>: The code of the event (<code>system-reboot</code> | <code>system-maintenance</code>).</p>
+</li>
+<li>
+<p><code>Description</code>: The description of the event.</p>
+</li>
+<li>
+<p><code>NotAfter</code>: The latest scheduled end date and time (UTC) for the event.</p>
+</li>
+<li>
+<p><code>NotBefore</code>: The earliest scheduled start date and time (UTC) for the event.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>SubregionName</code>: The name of the Subregion of the VM.</p>
+</li>
+<li>
+<p><code>VmId</code>: The ID of the VM.</p>
+</li>
+<li>
+<p><code>VmState</code>: The state of the VM (<code>pending</code> | <code>running</code> | <code>stopping</code> | <code>stopped</code> | <code>shutting-down</code> | <code>terminated</code> | <code>quarantine</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "VmStates": [
+    {
+      "VmId": "i-12345678",
+      "VmState": "running",
+      "SubregionName": "eu-west-2a",
+      "MaintenanceEvents": []
+    },
+    {
+      "VmId": "i-87654321",
+      "VmState": "stopped",
+      "SubregionName": "eu-west-2a",
+      "MaintenanceEvents": []
+    }
+  ],
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "VmStates": [
+    {
+      "VmId": "i-12345678",
+      "VmState": "running",
+      "SubregionName": "eu-west-2a",
+      "MaintenanceEvents": []
+    }
+  ],
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="oapi-cli_2"><a class="anchor" href="Obtenir-des-informations-sur-vos-VM.html#oapi-cli_2"></a>Obtenir des informations sur vos VM avec oapi-cli</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_obtenir_des_informations_sur_vos_vm_2"><a class="anchor" href="Obtenir-des-informations-sur-vos-VM.html#_obtenir_des_informations_sur_vos_vm_2"></a>Obtenir des informations sur vos <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span></h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadVms</strong> command lists one or more of your virtual machines (VMs).<br>
+If you provide one or more VM IDs, this action returns a description for all of these VMs. If you do not provide any VM ID, this action returns a description for all of the VMs that belong to you. If you provide an invalid VM ID, an error is returned. If you provide the ID of a VM that does not belong to you, the description of this VM is not included in the response. The refresh interval for data returned by this action is one hour, meaning that a terminated VM may appear in the response.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" ReadVms \
+    --Filters '{
+        "VmIds": ["i-12345678"]
+      }'</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" ReadVms \
+    --Filters '{
+        "TagKeys": ["env"],
+        "TagValues": ["prod", "test"]
+      }'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Filters</code>: (optional) One or more filters.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Architectures</code>: (optional) The architectures of the VMs (<code>i386</code> | <code>x86_64</code>).</p>
+</li>
+<li>
+<p><code>BlockDeviceMappingDeleteOnVmDeletion</code>: (optional) Whether the BSU volumes are deleted when terminating the VMs.</p>
+</li>
+<li>
+<p><code>BlockDeviceMappingDeviceNames</code>: (optional) The device names for the BSU volumes (in the format <code>/dev/sdX</code>, <code>/dev/sdXX</code>, <code>/dev/xvdX</code>, or <code>/dev/xvdXX</code>).</p>
+</li>
+<li>
+<p><code>BlockDeviceMappingLinkDates</code>: (optional) The link dates for the BSU volumes mapped to the VMs (for example, <code>2016-01-23T18:45:30.000Z</code>).</p>
+</li>
+<li>
+<p><code>BlockDeviceMappingStates</code>: (optional) The states for the BSU volumes (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p>
+</li>
+<li>
+<p><code>BlockDeviceMappingVolumeIds</code>: (optional) The volume IDs of the BSU volumes.</p>
+</li>
+<li>
+<p><code>ClientTokens</code>: (optional) The idempotency tokens provided when launching the VMs.</p>
+</li>
+<li>
+<p><code>CreationDates</code>: (optional) The dates when the VMs were launched.</p>
+</li>
+<li>
+<p><code>ImageIds</code>: (optional) The IDs of the OMIs used to launch the VMs.</p>
+</li>
+<li>
+<p><code>IsSourceDestChecked</code>: (optional) Whether the source/destination checking is enabled (true) or disabled (false).</p>
+</li>
+<li>
+<p><code>KeypairNames</code>: (optional) The names of the keypairs used when launching the VMs.</p>
+</li>
+<li>
+<p><code>LaunchNumbers</code>: (optional) The numbers for the VMs when launching a group of several VMs (for example, <code>0</code>, <code>1</code>, <code>2</code>, and so on).</p>
+</li>
+<li>
+<p><code>Lifecycles</code>: (optional) Whether the VMs are Spot <span class="tooltip" data-tooltip="machine virtuelle (VM) dans l'API OUTSCALE">Instances</span> (spot).</p>
+</li>
+<li>
+<p><code>NetIds</code>: (optional) The IDs of the <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Nets</span> in which the VMs are running.</p>
+</li>
+<li>
+<p><code>NicAccountIds</code>: (optional) The IDs of the <span class="tooltip" data-tooltip="flexible network interface (FNI) dans les API AWS-compliant">NICs</span>.</p>
+</li>
+<li>
+<p><code>NicDescriptions</code>: (optional) The descriptions of the NICs.</p>
+</li>
+<li>
+<p><code>NicIsSourceDestChecked</code>: (optional) Whether the source/destination checking is enabled (true) or disabled (false).</p>
+</li>
+<li>
+<p><code>NicLinkNicDeleteOnVmDeletion</code>: (optional) Whether the NICs are deleted when the VMs they are attached to are deleted.</p>
+</li>
+<li>
+<p><code>NicLinkNicDeviceNumbers</code>: (optional) The device numbers the NICs are attached to.</p>
+</li>
+<li>
+<p><code>NicLinkNicLinkNicDates</code>: (optional) The dates and times (UTC) when the NICs were attached to the VMs.</p>
+</li>
+<li>
+<p><code>NicLinkNicLinkNicIds</code>: (optional) The IDs of the NIC attachments.</p>
+</li>
+<li>
+<p><code>NicLinkNicStates</code>: (optional) The states of the attachments.</p>
+</li>
+<li>
+<p><code>NicLinkNicVmAccountIds</code>: (optional) The account IDs of the owners of the VMs the NICs are attached to.</p>
+</li>
+<li>
+<p><code>NicLinkNicVmIds</code>: (optional) The IDs of the VMs the NICs are attached to.</p>
+</li>
+<li>
+<p><code>NicLinkPublicIpAccountIds</code>: (optional) The account IDs of the owners of the <span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">public IPs</span> associated with the NICs.</p>
+</li>
+<li>
+<p><code>NicLinkPublicIpLinkPublicIpIds</code>: (optional) The association IDs returned when the public IPs were associated with the NICs.</p>
+</li>
+<li>
+<p><code>NicLinkPublicIpPublicIpIds</code>: (optional) The allocation IDs returned when the public IPs were allocated to their accounts.</p>
+</li>
+<li>
+<p><code>NicLinkPublicIpPublicIps</code>: (optional) The public IPs associated with the NICs.</p>
+</li>
+<li>
+<p><code>NicMacAddresses</code>: (optional) The Media Access Control (MAC) addresses of the NICs.</p>
+</li>
+<li>
+<p><code>NicNetIds</code>: (optional) The IDs of the Nets where the NICs are located.</p>
+</li>
+<li>
+<p><code>NicNicIds</code>: (optional) The IDs of the NICs.</p>
+</li>
+<li>
+<p><code>NicPrivateIpsLinkPublicIpAccountIds</code>: (optional) The account IDs of the owner of the public IPs associated with the private IPs.</p>
+</li>
+<li>
+<p><code>NicPrivateIpsLinkPublicIpIds</code>: (optional) The public IPs associated with the private IPs.</p>
+</li>
+<li>
+<p><code>NicPrivateIpsPrimaryIp</code>: (optional) Whether the private IPs are the primary IPs associated with the NICs.</p>
+</li>
+<li>
+<p><code>NicPrivateIpsPrivateIps</code>: (optional) The private IPs of the NICs.</p>
+</li>
+<li>
+<p><code>NicSecurityGroupIds</code>: (optional) The IDs of the security groups associated with the NICs.</p>
+</li>
+<li>
+<p><code>NicSecurityGroupNames</code>: (optional) The names of the security groups associated with the NICs.</p>
+</li>
+<li>
+<p><code>NicStates</code>: (optional) The states of the NICs (<code>available</code> | <code>in-use</code>).</p>
+</li>
+<li>
+<p><code>NicSubnetIds</code>: (optional) The IDs of the Subnets for the NICs.</p>
+</li>
+<li>
+<p><code>NicSubregionNames</code>: (optional) The <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Subregions</span> where the NICs are located.</p>
+</li>
+<li>
+<p><code>Platforms</code>: (optional) The platforms. Use windows if you have Windows VMs. Otherwise, leave this filter blank.</p>
+</li>
+<li>
+<p><code>PrivateIps</code>: (optional) The private IPs of the VMs.</p>
+</li>
+<li>
+<p><code>ProductCodes</code>: (optional) The product codes associated with the OMI used to create the VMs.</p>
+</li>
+<li>
+<p><code>PublicIps</code>: (optional) The public IPs of the VMs.</p>
+</li>
+<li>
+<p><code>ReservationIds</code>: (optional) The IDs of the reservation of the VMs, created every time you launch VMs. These reservation IDs can be associated with several VMs when you launch a group of VMs using the same launch request.</p>
+</li>
+<li>
+<p><code>RootDeviceNames</code>: (optional) The names of the root devices for the VMs (for example, <code>/dev/sda1</code>)</p>
+</li>
+<li>
+<p><code>RootDeviceTypes</code>: (optional) The root devices types used by the VMs (always <code>ebs</code>)</p>
+</li>
+<li>
+<p><code>SecurityGroupIds</code>: (optional) The IDs of the security groups for the VMs (only in the public Cloud).</p>
+</li>
+<li>
+<p><code>SecurityGroupNames</code>: (optional) The names of the security groups for the VMs (only in the public Cloud).</p>
+</li>
+<li>
+<p><code>StateReasonCodes</code>: (optional) The reason codes for the state changes.</p>
+</li>
+<li>
+<p><code>StateReasonMessages</code>: (optional) The messages describing the state changes.</p>
+</li>
+<li>
+<p><code>StateReasons</code>: (optional) The reasons explaining the current states of the VMs. This filter is like the <code>StateReasonCodes</code> one.</p>
+</li>
+<li>
+<p><code>SubnetIds</code>: (optional) The IDs of the Subnets for the VMs.</p>
+</li>
+<li>
+<p><code>SubregionNames</code>: (optional) The names of the Subregions of the VMs.</p>
+</li>
+<li>
+<p><code>TagKeys</code>: (optional) The keys of the tags associated with the VMs.</p>
+</li>
+<li>
+<p><code>TagValues</code>: (optional) The values of the tags associated with the VMs.</p>
+</li>
+<li>
+<p><code>Tags</code>: (optional) The key/value combination of the tags associated with the VMs, in the following format: &quot;Filters&quot;:{&quot;Tags&quot;:[&quot;TAGKEY=TAGVALUE&quot;]}.</p>
+</li>
+<li>
+<p><code>Tenancies</code>: (optional) The tenancies of the VMs (<code>dedicated</code> | <code>default</code> | <code>host</code>).</p>
+</li>
+<li>
+<p><code>VmIds</code>: (optional) One or more IDs of VMs.</p>
+</li>
+<li>
+<p><code>VmSecurityGroupIds</code>: (optional) The IDs of the security groups for the VMs.</p>
+</li>
+<li>
+<p><code>VmSecurityGroupNames</code>: (optional) The names of the security group for the VMs.</p>
+</li>
+<li>
+<p><code>VmStateCodes</code>: (optional) The state codes of the VMs: <code>-1</code> (quarantine), <code>0</code> (pending), <code>16</code> (running), <code>32</code> (shutting-down), <code>48</code> (terminated), <code>64</code> (stopping), and <code>80</code> (stopped).</p>
+</li>
+<li>
+<p><code>VmStateNames</code>: (optional) The state names of the VMs (<code>pending</code> | <code>running</code> | <code>stopping</code> | <code>stopped</code> | <code>shutting-down</code> | <code>terminated</code> | <code>quarantine</code>).</p>
+</li>
+<li>
+<p><code>VmTypes</code>: (optional) The VM types (for example, t2.micro). For more information, see <a href="../../en/userguide/VM-Types.html" target="_blank" rel="noopener">VM Types</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>NextPageToken</code>: (optional) The token to request the next page of results. Each token refers to a specific page.</p>
+</li>
+<li>
+<p><code>ResultsPerPage</code>: (optional) The maximum number of logs returned in a single response (between <code>1</code> and <code>1000</code>, both included). By default, <code>100</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadVms</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>NextPageToken</code>: The token to request the next page of results. Each token refers to a specific page.</p>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Vms</code>: Information about one or more VMs.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Architecture</code>: The architecture of the VM (<code>i386</code> | <code>x86_64</code>).</p>
+</li>
+<li>
+<p><code>BlockDeviceMappings</code>: The block device mapping of the VM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Bsu</code>: Information about the created BSU volume.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteOnVmDeletion</code>: If true, the volume is deleted when terminating the VM. If false, the volume is not deleted when terminating the VM.</p>
+</li>
+<li>
+<p><code>LinkDate</code>: The date and time (UTC) at which the volume was attached to the VM, in ISO 8601 date-time format.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the volume.</p>
+</li>
+<li>
+<p><code>VolumeId</code>: The ID of the volume.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>DeviceName</code>: The name of the device.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>BsuOptimized</code>: This parameter is not available. It is present in our API for the sake of historical compatibility with AWS.</p>
+</li>
+<li>
+<p><code>ClientToken</code>: The idempotency token provided when launching the VM.</p>
+</li>
+<li>
+<p><code>CreationDate</code>: The date and time (UTC) at which the VM was created.</p>
+</li>
+<li>
+<p><code>DeletionProtection</code>: If true, you cannot delete the VM unless you change this parameter back to false.</p>
+</li>
+<li>
+<p><code>Hypervisor</code>: The hypervisor type of the VMs (<code>ovm</code> | <code>xen</code>).</p>
+</li>
+<li>
+<p><code>ImageId</code>: The ID of the OMI used to create the VM.</p>
+</li>
+<li>
+<p><code>IsSourceDestChecked</code>: (Net only) If true, the source/destination check is enabled. If false, it is disabled.</p>
+</li>
+<li>
+<p><code>KeypairName</code>: The name of the keypair used when launching the VM.</p>
+</li>
+<li>
+<p><code>LaunchNumber</code>: The number for the VM when launching a group of several VMs (for example, <code>0</code>, <code>1</code>, <code>2</code>, and so on).</p>
+</li>
+<li>
+<p><code>NestedVirtualization</code>: If true, nested virtualization is enabled. If false, it is disabled.</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net in which the VM is running.</p>
+</li>
+<li>
+<p><code>Nics</code>: (Net only) The network interface cards (NICs) the VMs are attached to.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountId</code>: The account ID of the owner of the NIC.</p>
+</li>
+<li>
+<p><code>Description</code>: The description of the NIC.</p>
+</li>
+<li>
+<p><code>IsSourceDestChecked</code>: (Net only) If true, the source/destination check is enabled. If false, it is disabled.</p>
+</li>
+<li>
+<p><code>LinkNic</code>: Information about the network interface card (NIC).</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteOnVmDeletion</code>: If true, the NIC is deleted when the VM is terminated.</p>
+</li>
+<li>
+<p><code>DeviceNumber</code>: The device index for the NIC attachment (between <code>1</code> and <code>7</code>, both included).</p>
+</li>
+<li>
+<p><code>LinkNicId</code>: The ID of the NIC to attach.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the attachment (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>LinkPublicIp</code>: Information about the public IP associated with the NIC.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>PublicDnsName</code>: The name of the public DNS.</p>
+</li>
+<li>
+<p><code>PublicIp</code>: The public IP associated with the NIC.</p>
+</li>
+<li>
+<p><code>PublicIpAccountId</code>: The account ID of the owner of the public IP.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>MacAddress</code>: The Media Access Control (MAC) address of the NIC.</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net for the NIC.</p>
+</li>
+<li>
+<p><code>NicId</code>: The ID of the NIC.</p>
+</li>
+<li>
+<p><code>PrivateDnsName</code>: The name of the private DNS.</p>
+</li>
+<li>
+<p><code>PrivateIps</code>: The private IP or IPs of the NIC.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>IsPrimary</code>: If true, the IP is the primary private IP of the NIC.</p>
+</li>
+<li>
+<p><code>LinkPublicIp</code>: Information about the public IP associated with the NIC.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>PublicDnsName</code>: The name of the public DNS.</p>
+</li>
+<li>
+<p><code>PublicIp</code>: The public IP associated with the NIC.</p>
+</li>
+<li>
+<p><code>PublicIpAccountId</code>: The account ID of the owner of the public IP.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>PrivateDnsName</code>: The name of the private DNS.</p>
+</li>
+<li>
+<p><code>PrivateIp</code>: The private IP.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>SecurityGroups</code>: One or more IDs of security groups for the NIC.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SecurityGroupId</code>: The ID of the security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: The name of the security group.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>State</code>: The state of the NIC (<code>available</code> | <code>attaching</code> | <code>in-use</code> | <code>detaching</code>).</p>
+</li>
+<li>
+<p><code>SubnetId</code>: The ID of the Subnet for the NIC.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>OsFamily</code>: Indicates the operating system (OS) of the VM.</p>
+</li>
+<li>
+<p><code>Performance</code>: The performance of the VM (<code>medium</code> | <code>high</code> |  <code>highest</code>).</p>
+</li>
+<li>
+<p><code>Placement</code>: Information about the placement of the VM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SubregionName</code>: The name of the Subregion. If you specify this parameter, you must not specify the <code>Nics</code> parameter.</p>
+</li>
+<li>
+<p><code>Tenancy</code>: The tenancy of the VM (<code>default</code>, <code>dedicated</code>, or a dedicated group ID).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>PrivateDnsName</code>: The name of the private DNS.</p>
+</li>
+<li>
+<p><code>PrivateIp</code>: The primary private IP of the VM.</p>
+</li>
+<li>
+<p><code>ProductCodes</code>: The product codes associated with the OMI used to create the VM.</p>
+</li>
+<li>
+<p><code>PublicDnsName</code>: The name of the public DNS.</p>
+</li>
+<li>
+<p><code>PublicIp</code>: The public IP of the VM.</p>
+</li>
+<li>
+<p><code>ReservationId</code>: The reservation ID of the VM.</p>
+</li>
+<li>
+<p><code>RootDeviceName</code>: The name of the root device for the VM (for example, <code>/dev/sda1</code>).</p>
+</li>
+<li>
+<p><code>RootDeviceType</code>: The type of root device used by the VM (always <code>bsu</code>).</p>
+</li>
+<li>
+<p><code>SecurityGroups</code>: One or more security groups associated with the VM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SecurityGroupId</code>: The ID of the security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: The name of the security group.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>State</code>: The state of the VM (<code>pending</code> | <code>running</code> | <code>stopping</code> | <code>stopped</code> | <code>shutting-down</code> | <code>terminated</code> | <code>quarantine</code>).</p>
+</li>
+<li>
+<p><code>StateReason</code>: The reason explaining the current state of the VM.</p>
+</li>
+<li>
+<p><code>SubnetId</code>: The ID of the Subnet for the VM.</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the VM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>UserData</code>: The Base64-encoded MIME user data.</p>
+</li>
+<li>
+<p><code>VmId</code>: The ID of the VM.</p>
+</li>
+<li>
+<p><code>VmInitiatedShutdownBehavior</code>: The VM behavior when you stop it. If set to <code>stop</code>, the VM stops. If set to <code>restart</code>, the VM stops then automatically restarts. If set to <code>terminate</code>, the VM stops and is deleted.</p>
+</li>
+<li>
+<p><code>VmType</code>: The type of VM. For more information, see <a href="../../en/userguide/VM-Types.html" target="_blank" rel="noopener">VM Types</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "Vms": [
+    {
+      "VmType": "tinav5.c1r1p2",
+      "VmInitiatedShutdownBehavior": "stop",
+      "State": "running",
+      "StateReason": "",
+      "RootDeviceType": "ebs",
+      "RootDeviceName": "/dev/sda1",
+      "IsSourceDestChecked": true,
+      "KeypairName": "keypair-example",
+      "ImageId": "ami-12345678",
+      "DeletionProtection": false,
+      "Architecture": "x86_64",
+      "NestedVirtualization": false,
+      "BlockDeviceMappings": [
+        {
+          "DeviceName": "/dev/sda1",
+          "Bsu": {
+            "VolumeId": "vol-12345678",
+            "State": "attached",
+            "LinkDate": "2010-10-01T12:34:56.789Z",
+            "DeleteOnVmDeletion": true
+          }
+        }
+      ],
+      "VmId": "i-12345678",
+      "ReservationId": "r-12345678",
+      "Hypervisor": "xen",
+      "Placement": {
+        "Tenancy": "default",
+        "SubregionName": "eu-west-2a"
+      },
+      "ProductCodes": [
+        "0001"
+      ],
+      "CreationDate": "2010-10-01T12:34:56.789Z",
+      "UserData": "",
+      "SubnetId": "subnet-12345678",
+      "PrivateIp": "10.0.0.4",
+      "SecurityGroups": [
+        {
+          "SecurityGroupName": "security-group-example",
+          "SecurityGroupId": "sg-12345678"
+        }
+      ],
+      "BsuOptimized": false,
+      "LaunchNumber": 0,
+      "NetId": "vpc-12345678",
+      "Nics": [
+        {
+          "SubnetId": "subnet-12345678",
+          "State": "in-use",
+          "LinkNic": {
+            "State": "attached",
+            "DeviceNumber": 0,
+            "LinkNicId": "eni-attach-12345678",
+            "DeleteOnVmDeletion": true
+          },
+          "IsSourceDestChecked": true,
+          "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal",
+          "Description": "Primary network interface",
+          "AccountId": "123456789012",
+          "SecurityGroups": [
+            {
+              "SecurityGroupName": "security-group-example",
+              "SecurityGroupId": "sg-12345678"
+            }
+          ],
+          "MacAddress": "A1:B2:C3:D4:E5:F6",
+          "NetId": "vpc-12345678",
+          "NicId": "eni-12345678",
+          "PrivateIps": [
+            {
+              "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal",
+              "PrivateIp": "10.0.0.4",
+              "IsPrimary": true
+            }
+          ]
+        }
+      ],
+      "Performance": "high",
+      "Tags": [
+        {
+          "Value": "prod",
+          "Key": "env"
+        }
+      ],
+      "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal"
+    }
+  ],
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_obtenir_des_informations_sur_létat_de_vos_vm_2"><a class="anchor" href="Obtenir-des-informations-sur-vos-VM.html#_obtenir_des_informations_sur_létat_de_vos_vm_2"></a>Obtenir des informations sur l&#8217;état de vos VM</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadVmsState</strong> command lists the status of one or more virtual machines (VMs).</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" ReadVmsState \
+    --AllVms True</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" ReadVmsState \
+    --Filters '{
+        "SubregionNames": ["eu-west-2a"]
+      }'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AllVms</code>: (optional) If true, includes the status of all VMs. By default or if set to false, only includes the status of running VMs.</p>
+</li>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Filters</code>: (optional) One or more filters.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>MaintenanceEventCodes</code>: (optional) The code for the scheduled event (<code>system-reboot</code> | <code>system-maintenance</code>).</p>
+</li>
+<li>
+<p><code>MaintenanceEventDescriptions</code>: (optional) The description of the scheduled event.</p>
+</li>
+<li>
+<p><code>MaintenanceEventsNotAfter</code>: (optional) The latest date and time (UTC) the event can end.</p>
+</li>
+<li>
+<p><code>MaintenanceEventsNotBefore</code>: (optional) The earliest date and time (UTC) the event can start.</p>
+</li>
+<li>
+<p><code>SubregionNames</code>: (optional) The names of the Subregions of the VMs.</p>
+</li>
+<li>
+<p><code>VmIds</code>: (optional) One or more IDs of VMs.</p>
+</li>
+<li>
+<p><code>VmStates</code>: (optional) The states of the VMs (<code>pending</code> | <code>running</code> | <code>stopping</code> | <code>stopped</code> | <code>shutting-down</code> | <code>terminated</code> | <code>quarantine</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>NextPageToken</code>: (optional) The token to request the next page of results. Each token refers to a specific page.</p>
+</li>
+<li>
+<p><code>ResultsPerPage</code>: (optional) The maximum number of logs returned in a single response (between <code>1</code> and <code>1000</code>, both included). By default, <code>100</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadVmsState</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>NextPageToken</code>: The token to request the next page of results. Each token refers to a specific page.</p>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>VmStates</code>: Information about one or more VM states.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>MaintenanceEvents</code>: One or more scheduled events associated with the VM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Code</code>: The code of the event (<code>system-reboot</code> | <code>system-maintenance</code>).</p>
+</li>
+<li>
+<p><code>Description</code>: The description of the event.</p>
+</li>
+<li>
+<p><code>NotAfter</code>: The latest scheduled end date and time (UTC) for the event.</p>
+</li>
+<li>
+<p><code>NotBefore</code>: The earliest scheduled start date and time (UTC) for the event.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>SubregionName</code>: The name of the Subregion of the VM.</p>
+</li>
+<li>
+<p><code>VmId</code>: The ID of the VM.</p>
+</li>
+<li>
+<p><code>VmState</code>: The state of the VM (<code>pending</code> | <code>running</code> | <code>stopping</code> | <code>stopped</code> | <code>shutting-down</code> | <code>terminated</code> | <code>quarantine</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "VmStates": [
+    {
+      "VmId": "i-12345678",
+      "VmState": "running",
+      "SubregionName": "eu-west-2a",
+      "MaintenanceEvents": []
+    },
+    {
+      "VmId": "i-87654321",
+      "VmState": "stopped",
+      "SubregionName": "eu-west-2a",
+      "MaintenanceEvents": []
+    }
+  ],
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "VmStates": [
+    {
+      "VmId": "i-12345678",
+      "VmState": "running",
+      "SubregionName": "eu-west-2a",
+      "MaintenanceEvents": []
+    }
+  ],
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI_3"><a class="anchor" href="Obtenir-des-informations-sur-vos-VM.html#AWS CLI_3"></a>Obtenir des informations sur vos instances avec AWS CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Avant de commencer :</strong> Installez et configurez AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="_obtenir_des_informations_générales_sur_vos_instances"><a class="anchor" href="Obtenir-des-informations-sur-vos-VM.html#_obtenir_des_informations_générales_sur_vos_instances"></a>Obtenir des informations générales sur vos <span class="tooltip" data-tooltip="machine virtuelle (VM) dans l'API OUTSCALE">instances</span></h3>
+<div class="paragraph">
+<p>Pour obtenir des informations générales sur une ou plusieurs instances, utilisez la commande <strong>describe-instances</strong> en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws ec2 describe-instances \
+    --profile YOUR_PROFILE \
+    --instance-ids i-12345678 i-87654321 i-12348765 i-56784321 \
+    --filters Name=instance-state-name,Values=stopped \
+    --endpoint https://fcu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>profile</code> : Le profil nommé que vous voulez utiliser, créé pendant la configuration d&#8217;AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p>(optionnel) <code>instance-ids</code> : Un ou plusieurs ID d&#8217;instances.<br></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si vous ne spécifiez aucun ID d&#8217;instance, toutes vos instances ou toutes les instances qui correspondent aux filtres spécifiés sont décrites.<br></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>filters</code> : Un ou plusieurs filtres, au format "Name=X,Values=Y".</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous pouvez spécifier plusieurs valeurs pour un même filtre en utilisant le format "Name=X,Values=Y, Z".</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Les filtres suivants sont disponibles :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>architecture</code> : L&#8217;architecture de l&#8217;instance (<code>i386</code> | <code>x86_64</code>).</p>
+</li>
+<li>
+<p><code>availability-zone</code> : L&#8217;<span class="tooltip" data-tooltip="Sous-région dans l'API OUTSCALE">Availability Zone</span> de l&#8217;instance. Pour en savoir plus, voir <a href="À-propos-des-Régions-et-Sous-régions.html" class="xref page">À propos des Régions et Sous-régions</a>.</p>
+</li>
+<li>
+<p><code>block-device-mapping.attach-time</code> : Le moment auquel un volume BSU a été attaché à l&#8217;instance (par exemple, <code>2016-01-23T18:45:30.000Z</code>).</p>
+</li>
+<li>
+<p><code>block-device-mapping.delete-on-termination</code> : Indique si le volume BSU est supprimé quand l&#8217;instance est terminée.</p>
+</li>
+<li>
+<p><code>block-device-mapping.device-name</code> : Le nom du périphérique pour le volume BSU (par exemple, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
+</li>
+<li>
+<p><code>block-device-mapping.status</code> : L&#8217;état du volume BSU (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p>
+</li>
+<li>
+<p><code>block-device-mapping.volume-id</code> : L&#8217;ID du volume BSU.</p>
+</li>
+<li>
+<p><code>client-token</code> : Le jeton d&#8217;idempotence fourni lors du lancement de l&#8217;instance.</p>
+</li>
+<li>
+<p><code>group-id</code> : L&#8217;ID du security group pour l&#8217;instance (uniquement dans le Cloud public).</p>
+</li>
+<li>
+<p><code>group-name</code> : Le nom du security group pour l&#8217;instance (uniquement dans le Cloud public).</p>
+</li>
+<li>
+<p><code>hypervisor</code> : Le type d&#8217;hyperviseur de l&#8217;instance (toujours <code>xen</code>).</p>
+</li>
+<li>
+<p><code>image-id</code> : L&#8217;ID de l&#8217;OMI utilisée pour lancer l&#8217;instance.</p>
+</li>
+<li>
+<p><code>instance-id</code> : L&#8217;ID de l&#8217;instance.</p>
+</li>
+<li>
+<p><code>instance-state-code</code> : Le code de l&#8217;état de l&#8217;instance : <code>-1</code> (quarantine), <code>0</code> (pending), <code>16</code> (running), <code>32</code> (shutting-down), <code>48</code> (terminated), <code>64</code> (stopping), ou <code>80</code> (stopped).</p>
+</li>
+<li>
+<p><code>instance-state-name</code> : L&#8217;état de l&#8217;instance (<code>pending</code> | <code>running</code> | <code>stopping</code> | <code>stopped</code> | <code>shutting-down</code> | <code>terminated</code> | <code>quarantine</code>).</p>
+</li>
+<li>
+<p><code>instance-type</code> : Le type d&#8217;instance (par exemple, <code>t2.micro</code>). Pour en savoir plus, voir <a href="Types-de-VM.html" class="xref page">Types de VM</a>.</p>
+</li>
+<li>
+<p><code>ip-address</code> : Dans le Cloud public, l&#8217;<span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">IP publique</span> associée à l&#8217;instance (remplacée par l&#8217;IP externe (EIP), s&#8217;il y en a une). Dans un <span class="tooltip" data-tooltip="Net dans l'API OUTSCALE">VPC</span>, l&#8217;<span class="tooltip" data-tooltip="IP publique dans l'API OUTSCALE">EIP</span> associée à l&#8217;instance, s&#8217;il y en a une.</p>
+</li>
+<li>
+<p><code>kernel-id</code> : L&#8217;ID du kernel.</p>
+</li>
+<li>
+<p><code>key-name</code> : Le nom de la keypair utilisée pour l&#8217;instance. Pour en savoir plus, voir <a href="À-propos-des-keypairs.html" class="xref page">À propos des keypairs</a>.</p>
+</li>
+<li>
+<p><code>launch-index</code> : L&#8217;index de lancement de l&#8217;instance. Pour en savoir plus, voir <a href="À-propos-des-VM.html#_informations_générales_sur_les_vm" class="xref page">À propos des VM &gt; Informations générales sur les VM</a>.</p>
+</li>
+<li>
+<p><code>launch-time</code> : Le moment auquel l&#8217;instance a été lancée (par exemple, <code>2016-04-20T08:26:26.540Z</code>) .</p>
+</li>
+<li>
+<p><code>monitoring-state</code> : Indique si le monitoring est activé pour l&#8217;instance (toujours <code>disabled</code>).</p>
+</li>
+<li>
+<p><code>owner-id</code> : L&#8217;ID de compte du propriétaire de l&#8217;instance.</p>
+</li>
+<li>
+<p><code>placement-group-name</code> : Le nom du groupe de placement pour l&#8217;instance.</p>
+</li>
+<li>
+<p><code>platform</code> : La plateforme (<code>windows</code> si vous avez des instances Windows, sinon laissez vide).</p>
+</li>
+<li>
+<p><code>private-ip-address</code> : L&#8217;IP privée de l&#8217;instance.</p>
+</li>
+<li>
+<p><code>product-code</code> : Le code produit associé à l&#8217;OMI utilisée pour lancer l&#8217;instance.</p>
+</li>
+<li>
+<p><code>ramdisk-id</code> : L&#8217;ID du disque RAM.</p>
+</li>
+<li>
+<p><code>reason</code> : La raison pour l&#8217;état actuel de l&#8217;instance (similaire à <code>state-reason-code</code>).</p>
+</li>
+<li>
+<p><code>requester-id</code> : L&#8217;ID de l&#8217;entité ayant lancé l&#8217;instance (par exemple, Cockpit ou Auto Scaling).</p>
+</li>
+<li>
+<p><code>reservation-id</code> : L&#8217;ID de la réservation de l&#8217;instance. Pour en savoir plus, voir <a href="À-propos-des-VM.html#_informations_générales_sur_les_vm" class="xref page">À propos des VM &gt; Informations générales sur les VM</a>.</p>
+</li>
+<li>
+<p><code>root-device-name</code> : Le nom du périphérique associé au volume système (par exemple, <code>/dev/sda1</code>).</p>
+</li>
+<li>
+<p><code>root-device-type</code> : Le type de volume système (always <code>ebs</code>).</p>
+</li>
+<li>
+<p><code>state-reason-code</code> : Le code de la raison du changement d&#8217;état.</p>
+</li>
+<li>
+<p><code>state-reason-message</code> : Un message décrivant le changement d&#8217;état.<code>subnet-id</code> : L&#8217;ID du subnet dans lequel l&#8217;instance est.</p>
+</li>
+</ul>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>tag-key</code> : La clé d&#8217;un tag associé à la ressource.</p>
+</li>
+<li>
+<p><code>tag-value</code> : La valeur d&#8217;un tag associé à la ressource.</p>
+</li>
+<li>
+<p><code>tag:XXXX</code> : La valeur d&#8217;un tag associé à la ressource, où <code>XXXX</code> est la clé du tag.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour filtrer un tag dont la clé est <code>XXXX</code> et la valeur est <code>YYYY</code>, vous pouvez donc utiliser un des deux formats suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>--filters Name=tag-key,Values=XXXX Name=tag-value,Values=YYYY</code></p>
+</li>
+<li>
+<p><code>--filters Name=tag:XXXX,Values=YYYY</code></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>tenancy</code> : L&#8217;allocation de l&#8217;instance (<code>dedicated</code> | <code>default</code>). Pour en savoir plus, voir <a href="À-propos-des-VM.html#_allocation_des_vm_et_vm_dédiées" class="xref page">À propos des VM &gt; Allocation des VM et VM dédiées</a>.</p>
+</li>
+<li>
+<p><code>virtualization-type</code> : Le type de virtualisation de l&#8217;instance (toujours <code>hvm</code>).</p>
+</li>
+<li>
+<p><code>vpc-id</code> : L&#8217;ID du VPC dans lequel l&#8217;instance est (dans le Cloud public, <code>vpc-00000000</code>).</p>
+</li>
+<li>
+<p><code>network-interface.description</code> : La description de l&#8217;interface réseau.</p>
+</li>
+<li>
+<p><code>network-interface.subnet-id</code> : L&#8217;ID du subnet dans lequel l&#8217;instance est.</p>
+</li>
+<li>
+<p><code>network-interface.vpc-id</code> : L&#8217;ID du VPC dans lequel l&#8217;instance est (dans le Cloud public, <code>vpc-00000000</code>).</p>
+</li>
+<li>
+<p><code>network-interface.network-interface-id</code> : L&#8217;ID de l&#8217;interface réseau de l&#8217;instance (<code>eni-XXXXXXXX</code>).</p>
+</li>
+<li>
+<p><code>network-interface.owner-id</code> : L&#8217;ID de compte du propriétaire de l&#8217;interface réseau.</p>
+</li>
+<li>
+<p><code>network-interface.availability-zone</code> : L&#8217;Availability Zone pour l&#8217;interface réseau.</p>
+</li>
+<li>
+<p><code>network-interface.requester-id</code> : L&#8217;ID du requêteur pour l&#8217;interface réseau.</p>
+</li>
+<li>
+<p><code>network-interface.requester-managed</code> : Indique si l&#8217;interface réseau est gérée par 3DS OUTSCALE.</p>
+</li>
+<li>
+<p><code>network-interface.status</code> : L&#8217;état de l&#8217;interface réseau (<code>available</code> | <code>in-use</code>).</p>
+</li>
+<li>
+<p><code>network-interface.mac-address</code> : L&#8217;addresse MAC de l&#8217;interface réseau.</p>
+</li>
+<li>
+<p><code>network-interface.source-dest-check</code> : Si <code>true</code>, la vérification source/destination du trafic réseau de l&#8217;interface réseau est activé. Si <code>false</code>, elle ne l&#8217;est pas.</p>
+</li>
+<li>
+<p><code>network-interface.group-id</code> : L&#8217;ID du security group pour l&#8217;interface réseau.</p>
+</li>
+<li>
+<p><code>network-interface.group-name</code> : Le nom du security group pour l&#8217;interface réseau.</p>
+</li>
+<li>
+<p><code>network-interface.attachment.attachment-id</code> : L&#8217;ID de l&#8217;attachement de l&#8217;interface.</p>
+</li>
+<li>
+<p><code>network-interface.attachment.instance-id</code> : L&#8217;ID de l&#8217;instance à laquelle l&#8217;interface réseau est attachée.</p>
+</li>
+<li>
+<p><code>network-interface.attachment.instance-owner-id</code> : L&#8217;ID de compte du propriétaire de l&#8217;instance à laquelle l&#8217;interface réseau est attachée.</p>
+</li>
+<li>
+<p><code>network-interface.attachment.device-index</code> : L&#8217;index du périphérique auquel l&#8217;interface réseau est attachée.</p>
+</li>
+<li>
+<p><code>network-interface.attachment.status</code> : L&#8217;état de l&#8217;attachement (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code> ).</p>
+</li>
+<li>
+<p><code>network-interface.attachment.attach-time</code> : Le moment auquel l&#8217;interface réseau a été attachée à l&#8217;instance.</p>
+</li>
+<li>
+<p><code>network-interface.attachment.delete-on-termination</code> : Indique si l&#8217;attachement est supprimé quand l&#8217;instance est terminée.</p>
+</li>
+<li>
+<p><code>network-interface.addresses.private-ip-address</code> : L&#8217;IP privée associée à l&#8217;interface réseau.</p>
+</li>
+<li>
+<p><code>network-interface.addresses.primary</code> : Indique si l&#8217;IP de l&#8217;interface réseau est l&#8217;IP privée principale.</p>
+</li>
+<li>
+<p><code>network-interface.addresses.association.public-ip</code> : L&#8217;External IP associée à l&#8217;interface réseau de l&#8217;instance (s&#8217;il y en a une).</p>
+</li>
+<li>
+<p><code>network-interface.addresses.association.ip-owner-id</code> : L&#8217;ID de compte du propriétaire de l&#8217;External IP associée à l&#8217;interface réseau de l&#8217;instance.</p>
+</li>
+<li>
+<p><code>network-interface.association.public-ip</code> : L&#8217;IP externe (EIP) associée à l&#8217;interface réseau.</p>
+</li>
+<li>
+<p><code>network-interface.association.ip-owner-id</code> : L&#8217;ID du compte du propriétaire de l&#8217;IP externe (EIP) associée à l&#8217;interface réseau.</p>
+</li>
+<li>
+<p><code>network-interface.association.allocation-id</code> : L&#8217;ID d&#8217;allocation. Cet ID est renvoyé quand vous allouez une IP externe (EIP) à votre interface réseau.</p>
+</li>
+<li>
+<p><code>network-interface.association.association-id</code> : L&#8217;ID d&#8217;association. Cet ID est renvoyé quand l&#8217;interface réseau est associée à une IP externe (EIP).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>endpoint</code> : Le endpoint correspondant à la Région à laquelle vous voulez envoyer la requête. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>La commande <strong>describe-instances</strong> renvoie les éléments suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Reservations</code> : Informations à propos d&#8217;une ou plusieurs réservations. Cet élément contient les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>OwnerId</code> : L&#8217;ID de compte du propriétaire de l&#8217;instance.</p>
+</li>
+<li>
+<p><code>ReservationId</code> : L&#8217;ID de la réservation.</p>
+</li>
+<li>
+<p><code>Groups</code> : Les security groups pour les instances de la réservation (nom et ID des security groups).</p>
+</li>
+<li>
+<p><code>Instances</code> : Informations à propos d&#8217;une ou plusieurs instances. Cet élément contient les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Monitoring</code> : Informations à propos de l&#8217;état du monitoring de l&#8217;instance (toujours <code>disabled</code>).</p>
+</li>
+<li>
+<p><code>PublicDnsName</code> : Le nom DNS public de l&#8217;instance.</p>
+</li>
+<li>
+<p><code>Platform</code> : Pas d&#8217;information renvoyée.</p>
+</li>
+<li>
+<p><code>State</code> : Informations à propos de l&#8217;état de l&#8217;instance (le code et le nom de l&#8217;état).</p>
+</li>
+<li>
+<p><code>EbsOptimized</code> : Indique si l&#8217;instance est optimisée pour BSU ou non. Pour en savoir plus, voir <a href="Types-de-VM.html" class="xref page">Types de VM</a>.</p>
+</li>
+<li>
+<p><code>LaunchTime</code> : Le moment auquel l&#8217;instance a été lancée.</p>
+</li>
+<li>
+<p><code>PublicIpAddress</code> : Dans le Cloud public, l&#8217;IP publique associée à l&#8217;instance (remplacée par l&#8217;IP externe (EIP), s&#8217;il y en a une). Dans un VPC, l&#8217;EIP associée à l&#8217;instance, s&#8217;il y en a une.</p>
+</li>
+<li>
+<p><code>PrivateIpAddress</code> : L&#8217;IP privée de l&#8217;instance.</p>
+</li>
+<li>
+<p><code>ProductCodes</code> : Pas d&#8217;information renvoyée si vous utilisez une OMI officielle.</p>
+</li>
+<li>
+<p><code>Tags</code> : Un ou plusieurs tags associés à l&#8217;instance, avec leur valeur (<code>Value</code>) et leur clé (<code>Key</code>).</p>
+</li>
+<li>
+<p><code>InstanceId</code> : L&#8217;ID de l&#8217;instance.</p>
+</li>
+<li>
+<p><code>ImageId</code> : L&#8217;ID de l&#8217;OMI utilisée pour lancer l&#8217;instance.</p>
+</li>
+<li>
+<p><code>VpcId</code> : L&#8217;ID du VPC dans lequel l&#8217;instance est (dans le Cloud public, <code>vpc-00000000</code>).</p>
+</li>
+<li>
+<p><code>PrivateDnsNAme</code> : Le nom DNS privé de l&#8217;instance.</p>
+</li>
+<li>
+<p><code>KeyName</code> : Le nom de la keypair utilisée pour l&#8217;instance. Pour en savoir plus, voir <a href="À-propos-des-keypairs.html" class="xref page">À propos des keypairs</a>.</p>
+</li>
+<li>
+<p><code>SecurityGroups</code> : Les security groups pour l&#8217;instance (leur nom et ID).</p>
+</li>
+<li>
+<p><code>ClientToken</code> : Un identifiant unique pour gérer l&#8217;idempotence.</p>
+</li>
+<li>
+<p><code>InstanceType</code> : Le type d&#8217;instance. Pour en savoir plus, voir <a href="Types-de-VM.html" class="xref page">Types de VM</a>.</p>
+</li>
+<li>
+<p><code>NetworkInterfaces</code> : Dans un VPC, une ou plusieurs interfaces réseau pour l&#8217;instance.</p>
+</li>
+<li>
+<p><code>Placement</code> : Informations à propos du placement de l&#8217;instance.</p>
+</li>
+<li>
+<p><code>Hypervisor</code> : Le type d&#8217;hyperviseur de l&#8217;instance (toujours <code>xen</code>).</p>
+</li>
+<li>
+<p><code>BlockDeviceMappings</code> : Un ou plusieurs block device mappings pour l&#8217;instance. Pour en savoir plus, voir <a href="Définir-des-block-device-mappings.html" class="xref page">Définir des block device mappings</a>.</p>
+</li>
+<li>
+<p><code>Architecture</code> : L&#8217;architecture de l&#8217;instance.</p>
+</li>
+<li>
+<p><code>KernelId</code> : Pas d&#8217;information renvoyée.</p>
+</li>
+<li>
+<p><code>RootDeviceName</code> : Le nom du périphérique pour le volume système de l&#8217;instance.</p>
+</li>
+<li>
+<p><code>VirtualizationType</code> : Le type de virtualisation de l&#8217;instance (toujours <code>hvm</code>).</p>
+</li>
+<li>
+<p><code>RootDeviceType</code> : Le type de volume système pour l&#8217;instance (toujours <code>ebs</code>).</p>
+</li>
+<li>
+<p><code>AmiLaunchIndex</code> : L&#8217;index de lancement de l&#8217;instance. Pour en savoir plus, voir <a href="À-propos-des-VM.html#_informations_générales_sur_les_vm" class="xref page">À propos des VM &gt; Informations générales sur les VM</a>.</p>
+<div class="listingblock">
+<div class="title">Exemple de résultat</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">    "Reservations": [
+        {
+            "OwnerId": "1234567890000",
+            "ReservationId": "r-12345678",
+            "Groups": [
+                {
+                    "GroupName": "Dev_BL",
+                    "GroupId": "sg-87654321"
+                }
+            ],
+            "Instances": [
+                {
+                    "Monitoring": {
+                        "State": "disabled"
+                    },
+                    "PublicDnsName": "ows-111-1-1-1.eu-west-2.compute.outscale.com",
+                    "Platform": "",
+                    "State": {
+                        "Code": 16,
+                        "Name": "running"
+                    },
+                    "EbsOptimized": false,
+                    "LaunchTime": "2016-04-25T13:57:26.393Z",
+                    "PublicIpAddress": "111.1.1.1",
+                    "PrivateIpAddress": "10.0.1.100",
+                    "ProductCodes": [],
+                    "Tags": [
+                        {
+                            "Value": "Jenkins",
+                            "Key": "Name"
+                        }
+                    ],
+                    "InstanceId": "i-87654321",
+                    "ImageId": "ami-12345678",
+                    "PrivateDnsName": "ip-10-0-1-100.eu-west-2.compute.internal",
+                    "KeyName": "key_name",
+                    "SecurityGroups": [
+                        {
+                            "GroupName": "group_name",
+                            "GroupId": "sg-87654321"
+                        }
+                    ],
+                    "ClientToken": "",
+                    "InstanceType": "m1.large",
+                    "NetworkInterfaces": [],
+                    "Placement": {
+                        "Tenancy": "default",
+                        "GroupName": "",
+                        "AvailabilityZone": "eu-west-2a"
+                    },
+                    "Hypervisor": "xen",
+                    "BlockDeviceMappings": [
+                        {
+                            "DeviceName": "/dev/sda1",
+                            "Ebs": {
+                                "Status": "attached",
+                                "DeleteOnTermination": true,
+                                "VolumeId": "vol-12345678",
+                                "AttachTime": "2016-04-25T13:57:26.393Z"
+                            }
+                        }
+                    ],
+                    "Architecture": "x86_64",
+                    "KernelId": "",
+                    "RootDeviceName": "/dev/sda1",
+                    "VirtualizationType": "hvm",
+                    "RootDeviceType": "ebs",
+                    "AmiLaunchIndex": 0
+                }
+            ]
+        }
+    ]
+}</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_obtenir_des_informations_sur_létat_de_vos_instances"><a class="anchor" href="Obtenir-des-informations-sur-vos-VM.html#_obtenir_des_informations_sur_létat_de_vos_instances"></a>Obtenir des informations sur l&#8217;état de vos instances</h3>
+<div class="paragraph">
+<p>Pour obtenir des informations sur l&#8217;état d&#8217;une ou plusieurs instances, utilisez la commande <strong>describe-instance-status</strong> en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws ec2 describe-instance-status \
+    --profile YOUR_PROFILE \
+    --instance-ids i-12345678 i-87654321 i-12348765 i-56784321 \
+    --filters Name=X,Values=Y \
+    --endpoint https://fcu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>profile</code> : Le profil nommé que vous voulez utiliser, créé pendant la configuration d&#8217;AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p>(optionnel) <code>instance-ids</code> : Un ou plusieurs ID d&#8217;instances.<br></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si vous ne spécifiez aucun ID d&#8217;instance, toutes vos instances ou toutes les instances qui correspondent aux filtres spécifiés sont décrites. #<br></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>max-items</code> : Le nombre maximum de résultats renvoyés dans une seule page, entre 5 et 1000.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous ne pouvez pas spécifier les attributs <code>instance-ids</code> et <code>max-items</code> dans la même requête.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>include-all-instances</code> : Si paramétré sur <code>true</code>, inclus les états de toutes les instances. Par défaut ou si paramétré sur <code>false</code>, inclut uniquement les états des instances à l&#8217;état <code>running</code>.</p>
+</li>
+<li>
+<p>(optionnel) <code>filters</code> : Un ou plusieurs filtres, au format "Name=X,Values=Y".</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous pouvez spécifier plusieurs valeurs pour un même filtre en utilisant le format "Name=X,Values=Y, Z".</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Les filtres suivants sont disponibles :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>availability-zone</code> : L&#8217;Availability Zone de l&#8217;instance. Pour en savoir plus, voir <a href="À-propos-des-Régions-et-Sous-régions.html" class="xref page">À propos des Régions et Sous-régions</a>.</p>
+</li>
+<li>
+<p><code>event.code</code> : Le code de l&#8217;événement planifié (<code>system-reboot</code> | <code>system-maintenance</code>). Pour en savoir plus, voir <a href="Maintenance-de-notre-infrastructure.html" class="xref page">Maintenance de notre infrastructure</a>.</p>
+</li>
+<li>
+<p><code>event.description</code> : La description de l&#8217;événement planifié.</p>
+</li>
+<li>
+<p><code>instance-state-code</code> : Le code de l&#8217;état de l&#8217;instance : <code>-1</code> (quarantine), <code>0</code> (pending), <code>16</code> (running), <code>32</code> (shutting-down), <code>48</code> (terminated), <code>64</code> (stopping), ou <code>80</code> (stopped).</p>
+</li>
+<li>
+<p><code>instance-state-name</code> : L&#8217;état de l&#8217;instance (<code>pending</code> | <code>running</code> | <code>stopping</code> | <code>stopped</code> | <code>shutting-down</code> | <code>terminated</code> | <code>quarantine</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>endpoint</code> : Le endpoint correspondant à la Région à laquelle vous voulez envoyer la requête. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>La commande <strong>describe-instance-status</strong> renvoie les éléments suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>InstanceStatuses</code> : Informations à propos de l&#8217;état d&#8217;une ou plusieurs instances. Cet élément contient les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AvailabilityZone</code> : L&#8217;Availability Zone de l&#8217;instance.</p>
+</li>
+<li>
+<p><code>InstanceId</code> : L&#8217;ID de l&#8217;instance.</p>
+</li>
+<li>
+<p><code>InstanceState</code> : Informations à propos de l&#8217;état de l&#8217;instance. Cet élément contient les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Code</code> : Le code de l&#8217;état de l&#8217;instance (un nombre entier non signé 16 bits).</p>
+</li>
+<li>
+<p><code>Name</code> : L&#8217;état de l&#8217;instance.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>SystemStatus</code> : L&#8217;état du système de l&#8217;instance.<br></p>
+</li>
+<li>
+<p><code>Events</code> : Informations à propos d&#8217;un ou plusieurs événements planifiés associés à l&#8217;instance. Cet élément contient les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Code</code> : Le code de l&#8217;événement planifié (<code>system-reboot</code> | <code>system-maintenance</code>).</p>
+</li>
+<li>
+<p><code>Description</code> : Informations à propos de l&#8217;événement planifié.</p>
+</li>
+<li>
+<p><code>NotBefore</code> : L&#8217;heure de début de l&#8217;événement planifié la plus tôt.</p>
+</li>
+<li>
+<p><code>NotAfter</code> : L&#8217;heure de fin d&#8217;un événement planifié la plus tardive.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>NextToken</code> : Le token pour afficher la prochaine page de résultats. Si <code>null</code>, il n&#8217;y a plus de résultats à afficher.</p>
+<div class="listingblock">
+<div class="title">Exemple de résultat</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "InstanceStatuses": [
+        {
+            "InstanceStatus": {
+                "Status": "insufficient-data",
+                "Details": []
+            },
+            "AvailabilityZone": "eu-west-2a",
+            "InstanceId": "i-12345678",
+            "InstanceState": {
+                "Code": 16,
+                "Name": "running"
+            },
+            "SystemStatus": {
+                "Status": "insufficient-data",
+                "Details": []
+            },
+            "Events": []
+        }
+    ]
+}</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_obtenir_des_informations_sur_un_attribut_dune_instance"><a class="anchor" href="Obtenir-des-informations-sur-vos-VM.html#_obtenir_des_informations_sur_un_attribut_dune_instance"></a>Obtenir des informations sur un attribut d&#8217;une instance</h3>
+<div class="paragraph">
+<p>Pour obtenir des informations sur un attribut d&#8217;une instance, utilisez la commande <strong>describe-instance-attribute</strong> en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws ec2 describe-instance-attribute \
+    --profile YOUR_PROFILE \
+    --instance-id i-12345678 \
+    --attribute disableApiTermination \
+    --endpoint https://fcu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>profile</code> : Le profil nommé que vous voulez utiliser, créé pendant la configuration d&#8217;AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>attribute</code> : L&#8217;attribut de l&#8217;instance (<code>userData</code> | <code>instanceInitiatedShutdownBehavior</code> | <code>rootDeviceName</code> | <code>instanceType</code> | <code>blockDeviceMapping</code> | <code>groupSet</code> | <code>ebsOptimized</code> | <code>sourceDestCheck</code> | <code>disableApiTermination</code>).</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Vous pouvez spécifier uniquement un attribut à la fois.</p>
+</li>
+<li>
+<p>Vous pouvez décrire l&#8217;attribut <code>sourceDestCheck</code> uniquement si l&#8217;instance est dans un VPC.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><code>instance-id</code> : L&#8217;ID de l&#8217;instance.</p>
+</li>
+<li>
+<p><code>endpoint</code> : Le endpoint correspondant à la Région à laquelle vous voulez envoyer la requête. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>La commande <strong>describe-instance-attribute</strong> renvoie les éléments suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>InstanceId</code> : L&#8217;ID de l&#8217;instance.</p>
+</li>
+<li>
+<p>La valeur de l&#8217;attribut (ici, <code>DisableApiTermination</code> est paramétré sur <code>false</code>).</p>
+<div class="listingblock">
+<div class="title">Exemple de résultat</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "InstanceId": "i-12345678",
+    "DisableApiTermination": {
+        "Value": false
+    }
+}</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-VM.html" class="xref page">À propos des VM</a></p>
+</li>
+<li>
+<p><a href="Créer-des-VM.html" class="xref page">Créer des VM</a></p>
+</li>
+<li>
+<p><a href="Modifier-un-attribut-d-une-VM.html" class="xref page">Modifier un attribut d&#8217;une VM</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-les-tags-associés-à-une-ressource.html" class="xref page">Obtenir des informations sur les tags associés à une ressource</a></p>
+</li>
+<li>
+<p><a href="Consulter-la-sortie-de-la-console-d-une-VM.html" class="xref page">Consulter la sortie de la console d&#8217;une VM</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Méthodes API correspondantes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#readvms" class="xref page">ReadVms (API OUTSCALE)</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readvmsstate" class="xref page">ReadVmsState (API OUTSCALE)</a></p>
+</li>
+<li>
+<p><a href="../../fcu.html#describeinstances" class="xref page">DescribeInstances (FCU)</a></p>
+</li>
+<li>
+<p><a href="../../fcu.html#describeinstancestatus" class="xref page">DescribeInstanceStatus (FCU)</a></p>
+</li>
+<li>
+<p><a href="../../fcu.html#describeinstanceattribute" class="xref page">DescribeInstanceAttribute (FCU)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

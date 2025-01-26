@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Configuring a VM with User Data and OUTSCALE Tags – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="Configuring-a-VM-with-User-Data-and-OUTSCALE-Tags.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/Configuring-a-VM-with-User-Data-and-OUTSCALE-Tags.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Configurer-une-VM-avec-les-user-data-et-les-tags-OUTSCALE.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Configuring a VM with User Data and OUTSCALE Tags</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can add user data to a <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">virtual machine (VM)</span> to more specifically configure it. User data can be of any type of information, like a script or text information. You can also specify tags to give precise instructions about the VM placement or IPs.</p>
+</div>
+<div class="paragraph">
+<p>User data is data linked to the VM by the user. A VM can access user data at any time but it is taken into account only at creation. However, you can create a script contained in the OMI used to create a VM to require that user data is taken into account at every stop and start. This enables you to modify it, and then stop and start the VM for the modifications to be applied. For more information about how to modify user data, see <a href="Modifying-a-VM-Attribute.html" class="xref page">Modifying a VM Attribute</a>.</p>
+</div>
+<div class="paragraph">
+<p>To get information about the user data of a VM, type to the following address in the terminal of the VM or in a web browser: <code>169.254.169.254/latest/user-data</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_adding_a_script_or_text_in_user_data"><a class="anchor" href="Configuring-a-VM-with-User-Data-and-OUTSCALE-Tags.html#_adding_a_script_or_text_in_user_data"></a>Adding a Script or Text in User Data</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can add a script or any other text information in the user data of a <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span>. Your script can contain text variables and can be used to have the VM execute any action you need at boot, for example to automatically download a file from a bucket.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>User data must be encoded in Base64, but tools such as Cockpit or AWS CLI can handle the encoding for you.
+The maximum size for the Base64-encoded user data is 500 kibibytes (KiB).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>These user data can be executed every time the VM boots, if the VM contains a script that can do so:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In the CREATE VMs dialog box on Cockpit v2 (<a href="Creating-VMs.html" class="xref page">Creating VMs</a>), or in the <code>user-data</code> attribute of the <code>run-instances</code> AWS CLI command:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For Linux VMs, you need to create a script that fetches and executes the user data. For more information, see <a href="Creating-an-Autonomous-VM.html" class="xref page">Creating an Autonomous VM</a>.</p>
+</li>
+<li>
+<p>For Windows VMs, you can type your script within one of the following wrappers to execute it at boot:</p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Language</th>
+<th class="tableblock halign-left valign-top">Wrapper</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Powershell</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-powershell hljs" data-lang="powershell"># autoexecutepowershell
+&lt;your_script&gt;
+# autoexecutepowershell</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Executes the powershell script with initializing the password administrator. The script is launched with the administrator user.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Powershell</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-powershell hljs" data-lang="powershell"># autoexecutepowershellnopasswd
+&lt;your_script&gt;
+# autoexecutepowershellnopasswd</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Executes the powershell script without initializing the password administrator. The script is launched with the administrator user.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>With this command, OUTSCALE does not generate administrator password of the VM. It is therefore not accessible as an administrator. If you want to customize the generation of the administrator password, you can define it in your script.</p>
+</div>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vbscript</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-vbscript hljs" data-lang="vbscript"># autoexecutevbs
+&lt;your_script&gt;
+# autoexecutevbs</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Executes the vbscript script with initializing the password administrator. The script is launched with the administrator user.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>If the boot script finds one of the above wrappers, it saves the script to a VB or PowerShell file in its /userdata and runs these files when the VM starts.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can separate the commands in a script using line breaks to run all the commands you want in the Windows PowerShell command prompt.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_adding_outscale_tags_in_user_data"><a class="anchor" href="Configuring-a-VM-with-User-Data-and-OUTSCALE-Tags.html#_adding_outscale_tags_in_user_data"></a>Adding OUTSCALE Tags in User Data</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can add OUTSCALE tags in user data to give instructions about the placement of your <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VMs</span>. You can for example place VMs in a same server (also called hypervisor) or cluster (a set of hypervisors) to improve network performance, or place them in different clusters to reduce risks.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can also add these tags using the classic method. For more information, see <a href="Adding-or-Removing-Tags.html" class="xref page">Adding or Removing Tags</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If you are using AWS CLI, create a section for all your OUTSCALE tags following this syntax:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">-----BEGIN OUTSCALE SECTION-----
+&lt;tags&gt;
+-----END OUTSCALE SECTION-----</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Insert a carriage return at the end of the code. Otherwise, the last line is not read properly.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Add your tags within this section following the <code>tags.&lt;TAG_NAME&gt;=&lt;TAG_VALUE&gt;</code> format.<br>
+The following tags are available:<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Tags to specify instructions about the placement of a VM:</p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Tag Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Tag Value</th>
+<th class="tableblock halign-left valign-top">Application</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>osc.fcu.repulse_server</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Places VMs with the same tag value on different servers</p></td>
+<td class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock">Free</p></td>
+<td class="tableblock halign-left valign-top" rowspan="4"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>At VM creation</p>
+</li>
+<li>
+<p>After a stop/start of the VM</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>osc.fcu.attract_server</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Places VMs with the same tag value on the same server</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>osc.fcu.repulse_cluster</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Places VMs with the same tag value on different Cisco UCS clusters</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>osc.fcu.attract_cluster</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Places VMs with the same tag value on the same Cisco UCS cluster</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>These tags can be used in <code>strict</code> mode, which means that if the requested placement options are not possible, an <code>InsufficientCapacity</code> error is returned. If you do not use <code>strict</code> mode, the requested placement options are bypassed if they are not possible.</p>
+</div>
+<div class="paragraph">
+<p>To define <code>strict</code> mode, add <code>_strict</code> to the tag name (for example, <code>osc.fcu.repulse_server_strict</code>).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In the following example, VM#1 and VM#2 are placed on the same server, if possible:<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">INSTANCE#1 USER DATA
+-----BEGIN OUTSCALE SECTION-----
+tags.osc.fcu.attract_server=front80
+-----END OUTSCALE SECTION-----
+
+INSTANCE#2 USER DATA
+-----BEGIN OUTSCALE SECTION-----
+tags.osc.fcu.attract_server=front80
+-----END OUTSCALE SECTION-----</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the following example, VM#3 and VM#4 are placed on different servers, and an error occurs if not possible:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">INSTANCE#3 USER DATA
+-----BEGIN OUTSCALE SECTION-----
+tags.osc.fcu.repulse_server_strict=front80
+-----END OUTSCALE SECTION-----
+
+INSTANCE#4 USER DATA
+-----BEGIN OUTSCALE SECTION-----
+tags.osc.fcu.repulse_server_strict=front80
+-----END OUTSCALE SECTION-----</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Tags to manage IPs associated with a VM:<br></p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Tag Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Tag Value</th>
+<th class="tableblock halign-left valign-top">Application</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>osc.fcu.eip.auto-attach</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Automatically associates a <span class="tooltip" data-tooltip="External IP (EIP) in AWS-Compliant APIs">public IP</span> with a VM, and keeps them associated through the stop and start process</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The public IP you want to associate.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="About-Public-IPs.html#_public_ip_association" class="xref page">About Public IPs &gt; Public IP Association</a>.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top" rowspan="2"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>At VM creation</p>
+</li>
+<li>
+<p>After a stop/start of the VM</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>private_only</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Blocks attribution of a public IP to a VM in the public Cloud</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code> or <code>false</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>In the following example, the 111.33.22.100 public IP is attached and fixed to the VM:<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">-----BEGIN OUTSCALE SECTION-----
+tags.osc.fcu.eip.auto-attach=111.33.22.100
+-----END OUTSCALE SECTION-----</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_both_outscale_section_and_free_section"><a class="anchor" href="Configuring-a-VM-with-User-Data-and-OUTSCALE-Tags.html#_using_both_outscale_section_and_free_section"></a>Using Both OUTSCALE Section and Free Section</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default when using the user data, the OUTSCALE section and the free section cannot be used simultaneously. You can use the <code>filter_private_section</code> filter to use both OUTSCALE and free sections.</p>
+</div>
+<div class="paragraph">
+<p>To be able to use both OUTSCALE section and free sections use the following filter:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Filter Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Filter Value</th>
+<th class="tableblock halign-left valign-top">Application</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter_private_section</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Filters the OUTSCALE tags of the <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span> so that you can use both a section of OUTSCALE tags and a free section of user data in the same VM.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If <code>true</code>, all your OUTSCALE tags take effect. However, they are permanently removed from the OUTSCALE section once applied. The tags cannot be read in the user data of the VM anymore.</p>
+</li>
+<li>
+<p>If <code>false</code> or not defined, you cannot use both a section of OUTSCALE tags and a free section of user data.</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code> or <code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>At VM creation</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This filter is available for the OUTSCALE API only. It is not compatible with the FCU API.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In the following example, the 111.33.22.100 <span class="tooltip" data-tooltip="External IP (EIP) in AWS-Compliant APIs">public IP</span> is attached and fixed to the VM and the filter on the free section is set to <code>true</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">-----BEGIN OUTSCALE SECTION-----
+tags.osc.fcu.eip.auto-attach=111.33.22.100
+filter_private_section=true
+-----END OUTSCALE SECTION-----</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The 111.33.22.100 public IP is attached and fixed to the VM. Then, the tag is removed from the OUTSCALE section and cannot be read in the user data of the VM.</p>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="About-VMs.html" class="xref page">About VMs</a></p>
+</li>
+<li>
+<p><a href="Accessing-the-Metadata-and-User-Data-of-a-VM.html" class="xref page">Accessing the Metadata and User Data of a VM</a></p>
+</li>
+<li>
+<p><a href="User-Data-Tags-Reference.html" class="xref page">User Data Tags Reference</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ and Amazon Web Services™ are trademarks of Amazon Technologies, Inc or its affiliates in the United States and/or other countries.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

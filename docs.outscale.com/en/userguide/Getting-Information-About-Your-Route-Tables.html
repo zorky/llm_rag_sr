@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Getting Information About Your Route Tables – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="Getting-Information-About-Your-Route-Tables.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/Getting-Information-About-Your-Route-Tables.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Obtenir-des-informations-sur-vos-route-tables.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Getting Information About Your Route Tables</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can get information about one or more of your route tables, like the <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span> they are created for or the routes they contain.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Cockpit v2_0"><a class="anchor" href="Getting-Information-About-Your-Route-Tables.html#Cockpit v2_0"></a>Getting Information About Your Route Tables Using Cockpit v2</h2>
+<div class="sectionbody">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>See the <strong>Route Tables</strong> dashboard.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="OSC CLI_1"><a class="anchor" href="Getting-Information-About-Your-Route-Tables.html#OSC CLI_1"></a>Getting Information About Your Route Tables Using OSC CLI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <strong>ReadRouteTables</strong> command lists one or more of your route tables.<br>
+In your <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span>, each Subnet must be associated with a route table. If a Subnet is not explicitly associated with a route table, it is implicitly associated with the main route table of the Net.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api ReadRouteTables --profile "default" \
+    --Filters '{
+        "RouteTableIds": ["rtb-12345678"]
+      }'</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api ReadRouteTables --profile "default" \
+    --Filters '{
+        "NetIds": ["vpc-12345678", "vpc-87654321"],
+        "LinkRouteTableMain": True
+      }'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Filters</code>: (optional) One or more filters.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LinkRouteTableIds</code>: (optional) The IDs of the route tables involved in the associations.</p>
+</li>
+<li>
+<p><code>LinkRouteTableLinkRouteTableIds</code>: (optional) The IDs of the associations between the route tables and the Subnets.</p>
+</li>
+<li>
+<p><code>LinkRouteTableMain</code>: (optional) If true, the route tables are the main ones for their Nets.</p>
+</li>
+<li>
+<p><code>LinkSubnetIds</code>: (optional) The IDs of the Subnets involved in the associations.</p>
+</li>
+<li>
+<p><code>NetIds</code>: (optional) The IDs of the Nets for the route tables.</p>
+</li>
+<li>
+<p><code>RouteCreationMethods</code>: (optional) The methods used to create a route.</p>
+</li>
+<li>
+<p><code>RouteDestinationIpRanges</code>: (optional) The IP ranges specified in routes in the tables.</p>
+</li>
+<li>
+<p><code>RouteDestinationServiceIds</code>: (optional) The service IDs specified in routes in the tables.</p>
+</li>
+<li>
+<p><code>RouteGatewayIds</code>: (optional) The IDs of the gateways specified in routes in the tables.</p>
+</li>
+<li>
+<p><code>RouteNatServiceIds</code>: (optional) The IDs of the <span class="tooltip" data-tooltip="NAT gateway in AWS-Compliant APIs">NAT services</span> specified in routes in the tables.</p>
+</li>
+<li>
+<p><code>RouteNetPeeringIds</code>: (optional) The IDs of the <span class="tooltip" data-tooltip="VPC peering connection in AWS-Compliant APIs">Net peerings</span> specified in routes in the tables.</p>
+</li>
+<li>
+<p><code>RouteStates</code>: (optional) The states of routes in the route tables (always <code>active</code>).</p>
+</li>
+<li>
+<p><code>RouteTableIds</code>: (optional) The IDs of the route tables.</p>
+</li>
+<li>
+<p><code>RouteVmIds</code>: (optional) The IDs of the <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VMs</span> specified in routes in the tables.</p>
+</li>
+<li>
+<p><code>TagKeys</code>: (optional) The keys of the tags associated with the route tables.</p>
+</li>
+<li>
+<p><code>TagValues</code>: (optional) The values of the tags associated with the route tables.</p>
+</li>
+<li>
+<p><code>Tags</code>: (optional) The key/value combination of the tags associated with the route tables, in the following format: &quot;Filters&quot;:{&quot;Tags&quot;:[&quot;TAGKEY=TAGVALUE&quot;]}.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>NextPageToken</code>: (optional) The token to request the next page of results. Each token refers to a specific page.</p>
+</li>
+<li>
+<p><code>ResultsPerPage</code>: (optional) The maximum number of logs returned in a single response (between <code>1</code> and <code>1000</code>, both included). By default, <code>100</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadRouteTables</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>NextPageToken</code>: The token to request the next page of results. Each token refers to a specific page.</p>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>RouteTables</code>: Information about one or more route tables.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LinkRouteTables</code>: One or more associations between the route table and Subnets.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LinkRouteTableId</code>: The ID of the association between the route table and the Net or Subnet.</p>
+</li>
+<li>
+<p><code>Main</code>: If true, the route table is the main one.</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net, if the route table is not explicitly linked to a Subnet.</p>
+</li>
+<li>
+<p><code>RouteTableId</code>: The ID of the route table.</p>
+</li>
+<li>
+<p><code>SubnetId</code>: The ID of the Subnet, if the route table is explicitly linked to a Subnet.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net for the route table.</p>
+</li>
+<li>
+<p><code>RoutePropagatingVirtualGateways</code>: Information about <span class="tooltip" data-tooltip="virtual private gateway in AWS-Compliant APIs">virtual gateways</span> propagating routes.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VirtualGatewayId</code>: The ID of the virtual gateway.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>RouteTableId</code>: The ID of the route table.</p>
+</li>
+<li>
+<p><code>Routes</code>: One or more routes in the route table.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CreationMethod</code>: The method used to create the route.</p>
+</li>
+<li>
+<p><code>DestinationIpRange</code>: The IP range used for the destination match, in CIDR notation (for example, <code>10.0.0.0/24</code>).</p>
+</li>
+<li>
+<p><code>DestinationServiceId</code>: The ID of the OUTSCALE service.</p>
+</li>
+<li>
+<p><code>GatewayId</code>: The ID of the <span class="tooltip" data-tooltip="Internet gateway in AWS-Compliant APIs">internet service</span> or virtual gateway attached to the Net.</p>
+</li>
+<li>
+<p><code>NatServiceId</code>: The ID of a NAT service attached to the Net.</p>
+</li>
+<li>
+<p><code>NetAccessPointId</code>: The ID of the <span class="tooltip" data-tooltip="VPC endpoint in AWS-Compliant APIs">Net access point</span>.</p>
+</li>
+<li>
+<p><code>NetPeeringId</code>: The ID of the Net peering.</p>
+</li>
+<li>
+<p><code>NicId</code>: The ID of the <span class="tooltip" data-tooltip="flexible network interface (FNI) in AWS-Compliant APIs">NIC</span>.</p>
+</li>
+<li>
+<p><code>State</code>: The state of a route in the route table (always <code>active</code>).</p>
+</li>
+<li>
+<p><code>VmAccountId</code>: The account ID of the owner of the VM.</p>
+</li>
+<li>
+<p><code>VmId</code>: The ID of a VM specified in a route in the table.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the route table.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "RouteTables": [
+    {
+      "Routes": [
+        {
+          "DestinationIpRange": "10.0.0.0/16",
+          "CreationMethod": "CreateRouteTable",
+          "State": "active"
+        }
+      ],
+      "LinkRouteTables": [
+        {
+          "Main": true,
+          "LinkRouteTableId": "rtbassoc-12345678",
+          "RouteTableId": "rtb-12345678",
+          "NetId": "vpc-12345678"
+        }
+      ],
+      "NetId": "vpc-12345678",
+      "Tags": [],
+      "RoutePropagatingVirtualGateways": [],
+      "RouteTableId": "rtb-12345678"
+    }
+  ],
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="oapi-cli_2"><a class="anchor" href="Getting-Information-About-Your-Route-Tables.html#oapi-cli_2"></a>Getting Information About Your Route Tables Using oapi-cli</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <strong>ReadRouteTables</strong> command lists one or more of your route tables.<br>
+In your <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span>, each Subnet must be associated with a route table. If a Subnet is not explicitly associated with a route table, it is implicitly associated with the main route table of the Net.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" ReadRouteTables \
+    --Filters '{
+        "RouteTableIds": ["rtb-12345678"]
+      }'</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" ReadRouteTables \
+    --Filters '{
+        "NetIds": ["vpc-12345678", "vpc-87654321"],
+        "LinkRouteTableMain": True
+      }'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Filters</code>: (optional) One or more filters.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LinkRouteTableIds</code>: (optional) The IDs of the route tables involved in the associations.</p>
+</li>
+<li>
+<p><code>LinkRouteTableLinkRouteTableIds</code>: (optional) The IDs of the associations between the route tables and the Subnets.</p>
+</li>
+<li>
+<p><code>LinkRouteTableMain</code>: (optional) If true, the route tables are the main ones for their Nets.</p>
+</li>
+<li>
+<p><code>LinkSubnetIds</code>: (optional) The IDs of the Subnets involved in the associations.</p>
+</li>
+<li>
+<p><code>NetIds</code>: (optional) The IDs of the Nets for the route tables.</p>
+</li>
+<li>
+<p><code>RouteCreationMethods</code>: (optional) The methods used to create a route.</p>
+</li>
+<li>
+<p><code>RouteDestinationIpRanges</code>: (optional) The IP ranges specified in routes in the tables.</p>
+</li>
+<li>
+<p><code>RouteDestinationServiceIds</code>: (optional) The service IDs specified in routes in the tables.</p>
+</li>
+<li>
+<p><code>RouteGatewayIds</code>: (optional) The IDs of the gateways specified in routes in the tables.</p>
+</li>
+<li>
+<p><code>RouteNatServiceIds</code>: (optional) The IDs of the <span class="tooltip" data-tooltip="NAT gateway in AWS-Compliant APIs">NAT services</span> specified in routes in the tables.</p>
+</li>
+<li>
+<p><code>RouteNetPeeringIds</code>: (optional) The IDs of the <span class="tooltip" data-tooltip="VPC peering connection in AWS-Compliant APIs">Net peerings</span> specified in routes in the tables.</p>
+</li>
+<li>
+<p><code>RouteStates</code>: (optional) The states of routes in the route tables (always <code>active</code>).</p>
+</li>
+<li>
+<p><code>RouteTableIds</code>: (optional) The IDs of the route tables.</p>
+</li>
+<li>
+<p><code>RouteVmIds</code>: (optional) The IDs of the <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VMs</span> specified in routes in the tables.</p>
+</li>
+<li>
+<p><code>TagKeys</code>: (optional) The keys of the tags associated with the route tables.</p>
+</li>
+<li>
+<p><code>TagValues</code>: (optional) The values of the tags associated with the route tables.</p>
+</li>
+<li>
+<p><code>Tags</code>: (optional) The key/value combination of the tags associated with the route tables, in the following format: &quot;Filters&quot;:{&quot;Tags&quot;:[&quot;TAGKEY=TAGVALUE&quot;]}.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>NextPageToken</code>: (optional) The token to request the next page of results. Each token refers to a specific page.</p>
+</li>
+<li>
+<p><code>ResultsPerPage</code>: (optional) The maximum number of logs returned in a single response (between <code>1</code> and <code>1000</code>, both included). By default, <code>100</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadRouteTables</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>NextPageToken</code>: The token to request the next page of results. Each token refers to a specific page.</p>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>RouteTables</code>: Information about one or more route tables.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LinkRouteTables</code>: One or more associations between the route table and Subnets.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LinkRouteTableId</code>: The ID of the association between the route table and the Net or Subnet.</p>
+</li>
+<li>
+<p><code>Main</code>: If true, the route table is the main one.</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net, if the route table is not explicitly linked to a Subnet.</p>
+</li>
+<li>
+<p><code>RouteTableId</code>: The ID of the route table.</p>
+</li>
+<li>
+<p><code>SubnetId</code>: The ID of the Subnet, if the route table is explicitly linked to a Subnet.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net for the route table.</p>
+</li>
+<li>
+<p><code>RoutePropagatingVirtualGateways</code>: Information about <span class="tooltip" data-tooltip="virtual private gateway in AWS-Compliant APIs">virtual gateways</span> propagating routes.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VirtualGatewayId</code>: The ID of the virtual gateway.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>RouteTableId</code>: The ID of the route table.</p>
+</li>
+<li>
+<p><code>Routes</code>: One or more routes in the route table.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CreationMethod</code>: The method used to create the route.</p>
+</li>
+<li>
+<p><code>DestinationIpRange</code>: The IP range used for the destination match, in CIDR notation (for example, <code>10.0.0.0/24</code>).</p>
+</li>
+<li>
+<p><code>DestinationServiceId</code>: The ID of the OUTSCALE service.</p>
+</li>
+<li>
+<p><code>GatewayId</code>: The ID of the <span class="tooltip" data-tooltip="Internet gateway in AWS-Compliant APIs">internet service</span> or virtual gateway attached to the Net.</p>
+</li>
+<li>
+<p><code>NatServiceId</code>: The ID of a NAT service attached to the Net.</p>
+</li>
+<li>
+<p><code>NetAccessPointId</code>: The ID of the <span class="tooltip" data-tooltip="VPC endpoint in AWS-Compliant APIs">Net access point</span>.</p>
+</li>
+<li>
+<p><code>NetPeeringId</code>: The ID of the Net peering.</p>
+</li>
+<li>
+<p><code>NicId</code>: The ID of the <span class="tooltip" data-tooltip="flexible network interface (FNI) in AWS-Compliant APIs">NIC</span>.</p>
+</li>
+<li>
+<p><code>State</code>: The state of a route in the route table (always <code>active</code>).</p>
+</li>
+<li>
+<p><code>VmAccountId</code>: The account ID of the owner of the VM.</p>
+</li>
+<li>
+<p><code>VmId</code>: The ID of a VM specified in a route in the table.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the route table.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "RouteTables": [
+    {
+      "Routes": [
+        {
+          "DestinationIpRange": "10.0.0.0/16",
+          "CreationMethod": "CreateRouteTable",
+          "State": "active"
+        }
+      ],
+      "LinkRouteTables": [
+        {
+          "Main": true,
+          "LinkRouteTableId": "rtbassoc-12345678",
+          "RouteTableId": "rtb-12345678",
+          "NetId": "vpc-12345678"
+        }
+      ],
+      "NetId": "vpc-12345678",
+      "Tags": [],
+      "RoutePropagatingVirtualGateways": [],
+      "RouteTableId": "rtb-12345678"
+    }
+  ],
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI_3"><a class="anchor" href="Getting-Information-About-Your-Route-Tables.html#AWS CLI_3"></a>Getting Information About Your Route Tables Using AWS CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Before you begin:</strong> Install and configure AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>To get information about one or more route tables, use the <strong>describe-route-tables</strong> command following this syntax:</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws ec2 describe-route-tables \
+    --profile YOUR_PROFILE \
+    --route-table-id NOT_SPECIFIED \
+    --filters Name=vpc-id,Values=vpc-12345678 \
+    --endpoint https://fcu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optional) <code>profile</code>: The named profile you want to use, created when configuring AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+<li>
+<p>(optional) <code>route-table-ids</code>: One or more IDs of route tables.</p>
+</li>
+<li>
+<p>(optional) <code>filters</code>: One or more filters, in the "Name=X,Values=Y" format.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can specify several values for a same filter using the "Name=X,Values=Y, Z" format.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following filters are available:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>association.route-table-association-id</code>: The ID of an association for the route table.</p>
+</li>
+<li>
+<p><code>association.route-table-id</code>: The ID of the route table involved in the association.</p>
+</li>
+<li>
+<p><code>association.subnet-id</code>: The ID of the subnet involved in the association.</p>
+</li>
+<li>
+<p><code>association.main</code>: Indicates whether the route table is the main one for the <span class="tooltip" data-tooltip="Net in OUTSCALE API">VPC</span> (<code>true</code> | <code>false</code>).</p>
+</li>
+<li>
+<p><code>route-table-id</code>: The ID of the route table.</p>
+</li>
+<li>
+<p><code>route.destination-cidr-block</code>: The destination range of IPs specified in a route in the table, in CIDR notation.</p>
+</li>
+<li>
+<p><code>route.destination-prefix-list-id</code>: The prefix list ID of the service reachable through a <span class="tooltip" data-tooltip="Net access point in OUTSCALE API">VPC endpoint</span> specified in a route in the table. For more information, see <a href="Getting-Information-About-Prefix-Lists.html" class="xref page">Getting Information About Prefix Lists</a>.</p>
+</li>
+<li>
+<p><code>route.gateway-id</code>: The ID of the <span class="tooltip" data-tooltip="Internet service in OUTSCALE API">internet gateway</span> or <span class="tooltip" data-tooltip="Virtual gateway in OUTSCALE API">Virtual Private gateway</span> attached to the VPC used as the route target.</p>
+</li>
+<li>
+<p><code>route.instance-id</code>: The ID of an instance in the VPC used as the route target.</p>
+</li>
+<li>
+<p><code>route.nat-gateway-id</code>: The ID of a <span class="tooltip" data-tooltip="NAT service in OUTSCALE API">NAT gateway</span> used a the route target.</p>
+</li>
+<li>
+<p><code>route.origin</code>: Indicates how the route was created (<code>create-route-table</code> if the route was automatically created when creating the route table, <code>create-route</code> if the route was manually created, or <code>vgw-route-propagation</code> if the route was propagated using route propagation).</p>
+</li>
+<li>
+<p><code>route.state</code>: The state of a route in the route table (always <code>active</code>). For more information, see <a href="About-Route-Tables.html" class="xref page">About Route Tables</a>.</p>
+</li>
+<li>
+<p><code>route.vpc-peering-connection-id</code>: The ID of a <span class="tooltip" data-tooltip="Net peering in OUTSCALE API">VPC peering connection</span> specified in a route of the route table.</p>
+</li>
+</ul>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>tag-key</code>: The key of a tag associated with the resource.</p>
+</li>
+<li>
+<p><code>tag-value</code>: The value of a tag associated with the resource.</p>
+</li>
+<li>
+<p><code>tag:XXXX</code>: The value of a tag associated with the resource, where <code>XXXX</code> is the key of the tag.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>To filter a tag whose key is <code>XXXX</code> and value is <code>YYYY</code>, you can therefore use either of the following two formats:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>--filters Name=tag-key,Values=XXXX Name=tag-value,Values=YYYY</code></p>
+</li>
+<li>
+<p><code>--filters Name=tag:XXXX,Values=YYYY</code></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>vpc-id</code>: The ID of the VPC.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>endpoint</code>: The endpoint corresponding to the Region you want to send the request to. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>describe-route-tables</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RouteTable</code>: Information about one or more route tables. This element contains the following information:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Association</code>: One or more associations between the route table and subnets. This element contains the following information:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RouteTableAssociationId</code>: The ID of the association between the route table and a subnet.</p>
+</li>
+<li>
+<p><code>Main</code>: If <code>true</code>, the route table is the main one for the VPC. If <code>false</code>, it is not.</p>
+</li>
+<li>
+<p><code>RouteTableId</code>: The ID of the route table.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>RouteTableId</code>: The ID of the route table.</p>
+</li>
+<li>
+<p><code>VpcId</code>: The ID of the VPC.</p>
+</li>
+<li>
+<p><code>PropagatingVgws</code>: Virtual Private gateways (VGW) propagating routes, in BGP protocol.</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the route table. This element contains the following information:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Value</code>: The value of the tag.</p>
+</li>
+<li>
+<p><code>Key</code>: The key of the tag.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Routes</code>: Information about the routes contained in the route table. This element contains the following information:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>GatewayId</code>: The target gateway used for the route.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This can also be a <code>instance-id</code> or a <code>nat-gateway-id</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><code>DestinationCidrBlock</code>: The destination range of IPs, in CIDR notation.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the route.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "RouteTables": [
+        {
+            "Associations": [
+                {
+                    "RouteTableAssociationId": "rtbassoc-1234abcd",
+                    "Main": true,
+                    "RouteTableId": "rtb-4321dcba"
+                }
+            ],
+            "RouteTableId": "rtb-5678abcd",
+            "VpcId": "vpc-12345678",
+            "PropagatingVgws": [],
+            "Tags": [
+                {
+                    "Value": "SUB1",
+                    "Key": "Name"
+                }
+            ],
+            "Routes": [
+                {
+                    "GatewayId": "local",
+                    "DestinationCidrBlock": "10.0.0.0/16",
+                    "State": "active"
+                }
+            ]
+        }
+    ]
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="About-Route-Tables.html" class="xref page">About Route Tables</a></p>
+</li>
+<li>
+<p><a href="About-Nets.html" class="xref page">About Nets</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Corresponding API Methods</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#readroutetables" class="xref page">ReadRouteTables (OUTSCALE API)</a></p>
+</li>
+<li>
+<p><a href="../../fcu.html#describeroutetables" class="xref page">DescribeRouteTables (FCU)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ and Amazon Web Services™ are trademarks of Amazon Technologies, Inc or its affiliates in the United States and/or other countries.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

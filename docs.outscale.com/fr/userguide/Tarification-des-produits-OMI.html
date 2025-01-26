@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Tarification des produits OMI – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Tarification-des-produits-OMI.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Tarification-des-produits-OMI.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/OMI-Products-Pricing.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Tarification des produits OMI</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Lorsque vous souscrivez à un produit OMI sur OUTSCALE Marketplace, vous payez le tarif du logiciel selon le mode de tarification sélectionné par le vendeur partenaire, ainsi que le tarif d&#8217;une ou de plusieurs <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machines virtuelles (VM)</span> OUTSCALE.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez souscrire à des produits OMI sur la base d&#8217;une offre libre/open source, bring your own license (BYOL), ou payante.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous pouvez estimer le coût d’un produit image machine OUTSCALE (OMI) utilisé sur une ou plusieurs machines virtuelles (VM) avant d’y souscrire. Pour en savoir plus, voir <a href="Estimer-le-coût-d-un-produit.html" class="xref page">Estimer le coût d&#8217;un produit</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Les coûts indiqués pour la réservation de VM n’incluent pas le stockage. Pour en savoir plus, voir <a href="Block-Storage-Unit-BSU.html" class="xref page">Block Storage Unit (BSU)</a> et la <a href="https://fr.outscale.com/tarifs/" target="_blank" rel="noopener">grille tarifaire de 3DS OUTSCALE</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_offres_libresopen_source"><a class="anchor" href="Tarification-des-produits-OMI.html#_offres_libresopen_source"></a>Offres libres/open source</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Lorsque vous souscrivez à une offre libre/open source, aucuns frais ne s’appliquent au produit, et vous ne payez que le tarif d’une ou de plusieurs <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> OUTSCALE.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_offres_bring_your_own_license_byol"><a class="anchor" href="Tarification-des-produits-OMI.html#_offres_bring_your_own_license_byol"></a>Offres bring your own license (BYOL)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Dans le cadre d&#8217;une offre BYOL, vous souscrivez au logiciel du vendeur partenaire directement via son site web, sur la base de sa tarification, et vous utilisez le produit sur une ou plusieurs <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> OUTSCALE.</p>
+</div>
+<div class="paragraph">
+<p>Vous êtes facturé d&#8217;une part par le vendeur partenaire pour son logiciel, et d&#8217;une autre par OUTSCALE pour l&#8217;utilisation de VM.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_offres_payantes"><a class="anchor" href="Tarification-des-produits-OMI.html#_offres_payantes"></a>Offres payantes</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_offres_dabonnements"><a class="anchor" href="Tarification-des-produits-OMI.html#_offres_dabonnements"></a>Offres d&#8217;abonnements</h3>
+<div class="paragraph">
+<p>Lorsque vous souscrivez à une offre abonnement, vous payez le tarif du logiciel et le tarif d&#8217;une ou de plusieurs <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> OUTSCALE.</p>
+</div>
+<div class="paragraph">
+<p>Vous êtes soumis à une période d&#8217;engagement et une fréquence de facturation définies par le vendeur partenaire pour son logiciel.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Le tarif du logiciel reste fixe, quel que soit le type de VM utilisé.</p>
+</li>
+<li>
+<p>Si vous réservez une ou plusieurs VM, la durée d&#8217;engagement et la fréquence de facturation de la réservation de l&#8217;abonnement sont automatiquement alignées.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_offres_de_services_llm_mistral"><a class="anchor" href="Tarification-des-produits-OMI.html#_offres_de_services_llm_mistral"></a>Offres de services LLM Mistral</h3>
+<div class="paragraph">
+<p>Lorsque vous souscrivez à un service LLM Mistral, vous payez le coût du modèle Mistral souhaité ainsi que le coût des ressources Cloud OUTSCALE correspondantes. Le service est facturé à partir de la date de déploiement sur une base mensuelle. Tout mois entamé est facturé entièrement.</p>
+</div>
+<div class="paragraph">
+<p>Pour connaître le coût des différents modèles Mistral, voir <a href="https://fr.outscale.com/tarifs/" target="_blank" rel="noopener">les tarifs publics OUTSCALE</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_offres_horaires_et_annuelles"><a class="anchor" href="Tarification-des-produits-OMI.html#_offres_horaires_et_annuelles"></a>Offres horaires et annuelles</h3>
+<div class="sect3">
+<h4 id="_offres_horaires_et_annuelles_par_type_de_vm"><a class="anchor" href="Tarification-des-produits-OMI.html#_offres_horaires_et_annuelles_par_type_de_vm"></a>Offres horaires et annuelles par type de VM</h4>
+<div class="paragraph">
+<p>Lorsque vous souscrivez à une offre horaire et annuelle par type de VM, votre durée d&#8217;engagement pour le logiciel détermine votre mode de facturation.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Si vous choisissez de consommer à la demande, vous payez le tarif horaire de l&#8217;offre.</p>
+</li>
+<li>
+<p>Si vous choisissez de consommer avec une durée d&#8217;engagement de un an, vous payez le tarif annuel de l&#8217;offre.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Le tarif du logiciel évolue en fonction de la VM sélectionnée.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Le coût de l&#8217;offre est valable pour le type de VM sélectionné lors de la souscription. Si votre utilisation diffère des conditions de votre réservation de VM, vous serez facturé en supplément, à l’heure, selon les tarifs mentionnés sur la page produit.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_offres_de_licences_microsoft_windows"><a class="anchor" href="Tarification-des-produits-OMI.html#_offres_de_licences_microsoft_windows"></a>Offres de licences Microsoft Windows</h4>
+<div class="paragraph">
+<p>Lorsque vous souscrivez à une offre de licence Miscrosoft Windows, le type de VM sélectionné détermine le nombre de licences auxquelles vous souscrivez.</p>
+</div>
+<div class="paragraph">
+<p>Si vous ne réservez pas de VM, vous serez facturé le nombre de licences Microsoft Windows correspondant au type de VM consommé.</p>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus sur la facturation, voir le <a href="Tarification-des-produits-OMI.html#https://fr.outscale.com/tarifs">site officiel de 3DS OUTSCALE</a> et le <a href="Tarification-des-produits-OMI.html#https://support.outscale.com/hc/fr-fr/sections/25312829407259-Acheteur">centre d&#8217;aide OUTSCALE</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-d-OUTSCALE-Marketplace.html" class="xref page">À propos d&#8217;OUTSCALE Marketplace</a></p>
+</li>
+<li>
+<p><a href="Souscrire-à-un-produit-OMI.html" class="xref page">Souscrire à un produit OMI</a></p>
+</li>
+<li>
+<p><a href="Acheteur.html" class="xref page">Acheteur</a></p>
+</li>
+<li>
+<p><a href="À-propos-des-OMI.html" class="xref page">À propos des OMI</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-vos-souscriptions.html" class="xref page">Obtenir des informations sur vos souscriptions</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

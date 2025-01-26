@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>À propos des Nets – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="À-propos-des-Nets.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/À-propos-des-Nets.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/About-Nets.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">À propos des Nets</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Les <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Nets</span> (réseaux) sont des réseaux virtuels dédiés à votre compte au sein d&#8217;une Région, dans lesquels vous pouvez lancer des ressources Cloud. Ces ressources doivent être lancées dans des Subnets et peuvent être connectées à Internet ou non.</p>
+</div>
+<div class="paragraph">
+<p>Vous utilisez des route tables pour router le trafic de chaque Subnet, et des security groups pour protéger vos ressources. Les Nets vous permettent également de créer une peering connection avec un autre Net, d&#8217;utiliser plusieurs network interfaces pour vos <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machines virtuelles (VM)</span> et de créer des connexions DirectLink ou VPN.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_net_et_subnets"><a class="anchor" href="À-propos-des-Nets.html#_net_et_subnets"></a>Net et Subnets</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span> est un réseau virtuel que vous définissez, qui est isolé au sein du Cloud OUTSCALE et qui est dédié à votre compte. Vous pouvez créer des <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> et des ressources dans votre Net. Les Nets sont créés pour une Région.</p>
+</div>
+<div class="paragraph">
+<p>Lorsque vous créez un Net, vous spécifiez la plage d&#8217;IP en notation CIDR, qui peuvent ensuite être utilisées pour vos ressources lancées dans ce Net. Le bloc CIDR doit être inclus dans les plages RFC 1918, qui sont constituées des trois blocs suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>10.0.0.0 - 10.255.255.255 (préfixe 10/8)</p>
+</li>
+<li>
+<p>172.16.0.0 - 172.31.255.255 (préfixe 172.16/12)</p>
+</li>
+<li>
+<p>192.168.0.0 - 192.168.255.255 (préfixe 192.168/16)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus, voir la <a href="https://tools.ietf.org/html/rfc1918" target="_blank" rel="noopener">documentation RFC 1918</a>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous ne pouvez pas modifier le bloc CIDR d&#8217;un Net une fois celui-ci créé. Si votre Net devient trop petit pour vos ressources, vous pouvez en créer un plus grand et migrer vos VM dans celui-ci à l&#8217;aide d&#8217;OUTSCALE machine images. Pour en savoir plus, voir <a href="OUTSCALE-Machine-Images-OMI.html" class="xref page">OUTSCALE Machine Images (OMI)</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Après avoir créé un Net, vous devez créer un ou plusieurs Subnets dans celui-ci, les ressources devant être lancées dans des Subnets. Les Subnets correspondent à des sous-réseaux au sein de votre Net, auxquels vous attribuez une plage d&#8217;IP en notation CIDR. Le bloc CIDR de chaque Subnet doit faire partie du bloc CIDR du Net, et les blocs CIDR des Subnets ne doivent pas se chevaucher. Les Subnets sont créés dans une <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Sous-région</span>, et vous pouvez créer un ou plusieurs Subnets dans chaque Sous-région de la Région du Net.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Dans chaque Subnet d&#8217;un Net, 3DS OUTSCALE réserve les quatre premières IP ainsi que la dernière du bloc CIDR. Vous ne pouvez pas attribuer ces IP à des ressources. Par exemple, dans un Subnet avec le bloc CIDR 10.0.0.0/24, les IP suivantes sont réservées :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>10.0.0.0 : L&#8217;adresse réseau.</p>
+</li>
+<li>
+<p>10.0.0.1 : Réservée pour le routeur Net.</p>
+</li>
+<li>
+<p>10.0.0.2 : Réservée pour le serveur DNS.</p>
+</li>
+<li>
+<p>10.0.0.3 : Réservée pour un usage futur.</p>
+</li>
+<li>
+<p>10.0.0.255 : L&#8217;adresse de diffusion réseau.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<div class="title">Architecture d&#8217;un Net et de Subnets</div>
+<p><span class="image"><img src="_images/FR-sch-General-NetSubnets.png" alt="FR sch General NetSubnets" width="500"></span></p>
+</div>
+<div class="paragraph">
+<p>Un Net ou un Subnet peut être dans un des états suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>pending</code> : Le processus de création est en cours.</p>
+</li>
+<li>
+<p><code>available</code> : Le Net ou le Subnet est créé et vous pouvez y lancer des ressources.</p>
+</li>
+<li>
+<p><code>deleting</code> : Le Net ou le Subnet est en cours de suppression.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Lorsque vous utilisez un Net, vous pouvez spécifier l&#8217;option d&#8217;allocation pour l&#8217;ensemble du Net lors sa création. Si vous paramétrez l&#8217;option d&#8217;allocation du Net sur <code>default</code>, vous devez paramétrer l&#8217;attribut <code>tenancy</code> de chaque VM que vous souhaitez placer sur un serveur dédié sur <code>dedicated</code>. Si vous paramétrez l&#8217;option d&#8217;allocation du Net sur <code>dedicated</code>, l&#8217;attribut <code>tenancy</code> de toutes les VMs créées dans ce Net est automatiquement paramétré sur <code>dedicated</code>. Vous ne pouvez pas modifier l&#8217;option d&#8217;allocation une fois votre Net créé.
+Pour en savoir plus à propos de l&#8217;allocation des VM, voir <a href="À-propos-des-VM.html" class="xref page">À propos des VM</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_routage_et_sécurité_dun_subnet"><a class="anchor" href="À-propos-des-Nets.html#_routage_et_sécurité_dun_subnet"></a>Routage et sécurité d&#8217;un Subnet</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Chaque Subnet doit être associé à une route table afin de spécifier les routes autorisées pour le trafic sortant qui quitte le Subnet. Une route table, appelée route table principale, est créée par défaut pour votre <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span>, et chaque Subnet lui est automatiquement associée à sa création. Vous pouvez également créer vos propres route tables et les associer à vos Subnets. Les routes contenues dans la route table principale peuvent être modifiées. Vous pouvez également créer vos propres route tables et les associer à vos Subnets, ou les spécifier comme la route table principale. Il est recommandé d&#8217;utiliser une route table par Subnet. Pour en savoir plus à propos des route tables, voir <a href="À-propos-des-route-tables.html" class="xref page">À propos des route tables</a>.</p>
+</div>
+<div class="paragraph">
+<p>Les security groups vous permettent de contrôler l&#8217;accès à vos <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> dans votre Net. Les security groups agissent comme un ensemble de règles de pare-feu qui, dans un Net, contrôlent les flux entrants et sortants. Lorsque vous créez des VM dans un Net, vous devez les associer à un ou plusieurs security groups. Si vous ne spécifiez aucun security group, la VM est automatiquement associée avec le security group par défaut qui est créé automatiquement avec votre Net. Vous pouvez ensuite modifier les règles du security group que vous avez créé ou du security group par défaut selon votre architecture et les contrôles que vous souhaitez configurer. Pour en savoir plus sur les security groups et les règles de security groups, voir <a href="Security-Groups.html" class="xref page">Security Groups</a>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Dans un Net, vous pouvez autoriser l&#8217;accès vers et depuis :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Un autre security group du Net ou d&#8217;un Net pair</p>
+</li>
+<li>
+<p>Un bloc CIDR</p>
+</li>
+<li>
+<p>Un service OUTSCALE à l&#8217;aide d&#8217;une prefix list</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Par défaut, les VMs dans un même Subnet peuvent communiquer entre elles sans aucune règle de security group nécessaire, grâce au contournement de pare-feu. Contourner un pare-feu consiste à désactiver des security groups afin de réduire la latence générale entre des VM. Cela permet aussi d&#8217;éviter des conflits avec des protocoles spécifiques, tels que ceux utilisés par Microsoft Windows. Pour en savoir plus, voir <a href="Référence-des-tags-user-data.html#_contournement_de_pare_feu" class="xref page">Référence des tags user data &gt; Contournement de pare-feu</a>. Si vous voulez une sécurité accrue entre vos VM, (par exemple, une sur un DLZ et l&#8217;autre sur un réseau interne), vous pouvez les placer dans des Subnets différents ou désactiver cette fonctionnalité.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez désactiver cette fonctionnalité en ajoutant, avant de créer des Subnets, le tag <code>osc.fcu.enable_lan_security_groups</code> à votre Net à l&#8217;aide de la méthode <a href="Ajouter-des-tags-à-vos-ressources.html" class="xref page">Ajouter des tags à vos ressources</a>. La valeur de ce tag peut être n&#8217;importe quelle valeur. Une fois ce tag ajouté, vous devez donc ajouter les règles appropriées aux security groups de vos VM placées dans un même Subnet pour les autoriser à communiquer les unes avec les autres.</p>
+</div>
+<div class="paragraph">
+<p>Ce comportement ne peut être modifié par un tag une fois que vous avez créé un Subnet dans le Net.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>De la même manière qu&#8217;il est recommandé d&#8217;utiliser une route table par Subnet, il est également recommandé d&#8217;utiliser un security group par Subnet. Ceci correspond à créer un Subnet pour une application, avec sa route table et son security group appropriés.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez également utiliser Elastic Identity Management (EIM) pour contrôler qui peut accéder, créer et gérer des ressources dans votre Net. Pour en savoir plus, voir <a href="Elastic-Identity-Management-EIM.html" class="xref page">Elastic Identity Management (EIM)</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ip_et_accès_à_internet"><a class="anchor" href="À-propos-des-Nets.html#_ip_et_accès_à_internet"></a>IP et accès à Internet</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Chaque <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> créée dans un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span> a une IP privée principale attribuée, qui n&#8217;est pas accessible depuis Internet et qui peut être utilisée pour la communication entre les VM du Net. Contrairement au Cloud public, vous pouvez choisir l&#8217;IP privée associée aux VM créées dans le Subnet d&#8217;un Net. Si vous ne spécifiez aucune IP privée lors de la création de la VM, celle-ci est automatiquement choisie dans la plage d&#8217;IP du Subnet.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Les requêtes API RunInstances vous permettent de choisir les IP privées de plusieurs VM que vous créez en même temps à l&#8217;aide du paramètre <code>PrivateIpAddresses</code>. Cependant, la plupart des SDK ne supportent pas cette fonctionnalité. Si vous souhaitez créer plusieurs VM et choisir leur IP privée, vous devez soit forger votre requête API, soit les créer une par une avec un SDK.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Vous pouvez ajouter des IP privées additionnelles, appelées IP secondaires, à une VM dans un Net à l&#8217;aide des <span class="tooltip" data-tooltip="flexible network interface (FNI) dans les API AWS-compliant">network interface cards (NIC)</span>. Pour en savoir plus, voir <a href="Network-interface-cards-NIC.html" class="xref page">Network interface cards (NIC)</a>.</p>
+</div>
+<div class="paragraph">
+<p>Par défaut, les VM créées dans un Net n&#8217;ont pas d&#8217;<span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">IP publiques</span> attribuées, et peuvent uniquement avoir accès entre elles. Pour connecter des VM dans un Net à Internet, vous devez utiliser des IP publiques, qui sont des IP publiques statiques que vous pouvez associer à une VM, une interface réseau ou un <span class="tooltip" data-tooltip="NAT gateway dans les API AWS-compliant">NAT service</span>. Pour en savoir plus, voir <a href="IP-publiques.html" class="xref page">IP publiques</a>.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez connecter des VM d&#8217;un Net à Internet de manière directe ou indirecte :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Pour directement connecter des VM d&#8217;un Net à Internet, vous devez leur associer une IP publique et utiliser un <span class="tooltip" data-tooltip="Internet gateway dans les API AWS-compliant">internet service</span> pour envoyer le trafic vers et depuis Internet. Pour en savoir plus, voir <a href="Utiliser-les-internet-services-pour-des-connexions-directes.html" class="xref page">Utiliser les internet services pour des connexions directes</a>.</p>
+</li>
+<li>
+<p>Pour indirectement connecter des VM d&#8217;un Net à Internet, vous devez utiliser un NAT service qui porte l&#8217;IP publique et qui envoie le trafic vers et depuis Internet au nom des VM. Pour en savoir plus, voir <a href="Utiliser-les-NAT-services-pour-des-connexions-indirectes.html" class="xref page">Utiliser les NAT services pour des connexions indirectes</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Dans les deux cas, vous devez router le trafic 0.0.0.0/0 du Subnet dans lequel se trouvent les VM vers l&#8217;internet service ou le NAT service. Vous devez également ajouter les règles appropriées aux security groups de vos Subnets. Permettre l&#8217;accès indirect à Internet permet à vos VM, par exemple, de rechercher les mises à jour disponibles.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour accéder à des serveurs NTP, les VM doivent être connectées à Internet. Ainsi, pour permettre à vos VM dans un Net d&#8217;accéder à des serveurs NTP, vous devez ajouter une des routes suivantes à la route table associée à leur Subnet :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Une route qui leur autorise à accéder à l&#8217;ensemble d&#8217;Internet, avec 0.0.0.0/0 pour destination et un internet service ou un NAT service pour target</p>
+</li>
+<li>
+<p>Une route qui leur autorise à accéder uniquement à un serveur NTP, avec l&#8217;IP du serveur NTP pour destination et un internet service ou un NAT service pour target</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Vous pouvez utiliser l&#8217;IP d&#8217;un des serveurs NTP OUTSCALE. Pour en savoir plus, voir <a href="IP-publiques-OUTSCALE.html" class="xref page">IP publiques OUTSCALE</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_net_et_les_autres_services"><a class="anchor" href="À-propos-des-Nets.html#_net_et_les_autres_services"></a>Net et les autres services</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Les <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Nets</span> peuvent être connectés à d&#8217;autres réseaux à l&#8217;aide des services 3DS OUTSCALE suivants, qui requièrent également une <span class="tooltip" data-tooltip="virtual private gateway dans les API AWS-compliant">virtual gateway</span> (VGW) et, pour les connexions VPN, une <span class="tooltip" data-tooltip="customer gateway dans les API AWS-compliant">client gateway</span> (CGW) :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>DirectLink : Vous pouvez mettre en place une connexion physique entre votre réseau Internet et un site DirectLink où se trouve votre Net pour accéder directement à vos ressources. Pour en savoir plus, voir <a href="DirectLink.html" class="xref page">DirectLink</a>.</p>
+</li>
+<li>
+<p><span class="tooltip" data-tooltip="VPC peering connection dans les API AWS-compliant">Net Peering</span> : Vous pouvez appairer deux Nets pour autoriser les ressources dans chacun d&#8217;eux à communiquer entre elles. Pour en savoir plus, voir <a href="Travailler-avec-les-Net-peerings.html" class="xref page">Travailler avec les Net peerings</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Page connexe</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Isolation-des-ressources.html" class="xref page">Isolation des ressources</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

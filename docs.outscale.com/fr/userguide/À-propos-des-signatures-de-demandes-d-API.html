@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>À propos des signatures de demandes d&#8217;API – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="À-propos-des-signatures-de-demandes-d-API.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/À-propos-des-signatures-de-demandes-d-API.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/About-Signatures-of-API-Requests.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">À propos des signatures de demandes d&#8217;API</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Le processus de signature permet d&#8217;ajouter des informations d&#8217;authentification aux demandes d&#8217;API envoyées à 3DS OUTSCALE afin de garantir leur intégrité et leur authenticité.</p>
+</div>
+<div class="paragraph">
+<p>La création des signatures s&#8217;appuie sur le protocole Hash-based Message Authentication Code (HMAC), un mécanisme d&#8217;authentification de message qui utilise des fonctions de hachage cryptographique.</p>
+</div>
+<div class="paragraph">
+<p>Lorsque vous créez manuellement des demandes à 3DS OUTSCALE, vous devez signer les demandes vous-même. En revanche, vous n&#8217;avez pas besoin de signer vos demandes lorsque vous utilisez des outils comme l&#8217;interface en ligne de commande OUTSCALE (OSC CLI), l&#8217;interface en ligne de commande Amazon Web Services (AWS CLI) ou un kit de développement logiciel (SDK). Ces outils signent automatiquement les requêtes avec l&#8217;access key spécifiée lors de leur configuration. Pour en savoir plus sur OSC CLI et AWS CLI, voir respectivement <a href="Installer-et-configurer-OSC-CLI.html" class="xref page">Installer et configurer OSC CLI</a> et <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_informations_générales"><a class="anchor" href="À-propos-des-signatures-de-demandes-d-API.html#_informations_générales"></a>Informations générales</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>La signature aide à sécuriser les demandes car elle permet de :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Vérifier l&#8217;identité du demandeur : la signature utilisée pour authentifier la demande est créée à partir d&#8217;une access key, ce qui permet de vérifier l&#8217;identité de la personne à l&#8217;origine de cette demande. Pour en savoir plus sur les access keys, voir <a href="À-propos-des-access-keys.html" class="xref page">À propos des access keys</a>.</p>
+</li>
+<li>
+<p>Protéger les données en transit : pour éviter qu&#8217;une demande ne soit falsifiée pendant son transit, certains de ses éléments sont utilisés pour calculer son hachage. Le résultat de ce hachage, qui est la signature, est inclus dans la demande. Après avoir reçu votre demande, 3DS OUTSCALE utilise les mêmes informations pour recalculer la signature et la compare à celle de votre demande. Si les signatures correspondent, 3DS OUTSCALE traite votre demande. Sinon, 3DS OUTSCALE refuse la demande.</p>
+</li>
+<li>
+<p>Protéger contre les attaques par rejeu : en règle générale, une demande doit parvenir à 3DS OUTSCALE dans les cinq minutes après son horodatage. Sinon, 3DS OUTSCALE refuse la demande.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Pour signer une demande, vous devez d&#8217;abord utiliser une fonction de hachage cryptographique (HMAC) pour calculer un hachage de la demande. Vous utilisez ensuite la valeur de ce hachage, votre secret key et d&#8217;autres informations pour calculer un nouveau hachage dont le résultat est la signature. Enfin, vous ajoutez la signature à la demande soit dans l&#8217;en-tête HTTP <code>Authorization</code>, soit comme valeur dans la chaîne de requête. Dans ce dernier cas, la signature fait partie de l&#8217;URL. Il s&#8217;agit donc d&#8217;une URL pré-signée. Pour en savoir plus sur le processus de création d&#8217;une signature, voir la section <a href="À-propos-des-signatures-de-demandes-d-API.html#_création_dune_signature">Création d'une signature</a> ci-dessous.</p>
+</div>
+<div class="paragraph">
+<p>3DS OUTSCALE prend en charge Signature Version 2 et Signature Version 4. Cependant, nous vous recommandons d&#8217;utiliser Signature Version 4 pour tous les services OUTSCALE.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_création_dune_signature"><a class="anchor" href="À-propos-des-signatures-de-demandes-d-API.html#_création_dune_signature"></a>Création d'une signature</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Le processus de calcul d&#8217;une signature est composé des étapes suivantes :</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Création d&#8217;une demande canonique :<br>
+Avant de pouvoir signer la demande, vous devez la réorganiser dans un format normalisé, aussi appelé format canonique. L&#8217;utilisation d&#8217;un format canonique est nécessaire car 3DS OUTSCALE utilise ce même format pour recalculer la signature. Pour en savoir plus, voir <a href="Créer-une-demande-canonique.html" class="xref page">Créer une demande canonique</a>.</p>
+</li>
+<li>
+<p>Création d&#8217;une chaîne à signer à partir de la demande canonique et d&#8217;autres informations :<br>
+Les informations contenues dans la demande canonique doivent être concaténées en une chaîne à signer. Pour en savoir plus, voir <a href="Créer-une-chaîne-à-signer.html" class="xref page">Créer une chaîne à signer</a>.</p>
+</li>
+<li>
+<p>Création d&#8217;une signature à partir d&#8217;une signing key et de la chaîne à signer :<br>
+La signing key, que vous créez à partir de votre secret key, et la chaîne à signer sont hachées grâce à une fonction de hachage cryptographique. Le résultat de ce hachage est la signature. Pour en savoir plus, voir <a href="Calculer-une-signature.html" class="xref page">Calculer une signature</a>.</p>
+</li>
+<li>
+<p>Ajout de la signature à la demande, dans un en-tête ou en tant que paramètre dans la chaîne de requête :<br>
+La signature doit être ajoutée à la demande afin d&#8217;en faire une demande signée. Pour en savoir plus, voir <a href="Ajouter-une-signature-à-votre-demande-d-API.html" class="xref page">Ajouter une signature à votre demande d&#8217;API</a>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Une fois la demande reçue, 3DS OUTSCALE recalcule la signature en utilisant les mêmes informations et la même fonction de hachage que vous avez utilisées pour signer votre demande. Si la signature obtenue par 3DS OUTSCALE correspond à la vôtre, 3DS OUTSCALE traite votre demande. Sinon, la demande est rejetée.</p>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Créer-une-demande-canonique.html" class="xref page">Créer une demande canonique</a></p>
+</li>
+<li>
+<p><a href="Créer-une-chaîne-à-signer.html" class="xref page">Créer une chaîne à signer</a></p>
+</li>
+<li>
+<p><a href="Calculer-une-signature.html" class="xref page">Calculer une signature</a></p>
+</li>
+<li>
+<p><a href="Ajouter-une-signature-à-votre-demande-d-API.html" class="xref page">Ajouter une signature à votre demande d&#8217;API</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

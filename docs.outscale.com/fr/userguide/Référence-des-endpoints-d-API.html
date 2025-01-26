@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Référence des endpoints d&#8217;API – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Référence-des-endpoints-d-API.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Référence-des-endpoints-d-API.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/API-Endpoints-Reference.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Référence des endpoints d&#8217;API</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cette page fournit une liste des endpoints d&#8217;API pour le Cloud OUTSCALE.</p>
+</div>
+<div class="paragraph">
+<p>Les endpoints d&#8217;API sont des URL qui constituent le point d&#8217;entrée d&#8217;un service. Pour en savoir plus, voir <a href="À-propos-des-API.html" class="xref page">À propos des API</a> et <a href="À-propos-des-Régions-et-Sous-régions.html" class="xref page">À propos des Régions et Sous-régions</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_api_outscale"><a class="anchor" href="Référence-des-endpoints-d-API.html#_api_outscale"></a>API OUTSCALE</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Région</th>
+<th class="tableblock halign-left valign-top">Endpoint d&#8217;API</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">eu-west-2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://api.eu-west-2.outscale.com/api/v1" target="_blank" rel="noopener">https://api.eu-west-2.outscale.com/api/v1</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">us-east-2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://api.us-east-2.outscale.com/api/v1" target="_blank" rel="noopener">https://api.us-east-2.outscale.com/api/v1</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">us-west-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://api.us-west-1.outscale.com/api/v1" target="_blank" rel="noopener">https://api.us-west-1.outscale.com/api/v1</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cloudgouv-eu-west-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://api.cloudgouv-eu-west-1.outscale.com/api/v1" target="_blank" rel="noopener">https://api.cloudgouv-eu-west-1.outscale.com/api/v1</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ap-northeast-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://api.ap-northeast-1.outscale.com/api/v1" target="_blank" rel="noopener">https://api.ap-northeast-1.outscale.com/api/v1</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_api_aws_compliant"><a class="anchor" href="Référence-des-endpoints-d-API.html#_api_aws_compliant"></a>API AWS-compliant</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_flexible_compute_unite_fcu"><a class="anchor" href="Référence-des-endpoints-d-API.html#_flexible_compute_unite_fcu"></a>Flexible Compute Unite (FCU)</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Région</th>
+<th class="tableblock halign-left valign-top">Endpoint d&#8217;API</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">eu-west-2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://fcu.eu-west-2.outscale.com" target="_blank" rel="noopener">https://fcu.eu-west-2.outscale.com</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">us-east-2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://fcu.us-east-2.outscale.com" target="_blank" rel="noopener">https://fcu.us-east-2.outscale.com</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">us-west-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://fcu.us-west-1.outscale.com" target="_blank" rel="noopener">https://fcu.us-west-1.outscale.com</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cloudgouv-eu-west-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://fcu.cloudgouv-eu-west-1.outscale.com" target="_blank" rel="noopener">https://fcu.cloudgouv-eu-west-1.outscale.com</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ap-northeast-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://fcu.ap-northeast-1.outscale.com" target="_blank" rel="noopener">https://fcu.ap-northeast-1.outscale.com</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_load_balancer_unit_lbu"><a class="anchor" href="Référence-des-endpoints-d-API.html#_load_balancer_unit_lbu"></a>Load Balancer Unit (LBU)</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Région</th>
+<th class="tableblock halign-left valign-top">Endpoint d&#8217;API</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">eu-west-2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://lbu.eu-west-2.outscale.com" target="_blank" rel="noopener">https://lbu.eu-west-2.outscale.com</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">us-east-2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://lbu.us-east-2.outscale.com" target="_blank" rel="noopener">https://lbu.us-east-2.outscale.com</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">us-west-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://lbu.us-west-1.outscale.com" target="_blank" rel="noopener">https://lbu.us-west-1.outscale.com</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cloudgouv-eu-west-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://lbu.cloudgouv-eu-west-1.outscale.com" target="_blank" rel="noopener">https://lbu.cloudgouv-eu-west-1.outscale.com</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ap-northeast-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://lbu.ap-northeast-1.outscale.com" target="_blank" rel="noopener">https://lbu.ap-northeast-1.outscale.com</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_elastic_identity_management_eim"><a class="anchor" href="Référence-des-endpoints-d-API.html#_elastic_identity_management_eim"></a>Elastic Identity Management (EIM)</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Région</th>
+<th class="tableblock halign-left valign-top">Endpoint d&#8217;API</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">eu-west-2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://eim.eu-west-2.outscale.com" target="_blank" rel="noopener">https://eim.eu-west-2.outscale.com</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">us-east-2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://eim.us-east-2.outscale.com" target="_blank" rel="noopener">https://eim.us-east-2.outscale.com</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">us-west-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://eim.us-west-1.outscale.com" target="_blank" rel="noopener">https://eim.us-west-1.outscale.com</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cloudgouv-eu-west-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://eim.cloudgouv-eu-west-1.outscale.com" target="_blank" rel="noopener">https://eim.cloudgouv-eu-west-1.outscale.com</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ap-northeast-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://eim.ap-northeast-1.outscale.com" target="_blank" rel="noopener">https://eim.ap-northeast-1.outscale.com</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_internal_call_unit_icu"><a class="anchor" href="Référence-des-endpoints-d-API.html#_internal_call_unit_icu"></a>Internal Call Unit (ICU)</h3>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Attention"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>L&#8217;API Internal Call Unit (ICU) atteint sa fin de vie.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Fin de support et maintenance (EOSM) :</strong> 31 décembre 2024</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Après cette date, l&#8217;API n&#8217;est plus maintenue ni supportée.</p>
+</li>
+<li>
+<p>Vous pouvez toujours utiliser le produit à vos risques et périls. La Qualité de service (SLA) n’est plus applicable, à l’exception de la garantie de Durabilité qui reste effective jusqu’à la fin de vie.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong> Fin de vie (EOL) :</strong> 31 janvier 2025</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Après cette date, l&#8217;API ICU ne sera pas utilisable.</p>
+</li>
+<li>
+<p>Vous pourrez continuer à utiliser vos ressources préalablement créées via l&#8217;API OUTSCALE uniquement.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus, voir la <a href="https://support.outscale.com/hc/fr-fr/sections/30237836005403-Fin-de-vie-EOL-de-l-API-Internal-Call-Unit-ICU" target="_blank" rel="noopener">FAQ relative à la fin de vie ICU.</a>.</p>
+</div>
+<div class="paragraph">
+<p>OUTSCALE recommande d&#8217;utiliser dès maintenant l&#8217;API OUTSCALE qui fournit des méthodes équivalentes. Pour en savoir plus, voir la <a href="https://support.outscale.com/hc/fr-fr/articles/30238410124187-Matrice-de-compatibilit%C3%A9-entre-les-m%C3%A9thodes-API-OUTSCALE-et-les-m%C3%A9thodes-API-ICU" target="_blank" rel="noopener">Matrice de compatibilité</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Région</th>
+<th class="tableblock halign-left valign-top">Endpoint d&#8217;API</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">eu-west-2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://icu.eu-west-2.outscale.com" target="_blank" rel="noopener">https://icu.eu-west-2.outscale.com</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">us-east-2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://icu.us-east-2.outscale.com" target="_blank" rel="noopener">https://icu.us-east-2.outscale.com</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">us-west-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://icu.us-west-1.outscale.com" target="_blank" rel="noopener">https://icu.us-west-1.outscale.com</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cloudgouv-eu-west-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://icu.cloudgouv-eu-west-1.outscale.com" target="_blank" rel="noopener">https://icu.cloudgouv-eu-west-1.outscale.com</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ap-northeast-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://icu.ap-northeast-1.outscale.com" target="_blank" rel="noopener">https://icu.ap-northeast-1.outscale.com</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_directlink"><a class="anchor" href="Référence-des-endpoints-d-API.html#_directlink"></a>DirectLink</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Région</th>
+<th class="tableblock halign-left valign-top">Endpoint d&#8217;API</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">eu-west-2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://directlink.eu-west-2.outscale.com" target="_blank" rel="noopener">https://directlink.eu-west-2.outscale.com</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">us-east-2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://directlink.us-east-2.outscale.com" target="_blank" rel="noopener">https://directlink.us-east-2.outscale.com</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cloudgouv-eu-west-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://directlink.cloudgouv-eu-west-1.outscale.com" target="_blank" rel="noopener">https://directlink.cloudgouv-eu-west-1.outscale.com</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_outscale_object_storage_oos"><a class="anchor" href="Référence-des-endpoints-d-API.html#_outscale_object_storage_oos"></a>OUTSCALE Object Storage (OOS)</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Région</th>
+<th class="tableblock halign-left valign-top">Endpoint d&#8217;API</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">eu-west-2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://oos.eu-west-2.outscale.com" target="_blank" rel="noopener">https://oos.eu-west-2.outscale.com</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">us-east-2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://oos.us-east-2.outscale.com" target="_blank" rel="noopener">https://oos.us-east-2.outscale.com</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">us-west-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://oos.us-west-1.outscale.com" target="_blank" rel="noopener">https://oos.us-west-1.outscale.com</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cloudgouv-eu-west-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://oos.cloudgouv-eu-west-1.outscale.com" target="_blank" rel="noopener">https://oos.cloudgouv-eu-west-1.outscale.com</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ap-northeast-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://oos.ap-northeast-1.outscale.com" target="_blank" rel="noopener">https://oos.ap-northeast-1.outscale.com</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-API.html" class="xref page">À propos des API</a></p>
+</li>
+<li>
+<p><a href="À-propos-des-Régions-et-Sous-régions.html" class="xref page">À propos des Régions et Sous-régions</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

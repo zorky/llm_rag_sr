@@ -1,0 +1,3581 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>DirectLink API 2012-10-25 – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="directlink.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="_/css/site.css">
+    <link rel="stylesheet" href="_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="_/css/apidocs/screen.css">
+    <link rel="stylesheet" media="screen" href="_/css/apidocs/screen_overrides.css">
+    <link rel="stylesheet" media="screen" href="_/css/apidocs/theme_overrides.css">
+    <link rel="stylesheet" media="print" href="_/css/apidocs/print.css">
+    <link rel="stylesheet" media="print" href="_/css/apidocs/print_overrides.css">
+    <link rel="shortcut icon" href="_/img/favicon.ico">
+    <script src="_/js/apidocs/lib/_jquery.js"></script>
+    <script src="_/js/apidocs/lib/_jquery.highlight.js"></script>
+    <script src="_/js/apidocs/lib/_lunr.js"></script>
+    <script src="_/js/apidocs/lib/_imagesloaded.min.js"></script>
+    <script src="_/js/apidocs/lib/_energize.js"></script>
+    <script src="_/js/apidocs/app/_search.js"></script>
+    <meta name="theme-color" content="#F3F7F9">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article apidocs">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="en/userguide/Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="fcu.html">FCU</a></li>
+                      <li><a href="lbu.html">LBU</a></li>
+                      <li><a href="eim.html">EIM</a></li>
+                      <li><a href="icu.html">ICU</a></li>
+                      <li><a href="directlink.html">DirectLink</a></li>
+                      <li><a href="en/userguide/OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="en/userguide/AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="en/userguide/About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="en/userguide/Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="en/userguide/Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="en/userguide/Release-Notes.html">Release Notes</a>
+              </li>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+
+<main class="article">
+  <div class="content ">
+  <div id="api-body" data-languages="[&quot;console&quot;,&quot;shell&quot;]">
+    <div class="toc-wrapper nav-container">
+      <aside class="nav">
+
+          <div class="lang-selector">
+
+
+                <a href="directlink.html#" name="console">OSC CLI</a>
+
+
+
+                <a href="directlink.html#" name="shell">Shell</a>
+
+
+          </div>
+
+
+          <div class="search">
+            <input type="text" class="search" id="input-search" placeholder="Search">
+          </div>
+          <ul class="search-results"></ul>
+
+        <div id="toc" class="toc-menu toc-list-h1" data-levels="2">
+          <ul class="toc-list-h1">
+
+
+              <li class="sg-parent">
+
+                <a href="directlink.html#directlink-api" class="toc-h1 toc-link" data-level="1" data-title="DirectLink API 2012-10-25">DirectLink API 2012-10-25</a>
+
+              </li>
+
+
+              <li class="sg-parent">
+
+                <a href="directlink.html#authentication-schemes" class="toc-h1 toc-link" data-level="1" data-title="Authentication Schemes">Authentication Schemes</a>
+
+              </li>
+
+
+              <li>
+
+                <a href="directlink.html#directlink-api-connection" class="toc-h1 toc-link" data-level="1" data-title="Connection">Connection</a>
+
+
+                  <li>
+                    <a href="directlink.html#createconnection" class="toc-h2 toc-link" data-level="2" data-title="">CreateConnection</a>
+                  </li>
+
+                  <li>
+                    <a href="directlink.html#deleteconnection" class="toc-h2 toc-link" data-level="2" data-title="">DeleteConnection</a>
+                  </li>
+
+                  <li>
+                    <a href="directlink.html#describeconnections" class="toc-h2 toc-link" data-level="2" data-title="">DescribeConnections</a>
+                  </li>
+
+
+              </li>
+
+
+              <li>
+
+                <a href="directlink.html#directlink-api-site" class="toc-h1 toc-link" data-level="1" data-title="Site">Site</a>
+
+
+                  <li>
+                    <a href="directlink.html#describelocations" class="toc-h2 toc-link" data-level="2" data-title="">DescribeLocations</a>
+                  </li>
+
+
+              </li>
+
+
+              <li>
+
+                <a href="directlink.html#directlink-api-virtualinterfaces" class="toc-h1 toc-link" data-level="1" data-title="VirtualInterfaces">VirtualInterfaces</a>
+
+
+                  <li>
+                    <a href="directlink.html#allocateprivatevirtualinterface" class="toc-h2 toc-link" data-level="2" data-title="">AllocatePrivateVirtualInterface</a>
+                  </li>
+
+                  <li>
+                    <a href="directlink.html#confirmprivatevirtualinterface" class="toc-h2 toc-link" data-level="2" data-title="">ConfirmPrivateVirtualInterface</a>
+                  </li>
+
+                  <li>
+                    <a href="directlink.html#createprivatevirtualinterface" class="toc-h2 toc-link" data-level="2" data-title="">CreatePrivateVirtualInterface</a>
+                  </li>
+
+                  <li>
+                    <a href="directlink.html#deletevirtualinterface" class="toc-h2 toc-link" data-level="2" data-title="">DeleteVirtualInterface</a>
+                  </li>
+
+                  <li>
+                    <a href="directlink.html#describevirtualgateways" class="toc-h2 toc-link" data-level="2" data-title="">DescribeVirtualGateways</a>
+                  </li>
+
+                  <li>
+                    <a href="directlink.html#describevirtualinterfaces" class="toc-h2 toc-link" data-level="2" data-title="">DescribeVirtualInterfaces</a>
+                  </li>
+
+
+              </li>
+
+
+              <li>
+
+                <a href="directlink.html#schemas" class="toc-h1 toc-link" data-level="1" data-title="Schemas">Schemas</a>
+
+
+                  <li>
+                    <a href="directlink.html#tocs_allocateprivatevirtualinterfacerequest" class="toc-h2 toc-link" data-level="2" data-title="">AllocatePrivateVirtualInterfaceRequest</a>
+                  </li>
+
+                  <li>
+                    <a href="directlink.html#tocs_bgppeer" class="toc-h2 toc-link" data-level="2" data-title="">BgpPeer</a>
+                  </li>
+
+                  <li>
+                    <a href="directlink.html#tocs_confirmprivatevirtualinterfacerequest" class="toc-h2 toc-link" data-level="2" data-title="">ConfirmPrivateVirtualInterfaceRequest</a>
+                  </li>
+
+                  <li>
+                    <a href="directlink.html#tocs_confirmprivatevirtualinterfaceresponse" class="toc-h2 toc-link" data-level="2" data-title="">ConfirmPrivateVirtualInterfaceResponse</a>
+                  </li>
+
+                  <li>
+                    <a href="directlink.html#tocs_connection" class="toc-h2 toc-link" data-level="2" data-title="">Connection</a>
+                  </li>
+
+                  <li>
+                    <a href="directlink.html#tocs_connectionresponse" class="toc-h2 toc-link" data-level="2" data-title="">ConnectionResponse</a>
+                  </li>
+
+                  <li>
+                    <a href="directlink.html#tocs_createconnectionrequest" class="toc-h2 toc-link" data-level="2" data-title="">CreateConnectionRequest</a>
+                  </li>
+
+                  <li>
+                    <a href="directlink.html#tocs_createprivatevirtualinterfacerequest" class="toc-h2 toc-link" data-level="2" data-title="">CreatePrivateVirtualInterfaceRequest</a>
+                  </li>
+
+                  <li>
+                    <a href="directlink.html#tocs_deleteconnectionrequest" class="toc-h2 toc-link" data-level="2" data-title="">DeleteConnectionRequest</a>
+                  </li>
+
+                  <li>
+                    <a href="directlink.html#tocs_deletevirtualinterfacerequest" class="toc-h2 toc-link" data-level="2" data-title="">DeleteVirtualInterfaceRequest</a>
+                  </li>
+
+                  <li>
+                    <a href="directlink.html#tocs_deletevirtualinterfaceresponse" class="toc-h2 toc-link" data-level="2" data-title="">DeleteVirtualInterfaceResponse</a>
+                  </li>
+
+                  <li>
+                    <a href="directlink.html#tocs_describeconnectionsrequest" class="toc-h2 toc-link" data-level="2" data-title="">DescribeConnectionsRequest</a>
+                  </li>
+
+                  <li>
+                    <a href="directlink.html#tocs_describeconnectionsresponse" class="toc-h2 toc-link" data-level="2" data-title="">DescribeConnectionsResponse</a>
+                  </li>
+
+                  <li>
+                    <a href="directlink.html#tocs_describelocationsrequest" class="toc-h2 toc-link" data-level="2" data-title="">DescribeLocationsRequest</a>
+                  </li>
+
+                  <li>
+                    <a href="directlink.html#tocs_describelocationsresponse" class="toc-h2 toc-link" data-level="2" data-title="">DescribeLocationsResponse</a>
+                  </li>
+
+                  <li>
+                    <a href="directlink.html#tocs_describevirtualgatewaysrequest" class="toc-h2 toc-link" data-level="2" data-title="">DescribeVirtualGatewaysRequest</a>
+                  </li>
+
+                  <li>
+                    <a href="directlink.html#tocs_describevirtualgatewaysresponse" class="toc-h2 toc-link" data-level="2" data-title="">DescribeVirtualGatewaysResponse</a>
+                  </li>
+
+                  <li>
+                    <a href="directlink.html#tocs_describevirtualinterfacesrequest" class="toc-h2 toc-link" data-level="2" data-title="">DescribeVirtualInterfacesRequest</a>
+                  </li>
+
+                  <li>
+                    <a href="directlink.html#tocs_describevirtualinterfacesresponse" class="toc-h2 toc-link" data-level="2" data-title="">DescribeVirtualInterfacesResponse</a>
+                  </li>
+
+                  <li>
+                    <a href="directlink.html#tocs_locations" class="toc-h2 toc-link" data-level="2" data-title="">Locations</a>
+                  </li>
+
+                  <li>
+                    <a href="directlink.html#tocs_newprivatevirtualinterface" class="toc-h2 toc-link" data-level="2" data-title="">NewPrivateVirtualInterface</a>
+                  </li>
+
+                  <li>
+                    <a href="directlink.html#tocs_newprivatevirtualinterfaceallocation" class="toc-h2 toc-link" data-level="2" data-title="">NewPrivateVirtualInterfaceAllocation</a>
+                  </li>
+
+                  <li>
+                    <a href="directlink.html#tocs_privatevirtualinterfaceresponse" class="toc-h2 toc-link" data-level="2" data-title="">PrivateVirtualInterfaceResponse</a>
+                  </li>
+
+                  <li>
+                    <a href="directlink.html#tocs_routefilterprefix" class="toc-h2 toc-link" data-level="2" data-title="">RouteFilterPrefix</a>
+                  </li>
+
+                  <li>
+                    <a href="directlink.html#tocs_virtualgateways" class="toc-h2 toc-link" data-level="2" data-title="">VirtualGateways</a>
+                  </li>
+
+                  <li>
+                    <a href="directlink.html#tocs_virtualinterface" class="toc-h2 toc-link" data-level="2" data-title="">VirtualInterface</a>
+                  </li>
+
+
+              </li>
+
+          </ul>
+        </div>
+
+          <ul class="toc-footer">
+
+          </ul>
+
+      </aside>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="api">
+        <h1 id="directlink-api">DirectLink API 2012-10-25</h1>
+<p>The DirectLink API enables you to connect your infrastructure to the OUTSCALE Cloud through a physical, dedicated network link.<br />
+It is compliant with the Direct Connect API of Amazon Web Services (AWS). See the <a href="en/userguide/AWS-Compatibility-Matrix.html">AWS Compatibility Matrix</a>.<br /><br />
+Throttling: To protect against overloads, the number of identical requests allowed in a given time period is limited.<br />
+Brute force: To protect against brute force attacks, the number of failed authentication attempts in a given time period is limited.<br /></p>
+<h3 id="endpoints">Endpoints</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Base URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>eu-west-2 (default)</td>
+<td><a href="https://directlink.eu-west-2.outscale.com" target="_blank" rel="noopener">https://directlink.eu-west-2.outscale.com</a></td>
+</tr>
+<tr>
+<td>us-east-2</td>
+<td><a href="https://directlink.us-east-2.outscale.com" target="_blank" rel="noopener">https://directlink.us-east-2.outscale.com</a></td>
+</tr>
+<tr>
+<td>cloudgouv-eu-west-1</td>
+<td><a href="https://directlink.cloudgouv-eu-west-1.outscale.com" target="_blank" rel="noopener">https://directlink.cloudgouv-eu-west-1.outscale.com</a></td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://en.outscale.com/terms-of-service" target="_blank" rel="noopener">Terms of service</a>.
+Email: <a href="mailto:support@outscale.com">support@outscale.com</a>.
+License: <a href="https://opensource.org/licenses/BSD-3-Clause" target="_blank" rel="noopener">BSD 3 Clause</a>.</p>
+<h1 id="authentication-schemes">Authentication Schemes</h1>
+<h3 id="access-key-secret-key">Access Key/Secret Key</h3>
+<p>The main way to authenticate your requests to this API is to use an access key and a secret key.<br />
+The mechanism behind this is based on AWS Signature Version 4, whose technical implementation details are described in <a href="en/userguide/Signature-of-API-Requests.html">Signature of API Requests</a>.<br /><br />
+In practice, the way to specify your access key and secret key depends on the tool or SDK you want to use to interact with the API.<br /></p>
+<blockquote>
+<p>For example, if you use OSC CLI:</p>
+<ol>
+<li>You need to create an <strong>~/.osc/config.json</strong> file to specify your access key, secret key, and the Region of your account.</li>
+<li>You then specify the <code>--profile</code> option when executing OSC CLI commands.</li>
+</ol>
+<p>For more information, see <a href="en/userguide/Installing-and-Configuring-OSC-CLI.html">Installing and Configuring OSC CLI</a>.</p>
+</blockquote>
+<p>See the code samples in each section of this documentation for specific examples in different programming languages.<br />
+For more information about access keys, see <a href="en/userguide/About-Access-Keys.html">About Access Keys</a>.</p>
+<h3 id="other-security-mechanisms">Other Security Mechanisms</h3>
+<p>In parallel with the authentication schemes, you can add other security mechanisms to your OUTSCALE account, for example to restrict API requests by IP or other criteria.<br />
+For more information, see <a href="en/userguide/Managing-Your-API-Accesses.html">Managing Your API Accesses</a>.</p>
+<h1 id="directlink-api-connection">Connection</h1>
+<h2 id="createconnection">CreateConnection</h2>
+<p><code>POST /CreateConnection</code></p>
+<p>Creates a DirectLink connection between a customer network and a specified DirectLink location.<br /><br />
+For more information, see <a href="en/userguide/About-DirectLink.html">About DirectLink</a>.<br />
+This AWS-compliant method corresponds to <a href="api%3Fconsole.html#createdirectlink">CreateDirectLink</a> in the OUTSCALE API.</p>
+<aside class="warning">
+This action needs to be authenticated by
+<a href="directlink.html#authentication-schemes">access key/secret key</a>.
+</aside>
+<h3 id="createconnection-parameters">Request Parameters</h3>
+<div class="lang-selector">
+<a href="directlink.html#" name="console">OSC CLI</a>
+<a href="directlink.html#" name="shell">Shell</a>
+</div>
+<blockquote>
+<p>Examples<a name="CreateConnection-req-example.sh"></a></p>
+</blockquote>
+<pre class="highlight tab tab-console"><code>osc-cli directlink CreateConnection --profile <span class="hljs-string">&quot;default&quot;</span> \
+  --bandwidth <span class="hljs-string">&quot;1Gbps&quot;</span> \
+  --connectionName <span class="hljs-string">&quot;string&quot;</span> \
+  --dryRun False \
+  --location <span class="hljs-string">&quot;string&quot;</span>
+
+</code></pre>
+<pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You need Curl version 7.75 or later to use the --aws-sigv4 option</span>
+
+curl -X POST https://directlink.<span class="hljs-variable">$OSC_REGION</span>.outscale.com \
+  --user <span class="hljs-variable">$OSC_ACCESS_KEY</span>:<span class="hljs-variable">$OSC_SECRET_KEY</span> \
+  --aws-sigv4 <span class="hljs-string">&#x27;aws:amz&#x27;</span> \
+  --header <span class="hljs-string">&#x27;x-amz-target: OvertureService.CreateConnection&#x27;</span> \
+  --header <span class="hljs-string">&#x27;Content-Type: application/x-amz-json-1.1&#x27;</span> \
+  --data <span class="hljs-string">&#x27;{
+    &quot;bandwidth&quot;: &quot;1Gbps&quot;,
+    &quot;connectionName&quot;: &quot;string&quot;,
+    &quot;dryRun&quot;: false,
+    &quot;location&quot;: &quot;string&quot;
+  }&#x27;</span>
+
+</code></pre>
+<p><strong>Body</strong> (<a href="directlink.html#schemacreateconnectionrequest">CreateConnectionRequest</a>):</p>
+<table>
+<thead>
+<tr>
+<th>Body Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bandwidth <mark>(required)</mark></td>
+<td>string</td>
+<td>The bandwidth of the connection (<code>1Gbps</code> | <code>10Gbps</code>).</td>
+</tr>
+<tr>
+<td>connectionName <mark>(required)</mark></td>
+<td>string</td>
+<td>The name of the connection.</td>
+</tr>
+<tr>
+<td>dryRun</td>
+<td>boolean</td>
+<td>If true, checks whether you have the required permissions to perform the action.</td>
+</tr>
+<tr>
+<td>location <mark>(required)</mark></td>
+<td>string</td>
+<td>The code of the requested location for the connection, returned by the <em>DescribeLocations</em> method.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="createconnection-responses">Response Elements</h3>
+<blockquote>
+<p>Examples<a name="CreateConnection-res-example.json"></a></p>
+</blockquote>
+<blockquote>
+<p>200 Response</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;awsDevice&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;bandwidth&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;connectionId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;connectionName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;connectionState&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;lagId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;loaIssueTime&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;location&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;ownerAccount&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;partnerName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;region&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;requestId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;vlan&quot;</span>: <span class="hljs-number">0</span>
+}
+</code></pre>
+<p><strong>Response 200</strong> (<a href="directlink.html#schemaconnectionresponse">ConnectionResponse</a>):</p>
+<table>
+<thead>
+<tr>
+<th>Response Element</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>awsDevice</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>bandwidth</td>
+<td>string</td>
+<td>The physical link bandwidth (either <code>1Gbps</code> or <code>10Gbps</code>).</td>
+</tr>
+<tr>
+<td>connectionId</td>
+<td>string</td>
+<td>The ID of the connection (for example, <code>dxcon-xxxxxxxx</code>).</td>
+</tr>
+<tr>
+<td>connectionName</td>
+<td>string</td>
+<td>The name of the connection.</td>
+</tr>
+<tr>
+<td>connectionState</td>
+<td>string</td>
+<td>The state of the connection.</td>
+</tr>
+<tr>
+<td>lagId</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>loaIssueTime</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>location</td>
+<td>string</td>
+<td>The datacenter where the connection is located.</td>
+</tr>
+<tr>
+<td>ownerAccount</td>
+<td>string</td>
+<td>The account ID of the owner of the connection.</td>
+</tr>
+<tr>
+<td>partnerName</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>region</td>
+<td>string</td>
+<td>The Region in which the connection has been created.</td>
+</tr>
+<tr>
+<td>requestId</td>
+<td>string</td>
+<td>The ID of the request.</td>
+</tr>
+<tr>
+<td>vlan</td>
+<td>integer</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="deleteconnection">DeleteConnection</h2>
+<p><code>POST /DeleteConnection</code></p>
+<p>Deletes a specified DirectLink connection.<br />
+Before deleting a connection, ensure that all your virtual interfaces related to this connection are deleted.<br /><br />
+This AWS-compliant method corresponds to <a href="api%3Fconsole.html#deletedirectlink">DeleteDirectLink</a> in the OUTSCALE API.</p>
+<aside class="warning">
+This action needs to be authenticated by
+<a href="directlink.html#authentication-schemes">access key/secret key</a>.
+</aside>
+<h3 id="deleteconnection-parameters">Request Parameters</h3>
+<div class="lang-selector">
+<a href="directlink.html#" name="console">OSC CLI</a>
+<a href="directlink.html#" name="shell">Shell</a>
+</div>
+<blockquote>
+<p>Examples<a name="DeleteConnection-req-example.sh"></a></p>
+</blockquote>
+<pre class="highlight tab tab-console"><code>osc-cli directlink DeleteConnection --profile <span class="hljs-string">&quot;default&quot;</span> \
+  --connectionId <span class="hljs-string">&quot;string&quot;</span> \
+  --dryRun False
+
+</code></pre>
+<pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You need Curl version 7.75 or later to use the --aws-sigv4 option</span>
+
+curl -X POST https://directlink.<span class="hljs-variable">$OSC_REGION</span>.outscale.com \
+  --user <span class="hljs-variable">$OSC_ACCESS_KEY</span>:<span class="hljs-variable">$OSC_SECRET_KEY</span> \
+  --aws-sigv4 <span class="hljs-string">&#x27;aws:amz&#x27;</span> \
+  --header <span class="hljs-string">&#x27;x-amz-target: OvertureService.DeleteConnection&#x27;</span> \
+  --header <span class="hljs-string">&#x27;Content-Type: application/x-amz-json-1.1&#x27;</span> \
+  --data <span class="hljs-string">&#x27;{
+    &quot;connectionId&quot;: &quot;string&quot;,
+    &quot;dryRun&quot;: false
+  }&#x27;</span>
+
+</code></pre>
+<p><strong>Body</strong> (<a href="directlink.html#schemadeleteconnectionrequest">DeleteConnectionRequest</a>):</p>
+<table>
+<thead>
+<tr>
+<th>Body Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>connectionId <mark>(required)</mark></td>
+<td>string</td>
+<td>The ID of the DirectLink connection you want to delete.</td>
+</tr>
+<tr>
+<td>dryRun</td>
+<td>boolean</td>
+<td>If true, checks whether you have the required permissions to perform the action.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="deleteconnection-responses">Response Elements</h3>
+<blockquote>
+<p>Examples<a name="DeleteConnection-res-example.json"></a></p>
+</blockquote>
+<blockquote>
+<p>200 Response</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;awsDevice&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;bandwidth&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;connectionId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;connectionName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;connectionState&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;lagId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;loaIssueTime&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;location&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;ownerAccount&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;partnerName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;region&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;requestId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;vlan&quot;</span>: <span class="hljs-number">0</span>
+}
+</code></pre>
+<p><strong>Response 200</strong> (<a href="directlink.html#schemaconnectionresponse">ConnectionResponse</a>):</p>
+<table>
+<thead>
+<tr>
+<th>Response Element</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>awsDevice</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>bandwidth</td>
+<td>string</td>
+<td>The physical link bandwidth (either <code>1Gbps</code> or <code>10Gbps</code>).</td>
+</tr>
+<tr>
+<td>connectionId</td>
+<td>string</td>
+<td>The ID of the connection (for example, <code>dxcon-xxxxxxxx</code>).</td>
+</tr>
+<tr>
+<td>connectionName</td>
+<td>string</td>
+<td>The name of the connection.</td>
+</tr>
+<tr>
+<td>connectionState</td>
+<td>string</td>
+<td>The state of the connection.</td>
+</tr>
+<tr>
+<td>lagId</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>loaIssueTime</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>location</td>
+<td>string</td>
+<td>The datacenter where the connection is located.</td>
+</tr>
+<tr>
+<td>ownerAccount</td>
+<td>string</td>
+<td>The account ID of the owner of the connection.</td>
+</tr>
+<tr>
+<td>partnerName</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>region</td>
+<td>string</td>
+<td>The Region in which the connection has been created.</td>
+</tr>
+<tr>
+<td>requestId</td>
+<td>string</td>
+<td>The ID of the request.</td>
+</tr>
+<tr>
+<td>vlan</td>
+<td>integer</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="describeconnections">DescribeConnections</h2>
+<p><code>POST /DescribeConnections</code></p>
+<p>Describes all DirectLink connections in the Region.<br />
+You can use the <code>ConnectionId</code> parameter to only describe a specified connection.<br /><br />
+This AWS-compliant method corresponds to <a href="api%3Fconsole.html#readdirectlinks">ReadDirectLinks</a> in the OUTSCALE API.</p>
+<aside class="warning">
+This action needs to be authenticated by
+<a href="directlink.html#authentication-schemes">access key/secret key</a>.
+</aside>
+<h3 id="describeconnections-parameters">Request Parameters</h3>
+<div class="lang-selector">
+<a href="directlink.html#" name="console">OSC CLI</a>
+<a href="directlink.html#" name="shell">Shell</a>
+</div>
+<blockquote>
+<p>Examples<a name="DescribeConnections-req-example.sh"></a></p>
+</blockquote>
+<pre class="highlight tab tab-console"><code>osc-cli directlink DescribeConnections --profile <span class="hljs-string">&quot;default&quot;</span> \
+  --connectionId <span class="hljs-string">&quot;string&quot;</span> \
+  --dryRun False
+
+</code></pre>
+<pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You need Curl version 7.75 or later to use the --aws-sigv4 option</span>
+
+curl -X POST https://directlink.<span class="hljs-variable">$OSC_REGION</span>.outscale.com \
+  --user <span class="hljs-variable">$OSC_ACCESS_KEY</span>:<span class="hljs-variable">$OSC_SECRET_KEY</span> \
+  --aws-sigv4 <span class="hljs-string">&#x27;aws:amz&#x27;</span> \
+  --header <span class="hljs-string">&#x27;x-amz-target: OvertureService.DescribeConnections&#x27;</span> \
+  --header <span class="hljs-string">&#x27;Content-Type: application/x-amz-json-1.1&#x27;</span> \
+  --data <span class="hljs-string">&#x27;{
+    &quot;connectionId&quot;: &quot;string&quot;,
+    &quot;dryRun&quot;: false
+  }&#x27;</span>
+
+</code></pre>
+<p><strong>Body</strong> (<a href="directlink.html#schemadescribeconnectionsrequest">DescribeConnectionsRequest</a>):</p>
+<table>
+<thead>
+<tr>
+<th>Body Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>connectionId</td>
+<td>string</td>
+<td>The ID of a DirectLink connection.</td>
+</tr>
+<tr>
+<td>dryRun</td>
+<td>boolean</td>
+<td>If true, checks whether you have the required permissions to perform the action.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="describeconnections-responses">Response Elements</h3>
+<blockquote>
+<p>Examples<a name="DescribeConnections-res-example.json"></a></p>
+</blockquote>
+<blockquote>
+<p>200 Response</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;connections&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;awsDevice&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;bandwidth&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;connectionId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;connectionName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;connectionState&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;lagId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;loaIssueTime&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;location&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;ownerAccount&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;partnerName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;region&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;vlan&quot;</span>: <span class="hljs-number">0</span>
+    }
+  ],
+  <span class="hljs-attr">&quot;requestId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+}
+</code></pre>
+<p><strong>Response 200</strong> (<a href="directlink.html#schemadescribeconnectionsresponse">DescribeConnectionsResponse</a>):</p>
+<table>
+<thead>
+<tr>
+<th>Response Element</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>connections</td>
+<td>[<a href="directlink.html#schemaconnection">Connection</a>]</td>
+<td>Information about one or more DirectLink connections.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>awsDevice</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>bandwidth</td>
+<td>string</td>
+<td>The physical link bandwidth (either <code>1Gbps</code> or <code>10Gbps</code>).</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>connectionId</td>
+<td>string</td>
+<td>The ID of the connection (for example, <code>dxcon-xxxxxxxx</code>).</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>connectionName</td>
+<td>string</td>
+<td>The name of the connection.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>connectionState</td>
+<td>string</td>
+<td>The state of the connection.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>lagId</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>loaIssueTime</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>location</td>
+<td>string</td>
+<td>The datacenter where the connection is located.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>ownerAccount</td>
+<td>string</td>
+<td>The account ID of the owner of the connection.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>partnerName</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>region</td>
+<td>string</td>
+<td>The Region in which the connection has been created.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node last indent-1"></span>vlan</td>
+<td>integer</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>requestId</td>
+<td>string</td>
+<td>The ID of the request.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="directlink-api-site">Site</h1>
+<h2 id="describelocations">DescribeLocations</h2>
+<p><code>POST /DescribeLocations</code></p>
+<p>Describes the locations, corresponding to datacenters, where you can set up a DirectLink connection.<br /><br />
+For more information, see <a href="en/userguide/About-DirectLink.html">About DirectLink</a>.<br />
+This AWS-compliant method corresponds to <a href="api%3Fconsole.html#readlocations">ReadLocations</a> in the OUTSCALE API.</p>
+<aside class="warning">
+This action needs to be authenticated by
+<a href="directlink.html#authentication-schemes">access key/secret key</a>.
+</aside>
+<h3 id="describelocations-parameters">Request Parameters</h3>
+<div class="lang-selector">
+<a href="directlink.html#" name="console">OSC CLI</a>
+<a href="directlink.html#" name="shell">Shell</a>
+</div>
+<blockquote>
+<p>Examples<a name="DescribeLocations-req-example.sh"></a></p>
+</blockquote>
+<pre class="highlight tab tab-console"><code>osc-cli directlink DescribeLocations --profile <span class="hljs-string">&quot;default&quot;</span> \
+  --DryRun False
+
+</code></pre>
+<pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You need Curl version 7.75 or later to use the --aws-sigv4 option</span>
+
+curl -X POST https://directlink.<span class="hljs-variable">$OSC_REGION</span>.outscale.com \
+  --user <span class="hljs-variable">$OSC_ACCESS_KEY</span>:<span class="hljs-variable">$OSC_SECRET_KEY</span> \
+  --aws-sigv4 <span class="hljs-string">&#x27;aws:amz&#x27;</span> \
+  --header <span class="hljs-string">&#x27;x-amz-target: OvertureService.DescribeLocations&#x27;</span> \
+  --header <span class="hljs-string">&#x27;Content-Type: application/x-amz-json-1.1&#x27;</span> \
+  --data <span class="hljs-string">&#x27;{
+    &quot;DryRun&quot;: false
+  }&#x27;</span>
+
+</code></pre>
+<p><strong>Body</strong> (<a href="directlink.html#schemadescribelocationsrequest">DescribeLocationsRequest</a>):</p>
+<table>
+<thead>
+<tr>
+<th>Body Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DryRun</td>
+<td>boolean</td>
+<td>If true, checks whether you have the required permissions to perform the action.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="describelocations-responses">Response Elements</h3>
+<blockquote>
+<p>Examples<a name="DescribeLocations-res-example.json"></a></p>
+</blockquote>
+<blockquote>
+<p>200 Response</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;locations&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;locationCode&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;locationName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+    }
+  ],
+  <span class="hljs-attr">&quot;requestId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+}
+</code></pre>
+<p><strong>Response 200</strong> (<a href="directlink.html#schemadescribelocationsresponse">DescribeLocationsResponse</a>):</p>
+<table>
+<thead>
+<tr>
+<th>Response Element</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>locations</td>
+<td>[<a href="directlink.html#schemalocations">Locations</a>]</td>
+<td>Information about one or more locations.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>locationCode</td>
+<td>string</td>
+<td>The location code, to be set as the <code>location</code> parameter of the <strong>CreateConnection</strong> method when creating a connection.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node last indent-1"></span>locationName</td>
+<td>string</td>
+<td>The name and description of the location, corresponding to a datacenter.</td>
+</tr>
+<tr>
+<td>requestId</td>
+<td>string</td>
+<td>The ID of the request.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="directlink-api-virtualinterfaces">VirtualInterfaces</h1>
+<h2 id="allocateprivatevirtualinterface">AllocatePrivateVirtualInterface</h2>
+<p><code>POST /AllocatePrivateVirtualInterface</code></p>
+<p>Creates a <span class="tooltip" data-tooltip="DirectLink interface in OUTSCALE API">private virtual interface</span> whose owner is another account.<br />
+The other account then needs to confirm the virtual interface using the <em><a href="directlink.html#confirmprivatevirtualinterface">ConfirmPrivateVirtualInterface</a></em> method.<br />
+Until this confirmation, the virtual interface remains in the <code>confirming</code> state and cannot handle traffic.<br />
+Otherwise, if the other user does not confirm it within 7 days, the state of the virtual interface becomes <code>expired</code>, and you need to create a virtual interface again.<br /><br />
+This AWS-compliant method corresponds to <a href="api%3Fconsole.html#createdirectlinkinterface">CreateDirectLinkInterface</a> in the OUTSCALE API.</p>
+<aside class="warning">
+This action needs to be authenticated by
+<a href="directlink.html#authentication-schemes">access key/secret key</a>.
+</aside>
+<h3 id="allocateprivatevirtualinterface-parameters">Request Parameters</h3>
+<div class="lang-selector">
+<a href="directlink.html#" name="console">OSC CLI</a>
+<a href="directlink.html#" name="shell">Shell</a>
+</div>
+<blockquote>
+<p>Examples<a name="AllocatePrivateVirtualInterface-req-example.sh"></a></p>
+</blockquote>
+<pre class="highlight tab tab-console"><code>osc-cli directlink AllocatePrivateVirtualInterface --profile <span class="hljs-string">&quot;default&quot;</span> \
+  --connectionId <span class="hljs-string">&quot;string&quot;</span> \
+  --dryRun False \
+  --newPrivateVirtualInterfaceAllocation <span class="hljs-string">&#x27;{
+      &quot;amazonAddress&quot;: &quot;string&quot;,
+      &quot;asn&quot;: 0,
+      &quot;authKey&quot;: &quot;string&quot;,
+      &quot;customerAddress&quot;: &quot;string&quot;,
+      &quot;virtualInterfaceName&quot;: &quot;string&quot;,
+      &quot;vlan&quot;: 0
+    }&#x27;</span> \
+  --ownerAccount <span class="hljs-string">&quot;string&quot;</span>
+
+</code></pre>
+<pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You need Curl version 7.75 or later to use the --aws-sigv4 option</span>
+
+curl -X POST https://directlink.<span class="hljs-variable">$OSC_REGION</span>.outscale.com \
+  --user <span class="hljs-variable">$OSC_ACCESS_KEY</span>:<span class="hljs-variable">$OSC_SECRET_KEY</span> \
+  --aws-sigv4 <span class="hljs-string">&#x27;aws:amz&#x27;</span> \
+  --header <span class="hljs-string">&#x27;x-amz-target: OvertureService.AllocatePrivateVirtualInterface&#x27;</span> \
+  --header <span class="hljs-string">&#x27;Content-Type: application/x-amz-json-1.1&#x27;</span> \
+  --data <span class="hljs-string">&#x27;{
+    &quot;connectionId&quot;: &quot;string&quot;,
+    &quot;dryRun&quot;: false,
+    &quot;newPrivateVirtualInterfaceAllocation&quot;: {
+      &quot;amazonAddress&quot;: &quot;string&quot;,
+      &quot;asn&quot;: 0,
+      &quot;authKey&quot;: &quot;string&quot;,
+      &quot;customerAddress&quot;: &quot;string&quot;,
+      &quot;virtualInterfaceName&quot;: &quot;string&quot;,
+      &quot;vlan&quot;: 0
+    },
+    &quot;ownerAccount&quot;: &quot;string&quot;
+  }&#x27;</span>
+
+</code></pre>
+<p><strong>Body</strong> (<a href="directlink.html#schemaallocateprivatevirtualinterfacerequest">AllocatePrivateVirtualInterfaceRequest</a>):</p>
+<table>
+<thead>
+<tr>
+<th>Body Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>connectionId <mark>(required)</mark></td>
+<td>string</td>
+<td>The ID of the existing DirectLink connection for which you want to create the private virtual interface.</td>
+</tr>
+<tr>
+<td>dryRun</td>
+<td>boolean</td>
+<td>If true, checks whether you have the required permissions to perform the action.</td>
+</tr>
+<tr>
+<td>newPrivateVirtualInterfaceAllocation <mark>(required)</mark></td>
+<td><a href="directlink.html#schemanewprivatevirtualinterfaceallocation">NewPrivateVirtualInterfaceAllocation</a></td>
+<td>Detailed information about the configuration parameters of the private virtual interface.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>amazonAddress</td>
+<td>string</td>
+<td>If provided, the IP to set on the OUTSCALE side of the virtual interface. This IP must include a network prefix (for example, <code>172.16.0.1/30</code>).</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>asn <mark>(required)</mark></td>
+<td>integer</td>
+<td>The autonomous system (AS) number for the Border Gateway Protocol (BGP) configuration on the customer side of the virtual interface.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>authKey</td>
+<td>string</td>
+<td>The BGP authentication key.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>customerAddress</td>
+<td>string</td>
+<td>The IP on the customer side of the virtual interface. This IP must be provided if the <code>amazonAddress</code> parameter is provided, and be in the same network subnet.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>virtualInterfaceName <mark>(required)</mark></td>
+<td>string</td>
+<td>The name of the virtual interface.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node last indent-1"></span>vlan <mark>(required)</mark></td>
+<td>integer</td>
+<td>The unique VLAN ID for the virtual interface. This number must be unique and be between <code>2</code> and <code>4094</code>.</td>
+</tr>
+<tr>
+<td>ownerAccount <mark>(required)</mark></td>
+<td>string</td>
+<td>The account ID of the owner of the private virtual interface.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="allocateprivatevirtualinterface-responses">Response Elements</h3>
+<blockquote>
+<p>Examples<a name="AllocatePrivateVirtualInterface-res-example.json"></a></p>
+</blockquote>
+<blockquote>
+<p>200 Response</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;addressFamily&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;amazonAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;amazonSideAsn&quot;</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">&quot;asn&quot;</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">&quot;authKey&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;bgpPeers&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;addressFamily&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;amazonAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;asn&quot;</span>: <span class="hljs-number">0</span>,
+      <span class="hljs-attr">&quot;authKey&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;bgpPeerState&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;bgpStatus&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;customerAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+    }
+  ],
+  <span class="hljs-attr">&quot;connectionId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;customerAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;customerRouterConfig&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;directConnectGatewayId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;location&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;ownerAccount&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;requestId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;routeFilterPrefixes&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;cidr&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+    }
+  ],
+  <span class="hljs-attr">&quot;virtualGatewayId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;virtualInterfaceId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;virtualInterfaceName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;virtualInterfaceState&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;virtualInterfaceType&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;vlan&quot;</span>: <span class="hljs-number">0</span>
+}
+</code></pre>
+<p><strong>Response 200</strong> (<a href="directlink.html#schemaprivatevirtualinterfaceresponse">PrivateVirtualInterfaceResponse</a>):</p>
+<table>
+<thead>
+<tr>
+<th>Response Element</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>addressFamily</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>amazonAddress</td>
+<td>string</td>
+<td>The IP on the OUTSCALE side of the virtual interface.</td>
+</tr>
+<tr>
+<td>amazonSideAsn</td>
+<td>integer (int64)</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>asn</td>
+<td>integer</td>
+<td>The autonomous system number (ASN) for the Border Gateway Protocol (BGP) configuration on the customer side of the virtual interface.</td>
+</tr>
+<tr>
+<td>authKey</td>
+<td>string</td>
+<td>The BGP authentication key.</td>
+</tr>
+<tr>
+<td>bgpPeers</td>
+<td>[<a href="directlink.html#schemabgppeer">BgpPeer</a>]</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>addressFamily</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>amazonAddress</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>asn</td>
+<td>integer</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>authKey</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>bgpPeerState</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>bgpStatus</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node last indent-1"></span>customerAddress</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>connectionId</td>
+<td>string</td>
+<td>The ID of the DirectLink connection.</td>
+</tr>
+<tr>
+<td>customerAddress</td>
+<td>string</td>
+<td>The IP on the customer side of the virtual interface.</td>
+</tr>
+<tr>
+<td>customerRouterConfig</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>directConnectGatewayId</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>location</td>
+<td>string</td>
+<td>The datacenter where the virtual interface is located.</td>
+</tr>
+<tr>
+<td>ownerAccount</td>
+<td>string</td>
+<td>The account ID of the owner of the virtual interface.</td>
+</tr>
+<tr>
+<td>requestId</td>
+<td>string</td>
+<td>The ID of the request.</td>
+</tr>
+<tr>
+<td>routeFilterPrefixes</td>
+<td>[<a href="directlink.html#schemaroutefilterprefix">RouteFilterPrefix</a>]</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node last indent-1"></span>cidr</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>virtualGatewayId</td>
+<td>string</td>
+<td>The ID of the target <span class="tooltip" data-tooltip="Virtual gateway in OUTSCALE API">virtual private gateway</span>.</td>
+</tr>
+<tr>
+<td>virtualInterfaceId</td>
+<td>string</td>
+<td>The ID of the virtual interface.</td>
+</tr>
+<tr>
+<td>virtualInterfaceName</td>
+<td>string</td>
+<td>The name of the virtual interface.</td>
+</tr>
+<tr>
+<td>virtualInterfaceState</td>
+<td>string</td>
+<td>The state of the virtual interface (<code>confirming</code> | <code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code> | <code>rejected</code> | <code>expired</code>).</td>
+</tr>
+<tr>
+<td>virtualInterfaceType</td>
+<td>string</td>
+<td>The type of the virtual interface (always <code>private</code>).</td>
+</tr>
+<tr>
+<td>vlan</td>
+<td>integer</td>
+<td>The VLAN number associated with the virtual interface.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="confirmprivatevirtualinterface">ConfirmPrivateVirtualInterface</h2>
+<p><code>POST /ConfirmPrivateVirtualInterface</code></p>
+<p>Accepts another user's request to create a <span class="tooltip" data-tooltip="DirectLink interface in OUTSCALE API">private virtual interface</span> in your account.<br />
+Once you use this method to confirm the request, the virtual interface is created, attached to the specified <span class="tooltip" data-tooltip="Virtual gateway in OUTSCALE API">virtual private gateway</span>, and available for handling traffic.</p>
+<aside class="warning">
+This action needs to be authenticated by
+<a href="directlink.html#authentication-schemes">access key/secret key</a>.
+</aside>
+<h3 id="confirmprivatevirtualinterface-parameters">Request Parameters</h3>
+<div class="lang-selector">
+<a href="directlink.html#" name="console">OSC CLI</a>
+<a href="directlink.html#" name="shell">Shell</a>
+</div>
+<blockquote>
+<p>Examples<a name="ConfirmPrivateVirtualInterface-req-example.sh"></a></p>
+</blockquote>
+<pre class="highlight tab tab-console"><code>osc-cli directlink ConfirmPrivateVirtualInterface --profile <span class="hljs-string">&quot;default&quot;</span> \
+  --dryRun False \
+  --virtualGatewayId <span class="hljs-string">&quot;string&quot;</span> \
+  --virtualInterfaceId <span class="hljs-string">&quot;string&quot;</span>
+
+</code></pre>
+<pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You need Curl version 7.75 or later to use the --aws-sigv4 option</span>
+
+curl -X POST https://directlink.<span class="hljs-variable">$OSC_REGION</span>.outscale.com \
+  --user <span class="hljs-variable">$OSC_ACCESS_KEY</span>:<span class="hljs-variable">$OSC_SECRET_KEY</span> \
+  --aws-sigv4 <span class="hljs-string">&#x27;aws:amz&#x27;</span> \
+  --header <span class="hljs-string">&#x27;x-amz-target: OvertureService.ConfirmPrivateVirtualInterface&#x27;</span> \
+  --header <span class="hljs-string">&#x27;Content-Type: application/x-amz-json-1.1&#x27;</span> \
+  --data <span class="hljs-string">&#x27;{
+    &quot;dryRun&quot;: false,
+    &quot;virtualGatewayId&quot;: &quot;string&quot;,
+    &quot;virtualInterfaceId&quot;: &quot;string&quot;
+  }&#x27;</span>
+
+</code></pre>
+<p><strong>Body</strong> (<a href="directlink.html#schemaconfirmprivatevirtualinterfacerequest">ConfirmPrivateVirtualInterfaceRequest</a>):</p>
+<table>
+<thead>
+<tr>
+<th>Body Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dryRun</td>
+<td>boolean</td>
+<td>If true, checks whether you have the required permissions to perform the action.</td>
+</tr>
+<tr>
+<td>virtualGatewayId <mark>(required)</mark></td>
+<td>string</td>
+<td>The ID of the target virtual private gateway.</td>
+</tr>
+<tr>
+<td>virtualInterfaceId <mark>(required)</mark></td>
+<td>string</td>
+<td>The ID of the virtual interface.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="confirmprivatevirtualinterface-responses">Response Elements</h3>
+<blockquote>
+<p>Examples<a name="ConfirmPrivateVirtualInterface-res-example.json"></a></p>
+</blockquote>
+<blockquote>
+<p>200 Response</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;requestId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;virtualInterfaceState&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+}
+</code></pre>
+<p><strong>Response 200</strong> (<a href="directlink.html#schemaconfirmprivatevirtualinterfaceresponse">ConfirmPrivateVirtualInterfaceResponse</a>):</p>
+<table>
+<thead>
+<tr>
+<th>Response Element</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>requestId</td>
+<td>string</td>
+<td>The ID of the request.</td>
+</tr>
+<tr>
+<td>virtualInterfaceState</td>
+<td>string</td>
+<td>The state of the virtual interface (always <code>pending</code>).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="createprivatevirtualinterface">CreatePrivateVirtualInterface</h2>
+<p><code>POST /CreatePrivateVirtualInterface</code></p>
+<p>Creates a <span class="tooltip" data-tooltip="DirectLink interface in OUTSCALE API">private virtual interface</span>.<br />
+Private virtual interfaces enable you to reach one of your <span class="tooltip" data-tooltip="Net in OUTSCALE API">Virtual Private Clouds (VPCs)</span> through a <span class="tooltip" data-tooltip="Virtual gateway in OUTSCALE API">virtual private gateway</span>.<br /><br />
+For more information, see <a href="en/userguide/About-DirectLink.html">About DirectLink</a>.<br />
+This AWS-compliant method corresponds to <a href="api%3Fconsole.html#createdirectlinkinterface">CreateDirectLinkInterface</a> in the OUTSCALE API.</p>
+<aside class="warning">
+This action needs to be authenticated by
+<a href="directlink.html#authentication-schemes">access key/secret key</a>.
+</aside>
+<h3 id="createprivatevirtualinterface-parameters">Request Parameters</h3>
+<div class="lang-selector">
+<a href="directlink.html#" name="console">OSC CLI</a>
+<a href="directlink.html#" name="shell">Shell</a>
+</div>
+<blockquote>
+<p>Examples<a name="CreatePrivateVirtualInterface-req-example.sh"></a></p>
+</blockquote>
+<pre class="highlight tab tab-console"><code>osc-cli directlink CreatePrivateVirtualInterface --profile <span class="hljs-string">&quot;default&quot;</span> \
+  --connectionId <span class="hljs-string">&quot;string&quot;</span> \
+  --dryRun False \
+  --newPrivateVirtualInterface <span class="hljs-string">&#x27;{
+      &quot;amazonAddress&quot;: &quot;string&quot;,
+      &quot;asn&quot;: 0,
+      &quot;authKey&quot;: &quot;string&quot;,
+      &quot;customerAddress&quot;: &quot;string&quot;,
+      &quot;virtualGatewayId&quot;: &quot;string&quot;,
+      &quot;virtualInterfaceName&quot;: &quot;string&quot;,
+      &quot;vlan&quot;: 0
+    }&#x27;</span>
+
+</code></pre>
+<pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You need Curl version 7.75 or later to use the --aws-sigv4 option</span>
+
+curl -X POST https://directlink.<span class="hljs-variable">$OSC_REGION</span>.outscale.com \
+  --user <span class="hljs-variable">$OSC_ACCESS_KEY</span>:<span class="hljs-variable">$OSC_SECRET_KEY</span> \
+  --aws-sigv4 <span class="hljs-string">&#x27;aws:amz&#x27;</span> \
+  --header <span class="hljs-string">&#x27;x-amz-target: OvertureService.CreatePrivateVirtualInterface&#x27;</span> \
+  --header <span class="hljs-string">&#x27;Content-Type: application/x-amz-json-1.1&#x27;</span> \
+  --data <span class="hljs-string">&#x27;{
+    &quot;connectionId&quot;: &quot;string&quot;,
+    &quot;dryRun&quot;: false,
+    &quot;newPrivateVirtualInterface&quot;: {
+      &quot;amazonAddress&quot;: &quot;string&quot;,
+      &quot;asn&quot;: 0,
+      &quot;authKey&quot;: &quot;string&quot;,
+      &quot;customerAddress&quot;: &quot;string&quot;,
+      &quot;virtualGatewayId&quot;: &quot;string&quot;,
+      &quot;virtualInterfaceName&quot;: &quot;string&quot;,
+      &quot;vlan&quot;: 0
+    }
+  }&#x27;</span>
+
+</code></pre>
+<p><strong>Body</strong> (<a href="directlink.html#schemacreateprivatevirtualinterfacerequest">CreatePrivateVirtualInterfaceRequest</a>):</p>
+<table>
+<thead>
+<tr>
+<th>Body Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>connectionId <mark>(required)</mark></td>
+<td>string</td>
+<td>The ID of the existing DirectLink connection for which you want to create the private virtual interface.</td>
+</tr>
+<tr>
+<td>dryRun</td>
+<td>boolean</td>
+<td>If true, checks whether you have the required permissions to perform the action.</td>
+</tr>
+<tr>
+<td>newPrivateVirtualInterface <mark>(required)</mark></td>
+<td><a href="directlink.html#schemanewprivatevirtualinterface">NewPrivateVirtualInterface</a></td>
+<td>Detailed information about the configuration parameters of the private virtual interface.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>amazonAddress</td>
+<td>string</td>
+<td>If provided, the IP to set on the OUTSCALE side of the virtual interface. This IP must include a network prefix (for example <code>172.16.0.1/30</code>).</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>asn <mark>(required)</mark></td>
+<td>integer</td>
+<td>The autonomous system number (ASN) for the Border Gateway Protocol (BGP) configuration on the customer side of the virtual interface. This number must be between <code>64512</code> and <code>65534</code>.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>authKey</td>
+<td>string</td>
+<td>The BGP authentication key.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>customerAddress</td>
+<td>string</td>
+<td>The IP on the customer side of the virtual interface. This IP must be provided if the <code>amazonAddress</code> parameter is provided, and be in the same network subnet.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>virtualGatewayId</td>
+<td>string</td>
+<td>The target virtual private gateway.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>virtualInterfaceName <mark>(required)</mark></td>
+<td>string</td>
+<td>The name of the virtual interface.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node last indent-1"></span>vlan <mark>(required)</mark></td>
+<td>integer</td>
+<td>The unique VLAN ID for the virtual interface. This number must be unique and be between <code>2</code> and <code>4094</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="createprivatevirtualinterface-responses">Response Elements</h3>
+<blockquote>
+<p>Examples<a name="CreatePrivateVirtualInterface-res-example.json"></a></p>
+</blockquote>
+<blockquote>
+<p>200 Response</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;addressFamily&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;amazonAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;amazonSideAsn&quot;</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">&quot;asn&quot;</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">&quot;authKey&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;bgpPeers&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;addressFamily&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;amazonAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;asn&quot;</span>: <span class="hljs-number">0</span>,
+      <span class="hljs-attr">&quot;authKey&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;bgpPeerState&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;bgpStatus&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;customerAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+    }
+  ],
+  <span class="hljs-attr">&quot;connectionId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;customerAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;customerRouterConfig&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;directConnectGatewayId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;location&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;ownerAccount&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;requestId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;routeFilterPrefixes&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;cidr&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+    }
+  ],
+  <span class="hljs-attr">&quot;virtualGatewayId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;virtualInterfaceId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;virtualInterfaceName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;virtualInterfaceState&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;virtualInterfaceType&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;vlan&quot;</span>: <span class="hljs-number">0</span>
+}
+</code></pre>
+<p><strong>Response 200</strong> (<a href="directlink.html#schemaprivatevirtualinterfaceresponse">PrivateVirtualInterfaceResponse</a>):</p>
+<table>
+<thead>
+<tr>
+<th>Response Element</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>addressFamily</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>amazonAddress</td>
+<td>string</td>
+<td>The IP on the OUTSCALE side of the virtual interface.</td>
+</tr>
+<tr>
+<td>amazonSideAsn</td>
+<td>integer (int64)</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>asn</td>
+<td>integer</td>
+<td>The autonomous system number (ASN) for the Border Gateway Protocol (BGP) configuration on the customer side of the virtual interface.</td>
+</tr>
+<tr>
+<td>authKey</td>
+<td>string</td>
+<td>The BGP authentication key.</td>
+</tr>
+<tr>
+<td>bgpPeers</td>
+<td>[<a href="directlink.html#schemabgppeer">BgpPeer</a>]</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>addressFamily</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>amazonAddress</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>asn</td>
+<td>integer</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>authKey</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>bgpPeerState</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>bgpStatus</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node last indent-1"></span>customerAddress</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>connectionId</td>
+<td>string</td>
+<td>The ID of the DirectLink connection.</td>
+</tr>
+<tr>
+<td>customerAddress</td>
+<td>string</td>
+<td>The IP on the customer side of the virtual interface.</td>
+</tr>
+<tr>
+<td>customerRouterConfig</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>directConnectGatewayId</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>location</td>
+<td>string</td>
+<td>The datacenter where the virtual interface is located.</td>
+</tr>
+<tr>
+<td>ownerAccount</td>
+<td>string</td>
+<td>The account ID of the owner of the virtual interface.</td>
+</tr>
+<tr>
+<td>requestId</td>
+<td>string</td>
+<td>The ID of the request.</td>
+</tr>
+<tr>
+<td>routeFilterPrefixes</td>
+<td>[<a href="directlink.html#schemaroutefilterprefix">RouteFilterPrefix</a>]</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node last indent-1"></span>cidr</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>virtualGatewayId</td>
+<td>string</td>
+<td>The ID of the target virtual private gateway.</td>
+</tr>
+<tr>
+<td>virtualInterfaceId</td>
+<td>string</td>
+<td>The ID of the virtual interface.</td>
+</tr>
+<tr>
+<td>virtualInterfaceName</td>
+<td>string</td>
+<td>The name of the virtual interface.</td>
+</tr>
+<tr>
+<td>virtualInterfaceState</td>
+<td>string</td>
+<td>The state of the virtual interface (<code>confirming</code> | <code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code> | <code>rejected</code> | <code>expired</code>).</td>
+</tr>
+<tr>
+<td>virtualInterfaceType</td>
+<td>string</td>
+<td>The type of the virtual interface (always <code>private</code>).</td>
+</tr>
+<tr>
+<td>vlan</td>
+<td>integer</td>
+<td>The VLAN number associated with the virtual interface.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="deletevirtualinterface">DeleteVirtualInterface</h2>
+<p><code>POST /DeleteVirtualInterface</code></p>
+<p>Deletes a specified virtual interface.<br /><br />
+This AWS-compliant method corresponds to <a href="api%3Fconsole.html#deletedirectlinkinterface">DeleteDirectLinkInterface</a> in the OUTSCALE API.</p>
+<aside class="warning">
+This action needs to be authenticated by
+<a href="directlink.html#authentication-schemes">access key/secret key</a>.
+</aside>
+<h3 id="deletevirtualinterface-parameters">Request Parameters</h3>
+<div class="lang-selector">
+<a href="directlink.html#" name="console">OSC CLI</a>
+<a href="directlink.html#" name="shell">Shell</a>
+</div>
+<blockquote>
+<p>Examples<a name="DeleteVirtualInterface-req-example.sh"></a></p>
+</blockquote>
+<pre class="highlight tab tab-console"><code>osc-cli directlink DeleteVirtualInterface --profile <span class="hljs-string">&quot;default&quot;</span> \
+  --dryRun False \
+  --virtualInterfaceId <span class="hljs-string">&quot;string&quot;</span>
+
+</code></pre>
+<pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You need Curl version 7.75 or later to use the --aws-sigv4 option</span>
+
+curl -X POST https://directlink.<span class="hljs-variable">$OSC_REGION</span>.outscale.com \
+  --user <span class="hljs-variable">$OSC_ACCESS_KEY</span>:<span class="hljs-variable">$OSC_SECRET_KEY</span> \
+  --aws-sigv4 <span class="hljs-string">&#x27;aws:amz&#x27;</span> \
+  --header <span class="hljs-string">&#x27;x-amz-target: OvertureService.DeleteVirtualInterface&#x27;</span> \
+  --header <span class="hljs-string">&#x27;Content-Type: application/x-amz-json-1.1&#x27;</span> \
+  --data <span class="hljs-string">&#x27;{
+    &quot;dryRun&quot;: false,
+    &quot;virtualInterfaceId&quot;: &quot;string&quot;
+  }&#x27;</span>
+
+</code></pre>
+<p><strong>Body</strong> (<a href="directlink.html#schemadeletevirtualinterfacerequest">DeleteVirtualInterfaceRequest</a>):</p>
+<table>
+<thead>
+<tr>
+<th>Body Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dryRun</td>
+<td>boolean</td>
+<td>If true, checks whether you have the required permissions to perform the action.</td>
+</tr>
+<tr>
+<td>virtualInterfaceId <mark>(required)</mark></td>
+<td>string</td>
+<td>The ID of the virtual interface you want to delete.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="deletevirtualinterface-responses">Response Elements</h3>
+<blockquote>
+<p>Examples<a name="DeleteVirtualInterface-res-example.json"></a></p>
+</blockquote>
+<blockquote>
+<p>200 Response</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;requestId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;virtualInterfaceState&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+}
+</code></pre>
+<p><strong>Response 200</strong> (<a href="directlink.html#schemadeletevirtualinterfaceresponse">DeleteVirtualInterfaceResponse</a>):</p>
+<table>
+<thead>
+<tr>
+<th>Response Element</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>requestId</td>
+<td>string</td>
+<td>The ID of the request.</td>
+</tr>
+<tr>
+<td>virtualInterfaceState</td>
+<td>string</td>
+<td>The updated state of the virtual interface (always <code>deleting</code>).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="describevirtualgateways">DescribeVirtualGateways</h2>
+<p><code>POST /DescribeVirtualGateways</code></p>
+<p>Returns a list of your <span class="tooltip" data-tooltip="virtual private gateway in AWS-Compliant APIs">virtual gateways</span> that can be used as a target by a <span class="tooltip" data-tooltip="DirectLink interface in OUTSCALE API">private virtual interface</span>.<br /><br />
+This AWS-compliant method corresponds to <a href="api%3Fconsole.html#readvirtualgateways">ReadVirtualGateways</a> in the OUTSCALE API.</p>
+<aside class="warning">
+This action needs to be authenticated by
+<a href="directlink.html#authentication-schemes">access key/secret key</a>.
+</aside>
+<h3 id="describevirtualgateways-parameters">Request Parameters</h3>
+<div class="lang-selector">
+<a href="directlink.html#" name="console">OSC CLI</a>
+<a href="directlink.html#" name="shell">Shell</a>
+</div>
+<blockquote>
+<p>Examples<a name="DescribeVirtualGateways-req-example.sh"></a></p>
+</blockquote>
+<pre class="highlight tab tab-console"><code>osc-cli directlink DescribeVirtualGateways --profile <span class="hljs-string">&quot;default&quot;</span> \
+  --DryRun False
+
+</code></pre>
+<pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You need Curl version 7.75 or later to use the --aws-sigv4 option</span>
+
+curl -X POST https://directlink.<span class="hljs-variable">$OSC_REGION</span>.outscale.com \
+  --user <span class="hljs-variable">$OSC_ACCESS_KEY</span>:<span class="hljs-variable">$OSC_SECRET_KEY</span> \
+  --aws-sigv4 <span class="hljs-string">&#x27;aws:amz&#x27;</span> \
+  --header <span class="hljs-string">&#x27;x-amz-target: OvertureService.DescribeVirtualGateways&#x27;</span> \
+  --header <span class="hljs-string">&#x27;Content-Type: application/x-amz-json-1.1&#x27;</span> \
+  --data <span class="hljs-string">&#x27;{
+    &quot;DryRun&quot;: false
+  }&#x27;</span>
+
+</code></pre>
+<p><strong>Body</strong> (<a href="directlink.html#schemadescribevirtualgatewaysrequest">DescribeVirtualGatewaysRequest</a>):</p>
+<table>
+<thead>
+<tr>
+<th>Body Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DryRun</td>
+<td>boolean</td>
+<td>If true, checks whether you have the required permissions to perform the action.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="describevirtualgateways-responses">Response Elements</h3>
+<blockquote>
+<p>Examples<a name="DescribeVirtualGateways-res-example.json"></a></p>
+</blockquote>
+<blockquote>
+<p>200 Response</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;requestId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;virtualGateways&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;virtualGatewayId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;virtualGatewayState&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+    }
+  ]
+}
+</code></pre>
+<p><strong>Response 200</strong> (<a href="directlink.html#schemadescribevirtualgatewaysresponse">DescribeVirtualGatewaysResponse</a>):</p>
+<table>
+<thead>
+<tr>
+<th>Response Element</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>requestId</td>
+<td>string</td>
+<td>The ID of the request.</td>
+</tr>
+<tr>
+<td>virtualGateways</td>
+<td>[<a href="directlink.html#schemavirtualgateways">VirtualGateways</a>]</td>
+<td>Information about one or more virtual gateways.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>virtualGatewayId</td>
+<td>string</td>
+<td>The ID of the virtual gateway.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node last indent-1"></span>virtualGatewayState</td>
+<td>string</td>
+<td>The state of the virtual gateway (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="describevirtualinterfaces">DescribeVirtualInterfaces</h2>
+<p><code>POST /DescribeVirtualInterfaces</code></p>
+<p>Describes one or more of your virtual interfaces.<br />
+You can use the <code>connectionId</code> parameter to describe virtual interfaces associated with a specified connection, or the <code>VirtualInterfaceId</code> parameter to describe a specified virtual interface.<br /><br />
+This AWS-compliant method corresponds to <a href="api%3Fconsole.html#readdirectlinkinterfaces">ReadDirectLinkInterfaces</a> in the OUTSCALE API.</p>
+<aside class="warning">
+This action needs to be authenticated by
+<a href="directlink.html#authentication-schemes">access key/secret key</a>.
+</aside>
+<h3 id="describevirtualinterfaces-parameters">Request Parameters</h3>
+<div class="lang-selector">
+<a href="directlink.html#" name="console">OSC CLI</a>
+<a href="directlink.html#" name="shell">Shell</a>
+</div>
+<blockquote>
+<p>Examples<a name="DescribeVirtualInterfaces-req-example.sh"></a></p>
+</blockquote>
+<pre class="highlight tab tab-console"><code>osc-cli directlink DescribeVirtualInterfaces --profile <span class="hljs-string">&quot;default&quot;</span> \
+  --connectionId <span class="hljs-string">&quot;string&quot;</span> \
+  --dryRun False \
+  --virtualInterfaceId <span class="hljs-string">&quot;string&quot;</span>
+
+</code></pre>
+<pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You need Curl version 7.75 or later to use the --aws-sigv4 option</span>
+
+curl -X POST https://directlink.<span class="hljs-variable">$OSC_REGION</span>.outscale.com \
+  --user <span class="hljs-variable">$OSC_ACCESS_KEY</span>:<span class="hljs-variable">$OSC_SECRET_KEY</span> \
+  --aws-sigv4 <span class="hljs-string">&#x27;aws:amz&#x27;</span> \
+  --header <span class="hljs-string">&#x27;x-amz-target: OvertureService.DescribeVirtualInterfaces&#x27;</span> \
+  --header <span class="hljs-string">&#x27;Content-Type: application/x-amz-json-1.1&#x27;</span> \
+  --data <span class="hljs-string">&#x27;{
+    &quot;connectionId&quot;: &quot;string&quot;,
+    &quot;dryRun&quot;: false,
+    &quot;virtualInterfaceId&quot;: &quot;string&quot;
+  }&#x27;</span>
+
+</code></pre>
+<p><strong>Body</strong> (<a href="directlink.html#schemadescribevirtualinterfacesrequest">DescribeVirtualInterfacesRequest</a>):</p>
+<table>
+<thead>
+<tr>
+<th>Body Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>connectionId</td>
+<td>string</td>
+<td>The ID of a DirectLink connection.</td>
+</tr>
+<tr>
+<td>dryRun</td>
+<td>boolean</td>
+<td>If true, checks whether you have the required permissions to perform the action.</td>
+</tr>
+<tr>
+<td>virtualInterfaceId</td>
+<td>string</td>
+<td>The ID of a virtual interface.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="describevirtualinterfaces-responses">Response Elements</h3>
+<blockquote>
+<p>Examples<a name="DescribeVirtualInterfaces-res-example.json"></a></p>
+</blockquote>
+<blockquote>
+<p>200 Response</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;requestId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;virtualInterfaces&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;addressFamily&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;amazonAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;amazonSideAsn&quot;</span>: <span class="hljs-number">0</span>,
+      <span class="hljs-attr">&quot;asn&quot;</span>: <span class="hljs-number">0</span>,
+      <span class="hljs-attr">&quot;authKey&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;bgpPeers&quot;</span>: [
+        {
+          <span class="hljs-attr">&quot;addressFamily&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+          <span class="hljs-attr">&quot;amazonAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+          <span class="hljs-attr">&quot;asn&quot;</span>: <span class="hljs-number">0</span>,
+          <span class="hljs-attr">&quot;authKey&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+          <span class="hljs-attr">&quot;bgpPeerState&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+          <span class="hljs-attr">&quot;bgpStatus&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+          <span class="hljs-attr">&quot;customerAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+        }
+      ],
+      <span class="hljs-attr">&quot;connectionId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;customerAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;customerRouterConfig&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;directConnectGatewayId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;location&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;ownerAccount&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;routeFilterPrefixes&quot;</span>: [
+        {
+          <span class="hljs-attr">&quot;cidr&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+        }
+      ],
+      <span class="hljs-attr">&quot;virtualGatewayId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;virtualInterfaceId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;virtualInterfaceName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;virtualInterfaceState&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;virtualInterfaceType&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;vlan&quot;</span>: <span class="hljs-number">0</span>
+    }
+  ]
+}
+</code></pre>
+<p><strong>Response 200</strong> (<a href="directlink.html#schemadescribevirtualinterfacesresponse">DescribeVirtualInterfacesResponse</a>):</p>
+<table>
+<thead>
+<tr>
+<th>Response Element</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>requestId</td>
+<td>string</td>
+<td>The ID of the request.</td>
+</tr>
+<tr>
+<td>virtualInterfaces</td>
+<td>[<a href="directlink.html#schemavirtualinterface">VirtualInterface</a>]</td>
+<td>Information about one or more virtual interfaces.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>addressFamily</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>amazonAddress</td>
+<td>string</td>
+<td>The IP on the OUTSCALE side of the virtual interface.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>amazonSideAsn</td>
+<td>integer (int64)</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>asn</td>
+<td>integer</td>
+<td>The autonomous system number (ASN) for the Border Gateway Protocol (BGP) configuration on the customer side of the virtual interface.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>authKey</td>
+<td>string</td>
+<td>The BGP authentication key.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>bgpPeers</td>
+<td>[<a href="directlink.html#schemabgppeer">BgpPeer</a>]</td>
+<td>The BGP authentication key.</td>
+</tr>
+<tr>
+<td class="indent-2"><span class="pipe indent-1"></span><span class="pipe node indent-2"></span>addressFamily</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td class="indent-2"><span class="pipe indent-1"></span><span class="pipe node indent-2"></span>amazonAddress</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td class="indent-2"><span class="pipe indent-1"></span><span class="pipe node indent-2"></span>asn</td>
+<td>integer</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td class="indent-2"><span class="pipe indent-1"></span><span class="pipe node indent-2"></span>authKey</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td class="indent-2"><span class="pipe indent-1"></span><span class="pipe node indent-2"></span>bgpPeerState</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td class="indent-2"><span class="pipe indent-1"></span><span class="pipe node indent-2"></span>bgpStatus</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td class="indent-2"><span class="pipe indent-1"></span><span class="pipe node last indent-2"></span>customerAddress</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>connectionId</td>
+<td>string</td>
+<td>The ID of the DirectLink connection.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>customerAddress</td>
+<td>string</td>
+<td>The IP on the customer side of the virtual interface.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>customerRouterConfig</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>directConnectGatewayId</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>location</td>
+<td>string</td>
+<td>The datacenter where the virtual interface is located.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>ownerAccount</td>
+<td>string</td>
+<td>The account ID of the owner of the virtual interface.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>routeFilterPrefixes</td>
+<td>[<a href="directlink.html#schemaroutefilterprefix">RouteFilterPrefix</a>]</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td class="indent-2"><span class="pipe indent-1"></span><span class="pipe node last indent-2"></span>cidr</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>virtualGatewayId</td>
+<td>string</td>
+<td>The ID of the target <span class="tooltip" data-tooltip="Virtual gateway in OUTSCALE API">virtual private gateway</span>.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>virtualInterfaceId</td>
+<td>string</td>
+<td>The ID of the virtual interface.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>virtualInterfaceName</td>
+<td>string</td>
+<td>The name of the virtual interface.</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>virtualInterfaceState</td>
+<td>string</td>
+<td>The state of the virtual interface (<code>confirming</code> | <code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code> | <code>rejected</code> | <code>expired</code>).</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node indent-1"></span>virtualInterfaceType</td>
+<td>string</td>
+<td>The type of the virtual interface (always <code>private</code>).</td>
+</tr>
+<tr>
+<td class="indent-1"><span class="pipe node last indent-1"></span>vlan</td>
+<td>integer</td>
+<td>The VLAN number associated with the virtual interface.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="schemas">Schemas</h1>
+<h2 id="tocs_allocateprivatevirtualinterfacerequest">AllocatePrivateVirtualInterfaceRequest</h2>
+<a class="offset-up" id="schemaallocateprivatevirtualinterfacerequest"></a>
+<a class="offset-up" id="tocsallocateprivatevirtualinterfacerequest"></a>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>connectionId</td>
+<td>string</td>
+<td>The ID of the existing DirectLink connection for which you want to create the <span class="tooltip" data-tooltip="DirectLink interface in OUTSCALE API">private virtual interface</span>.</td>
+</tr>
+<tr>
+<td>dryRun</td>
+<td>boolean</td>
+<td>If true, checks whether you have the required permissions to perform the action.</td>
+</tr>
+<tr>
+<td>newPrivateVirtualInterfaceAllocation</td>
+<td><a href="directlink.html#schemanewprivatevirtualinterfaceallocation">NewPrivateVirtualInterfaceAllocation</a></td>
+<td>Detailed information about the configuration parameters of the private virtual interface.</td>
+</tr>
+<tr>
+<td>ownerAccount</td>
+<td>string</td>
+<td>The account ID of the owner of the private virtual interface.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Schema</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;connectionId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;dryRun&quot;</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">&quot;newPrivateVirtualInterfaceAllocation&quot;</span>: {
+    <span class="hljs-attr">&quot;amazonAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;asn&quot;</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-attr">&quot;authKey&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;customerAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;virtualInterfaceName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;vlan&quot;</span>: <span class="hljs-number">0</span>
+  },
+  <span class="hljs-attr">&quot;ownerAccount&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+}
+</code></pre>
+<h2 id="tocs_bgppeer">BgpPeer</h2>
+<a class="offset-up" id="schemabgppeer"></a>
+<a class="offset-up" id="tocsbgppeer"></a>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>addressFamily</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>amazonAddress</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>asn</td>
+<td>integer</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>authKey</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>bgpPeerState</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>bgpStatus</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>customerAddress</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Schema</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;addressFamily&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;amazonAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;asn&quot;</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">&quot;authKey&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;bgpPeerState&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;bgpStatus&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;customerAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+}
+</code></pre>
+<h2 id="tocs_confirmprivatevirtualinterfacerequest">ConfirmPrivateVirtualInterfaceRequest</h2>
+<a class="offset-up" id="schemaconfirmprivatevirtualinterfacerequest"></a>
+<a class="offset-up" id="tocsconfirmprivatevirtualinterfacerequest"></a>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dryRun</td>
+<td>boolean</td>
+<td>If true, checks whether you have the required permissions to perform the action.</td>
+</tr>
+<tr>
+<td>virtualGatewayId</td>
+<td>string</td>
+<td>The ID of the target <span class="tooltip" data-tooltip="Virtual gateway in OUTSCALE API">virtual private gateway</span>.</td>
+</tr>
+<tr>
+<td>virtualInterfaceId</td>
+<td>string</td>
+<td>The ID of the virtual interface.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Schema</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;dryRun&quot;</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">&quot;virtualGatewayId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;virtualInterfaceId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+}
+</code></pre>
+<h2 id="tocs_confirmprivatevirtualinterfaceresponse">ConfirmPrivateVirtualInterfaceResponse</h2>
+<a class="offset-up" id="schemaconfirmprivatevirtualinterfaceresponse"></a>
+<a class="offset-up" id="tocsconfirmprivatevirtualinterfaceresponse"></a>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>requestId</td>
+<td>string</td>
+<td>The ID of the request.</td>
+</tr>
+<tr>
+<td>virtualInterfaceState</td>
+<td>string</td>
+<td>The state of the virtual interface (always <code>pending</code>).</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Schema</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;requestId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;virtualInterfaceState&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+}
+</code></pre>
+<h2 id="tocs_connection">Connection</h2>
+<a class="offset-up" id="schemaconnection"></a>
+<a class="offset-up" id="tocsconnection"></a>
+<p>Information about a DirectLink connection.<br />
+Connection states are:<br /></p>
+<ul>
+<li><code>requested</code>: The connection is requested but the request has not been validated yet.<br /></li>
+<li><code>pending</code>: The connection request has been validated. It remains in the <code>pending</code> state until you establish the physical link.<br /></li>
+<li><code>available</code>: The physical link is established and the connection is ready to use.<br /></li>
+<li><code>deleting</code>: The deletion process is in progress.<br /></li>
+<li><code>deleted</code>: The connection is deleted.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>awsDevice</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>bandwidth</td>
+<td>string</td>
+<td>The physical link bandwidth (either <code>1Gbps</code> or <code>10Gbps</code>).</td>
+</tr>
+<tr>
+<td>connectionId</td>
+<td>string</td>
+<td>The ID of the connection (for example, <code>dxcon-xxxxxxxx</code>).</td>
+</tr>
+<tr>
+<td>connectionName</td>
+<td>string</td>
+<td>The name of the connection.</td>
+</tr>
+<tr>
+<td>connectionState</td>
+<td>string</td>
+<td>The state of the connection.</td>
+</tr>
+<tr>
+<td>lagId</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>loaIssueTime</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>location</td>
+<td>string</td>
+<td>The datacenter where the connection is located.</td>
+</tr>
+<tr>
+<td>ownerAccount</td>
+<td>string</td>
+<td>The account ID of the owner of the connection.</td>
+</tr>
+<tr>
+<td>partnerName</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>region</td>
+<td>string</td>
+<td>The Region in which the connection has been created.</td>
+</tr>
+<tr>
+<td>vlan</td>
+<td>integer</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Schema</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;awsDevice&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;bandwidth&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;connectionId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;connectionName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;connectionState&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;lagId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;loaIssueTime&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;location&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;ownerAccount&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;partnerName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;region&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;vlan&quot;</span>: <span class="hljs-number">0</span>
+}
+</code></pre>
+<h2 id="tocs_connectionresponse">ConnectionResponse</h2>
+<a class="offset-up" id="schemaconnectionresponse"></a>
+<a class="offset-up" id="tocsconnectionresponse"></a>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>awsDevice</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>bandwidth</td>
+<td>string</td>
+<td>The physical link bandwidth (either <code>1Gbps</code> or <code>10Gbps</code>).</td>
+</tr>
+<tr>
+<td>connectionId</td>
+<td>string</td>
+<td>The ID of the connection (for example, <code>dxcon-xxxxxxxx</code>).</td>
+</tr>
+<tr>
+<td>connectionName</td>
+<td>string</td>
+<td>The name of the connection.</td>
+</tr>
+<tr>
+<td>connectionState</td>
+<td>string</td>
+<td>The state of the connection.</td>
+</tr>
+<tr>
+<td>lagId</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>loaIssueTime</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>location</td>
+<td>string</td>
+<td>The datacenter where the connection is located.</td>
+</tr>
+<tr>
+<td>ownerAccount</td>
+<td>string</td>
+<td>The account ID of the owner of the connection.</td>
+</tr>
+<tr>
+<td>partnerName</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>region</td>
+<td>string</td>
+<td>The Region in which the connection has been created.</td>
+</tr>
+<tr>
+<td>requestId</td>
+<td>string</td>
+<td>The ID of the request.</td>
+</tr>
+<tr>
+<td>vlan</td>
+<td>integer</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Schema</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;awsDevice&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;bandwidth&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;connectionId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;connectionName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;connectionState&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;lagId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;loaIssueTime&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;location&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;ownerAccount&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;partnerName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;region&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;requestId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;vlan&quot;</span>: <span class="hljs-number">0</span>
+}
+</code></pre>
+<h2 id="tocs_createconnectionrequest">CreateConnectionRequest</h2>
+<a class="offset-up" id="schemacreateconnectionrequest"></a>
+<a class="offset-up" id="tocscreateconnectionrequest"></a>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bandwidth</td>
+<td>string</td>
+<td>The bandwidth of the connection (<code>1Gbps</code> | <code>10Gbps</code>).</td>
+</tr>
+<tr>
+<td>connectionName</td>
+<td>string</td>
+<td>The name of the connection.</td>
+</tr>
+<tr>
+<td>dryRun</td>
+<td>boolean</td>
+<td>If true, checks whether you have the required permissions to perform the action.</td>
+</tr>
+<tr>
+<td>location</td>
+<td>string</td>
+<td>The code of the requested location for the connection, returned by the <em>DescribeLocations</em> method.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Schema</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;bandwidth&quot;</span>: <span class="hljs-string">&quot;1Gbps&quot;</span>,
+  <span class="hljs-attr">&quot;connectionName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;dryRun&quot;</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">&quot;location&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+}
+</code></pre>
+<h2 id="tocs_createprivatevirtualinterfacerequest">CreatePrivateVirtualInterfaceRequest</h2>
+<a class="offset-up" id="schemacreateprivatevirtualinterfacerequest"></a>
+<a class="offset-up" id="tocscreateprivatevirtualinterfacerequest"></a>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>connectionId</td>
+<td>string</td>
+<td>The ID of the existing DirectLink connection for which you want to create the <span class="tooltip" data-tooltip="DirectLink interface in OUTSCALE API">private virtual interface</span>.</td>
+</tr>
+<tr>
+<td>dryRun</td>
+<td>boolean</td>
+<td>If true, checks whether you have the required permissions to perform the action.</td>
+</tr>
+<tr>
+<td>newPrivateVirtualInterface</td>
+<td><a href="directlink.html#schemanewprivatevirtualinterface">NewPrivateVirtualInterface</a></td>
+<td>Detailed information about the configuration parameters of the private virtual interface.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Schema</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;connectionId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;dryRun&quot;</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">&quot;newPrivateVirtualInterface&quot;</span>: {
+    <span class="hljs-attr">&quot;amazonAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;asn&quot;</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-attr">&quot;authKey&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;customerAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;virtualGatewayId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;virtualInterfaceName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;vlan&quot;</span>: <span class="hljs-number">0</span>
+  }
+}
+</code></pre>
+<h2 id="tocs_deleteconnectionrequest">DeleteConnectionRequest</h2>
+<a class="offset-up" id="schemadeleteconnectionrequest"></a>
+<a class="offset-up" id="tocsdeleteconnectionrequest"></a>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>connectionId</td>
+<td>string</td>
+<td>The ID of the DirectLink connection you want to delete.</td>
+</tr>
+<tr>
+<td>dryRun</td>
+<td>boolean</td>
+<td>If true, checks whether you have the required permissions to perform the action.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Schema</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;connectionId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;dryRun&quot;</span>: <span class="hljs-literal">true</span>
+}
+</code></pre>
+<h2 id="tocs_deletevirtualinterfacerequest">DeleteVirtualInterfaceRequest</h2>
+<a class="offset-up" id="schemadeletevirtualinterfacerequest"></a>
+<a class="offset-up" id="tocsdeletevirtualinterfacerequest"></a>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dryRun</td>
+<td>boolean</td>
+<td>If true, checks whether you have the required permissions to perform the action.</td>
+</tr>
+<tr>
+<td>virtualInterfaceId</td>
+<td>string</td>
+<td>The ID of the virtual interface you want to delete.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Schema</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;dryRun&quot;</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">&quot;virtualInterfaceId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+}
+</code></pre>
+<h2 id="tocs_deletevirtualinterfaceresponse">DeleteVirtualInterfaceResponse</h2>
+<a class="offset-up" id="schemadeletevirtualinterfaceresponse"></a>
+<a class="offset-up" id="tocsdeletevirtualinterfaceresponse"></a>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>requestId</td>
+<td>string</td>
+<td>The ID of the request.</td>
+</tr>
+<tr>
+<td>virtualInterfaceState</td>
+<td>string</td>
+<td>The updated state of the virtual interface (always <code>deleting</code>).</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Schema</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;requestId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;virtualInterfaceState&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+}
+</code></pre>
+<h2 id="tocs_describeconnectionsrequest">DescribeConnectionsRequest</h2>
+<a class="offset-up" id="schemadescribeconnectionsrequest"></a>
+<a class="offset-up" id="tocsdescribeconnectionsrequest"></a>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>connectionId</td>
+<td>string</td>
+<td>The ID of a DirectLink connection.</td>
+</tr>
+<tr>
+<td>dryRun</td>
+<td>boolean</td>
+<td>If true, checks whether you have the required permissions to perform the action.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Schema</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;connectionId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;dryRun&quot;</span>: <span class="hljs-literal">true</span>
+}
+</code></pre>
+<h2 id="tocs_describeconnectionsresponse">DescribeConnectionsResponse</h2>
+<a class="offset-up" id="schemadescribeconnectionsresponse"></a>
+<a class="offset-up" id="tocsdescribeconnectionsresponse"></a>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>connections</td>
+<td>[<a href="directlink.html#schemaconnection">Connection</a>]</td>
+<td>Information about one or more DirectLink connections.</td>
+</tr>
+<tr>
+<td>requestId</td>
+<td>string</td>
+<td>The ID of the request.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Schema</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;connections&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;awsDevice&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;bandwidth&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;connectionId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;connectionName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;connectionState&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;lagId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;loaIssueTime&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;location&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;ownerAccount&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;partnerName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;region&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;vlan&quot;</span>: <span class="hljs-number">0</span>
+    }
+  ],
+  <span class="hljs-attr">&quot;requestId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+}
+</code></pre>
+<h2 id="tocs_describelocationsrequest">DescribeLocationsRequest</h2>
+<a class="offset-up" id="schemadescribelocationsrequest"></a>
+<a class="offset-up" id="tocsdescribelocationsrequest"></a>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DryRun</td>
+<td>boolean</td>
+<td>If true, checks whether you have the required permissions to perform the action.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Schema</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;DryRun&quot;</span>: <span class="hljs-literal">true</span>
+}
+</code></pre>
+<h2 id="tocs_describelocationsresponse">DescribeLocationsResponse</h2>
+<a class="offset-up" id="schemadescribelocationsresponse"></a>
+<a class="offset-up" id="tocsdescribelocationsresponse"></a>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>locations</td>
+<td>[<a href="directlink.html#schemalocations">Locations</a>]</td>
+<td>Information about one or more locations.</td>
+</tr>
+<tr>
+<td>requestId</td>
+<td>string</td>
+<td>The ID of the request.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Schema</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;locations&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;locationCode&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;locationName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+    }
+  ],
+  <span class="hljs-attr">&quot;requestId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+}
+</code></pre>
+<h2 id="tocs_describevirtualgatewaysrequest">DescribeVirtualGatewaysRequest</h2>
+<a class="offset-up" id="schemadescribevirtualgatewaysrequest"></a>
+<a class="offset-up" id="tocsdescribevirtualgatewaysrequest"></a>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DryRun</td>
+<td>boolean</td>
+<td>If true, checks whether you have the required permissions to perform the action.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Schema</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;DryRun&quot;</span>: <span class="hljs-literal">true</span>
+}
+</code></pre>
+<h2 id="tocs_describevirtualgatewaysresponse">DescribeVirtualGatewaysResponse</h2>
+<a class="offset-up" id="schemadescribevirtualgatewaysresponse"></a>
+<a class="offset-up" id="tocsdescribevirtualgatewaysresponse"></a>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>requestId</td>
+<td>string</td>
+<td>The ID of the request.</td>
+</tr>
+<tr>
+<td>virtualGateways</td>
+<td>[<a href="directlink.html#schemavirtualgateways">VirtualGateways</a>]</td>
+<td>Information about one or more <span class="tooltip" data-tooltip="virtual private gateway in AWS-Compliant APIs">virtual gateways</span>.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Schema</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;requestId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;virtualGateways&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;virtualGatewayId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;virtualGatewayState&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+    }
+  ]
+}
+</code></pre>
+<h2 id="tocs_describevirtualinterfacesrequest">DescribeVirtualInterfacesRequest</h2>
+<a class="offset-up" id="schemadescribevirtualinterfacesrequest"></a>
+<a class="offset-up" id="tocsdescribevirtualinterfacesrequest"></a>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>connectionId</td>
+<td>string</td>
+<td>The ID of a DirectLink connection.</td>
+</tr>
+<tr>
+<td>dryRun</td>
+<td>boolean</td>
+<td>If true, checks whether you have the required permissions to perform the action.</td>
+</tr>
+<tr>
+<td>virtualInterfaceId</td>
+<td>string</td>
+<td>The ID of a virtual interface.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Schema</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;connectionId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;dryRun&quot;</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">&quot;virtualInterfaceId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+}
+</code></pre>
+<h2 id="tocs_describevirtualinterfacesresponse">DescribeVirtualInterfacesResponse</h2>
+<a class="offset-up" id="schemadescribevirtualinterfacesresponse"></a>
+<a class="offset-up" id="tocsdescribevirtualinterfacesresponse"></a>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>requestId</td>
+<td>string</td>
+<td>The ID of the request.</td>
+</tr>
+<tr>
+<td>virtualInterfaces</td>
+<td>[<a href="directlink.html#schemavirtualinterface">VirtualInterface</a>]</td>
+<td>Information about one or more virtual interfaces.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Schema</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;requestId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;virtualInterfaces&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;addressFamily&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;amazonAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;amazonSideAsn&quot;</span>: <span class="hljs-number">0</span>,
+      <span class="hljs-attr">&quot;asn&quot;</span>: <span class="hljs-number">0</span>,
+      <span class="hljs-attr">&quot;authKey&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;bgpPeers&quot;</span>: [
+        {
+          <span class="hljs-attr">&quot;addressFamily&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+          <span class="hljs-attr">&quot;amazonAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+          <span class="hljs-attr">&quot;asn&quot;</span>: <span class="hljs-number">0</span>,
+          <span class="hljs-attr">&quot;authKey&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+          <span class="hljs-attr">&quot;bgpPeerState&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+          <span class="hljs-attr">&quot;bgpStatus&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+          <span class="hljs-attr">&quot;customerAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+        }
+      ],
+      <span class="hljs-attr">&quot;connectionId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;customerAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;customerRouterConfig&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;directConnectGatewayId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;location&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;ownerAccount&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;routeFilterPrefixes&quot;</span>: [
+        {
+          <span class="hljs-attr">&quot;cidr&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+        }
+      ],
+      <span class="hljs-attr">&quot;virtualGatewayId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;virtualInterfaceId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;virtualInterfaceName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;virtualInterfaceState&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;virtualInterfaceType&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;vlan&quot;</span>: <span class="hljs-number">0</span>
+    }
+  ]
+}
+</code></pre>
+<h2 id="tocs_locations">Locations</h2>
+<a class="offset-up" id="schemalocations"></a>
+<a class="offset-up" id="tocslocations"></a>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>locationCode</td>
+<td>string</td>
+<td>The location code, to be set as the <code>location</code> parameter of the <strong>CreateConnection</strong> method when creating a connection.</td>
+</tr>
+<tr>
+<td>locationName</td>
+<td>string</td>
+<td>The name and description of the location, corresponding to a datacenter.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Schema</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;locationCode&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;locationName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+}
+</code></pre>
+<h2 id="tocs_newprivatevirtualinterface">NewPrivateVirtualInterface</h2>
+<a class="offset-up" id="schemanewprivatevirtualinterface"></a>
+<a class="offset-up" id="tocsnewprivatevirtualinterface"></a>
+<p>Detailed information about the configuration parameters of the <span class="tooltip" data-tooltip="DirectLink interface in OUTSCALE API">private virtual interface</span>.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>amazonAddress</td>
+<td>string</td>
+<td>If provided, the IP to set on the OUTSCALE side of the virtual interface. This IP must include a network prefix (for example <code>172.16.0.1/30</code>).</td>
+</tr>
+<tr>
+<td>asn</td>
+<td>integer</td>
+<td>The autonomous system number (ASN) for the Border Gateway Protocol (BGP) configuration on the customer side of the virtual interface. This number must be between <code>64512</code> and <code>65534</code>.</td>
+</tr>
+<tr>
+<td>authKey</td>
+<td>string</td>
+<td>The BGP authentication key.</td>
+</tr>
+<tr>
+<td>customerAddress</td>
+<td>string</td>
+<td>The IP on the customer side of the virtual interface. This IP must be provided if the <code>amazonAddress</code> parameter is provided, and be in the same network subnet.</td>
+</tr>
+<tr>
+<td>virtualGatewayId</td>
+<td>string</td>
+<td>The target <span class="tooltip" data-tooltip="Virtual gateway in OUTSCALE API">virtual private gateway</span>.</td>
+</tr>
+<tr>
+<td>virtualInterfaceName</td>
+<td>string</td>
+<td>The name of the virtual interface.</td>
+</tr>
+<tr>
+<td>vlan</td>
+<td>integer</td>
+<td>The unique VLAN ID for the virtual interface. This number must be unique and be between <code>2</code> and <code>4094</code>.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Schema</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;amazonAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;asn&quot;</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">&quot;authKey&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;customerAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;virtualGatewayId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;virtualInterfaceName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;vlan&quot;</span>: <span class="hljs-number">0</span>
+}
+</code></pre>
+<h2 id="tocs_newprivatevirtualinterfaceallocation">NewPrivateVirtualInterfaceAllocation</h2>
+<a class="offset-up" id="schemanewprivatevirtualinterfaceallocation"></a>
+<a class="offset-up" id="tocsnewprivatevirtualinterfaceallocation"></a>
+<p>Detailed information about the configuration parameters of the <span class="tooltip" data-tooltip="DirectLink interface in OUTSCALE API">private virtual interface</span>.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>amazonAddress</td>
+<td>string</td>
+<td>If provided, the IP to set on the OUTSCALE side of the virtual interface. This IP must include a network prefix (for example, <code>172.16.0.1/30</code>).</td>
+</tr>
+<tr>
+<td>asn</td>
+<td>integer</td>
+<td>The autonomous system (AS) number for the Border Gateway Protocol (BGP) configuration on the customer side of the virtual interface.</td>
+</tr>
+<tr>
+<td>authKey</td>
+<td>string</td>
+<td>The BGP authentication key.</td>
+</tr>
+<tr>
+<td>customerAddress</td>
+<td>string</td>
+<td>The IP on the customer side of the virtual interface. This IP must be provided if the <code>amazonAddress</code> parameter is provided, and be in the same network subnet.</td>
+</tr>
+<tr>
+<td>virtualInterfaceName</td>
+<td>string</td>
+<td>The name of the virtual interface.</td>
+</tr>
+<tr>
+<td>vlan</td>
+<td>integer</td>
+<td>The unique VLAN ID for the virtual interface. This number must be unique and be between <code>2</code> and <code>4094</code>.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Schema</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;amazonAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;asn&quot;</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">&quot;authKey&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;customerAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;virtualInterfaceName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;vlan&quot;</span>: <span class="hljs-number">0</span>
+}
+</code></pre>
+<h2 id="tocs_privatevirtualinterfaceresponse">PrivateVirtualInterfaceResponse</h2>
+<a class="offset-up" id="schemaprivatevirtualinterfaceresponse"></a>
+<a class="offset-up" id="tocsprivatevirtualinterfaceresponse"></a>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>addressFamily</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>amazonAddress</td>
+<td>string</td>
+<td>The IP on the OUTSCALE side of the virtual interface.</td>
+</tr>
+<tr>
+<td>amazonSideAsn</td>
+<td>integer (int64)</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>asn</td>
+<td>integer</td>
+<td>The autonomous system number (ASN) for the Border Gateway Protocol (BGP) configuration on the customer side of the virtual interface.</td>
+</tr>
+<tr>
+<td>authKey</td>
+<td>string</td>
+<td>The BGP authentication key.</td>
+</tr>
+<tr>
+<td>bgpPeers</td>
+<td>[<a href="directlink.html#schemabgppeer">BgpPeer</a>]</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>connectionId</td>
+<td>string</td>
+<td>The ID of the DirectLink connection.</td>
+</tr>
+<tr>
+<td>customerAddress</td>
+<td>string</td>
+<td>The IP on the customer side of the virtual interface.</td>
+</tr>
+<tr>
+<td>customerRouterConfig</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>directConnectGatewayId</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>location</td>
+<td>string</td>
+<td>The datacenter where the virtual interface is located.</td>
+</tr>
+<tr>
+<td>ownerAccount</td>
+<td>string</td>
+<td>The account ID of the owner of the virtual interface.</td>
+</tr>
+<tr>
+<td>requestId</td>
+<td>string</td>
+<td>The ID of the request.</td>
+</tr>
+<tr>
+<td>routeFilterPrefixes</td>
+<td>[<a href="directlink.html#schemaroutefilterprefix">RouteFilterPrefix</a>]</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>virtualGatewayId</td>
+<td>string</td>
+<td>The ID of the target <span class="tooltip" data-tooltip="Virtual gateway in OUTSCALE API">virtual private gateway</span>.</td>
+</tr>
+<tr>
+<td>virtualInterfaceId</td>
+<td>string</td>
+<td>The ID of the virtual interface.</td>
+</tr>
+<tr>
+<td>virtualInterfaceName</td>
+<td>string</td>
+<td>The name of the virtual interface.</td>
+</tr>
+<tr>
+<td>virtualInterfaceState</td>
+<td>string</td>
+<td>The state of the virtual interface (<code>confirming</code> | <code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code> | <code>rejected</code> | <code>expired</code>).</td>
+</tr>
+<tr>
+<td>virtualInterfaceType</td>
+<td>string</td>
+<td>The type of the virtual interface (always <code>private</code>).</td>
+</tr>
+<tr>
+<td>vlan</td>
+<td>integer</td>
+<td>The VLAN number associated with the virtual interface.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Schema</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;addressFamily&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;amazonAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;amazonSideAsn&quot;</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">&quot;asn&quot;</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">&quot;authKey&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;bgpPeers&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;addressFamily&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;amazonAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;asn&quot;</span>: <span class="hljs-number">0</span>,
+      <span class="hljs-attr">&quot;authKey&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;bgpPeerState&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;bgpStatus&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;customerAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+    }
+  ],
+  <span class="hljs-attr">&quot;connectionId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;customerAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;customerRouterConfig&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;directConnectGatewayId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;location&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;ownerAccount&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;requestId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;routeFilterPrefixes&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;cidr&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+    }
+  ],
+  <span class="hljs-attr">&quot;virtualGatewayId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;virtualInterfaceId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;virtualInterfaceName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;virtualInterfaceState&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;virtualInterfaceType&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;vlan&quot;</span>: <span class="hljs-number">0</span>
+}
+</code></pre>
+<h2 id="tocs_routefilterprefix">RouteFilterPrefix</h2>
+<a class="offset-up" id="schemaroutefilterprefix"></a>
+<a class="offset-up" id="tocsroutefilterprefix"></a>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cidr</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Schema</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;cidr&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+}
+</code></pre>
+<h2 id="tocs_virtualgateways">VirtualGateways</h2>
+<a class="offset-up" id="schemavirtualgateways"></a>
+<a class="offset-up" id="tocsvirtualgateways"></a>
+<p>Information about one or more <span class="tooltip" data-tooltip="virtual private gateway in AWS-Compliant APIs">virtual gateways</span>.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>virtualGatewayId</td>
+<td>string</td>
+<td>The ID of the virtual gateway.</td>
+</tr>
+<tr>
+<td>virtualGatewayState</td>
+<td>string</td>
+<td>The state of the virtual gateway (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Schema</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;virtualGatewayId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;virtualGatewayState&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+}
+</code></pre>
+<h2 id="tocs_virtualinterface">VirtualInterface</h2>
+<a class="offset-up" id="schemavirtualinterface"></a>
+<a class="offset-up" id="tocsvirtualinterface"></a>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>addressFamily</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>amazonAddress</td>
+<td>string</td>
+<td>The IP on the OUTSCALE side of the virtual interface.</td>
+</tr>
+<tr>
+<td>amazonSideAsn</td>
+<td>integer (int64)</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>asn</td>
+<td>integer</td>
+<td>The autonomous system number (ASN) for the Border Gateway Protocol (BGP) configuration on the customer side of the virtual interface.</td>
+</tr>
+<tr>
+<td>authKey</td>
+<td>string</td>
+<td>The BGP authentication key.</td>
+</tr>
+<tr>
+<td>bgpPeers</td>
+<td>[<a href="directlink.html#schemabgppeer">BgpPeer</a>]</td>
+<td>The BGP authentication key.</td>
+</tr>
+<tr>
+<td>connectionId</td>
+<td>string</td>
+<td>The ID of the DirectLink connection.</td>
+</tr>
+<tr>
+<td>customerAddress</td>
+<td>string</td>
+<td>The IP on the customer side of the virtual interface.</td>
+</tr>
+<tr>
+<td>customerRouterConfig</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>directConnectGatewayId</td>
+<td>string</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>location</td>
+<td>string</td>
+<td>The datacenter where the virtual interface is located.</td>
+</tr>
+<tr>
+<td>ownerAccount</td>
+<td>string</td>
+<td>The account ID of the owner of the virtual interface.</td>
+</tr>
+<tr>
+<td>routeFilterPrefixes</td>
+<td>[<a href="directlink.html#schemaroutefilterprefix">RouteFilterPrefix</a>]</td>
+<td>This parameter is not supported (always null). It is returned only for the sake of compatibility with AWS.</td>
+</tr>
+<tr>
+<td>virtualGatewayId</td>
+<td>string</td>
+<td>The ID of the target <span class="tooltip" data-tooltip="Virtual gateway in OUTSCALE API">virtual private gateway</span>.</td>
+</tr>
+<tr>
+<td>virtualInterfaceId</td>
+<td>string</td>
+<td>The ID of the virtual interface.</td>
+</tr>
+<tr>
+<td>virtualInterfaceName</td>
+<td>string</td>
+<td>The name of the virtual interface.</td>
+</tr>
+<tr>
+<td>virtualInterfaceState</td>
+<td>string</td>
+<td>The state of the virtual interface (<code>confirming</code> | <code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code> | <code>rejected</code> | <code>expired</code>).</td>
+</tr>
+<tr>
+<td>virtualInterfaceType</td>
+<td>string</td>
+<td>The type of the virtual interface (always <code>private</code>).</td>
+</tr>
+<tr>
+<td>vlan</td>
+<td>integer</td>
+<td>The VLAN number associated with the virtual interface.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Schema</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;addressFamily&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;amazonAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;amazonSideAsn&quot;</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">&quot;asn&quot;</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">&quot;authKey&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;bgpPeers&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;addressFamily&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;amazonAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;asn&quot;</span>: <span class="hljs-number">0</span>,
+      <span class="hljs-attr">&quot;authKey&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;bgpPeerState&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;bgpStatus&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;customerAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+    }
+  ],
+  <span class="hljs-attr">&quot;connectionId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;customerAddress&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;customerRouterConfig&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;directConnectGatewayId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;location&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;ownerAccount&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;routeFilterPrefixes&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;cidr&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+    }
+  ],
+  <span class="hljs-attr">&quot;virtualGatewayId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;virtualInterfaceId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;virtualInterfaceName&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;virtualInterfaceState&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;virtualInterfaceType&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;vlan&quot;</span>: <span class="hljs-number">0</span>
+}
+</code></pre>
+<!-- Renderer: Shins v2.6.0 -->
+<!-- Generator: Widdershins v4.0.1 -->
+      </div>
+      <div class="dark-box">
+
+          <div class="lang-selector">
+
+
+                <a href="directlink.html#" name="console">OSC CLI</a>
+
+
+
+                <a href="directlink.html#" name="shell">Shell</a>
+
+
+          </div>
+
+      </div>
+    </div>
+  </div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ and Amazon Web Services™ are trademarks of Amazon Technologies, Inc or its affiliates in the United States and/or other countries.</p>
+</div>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="https://docs.outscale.com/Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script id="site-script" src="_/js/site.js" data-ui-root-path="./_"></script>
+    <script src="_/js/apidocs/app/_lang.js"></script>
+    <script src="_/js/apidocs/app/_nav.js"></script>
+    <script src="_/js/apidocs/app/copy-to-clipboard.js"></script>
+  </body>
+</html>

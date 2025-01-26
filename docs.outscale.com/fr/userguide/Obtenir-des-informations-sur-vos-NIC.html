@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Obtenir des informations sur vos NIC – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Obtenir-des-informations-sur-vos-NIC.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Obtenir-des-informations-sur-vos-NIC.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Getting-Information-About-Your-NICs.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Obtenir des informations sur vos NIC</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez obtenir des informations sur vos <span class="tooltip" data-tooltip="flexible network interface (FNI) dans les API AWS-compliant">network interface cards (NIC)</span>.</p>
+</div>
+<div class="paragraph">
+<p>Des informations sur vos NIC sont également disponibles depuis les <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machines virtuelles (VM)</span> elles-mêmes. Pour en savoir plus, voir <a href="Accéder-aux-metadata-et-user-data-d-une-VM.html" class="xref page">Accéder aux metadata et user data d&#8217;une VM</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Cockpit v2_0"><a class="anchor" href="Obtenir-des-informations-sur-vos-NIC.html#Cockpit v2_0"></a>Obtenir des informations sur vos NIC avec Cockpit v2</h2>
+<div class="sectionbody">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Voir le dashboard <strong>NICs</strong>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="OSC CLI_1"><a class="anchor" href="Obtenir-des-informations-sur-vos-NIC.html#OSC CLI_1"></a>Obtenir des informations sur vos NIC avec OSC CLI</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadNics</strong> command lists one or more <span class="tooltip" data-tooltip="flexible network interface (FNI) dans les API AWS-compliant">network interface cards (NICs)</span>.<br>
+A NIC is a virtual network interface that you can attach to a <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">virtual machine (VM)</span> in a <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api ReadNics --profile "default" \
+    --Filters '{
+        "NicIds": ["eni-12345678"]
+      }'</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api ReadNics --profile "default" \
+    --Filters '{
+        "LinkNicVmIds": ["i-12345678"]
+      }'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Filters</code>: (optional) One or more filters.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Descriptions</code>: (optional) The descriptions of the NICs.</p>
+</li>
+<li>
+<p><code>IsSourceDestCheck</code>: (optional) Whether the source/destination checking is enabled (true) or disabled (false).</p>
+</li>
+<li>
+<p><code>LinkNicDeleteOnVmDeletion</code>: (optional) Whether the NICs are deleted when the VMs they are attached to are terminated.</p>
+</li>
+<li>
+<p><code>LinkNicDeviceNumbers</code>: (optional) The device numbers the NICs are attached to.</p>
+</li>
+<li>
+<p><code>LinkNicLinkNicIds</code>: (optional) The attachment IDs of the NICs.</p>
+</li>
+<li>
+<p><code>LinkNicStates</code>: (optional) The states of the attachments.</p>
+</li>
+<li>
+<p><code>LinkNicVmAccountIds</code>: (optional) The account IDs of the owners of the VMs the NICs are attached to.</p>
+</li>
+<li>
+<p><code>LinkNicVmIds</code>: (optional) The IDs of the VMs the NICs are attached to.</p>
+</li>
+<li>
+<p><code>LinkPublicIpAccountIds</code>: (optional) The account IDs of the owners of the <span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">public IPs</span> associated with the NICs.</p>
+</li>
+<li>
+<p><code>LinkPublicIpLinkPublicIpIds</code>: (optional) The association IDs returned when the public IPs were associated with the NICs.</p>
+</li>
+<li>
+<p><code>LinkPublicIpPublicDnsNames</code>: (optional) The public DNS names associated with the public IPs.</p>
+</li>
+<li>
+<p><code>LinkPublicIpPublicIpIds</code>: (optional) The allocation IDs returned when the public IPs were allocated to their accounts.</p>
+</li>
+<li>
+<p><code>LinkPublicIpPublicIps</code>: (optional) The public IPs associated with the NICs.</p>
+</li>
+<li>
+<p><code>MacAddresses</code>: (optional) The Media Access Control (MAC) addresses of the NICs.</p>
+</li>
+<li>
+<p><code>NetIds</code>: (optional) The IDs of the Nets where the NICs are located.</p>
+</li>
+<li>
+<p><code>NicIds</code>: (optional) The IDs of the NICs.</p>
+</li>
+<li>
+<p><code>PrivateDnsNames</code>: (optional) The private DNS names associated with the primary private IPs.</p>
+</li>
+<li>
+<p><code>PrivateIpsLinkPublicIpAccountIds</code>: (optional) The account IDs of the owner of the public IPs associated with the private IPs.</p>
+</li>
+<li>
+<p><code>PrivateIpsLinkPublicIpPublicIps</code>: (optional) The public IPs associated with the private IPs.</p>
+</li>
+<li>
+<p><code>PrivateIpsPrimaryIp</code>: (optional) Whether the private IP is the primary IP associated with the NIC.</p>
+</li>
+<li>
+<p><code>PrivateIpsPrivateIps</code>: (optional) The private IPs of the NICs.</p>
+</li>
+<li>
+<p><code>SecurityGroupIds</code>: (optional) The IDs of the security groups associated with the NICs.</p>
+</li>
+<li>
+<p><code>SecurityGroupNames</code>: (optional) The names of the security groups associated with the NICs.</p>
+</li>
+<li>
+<p><code>States</code>: (optional) The states of the NICs.</p>
+</li>
+<li>
+<p><code>SubnetIds</code>: (optional) The IDs of the Subnets for the NICs.</p>
+</li>
+<li>
+<p><code>SubregionNames</code>: (optional) The <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Subregions</span> where the NICs are located.</p>
+</li>
+<li>
+<p><code>TagKeys</code>: (optional) The keys of the tags associated with the NICs.</p>
+</li>
+<li>
+<p><code>TagValues</code>: (optional) The values of the tags associated with the NICs.</p>
+</li>
+<li>
+<p><code>Tags</code>: (optional) The key/value combination of the tags associated with the NICs, in the following format: &quot;Filters&quot;:{&quot;Tags&quot;:[&quot;TAGKEY=TAGVALUE&quot;]}.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadNics</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Nics</code>: Information about one or more NICs.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountId</code>: The account ID of the owner of the NIC.</p>
+</li>
+<li>
+<p><code>Description</code>: The description of the NIC.</p>
+</li>
+<li>
+<p><code>IsSourceDestChecked</code>: (Net only) If true, the source/destination check is enabled. If false, it is disabled.</p>
+</li>
+<li>
+<p><code>LinkNic</code>: Information about the NIC attachment.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteOnVmDeletion</code>: If true, the NIC is deleted when the VM is terminated.</p>
+</li>
+<li>
+<p><code>DeviceNumber</code>: The device index for the NIC attachment (between <code>1</code> and <code>7</code>, both included).</p>
+</li>
+<li>
+<p><code>LinkNicId</code>: The ID of the NIC to attach.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the attachment (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p>
+</li>
+<li>
+<p><code>VmAccountId</code>: The account ID of the owner of the VM.</p>
+</li>
+<li>
+<p><code>VmId</code>: The ID of the VM.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>LinkPublicIp</code>: Information about the public IP association.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LinkPublicIpId</code>: (Required in a Net) The ID representing the association of the public IP with the VM or the NIC.</p>
+</li>
+<li>
+<p><code>PublicDnsName</code>: The name of the public DNS.</p>
+</li>
+<li>
+<p><code>PublicIp</code>: The public IP associated with the NIC.</p>
+</li>
+<li>
+<p><code>PublicIpAccountId</code>: The account ID of the owner of the public IP.</p>
+</li>
+<li>
+<p><code>PublicIpId</code>: The allocation ID of the public IP.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>MacAddress</code>: The Media Access Control (MAC) address of the NIC.</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net for the NIC.</p>
+</li>
+<li>
+<p><code>NicId</code>: The ID of the NIC.</p>
+</li>
+<li>
+<p><code>PrivateDnsName</code>: The name of the private DNS.</p>
+</li>
+<li>
+<p><code>PrivateIps</code>: The private IPs of the NIC.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>IsPrimary</code>: If true, the IP is the primary private IP of the NIC.</p>
+</li>
+<li>
+<p><code>LinkPublicIp</code>: Information about the public IP association.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LinkPublicIpId</code>: (Required in a Net) The ID representing the association of the public IP with the VM or the NIC.</p>
+</li>
+<li>
+<p><code>PublicDnsName</code>: The name of the public DNS.</p>
+</li>
+<li>
+<p><code>PublicIp</code>: The public IP associated with the NIC.</p>
+</li>
+<li>
+<p><code>PublicIpAccountId</code>: The account ID of the owner of the public IP.</p>
+</li>
+<li>
+<p><code>PublicIpId</code>: The allocation ID of the public IP.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>PrivateDnsName</code>: The name of the private DNS.</p>
+</li>
+<li>
+<p><code>PrivateIp</code>: The private IP of the NIC.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>SecurityGroups</code>: One or more IDs of security groups for the NIC.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SecurityGroupId</code>: The ID of the security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: The name of the security group.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>State</code>: The state of the NIC (<code>available</code> | <code>attaching</code> | <code>in-use</code> | <code>detaching</code>).</p>
+</li>
+<li>
+<p><code>SubnetId</code>: The ID of the Subnet.</p>
+</li>
+<li>
+<p><code>SubregionName</code>: The Subregion in which the NIC is located.</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the NIC.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "Nics": [
+    {
+      "SubregionName": "eu-west-2a",
+      "SubnetId": "subnet-12345678",
+      "State": "in-use",
+      "LinkNic": {
+        "VmId": "i-12345678",
+        "LinkNicId": "eni-attach-12345678",
+        "VmAccountId": "123456789012",
+        "DeleteOnVmDeletion": false,
+        "DeviceNumber": 0,
+        "State": "attached"
+      },
+      "IsSourceDestChecked": true,
+      "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal",
+      "Tags": [],
+      "Description": "Primary network interface",
+      "AccountId": "123456789012",
+      "SecurityGroups": [
+        {
+          "SecurityGroupName": "security-group-example",
+          "SecurityGroupId": "sg-12345678"
+        }
+      ],
+      "MacAddress": "A1:B2:C3:D4:E5:F6",
+      "NetId": "vpc-12345678",
+      "NicId": "eni-12345678",
+      "PrivateIps": [
+        {
+          "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal",
+          "PrivateIp": "10.0.0.4",
+          "IsPrimary": true
+        }
+      ]
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="oapi-cli_2"><a class="anchor" href="Obtenir-des-informations-sur-vos-NIC.html#oapi-cli_2"></a>Obtenir des informations sur vos NIC avec oapi-cli</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadNics</strong> command lists one or more <span class="tooltip" data-tooltip="flexible network interface (FNI) dans les API AWS-compliant">network interface cards (NICs)</span>.<br>
+A NIC is a virtual network interface that you can attach to a <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">virtual machine (VM)</span> in a <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" ReadNics \
+    --Filters '{
+        "NicIds": ["eni-12345678"]
+      }'</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" ReadNics \
+    --Filters '{
+        "LinkNicVmIds": ["i-12345678"]
+      }'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Filters</code>: (optional) One or more filters.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Descriptions</code>: (optional) The descriptions of the NICs.</p>
+</li>
+<li>
+<p><code>IsSourceDestCheck</code>: (optional) Whether the source/destination checking is enabled (true) or disabled (false).</p>
+</li>
+<li>
+<p><code>LinkNicDeleteOnVmDeletion</code>: (optional) Whether the NICs are deleted when the VMs they are attached to are terminated.</p>
+</li>
+<li>
+<p><code>LinkNicDeviceNumbers</code>: (optional) The device numbers the NICs are attached to.</p>
+</li>
+<li>
+<p><code>LinkNicLinkNicIds</code>: (optional) The attachment IDs of the NICs.</p>
+</li>
+<li>
+<p><code>LinkNicStates</code>: (optional) The states of the attachments.</p>
+</li>
+<li>
+<p><code>LinkNicVmAccountIds</code>: (optional) The account IDs of the owners of the VMs the NICs are attached to.</p>
+</li>
+<li>
+<p><code>LinkNicVmIds</code>: (optional) The IDs of the VMs the NICs are attached to.</p>
+</li>
+<li>
+<p><code>LinkPublicIpAccountIds</code>: (optional) The account IDs of the owners of the <span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">public IPs</span> associated with the NICs.</p>
+</li>
+<li>
+<p><code>LinkPublicIpLinkPublicIpIds</code>: (optional) The association IDs returned when the public IPs were associated with the NICs.</p>
+</li>
+<li>
+<p><code>LinkPublicIpPublicDnsNames</code>: (optional) The public DNS names associated with the public IPs.</p>
+</li>
+<li>
+<p><code>LinkPublicIpPublicIpIds</code>: (optional) The allocation IDs returned when the public IPs were allocated to their accounts.</p>
+</li>
+<li>
+<p><code>LinkPublicIpPublicIps</code>: (optional) The public IPs associated with the NICs.</p>
+</li>
+<li>
+<p><code>MacAddresses</code>: (optional) The Media Access Control (MAC) addresses of the NICs.</p>
+</li>
+<li>
+<p><code>NetIds</code>: (optional) The IDs of the Nets where the NICs are located.</p>
+</li>
+<li>
+<p><code>NicIds</code>: (optional) The IDs of the NICs.</p>
+</li>
+<li>
+<p><code>PrivateDnsNames</code>: (optional) The private DNS names associated with the primary private IPs.</p>
+</li>
+<li>
+<p><code>PrivateIpsLinkPublicIpAccountIds</code>: (optional) The account IDs of the owner of the public IPs associated with the private IPs.</p>
+</li>
+<li>
+<p><code>PrivateIpsLinkPublicIpPublicIps</code>: (optional) The public IPs associated with the private IPs.</p>
+</li>
+<li>
+<p><code>PrivateIpsPrimaryIp</code>: (optional) Whether the private IP is the primary IP associated with the NIC.</p>
+</li>
+<li>
+<p><code>PrivateIpsPrivateIps</code>: (optional) The private IPs of the NICs.</p>
+</li>
+<li>
+<p><code>SecurityGroupIds</code>: (optional) The IDs of the security groups associated with the NICs.</p>
+</li>
+<li>
+<p><code>SecurityGroupNames</code>: (optional) The names of the security groups associated with the NICs.</p>
+</li>
+<li>
+<p><code>States</code>: (optional) The states of the NICs.</p>
+</li>
+<li>
+<p><code>SubnetIds</code>: (optional) The IDs of the Subnets for the NICs.</p>
+</li>
+<li>
+<p><code>SubregionNames</code>: (optional) The <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Subregions</span> where the NICs are located.</p>
+</li>
+<li>
+<p><code>TagKeys</code>: (optional) The keys of the tags associated with the NICs.</p>
+</li>
+<li>
+<p><code>TagValues</code>: (optional) The values of the tags associated with the NICs.</p>
+</li>
+<li>
+<p><code>Tags</code>: (optional) The key/value combination of the tags associated with the NICs, in the following format: &quot;Filters&quot;:{&quot;Tags&quot;:[&quot;TAGKEY=TAGVALUE&quot;]}.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadNics</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Nics</code>: Information about one or more NICs.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountId</code>: The account ID of the owner of the NIC.</p>
+</li>
+<li>
+<p><code>Description</code>: The description of the NIC.</p>
+</li>
+<li>
+<p><code>IsSourceDestChecked</code>: (Net only) If true, the source/destination check is enabled. If false, it is disabled.</p>
+</li>
+<li>
+<p><code>LinkNic</code>: Information about the NIC attachment.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteOnVmDeletion</code>: If true, the NIC is deleted when the VM is terminated.</p>
+</li>
+<li>
+<p><code>DeviceNumber</code>: The device index for the NIC attachment (between <code>1</code> and <code>7</code>, both included).</p>
+</li>
+<li>
+<p><code>LinkNicId</code>: The ID of the NIC to attach.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the attachment (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p>
+</li>
+<li>
+<p><code>VmAccountId</code>: The account ID of the owner of the VM.</p>
+</li>
+<li>
+<p><code>VmId</code>: The ID of the VM.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>LinkPublicIp</code>: Information about the public IP association.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LinkPublicIpId</code>: (Required in a Net) The ID representing the association of the public IP with the VM or the NIC.</p>
+</li>
+<li>
+<p><code>PublicDnsName</code>: The name of the public DNS.</p>
+</li>
+<li>
+<p><code>PublicIp</code>: The public IP associated with the NIC.</p>
+</li>
+<li>
+<p><code>PublicIpAccountId</code>: The account ID of the owner of the public IP.</p>
+</li>
+<li>
+<p><code>PublicIpId</code>: The allocation ID of the public IP.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>MacAddress</code>: The Media Access Control (MAC) address of the NIC.</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net for the NIC.</p>
+</li>
+<li>
+<p><code>NicId</code>: The ID of the NIC.</p>
+</li>
+<li>
+<p><code>PrivateDnsName</code>: The name of the private DNS.</p>
+</li>
+<li>
+<p><code>PrivateIps</code>: The private IPs of the NIC.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>IsPrimary</code>: If true, the IP is the primary private IP of the NIC.</p>
+</li>
+<li>
+<p><code>LinkPublicIp</code>: Information about the public IP association.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LinkPublicIpId</code>: (Required in a Net) The ID representing the association of the public IP with the VM or the NIC.</p>
+</li>
+<li>
+<p><code>PublicDnsName</code>: The name of the public DNS.</p>
+</li>
+<li>
+<p><code>PublicIp</code>: The public IP associated with the NIC.</p>
+</li>
+<li>
+<p><code>PublicIpAccountId</code>: The account ID of the owner of the public IP.</p>
+</li>
+<li>
+<p><code>PublicIpId</code>: The allocation ID of the public IP.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>PrivateDnsName</code>: The name of the private DNS.</p>
+</li>
+<li>
+<p><code>PrivateIp</code>: The private IP of the NIC.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>SecurityGroups</code>: One or more IDs of security groups for the NIC.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SecurityGroupId</code>: The ID of the security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: The name of the security group.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>State</code>: The state of the NIC (<code>available</code> | <code>attaching</code> | <code>in-use</code> | <code>detaching</code>).</p>
+</li>
+<li>
+<p><code>SubnetId</code>: The ID of the Subnet.</p>
+</li>
+<li>
+<p><code>SubregionName</code>: The Subregion in which the NIC is located.</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the NIC.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "Nics": [
+    {
+      "SubregionName": "eu-west-2a",
+      "SubnetId": "subnet-12345678",
+      "State": "in-use",
+      "LinkNic": {
+        "VmId": "i-12345678",
+        "LinkNicId": "eni-attach-12345678",
+        "VmAccountId": "123456789012",
+        "DeleteOnVmDeletion": false,
+        "DeviceNumber": 0,
+        "State": "attached"
+      },
+      "IsSourceDestChecked": true,
+      "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal",
+      "Tags": [],
+      "Description": "Primary network interface",
+      "AccountId": "123456789012",
+      "SecurityGroups": [
+        {
+          "SecurityGroupName": "security-group-example",
+          "SecurityGroupId": "sg-12345678"
+        }
+      ],
+      "MacAddress": "A1:B2:C3:D4:E5:F6",
+      "NetId": "vpc-12345678",
+      "NicId": "eni-12345678",
+      "PrivateIps": [
+        {
+          "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal",
+          "PrivateIp": "10.0.0.4",
+          "IsPrimary": true
+        }
+      ]
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI_3"><a class="anchor" href="Obtenir-des-informations-sur-vos-NIC.html#AWS CLI_3"></a>Obtenir des informations sur vos FNI avec AWS CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Avant de commencer :</strong> Installez et configurez AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Pour obtenir des informations sur <span class="tooltip" data-tooltip="network interface card (NIC) dans l'API OUTSCALE">FNI</span>, utilisez la commande <strong>describe-network-interfaces</strong> en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws ec2 describe-network-interfaces \
+    --profile YOUR_PROFILE \
+    --network-interface-ids eni-12345678 \
+    --filters Name=X,Values=Y \
+    --endpoint https://fcu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>profile</code> : Le profil nommé que vous voulez utiliser, créé pendant la configuration d&#8217;AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p>(optionnel) <code>network-interface-ids</code> : L&#8217;ID d&#8217;une ou plusieurs FNI.</p>
+</li>
+<li>
+<p>(optionnel) <code>filters</code> : Un ou plusieurs filtres, au format "Name=X,Values=Y".</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous pouvez spécifier plusieurs valeurs pour un même filtre en utilisant le format "Name=X,Values=Y, Z".</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Les filtres suivants sont disponibles :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addresses.association.owner-id</code> : L&#8217;account ID du propriétaire des IP associées à la FNI.</p>
+</li>
+<li>
+<p><code>addresses.association.public-ip</code> : L&#8217;association ID renvoyé lorsque la FNI a été associée à une IP externe (EIP).</p>
+</li>
+<li>
+<p><code>addresses.primary</code> : Si l&#8217;IP privée est l&#8217;IP principale associée à la FNI.</p>
+</li>
+<li>
+<p><code>addresses.private-ip-address</code> : Les IP privées associées à la FNI.</p>
+</li>
+<li>
+<p><code>association.allocation-id</code> : L&#8217;allocation ID renvoyé lorsque vous avez alloué l&#8217;<span class="tooltip" data-tooltip="IP publique dans l'API OUTSCALE">EIP</span> à votre compte.</p>
+</li>
+<li>
+<p><code>association.association-id</code> : L&#8217;association ID renvoyé lorsque la FNI a été associée à une EIP.</p>
+</li>
+<li>
+<p><code>association.ip-owner-id</code> : L&#8217;account ID du propriétaire de l&#8217;EIP associée à la FNI.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Comme vous pouvez uniquement associer à vos FNI des EIP qui appartiennent à votre compte, ce filtre est toujours votre account ID.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><code>association.public-dns-name</code> : Le nom DNS public associé à l&#8217;EIP.</p>
+</li>
+<li>
+<p><code>association.public-ip</code> : L&#8217;EIP associée à la FNI.</p>
+</li>
+<li>
+<p><code>attachment.attach.time</code> : L&#8217;heure à laquelle la FNI a été attachée à l&#8217;<span class="tooltip" data-tooltip="machine virtuelle (VM) dans l'API OUTSCALE">instance</span>.</p>
+</li>
+<li>
+<p><code>attachment.attachment-id</code> : L&#8217;attachment ID de la FNI.</p>
+</li>
+<li>
+<p><code>attachment.delete-on-termination</code> : Si la FNI est supprimée (<code>true</code>) ou détachée (<code>false</code>) lorsque l&#8217;instance à laquelle elle est attachée est terminée.</p>
+</li>
+<li>
+<p><code>attachment.device-index</code> : L&#8217;index de périphérique utilisé pour la FNI.</p>
+</li>
+<li>
+<p><code>attachment.instance-id</code> : L&#8217;ID de l&#8217;instance à laquelle la FNI est attachée.</p>
+</li>
+<li>
+<p><code>attachment.instance-owner-id</code> : L&#8217;account ID du propriétaire de l&#8217;instance à laquelle la FNI est attachée.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Comme vous pouvez uniquement attacher à vos FNI des instances qui appartiennent à votre compte, ce filtre est toujours votre account ID.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><code>attachment.status</code> : L&#8217;état de l&#8217;attachement. Pour en savoir plus, voir <a href="À-propos-des-NIC.html#_attachement_des_nic_aux_vm" class="xref page">À propos des NIC</span> &gt; Attachement des NIC aux <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</a>.</p>
+</li>
+<li>
+<p><code>availability-zone</code> : L&#8217;<span class="tooltip" data-tooltip="Sous-région dans l'API OUTSCALE">Availability Zone (AZ)</span> dans laquelle se trouve la FNI.</p>
+</li>
+<li>
+<p><code>description</code> : La description de la FNI.</p>
+</li>
+<li>
+<p><code>group-id</code> : L&#8217;ID du security group associé à la FNI.</p>
+</li>
+<li>
+<p><code>group-name</code> : Le nom du security group associé à la FNI.</p>
+</li>
+<li>
+<p><code>mac-address</code> : L&#8217;adresse MAC (Media Access Control) de la FNI.</p>
+</li>
+<li>
+<p><code>network-interface-id</code> : L&#8217;ID de la FNI.</p>
+</li>
+<li>
+<p><code>owner-id</code> : L&#8217;account ID du propriétaire de la FNI.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Comme vous ne pouvez pas partager vos FNI avec d&#8217;autres comptes, ce filtre est toujours votre account ID.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><code>private-dns-name</code> : Le nom DNS privé associé à l&#8217;IP privée principale.</p>
+</li>
+<li>
+<p><code>private-ip-address</code> : L&#8217;IP privée principale de la FNI.</p>
+</li>
+<li>
+<p><code>source-dest-check</code> : Si la vérification source/destination est activée (<code>true</code>) ou désactivée (<code>false</code>).</p>
+</li>
+<li>
+<p><code>status</code> : L&#8217;état de la FNI. Pour en savoir plus, voir <a href="À-propos-des-NIC.html#_attachement_des_nic_aux_vm" class="xref page">À propos des NIC &gt; Attachement des NIC aux VM</a>.</p>
+</li>
+<li>
+<p><code>subnet-id</code> : L&#8217;ID du subnet dans lequel se trouve la FNI.</p>
+</li>
+<li>
+<p><code>vpc-id</code> : L&#8217;ID du <span class="tooltip" data-tooltip="Net dans l'API OUTSCALE">VPC</span> dans lequel se trouve la FNI.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>endpoint</code> : Le endpoint correspondant à la Région à laquelle vous voulez envoyer la requête. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>La commande <strong>describe-network-interfaces</strong> renvoie les éléments suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>NetworkInterfaces</code> : Informations sur une ou plusieurs FNI. Cet élément contient les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Association</code> : Informations sur l&#8217;association entre la FNI et une EIP. Cet élément contient les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AllocationId</code> : L&#8217;allocation ID renvoyé lorsque l&#8217;EIP a été allouée à votre compte.</p>
+</li>
+<li>
+<p><code>AssociationId</code> : L&#8217;association ID renvoyé lorsque la FNI a été associée à une EIP.</p>
+</li>
+<li>
+<p><code>IpOwnerId</code> : L&#8217;account ID du propriétaire de l&#8217;EIP associée à la FNI.</p>
+</li>
+<li>
+<p><code>PublicDnsName</code> : Le nom DNS public associé à l&#8217;EIP.</p>
+</li>
+<li>
+<p><code>PublicIp</code> : L&#8217;EIP associée à la FNI.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Attachment</code> : Informations sur les attachements de la FNI. Cet élément contient les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AttachTime</code> : L&#8217;heure de l&#8217;attachement de la FNI à une instance.</p>
+</li>
+<li>
+<p><code>AttachmentId</code> : L&#8217;ID d&#8217;attachement de la FNI.</p>
+</li>
+<li>
+<p><code>DeleteOnTermination</code> : Si <code>true</code>, la FNI est supprimée quand l&#8217;instance est terminée. Si <code>false</code>, la FNI est seulement détachée.</p>
+</li>
+<li>
+<p><code>DeviceIndex</code> : L&#8217;index de périphérique utilisé pour l&#8217;attachement de la FNI.</p>
+</li>
+<li>
+<p><code>InstanceId</code> : L&#8217;ID de l&#8217;instance à laquelle votre FNI est attachée.</p>
+</li>
+<li>
+<p><code>InstanceOwnerId</code> : L&#8217;account ID du propriétaire de l&#8217;instance à laquelle la FNI est attachée.</p>
+</li>
+<li>
+<p><code>Status</code> : L&#8217;état de la FNI. Pour en savoir plus, voir <a href="À-propos-des-NIC.html#_attachement_des_nic_aux_vm" class="xref page">À propos des NIC &gt; Attachement des NIC aux VM</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>AvailablityZone</code> : L&#8217;AZ dans laquelle se trouve la FNI.</p>
+</li>
+<li>
+<p><code>Description</code> : La description de la FNI.</p>
+</li>
+<li>
+<p><code>Groups</code> : Informations sur un ou plusieurs security groups associés à votre FNI. Cet élément contient les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>GroupName</code> : Le nom d&#8217;un security group associé à la FNI.</p>
+</li>
+<li>
+<p><code>GroupId</code> : L&#8217;ID d&#8217;un security group associé à la FNI.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>MacAddress</code> : L&#8217;adresse MAC (Media Access Control) de la FNI.</p>
+</li>
+<li>
+<p><code>NetworkInterfaceId</code> : L&#8217;ID de la FNI.</p>
+</li>
+<li>
+<p><code>OwnerId</code> : L&#8217;account ID du propriétaire de la FNI.</p>
+</li>
+<li>
+<p><code>PrivateDnsName</code> : Le nom DNS privé associé à l&#8217;IP privée principale de la FNI.</p>
+</li>
+<li>
+<p><code>PrivateIpAddress</code> : L&#8217;IP privée principale attribuée à la FNI.</p>
+</li>
+<li>
+<p><code>PrivateIpAddresses</code> : Informations sur les EIP et les IP privées attribuées à la FNI. Cet élément contient les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Association</code> : Informations sur l&#8217;association de la FNI à l&#8217;EIP. Cet élément contient les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>PublicIp</code> : L&#8217;EIP associée à la FNI.</p>
+</li>
+<li>
+<p><code>AssociationId</code> : L&#8217;association ID renvoyé lorsque la FNI a été associée à une EIP.</p>
+</li>
+<li>
+<p><code>PublicDnsName</code> : Le nom DNS public associé à l&#8217;EIP.</p>
+</li>
+<li>
+<p><code>AllocationId</code> : L&#8217;allocation ID renvoyé lorsque vous avez alloué l&#8217;EIP à votre compte.</p>
+</li>
+<li>
+<p><code>IpOwnerId</code> : L&#8217;account ID du propriétaire de l&#8217;EIP associée à la FNI.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Primary</code> : Si <code>true</code>, l&#8217;IP privée qui suit est la principale. Si <code>false</code>, il s&#8217;agit d&#8217;une IP secondaire.</p>
+</li>
+<li>
+<p><code>PrivateDnsName</code> : Le nom DNS privé associé à l&#8217;IP privée principale de la FNI.</p>
+</li>
+<li>
+<p><code>PrivateIpAddress</code> : Une IP privée attribuée à la FNI.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>SourceDestCheck</code> : Si <code>true</code>, le trafic vers et depuis l&#8217;instance est validé. Si <code>false</code>, il ne l&#8217;est pas.</p>
+</li>
+<li>
+<p><code>Status</code> : L&#8217;état de l&#8217;attachement de la FNI. Pour en savoir plus, voir <a href="À-propos-des-NIC.html#_attachement_des_des_nic_aux_vm" class="xref page">À propos des NIC &gt; Attachement des NIC aux VM</a>.</p>
+</li>
+<li>
+<p><code>SubnetId</code> : L&#8217;ID du subnet dans lequel se trouve la FNI.</p>
+</li>
+<li>
+<p><code>TagSet</code> : Un ou plusieurs tags associés à la FNI.</p>
+</li>
+<li>
+<p><code>VpcId</code> : L&#8217;ID du VPC dans lequel se trouve la FNI.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de résultat</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "NetworkInterfaces": [
+      {
+          "Association": {
+              "AllocationId": "eipalloc-06e13163",
+              "AssociationId": "eipassoc-87654321",
+              "IpOwnerId": "123456789000",
+              "PublicDnsName": "ows-111-1-1-1.eu-west-2.compute.outscale.com",
+              "PublicIp": "111.1.1.1"
+          },
+          "Attachment": {
+              "AttachTime": "2016-08-24T08:27:33.000Z",
+              "AttachmentId": "eni-attach-12345678",
+              "DeleteOnTermination": false,
+              "DeviceIndex": 1,
+              "InstanceId": "i-12345678",
+              "InstanceOwnerId": "123456789000",
+              "Status": "attached"
+          },
+          "AvailabilityZone": "eu-west-2a",
+          "Description": "my-FNI",
+          "Groups": [
+              {
+                  "GroupName": "SG1",
+                  "GroupId": "sg-12345678"
+              }
+          ],
+          "MacAddress": "02:2f:8f:b0:cf:75",
+          "NetworkInterfaceId": "eni-12345678",
+          "OwnerId": "123456789000",
+          "PrivateDnsName": "ip-10-0-1-17.eu-west-2.compute.internal",
+          "PrivateIpAddress": "10.0.1.17",
+          "PrivateIpAddresses": [
+              {
+                  "Association": {
+                      "AllocationId": "eipalloc-06e13163",
+                      "AssociationId": "eipassoc-87654321",
+                      "IpOwnerId": "123456789000",
+                      "PublicDnsName": "ows-111-1-1-1.eu-west-2.compute.outscale.com",
+                      "PublicIp": "111.1.1.1"
+                  },
+                  "Primary": true,
+                  "PrivateDnsName": "ip-10-0-1-17.eu-west-2.compute.internal",
+                  "PrivateIpAddress": "10.0.1.17"
+              }
+          ],
+          "SourceDestCheck": true,
+          "Status": "in-use",
+          "SubnetId": "subnet-12345678",
+          "TagSet": [],
+          "VpcId": "vpc-12345678"
+       }
+   ]
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-NIC.html" class="xref page">À propos des NIC</a></p>
+</li>
+<li>
+<p><a href="Créer-une-NIC.html" class="xref page">Créer une NIC</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-les-tags-associés-à-une-ressource.html" class="xref page">Obtenir des informations sur les tags associés à une ressource</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Méthodes API correspondantes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#readnics" class="xref page">ReadNics (API OUTSCALE)</a></p>
+</li>
+<li>
+<p><a href="../../fcu.html#describenetworkinterfaces" class="xref page">DescribeNetworkInterfaces (FCU)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

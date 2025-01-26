@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Creating a Security Group – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="Creating-a-Security-Group.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/Creating-a-Security-Group.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Créer-un-security-group.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Creating a Security Group</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can create custom security groups for use either in the public Cloud or in a specified <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span>. You then need to add appropriate rules to your security group according to your needs and your architecture.</p>
+</div>
+<div class="paragraph">
+<p>Since it is recommended to use a <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span> for one service only, we recommend creating one security group per service, with the appropriate rules, and associating the security group with all VMs dedicated to this service. You can then allow inbound and outbound flows between security groups depending on which services need to communicate with one another in order to apply these rules to all the VMs concerned.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Cockpit v2_0"><a class="anchor" href="Creating-a-Security-Group.html#Cockpit v2_0"></a>Creating a Security Group Using Cockpit v2</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Before you begin:</strong><br>
+(optional) To disable the network enhancement allowing <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VMs</span> of a same Subnet to communicate with one another without security group rules required, add a tag to your <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span> with <code>osc.fcu.enable_lan_security_groups</code> as key. For more information about how to add a tag, see <a href="Adding-or-Removing-Tags.html" class="xref page">Adding or Removing Tags</a>. For more information about this network enhancement, see <a href="About-Nets.html#_subnet_routing_and_security" class="xref page">About Nets &gt; Subnet Routing and Security</a>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>This tag must be added to your Net before creating Subnets into it.</p>
+</li>
+<li>
+<p>The value of this tag is not taken into account, you can therefore specify any value for this tag.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In the <strong>Security Groups</strong> dashboard, click <span class="image"><img src="_images/IconAddFull.svg" alt="IconAddFull"></span> <strong>Create Security Group</strong>.<br>
+The CREATE SECURITY GROUP dialog box appears.</p>
+</li>
+<li>
+<p>In the <strong>Name</strong> field, type a name for the security group.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The name must be unique in your account for the public Cloud or for each Net.</p>
+</li>
+<li>
+<p>The name of the security group must not start with <code>sg-</code> or with a space character.</p>
+</li>
+<li>
+<p>The name must contain between 1 and 255 characters. Allowed characters are <code>a-z</code>, <code>A-Z</code>, <code>0-9</code>, spaces, and <code>_.-:/()#,@[]+=&amp;;{}!$*</code>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Give your security groups explicit names so that their purpose is understood more easily. You can for example use names in the application-environment-role format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>website-all-bastion</p>
+</li>
+<li>
+<p>website-front-lb</p>
+</li>
+<li>
+<p>website-middle-app</p>
+</li>
+<li>
+<p>website-back-db</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>In the <strong>Description</strong> field, type a description of the security group.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The description must contain between 1 and 255 characters. Allowed characters are <code>a-z</code>, <code>A-Z</code>, <code>0-9</code>, accented letters, spaces, and <code>_.-:/()#,@[]+=&amp;;{}!$*</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>In the <strong>Net</strong> list, do one of the following:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>To create a security group for the public Cloud, select <strong>No Net</strong> in the Net list.</p>
+</li>
+<li>
+<p>To create a security group for a Net, select the corresponding Net in the Net list.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Click <strong>Create</strong>.<br>
+The security group is created.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="OSC CLI_1"><a class="anchor" href="Creating-a-Security-Group.html#OSC CLI_1"></a>Creating a Security Group Using OSC CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Before you begin:</strong><br>
+(optional) To disable the network enhancement allowing <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VMs</span> of a same Subnet to communicate with one another without security group rules required, add a tag to your <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span> with <code>osc.fcu.enable_lan_security_groups</code> as key. For more information about how to add a tag, see <a href="Adding-or-Removing-Tags.html" class="xref page">Adding or Removing Tags</a>. For more information about this network enhancement, see <a href="About-Nets.html#_subnet_routing_and_security" class="xref page">About Nets &gt; Subnet Routing and Security</a>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>This tag must be added to your Net before creating Subnets into it.</p>
+</li>
+<li>
+<p>The value of this tag is not taken into account, you can therefore specify any value for this tag.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The <strong>CreateSecurityGroup</strong> command creates a security group.<br>
+This action creates a security group either in the public Cloud or in a specified Net. By default, a default security group for use in the public Cloud and a default security group for use in a Net are created.<br>
+When launching a virtual machine (VM), if no security group is explicitly specified, the appropriate default security group is assigned to the VM. Default security groups include a default rule granting VMs network access to each other.<br>
+When creating a security group, you specify a name. Two security groups for use in the public Cloud or for use in a Net cannot have the same name.<br>
+You can have up to 500 security groups in the public Cloud. You can create up to 500 security groups per Net.<br>
+To add or remove rules, use the <a href="../../api%3Fconsole.html#createsecuritygrouprule" class="xref page">CreateSecurityGroupRule</a> method.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="About-Security-Groups.html" target="_blank" rel="noopener">About Security Groups</a>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api CreateSecurityGroup --profile "default" \
+    --NetId "vpc-12345678" \
+    --SecurityGroupName "security-group-example" \
+    --Description "Security group example"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Description</code>: A description for the security group.<br>
+This description can contain between 1 and 255 characters. Allowed characters are <code>a-z</code>, <code>A-Z</code>, <code>0-9</code>, accented letters, spaces, and <code>_.-:/()#,@[]+=&amp;;{}!$*</code>.</p>
+</li>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>NetId</code>: (optional) The ID of the Net for the security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: The name of the security group.<br>
+This name must not start with <code>sg-</code>.<br>
+This name must be unique and contain between 1 and 255 characters. Allowed characters are <code>a-z</code>, <code>A-Z</code>, <code>0-9</code>, spaces, and <code>_.-:/()#,@[]+=&amp;;{}!$*</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateSecurityGroup</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>SecurityGroup</code>: Information about the security group.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountId</code>: The account ID that has been granted permission.</p>
+</li>
+<li>
+<p><code>Description</code>: The description of the security group.</p>
+</li>
+<li>
+<p><code>InboundRules</code>: The inbound rules associated with the security group.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>FromPortRange</code>: The beginning of the port range for the TCP and UDP protocols, or an ICMP type number.</p>
+</li>
+<li>
+<p><code>IpProtocol</code>: The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>, or <code>-1</code> for all protocols). By default, <code>-1</code>. In a Net, this can also be an IP protocol number. For more information, see the <a href="https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml" target="_blank" rel="noopener">IANA.org website</a>.</p>
+</li>
+<li>
+<p><code>IpRanges</code>: One or more IP ranges for the security group rules, in CIDR notation (for example, <code>10.0.0.0/16</code>).</p>
+</li>
+<li>
+<p><code>SecurityGroupsMembers</code>: Information about one or more source or destination security groups.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountId</code>: The account ID that owns the source or destination security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupId</code>: The ID of a source or destination security group that you want to link to the security group of the rule.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: (Public Cloud only) The name of a source or destination security group that you want to link to the security group of the rule.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ServiceIds</code>: One or more service IDs to allow traffic from a Net to access the corresponding OUTSCALE services. For more information, see <a href="../../api%3Fconsole.html#readnetaccesspointservices" class="xref page">ReadNetAccessPointServices</a>.</p>
+</li>
+<li>
+<p><code>ToPortRange</code>: The end of the port range for the TCP and UDP protocols, or an ICMP code number.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net for the security group.</p>
+</li>
+<li>
+<p><code>OutboundRules</code>: The outbound rules associated with the security group.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>FromPortRange</code>: The beginning of the port range for the TCP and UDP protocols, or an ICMP type number.</p>
+</li>
+<li>
+<p><code>IpProtocol</code>: The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>, or <code>-1</code> for all protocols). By default, <code>-1</code>. In a Net, this can also be an IP protocol number. For more information, see the <a href="https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml" target="_blank" rel="noopener">IANA.org website</a>.</p>
+</li>
+<li>
+<p><code>IpRanges</code>: One or more IP ranges for the security group rules, in CIDR notation (for example, <code>10.0.0.0/16</code>).</p>
+</li>
+<li>
+<p><code>SecurityGroupsMembers</code>: Information about one or more source or destination security groups.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountId</code>: The account ID that owns the source or destination security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupId</code>: The ID of a source or destination security group that you want to link to the security group of the rule.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: (Public Cloud only) The name of a source or destination security group that you want to link to the security group of the rule.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ServiceIds</code>: One or more service IDs to allow traffic from a Net to access the corresponding OUTSCALE services. For more information, see <a href="../../api%3Fconsole.html#readnetaccesspointservices" class="xref page">ReadNetAccessPointServices</a>.</p>
+</li>
+<li>
+<p><code>ToPortRange</code>: The end of the port range for the TCP and UDP protocols, or an ICMP code number.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>SecurityGroupId</code>: The ID of the security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: The name of the security group.</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the security group.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "SecurityGroup": {
+    "Tags": [],
+    "SecurityGroupName": "security-group-example",
+    "OutboundRules": [
+      {
+        "FromPortRange": -1,
+        "IpProtocol": "-1",
+        "ToPortRange": -1,
+        "IpRanges": [
+          "0.0.0.0/0"
+        ]
+      }
+    ],
+    "SecurityGroupId": "sg-12345678",
+    "AccountId": "123456789012",
+    "Description": "Example of security group",
+    "InboundRules": [],
+    "NetId": "vpc-12345678"
+  },
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="oapi-cli_2"><a class="anchor" href="Creating-a-Security-Group.html#oapi-cli_2"></a>Creating a Security Group Using oapi-cli</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Before you begin:</strong><br>
+(optional) To disable the network enhancement allowing <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VMs</span> of a same Subnet to communicate with one another without security group rules required, add a tag to your <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span> with <code>osc.fcu.enable_lan_security_groups</code> as key. For more information about how to add a tag, see <a href="Adding-or-Removing-Tags.html" class="xref page">Adding or Removing Tags</a>. For more information about this network enhancement, see <a href="About-Nets.html#_subnet_routing_and_security" class="xref page">About Nets &gt; Subnet Routing and Security</a>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>This tag must be added to your Net before creating Subnets into it.</p>
+</li>
+<li>
+<p>The value of this tag is not taken into account, you can therefore specify any value for this tag.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The <strong>CreateSecurityGroup</strong> command creates a security group.<br>
+This action creates a security group either in the public Cloud or in a specified Net. By default, a default security group for use in the public Cloud and a default security group for use in a Net are created.<br>
+When launching a virtual machine (VM), if no security group is explicitly specified, the appropriate default security group is assigned to the VM. Default security groups include a default rule granting VMs network access to each other.<br>
+When creating a security group, you specify a name. Two security groups for use in the public Cloud or for use in a Net cannot have the same name.<br>
+You can have up to 500 security groups in the public Cloud. You can create up to 500 security groups per Net.<br>
+To add or remove rules, use the <a href="../../api%3Fconsole.html#createsecuritygrouprule" class="xref page">CreateSecurityGroupRule</a> method.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="About-Security-Groups.html" target="_blank" rel="noopener">About Security Groups</a>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" CreateSecurityGroup \
+    --NetId "vpc-12345678" \
+    --SecurityGroupName "security-group-example" \
+    --Description "Security group example"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Description</code>: A description for the security group.<br>
+This description can contain between 1 and 255 characters. Allowed characters are <code>a-z</code>, <code>A-Z</code>, <code>0-9</code>, accented letters, spaces, and <code>_.-:/()#,@[]+=&amp;;{}!$*</code>.</p>
+</li>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>NetId</code>: (optional) The ID of the Net for the security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: The name of the security group.<br>
+This name must not start with <code>sg-</code>.<br>
+This name must be unique and contain between 1 and 255 characters. Allowed characters are <code>a-z</code>, <code>A-Z</code>, <code>0-9</code>, spaces, and <code>_.-:/()#,@[]+=&amp;;{}!$*</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateSecurityGroup</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>SecurityGroup</code>: Information about the security group.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountId</code>: The account ID that has been granted permission.</p>
+</li>
+<li>
+<p><code>Description</code>: The description of the security group.</p>
+</li>
+<li>
+<p><code>InboundRules</code>: The inbound rules associated with the security group.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>FromPortRange</code>: The beginning of the port range for the TCP and UDP protocols, or an ICMP type number.</p>
+</li>
+<li>
+<p><code>IpProtocol</code>: The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>, or <code>-1</code> for all protocols). By default, <code>-1</code>. In a Net, this can also be an IP protocol number. For more information, see the <a href="https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml" target="_blank" rel="noopener">IANA.org website</a>.</p>
+</li>
+<li>
+<p><code>IpRanges</code>: One or more IP ranges for the security group rules, in CIDR notation (for example, <code>10.0.0.0/16</code>).</p>
+</li>
+<li>
+<p><code>SecurityGroupsMembers</code>: Information about one or more source or destination security groups.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountId</code>: The account ID that owns the source or destination security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupId</code>: The ID of a source or destination security group that you want to link to the security group of the rule.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: (Public Cloud only) The name of a source or destination security group that you want to link to the security group of the rule.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ServiceIds</code>: One or more service IDs to allow traffic from a Net to access the corresponding OUTSCALE services. For more information, see <a href="../../api%3Fconsole.html#readnetaccesspointservices" class="xref page">ReadNetAccessPointServices</a>.</p>
+</li>
+<li>
+<p><code>ToPortRange</code>: The end of the port range for the TCP and UDP protocols, or an ICMP code number.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net for the security group.</p>
+</li>
+<li>
+<p><code>OutboundRules</code>: The outbound rules associated with the security group.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>FromPortRange</code>: The beginning of the port range for the TCP and UDP protocols, or an ICMP type number.</p>
+</li>
+<li>
+<p><code>IpProtocol</code>: The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>, or <code>-1</code> for all protocols). By default, <code>-1</code>. In a Net, this can also be an IP protocol number. For more information, see the <a href="https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml" target="_blank" rel="noopener">IANA.org website</a>.</p>
+</li>
+<li>
+<p><code>IpRanges</code>: One or more IP ranges for the security group rules, in CIDR notation (for example, <code>10.0.0.0/16</code>).</p>
+</li>
+<li>
+<p><code>SecurityGroupsMembers</code>: Information about one or more source or destination security groups.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountId</code>: The account ID that owns the source or destination security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupId</code>: The ID of a source or destination security group that you want to link to the security group of the rule.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: (Public Cloud only) The name of a source or destination security group that you want to link to the security group of the rule.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ServiceIds</code>: One or more service IDs to allow traffic from a Net to access the corresponding OUTSCALE services. For more information, see <a href="../../api%3Fconsole.html#readnetaccesspointservices" class="xref page">ReadNetAccessPointServices</a>.</p>
+</li>
+<li>
+<p><code>ToPortRange</code>: The end of the port range for the TCP and UDP protocols, or an ICMP code number.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>SecurityGroupId</code>: The ID of the security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: The name of the security group.</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the security group.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "SecurityGroup": {
+    "Tags": [],
+    "SecurityGroupName": "security-group-example",
+    "OutboundRules": [
+      {
+        "FromPortRange": -1,
+        "IpProtocol": "-1",
+        "ToPortRange": -1,
+        "IpRanges": [
+          "0.0.0.0/0"
+        ]
+      }
+    ],
+    "SecurityGroupId": "sg-12345678",
+    "AccountId": "123456789012",
+    "Description": "Example of security group",
+    "InboundRules": [],
+    "NetId": "vpc-12345678"
+  },
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI_3"><a class="anchor" href="Creating-a-Security-Group.html#AWS CLI_3"></a>Creating a Security Group Using AWS CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Before you begin:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Install and configure AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+<li>
+<p></p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>(optional) To disable the network enhancement allowing <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VMs</span> of a same Subnet to communicate with one another without security group rules required, add a tag to your <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span> with <code>osc.fcu.enable_lan_security_groups</code> as key. For more information about how to add a tag, see <a href="Adding-or-Removing-Tags.html" class="xref page">Adding or Removing Tags</a>. For more information about this network enhancement, see <a href="About-Nets.html#_subnet_routing_and_security" class="xref page">About Nets &gt; Subnet Routing and Security</a>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>This tag must be added to your Net before creating Subnets into it.</p>
+</li>
+<li>
+<p>The value of this tag is not taken into account, you can therefore specify any value for this tag.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>To create a security group, use the <strong>create-security-group</strong> command following this syntax:</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws ec2 create-security-group \
+    --profile YOUR_PROFILE \
+    --group-name my-security-group \
+    --description SECURITY_GROUP_DESCRIPTION \
+    --vpc-id vpc-12345678 \
+    --endpoint https://fcu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optional) <code>profile</code>: The named profile you want to use, created when configuring AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>group-name</code>: A unique name for the security group.</p>
+</li>
+<li>
+<p><code>description</code>: A description of the security group.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The name must be unique in your account for the public Cloud or for each <span class="tooltip" data-tooltip="Net in OUTSCALE API">VPC</span>.</p>
+</li>
+<li>
+<p>The name of the security group must not start with <code>sg-</code>.</p>
+</li>
+<li>
+<p>Each name and description can contain between 1 and 255 characters. Allowed characters are <code>a-z</code>, <code>A-Z</code>, <code>0-9</code>, spaces, and <code>_.-:/()#,@[]+=&amp;;{}!$*</code>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optional) <code>vpc-id</code>: The ID of the VPC you want to create the security group for.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This attribute is required when creating a security group for a VPC.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><code>endpoint</code>: The endpoint corresponding to the Region you want to send the request to. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>create-security-group</strong> command returns the following element:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>GroupId</code>: The ID of the newly created security group.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "GroupId": "sg-12345678"
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The security group is created.</p>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="About-Security-Groups.html" class="xref page">About Security Groups</a></p>
+</li>
+<li>
+<p><a href="Adding-Rules-to-a-Security-Group.html" class="xref page">Adding Rules to a Security Group</a></p>
+</li>
+<li>
+<p><a href="Adding-or-Removing-Tags.html" class="xref page">Adding or Removing Tags</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Corresponding API Methods</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#createsecuritygroup" class="xref page">CreateSecurityGroup (OUTSCALE API)</a></p>
+</li>
+<li>
+<p><a href="../../fcu.html#createsecuritygroup" class="xref page">CreateSecurityGroup (FCU)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ and Amazon Web Services™ are trademarks of Amazon Technologies, Inc or its affiliates in the United States and/or other countries.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Creating a Bucket – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="Creating-a-Bucket.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/Creating-a-Bucket.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Créer-un-bucket.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Creating a Bucket</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can create a bucket to store your objects. The storage is not time-restricted and is available at any time.</p>
+</div>
+<div class="paragraph">
+<p>You can set permissions for other users to access your buckets and your objects, or make them public using an Access Control List (ACL). For more information, see <a href="Access-Control-List-ACL-Reference.html" class="xref page">Access Control List (ACL) Reference</a>.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Ensure not to set public read permissions for your sensitive data.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can enable the versioning of the bucket. You can then retrieve and download any version of an object. For more information, see <a href="About-OOS.html#_objects" class="xref page">About OOS &gt; Objects</a> and <a href="Enabling-or-Disabling-Bucket-Versioning.html" class="xref page">Enabling or Disabling Bucket Versioning</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI (s3api)_0"><a class="anchor" href="Creating-a-Bucket.html#AWS CLI (s3api)_0"></a>Creating a Bucket Using AWS CLI (s3api)</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Before you begin:</strong> Install and configure AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>To create a bucket, use the <strong>create-bucket</strong> command following this syntax:</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws s3api create-bucket \
+    --profile YOUR_PROFILE \
+    --bucket BUCKET \
+    --acl private \
+    --grant-full-control "id=USER_ID, id=USER_ID" \
+    --grant-read "id=USER_ID, id=USER_ID" \
+    --grant-read-acp "id=USER_ID, id=USER_ID" \
+    --grant-write "id=USER_ID, id=USER_ID" \
+    --grant-write-acp "id=USER_ID, id=USER_ID" \
+    --no-object-lock-enabled-for-bucket \
+    --endpoint https://oos.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optional) <code>profile</code>: The named profile you want to use, created when configuring AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>bucket</code>: The name you want to give to your bucket, according to the corresponding naming rules. For more information, see <a href="About-OOS.html" class="xref page">About OOS</a>.</p>
+</li>
+<li>
+<p>(optional) <code>acl</code>: The permissions you grant for your bucket (<code>private</code> | <code>public-read</code> | <code>public-read-write</code> | <code>authenticated-read</code>).</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>If you do not specify a permission for your bucket upon creation, it will automatically be set to private.</p>
+</li>
+<li>
+<p>When specifying new permissions, all the previous permissions are replaced. Therefore, you need to specify both the existing permissions that you want to keep and the new permissions that you want to give in a single command.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For more information about existing permissions, see <a href="Getting-Information-About-a-Bucket-ACL.html" class="xref page">Getting Information About a Bucket ACL</a> and <a href="Getting-Information-About-an-Object-ACL.html" class="xref page">Getting Information About an Object ACL</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optional) <code>grant-full-control</code>: One or more IDs of users to whom you grant the <code>full-control</code> permission.</p>
+</li>
+<li>
+<p>(optional) <code>grant-read</code>: One or more IDs of users to whom you grant the <code>read</code> permission.</p>
+</li>
+<li>
+<p>(optional) <code>grant-read-acp</code>: One or more IDs of users to whom you grant the <code>read-acp</code> permission.</p>
+</li>
+<li>
+<p>(optional) <code>grant-write</code>: One or more IDs of users to whom you grant the <code>write</code> permission.</p>
+</li>
+<li>
+<p>(optional) <code>grant-write-acp</code>: One or more IDs of users to whom you grant the <code>write-acp</code> permission.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>You need to specify S3 user IDs. You can retrieve S3 user IDs via the <a href="Listing-Your-Buckets.html" class="xref page">Listing Your Buckets</a> and <a href="Listing-the-Objects-of-a-Bucket.html" class="xref page">Listing the Objects of a Bucket</a> methods.</p>
+</li>
+<li>
+<p>You can also specify user email addresses using the <code>emailaddress=name@domain.com</code> format.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optional) <code>object-lock-enabled-for-bucket</code> or <code>no-object-lock-enabled-for-bucket</code>: Specifies whether you want to enable Object Lock. For more information, see <a href="Configuring-a-Default-Object-Lock-on-Your-Bucket.html" class="xref page">Configuring a Default Object Lock on Your Bucket</a>.</p>
+</li>
+<li>
+<p><code>endpoint</code>: The endpoint corresponding to the Region you want to send the request to. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The bucket is created.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI (s3)_1"><a class="anchor" href="Creating-a-Bucket.html#AWS CLI (s3)_1"></a>Creating a Bucket Using AWS CLI (s3)</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Before you begin:</strong> Install and configure AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>To create a bucket, use the <strong>mb</strong> command following this syntax:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws s3 mb s3://YOUR_BUCKET \
+    --profile YOUR_PROFILE \
+    --debug \
+    --endpoint https://oos.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>s3://YOUR_BUCKET</code>: The name you want to give to your bucket, according to the corresponding naming rules. For more information, see <a href="About-OOS.html" class="xref page">About OOS</a>.</p>
+</li>
+<li>
+<p>(optional) <code>profile</code>: The named profile you want to use, created when configuring AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+<li>
+<p>(optional) <code>debug</code>: When included, returns the detailed log of the operation. This is useful to analyze and troubleshoot issues you may be encountering.</p>
+</li>
+<li>
+<p><code>endpoint</code>: The endpoint corresponding to the Region you want to send the request to. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="s3cmd_2"><a class="anchor" href="Creating-a-Bucket.html#s3cmd_2"></a>Creating a Bucket Using s3cmd</h2>
+<div class="sectionbody">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can manage your object storage resources using s3cmd commands. For more information, see <a href="s3cmd.html" class="xref page">s3cmd</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="About-OOS.html" class="xref page">About OOS</a></p>
+</li>
+<li>
+<p><a href="Managing-Access-to-Your-Buckets.html" class="xref page">Managing Access to Your Buckets</a></p>
+</li>
+<li>
+<p><a href="Enabling-or-Disabling-Bucket-Versioning.html" class="xref page">Enabling or Disabling Bucket Versioning</a></p>
+</li>
+<li>
+<p><a href="Listing-Your-Buckets.html" class="xref page">Listing Your Buckets</a></p>
+</li>
+<li>
+<p><a href="Deleting-a-Bucket.html" class="xref page">Deleting a Bucket</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ and Amazon Web Services™ are trademarks of Amazon Technologies, Inc or its affiliates in the United States and/or other countries.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

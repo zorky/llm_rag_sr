@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Créer un volume – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Créer-un-volume.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Créer-un-volume.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Creating-a-Volume.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Créer un volume</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez créer des volumes que vous pouvez attacher à des <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machines virtuelles (VM)</span> FCU créés au sein de la même <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Sous-région</span>. Les volumes vous permettent d&#8217;ajouter de la capacité de stockage à une machine virtuelle (VM) si le volume système a atteint sa capacité de stockage maximum, ou de séparer le stockage de vos données des fichiers du systèmes d&#8217;exploitation de la VM.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Cockpit v2_0"><a class="anchor" href="Créer-un-volume.html#Cockpit v2_0"></a>Créer un volume avec Cockpit v2</h2>
+<div class="sectionbody">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous pouvez aussi effectuer cette action dans le dashboard <strong>Snapshots</strong>, en sélectionnant un snapshot, et en cliquant sur <span class="image"><img src="_images/IconAddFull.svg" alt="IconAddFull"></span> <strong>Créer un volume</strong> dans le menu d&#8217;action qui apparaît.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans le dashboard <strong>Volumes</strong>, cliquez sur <span class="image"><img src="_images/IconAddFull.svg" alt="IconAddFull"></span> <strong>Créer un volume</strong>.<br>
+La boîte de dialogue CRÉER UN VOLUME apparaît.</p>
+</li>
+<li>
+<p>Dans le champ <strong>Nom</strong>, tapez un nom pour le volume.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Cette action ajoute un tag Name de 255 caractères maximum. Vous pouvez utiliser tous les caractères, y compris les lettres accentuées.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Dans le champ <strong>Taille</strong>, tapez la taille du volume ou sélectionnez-la en utilisant les flèches.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>La taille minimale autorisée pour un volume est de :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>1 Gio pour <code>standard</code></p>
+</li>
+<li>
+<p>1 Gio pour <code>gp2</code></p>
+</li>
+<li>
+<p>4 Gio pour <code>io1</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>La taille maximale autorisée pour un volume est 14901 Gio.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Dans la liste <strong>Type</strong>, selectionnez un type de volume :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>standard</code> pour un volume Magnetic</p>
+</li>
+<li>
+<p><code>io1</code> pour un volume Enterprise</p>
+</li>
+<li>
+<p><code>gp2</code> pour un volume Performance</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus sur les différents types de volumes, voir <a href="À-propos-des-volumes.html#_types_de_volumes_et_iops" class="xref page">À propos des volumes &gt; Types de volumes et IOPS</a>.</p>
+</div>
+</li>
+<li>
+<p>(Volumes <code>io1</code> uniquement) Dans le champ <strong>IOPS</strong>, tapez le nombre d&#8217;IOPS pour le volume ou sélectionnez-le en utilisant les flèches.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Le nombre maximal d&#8217;IOPS autorisé pour les volumes <code>io1</code> est 13000 avec un ratio de performance maximum de 300 IOPS par gibioctet.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Dans la liste <strong>Snapshot</strong>, laissez <strong>Aucun</strong> sélectionné.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour créer un volume à partir d&#8217;un snapshot, vous pouvez sélectionner un snapshot dans la liste <strong>Snapshots</strong>. Pour en savoir plus, voir <a href="Créer-un-volume-à-partir-d-un-snapshot.html" class="xref page">Créer un volume à partir d&#8217;un snapshot</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Dans la liste <strong>Sous-région</strong>, sélectionnez la Sous-région dans laquelle vous voulez créer le volume.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Par défaut, la Sous-région A est sélectionnée.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Dans le champ <strong>Nombre</strong>, tapez le nombre de volumes que vous souhaitez créer ou sélectionnez-le en utilisant les flèches.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Créer un volume</strong>.<br>
+Le volume est créé.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="OSC CLI_1"><a class="anchor" href="Créer-un-volume.html#OSC CLI_1"></a>Créer un volume avec OSC CLI</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateVolume</strong> command creates a Block Storage Unit (BSU) volume in a specified Region.<br>
+BSU volumes can be attached to a <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">virtual machine (VM)</span> in the same <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Subregion</span>. You can create an empty volume or restore a volume from an existing snapshot.<br>
+You can create the following volume types: Enterprise (<code>io1</code>) for provisioned IOPS SSD volumes, Performance (<code>gp2</code>) for general purpose SSD volumes, or Magnetic (<code>standard</code>) volumes.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="../../en/userguide/About-Volumes.html" target="_blank" rel="noopener">About Volumes</a>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Creating an io1 volume</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api CreateVolume --profile "default" \
+    --VolumeType "io1" \
+    --SubregionName "eu-west-2a" \
+    --Size 10 \
+    --Iops 100</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Iops</code>: (optional) The number of I/O operations per second (IOPS). This parameter must be specified only if you create an <code>io1</code> volume. The maximum number of IOPS allowed for <code>io1</code> volumes is <code>13000</code> with a maximum performance ratio of 300 IOPS per gibibyte.</p>
+</li>
+<li>
+<p><code>Size</code>: (optional) The size of the volume, in gibibytes (GiB). The maximum allowed size for a volume is 14901 GiB. This parameter is required if the volume is not created from a snapshot (<code>SnapshotId</code> unspecified).</p>
+</li>
+<li>
+<p><code>SubregionName</code>: The Subregion in which you want to create the volume.</p>
+</li>
+<li>
+<p><code>VolumeType</code>: (optional) The type of volume you want to create (<code>io1</code> | <code>gp2</code> | <code>standard</code>). If not specified, a <code>standard</code> volume is created.<br>
+For more information about volume types, see <a href="../../en/userguide/About-Volumes.html#_volume_types_and_iops" target="_blank" rel="noopener">About Volumes &gt; Volume Types and IOPS</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateVolume</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Volume</code>: Information about the volume.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CreationDate</code>: The date and time (UTC) at which the volume was created.</p>
+</li>
+<li>
+<p><code>Iops</code>: The number of I/O operations per second (IOPS):<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>For <code>io1</code> volumes, the number of provisioned IOPS<br></p>
+</li>
+<li>
+<p>For <code>gp2</code> volumes, the baseline performance of the volume</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>LinkedVolumes</code>: Information about your volume attachment.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteOnVmDeletion</code>: If true, the volume is deleted when terminating the VM. If false, the volume is not deleted when terminating the VM.</p>
+</li>
+<li>
+<p><code>DeviceName</code>: The name of the device.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the attachment of the volume (<code>attaching</code> | <code>detaching</code> | <code>attached</code> | <code>detached</code>).</p>
+</li>
+<li>
+<p><code>VmId</code>: The ID of the VM.</p>
+</li>
+<li>
+<p><code>VolumeId</code>: The ID of the volume.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Size</code>: The size of the volume, in gibibytes (GiB).</p>
+</li>
+<li>
+<p><code>SnapshotId</code>: The snapshot from which the volume was created.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the volume (<code>creating</code> | <code>available</code> | <code>in-use</code> | <code>updating</code> | <code>deleting</code> | <code>error</code>).</p>
+</li>
+<li>
+<p><code>SubregionName</code>: The Subregion in which the volume was created.</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the volume.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>VolumeId</code>: The ID of the volume.</p>
+</li>
+<li>
+<p><code>VolumeType</code>: The type of the volume (<code>standard</code> | <code>gp2</code> | <code>io1</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Creating an io1 volume</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "Volume": {
+    "VolumeId": "vol-12345678",
+    "Tags": [],
+    "VolumeType": "io1",
+    "SubregionName": "eu-west-2a",
+    "State": "creating",
+    "CreationDate": "2010-10-01T12:34:56.789Z",
+    "Iops": 100,
+    "LinkedVolumes": [],
+    "Size": 10
+  },
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="oapi-cli_2"><a class="anchor" href="Créer-un-volume.html#oapi-cli_2"></a>Créer un volume avec oapi-cli</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateVolume</strong> command creates a Block Storage Unit (BSU) volume in a specified Region.<br>
+BSU volumes can be attached to a <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">virtual machine (VM)</span> in the same <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Subregion</span>. You can create an empty volume or restore a volume from an existing snapshot.<br>
+You can create the following volume types: Enterprise (<code>io1</code>) for provisioned IOPS SSD volumes, Performance (<code>gp2</code>) for general purpose SSD volumes, or Magnetic (<code>standard</code>) volumes.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="../../en/userguide/About-Volumes.html" target="_blank" rel="noopener">About Volumes</a>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Creating an io1 volume</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" CreateVolume \
+    --VolumeType "io1" \
+    --SubregionName "eu-west-2a" \
+    --Size 10 \
+    --Iops 100</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Iops</code>: (optional) The number of I/O operations per second (IOPS). This parameter must be specified only if you create an <code>io1</code> volume. The maximum number of IOPS allowed for <code>io1</code> volumes is <code>13000</code> with a maximum performance ratio of 300 IOPS per gibibyte.</p>
+</li>
+<li>
+<p><code>Size</code>: (optional) The size of the volume, in gibibytes (GiB). The maximum allowed size for a volume is 14901 GiB. This parameter is required if the volume is not created from a snapshot (<code>SnapshotId</code> unspecified).</p>
+</li>
+<li>
+<p><code>SubregionName</code>: The Subregion in which you want to create the volume.</p>
+</li>
+<li>
+<p><code>VolumeType</code>: (optional) The type of volume you want to create (<code>io1</code> | <code>gp2</code> | <code>standard</code>). If not specified, a <code>standard</code> volume is created.<br>
+For more information about volume types, see <a href="../../en/userguide/About-Volumes.html#_volume_types_and_iops" target="_blank" rel="noopener">About Volumes &gt; Volume Types and IOPS</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateVolume</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Volume</code>: Information about the volume.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CreationDate</code>: The date and time (UTC) at which the volume was created.</p>
+</li>
+<li>
+<p><code>Iops</code>: The number of I/O operations per second (IOPS):<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>For <code>io1</code> volumes, the number of provisioned IOPS<br></p>
+</li>
+<li>
+<p>For <code>gp2</code> volumes, the baseline performance of the volume</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>LinkedVolumes</code>: Information about your volume attachment.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteOnVmDeletion</code>: If true, the volume is deleted when terminating the VM. If false, the volume is not deleted when terminating the VM.</p>
+</li>
+<li>
+<p><code>DeviceName</code>: The name of the device.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the attachment of the volume (<code>attaching</code> | <code>detaching</code> | <code>attached</code> | <code>detached</code>).</p>
+</li>
+<li>
+<p><code>VmId</code>: The ID of the VM.</p>
+</li>
+<li>
+<p><code>VolumeId</code>: The ID of the volume.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Size</code>: The size of the volume, in gibibytes (GiB).</p>
+</li>
+<li>
+<p><code>SnapshotId</code>: The snapshot from which the volume was created.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the volume (<code>creating</code> | <code>available</code> | <code>in-use</code> | <code>updating</code> | <code>deleting</code> | <code>error</code>).</p>
+</li>
+<li>
+<p><code>SubregionName</code>: The Subregion in which the volume was created.</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the volume.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>VolumeId</code>: The ID of the volume.</p>
+</li>
+<li>
+<p><code>VolumeType</code>: The type of the volume (<code>standard</code> | <code>gp2</code> | <code>io1</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Creating an io1 volume</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "Volume": {
+    "VolumeId": "vol-12345678",
+    "Tags": [],
+    "VolumeType": "io1",
+    "SubregionName": "eu-west-2a",
+    "State": "creating",
+    "CreationDate": "2010-10-01T12:34:56.789Z",
+    "Iops": 100,
+    "LinkedVolumes": [],
+    "Size": 10
+  },
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI_3"><a class="anchor" href="Créer-un-volume.html#AWS CLI_3"></a>Créer un volume avec AWS CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Avant de commencer :</strong> Installez et configurez AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Pour créer un volume, utilisez la commande <strong>create-volume</strong> en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws ec2 create-volume \
+    --profile YOUR_PROFILE \
+    --size 50 \
+    --availability-zone eu-west-2a \
+    --endpoint https://fcu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>profile</code> : Le profil nommé que vous voulez utiliser, créé pendant la configuration d&#8217;AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p>(optionnel) <code>size</code> : La taille du volume, en Gio.<br></p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>La taille maximale autorisée pour un volume est 14901 Gio.</p>
+</div>
+<div class="paragraph">
+<p>Ce paramètre est requis si le volume n&#8217;est pas créé à partir d&#8217;un snapshot (<code>snapshot-id</code> non spécifié).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><code>volume-type</code> : Le type de volume (<code>standard</code> | <code>gp2</code> | <code>io1</code>). Pour en savoir plus sur les types de volumes, voir <a href="À-propos-des-volumes.html#_volume_types_and_iops" class="xref page">À propos des volumes &gt; Types de volumes et IOPS</a>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Cet attribut est optionnel. Si aucun type n&#8217;est spécifié, un volume <code>standard</code> est créé.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>snapshot-id</code> : L&#8217;ID du snapshot à partir duquel vous voulez créer le volume.</p>
+</li>
+<li>
+<p><code>iops</code> : Le nombre d&#8217;IOPS.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Le nombre maximal d&#8217;IOPS autorisé pour les volumes <code>io1</code> est 13000 avec un ratio de performance maximum de 300 IOPS par gibioctet.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous devez spécifier ce paramètre uniquement lorsque vous créez un volume <code>io1</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><code>availability-zone</code> : L&#8217;<span class="tooltip" data-tooltip="Sous-région dans l'API OUTSCALE">Availability Zone</span> où vous souhaitez placer le volume.</p>
+</li>
+<li>
+<p><code>endpoint</code> : Le endpoint correspondant à la Région à laquelle vous voulez envoyer la requête. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p>La commande <strong>create-volume</strong> renvoie les éléments suivants :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AvailabilityZone</code> : L&#8217;Availability Zone où le volume est créé.</p>
+</li>
+<li>
+<p><code>Tags</code> : Un ou plusieurs tags attachés au volume.</p>
+</li>
+<li>
+<p><code>VolumeType</code> : Le type de volume. Pour en savoir plus, voir <a href="À-propos-des-volumes.html#_types_de_volumes_et_iops" class="xref page">À propos des volumes &gt; Types de volumes et IOPS</a>.</p>
+</li>
+<li>
+<p><code>VolumeId</code> : L&#8217;ID du volume.</p>
+</li>
+<li>
+<p><code>State</code> : L&#8217;état du volume (toujours <code>creating</code> lorsque vous créez un volume).</p>
+</li>
+<li>
+<p><code>Iops</code> : Le nombre d&#8217;IOPS (uniquement pour les volumes <code>gp2</code> et <code>io1</code>).</p>
+</li>
+<li>
+<p><code>SnapshotId</code> : L&#8217;ID du snapshot depuis lequel le volume a été créé.</p>
+</li>
+<li>
+<p><code>CreateTime</code> : La date et l&#8217;heure de la création du volume.</p>
+</li>
+<li>
+<p><code>Size</code> : La taille du volume (en Gio).</p>
+<div class="listingblock">
+<div class="title">Exemple de résultat</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "AvailabilityZone": "eu-west-2a",
+    "Tags": [],
+    "VolumeType": "standard",
+    "VolumeId": "vol-12345678",
+    "State": "creating",
+    "SnapshotId": null,
+    "CreateTime": "2016-02-05T13:34:45.894Z",
+    "Size": 50
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Le volume est créé.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-volumes.html" class="xref page">À propos des volumes</a></p>
+</li>
+<li>
+<p><a href="À-propos-des-Régions-et-Sous-régions.html" class="xref page">À propos des Régions et Sous-régions</a></p>
+</li>
+<li>
+<p><a href="Attacher-un-volume-à-une-VM.html" class="xref page">Attacher un volume à une VM</a></p>
+</li>
+<li>
+<p><a href="Ajouter-ou-retirer-des-tags.html" class="xref page">Ajouter ou retirer des tags</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Méthodes API correspondantes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#createvolume" class="xref page">CreateVolume (API OUTSCALE)</a></p>
+</li>
+<li>
+<p><a href="../../fcu.html#createvolume" class="xref page">CreateVolume (FCU)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

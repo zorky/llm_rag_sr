@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Créer une demande canonique – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Créer-une-demande-canonique.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Créer-une-demande-canonique.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Creating-a-Canonical-Request.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Créer une demande canonique</h1>
+<div id="preamble" class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>Vous pouvez normaliser les informations de votre demande dans un format canonique.</p>
+</div>
+<div class="paragraph">
+<p>Vous devez utiliser un format canonique pour votre demande car 3DS OUTSCALE utilise ce même format pour recalculer la signature lorsque vous envoyez votre demande.</p>
+</div>
+<div class="paragraph">
+<p>Une fois la demande canonique hachée, vous devez l&#8217;ajouter à la chaîne à signer que vous créez dans <a href="Créer-une-chaîne-à-signer.html" class="xref page">Créer une chaîne à signer</a>.</p>
+</div>
+<div class="paragraph">
+<p>Vous n&#8217;avez pas besoin de faire cette procédure si vous utilisez OSC CLI, AWS CLI, ou un SDK pour votre demande d&#8217;API.</p>
+</div>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Spécifiez la méthode de demande HTTP (<code>GET</code> ou <code>POST</code>) en suivant cette syntaxe (où \n correspond à un saut de ligne) :</p>
+<div class="listingblock">
+<div class="title">Exemple de méthode de demande</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">GET\n</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Ajoutez l&#8217;URI canonique en suivant cette syntaxe (où \n correspond à un saut de ligne) :</p>
+<div class="listingblock">
+<div class="title">Exemple d&#8217;URI canonique avec encodage</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">/documents%2520and%2520settings/\n</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>L&#8217;URI canonique correspond à la version encodée du chemin d&#8217;accès de l&#8217;URI, c&#8217;est-à-dire tout ce qui est contenu entre l&#8217;hôte HTTP et le point d&#8217;interrogation ("?") qui précède les paramètres de la chaîne de requête.</p>
+</li>
+<li>
+<p>Vous devez normaliser les chemins d&#8217;accès à l&#8217;URI selon le <a href="https://www.rfc-editor.org/rfc/rfc3986" target="_blank" rel="noopener">RFC 3986</a>. Vous devez donc supprimer toutes les parties redondantes et relatives dans les chemins d&#8217;accès.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si le chemin d&#8217;accès absolu est vide, utilisez une barre oblique (/) :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple d&#8217;URI canonique</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">/\n</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Ajoutez la chaîne de requête canonique en suivant cette syntaxe (où \n correspond à un saut de ligne) :</p>
+<div class="listingblock">
+<div class="title">Exemple de chaîne de requête canonique</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">Action=DescribeInstances&amp;Version=2016-09-15\n</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pour construire cette chaîne de caractère canonique :</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Triez les noms de paramètres selon les points de code des caractères dans l&#8217;ordre croissant.</p>
+</li>
+<li>
+<p>Encodez au format URI chaque nom et valeur de paramètres selon les règles suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>N&#8217;encodez pas au format URI les caractères autorisés définis dans le <a href="https://www.rfc-editor.org/rfc/rfc3986" target="_blank" rel="noopener">RFC 3986</a> : a-z, A-Z, 0-9 et -_.~</p>
+</li>
+<li>
+<p>Encodez avec pourcentage tous les autres caractères : %XY, où X et Y correspondent aux caractères hexadécimaux (0 à 9 et A à F). Par exemple, le caractère espace doit être encodé %20.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Construisez la chaîne de requête canonique en commençant par le nom du premier paramètre de la liste triée.</p>
+</li>
+<li>
+<p>Pour chaque paramètre, ajoutez le nom de paramètre encodé au format URI, suivi du signe égal (=), suivi de la valeur du paramètre encodé au format URI. Pour les paramètres qui n&#8217;ont pas de valeur, utilisez une chaîne vide.</p>
+</li>
+<li>
+<p>Ajoutez le caractère esperluette (&amp;) après chaque valeur de paramètre, sauf pour la dernière valeur de la liste.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si la demande ne contient pas de chaîne de requête, utilisez une chaîne vide.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Ajoutez les en-têtes canoniques en suivant cette syntaxe (où \n correspond à un saut de ligne) :</p>
+<div class="listingblock">
+<div class="title">Exemple d&#8217;en-têtes signés</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">content-type:application/x-www-form-urlencoded; charset=utf-8\n
+host:fcu.eu-west-2.outscale.com\n
+x-amz-date:20180915T163400Z\n</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Les en-têtes canoniques correspondent à la liste de tous les en-têtes HTTP inclus dans la demande signée.</p>
+</div>
+<div class="paragraph">
+<p>L&#8217;en-tête <code>host</code> est obligatoire. Les autres en-têtes standard comme <code>content-type</code> sont optionnels.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Pour construire la liste des en-têtes canoniques, référez-vous au pseudo-code suivant :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple d&#8217;en-têtes signés</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">CanonicalHeaders =
+CanonicalHeadersEntry0 + CanonicalHeadersEntry1 + ... + CanonicalHeadersEntryN
+CanonicalHeadersEntry =
+Lowercase(HeaderName) + ':' + Trimall(HeaderValue) + '\n'</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>La fonction <code>Lowercase</code> convertit tous les caractères en minuscule. La fonction <code>Trimall</code> supprime les espaces superflus avant et après les valeurs, et remplace les suites d&#8217;espaces par des espaces simples.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Construisez la liste des en-têtes canoniques par un tri sur le code de caractère, puis par itération.</p>
+</div>
+<div class="paragraph">
+<p>Construisez chaque en-tête selon les règles suivantes :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Ajoutez le nom d&#8217;en-tête en minuscules suivi d&#8217;un deux-points (":")</p>
+</li>
+<li>
+<p>Ajoutez une liste de valeurs séparées par des points-virgules (";") pour cet en-tête. Ne triez pas les valeurs dans les en-têtes ayant plusieurs valeurs.</p>
+</li>
+<li>
+<p>Ajoutez un caractère de saut de ligne (\n)</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Exemple d&#8217;en-têtes d&#8217;origine</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">Host:fcu.eu-west-2.outscale.com\n
+Content-Type:application/x-www-form-urlencoded; charset=utf-8\n
+My-header1:    a   b   c  \n
+X-Amz-Date:20180915T163400Z\n
+My-Header2:    "a   b   c"  \n</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Exemple d&#8217;en-têtes au format canonique</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">content-type:application/x-www-form-urlencoded; charset=utf-8\n
+host:fcu.eu-west-2.outscale.com\n
+my-header1:a b c\n
+my-header2:"a b c"\n
+x-amz-date:20180915T163400Z\n</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Ajoutez les en-têtes signés en suivant cette syntaxe (où \n correspond à un saut de ligne) :</p>
+<div class="listingblock">
+<div class="title">Exemple d&#8217;en-têtes signés</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">content-type;host;x-amz-date\n</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Les en-têtes signés correspondent à la liste des en-têtes que vous avez inclus dans les en-têtes canoniques.</p>
+</div>
+<div class="paragraph">
+<p>L&#8217;en-tête <code>host</code> est un en-tête signé obligatoire. Si vous ajoutez une date ou un en-tête <code>x-amz-date</code>, vous devez également inclure cet en-tête dans la liste des en-têtes signés.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Pour construire la liste des en-têtes signés, référez-vous au pseudo-code suivant :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple d&#8217;en-têtes signés</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">SignedHeaders =
+Lowercase(HeaderName0) + ';' + Lowercase(HeaderName1) + ";" + ... + Lowercase(HeaderNameN)</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Convertissez tous les noms d&#8217;en-tête en minuscules (grâce à la fonction <code>Lowercase</code>), triez-les par code de caractère et utilisez un point-virgule (";") pour séparer les noms d&#8217;en-tête.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Utilisez une fonction de hachage pour créer une valeur hachée à partir de la charge utile du corps de la demande HTTP.</p>
+<div class="listingblock">
+<div class="title">Exemple de structure d&#8217;une charge utile</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">HashedPayload = Lowercase(HexEncode(Hash(requestPayload)))</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>La charge utile hachée doit être sous la forme d&#8217;une chaîne hexadécimale en minuscules.</p>
+</li>
+<li>
+<p>Si la charge utile est vide, utilisez une chaîne vide pour la fonction de hachage. Dans notre exemple, la charge utile est vide.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>La charge utile est hachée.</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de charge utile hachée (chaîne vide)</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">ae14e49469bac4395994faf4b0b3e9824c41b724914c1fc98c69585b2729fb58</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Pour construire la demande canonique, combinez tous les éléments des étapes précédentes :</p>
+<div class="listingblock">
+<div class="title">Exemple de requête canonique</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">GET
+/
+Action=DescribeInstances&amp;Version=2016-09-15
+content-type:application/x-www-form-urlencoded; charset=utf-8
+host:fcu.eu-west-2.outscale.com
+x-amz-date:20180915T163400Z
+
+content-type;host;x-amz-date
+ae14e49469bac4395994faf4b0b3e9824c41b724914c1fc98c69585b2729fb58</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Hachez la demande canonique avec le même algorithme que vous avez utilisé pour hacher la charge utile.</p>
+<div class="listingblock">
+<div class="title">Exemple de demande canonique hachée</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">0547bdda2966fc9a3a76269a3193bed373a56072cfa77949936bc2a556016f32</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>La demande canonique est hachée. Vous devez ensuite l&#8217;inclure dans la chaîne à signer que vous créez dans <a href="Créer-une-chaîne-à-signer.html" class="xref page">Créer une chaîne à signer</a>.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-signatures-de-demandes-d-API.html" class="xref page">À propos des signatures de demandes d&#8217;API</a></p>
+</li>
+<li>
+<p><a href="Créer-une-chaîne-à-signer.html" class="xref page">Créer une chaîne à signer</a></p>
+</li>
+<li>
+<p><a href="Calculer-une-signature.html" class="xref page">Calculer une signature</a></p>
+</li>
+<li>
+<p><a href="Ajouter-une-signature-à-votre-demande-d-API.html" class="xref page">Ajouter une signature à votre demande d&#8217;API</a></p>
+</li>
+</ul>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

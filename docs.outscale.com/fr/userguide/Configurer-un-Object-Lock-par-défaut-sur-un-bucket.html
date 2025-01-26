@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Configurer un Object Lock par défaut sur un bucket – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Configurer-un-Object-Lock-par-défaut-sur-un-bucket.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Configurer-un-Object-Lock-par-défaut-sur-un-bucket.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Configuring-a-Default-Object-Lock-on-Your-Bucket.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Configurer un Object Lock par défaut sur un bucket</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez utiliser la fonctionnalité Object Lock pour empêcher la suppression ou la modification d&#8217;objets dans un bucket pendant une période donnée.</p>
+</div>
+<div class="paragraph">
+<p>Object Lock vous permet d&#8217;appliquer un modèle WORM (write once read many). Vous pouvez utiliser Object Lock pour répondre à certains besoins de conformité réglementaire ou de sécurité.</p>
+</div>
+<div class="paragraph">
+<p>Une fois la configuration Object Lock appliquée à un bucket, le verrouillage par défaut est appliqué à tout objet futur déposé dans le bucket. Néanmoins, vous pouvez également appliquer des verrous spécifiques à des objets spécifiques dans le bucket. Pour en savoir plus, voir <a href="Configurer-un-Object-Lock-spécifique-sur-un-objet.html" class="xref page">Configurer un Object Lock spécifique sur un objet</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI (s3api)"><a class="anchor" href="Configurer-un-Object-Lock-par-défaut-sur-un-bucket.html#AWS CLI (s3api)"></a>Configurer un Object Lock par défaut sur un bucket avec AWS CLI (s3api)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_activer_object_lock_sur_un_bucket"><a class="anchor" href="Configurer-un-Object-Lock-par-défaut-sur-un-bucket.html#_activer_object_lock_sur_un_bucket"></a>Activer Object Lock sur un bucket</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Avant de commencer :</strong> Installez et configurez AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Pour activer Object Lock sur un bucket, vous devez utiliser la commande <strong>create-bucket</strong> avec l&#8217;attribut <strong>object-lock-enabled-for-bucket</strong>. Vous ne pouvez activer Object Lock que sur de nouveaux buckets. Pour en savoir plus, voir <a href="Créer-un-bucket.html" class="xref page">Créer un bucket</a>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Quand vous créez un bucket avec Object Lock activé, le bucket versioning est également automatiquement activé et ne peut pas être désactivé. Pour en savoir plus, voir <a href="Utiliser-le-bucket-versioning.html" class="xref page">Utiliser le bucket versioning</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws s3api create-bucket \
+    --profile YOUR_PROFILE \
+    --bucket BUCKET \
+    --object-lock-enabled-for-bucket \
+    --endpoint https://oos.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Le bucket avec Object Lock activé est créé.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Étant donné que le versioning est automatiquement activé sur un bucket avec Object Lock activé, la suppression d&#8217;un objet verrouillé ne fait que créer un delete marker.</p>
+</div>
+<div class="paragraph">
+<p>En effet, le versioning garantit que chacune des versions d&#8217;un objet est préservée, tandis qu&#8217;Object Lock se charge d&#8217;empêcher certaines versions d&#8217;être modifiées ou supprimées.</p>
+</div>
+<div class="paragraph">
+<p>Cela signifie que lorsqu&#8217;une opération de suppression est tentée sur un objet verrouillé, l&#8217;objet reste en réalité stocké et protégé, et ce même si le delete marker donne l&#8217;impression que l&#8217;objet a été supprimé. Notez également qu&#8217;un delete marker ne peut pas être protégé par un WORM et peut donc être supprimé. Pour en savoir plus, voir <a href="À-propos-des-delete-markers.html" class="xref page">À propos des delete markers</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_appliquer_une_configuration_object_lock_sur_un_bucket"><a class="anchor" href="Configurer-un-Object-Lock-par-défaut-sur-un-bucket.html#_appliquer_une_configuration_object_lock_sur_un_bucket"></a>Appliquer une configuration Object Lock sur un bucket</h3>
+<div class="paragraph">
+<p>Pour appliquer une configuration Object Lock sur un bucket, utilisez la commande <strong>put-object-lock-configuration</strong> en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws s3api put-object-lock-configuration \
+    --profile YOUR_PROFILE \
+    --bucket BUCKET \
+    --object-lock-configuration file://path/to/configuration/file \
+    --endpoint https://oos.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>profile</code> : Le profil nommé que vous voulez utiliser, créé pendant la configuration d&#8217;AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>bucket</code> : Le nom du bucket dans lequel vous voulez ajouter la configuration Object Lock.</p>
+</li>
+<li>
+<p><code>object-lock-configuration</code> : Le chemin vers le fichier de configuration JSON qui contient les règles Object Lock à appliquer à vos objets. Pour en savoir plus sur l’écriture de ce fichier, voir <a href="Référence-pour-la-configuration-d-Object-Lock.html" class="xref page">Référence pour la configuration d&#8217;Object Lock</a>.</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Vous pouvez également spécifier ces règles directement sur la même ligne, sous la forme d’une chaîne JSON.</p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>endpoint</code> : Le endpoint correspondant à la Région à laquelle vous voulez envoyer la requête. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>La configuration Object Lock est appliquée aux nouveaux objets placés dans votre bucket.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous pouvez modifier la configuration par défaut d&#8217;Object Lock de votre bucket avec la même commande. Néanmoins, la nouvelle configuration ne s&#8217;appliquera alors qu&#8217;aux objets déposés après la modification de la configuration. Les objets déposés avant la modification conserveront l&#8217;ancienne configuration.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_obtenir_des_informations_sur_une_configuration_object_lock"><a class="anchor" href="Configurer-un-Object-Lock-par-défaut-sur-un-bucket.html#_obtenir_des_informations_sur_une_configuration_object_lock"></a>Obtenir des informations sur une configuration Object Lock</h3>
+<div class="paragraph">
+<p>Pour obtenir des informations sur la configuration Object Lock de votre bucket, utilisez la commande <strong>get-object-lock-configuration</strong> en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws s3api get-object-lock-configuration \
+    --profile YOUR_PROFILE \
+    --bucket BUCKET \
+    --endpoint https://oos.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>profile</code> : Le profil nommé que vous voulez utiliser, créé pendant la configuration d&#8217;AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>bucket</code> : Le nom du bucket avec Object Lock activé.</p>
+</li>
+<li>
+<p><code>endpoint</code> : Le endpoint correspondant à la Région à laquelle vous voulez envoyer la requête. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>La commande <strong>list-object-versions</strong> renvoie les éléments suivants :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de résultat</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "ObjectLockConfiguration": {
+        "ObjectLockEnabled": "Enabled",
+        "Rule": {
+            "DefaultRetention": {
+                "Mode": "COMPLIANCE",
+                "Days": 2
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ObjectLockEnabled</code> : Indique qu&#8217;Object Lock a été activé sur le bucket.</p>
+</li>
+<li>
+<p><code>Rule</code> : La règle de rétention spécifique appliquée par défaut aux objets placés dans les buckets.</p>
+</li>
+<li>
+<p><code>DefaultRetention</code> : Définit les paramètres de rétention par défaut pour les nouveaux objets placés dans le bucket.</p>
+</li>
+<li>
+<p><code>Mode</code> : Le mode de rétention pour le bucket. La valeur est toujours <code>COMPLIANCE</code>, ce qui empêche tout utilisateur, y compris l&#8217;utilisateur root, de supprimer ou modifier des objets dans le bucket jusqu&#8217;à expiration de la période de rétention.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>OUTSCALE Object Storage ne prend actuellement pas en charge le mode <code>GOVERNANCE</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><code>Days</code> or <code>Years</code> : La période, en jours ou en années, après laquelle vos objets ne seront plus protégés. Le minimum est d&#8217;un jour.</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Attention"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Gardez à l&#8217;esprit qu&#8217;en mode <code>COMPLIANCE</code>, il n&#8217;est pas possible de contourner la période de rétention jusqu&#8217;à son expiration. Cela signifie que vous serez facturé pour la totalité de la période de rétention définie.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-d-OOS.html" class="xref page">À propos d&#8217;OOS</a></p>
+</li>
+<li>
+<p><a href="À-propos-des-delete-markers.html" class="xref page">À propos des delete markers</a></p>
+</li>
+<li>
+<p><a href="Outils-pour-utiliser-OOS.html" class="xref page">Outils pour utiliser OOS</a></p>
+</li>
+<li>
+<p><a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

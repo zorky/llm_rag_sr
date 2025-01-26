@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Rechercher dans la documentation publique depuis votre barre d&#8217;URL – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Rechercher-dans-la-documentation-publique-depuis-votre-barre-d-URL.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Rechercher-dans-la-documentation-publique-depuis-votre-barre-d-URL.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Searching-the-Public-Documentation-From-Your-URL-Bar.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Rechercher dans la documentation publique depuis votre barre d&#8217;URL</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cette page explique comment ajouter la documentation publique OUTSCALE aux moteurs de recherche de votre navigateur.</p>
+</div>
+<div class="paragraph">
+<p>Cela vous permet de rechercher rapidement dans le site de documentation à l&#8217;aide d&#8217;un raccourci/mot-clé. Par exemple, vous pouvez taper <code>osc vm types</code> dans votre barre d&#8217;URL pour lancer directement une recherche pour "vm types" dans la documentation, même si vous n&#8217;êtes pas déjà sur le site.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Firefox_0"><a class="anchor" href="Rechercher-dans-la-documentation-publique-depuis-votre-barre-d-URL.html#Firefox_0"></a>Firefox</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Faites un clic droit sur la barre de recherche située à l&#8217;intérieur de n&#8217;importe quelle page de la documentation publique OUTSCALE, puis cliquez sur <strong>Ajouter un mot-clé pour cette recherche&#8230;&#8203;</strong>.<br>
+Une fenêtre apparaît.</p>
+</li>
+<li>
+<p>Remplissez la fenêtre comme suit :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Nom</strong> : Le nom que vous voulez pour le moteur de recherche (par exemple, <code>OUTSCALE Docs (FR)</code>).</p>
+</li>
+<li>
+<p><strong>Emplacement</strong> : Le répertoire où vous voulez ranger le moteur de recherche dans vos marque-pages.</p>
+</li>
+<li>
+<p><strong>Mot-clé</strong> : Le mot-clé que vous voulez utiliser pour appeler le moteur de recherche (par exemple, <code>osc</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cliquez sur  <strong>Enregistrer</strong> pour confirmer.<br>
+Vous pouvez maintenant faire des recherches dans la documentation directement depuis votre barre d&#8217;URL, en tapant le mot-clé <code>osc</code> suivi de votre requête.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Pour en savoir plus, voir la <a href="https://support.mozilla.org/fr/kb/comment-rechercher-site-barre-adresse" target="_blank" rel="noopener">documentation officielle de Firefox</a>.</p>
+</li>
+<li>
+<p>Vous pouvez aussi suivre une <a href="https://support.mozilla.org/fr/kb/ajouter-ou-supprimer-un-moteur-de-recherche-dans-firefox#w_ajouter-un-moteur-de-recherche-depuis-la-barre-dadresse" target="_blank" rel="noopener">autre méthode</a> aussi décrite dans la documentation officielle de Firefox. Dans ce cas, le moteur de recherche sera stocké dans les réglages de votre navigateur plutôt que dans vos marque-pages.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Google Chrome_1"><a class="anchor" href="Rechercher-dans-la-documentation-publique-depuis-votre-barre-d-URL.html#Google Chrome_1"></a>Google Chrome</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans le menu <strong>Paramètres</strong> de votre navigateur, cliquez sur <strong>Moteur de recherche</strong> &gt; <strong>Gérer les moteurs de recherche et la recherche sur les sites</strong>.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous pouvez aussi taper <code>chrome://settings/searchEngines</code> dans votre barre d&#8217;URL.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Cliquez sur <strong>Ajouter</strong>.<br>
+Une fenêtre apparaît.</p>
+</li>
+<li>
+<p>Remplissez la fenêtre comme suit :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Moteur de recherche</strong> : Le nom que vous voulez pour le moteur de recherche (par exemple, <code>OUTSCALE Docs (FR)</code>).</p>
+</li>
+<li>
+<p><strong>Raccourci</strong> : Le mot-clé que vous voulez utiliser pour appeler le moteur de recherche (par exemple, <code>osc</code>).</p>
+</li>
+<li>
+<p><strong>URL avec %s à la place de la requête</strong> : Tapez <code>https://docs.outscale.com/fr/userguide/Recherche.html?q=%s</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cliquez sur <strong>Ajouter</strong> pour confirmer.<br>
+Vous pouvez maintenant faire des recherches dans la documentation directement depuis votre barre d&#8217;URL, en tapant le mot-clé <code>osc</code> suivi de votre requête.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour en savoir plus, voir la <a href="https://support.google.com/chrome/answer/95426?hl=fr" target="_blank" rel="noopener">documentation officielle de Google Chrome</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Microsoft Edge_2"><a class="anchor" href="Rechercher-dans-la-documentation-publique-depuis-votre-barre-d-URL.html#Microsoft Edge_2"></a>Microsoft Edge</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans le menu <strong>Paramètres</strong> de votre navigateur, cliquez sur <strong>Confidentialité, recherche et services</strong> &gt; <strong>Barre d&#8217;adresse et recherche</strong> &gt; <strong>Gérer les moteurs de recherche</strong>.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous pouvez aussi taper <code>edge://settings/searchEngines</code> dans votre barre d&#8217;URL.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Cliquez sur <strong>Ajouter</strong>.<br>
+Une fenêtre apparaît.</p>
+</li>
+<li>
+<p>Remplissez la fenêtre comme suit :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Moteur de recherche</strong> : Le nom que vous voulez pour le moteur de recherche (par exemple, <code>OUTSCALE Docs (FR)</code>).</p>
+</li>
+<li>
+<p><strong>Raccourci</strong> : Le mot-clé que vous voulez utiliser pour appeler le moteur de recherche (par exemple, <code>osc</code>).</p>
+</li>
+<li>
+<p><strong>URL avec %s à la place de la requête</strong> : Tapez <code>https://docs.outscale.com/fr/userguide/Recherche.html?q=%s</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cliquez sur <strong>Ajouter</strong> pour confirmer.<br>
+Vous pouvez maintenant faire des recherches dans la documentation directement depuis votre barre d&#8217;URL, en tapant le mot-clé <code>osc</code> suivi de votre requête.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour en savoir plus, voir la <a href="https://support.microsoft.com/fr-fr/microsoft-edge/modifier-le-moteur-de-recherche-par-d%C3%A9faut-dans-microsoft-edge-cccaf51c-a4df-a43e-8036-d4d2c527a791" target="_blank" rel="noopener">documentation officielle de Microsoft Edge</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Safari_3"><a class="anchor" href="Rechercher-dans-la-documentation-publique-depuis-votre-barre-d-URL.html#Safari_3"></a>Safari</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Avec Safari, vous devez utiliser une extension de navigateur pour activer la recherche par mot-clé. Par exemple, voir <a href="http://safarikeywordsearch.aurlien.net" target="_blank" rel="noopener">http://safarikeywordsearch.aurlien.net</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Tutoriel : Mettre en place une MFA pour votre compte avec un certificat – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Tutoriel-Mettre-en-place-une-MFA-pour-votre-compte-avec-un-certificat.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Tutoriel-Mettre-en-place-une-MFA-pour-votre-compte-avec-un-certificat.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Tutorial-Setting-Up-MFA-for-Your-Account-Using-a-Certificate.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Tutoriel : Mettre en place une MFA pour votre compte avec un certificat</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous pouvez aussi vous connecter à Cockpit v2 avec l&#8217;authentification multifacteur (MFA) via WebAuthn ou un OTP. Pour en savoir plus, voir <a href="Mettre-en-place-une-MFA-pour-votre-compte-avec-WebAuthn-ou-un-OTP.html" class="xref page">Mettre en place une MFA pour votre compte avec WebAuthn ou un OTP</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Pour mettre en place une authentification multifacteur (MFA) sur votre compte OUTSCALE avec un certificat x509 :</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Vous devez importer une autorité de certification (CA) qui servira d&#8217;ancre de confiance dans une chaîne de confiance.</p>
+</li>
+<li>
+<p>Vous devez ensuite configurer vos règles d&#8217;accès API pour obliger toutes les requêtes API à fournir un certificat client. Si ce certificat client est stocké sur un périphérique physique distinct, tel qu&#8217;une carte à puce, il constitue un facteur de possession et donc un second facteur d&#8217;authentification (par rapport à vos access keys, facteur de connaissance, qui constituent le premier facteur d&#8217;authentification).</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Les cartes à puce doivent se conformer au standard Personal Identity Verification (PIV).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Vous pouvez alors activer une session de confiance avec votre politique d&#8217;accès API afin de simplifier votre accès aux API. Si vous utilisez Cockpit v2, une session de confiance est automatiquement simulée pour vous.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Attention"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Faites attention lorsque vous suivez ce tutoriel. Une mauvaise configuration de vos CA, certificat client et règles d&#8217;accès API peuvent entraîner un blocage de votre compte.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Cette procédure est basée sur OSC CLI. Une fois la MFA mise en place pour votre compte OUTSCALE, vous pouvez configurer un certificat client pour d&#8217;autres interfaces comme Cockpit v2 ou Terraform.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_générer_une_ca"><a class="anchor" href="Tutoriel-Mettre-en-place-une-MFA-pour-votre-compte-avec-un-certificat.html#_générer_une_ca"></a>Générer une CA</h2>
+<div class="sectionbody">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si vous possédez déjà une CA au format PEM, vous pouvez sauter cette section.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Générez une clé privée de CA :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ openssl genrsa -aes256 -out ca-key.pem 4096</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Il est recommandé de protéger votre clé privée de CA par une phrase de passe.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Avec la clé privée de CA, générez un certificat de CA :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ openssl req -new \
+    -x509 \
+    -days 365 \
+    -key ca-key.pem \
+    -out ca-certificate.pem \
+    -config &lt;(cat /etc/ssl/openssl.cnf &lt;(echo -e "[ext]\nbasicConstraints = critical,CA:TRUE,pathlen:1")) \
+    -extensions ext</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Cette commande contient une configuration spécifique de "contraintes de base", nécessaire pour que le certificat de CA soit accepté dans le Cloud OUTSCALE.</p>
+</li>
+<li>
+<p>Cette commande génère via le paramètre <code>-days 365</code> un certificat de CA valide pendant un an, mais vous pouvez aussi spécifier une valeur différente. Pour en savoir plus, voir le <a href="https://www.openssl.org/" target="_blank" rel="noopener">site officiel de la commande OpenSSL</a>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Votre clé privée de CA est enregistrée sous <code>ca-key.pem</code> et votre certificat de CA sous <code>ca-certificate.pem</code>.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_importer_votre_ca"><a class="anchor" href="Tutoriel-Mettre-en-place-une-MFA-pour-votre-compte-avec-un-certificat.html#_importer_votre_ca"></a>Importer votre CA</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Avant de commencer</strong> : Installez OSC CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-OSC-CLI.html" class="xref page">Installer et configurer OSC CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Importez votre certificat de CA avec OSC CLI :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api CreateCa \
+    --Description "My company CA" \
+    --CaPem="$(cat ca-certificate.pem)"</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de réponse</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"Ca": {
+    "CaFingerprint": "FINGERPRINT",
+    "CaId": "ca-12345678",
+    "Description": "My company CA"
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour vérifier la bonne transmission de votre CA, vous pouvez comparer l&#8217;empreinte de la réponse ci-dessus avec l&#8217;empreinte générée par cette commande :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ openssl x509 -in ca-certificate.pem -noout -sha1 -fingerprint | awk '{gsub(/.*=/, ""); gsub(":",""); print tolower($0)}'</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Votre certificat de CA est maintenant disponible dans votre compte OUTSCALE.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configurer_vos_règles_daccès_api"><a class="anchor" href="Tutoriel-Mettre-en-place-une-MFA-pour-votre-compte-avec-un-certificat.html#_configurer_vos_règles_daccès_api"></a>Configurer vos règles d&#8217;accès API</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Créez une règle d&#8217;accès API autorisant uniquement les requêtes API qui fournissent un certificat client :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api CreateApiAccessRule \
+    --CaIds '["ca-12345678"]' \
+    --Description "Allow access with certificates validated by my CA"</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>(Optionnel) Créez une règle d&#8217;accès API autorisant uniquement les requêtes API qui proviennent d&#8217;une IP à laquelle vous avez accès :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api CreateApiAccessRule \
+    --IpRanges '["192.0.2.0/32"]' \
+    --Description "Backup access if certificate access fails"</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si possible, utilisez une IP différente de votre IP actuelle, par exemple une IP de VPN, afin de tester parfaitement l&#8217;accès.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Listez les ID de toutes vos règles d&#8217;accès API :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api ReadApiAccessRules</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de réponse</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">    "ApiAccessRules": [
+        {
+            "ApiAccessRuleId": "aar-11111111",
+            "CaIds": [],
+            "Cns": [],
+            "Description": "Allows all IPv4 domain",
+            "IpRanges": [
+                "0.0.0.0/0"
+            ]
+        },
+        {
+            "ApiAccessRuleId": "aar-22222222",
+            "CaIds": [],
+            "Cns": [],
+            "Description": "Allows Outscale Cockpit of this region",
+            "IpRanges": [
+                "46.231.144.177/32"
+            ]
+        }
+        {
+            "ApiAccessRuleId": "aar-33333333",
+            "CaIds": [
+                "ca-12345678"
+            ],
+            "Cns": [],
+            "Description": "Allow access with certificates validated by my CA",
+            "IpRanges": []
+        }
+        {
+            "ApiAccessRuleId": "aar-44444444",
+            "CaIds": [],
+            "Cns": [],
+            "Description": "Backup access if certificate access fails",
+            "IpRanges": [
+                "192.0.2.0/32"
+            ]
+        }
+    ]</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Par défaut, chaque compte possède les règles d&#8217;accès API suivantes :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>L&#8217;accès global est autorisé (0.0.0.0/0).</p>
+</li>
+<li>
+<p>L&#8217;accès depuis l&#8217;interface web Cockpit de la Région du compte est autorisée.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Supprimez la règle d&#8217;accès API autorisant l&#8217;accès global :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api DeleteApiAccessRule --ApiAccessRuleId "aar-11111111"</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_générer_un_certificat_client"><a class="anchor" href="Tutoriel-Mettre-en-place-une-MFA-pour-votre-compte-avec-un-certificat.html#_générer_un_certificat_client"></a>Générer un certificat client</h2>
+<div class="sectionbody">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour une MFA renforcée, vous pouvez utiliser un périphérique physique distinct, tel qu&#8217;une carte à puce, pour générer et stocker vos certificats clients.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Générez une clé privée de certificat et une demande de certificat :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ openssl req -new \
+    -sha256 \
+    -nodes \
+    -newkey rsa:2048 \
+    -keyout client-key.pem \
+    -out client-certificate.csr</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si vous utilisez un périphérique physique distinct, adaptez la valeur du paramètre <code>newkey</code> aux spécifications de votre périphérique.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Votre clé privée de certificat est enregistrée sous <code>client-key.pem</code> et votre demande de certificat sous <code>client-certificate.csr</code>.</p>
+</div>
+</li>
+<li>
+<p>Avec les fichiers ci-dessus, générez un certificat client signé par votre CA :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ openssl x509 -req \
+    -sha256 \
+    -days 365 \
+    -CAkey ca-key.pem \
+    -CA ca-certificate.pem \
+    -CAcreateserial \
+    -in client-certificate.csr \
+    -out client-certificate.pem \
+    -extfile &lt;(echo "extendedKeyUsage = clientAuth")</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Cette commande génère via le paramètre <code>-days 365</code> un certificat client valide pendant un an, mais vous pouvez aussi spécifier une valeur différente. Pour en savoir plus, voir le <a href="https://www.openssl.org/" target="_blank" rel="noopener">site officiel de la commande OpenSSL</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Votre certificat client est enregistré sous <code>client-certificate.pem</code>.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configurer_votre_accès"><a class="anchor" href="Tutoriel-Mettre-en-place-une-MFA-pour-votre-compte-avec-un-certificat.html#_configurer_votre_accès"></a>Configurer votre accès</h2>
+<div class="sectionbody">
+<div class="sect2 tab">
+<h3 id="OSC CLI_0"><a class="anchor" href="Tutoriel-Mettre-en-place-une-MFA-pour-votre-compte-avec-un-certificat.html#OSC CLI_0"></a>Configurer votre accès pour OSC CLI</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Pour configurer OSC CLI de sorte à utiliser votre certificat client, ajoutez un profil (nommé par exemple <code>secure</code>) dans votre fichier <strong>.osc_sdk/config.json</strong> :</p>
+<div class="listingblock">
+<div class="title">.osc_sdk/config.json</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "default": {
+        "access_key": "ACCESSKEY",
+        "secret_key": "SECRETKEY",
+        "host": "outscale.com",
+        "https": true,
+        "method": "POST",
+        "region": "eu-west-2"
+    },
+    "secure": {
+        "access_key": "ACCESSKEY",
+        "secret_key": "SECRETKEY",
+        "host": "outscale.com",
+        "https": true,
+        "method": "POST",
+        "region": "eu-west-2",
+        "client_certificate": [
+            "/PATHTO/client-certificate.pem",
+            "/PATHTO/client-key.pem"
+        ]
+    }
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Remplacez <code>ACCESSKEY</code>, <code>SECRETKEY</code>, <code>eu-west-2</code>, et <code>/PATHTO/</code> avec les valeurs adéquates.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Testez votre profil <code>secure</code> en exécutant une commande OSC CLI quelconque :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api ReadVms --profile "secure"</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Si votre profil <code>secure</code> fonctionne correctement, vous pouvez supprimer la règle d&#8217;accès API autorisant l&#8217;accès depuis Cockpit, ainsi que celle autorisant une IP à laquelle vous avez l&#8217;accès :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api DeleteApiAccessRule --profile "secure" --ApiAccessRuleId "aar-22222222"
+$ osc-cli api DeleteApiAccessRule --profile "secure" --ApiAccessRuleId "aar-44444444"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Votre compte est maintenant configuré pour autoriser uniquement les requêtes API qui fournissent un certificat client.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Attention"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si vous ne pouvez plus réaliser d&#8217;actions sur votre compte OUTSCALE via les règles en place, vous devez contacter l&#8217;équipe Support pour y avoir accès à nouveau. Pour en savoir plus, voir <a href="Support-technique.html" class="xref page">Support technique</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2 tab">
+<h3 id="Cockpit v2_1"><a class="anchor" href="Tutoriel-Mettre-en-place-une-MFA-pour-votre-compte-avec-un-certificat.html#Cockpit v2_1"></a>Configurer votre accès pour Cockpit v2</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Convertissez votre certificat client au format PKCS 12 en utilisant la commande suivante :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ openssl pkcs12 \
+    -inkey client-key.pem \
+    -in client-certificate.pem \
+    -export -out web-client-certificate.p12</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Testez votre accès en vous connectant à Cockpit v2. Pour en savoir plus, voir <a href="Se-connecter-et-déconnecter-d-une-session-de-confiance-avec-un-certificat.html" class="xref page">Se connecter et déconnecter d&#8217;une session de confiance avec un certificat</a>.</p>
+</li>
+<li>
+<p>Si vous parvenez à vous connecter, vous pouvez supprimer la règle d&#8217;accès API autorisant l&#8217;accès depuis Cockpit, ainsi que celle autorisant une IP à laquelle vous avez l&#8217;accès :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api DeleteApiAccessRule --profile "secure" --ApiAccessRuleId "aar-22222222"
+$ osc-cli api DeleteApiAccessRule --profile "secure" --ApiAccessRuleId "aar-44444444"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Votre compte est maintenant configuré pour autoriser uniquement les requêtes API qui fournissent un certificat client, y compris celles provenant de Cockpit v2.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Attention"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si vous ne pouvez plus réaliser d&#8217;actions sur votre compte OUTSCALE via les règles en place, vous devez contacter l&#8217;équipe Support pour y avoir accès à nouveau. Pour en savoir plus, voir <a href="Support-technique.html" class="xref page">Support technique</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_activer_une_session_de_confiance"><a class="anchor" href="Tutoriel-Mettre-en-place-une-MFA-pour-votre-compte-avec-un-certificat.html#_activer_une_session_de_confiance"></a>Activer une session de confiance</h2>
+<div class="sectionbody">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si vous utilisez Cockpit v2, vous n&#8217;avez pas besoin d&#8217;activer une session de confiance car Cockpit v2 en simule automatiquement une pour vous.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Récupérez les ID de toutes vos access keys :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api ReadAccessKeys --profile "secure"</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de réponse</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"AccessKeys": [
+    {
+        "AccessKeyId": "AAAAAAAAAAAAAAAA",
+        "CreationDate": "YYYY-MM-DDThh:mm:ss.000Z",
+        "LastModificationDate": "YYYY-MM-DDThh:mm:ss.000Z",
+        "State": "ACTIVE"
+    },
+    {
+        "AccessKeyId": "BBBBBBBBBBBBBBBB",
+        "CreationDate": "YYYY-MM-DDThh:mm:ss.000Z",
+        "LastModificationDate": "YYYY-MM-DDThh:mm:ss.000Z",
+        "State": "ACTIVE"
+    }
+]</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Définissez des dates d&#8217;expiration pour toutes vos access keys :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api UpdateAccessKey \
+    --profile "secure" \
+    --AccessKeyId "AAAAAAAAAAAAAAAA" \
+    --State "ACTIVE" \
+    --ExpirationDate "20XX-XX-XXTXX:XX:XXZ"
+
+$ osc-cli api UpdateAccessKey \
+    --profile "secure" \
+    --AccessKeyId "BBBBBBBBBBBBBBBB" \
+    --State "ACTIVE" \
+    --ExpirationDate "20XX-XX-XXTXX:XX:XXZ"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Toutes vos access keys ont maintenant des durées de vie finies.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Les access keys des utilisateurs EIM ne peuvent pas avoir de date d&#8217;expiration. Si vous avez des utilisateurs EIM dans votre compte, vous devez supprimer leurs access keys. Pour en savoir plus, voir <a href="Supprimer-une-access-key-EIM.html" class="xref page">Supprimer une access key EIM</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Pour activer une session de confiance, modifiez votre politique d&#8217;accès API :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api UpdateApiAccessPolicy \
+    --profile "secure" \
+    --MaxAccessKeyExpirationSeconds XXXXXX \
+    --RequireTrustedEnv True</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>La valeur du paramètre <code>MaxAccessKeyExpirationSeconds</code> doit être supérieure ou égale à chacune des durées de vie restantes de vos access keys.</p>
+</li>
+<li>
+<p>Vos access keys peuvent expirer avant la fin de votre session de confiance. Assurez-vous de les renouveler lorsque nécessaire.</p>
+</li>
+<li>
+<p>Il peut y avoir un léger délai entre la réponse de la commande et l&#8217;application effective de la session de confiance.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Votre session de confiance est maintenant activée. Vous n&#8217;avez plus besoin de fournir votre certificat client, jusqu&#8217;à ce que vous décidiez de désactiver la session de confiance, sauf pour certaines actions spécifiques. Pour en savoir plus, voir <a href="À-propos-de-votre-politique-d-accès-API.html#_portée_dune_session_de_confiance" class="xref page">À propos de votre politique d&#8217;accès API &gt; Portée d&#8217;une session de confiance</a>.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-règles-d-accès-API.html" class="xref page">À propos des règles d&#8217;accès API</a></p>
+</li>
+<li>
+<p><a href="À-propos-de-votre-politique-d-accès-API.html" class="xref page">À propos de votre politique d&#8217;accès API</a></p>
+</li>
+<li>
+<p><a href="À-propos-des-access-keys.html" class="xref page">À propos des access keys</a></p>
+</li>
+<li>
+<p><a href="Installer-et-configurer-OSC-CLI.html" class="xref page">Installer et configurer OSC CLI</a></p>
+</li>
+<li>
+<p><a href="Se-connecter-et-déconnecter-d-une-session-de-confiance-avec-un-certificat.html" class="xref page">Se connecter et déconnecter d&#8217;une session de confiance avec un certificat</a></p>
+</li>
+<li>
+<p><a href="Mettre-en-place-une-MFA-pour-votre-compte-avec-WebAuthn-ou-un-OTP.html" class="xref page">Mettre en place une MFA pour votre compte avec WebAuthn ou un OTP</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Méthodes API correspondantes</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>API OUTSCALE</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#3ds-outscale-api-ca" class="xref page">Ca</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#3ds-outscale-api-apiaccessrule" class="xref page">ApiAccessRule</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#3ds-outscale-api-apiaccesspolicy" class="xref page">ApiAccessPolicy</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#3ds-outscale-api-accesskey" class="xref page">AccessKey</a></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>À propos des keypairs – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="À-propos-des-keypairs.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/À-propos-des-keypairs.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/About-Keypairs.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">À propos des keypairs</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Les keypairs sont des paires de clés SSH qui vous permettent de vous connecter à vos <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machines virtuelles (VM)</span>. Lorsque vous créez une VM, vous devez spécifier la keypair que vous souhaitez utiliser, et utiliser sa clé privée pour vous connecter à la VM.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_clé_publique_et_clé_privée"><a class="anchor" href="À-propos-des-keypairs.html#_clé_publique_et_clé_privée"></a>Clé publique et clé privée</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Une keypair se compose d&#8217;une clé publique et d&#8217;une clé privée.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Générer une keypair au format RSA 2048 bits à l&#8217;aide des API ou de Cockpit. Pour en savoir plus, voir <a href="Créer-une-keypair.html" class="xref page">Créer une keypair</a>.</p>
+</li>
+<li>
+<p>Importer une keypair existante créée à l&#8217;aide d&#8217;un outil tiers, parmi les types suivants : RSA (2048 bits ou de préférence 4096 bits), Ed25519, et ECDSA (256 bits, 384 bits, ou 521 bits). Les formats suivants peuvent être utilisés : PEM, PKCS8, RFC4716, et OpenSSH. Pour en savoir plus, voir <a href="Importer-une-keypair.html" class="xref page">Importer une keypair</a>.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Donnez des noms explicites à vos keypairs afin que leur rôle soit compris plus facilement. Vous pouvez par exemple utiliser des noms au format application-environement-rôle :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>website-all-bastion</p>
+</li>
+<li>
+<p>website-front-lb</p>
+</li>
+<li>
+<p>website-middle-app</p>
+</li>
+<li>
+<p>website-back-db</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Dans tous les cas, la clé publique de la keypair est conservée par 3DS OUTSCALE, et est disponible uniquement dans les metadata de la <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span>. En revanche, la clé privée n&#8217;est jamais transmise à 3DS OUTSCALE. Pour en savoir plus sur les metadata des VM, voir <a href="Accéder-aux-metadata-et-user-data-d-une-VM.html" class="xref page">Accéder aux metadata d&#8217;une VM</a>.</p>
+</div>
+<div class="paragraph">
+<p>Pour les VM Linux créées à partir d&#8217;une OMI non officielle, vous pouvez remplacer la clé publique de la keypair dans le fichier authorized_keys par celle d&#8217;une nouvelle keypair. Pour en savoir plus, voir <a href="Modifier-la-keypair-d-une-VM.html" class="xref page">Modifier la keypair d&#8217;une VM</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_keypairs_et_omi"><a class="anchor" href="À-propos-des-keypairs.html#_keypairs_et_omi"></a>Keypairs et OMI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Toutes les OMI officielles utilisent les keypairs comme système d&#8217;authentification. Lors de la création d&#8217;une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> à partir d&#8217;une OMI officielle, vous devez lui attribuer une keypair :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Pour les VM Linux, la VM obtient la clé publique de la keypair à partir des metadata et l&#8217;associe à l&#8217;utilisateur <code>root</code> en l&#8217;insérant dans le répertoire home, dans le fichier authorized_keys. Pour en savoir plus, voir <a href="Accéder-à-une-VM-Linux.html" class="xref page">Accéder à une VM Linux</a>.</p>
+</li>
+<li>
+<p>Pour les VM Windows, la keypair vous permet d&#8217;obtenir et de déchiffrer le mot de passe Administrateur lors de la création de la VM. Pour en savoir plus, voir <a href="Accéder-à-une-VM-Windows.html" class="xref page">Accéder à une VM Windows</a>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Seules les keypairs RSA peuvent déchiffrer le mot de passe d&#8217;une VM Windows.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Cependant, les OMI non officielles peuvent utiliser n&#8217;importe quel système d&#8217;authentification. Lors de la création d&#8217;une VM, vous devez vérifier si une keypair est nécessaire pour l&#8217;OMI spécifiée.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Nous vous recommandons fortement d&#8217;utiliser uniquement des OMI officielles ou des OMI issues d&#8217;OUTSCALE Marketplace. Nous ne pouvons pas garantir la sécurité des VM créées à partir d&#8217;OMI issues d&#8217;autres sources.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Après votre première connexion à une VM, vous pouvez :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Remplacer la keypair attribuée. Pour en savoir plus, voir <a href="Modifier-la-keypair-d-une-VM.html" class="xref page">Modifier la keypair d&#8217;une VM</a>.</p>
+</li>
+<li>
+<p>Remplacer la keypair par un autre système d&#8217;authentification de votre choix, par exemple les protocoles Kerberos ou Radius.</p>
+</li>
+<li>
+<p>Ajouter un ou plusieurs systèmes d&#8217;authentification en supplément de la keypair.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-VM.html" class="xref page">À propos des VM</a></p>
+</li>
+<li>
+<p><a href="Créer-une-keypair.html" class="xref page">Créer une keypair</a></p>
+</li>
+<li>
+<p><a href="Importer-une-keypair.html" class="xref page">Importer une keypair</a></p>
+</li>
+<li>
+<p><a href="Modifier-la-keypair-d-une-VM.html" class="xref page">Modifier la keypair d&#8217;une VM</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Tutorial: Archiving Your API Logs – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="Tutorial-Archiving-Your-API-Logs.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/Tutorial-Archiving-Your-API-Logs.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Tutoriel-Archiver-vos-logs-d-API.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Tutorial: Archiving Your API Logs</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This tutorial shows an example of using a script to archive API logs, either locally or to the OUTSCALE Object Storage (OOS) service.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can now use the <a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a> tool to archive your API logs.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_creating_a_script_for_api_log_pagination"><a class="anchor" href="Tutorial-Archiving-Your-API-Logs.html#_creating_a_script_for_api_log_pagination"></a>Creating a Script for API Log Pagination</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following is an example of a script which runs ReadApiLogs with pagination to retrieve all logs starting from a given date, and then saves them in a CSV file named <code>logs.csv</code>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>By default, the script works with Linux. For it to work with macOS, you need to comment out the two lines below the <code># Linux</code> line and uncomment the two lines below the <code># macOS</code> line.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">apilogs.sh</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">#!/bin/bash
+
+# Exit when any command fails
+set -e
+
+# Usage: apilogs.sh [PROFILE] [YYYY-MM-DD]
+
+profile=${1:-default}
+# Linux: use $(date --date '2 weeks ago' +%F)
+query_date_after=${2:-$(date --date '2 weeks ago' +%F)}
+query_date_before=${2:-$(date +%F)}
+# macOS/BSD: use $(date -v [+|-]val[ymwdHMS] +%F)
+#query_date_after=${2:-$(date -v -2w +%F)}
+#query_date_before=${2:-$(date +%F)}
+next_page="null"
+
+retrieve_apilogs(){
+    # Perform ReadApiLogs calls with/without page token
+    if [ "$next_page" = "null" ]; then
+        osc-cli --profile $profile api ReadApiLogs --Filters '{"QueryDateAfter":"'$query_date_after'","QueryDateBefore":"'$query_date_before'"}' &gt; tmp_logs.json;
+    else
+        echo "&gt;&gt;&gt; Retrieving new page" $next_page
+        osc-cli --profile $profile api ReadApiLogs --Filters '{"QueryDateAfter":"'$query_date_after'","QueryDateBefore":"'$query_date_before'"}' --NextPageToken $next_page &gt; tmp_logs.json;
+    fi
+    # Concatenate selected fields from logs and save to CSV file
+    cat tmp_logs.json | jq -r '.Logs[] | [.RequestId, .AccountId, .QueryAccessKey, .ResponseStatusCode, .QueryCallName, .QueryIpAddress, .QueryDate, .QueryUserAgent] | @csv' &gt;&gt; logs.csv
+    # Check whether another page needs to be retrieved
+    next_page=$(cat tmp_logs.json | jq -r '.NextPageToken // "null"')
+}
+
+retrieve_apilogs
+while [ "$next_page" != "null" ]; do
+    retrieve_apilogs
+done
+
+# Nicely display logs as columns with selected fields in shell
+cat logs.csv | column -t -s ',' | tr -d '"'
+
+# Cleanup
+rm tmp_logs.json</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_archiving_your_api_logs_locally"><a class="anchor" href="Tutorial-Archiving-Your-API-Logs.html#_archiving_your_api_logs_locally"></a>Archiving Your API Logs Locally</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Before you begin:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Install OSC CLI. For more information, see <a href="Installing-and-Configuring-OSC-CLI.html" class="xref page">Installing and Configuring OSC CLI</a>.</p>
+</li>
+<li>
+<p>Install jq, a command-line JSON processor. For more information, see the <a href="https://stedolan.github.io/jq/download/" target="_blank" rel="noopener">official jq documentation</a>.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>You can run the previous script as follows:<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ bash apilogs.sh PROFILE YYYY-MM-DD</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>PROFILE</code> is the name of your OSC CLI profile (by default, <code>default</code>).</p>
+</li>
+<li>
+<p><code>YYYY-MM-DD</code> is the start date from which you want to retrieve logs (by default, the script sets this date to two weeks ago). The script retrieves logs from this date up to today by using this date for the <code>QueryDateAfter</code> parameter of ReadApiLogs, and the date of today for the <code>QueryDateBefore</code> parameter.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_archiving_your_api_logs_to_oos"><a class="anchor" href="Tutorial-Archiving-Your-API-Logs.html#_archiving_your_api_logs_to_oos"></a>Archiving Your API Logs to OOS</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Before you begin:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Install AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+<li>
+<p>Create an OOS bucket. For more information, see <a href="Creating-a-Bucket.html" class="xref page">Creating a Bucket</a>.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The OUTSCALE Object Storage (OOS) service enables you to store sensitive data on cold storage, in a secure way. It also enables you to share the access to this data.</p>
+</div>
+<div class="paragraph">
+<p>To export your API logs to OOS, you can combine the previous script with <code>cron</code>, a utility which automates the execution of tasks at set intervals.</p>
+</div>
+<div class="sect2 tab">
+<h3 id="Linux_0"><a class="anchor" href="Tutorial-Archiving-Your-API-Logs.html#Linux_0"></a>Linux</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open your <code>cron</code> task file using the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ crontab -e</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>In the file, insert one of the following lines, and then save the file:</p>
+<div class="listingblock">
+<div class="title">For archiving everyday</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">0 0 * * * MDATE=$(date --date '1 day ago' +%F) ; bash readapilogs.sh default $MDATE ; aws s3api put-object --body logs.csv --bucket archives --key logs-$MDATE.csv ; rm logs.csv</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">For archiving every 30 days</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">0 0 */30 * * MDATE=$(date --date '30 days ago' +%F) ; bash readapilogs.sh default $MDATE ; aws s3api put-object --body logs.csv --bucket archives --key logs-$MDATE.csv ; rm logs.csv</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The task thus created uses the script to create a local CSV file, exports it to OOS, and then deletes the local version.</p>
+</div>
+</div>
+<div class="sect2 tab">
+<h3 id="macOS_1"><a class="anchor" href="Tutorial-Archiving-Your-API-Logs.html#macOS_1"></a>macOS</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open your <code>cron</code> task file using the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ crontab -e</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>In the file, insert one of the following lines, and then save the file:</p>
+<div class="listingblock">
+<div class="title">For archiving everyday</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">0 0 * * * MDATE=$(date -v -1d +%F) ; bash readapilogs.sh default $MDATE ; aws s3api put-object --body logs.csv --bucket archives --key logs-$MDATE.csv ; rm logs.csv</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">For archiving every 30 days</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">0 0 */30 * * MDATE=$(date -v -30d +%F) ; bash readapilogs.sh default $MDATE ; aws s3api put-object --body logs.csv --bucket archives --key logs-$MDATE.csv ; rm logs.csv</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The task thus created uses the script to create a local CSV file, exports it to OOS, and then deletes the local version.</p>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="About-OMS.html" class="xref page">About OMS</a></p>
+</li>
+<li>
+<p><a href="Installing-and-Configuring-OSC-CLI.html" class="xref page">Installing and Configuring OSC CLI</a></p>
+</li>
+<li>
+<p><a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Corresponding API Method</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#readapilogs" class="xref page">ReadApiLogs (OUTSCALE API)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ and Amazon Web Services™ are trademarks of Amazon Technologies, Inc or its affiliates in the United States and/or other countries.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

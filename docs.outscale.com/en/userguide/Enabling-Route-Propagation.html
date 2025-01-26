@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Enabling Route Propagation – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="Enabling-Route-Propagation.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/Enabling-Route-Propagation.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Activer-la-propagation-des-routes.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Enabling Route Propagation</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can enable route propagation to a route table to include the routes associated with a VPN connection.</p>
+</div>
+<div class="paragraph">
+<p>This action automatically updates the route table with the routes of the VPN connection, and points them to the <span class="tooltip" data-tooltip="virtual private gateway in AWS-Compliant APIs">virtual gateway</span>. Otherwise, you need to manually update the route table with each route. Route propagation is not mandatory, and works for both static and dynamic routing. You can use a default or custom route table. For more information, see <a href="About-Routing-Configuration-for-VPN-Connections.html" class="xref page">About Routing Configuration for VPN Connections</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Cockpit v2_0"><a class="anchor" href="Enabling-Route-Propagation.html#Cockpit v2_0"></a>Enabling Route Propagation Using Cockpit v2</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Before you begin:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Create a <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span>. For more information, see <a href="Creating-a-Net.html" class="xref page">Creating a Net</a>.</p>
+</li>
+<li>
+<p>Create a <span class="tooltip" data-tooltip="virtual private gateway in AWS-Compliant APIs">virtual gateway</span>. For more information, see <a href="Creating-a-Virtual-Gateway.html" class="xref page">Creating a Virtual Gateway</a>.</p>
+</li>
+<li>
+<p>Link the virtual gateway to the Net. For more information, see <a href="Linking-a-Virtual-Gateway.html" class="xref page">Linking a Virtual Gateway</a>.</p>
+</li>
+<li>
+<p>(optional) Create a custom route table for the Subnet of the Net. For more information, see <a href="Creating-a-Route-Table.html" class="xref page">Creating a Route Table</a>.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In the <strong>Route Tables</strong> dashboard, check the box of the route table to which you want to enable route propagation.<br>
+The route table is selected.</p>
+</li>
+<li>
+<p>Click <span class="image"><img src="_images/IconEnable.svg" alt="IconEnable"></span> <strong>Enable Route Propagation</strong>.<br>
+The ENABLE ROUTE PROPAGATION dialog box appears.</p>
+</li>
+<li>
+<p>From the <strong>Virtual Gateway</strong> list, select the virtual gateway from which you want to enable route propagation.</p>
+</li>
+<li>
+<p>Click <strong>Enable</strong>.<br>
+The route propagation is enabled.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="OSC CLI_1"><a class="anchor" href="Enabling-Route-Propagation.html#OSC CLI_1"></a>Enabling Route Propagation Using OSC CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Before you begin:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Create a <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span>. For more information, see <a href="Creating-a-Net.html" class="xref page">Creating a Net</a>.</p>
+</li>
+<li>
+<p>Create a <span class="tooltip" data-tooltip="virtual private gateway in AWS-Compliant APIs">virtual gateway</span>. For more information, see <a href="Creating-a-Virtual-Gateway.html" class="xref page">Creating a Virtual Gateway</a>.</p>
+</li>
+<li>
+<p>Link the virtual gateway to the Net. For more information, see <a href="Linking-a-Virtual-Gateway.html" class="xref page">Linking a Virtual Gateway</a>.</p>
+</li>
+<li>
+<p>(optional) Create a custom route table for the Subnet of the Net. For more information, see <a href="Creating-a-Route-Table.html" class="xref page">Creating a Route Table</a>.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The <strong>UpdateRoutePropagation</strong> command configures the propagation of routes to a specified route table of a Net by a virtual gateway.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api UpdateRoutePropagation --profile "default" \
+    --VirtualGatewayId "vgw-12345678" \
+    --RouteTableId "rtb-12345678" \
+    --Enable True</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Enable</code>: If true, a virtual gateway can propagate routes to a specified route table of a Net. If false, the propagation is disabled.</p>
+</li>
+<li>
+<p><code>RouteTableId</code>: The ID of the route table.</p>
+</li>
+<li>
+<p><code>VirtualGatewayId</code>: The ID of the virtual gateway.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>UpdateRoutePropagation</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>RouteTable</code>: Information about the route table.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LinkRouteTables</code>: One or more associations between the route table and Subnets.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LinkRouteTableId</code>: The ID of the association between the route table and the Net or Subnet.</p>
+</li>
+<li>
+<p><code>Main</code>: If true, the route table is the main one.</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net, if the route table is not explicitly linked to a Subnet.</p>
+</li>
+<li>
+<p><code>RouteTableId</code>: The ID of the route table.</p>
+</li>
+<li>
+<p><code>SubnetId</code>: The ID of the Subnet, if the route table is explicitly linked to a Subnet.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net for the route table.</p>
+</li>
+<li>
+<p><code>RoutePropagatingVirtualGateways</code>: Information about virtual gateways propagating routes.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VirtualGatewayId</code>: The ID of the virtual gateway.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>RouteTableId</code>: The ID of the route table.</p>
+</li>
+<li>
+<p><code>Routes</code>: One or more routes in the route table.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CreationMethod</code>: The method used to create the route.</p>
+</li>
+<li>
+<p><code>DestinationIpRange</code>: The IP range used for the destination match, in CIDR notation (for example, <code>10.0.0.0/24</code>).</p>
+</li>
+<li>
+<p><code>DestinationServiceId</code>: The ID of the OUTSCALE service.</p>
+</li>
+<li>
+<p><code>GatewayId</code>: The ID of the <span class="tooltip" data-tooltip="Internet gateway in AWS-Compliant APIs">internet service</span> or virtual gateway attached to the Net.</p>
+</li>
+<li>
+<p><code>NatServiceId</code>: The ID of a <span class="tooltip" data-tooltip="NAT gateway in AWS-Compliant APIs">NAT service</span> attached to the Net.</p>
+</li>
+<li>
+<p><code>NetAccessPointId</code>: The ID of the <span class="tooltip" data-tooltip="VPC endpoint in AWS-Compliant APIs">Net access point</span>.</p>
+</li>
+<li>
+<p><code>NetPeeringId</code>: The ID of the <span class="tooltip" data-tooltip="VPC peering connection in AWS-Compliant APIs">Net peering</span>.</p>
+</li>
+<li>
+<p><code>NicId</code>: The ID of the <span class="tooltip" data-tooltip="flexible network interface (FNI) in AWS-Compliant APIs">NIC</span>.</p>
+</li>
+<li>
+<p><code>State</code>: The state of a route in the route table (always <code>active</code>).</p>
+</li>
+<li>
+<p><code>VmAccountId</code>: The account ID of the owner of the <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span>.</p>
+</li>
+<li>
+<p><code>VmId</code>: The ID of a VM specified in a route in the table.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the route table.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "RouteTable": {
+    "Routes": [
+      {
+        "DestinationIpRange": "10.0.0.0/16",
+        "CreationMethod": "CreateRouteTable",
+        "State": "active"
+      }
+    ],
+    "LinkRouteTables": [
+      {
+        "RouteTableId": "rtb-12345678",
+        "Main": true,
+        "LinkRouteTableId": "rtbassoc-12345678"
+      }
+    ],
+    "NetId": "vpc-12345678",
+    "Tags": [],
+    "RoutePropagatingVirtualGateways": [
+      {
+        "VirtualGatewayId": "vgw-12345678"
+      }
+    ],
+    "RouteTableId": "rtb-12345678"
+  },
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="oapi-cli_2"><a class="anchor" href="Enabling-Route-Propagation.html#oapi-cli_2"></a>Enabling Route Propagation Using oapi-cli</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Before you begin:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Create a <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span>. For more information, see <a href="Creating-a-Net.html" class="xref page">Creating a Net</a>.</p>
+</li>
+<li>
+<p>Create a <span class="tooltip" data-tooltip="virtual private gateway in AWS-Compliant APIs">virtual gateway</span>. For more information, see <a href="Creating-a-Virtual-Gateway.html" class="xref page">Creating a Virtual Gateway</a>.</p>
+</li>
+<li>
+<p>Link the virtual gateway to the Net. For more information, see <a href="Linking-a-Virtual-Gateway.html" class="xref page">Linking a Virtual Gateway</a>.</p>
+</li>
+<li>
+<p>(optional) Create a custom route table for the Subnet of the Net. For more information, see <a href="Creating-a-Route-Table.html" class="xref page">Creating a Route Table</a>.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The <strong>UpdateRoutePropagation</strong> command configures the propagation of routes to a specified route table of a Net by a virtual gateway.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" UpdateRoutePropagation \
+    --VirtualGatewayId "vgw-12345678" \
+    --RouteTableId "rtb-12345678" \
+    --Enable True</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Enable</code>: If true, a virtual gateway can propagate routes to a specified route table of a Net. If false, the propagation is disabled.</p>
+</li>
+<li>
+<p><code>RouteTableId</code>: The ID of the route table.</p>
+</li>
+<li>
+<p><code>VirtualGatewayId</code>: The ID of the virtual gateway.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>UpdateRoutePropagation</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>RouteTable</code>: Information about the route table.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LinkRouteTables</code>: One or more associations between the route table and Subnets.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LinkRouteTableId</code>: The ID of the association between the route table and the Net or Subnet.</p>
+</li>
+<li>
+<p><code>Main</code>: If true, the route table is the main one.</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net, if the route table is not explicitly linked to a Subnet.</p>
+</li>
+<li>
+<p><code>RouteTableId</code>: The ID of the route table.</p>
+</li>
+<li>
+<p><code>SubnetId</code>: The ID of the Subnet, if the route table is explicitly linked to a Subnet.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net for the route table.</p>
+</li>
+<li>
+<p><code>RoutePropagatingVirtualGateways</code>: Information about virtual gateways propagating routes.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VirtualGatewayId</code>: The ID of the virtual gateway.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>RouteTableId</code>: The ID of the route table.</p>
+</li>
+<li>
+<p><code>Routes</code>: One or more routes in the route table.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CreationMethod</code>: The method used to create the route.</p>
+</li>
+<li>
+<p><code>DestinationIpRange</code>: The IP range used for the destination match, in CIDR notation (for example, <code>10.0.0.0/24</code>).</p>
+</li>
+<li>
+<p><code>DestinationServiceId</code>: The ID of the OUTSCALE service.</p>
+</li>
+<li>
+<p><code>GatewayId</code>: The ID of the <span class="tooltip" data-tooltip="Internet gateway in AWS-Compliant APIs">internet service</span> or virtual gateway attached to the Net.</p>
+</li>
+<li>
+<p><code>NatServiceId</code>: The ID of a <span class="tooltip" data-tooltip="NAT gateway in AWS-Compliant APIs">NAT service</span> attached to the Net.</p>
+</li>
+<li>
+<p><code>NetAccessPointId</code>: The ID of the <span class="tooltip" data-tooltip="VPC endpoint in AWS-Compliant APIs">Net access point</span>.</p>
+</li>
+<li>
+<p><code>NetPeeringId</code>: The ID of the <span class="tooltip" data-tooltip="VPC peering connection in AWS-Compliant APIs">Net peering</span>.</p>
+</li>
+<li>
+<p><code>NicId</code>: The ID of the <span class="tooltip" data-tooltip="flexible network interface (FNI) in AWS-Compliant APIs">NIC</span>.</p>
+</li>
+<li>
+<p><code>State</code>: The state of a route in the route table (always <code>active</code>).</p>
+</li>
+<li>
+<p><code>VmAccountId</code>: The account ID of the owner of the <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span>.</p>
+</li>
+<li>
+<p><code>VmId</code>: The ID of a VM specified in a route in the table.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the route table.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "RouteTable": {
+    "Routes": [
+      {
+        "DestinationIpRange": "10.0.0.0/16",
+        "CreationMethod": "CreateRouteTable",
+        "State": "active"
+      }
+    ],
+    "LinkRouteTables": [
+      {
+        "RouteTableId": "rtb-12345678",
+        "Main": true,
+        "LinkRouteTableId": "rtbassoc-12345678"
+      }
+    ],
+    "NetId": "vpc-12345678",
+    "Tags": [],
+    "RoutePropagatingVirtualGateways": [
+      {
+        "VirtualGatewayId": "vgw-12345678"
+      }
+    ],
+    "RouteTableId": "rtb-12345678"
+  },
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI_3"><a class="anchor" href="Enabling-Route-Propagation.html#AWS CLI_3"></a>Enabling Route Propagation Using AWS CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Before you begin:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Install and configure AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+<li>
+<p>Create a <span class="tooltip" data-tooltip="Net in OUTSCALE API">VPC</span>. For more information, see <a href="Creating-a-Net.html" class="xref page">Creating a Net</a>.</p>
+</li>
+<li>
+<p>Create a <span class="tooltip" data-tooltip="Virtual gateway in OUTSCALE API">virtual private gateway</span>. For more information, see <a href="Creating-a-Virtual-Gateway.html" class="xref page">Creating a Virtual Gateway</a>.</p>
+</li>
+<li>
+<p>Attach the virtual private gateway to the VPC. For more information, see <a href="Linking-a-Virtual-Gateway.html" class="xref page">Linking a Virtual Gateway</a>.</p>
+</li>
+<li>
+<p>(optional) Create a custom route table for the subnet of the VPC. For more information, see <a href="Creating-a-Route-Table.html" class="xref page">Creating a Route Table</a>.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>To enable route propagation, use the <strong>enable-vgw-route-propagation</strong> command following this syntax:</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws ec2 enable-vgw-route-propagation \
+    --profile YOUR_PROFILE \
+    --gateway-id vgw-91d73e86 \
+    --route-table-id rtb-d1d21759 \
+    --endpoint https://fcu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optional) <code>profile</code>: The named profile you want to use, created when configuring AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>gateway-id</code>: The ID of the virtual private gateway from which you want to enable route propagation.</p>
+</li>
+<li>
+<p><code>route-table-id</code>: The ID of the route table in which you want to enable route propagation. By default, the main route table in the VPC.</p>
+</li>
+<li>
+<p><code>endpoint</code>: The endpoint corresponding to the Region you want to send the request to. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Route propagation is enabled from the specified virtual private gateway to the specified route table.</p>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="About-Route-Tables.html" class="xref page">About Route Tables</a></p>
+</li>
+<li>
+<p><a href="Disabling-Route-Propagation.html" class="xref page">Disabling Route Propagation</a></p>
+</li>
+<li>
+<p><a href="About-VPN-Connections.html" class="xref page">About VPN Connections</a></p>
+</li>
+<li>
+<p><a href="Managing-Your-VPN-Connections.html" class="xref page">Managing Your VPN Connections</a></p>
+</li>
+<li>
+<p><a href="Tutorial-Setting-Up-a-VPN-Connection.html" class="xref page">Tutorial: Setting Up a VPN Connection</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Corresponding API Methods</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#updateroutepropagation" class="xref page">UpdateRoutePropagation (OUTSCALE API)</a></p>
+</li>
+<li>
+<p><a href="../../fcu.html#enablevgwroutepropagation" class="xref page">EnableVgwRoutePropagation (FCU)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ and Amazon Web Services™ are trademarks of Amazon Technologies, Inc or its affiliates in the United States and/or other countries.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

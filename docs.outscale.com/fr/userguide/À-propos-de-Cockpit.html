@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>À propos de Cockpit – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="À-propos-de-Cockpit.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/À-propos-de-Cockpit.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/About-Cockpit.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">À propos de Cockpit</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cockpit est une interface web développée par 3DS OUTSCALE qui vous permet de créer et gérer vos ressources dans le Cloud OUTSCALE.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_informations_générales"><a class="anchor" href="À-propos-de-Cockpit.html#_informations_générales"></a>Informations générales</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>L&#8217;interface web Cockpit vous permet de créer et gérer des ressources Cloud de votre compte en envoyant les requêtes API correspondantes au Cloud. Lorsque vous créez un compte OUTSCALE, un accès à Cockpit est automatiquement fourni.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Lorsque vous vous connectez à Cockpit pour la première fois, vous devez réinitialiser votre mot de passe à l&#8217;aide du lien "<strong>Mot de passe oublié ?</strong>" depuis l&#8217;interface Cockpit v2.</p>
+</li>
+<li>
+<p>Le mot de passe de votre compte est le même à travers les différentes interfaces.</p>
+</li>
+<li>
+<p>Vous pouvez vous connecter à Cockpit à l&#8217;aide de votre e-mail et mot de passe ou à l&#8217;aide de vos access keys. Pour en savoir plus à propos des access keys, voir <a href="À-propos-des-access-keys.html" class="xref page">À propos des access keys</a>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Attention"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>En raison de la nouvelle version d&#8217;IAM, vous ne pouvez désormais plus réinitialiser votre mot de passe avec les méthodes API <code>SendResetPasswordEmail</code> et <code>ResetAccountPassword</code>.</p>
+</div>
+<div class="paragraph">
+<p>Vous ne pouvez désormais réinitialiser votre mot de passe que via le bouton de réinitilisation de mot de passe sur Cockpit v2. Pour en savoir plus, voir <a href="Modifier-vos-informations-personnelles-et-votre-mot-de-passe.html" class="xref page">Modifier vos informations personnelles et votre mot de passe</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Cockpit est compatible avec les navigateurs Internet suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Google Chrome</p>
+</li>
+<li>
+<p>Mozilla Firefox</p>
+</li>
+<li>
+<p>Safari</p>
+</li>
+<li>
+<p>Microsoft Edge</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Ce Guide utilisateur inclut les procédures utilisant Cockpit v2.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Certaines fonctionnalités ne sont disponibles que par API et ne sont pas encore implémentées dans Cockpit. Pour en savoir plus, voir <a href="Référence-des-fonctionnalités-Cockpit-v2.html" class="xref page">Référence des fonctionnalités Cockpit v2</a>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_à_propos_de_cockpitv2"><a class="anchor" href="À-propos-de-Cockpit.html#_à_propos_de_cockpitv2"></a>À propos de Cockpit v2</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Les fonctionnalités de Cockpit v2 sont basées sur l&#8217;API OUTSCALE.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_accès"><a class="anchor" href="À-propos-de-Cockpit.html#_accès"></a>Accès</h3>
+<div class="paragraph">
+<p>Vous pouvez accéder à Cockpit v2 à l&#8217;aide de l&#8217;URL suivante : <a href="https://cockpit.outscale.com" target="_blank" rel="noopener">https://cockpit.outscale.com</a>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous devez sélectionner une Région OUTSCALE depuis l&#8217;écran de connexion pour pouvoir vous connecter.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus sur les Régions OUTSCALE, voir <a href="À-propos-des-Régions-et-Sous-régions.html" class="xref page">À propos des Régions et Sous-régions</a>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Après 30 minutes d&#8217;inactivité, votre compte est automatiquement déconnecté de Cockpit v2.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_interface"><a class="anchor" href="À-propos-de-Cockpit.html#_interface"></a>Interface</h3>
+<div class="sect3">
+<h4 id="_ensemble_initial"><a class="anchor" href="À-propos-de-Cockpit.html#_ensemble_initial"></a>Ensemble initial</h4>
+<div class="paragraph">
+<p>Cockpit v2 fournit un ensemble initial de dashboards appartenant à six catégories :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Calcul</p>
+</li>
+<li>
+<p>Stockage</p>
+</li>
+<li>
+<p>Sécurité</p>
+</li>
+<li>
+<p><span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span></p>
+</li>
+<li>
+<p>Services</p>
+</li>
+<li>
+<p>IAM</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Chaque dashboard donne des informations sur vos ressources et vous permet d&#8217;effectuer des actions sur celles-ci. Vous pouvez ouvrir et fermer les dashboards selon vos besoins. Dans les dashboards, vous pouvez cliquer sur l&#8217;icône de détails <span class="image"><img src="_images/IconView.svg" alt="IconView"></span> d&#8217;une ressource pour accéder à des informations et actions supplémentaires.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_espace_personnel"><a class="anchor" href="À-propos-de-Cockpit.html#_espace_personnel"></a>Espace personnel</h4>
+<div class="paragraph">
+<p>Vous pouvez ovurir votre espace personnel depuis le menu supérieur droit de Cockpit v2. Votre espace personnel vous permet d&#8217;accéder à vos informations, vos limites et votre consommation. Pour en savoir plus, voir <a href="Obtenir-des-informations-sur-votre-compte-et-vos-quotas.html" class="xref page">Obtenir des informations sur votre compte et vos quotas</a>, <a href="Modifier-vos-informations-personnelles-et-votre-mot-de-passe.html" class="xref page">Modifier vos informations personnelles et votre mot de passe</a> et <a href="Obtenir-des-informations-sur-la-consommation-de-vos-ressources.html" class="xref page">Obtenir des informations sur la consommation de vos ressources</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_authentification"><a class="anchor" href="À-propos-de-Cockpit.html#_authentification"></a>Authentification</h3>
+<div class="paragraph">
+<p>Vous pouvez vous connecter à Cockpit v2, soit en tant que compte racine, soit en tant qu’utilisateur Elastic Identity Management (EIM), via différentes méthodes et avec différents degrés de sécurité. Pour en savoir plus, voir <a href="Se-connecter-à-Cockpit-v2.html" class="xref page">Se connecter à Cockpit v2</a>.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Attention"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si vous ne parvenez pas à vous authentifier correctement quatre fois de suite, les tentatives d&#8217;authentification suivantes seront verrouillées pendant 1 minute. Ce temps de verrouillage augmente d'1 minute toutes les quatre tentatives infructueuses consécutives, et ce jusqu&#8217;à 10 minutes.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Cockpit v2 supporte l&#8217;authentification multifacteur (MFA). Vous pouvez sécuriser l&#8217;accès à votre compte en exigeant un facteur d&#8217;authentification additionnel lors de la connexion. Les méthodes d&#8217;authentification additionnelles disponibles sont les suivantes :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Un mot de passe à usage unique (one-time password, ou OTP)</p>
+</li>
+<li>
+<p>Une clé de sécurité (USB ou intégrée)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus, voir <a href="À-propos-de-l-authentification.html" class="xref page">À propos de l&#8217;authentification</a> et <a href="Mettre-en-place-une-MFA-pour-votre-compte-avec-WebAuthn-ou-un-OTP.html" class="xref page">Mettre en place une MFA pour votre compte avec WebAuthn ou un OTP</a>.</p>
+</div>
+<div class="paragraph">
+<p>Une autre méthode possible pour la MFA sur Cockpit v2 est le fait d&#8217;exiger qu&#8217;un certificat client soit fourni à la connexion. Pour en savoir plus, voir <a href="Se-connecter-et-déconnecter-d-une-session-de-confiance-avec-un-certificat.html" class="xref page">Se connecter et déconnecter d&#8217;une session de confiance avec un certificat</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Installer-et-configurer-OSC-CLI.html" class="xref page">Installer et configurer OSC CLI</a></p>
+</li>
+<li>
+<p><a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a></p>
+</li>
+<li>
+<p><a href="Référence-des-fonctionnalités-Cockpit-v2.html" class="xref page">Référence des fonctionnalités Cockpit v2</a></p>
+</li>
+<li>
+<p><a href="Mettre-en-place-une-MFA-pour-votre-compte-avec-WebAuthn-ou-un-OTP.html" class="xref page">Mettre en place une MFA pour votre compte avec WebAuthn ou un OTP</a></p>
+</li>
+<li>
+<p><a href="Se-connecter-à-Cockpit-v2.html" class="xref page">Se connecter à Cockpit v2</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

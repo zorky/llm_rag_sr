@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CentOS-7-2023.11.17-0 – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="CentOS-7-2023.11.17-0.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/CentOS-7-2023.11.17-0.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/CentOS-7-2023.11.17-0.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">CentOS-7-2023.11.17-0</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This topic contains technical specifications for the CentOS-7-2023.11.17-0 OUTSCALE Machine Image (OMI).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_omi_ids"><a class="anchor" href="CentOS-7-2023.11.17-0.html#_omi_ids"></a>OMI IDs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This OMI has the following IDs depending on the Regions:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Region</th>
+<th class="tableblock halign-left valign-top">eu-west-2</th>
+<th class="tableblock halign-left valign-top">us-east-2</th>
+<th class="tableblock halign-left valign-top">us-west-1</th>
+<th class="tableblock halign-left valign-top">cloudgouv-eu-west-1</th>
+<th class="tableblock halign-left valign-top">ap-northeast-1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">ID</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ami-b4628f6d</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ami-34b7a084</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ami-d8f26d96</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ami-08b5e60f</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ami-a92c1c28</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_specifications"><a class="anchor" href="CentOS-7-2023.11.17-0.html#_specifications"></a>Specifications</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Specification</th>
+<th class="tableblock halign-left valign-top">Information</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Official image used</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://cloud.centos.org/centos/7/images/CentOS-7-x86_64-GenericCloud-2009.qcow2" target="_blank" rel="noopener">https://cloud.centos.org/centos/7/images/CentOS-7-x86_64-GenericCloud-2009.qcow2</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kernel options added</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N/A</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SE Linux</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disabled</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Custom packages added</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">osc-udev-rules-20230103-1.x86_64.rpm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud-Init configuration</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">20_user.cfg</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">system_info:
+  default_user:
+    name: outscale</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">99_metadata.cfg</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">disable-ec2-metadata: false
+
+datasource_list: [ Ec2 ]
+datasource:
+  Ec2:
+    strict_id: false
+    metadata_urls: [ 'http://169.254.169.254:80' ]
+    timeout: 5
+    max_wait: 10</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default SSH configuration</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">X11Forwarding no
+PermitTunnel no
+PermitRootLogin no
+RSAAuthentication yes
+PubkeyAuthentication yes
+PasswordAuthentication no
+UseDNS no
+ChallengeResponseAuthentication no
+GSSAPIAuthentication no</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SSH user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>outscale</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_package_list"><a class="anchor" href="CentOS-7-2023.11.17-0.html#_package_list"></a>Package List</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">Loaded plugins: fastestmirror
+Installed Packages
+PyYAML.x86_64                              3.10-11.el7              installed
+acl.x86_64                                 2.2.51-15.el7            installed
+audit.x86_64                               2.8.5-4.el7              installed
+audit-libs.x86_64                          2.8.5-4.el7              installed
+audit-libs-python.x86_64                   2.8.5-4.el7              installed
+authconfig.x86_64                          6.2.8-30.el7             installed
+basesystem.noarch                          10.0-7.el7.centos        installed
+bash.x86_64                                4.2.46-34.el7            installed
+bc.x86_64                                  1.06.95-13.el7           installed
+bind-export-libs.x86_64                    32:9.11.4-26.P2.el7      installed
+binutils.x86_64                            2.27-44.base.el7         installed
+btrfs-progs.x86_64                         4.9.1-1.el7              installed
+bzip2-libs.x86_64                          1.0.6-13.el7             installed
+ca-certificates.noarch                     2020.2.41-70.0.el7_8     installed
+centos-release.x86_64                      7-9.2009.0.el7.centos    installed
+checkpolicy.x86_64                         2.5-8.el7                installed
+chkconfig.x86_64                           1.7.6-1.el7              installed
+chrony.x86_64                              3.4-1.el7                installed
+cloud-init.x86_64                          19.4-7.el7.centos        installed
+cloud-utils-growpart.noarch                0.29-5.el7               installed
+coreutils.x86_64                           8.22-24.el7              installed
+cpio.x86_64                                2.11-28.el7              installed
+cracklib.x86_64                            2.9.0-11.el7             installed
+cracklib-dicts.x86_64                      2.9.0-11.el7             installed
+cronie.x86_64                              1.4.11-23.el7            installed
+cronie-anacron.x86_64                      1.4.11-23.el7            installed
+crontabs.noarch                            1.11-6.20121102git.el7   installed
+cryptsetup-libs.x86_64                     2.0.3-6.el7              installed
+curl.x86_64                                7.29.0-59.el7            installed
+cyrus-sasl-lib.x86_64                      2.1.26-23.el7            installed
+dbus.x86_64                                1:1.10.24-15.el7         installed
+dbus-glib.x86_64                           0.100-7.el7              installed
+dbus-libs.x86_64                           1:1.10.24-15.el7         installed
+dbus-python.x86_64                         1.1.1-9.el7              installed
+device-mapper.x86_64                       7:1.02.170-6.el7         installed
+device-mapper-libs.x86_64                  7:1.02.170-6.el7         installed
+dhclient.x86_64                            12:4.2.5-82.el7.centos   installed
+dhcp-common.x86_64                         12:4.2.5-82.el7.centos   installed
+dhcp-libs.x86_64                           12:4.2.5-82.el7.centos   installed
+diffutils.x86_64                           3.3-5.el7                installed
+dmidecode.x86_64                           1:3.2-5.el7              installed
+dracut.x86_64                              033-572.el7              installed
+dracut-config-generic.x86_64               033-572.el7              installed
+dracut-config-rescue.x86_64                033-572.el7              installed
+dracut-network.x86_64                      033-572.el7              installed
+e2fsprogs.x86_64                           1.42.9-19.el7            installed
+e2fsprogs-libs.x86_64                      1.42.9-19.el7            installed
+elfutils-default-yama-scope.noarch         0.176-5.el7              installed
+elfutils-libelf.x86_64                     0.176-5.el7              installed
+elfutils-libs.x86_64                       0.176-5.el7              installed
+ethtool.x86_64                             2:4.8-10.el7             installed
+expat.x86_64                               2.1.0-12.el7             installed
+file.x86_64                                5.11-37.el7              installed
+file-libs.x86_64                           5.11-37.el7              installed
+filesystem.x86_64                          3.2-25.el7               installed
+findutils.x86_64                           1:4.5.11-6.el7           installed
+fipscheck.x86_64                           1.4.1-6.el7              installed
+fipscheck-lib.x86_64                       1.4.1-6.el7              installed
+freetype.x86_64                            2.8-14.el7               installed
+gawk.x86_64                                4.0.2-4.el7_3.1          installed
+gdbm.x86_64                                1.10-8.el7               installed
+gdisk.x86_64                               0.8.10-3.el7             installed
+gettext.x86_64                             0.19.8.1-3.el7           installed
+gettext-libs.x86_64                        0.19.8.1-3.el7           installed
+glib2.x86_64                               2.56.1-7.el7             installed
+glibc.x86_64                               2.17-317.el7             installed
+glibc-common.x86_64                        2.17-317.el7             installed
+gmp.x86_64                                 1:6.0.0-15.el7           installed
+gnupg2.x86_64                              2.0.22-5.el7_5           installed
+gobject-introspection.x86_64               1.56.1-1.el7             installed
+gpgme.x86_64                               1.3.2-5.el7              installed
+grep.x86_64                                2.20-3.el7               installed
+groff-base.x86_64                          1.22.2-8.el7             installed
+grub2.x86_64                               1:2.02-0.86.el7.centos   installed
+grub2-common.noarch                        1:2.02-0.86.el7.centos   installed
+grub2-pc.x86_64                            1:2.02-0.86.el7.centos   installed
+grub2-pc-modules.noarch                    1:2.02-0.86.el7.centos   installed
+grub2-tools.x86_64                         1:2.02-0.86.el7.centos   installed
+grub2-tools-extra.x86_64                   1:2.02-0.86.el7.centos   installed
+grub2-tools-minimal.x86_64                 1:2.02-0.86.el7.centos   installed
+grubby.x86_64                              8.28-26.el7              installed
+gssproxy.x86_64                            0.7.0-29.el7             installed
+gzip.x86_64                                1.5-10.el7               installed
+hardlink.x86_64                            1:1.0-19.el7             installed
+hostname.x86_64                            3.13-3.el7_7.1           installed
+hwdata.x86_64                              0.252-9.7.el7            installed
+info.x86_64                                5.1-5.el7                installed
+initscripts.x86_64                         9.49.53-1.el7            installed
+iproute.x86_64                             4.11.0-30.el7            installed
+iptables.x86_64                            1.4.21-35.el7            installed
+iputils.x86_64                             20160308-10.el7          installed
+irqbalance.x86_64                          3:1.0.7-12.el7           installed
+jansson.x86_64                             2.10-1.el7               installed
+json-c.x86_64                              0.11-4.el7_0             installed
+kbd.x86_64                                 1.15.5-15.el7            installed
+kbd-legacy.noarch                          1.15.5-15.el7            installed
+kbd-misc.noarch                            1.15.5-15.el7            installed
+kernel.x86_64                              3.10.0-1160.el7          installed
+kernel-tools.x86_64                        3.10.0-1160.el7          installed
+kernel-tools-libs.x86_64                   3.10.0-1160.el7          installed
+kexec-tools.x86_64                         2.0.15-51.el7            installed
+keyutils.x86_64                            1.5.8-3.el7              installed
+keyutils-libs.x86_64                       1.5.8-3.el7              installed
+kmod.x86_64                                20-28.el7                installed
+kmod-libs.x86_64                           20-28.el7                installed
+kpartx.x86_64                              0.4.9-133.el7            installed
+krb5-libs.x86_64                           1.15.1-50.el7            installed
+less.x86_64                                458-9.el7                installed
+libacl.x86_64                              2.2.51-15.el7            installed
+libassuan.x86_64                           2.1.0-3.el7              installed
+libattr.x86_64                             2.4.46-13.el7            installed
+libbasicobjects.x86_64                     0.1.1-32.el7             installed
+libblkid.x86_64                            2.23.2-65.el7            installed
+libcap.x86_64                              2.22-11.el7              installed
+libcap-ng.x86_64                           0.7.5-4.el7              installed
+libcgroup.x86_64                           0.41-21.el7              installed
+libcollection.x86_64                       0.7.0-32.el7             installed
+libcom_err.x86_64                          1.42.9-19.el7            installed
+libcroco.x86_64                            0.6.12-4.el7             installed
+libcurl.x86_64                             7.29.0-59.el7            installed
+libdaemon.x86_64                           0.14-7.el7               installed
+libdb.x86_64                               5.3.21-25.el7            installed
+libdb-utils.x86_64                         5.3.21-25.el7            installed
+libedit.x86_64                             3.0-12.20121213cvs.el7   installed
+libestr.x86_64                             0.1.9-2.el7              installed
+libevent.x86_64                            2.0.21-4.el7             installed
+libfastjson.x86_64                         0.99.4-3.el7             installed
+libffi.x86_64                              3.0.13-19.el7            installed
+libgcc.x86_64                              4.8.5-44.el7             installed
+libgcrypt.x86_64                           1.5.3-14.el7             installed
+libgomp.x86_64                             4.8.5-44.el7             installed
+libgpg-error.x86_64                        1.12-3.el7               installed
+libidn.x86_64                              1.28-4.el7               installed
+libini_config.x86_64                       1.3.1-32.el7             installed
+libmnl.x86_64                              1.0.3-7.el7              installed
+libmount.x86_64                            2.23.2-65.el7            installed
+libndp.x86_64                              1.2-9.el7                installed
+libnetfilter_conntrack.x86_64              1.0.6-1.el7_3            installed
+libnfnetlink.x86_64                        1.0.1-4.el7              installed
+libnfsidmap.x86_64                         0.25-19.el7              installed
+libnl3.x86_64                              3.2.28-4.el7             installed
+libnl3-cli.x86_64                          3.2.28-4.el7             installed
+libpath_utils.x86_64                       0.2.1-32.el7             installed
+libpipeline.x86_64                         1.2.3-3.el7              installed
+libpng.x86_64                              2:1.5.13-8.el7           installed
+libpwquality.x86_64                        1.2.3-5.el7              installed
+libref_array.x86_64                        0.1.5-32.el7             installed
+libseccomp.x86_64                          2.3.1-4.el7              installed
+libselinux.x86_64                          2.5-15.el7               installed
+libselinux-python.x86_64                   2.5-15.el7               installed
+libselinux-utils.x86_64                    2.5-15.el7               installed
+libsemanage.x86_64                         2.5-14.el7               installed
+libsemanage-python.x86_64                  2.5-14.el7               installed
+libsepol.x86_64                            2.5-10.el7               installed
+libsmartcols.x86_64                        2.23.2-65.el7            installed
+libss.x86_64                               1.42.9-19.el7            installed
+libssh2.x86_64                             1.8.0-4.el7              installed
+libstdc++.x86_64                           4.8.5-44.el7             installed
+libsysfs.x86_64                            2.1.0-16.el7             installed
+libtasn1.x86_64                            4.10-1.el7               installed
+libteam.x86_64                             1.29-3.el7               installed
+libtirpc.x86_64                            0.2.4-0.16.el7           installed
+libunistring.x86_64                        0.9.3-9.el7              installed
+libuser.x86_64                             0.60-9.el7               installed
+libutempter.x86_64                         1.1.6-4.el7              installed
+libuuid.x86_64                             2.23.2-65.el7            installed
+libverto.x86_64                            0.2.5-4.el7              installed
+libverto-libevent.x86_64                   0.2.5-4.el7              installed
+libxml2.x86_64                             2.9.1-6.el7.5            installed
+libxml2-python.x86_64                      2.9.1-6.el7.5            installed
+libyaml.x86_64                             0.1.4-11.el7_0           installed
+logrotate.x86_64                           3.8.6-19.el7             installed
+lshw.x86_64                                B.02.18-17.el7           installed
+lua.x86_64                                 5.1.4-15.el7             installed
+lz4.x86_64                                 1.8.3-1.el7              installed
+lzo.x86_64                                 2.06-8.el7               installed
+make.x86_64                                1:3.82-24.el7            installed
+man-db.x86_64                              2.6.3-11.el7             installed
+mariadb-libs.x86_64                        1:5.5.68-1.el7           installed
+microcode_ctl.x86_64                       2:2.1-73.el7             installed
+mozjs17.x86_64                             17.0.0-20.el7            installed
+ncurses.x86_64                             5.9-14.20130511.el7_4    installed
+ncurses-base.noarch                        5.9-14.20130511.el7_4    installed
+ncurses-libs.x86_64                        5.9-14.20130511.el7_4    installed
+net-tools.x86_64                           2.0-0.25.20131004git.el7 installed
+newt.x86_64                                0.52.15-4.el7            installed
+newt-python.x86_64                         0.52.15-4.el7            installed
+nfs-utils.x86_64                           1:1.3.0-0.68.el7         installed
+nspr.x86_64                                4.21.0-1.el7             installed
+nss.x86_64                                 3.44.0-7.el7_7           installed
+nss-pem.x86_64                             1.0.3-7.el7              installed
+nss-softokn.x86_64                         3.44.0-8.el7_7           installed
+nss-softokn-freebl.x86_64                  3.44.0-8.el7_7           installed
+nss-sysinit.x86_64                         3.44.0-7.el7_7           installed
+nss-tools.x86_64                           3.44.0-7.el7_7           installed
+nss-util.x86_64                            3.44.0-4.el7_7           installed
+numactl-libs.x86_64                        2.0.12-5.el7             installed
+openldap.x86_64                            2.4.44-22.el7            installed
+openssh.x86_64                             7.4p1-21.el7             installed
+openssh-clients.x86_64                     7.4p1-21.el7             installed
+openssh-server.x86_64                      7.4p1-21.el7             installed
+openssl.x86_64                             1:1.0.2k-19.el7          installed
+openssl-libs.x86_64                        1:1.0.2k-19.el7          installed
+os-prober.x86_64                           1.58-9.el7               installed
+osc-udev.x86_64                            2.2-1                    @/osc-udev-rules-20230103-1.x86_64
+p11-kit.x86_64                             0.23.5-3.el7             installed
+p11-kit-trust.x86_64                       0.23.5-3.el7             installed
+pam.x86_64                                 1.1.8-23.el7             installed
+parted.x86_64                              3.1-32.el7               installed
+passwd.x86_64                              0.79-6.el7               installed
+pciutils-libs.x86_64                       3.5.1-3.el7              installed
+pcre.x86_64                                8.32-17.el7              installed
+pinentry.x86_64                            0.8.1-17.el7             installed
+pkgconfig.x86_64                           1:0.27.1-4.el7           installed
+policycoreutils.x86_64                     2.5-34.el7               installed
+policycoreutils-python.x86_64              2.5-34.el7               installed
+polkit.x86_64                              0.112-26.el7             installed
+polkit-pkla-compat.x86_64                  0.1-4.el7                installed
+popt.x86_64                                1.13-16.el7              installed
+postfix.x86_64                             2:2.10.1-9.el7           installed
+procps-ng.x86_64                           3.3.10-28.el7            installed
+pth.x86_64                                 2.0.7-23.el7             installed
+pygpgme.x86_64                             0.3-9.el7                installed
+pyliblzma.x86_64                           0.5.3-11.el7             installed
+pyserial.noarch                            2.6-6.el7                installed
+python.x86_64                              2.7.5-89.el7             installed
+python-IPy.noarch                          0.75-6.el7               installed
+python-babel.noarch                        0.9.6-8.el7              installed
+python-backports.x86_64                    1.0-8.el7                installed
+python-backports-ssl_match_hostname.noarch 3.5.0.1-1.el7            installed
+python-chardet.noarch                      2.2.1-3.el7              installed
+python-configobj.noarch                    4.7.2-7.el7              installed
+python-decorator.noarch                    3.4.0-3.el7              installed
+python-gobject-base.x86_64                 3.22.0-1.el7_4.1         installed
+python-iniparse.noarch                     0.4-9.el7                installed
+python-ipaddress.noarch                    1.0.16-2.el7             installed
+python-jinja2.noarch                       2.7.2-4.el7              installed
+python-jsonpatch.noarch                    1.2-4.el7                installed
+python-jsonpointer.noarch                  1.9-2.el7                installed
+python-kitchen.noarch                      1.1.1-5.el7              installed
+python-libs.x86_64                         2.7.5-89.el7             installed
+python-linux-procfs.noarch                 0.4.11-4.el7             installed
+python-markupsafe.x86_64                   0.11-10.el7              installed
+python-perf.x86_64                         3.10.0-1160.el7          installed
+python-prettytable.noarch                  0.7.2-3.el7              installed
+python-pycurl.x86_64                       7.19.0-19.el7            installed
+python-pyudev.noarch                       0.15-9.el7               installed
+python-requests.noarch                     2.6.0-10.el7             installed
+python-schedutils.x86_64                   0.4-6.el7                installed
+python-setuptools.noarch                   0.9.8-7.el7              installed
+python-six.noarch                          1.9.0-2.el7              installed
+python-urlgrabber.noarch                   3.10-10.el7              installed
+python-urllib3.noarch                      1.10.2-7.el7             installed
+pyxattr.x86_64                             0.5.1-5.el7              installed
+qemu-guest-agent.x86_64                    10:2.12.0-3.el7          installed
+qrencode-libs.x86_64                       3.4.1-3.el7              installed
+quota.x86_64                               1:4.01-19.el7            installed
+quota-nls.noarch                           1:4.01-19.el7            installed
+readline.x86_64                            6.2-11.el7               installed
+rootfiles.noarch                           8.1-11.el7               installed
+rpcbind.x86_64                             0.2.0-49.el7             installed
+rpm.x86_64                                 4.11.3-45.el7            installed
+rpm-build-libs.x86_64                      4.11.3-45.el7            installed
+rpm-libs.x86_64                            4.11.3-45.el7            installed
+rpm-python.x86_64                          4.11.3-45.el7            installed
+rsync.x86_64                               3.1.2-10.el7             installed
+rsyslog.x86_64                             8.24.0-55.el7            installed
+sed.x86_64                                 4.2.2-7.el7              installed
+selinux-policy.noarch                      3.13.1-268.el7           installed
+selinux-policy-targeted.noarch             3.13.1-268.el7           installed
+setools-libs.x86_64                        3.3.8-4.el7              installed
+setup.noarch                               2.8.71-11.el7            installed
+sg3_utils.x86_64                           1:1.37-19.el7            installed
+sg3_utils-libs.x86_64                      1:1.37-19.el7            installed
+shadow-utils.x86_64                        2:4.6-5.el7              installed
+shared-mime-info.x86_64                    1.8-5.el7                installed
+slang.x86_64                               2.2.4-11.el7             installed
+snappy.x86_64                              1.1.0-3.el7              installed
+sqlite.x86_64                              3.7.17-8.el7_7.1         installed
+sudo.x86_64                                1.8.23-10.el7            installed
+systemd.x86_64                             219-78.el7               installed
+systemd-libs.x86_64                        219-78.el7               installed
+systemd-sysv.x86_64                        219-78.el7               installed
+sysvinit-tools.x86_64                      2.88-14.dsf.el7          installed
+tar.x86_64                                 2:1.26-35.el7            installed
+tcp_wrappers.x86_64                        7.6-77.el7               installed
+tcp_wrappers-libs.x86_64                   7.6-77.el7               installed
+teamd.x86_64                               1.29-3.el7               installed
+tuned.noarch                               2.11.0-9.el7             installed
+tzdata.noarch                              2020a-1.el7              installed
+ustr.x86_64                                1.0.4-16.el7             installed
+util-linux.x86_64                          2.23.2-65.el7            installed
+vim-minimal.x86_64                         2:7.4.629-7.el7          installed
+virt-what.x86_64                           1.18-4.el7               installed
+which.x86_64                               2.20-7.el7               installed
+wpa_supplicant.x86_64                      1:2.6-12.el7             installed
+xfsprogs.x86_64                            4.5.0-22.el7             installed
+xz.x86_64                                  5.2.2-1.el7              installed
+xz-libs.x86_64                             5.2.2-1.el7              installed
+yum.noarch                                 3.4.3-168.el7.centos     installed
+yum-metadata-parser.x86_64                 1.1.4-10.el7             installed
+yum-plugin-fastestmirror.noarch            1.1.31-54.el7_8          installed
+yum-utils.noarch                           1.1.31-54.el7_8          installed
+zlib.x86_64                                1.2.7-18.el7             installed</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="About-OMIs.html" class="xref page">About OMIs</a></p>
+</li>
+<li>
+<p><a href="Official-OMIs-Reference.html" class="xref page">Official OMIs Reference</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

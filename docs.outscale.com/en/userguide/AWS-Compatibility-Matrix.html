@@ -1,0 +1,1741 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>AWS Compatibility Matrix – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="AWS-Compatibility-Matrix.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/AWS-Compatibility-Matrix.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Matrice-de-compatibilité-avec-AWS.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">AWS Compatibility Matrix</h1>
+<div id="preamble" class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>The table below shows the correspondences between AWS-Compliant API methods and OUTSCALE API methods.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Two methods are considered equivalent if they can broadly serve the same purpose. However, their parameters do not necessarily have the exact same scopes or behaviors.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>For more information about all the APIs, see <a href="About-the-APIs.html" class="xref page">About the APIs</a>.</p>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Resource</th>
+<th class="tableblock halign-left valign-top">AWS-Compliant API Method</th>
+<th class="tableblock halign-left valign-top">OUTSCALE API Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AccessKey</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#createaccesskey" class="xref page">CreateAccessKey (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createaccesskey" class="xref page">CreateAccessKey</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AccessKey</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../icu.html#createaccesskey" class="xref page">CreateAccessKey (ICU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createaccesskey" class="xref page">CreateAccessKey</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AccessKey</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#deleteaccesskey" class="xref page">DeleteAccessKey (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deleteaccesskey" class="xref page">DeleteAccessKey</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AccessKey</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../icu.html#deleteaccesskey" class="xref page">DeleteAccessKey (ICU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deleteaccesskey" class="xref page">DeleteAccessKey</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AccessKey</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../icu.html#getaccesskey" class="xref page">GetAccessKey (ICU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AccessKey</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#listaccesskeys" class="xref page">ListAccessKeys (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readaccesskeys" class="xref page">ReadAccessKeys</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AccessKey</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../icu.html#listaccesskeys" class="xref page">ListAccessKeys (ICU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readaccesskeys" class="xref page">ReadAccessKeys</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AccessKey</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#updateaccesskey" class="xref page">UpdateAccessKey (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updateaccesskey" class="xref page">UpdateAccessKey</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AccessKey</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../icu.html#updateaccesskey" class="xref page">UpdateAccessKey (ICU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updateaccesskey" class="xref page">UpdateAccessKey</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Account</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../icu.html#authenticateaccount" class="xref page">AuthenticateAccount (ICU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#checkauthentication" class="xref page">CheckAuthentication</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Account</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../icu.html#createaccount" class="xref page">CreateAccount (ICU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createaccount" class="xref page">CreateAccount</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Account</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../icu.html#getaccount" class="xref page">GetAccount (ICU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readaccounts" class="xref page">ReadAccounts</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Account</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../icu.html#readconsumptionaccount" class="xref page">ReadConsumptionAccount (ICU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readconsumptionaccount" class="xref page">ReadConsumptionAccount</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Account</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../icu.html#updateaccount" class="xref page">UpdateAccount (ICU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updateaccount" class="xref page">UpdateAccount</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ApiAccessPolicy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readapiaccesspolicy" class="xref page">ReadApiAccessPolicy</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ApiAccessPolicy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updateapiaccesspolicy" class="xref page">UpdateApiAccessPolicy</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ApiAccessRule</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createapiaccessrule" class="xref page">CreateApiAccessRule</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ApiAccessRule</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deleteapiaccessrule" class="xref page">DeleteApiAccessRule</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ApiAccessRule</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readapiaccessrules" class="xref page">ReadApiAccessRules</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ApiAccessRule</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updateapiaccessrule" class="xref page">UpdateApiAccessRule</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ApiLog</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readapilogs" class="xref page">ReadApiLogs</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bucket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">CopyBucket (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bucket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">CreateBucket (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bucket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">DeleteBucket (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bucket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">DeleteBucketCors (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bucket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">DeleteBucketLifecycle (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bucket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">DeleteBucketPolicy (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bucket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">DeleteBucketWebsite (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bucket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">GetBucketAcl (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bucket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">GetBucketCors (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bucket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">GetBucketLifecycleConfiguration (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bucket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">GetBucketLocation (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bucket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">GetBucketPolicy (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bucket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">GetBucketVersioning (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bucket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">GetBucketWebsite (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bucket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">GetObjectLockConfiguration (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bucket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">HeadBucket (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bucket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">ListBuckets (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bucket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">PutBucketAcl (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bucket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">PutBucketCors (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bucket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">PutBucketLifecycleConfiguration (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bucket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">PutBucketPolicy (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bucket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">PutBucketVersioning (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bucket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">PutBucketWebsite (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bucket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">PutObjectLockConfiguration (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ca</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createca" class="xref page">CreateCa</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ca</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deleteca" class="xref page">DeleteCa</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ca</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readcas" class="xref page">ReadCas</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ca</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updateca" class="xref page">UpdateCa</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Catalog</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../icu.html#readcatalog" class="xref page">ReadCatalog (ICU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readcatalog" class="xref page">ReadCatalog</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Catalog</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readcatalogs" class="xref page">ReadCatalogs</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Catalog</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readunitprice" class="xref page">ReadUnitPrice</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ClientGateway</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#createcustomergateway" class="xref page">CreateCustomerGateway (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createclientgateway" class="xref page">CreateClientGateway</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ClientGateway</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#deletecustomergateway" class="xref page">DeleteCustomerGateway (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deleteclientgateway" class="xref page">DeleteClientGateway</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ClientGateway</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describecustomergateways" class="xref page">DescribeCustomerGateways (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readclientgateways" class="xref page">ReadClientGateways</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DedicatedGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#creatededicatedgroup" class="xref page">CreateDedicatedGroup</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DedicatedGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deletededicatedgroup" class="xref page">DeleteDedicatedGroup</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DedicatedGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readdedicatedgroups" class="xref page">ReadDedicatedGroups</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DedicatedGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updatededicatedgroup" class="xref page">UpdateDedicatedGroup</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DhcpOption</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#createdhcpoptions" class="xref page">CreateDhcpOptions (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createdhcpoptions" class="xref page">CreateDhcpOptions</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DhcpOption</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#deletedhcpoptions" class="xref page">DeleteDhcpOptions (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deletedhcpoptions" class="xref page">DeleteDhcpOptions</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DhcpOption</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describedhcpoptions" class="xref page">DescribeDhcpOptions (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readdhcpoptions" class="xref page">ReadDhcpOptions</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DirectLink</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../directlink.html#createconnection" class="xref page">CreateConnection (DirectLink)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createdirectlink" class="xref page">CreateDirectLink</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DirectLink</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../directlink.html#deleteconnection" class="xref page">DeleteConnection (DirectLink)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deletedirectlink" class="xref page">DeleteDirectLink</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DirectLink</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../directlink.html#describeconnections" class="xref page">DescribeConnections (DirectLink)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readdirectlinks" class="xref page">ReadDirectLinks</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DirectLinkInterface</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../directlink.html#allocateprivatevirtualinterface" class="xref page">AllocatePrivateVirtualInterface (DirectLink)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createdirectlinkinterface" class="xref page">CreateDirectLinkInterface</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DirectLinkInterface</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../directlink.html#confirmprivatevirtualinterface" class="xref page">ConfirmPrivateVirtualInterface (DirectLink)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DirectLinkInterface</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../directlink.html#createprivatevirtualinterface" class="xref page">CreatePrivateVirtualInterface (DirectLink)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createdirectlinkinterface" class="xref page">CreateDirectLinkInterface</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DirectLinkInterface</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../directlink.html#deletevirtualinterface" class="xref page">DeleteVirtualInterface (DirectLink)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deletedirectlinkinterface" class="xref page">DeleteDirectLinkInterface</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DirectLinkInterface</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../directlink.html#describevirtualinterfaces" class="xref page">DescribeVirtualInterfaces (DirectLink)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readdirectlinkinterfaces" class="xref page">ReadDirectLinkInterfaces</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DirectLinkInterface</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updatedirectlinkinterface" class="xref page">UpdateDirectLinkInterface</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FlexibleGpu</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createflexiblegpu" class="xref page">CreateFlexibleGpu</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FlexibleGpu</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deleteflexiblegpu" class="xref page">DeleteFlexibleGpu</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FlexibleGpu</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#linkflexiblegpu" class="xref page">LinkFlexibleGpu</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FlexibleGpu</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readflexiblegpucatalog" class="xref page">ReadFlexibleGpuCatalog</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FlexibleGpu</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readflexiblegpus" class="xref page">ReadFlexibleGpus</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FlexibleGpu</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#unlinkflexiblegpu" class="xref page">UnlinkFlexibleGpu</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FlexibleGpu</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updateflexiblegpu" class="xref page">UpdateFlexibleGpu</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Image</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#copyimage" class="xref page">CopyImage (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createimage" class="xref page">CreateImage</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Image</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#createimage" class="xref page">CreateImage (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createimage" class="xref page">CreateImage</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Image</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#createimageexporttask" class="xref page">CreateImageExportTask (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createimageexporttask" class="xref page">CreateImageExportTask</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Image</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#deregisterimage" class="xref page">DeregisterImage (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deleteimage" class="xref page">DeleteImage</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Image</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describeimageattribute" class="xref page">DescribeImageAttribute (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readimages" class="xref page">ReadImages</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Image</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describeimageexporttasks" class="xref page">DescribeImageExportTasks (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readimageexporttasks" class="xref page">ReadImageExportTasks</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Image</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describeimages" class="xref page">DescribeImages (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readimages" class="xref page">ReadImages</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Image</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#modifyimageattribute" class="xref page">ModifyImageAttribute (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updateimage" class="xref page">UpdateImage</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Image</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#registerimage" class="xref page">RegisterImage (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createimage" class="xref page">CreateImage</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InternetService</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#attachinternetgateway" class="xref page">AttachInternetGateway (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#linkinternetservice" class="xref page">LinkInternetService</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InternetService</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#createinternetgateway" class="xref page">CreateInternetGateway (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createinternetservice" class="xref page">CreateInternetService</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InternetService</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#deleteinternetgateway" class="xref page">DeleteInternetGateway (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deleteinternetservice" class="xref page">DeleteInternetService</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InternetService</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describeinternetgateways" class="xref page">DescribeInternetGateways (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readinternetservices" class="xref page">ReadInternetServices</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InternetService</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#detachinternetgateway" class="xref page">DetachInternetGateway (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#unlinkinternetservice" class="xref page">UnlinkInternetService</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Keypair</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#createkeypair" class="xref page">CreateKeyPair (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createkeypair" class="xref page">CreateKeypair</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Keypair</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#deletekeypair" class="xref page">DeleteKeyPair (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deletekeypair" class="xref page">DeleteKeypair</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Keypair</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describekeypairs" class="xref page">DescribeKeyPairs (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readkeypairs" class="xref page">ReadKeypairs</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Keypair</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#importkeypair" class="xref page">ImportKeyPair (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createkeypair" class="xref page">CreateKeypair</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Listener</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../icu.html#createlistenerrule" class="xref page">CreateListenerRule (ICU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createlistenerrule" class="xref page">CreateListenerRule</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Listener</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../lbu.html#createloadbalancerlisteners" class="xref page">CreateLoadBalancerListeners (LBU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createloadbalancerlisteners" class="xref page">CreateLoadBalancerListeners</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Listener</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../icu.html#deletelistenerrule" class="xref page">DeleteListenerRule (ICU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deletelistenerrule" class="xref page">DeleteListenerRule</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Listener</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../lbu.html#deleteloadbalancerlisteners" class="xref page">DeleteLoadBalancerListeners (LBU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deleteloadbalancerlisteners" class="xref page">DeleteLoadBalancerListeners</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Listener</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../icu.html#deregisterinstancesfromlistenerrule" class="xref page">DeregisterInstancesFromListenerRule (ICU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Listener</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../icu.html#readlistenerrules" class="xref page">ReadListenerRules (ICU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readlistenerrules" class="xref page">ReadListenerRules</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Listener</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../icu.html#registerinstanceswithlistenerrule" class="xref page">RegisterInstancesWithListenerRule (ICU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Listener</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../icu.html#updatelistenerrule" class="xref page">UpdateListenerRule (ICU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updatelistenerrule" class="xref page">UpdateListenerRule</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LoadBalancer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../lbu.html#addtags" class="xref page">AddTags (LBU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createloadbalancertags" class="xref page">CreateLoadBalancerTags</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LoadBalancer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../lbu.html#configurehealthcheck" class="xref page">ConfigureHealthCheck (LBU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updateloadbalancer" class="xref page">UpdateLoadBalancer</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LoadBalancer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../lbu.html#createloadbalancer" class="xref page">CreateLoadBalancer (LBU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createloadbalancer" class="xref page">CreateLoadBalancer</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LoadBalancer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../lbu.html#deleteloadbalancer" class="xref page">DeleteLoadBalancer (LBU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deleteloadbalancer" class="xref page">DeleteLoadBalancer</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LoadBalancer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../lbu.html#deregisterinstancesfromloadbalancer" class="xref page">DeregisterInstancesFromLoadBalancer (LBU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#unlinkloadbalancerbackendmachines" class="xref page">UnlinkLoadBalancerBackendMachines</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LoadBalancer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../lbu.html#deregisterinstancesfromloadbalancer" class="xref page">DeregisterInstancesFromLoadBalancer (LBU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deregistervmsinloadbalancer" class="xref page">DeregisterVmsInLoadBalancer</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LoadBalancer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../lbu.html#describeinstancehealth" class="xref page">DescribeInstanceHealth (LBU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readvmshealth" class="xref page">ReadVmsHealth</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LoadBalancer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../lbu.html#describeloadbalancerattributes" class="xref page">DescribeLoadBalancerAttributes (LBU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readloadbalancers" class="xref page">ReadLoadBalancers</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LoadBalancer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../lbu.html#describeloadbalancers" class="xref page">DescribeLoadBalancers (LBU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readloadbalancers" class="xref page">ReadLoadBalancers</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LoadBalancer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../lbu.html#describetags" class="xref page">DescribeTags (LBU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readloadbalancertags" class="xref page">ReadLoadBalancerTags</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LoadBalancer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../lbu.html#modifyloadbalancerattributes" class="xref page">ModifyLoadBalancerAttributes (LBU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updateloadbalancer" class="xref page">UpdateLoadBalancer</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LoadBalancer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../lbu.html#registerinstanceswithloadbalancer" class="xref page">RegisterInstancesWithLoadBalancer (LBU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#linkloadbalancerbackendmachines" class="xref page">LinkLoadBalancerBackendMachines</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LoadBalancer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../lbu.html#registerinstanceswithloadbalancer" class="xref page">RegisterInstancesWithLoadBalancer (LBU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#registervmsinloadbalancer" class="xref page">RegisterVmsInLoadBalancer</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LoadBalancer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../lbu.html#removetags" class="xref page">RemoveTags (LBU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deleteloadbalancertags" class="xref page">DeleteLoadBalancerTags</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LoadBalancer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../lbu.html#setloadbalancerlistenersslcertificate" class="xref page">SetLoadBalancerListenerSSLCertificate (LBU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updateloadbalancer" class="xref page">UpdateLoadBalancer</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LoadBalancer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../lbu.html#setloadbalancerpoliciesoflistener" class="xref page">SetLoadBalancerPoliciesOfListener (LBU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updateloadbalancer" class="xref page">UpdateLoadBalancer</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LoadBalancerPolicy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../lbu.html#createappcookiestickinesspolicy" class="xref page">CreateAppCookieStickinessPolicy (LBU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createloadbalancerpolicy" class="xref page">CreateLoadBalancerPolicy</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LoadBalancerPolicy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../lbu.html#createlbcookiestickinesspolicy" class="xref page">CreateLBCookieStickinessPolicy (LBU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createloadbalancerpolicy" class="xref page">CreateLoadBalancerPolicy</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LoadBalancerPolicy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../lbu.html#createloadbalancerpolicy" class="xref page">CreateLoadBalancerPolicy (LBU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LoadBalancerPolicy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../lbu.html#deleteloadbalancerpolicy" class="xref page">DeleteLoadBalancerPolicy (LBU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deleteloadbalancerpolicy" class="xref page">DeleteLoadBalancerPolicy</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LoadBalancerPolicy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../lbu.html#setloadbalancerpoliciesforbackendserver" class="xref page">SetLoadBalancerPoliciesForBackendServer (LBU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Location</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../directlink.html#describelocations" class="xref page">DescribeLocations (DirectLink)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readlocations" class="xref page">ReadLocations</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MultipartUpload</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">AbortMultipartUpload (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MultipartUpload</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">CompleteMultipartUpload (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MultipartUpload</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">CreateMultipartUpload (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MultipartUpload</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">ListMultipartUploads (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MultipartUpload</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">ListParts (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MultipartUpload</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">UploadPart (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MultipartUpload</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">UploadPartCopy (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NatService</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#createnatgateway" class="xref page">CreateNatGateway (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createnatservice" class="xref page">CreateNatService</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NatService</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#deletenatgateway" class="xref page">DeleteNatGateway (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deletenatservice" class="xref page">DeleteNatService</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NatService</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describenatgateways" class="xref page">DescribeNatGateways (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readnatservices" class="xref page">ReadNatServices</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#associatedhcpoptions" class="xref page">AssociateDhcpOptions (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updatenet" class="xref page">UpdateNet</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Net</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#createvpc" class="xref page">CreateVpc (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createnet" class="xref page">CreateNet</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Net</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#deletevpc" class="xref page">DeleteVpc (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deletenet" class="xref page">DeleteNet</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Net</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describevpcattribute" class="xref page">DescribeVpcAttribute (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readnets" class="xref page">ReadNets</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Net</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describevpcs" class="xref page">DescribeVpcs (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readnets" class="xref page">ReadNets</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NetAccessPoint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#createvpcendpoint" class="xref page">CreateVpcEndpoint (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createnetaccesspoint" class="xref page">CreateNetAccessPoint</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NetAccessPoint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#deletevpcendpoints" class="xref page">DeleteVpcEndpoints (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deletenetaccesspoint" class="xref page">DeleteNetAccessPoint</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NetAccessPoint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describeprefixlists" class="xref page">DescribePrefixLists (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readnetaccesspointservices" class="xref page">ReadNetAccessPointServices</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NetAccessPoint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describevpcendpointservices" class="xref page">DescribeVpcEndpointServices (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readnetaccesspointservices" class="xref page">ReadNetAccessPointServices</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NetAccessPoint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describevpcendpoints" class="xref page">DescribeVpcEndpoints (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readnetaccesspoints" class="xref page">ReadNetAccessPoints</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NetAccessPoint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#modifyvpcendpoint" class="xref page">ModifyVpcEndpoint (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updatenetaccesspoint" class="xref page">UpdateNetAccessPoint</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NetPeering</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#acceptvpcpeeringconnection" class="xref page">AcceptVpcPeeringConnection (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#acceptnetpeering" class="xref page">AcceptNetPeering</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NetPeering</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#createvpcpeeringconnection" class="xref page">CreateVpcPeeringConnection (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createnetpeering" class="xref page">CreateNetPeering</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NetPeering</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#deletevpcpeeringconnection" class="xref page">DeleteVpcPeeringConnection (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deletenetpeering" class="xref page">DeleteNetPeering</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NetPeering</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describevpcpeeringconnections" class="xref page">DescribeVpcPeeringConnections (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readnetpeerings" class="xref page">ReadNetPeerings</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NetPeering</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#rejectvpcpeeringconnection" class="xref page">RejectVpcPeeringConnection (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#rejectnetpeering" class="xref page">RejectNetPeering</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nic</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#assignprivateipaddresses" class="xref page">AssignPrivateIpAddresses (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#linkprivateips" class="xref page">LinkPrivateIps</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nic</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#attachnetworkinterface" class="xref page">AttachNetworkInterface (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#linknic" class="xref page">LinkNic</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nic</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#createnetworkinterface" class="xref page">CreateNetworkInterface (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createnic" class="xref page">CreateNic</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nic</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#deletenetworkinterface" class="xref page">DeleteNetworkInterface (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deletenic" class="xref page">DeleteNic</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nic</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describenetworkinterfaces" class="xref page">DescribeNetworkInterfaces (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readnics" class="xref page">ReadNics</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nic</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#detachnetworkinterface" class="xref page">DetachNetworkInterface (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#unlinknic" class="xref page">UnlinkNic</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nic</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#modifynetworkinterfaceattribute" class="xref page">ModifyNetworkInterfaceAttribute (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updatenic" class="xref page">UpdateNic</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nic</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#unassignprivateipaddresses" class="xref page">UnassignPrivateIpAddresses (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#unlinkprivateips" class="xref page">UnlinkPrivateIps</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">CopyObject (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">DeleteObject (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">DeleteObjectTagging (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">GetObject (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">GetObjectAcl (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">GetObjectRetention (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">GetObjectTagging (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">HeadObject (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">ListObjectVersions (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">ListObjects (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">PutObject (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">PutObjectAcl (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">PutObjectRetention (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="OOS-API-Reference.html" class="xref page">PutObjectTagging (OOS)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Policy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#attachgrouppolicy" class="xref page">AttachGroupPolicy (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#linkmanagedpolicytousergroup" class="xref page">LinkManagedPolicyToUserGroup</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Policy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#attachuserpolicy" class="xref page">AttachUserPolicy (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#linkpolicy" class="xref page">LinkPolicy</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Policy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#createpolicy" class="xref page">CreatePolicy (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createpolicy" class="xref page">CreatePolicy</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Policy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#createpolicyversion" class="xref page">CreatePolicyVersion (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createpolicyversion" class="xref page">CreatePolicyVersion</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Policy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#deletegrouppolicy" class="xref page">DeleteGroupPolicy (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deleteusergrouppolicy" class="xref page">DeleteUserGroupPolicy</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Policy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#deletepolicy" class="xref page">DeletePolicy (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deletepolicy" class="xref page">DeletePolicy</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Policy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#deletepolicyversion" class="xref page">DeletePolicyVersion (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deletepolicyversion" class="xref page">DeletePolicyVersion</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Policy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#deleteuserpolicy" class="xref page">DeleteUserPolicy (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Policy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#detachgrouppolicy" class="xref page">DetachGroupPolicy (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#unlinkmanagedpolicyfromusergroup" class="xref page">UnlinkManagedPolicyFromUserGroup</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Policy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#detachuserpolicy" class="xref page">DetachUserPolicy (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#unlinkpolicy" class="xref page">UnlinkPolicy</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Policy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#getgrouppolicy" class="xref page">GetGroupPolicy (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readusergrouppolicy" class="xref page">ReadUserGroupPolicy</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Policy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#getpolicy" class="xref page">GetPolicy (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readpolicy" class="xref page">ReadPolicy</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Policy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#getpolicyversion" class="xref page">GetPolicyVersion (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readpolicyversion" class="xref page">ReadPolicyVersion</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Policy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#getuserpolicy" class="xref page">GetUserPolicy (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Policy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#listattachedgrouppolicies" class="xref page">ListAttachedGroupPolicies (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readmanagedpolicieslinkedtousergroup" class="xref page">ReadManagedPoliciesLinkedToUserGroup</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Policy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#listattacheduserpolicies" class="xref page">ListAttachedUserPolicies (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readlinkedpolicies" class="xref page">ReadLinkedPolicies</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Policy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#listgrouppolicies" class="xref page">ListGroupPolicies (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readusergrouppolicies" class="xref page">ReadUserGroupPolicies</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Policy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#listpolicies" class="xref page">ListPolicies (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readpolicies" class="xref page">ReadPolicies</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Policy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#listpolicyversions" class="xref page">ListPolicyVersions (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readpolicyversions" class="xref page">ReadPolicyVersions</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Policy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#listuserpolicies" class="xref page">ListUserPolicies (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Policy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#putgrouppolicy" class="xref page">PutGroupPolicy (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#putusergrouppolicy" class="xref page">PutUserGroupPolicy</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Policy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#putuserpolicy" class="xref page">PutUserPolicy (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Policy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#setdefaultpolicyversion" class="xref page">SetDefaultPolicyVersion (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#setdefaultpolicyversion" class="xref page">SetDefaultPolicyVersion</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Policy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readentitieslinkedtopolicy" class="xref page">ReadEntitiesLinkedToPolicy</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ProductType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describeproducttypes" class="xref page">DescribeProductTypes (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readproducttypes" class="xref page">ReadProductTypes</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ProductType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#getproducttype" class="xref page">GetProductType (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readimages" class="xref page">ReadImages</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ProductType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#getproducttype" class="xref page">GetProductType (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readsnapshots" class="xref page">ReadSnapshots</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ProductType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#getproducttypes" class="xref page">GetProductTypes (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readimages" class="xref page">ReadImages</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ProductType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#getproducttypes" class="xref page">GetProductTypes (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readsnapshots" class="xref page">ReadSnapshots</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ProductType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createproducttype" class="xref page">CreateProductType</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PublicCatalog</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../icu.html#readpubliccatalog" class="xref page">ReadPublicCatalog (ICU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readpubliccatalog" class="xref page">ReadPublicCatalog</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PublicIp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#allocateaddress" class="xref page">AllocateAddress (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createpublicip" class="xref page">CreatePublicIp</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PublicIp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#associateaddress" class="xref page">AssociateAddress (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#linkpublicip" class="xref page">LinkPublicIp</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PublicIp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describeaddresses" class="xref page">DescribeAddresses (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readpublicips" class="xref page">ReadPublicIps</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PublicIp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#disassociateaddress" class="xref page">DisassociateAddress (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#unlinkpublicip" class="xref page">UnlinkPublicIp</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PublicIp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#readpublicipranges" class="xref page">ReadPublicIpRanges (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readpublicipranges" class="xref page">ReadPublicIpRanges</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PublicIp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#releaseaddress" class="xref page">ReleaseAddress (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deletepublicip" class="xref page">DeletePublicIp</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quota</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describequotas" class="xref page">DescribeQuotas (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readquotas" class="xref page">ReadQuotas</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quota</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../icu.html#readquotas" class="xref page">ReadQuotas (ICU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readquotas" class="xref page">ReadQuotas</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Region</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describeregions" class="xref page">DescribeRegions (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readregions" class="xref page">ReadRegions</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Route</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#createroute" class="xref page">CreateRoute (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createroute" class="xref page">CreateRoute</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Route</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#deleteroute" class="xref page">DeleteRoute (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deleteroute" class="xref page">DeleteRoute</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Route</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#replaceroute" class="xref page">ReplaceRoute (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updateroute" class="xref page">UpdateRoute</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RouteTable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#associateroutetable" class="xref page">AssociateRouteTable (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#linkroutetable" class="xref page">LinkRouteTable</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RouteTable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#createroutetable" class="xref page">CreateRouteTable (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createroutetable" class="xref page">CreateRouteTable</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RouteTable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#deleteroutetable" class="xref page">DeleteRouteTable (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deleteroutetable" class="xref page">DeleteRouteTable</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RouteTable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describeroutetables" class="xref page">DescribeRouteTables (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readroutetables" class="xref page">ReadRouteTables</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RouteTable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#disassociateroutetable" class="xref page">DisassociateRouteTable (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#unlinkroutetable" class="xref page">UnlinkRouteTable</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RouteTable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#replaceroutetableassociation" class="xref page">ReplaceRouteTableAssociation (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updateroutetablelink" class="xref page">UpdateRouteTableLink</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SecurityGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#createsecuritygroup" class="xref page">CreateSecurityGroup (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createsecuritygroup" class="xref page">CreateSecurityGroup</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SecurityGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#deletesecuritygroup" class="xref page">DeleteSecurityGroup (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deletesecuritygroup" class="xref page">DeleteSecurityGroup</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SecurityGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describesecuritygroups" class="xref page">DescribeSecurityGroups (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readsecuritygroups" class="xref page">ReadSecurityGroups</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SecurityGroupRule</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#authorizesecuritygroupegress" class="xref page">AuthorizeSecurityGroupEgress (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createsecuritygrouprule" class="xref page">CreateSecurityGroupRule</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SecurityGroupRule</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#authorizesecuritygroupingress" class="xref page">AuthorizeSecurityGroupIngress (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createsecuritygrouprule" class="xref page">CreateSecurityGroupRule</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SecurityGroupRule</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#revokesecuritygroupegress" class="xref page">RevokeSecurityGroupEgress (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deletesecuritygrouprule" class="xref page">DeleteSecurityGroupRule</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SecurityGroupRule</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#revokesecuritygroupingress" class="xref page">RevokeSecurityGroupIngress (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deletesecuritygrouprule" class="xref page">DeleteSecurityGroupRule</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ServerCertificate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#deleteservercertificate" class="xref page">DeleteServerCertificate (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deleteservercertificate" class="xref page">DeleteServerCertificate</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ServerCertificate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#getservercertificate" class="xref page">GetServerCertificate (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ServerCertificate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#listservercertificates" class="xref page">ListServerCertificates (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readservercertificates" class="xref page">ReadServerCertificates</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ServerCertificate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#updateservercertificate" class="xref page">UpdateServerCertificate (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updateservercertificate" class="xref page">UpdateServerCertificate</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ServerCertificate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#uploadservercertificate" class="xref page">UploadServerCertificate (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createservercertificate" class="xref page">CreateServerCertificate</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Signature</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../icu.html#checksignature" class="xref page">CheckSignature (ICU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Snapshot</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#copysnapshot" class="xref page">CopySnapshot (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createsnapshot" class="xref page">CreateSnapshot</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Snapshot</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#createsnapshot" class="xref page">CreateSnapshot (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createsnapshot" class="xref page">CreateSnapshot</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Snapshot</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#createsnapshotexporttask" class="xref page">CreateSnapshotExportTask (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createsnapshotexporttask" class="xref page">CreateSnapshotExportTask</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Snapshot</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#deletesnapshot" class="xref page">DeleteSnapshot (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deletesnapshot" class="xref page">DeleteSnapshot</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Snapshot</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describesnapshotattribute" class="xref page">DescribeSnapshotAttribute (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readsnapshots" class="xref page">ReadSnapshots</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Snapshot</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describesnapshotexporttasks" class="xref page">DescribeSnapshotExportTasks (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readsnapshotexporttasks" class="xref page">ReadSnapshotExportTasks</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Snapshot</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describesnapshots" class="xref page">DescribeSnapshots (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readsnapshots" class="xref page">ReadSnapshots</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Snapshot</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#importsnapshot" class="xref page">ImportSnapshot (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createsnapshot" class="xref page">CreateSnapshot</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Snapshot</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#modifysnapshotattribute" class="xref page">ModifySnapshotAttribute (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updatesnapshot" class="xref page">UpdateSnapshot</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subnet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#createsubnet" class="xref page">CreateSubnet (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createsubnet" class="xref page">CreateSubnet</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subnet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#deletesubnet" class="xref page">DeleteSubnet (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deletesubnet" class="xref page">DeleteSubnet</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subnet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describesubnets" class="xref page">DescribeSubnets (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readsubnets" class="xref page">ReadSubnets</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subnet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#modifysubnetattribute" class="xref page">ModifySubnetAttribute (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updatesubnet" class="xref page">UpdateSubnet</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="tooltip" data-tooltip="Availability Zone (AZ) in AWS-Compliant APIs">Subregion</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describeavailabilityzones" class="xref page">DescribeAvailabilityZones (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readsubregions" class="xref page">ReadSubregions</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tag</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#createtags" class="xref page">CreateTags (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createtags" class="xref page">CreateTags</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tag</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#deletetags" class="xref page">DeleteTags (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deletetags" class="xref page">DeleteTags</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tag</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describetags" class="xref page">DescribeTags (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readtags" class="xref page">ReadTags</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Task</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#cancelexporttask" class="xref page">CancelExportTask (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deleteexporttask" class="xref page">DeleteExportTask</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#createuser" class="xref page">CreateUser (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createuser" class="xref page">CreateUser</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#deleteuser" class="xref page">DeleteUser (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deleteuser" class="xref page">DeleteUser</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#getuser" class="xref page">GetUser (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readusers" class="xref page">ReadUsers</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#listusers" class="xref page">ListUsers (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readusers" class="xref page">ReadUsers</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#updateuser" class="xref page">UpdateUser (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updateuser" class="xref page">UpdateUser</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UserGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#addusertogroup" class="xref page">AddUserToGroup (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#addusertousergroup" class="xref page">AddUserToUserGroup</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UserGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#creategroup" class="xref page">CreateGroup (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createusergroup" class="xref page">CreateUserGroup</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UserGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#deletegroup" class="xref page">DeleteGroup (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deleteusergroup" class="xref page">DeleteUserGroup</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UserGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#getgroup" class="xref page">GetGroup (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readusergroup" class="xref page">ReadUserGroup</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UserGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#listgroups" class="xref page">ListGroups (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readusergroups" class="xref page">ReadUserGroups</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UserGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#listgroupsforuser" class="xref page">ListGroupsForUser (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readusergroupsperuser" class="xref page">ReadUserGroupsPerUser</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UserGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#removeuserfromgroup" class="xref page">RemoveUserFromGroup (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#removeuserfromusergroup" class="xref page">RemoveUserFromUserGroup</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UserGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../eim.html#updategroup" class="xref page">UpdateGroup (EIM)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updateusergroup" class="xref page">UpdateUserGroup</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VirtualGateway</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#attachvpngateway" class="xref page">AttachVpnGateway (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#linkvirtualgateway" class="xref page">LinkVirtualGateway</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VirtualGateway</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#createvpngateway" class="xref page">CreateVpnGateway (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createvirtualgateway" class="xref page">CreateVirtualGateway</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VirtualGateway</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#deletevpngateway" class="xref page">DeleteVpnGateway (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deletevirtualgateway" class="xref page">DeleteVirtualGateway</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VirtualGateway</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../directlink.html#describevirtualgateways" class="xref page">DescribeVirtualGateways (DirectLink)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readvirtualgateways" class="xref page">ReadVirtualGateways</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VirtualGateway</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describevpngateways" class="xref page">DescribeVpnGateways (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readvirtualgateways" class="xref page">ReadVirtualGateways</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VirtualGateway</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#detachvpngateway" class="xref page">DetachVpnGateway (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#unlinkvirtualgateway" class="xref page">UnlinkVirtualGateway</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VirtualGateway</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#disablevgwroutepropagation" class="xref page">DisableVgwRoutePropagation (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updateroutepropagation" class="xref page">UpdateRoutePropagation</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VirtualGateway</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#enablevgwroutepropagation" class="xref page">EnableVgwRoutePropagation (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updateroutepropagation" class="xref page">UpdateRoutePropagation</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describeinstanceattribute" class="xref page">DescribeInstanceAttribute (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readvms" class="xref page">ReadVms</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describeinstancestatus" class="xref page">DescribeInstanceStatus (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readvmsstate" class="xref page">ReadVmsState</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describeinstancetypes" class="xref page">DescribeInstanceTypes (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readvmtypes" class="xref page">ReadVmTypes</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describeinstances" class="xref page">DescribeInstances (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readvms" class="xref page">ReadVms</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#getconsoleoutput" class="xref page">GetConsoleOutput (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readconsoleoutput" class="xref page">ReadConsoleOutput</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#getpassworddata" class="xref page">GetPasswordData (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readadminpassword" class="xref page">ReadAdminPassword</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#modifyinstanceattribute" class="xref page">ModifyInstanceAttribute (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updatevm" class="xref page">UpdateVm</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#modifyinstancekeypair" class="xref page">ModifyInstanceKeypair (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updatevm" class="xref page">UpdateVm</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#rebootinstances" class="xref page">RebootInstances (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#rebootvms" class="xref page">RebootVms</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#runinstances" class="xref page">RunInstances (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createvms" class="xref page">CreateVms</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#startinstances" class="xref page">StartInstances (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#startvms" class="xref page">StartVms</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#stopinstances" class="xref page">StopInstances (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#stopvms" class="xref page">StopVms</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#terminateinstances" class="xref page">TerminateInstances (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deletevms" class="xref page">DeleteVms</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VmGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createvmgroup" class="xref page">CreateVmGroup</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VmGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deletevmgroup" class="xref page">DeleteVmGroup</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VmGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readvmgroups" class="xref page">ReadVmGroups</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VmGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#scaledownvmgroup" class="xref page">ScaleDownVmGroup</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VmGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#scaleupvmgroup" class="xref page">ScaleUpVmGroup</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VmGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updatevmgroup" class="xref page">UpdateVmGroup</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VmTemplate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createvmtemplate" class="xref page">CreateVmTemplate</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VmTemplate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deletevmtemplate" class="xref page">DeleteVmTemplate</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VmTemplate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readvmtemplates" class="xref page">ReadVmTemplates</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VmTemplate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updatevmtemplate" class="xref page">UpdateVmTemplate</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Volume</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#attachvolume" class="xref page">AttachVolume (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#linkvolume" class="xref page">LinkVolume</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Volume</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#createvolume" class="xref page">CreateVolume (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createvolume" class="xref page">CreateVolume</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Volume</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#deletevolume" class="xref page">DeleteVolume (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deletevolume" class="xref page">DeleteVolume</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Volume</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describevolumes" class="xref page">DescribeVolumes (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readvolumes" class="xref page">ReadVolumes</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Volume</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#detachvolume" class="xref page">DetachVolume (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#unlinkvolume" class="xref page">UnlinkVolume</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Volume</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updatevolume" class="xref page">UpdateVolume</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VpnConnection</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#createvpnconnection" class="xref page">CreateVpnConnection (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createvpnconnection" class="xref page">CreateVpnConnection</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VpnConnection</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#createvpnconnectionroute" class="xref page">CreateVpnConnectionRoute (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createvpnconnectionroute" class="xref page">CreateVpnConnectionRoute</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VpnConnection</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#deletevpnconnection" class="xref page">DeleteVpnConnection (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deletevpnconnection" class="xref page">DeleteVpnConnection</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VpnConnection</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#deletevpnconnectionroute" class="xref page">DeleteVpnConnectionRoute (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deletevpnconnectionroute" class="xref page">DeleteVpnConnectionRoute</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VpnConnection</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../fcu.html#describevpnconnections" class="xref page">DescribeVpnConnections (FCU)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#readvpnconnections" class="xref page">ReadVpnConnections</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VpnConnection</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updatevpnconnection" class="xref page">UpdateVpnConnection</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Related Page</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="About-the-APIs.html" class="xref page">About the APIs</a></p>
+</li>
+</ul>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ and Amazon Web Services™ are trademarks of Amazon Technologies, Inc or its affiliates in the United States and/or other countries.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

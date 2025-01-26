@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>À propos des VM – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="À-propos-des-VM.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/À-propos-des-VM.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/About-VMs.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">À propos des VM</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machine virtuelle (VM)</span> est une machine virtuelle créée dans le Cloud public ou dans un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span>, composée d&#8217;éléments de calcul, de stockage et de mémoire, sur laquelle un système d&#8217;exploitation (Operating System - OS) tourne, et qui peut héberger vos applications métier. Vous pouvez choisir entre différentes configurations matérielles appelées types de machines virtuelles (VM), et entre différentes images machines utilisées comme modèles pour les VM à créer.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_informations_générales_sur_les_vm"><a class="anchor" href="À-propos-des-VM.html#_informations_générales_sur_les_vm"></a>Informations générales sur les VM</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> est l&#8217;équivalent exact d&#8217;une machine physique, virtualisée et créée dans le Cloud à l&#8217;aide d&#8217;une image machine OUTSCALE (OMI) comme modèle et d&#8217;un type de VM comme configuration matérielle. Une OMI sert de modèle pour créer la VM en fournissant au moins un OS, et possiblement d&#8217;autres applications logicielles. Pour en savoir plus, voir <a href="À-propos-des-OMI.html" class="xref page">À propos des OMI</a>.</p>
+</div>
+<div class="paragraph">
+<p>Les VM sont composées de coeurs virtualisés (vCores), de mémoire et de stockage. Ce stockage consiste en des volumes Block Storage Unit (BSU) permanents. Le volume système de la VM est un volume BSU utilisé pour stocker tous les fichiers de l&#8217;OS ainsi que d&#8217;autre données si besoin. Vous pouvez créer des VM en utilisant une OMI composée de plusieurs volumes, ou attacher des volumes supplémentaires à la VM à tout moment. Pour en savoir plus, voir <a href="Block-Storage-Unit-BSU.html" class="xref page">Block Storage Unit (BSU)</a>.</p>
+</div>
+<div class="paragraph">
+<p>3DS OUTSCALE fournit trois catégories de types de VM, parmi lesquels vous pouvez choisir selon vos besoins en performance de calcul et de mémoire :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>VM personnalisées, pour lesquelles vous pouvez définir la quantité de vCores et de mémoire que vous souhaitez</p>
+</li>
+<li>
+<p>VM préconfigurées OUTSCALE, pour des usages dédiés (par exemple le Big Data ou le calcul haute performance) avec une quantité prédéfinie de vCores et de mémoire</p>
+</li>
+<li>
+<p>VM préconfigurées compatibles avec AWS</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous pouvez modifier le type de VM après sa création. Pour en savoir plus, voir <a href="Modifier-un-attribut-d-une-VM.html" class="xref page">Modifier un attribut d&#8217;une VM</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Les VM peuvent être créées soit dans le Cloud public, soit dans un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span>. Par défaut, les VM sont créées dans le Cloud public sur Cockpit. Vous pouvez également placer la VM dans la <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Sous-région</span> de votre choix, au sein de la Région à laquelle votre compte est rattaché.
+Si vous ne spécifiez aucune Sous-région, la Sous-région A est utilisée par défaut.</p>
+</div>
+<div class="paragraph">
+<p>Une IP privée est attribuée aux VM lors de leur création. Si vous créez des VM dans le Cloud public, elles reçoivent également une <span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">IP publique</span>, à moins que vous n&#8217;ayez spécifié le tag <code>private_only</code> dans les user data. Cette IP publique peut être remplacée par une IP publique qui peut être fixée à la VM. Les IP publiques peuvent également être utilisées pour ajouter une IP publique à une VM dans un Net. Pour en savoir plus, voir <a href="À-propos-des-IP-publiques.html" class="xref page">À propos des IP publiques</a>.<br>
+Vous pouvez ajouter des IP supplémentaires aux VM dans un Net à travers des interfaces réseau. Pour en savoir plus, voir <a href="À-propos-des-NIC.html" class="xref page">À propos des NIC</a>.<br>
+Pour en savoir plus, voir <a href="À-propos-du-cycle-de-vie-des-VM.html" class="xref page">À propos du cycle de vie des VM</a>. Pour en savoir plus sur la liste des IP publiques, voir <a href="IP-publiques-OUTSCALE.html" class="xref page">IP publiques OUTSCALE</a>.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez créer plusieurs VM avec les mêmes attributs en même temps. Plusieurs VM peuvent donc avoir le même nom. L&#8217;attribut <strong>Count</strong> vous permet de définir un nombre minimum et un nombre maximum de VM à créer. Si le nombre maximum de VM ne peut être créé pour cause de capacité insuffisante, le maximum de VM possible au-dessus du nombre minimum indiqué est créé. Si le nombre minimum de VM spécifié ne peut être créé pour cause de capacité insuffisante, aucune VM n&#8217;est créée.</p>
+</div>
+<div class="paragraph">
+<p>Chaque requête de création crée une réservation qui contient toutes les VM créées dans la requête, identifiée par un ID de réservation. Chaque VM d&#8217;une même réservation reçoit un index de création (<code>ami-launch-index)</code> que vous pouvez utiliser pour appliquer des paramètres à des VM spécifiques au sein de la réservation. Le numéro zéro (0) est attribué à la première VM créée, le numéro un (1) à la seconde, et ainsi de suite.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour identifier vos ressources plus facilement, vous pouvez leur ajouter des tags. Pour en savoir plus, voir <a href="Ajouter-ou-retirer-des-tags.html" class="xref page">Ajouter ou retirer des tags</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Lorsque vous créez une VM, vous devez spécifier une keypair à utiliser pour se connecter à celle-ci. Pour en savoir plus sur les keypairs, voir <a href="À-propos-des-keypairs.html" class="xref page">À propos des keypairs</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_les_attributs_des_vm"><a class="anchor" href="À-propos-des-VM.html#_les_attributs_des_vm"></a>Les attributs des VM</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Lorsque vous créez une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span>, vous devez sélectionner plusieurs attributs, qui peuvent être modifiés par la suite. Pour en savoir plus, voir <a href="Modifier-un-attribut-d-une-VM.html" class="xref page">Modifier un attribut d&#8217;une VM</a>.</p>
+</div>
+<div class="paragraph">
+<p>Une VM a les attributs suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Des block device mappings, qui définissent les attachements du volume et si les volumes sont supprimés une fois la VM terminée. Pour en savoir plus, voir <a href="Définir-des-block-device-mappings.html" class="xref page">Définir des block device mappings</a>.</p>
+</li>
+<li>
+<p>Un type de VM, qui détermine les capacités de calcul, de mémoire et de stockage. Pour en savoir plus, voir <a href="Types-de-VM.html" class="xref page">Types de VM</a>.</p>
+</li>
+<li>
+<p>La possibilité de désactiver la suppression afin d&#8217;empêcher la suppression accidentelle de la VM.</p>
+</li>
+<li>
+<p>Une keypair, qui est une paire de clés de chiffrement SSH (une clé privée et une clé publique) grâce à laquelle vous pouvez vous connecter à votre VM. Pour en savoir plus, voir <a href="À-propos-des-keypairs.html" class="xref page">À propos des keypairs</a>.</p>
+</li>
+<li>
+<p>Des security groups, qui vous permettent de contrôler les flux entrants et sortants. Pour en savoir plus, voir <a href="À-propos-des-security-groups.html" class="xref page">À propos des security groups</a>.</p>
+</li>
+<li>
+<p>Le comportement de la VM à sa coupure (arrêtée, terminée ou redémarre) lorsque vous amorcez sa coupure.</p>
+</li>
+<li>
+<p>Si la vérification source/destination du trafic réseau est activée pour la VM.</p>
+</li>
+<li>
+<p>Des user data, qui permettent d&#8217;autres réglages de votre VM. Pour en savoir plus, voir <a href="Configurer-une-VM-avec-les-user-data-et-les-tags-OUTSCALE.html" class="xref page">Configurer une VM avec les user data et les tags OUTSCALE</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_les_vm_et_les_security_groups"><a class="anchor" href="À-propos-des-VM.html#_les_vm_et_les_security_groups"></a>Les VM et les security groups</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Chaque <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> doit être créée derrière un security group. Les security groups agissent comme un commutateur réseau et un pare-feu, et donc autorisent ou refusent l&#8217;accès à une ou plusieurs VM. Pour en savoir plus, voir <a href="À-propos-des-security-groups.html" class="xref page">À propos des security groups</a>.</p>
+</div>
+<div class="paragraph">
+<p>Par défaut, un security group n&#8217;autorise aucun flux entrant vers vos VM. Vous devez spécifier des règles pour les security groups selon vos besoins et votre architecture. Vous pouvez ajouter ou supprimer des règles de security groups, et modifier les security groups associés à une VM existante à tout moment.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Un security group Default est disponible pour votre compte. Ce security group n&#8217;autorise que les interactions entre VM associées à ce même security group. Vous pouvez cependant en modifier les règles si besoin.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Dans le Cloud public, les security groups ne filtrent que les flux entrants. Dans un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span>, les security groups filtrent à la fois les flux entrants et les flux sortants.</p>
+</div>
+<div class="paragraph">
+<p>Une règle de security group est composée des éléments suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Flow : Entrant ou sortant.</p>
+</li>
+<li>
+<p>Protocol : TCP, UDP ou ICMP.</p>
+</li>
+<li>
+<p>From port : Le port d&#8217;entrée.</p>
+</li>
+<li>
+<p>To port : Le port d&#8217;arrivée.</p>
+</li>
+<li>
+<p>Source CIDR : L&#8217;adresse réseau sur laquelle filtrer, en notation CIDR.</p>
+</li>
+<li>
+<p>Source security group : Un autre security group sur lequel filtrer.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_allocation_des_vm_et_vm_dédiées"><a class="anchor" href="À-propos-des-VM.html#_allocation_des_vm_et_vm_dédiées"></a>Allocation des VM et VM dédiées</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Par défaut, les <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> sont placées sur des serveurs partagés entre les différents comptes. Cependant, vous pouvez spécifier que vous souhaitez placer vos VM sur des serveurs dédiés lors de leur création. Pour en savoir plus, voir <a href="Créer-des-VM.html" class="xref page">Créer des VM</a>.</p>
+</div>
+<div class="paragraph">
+<p>Les VM dédiées ne partagent pas de hardware avec d&#8217;autres comptes, mais elles le partagent avec les VM non dédiées qui appartiennent à un même compte.</p>
+</div>
+<div class="paragraph">
+<p>L&#8217;utilisation des VM dédiées vous permet de bénéficier de la capacité maximum du serveur. Ainsi, quand vous créez une VM dans un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span> ou que vous créez un Net, les options d&#8217;allocation disponibles sont les suivantes :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>default</code> : Votre VM est placée sur un serveur partagé.</p>
+</li>
+<li>
+<p><code>dedicated</code> : Votre VM est placée sur un serveur dédié.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Vous devez spécifier leur allocation à la création de la VM. Vous ne pouvez pas la spécifier comme <code>dedicated</code> après sa création. Pour en savoir plus, voir <a href="Créer-des-VM.html" class="xref page">Créer des VM</a>.</p>
+</div>
+<div class="paragraph">
+<p>Lorsque vous utilisez un Net, vous pouvez spécifier l&#8217;option d&#8217;allocation pour l&#8217;ensemble du Net lors sa création. Si vous paramétrez l&#8217;option d&#8217;allocation du Net sur <code>default</code>, vous devez paramétrer l&#8217;attribut <code>tenancy</code> de chaque VM que vous souhaitez placer sur un serveur dédié sur <code>dedicated</code>. Si vous paramétrez l&#8217;option d&#8217;allocation du Net sur <code>dedicated</code>, l&#8217;attribut <code>tenancy</code> de toutes les VMs créées dans ce Net est automatiquement paramétré sur <code>dedicated</code>. Vous ne pouvez pas modifier l&#8217;option d&#8217;allocation une fois votre Net créé.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>La création de VM dédiées requiert plus de quotas que ceux alloués à votre compte par défaut. Pour augmenter le quota correspondant, veuillez contacter l&#8217;équipe Support à <a href="mailto:support@outscale.com">support@outscale.com</a>, en ajoutant votre Technical Account Manager en copie ou du moins <a href="mailto:sales-eu@outscale.com">sales-eu@outscale.com</a>.</p>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus sur le prix des VM dédiées, voir <a href="Glossaire-de-facturation.html#_instance_instance_dédiée_prix_additionnel_par_heure" class="xref page">Glossaire de facturation &gt; Instance - Instance dédiée - Prix additionnel - par heure</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_virtualisation_imbriquée"><a class="anchor" href="À-propos-des-VM.html#_virtualisation_imbriquée"></a>Virtualisation imbriquée</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez créer des <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> au sein d&#8217;autres VM en utilisant la virtualisation imbriquée. Pour ce faire, vous devez prendre en compte les conditions suivantes :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>La virtualisation imbriquée peut être activée uniquement via l&#8217;API OUTSCALE. Elle nécessite également de spécifier le paramètre d&#8217;allocation comme <code>dedicated</code>. Pour en savoir plus, voir <a href="../../api%3Fconsole.html#createvms" class="xref page">CreateVms</a> ou <a href="../../api%3Fconsole.html#updatevm" class="xref page">UpdateVm</a>.</p>
+</li>
+<li>
+<p>Les VM imbriquées partagent la capacité de la VM hôte. Assurez-vous que votre VM hôte dispose de suffisament de mémoire, de coeurs, et d&#8217;espace de stockage pour créer des VM imbriquées.</p>
+</li>
+<li>
+<p>Les VM imbriquées peuvent être basées uniquement sur des images extérieures (fichiers .iso), et non sur des images machines OUTSCALE (OMI).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus à propos de comment activer la virtualisation imbriquée, voir notre guide technique <a href="Activer-la-virtualisation-imbriquée.html" class="xref page">Activer la virtualisation imbriquée</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_les_vm_réservées"><a class="anchor" href="À-propos-des-VM.html#_les_vm_réservées"></a>Les VM réservées</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Les <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> réservées sont des VM que vous pouvez réserver dans une Région spécifique, pour une durée spécifique. Cela vous permet de bénéficier d&#8217;une remise et d&#8217;éviter toute insuffisance de capacité dans la Région.</p>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus sur les VM réservées, contactez notre équipe commerciale : <a href="mailto:sales@outscale.com">sales@outscale.com</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-du-cycle-de-vie-des-VM.html" class="xref page">À propos du cycle de vie des VM</a></p>
+</li>
+<li>
+<p><a href="Types-de-VM.html" class="xref page">Types de VM</a></p>
+</li>
+<li>
+<p><a href="À-propos-des-Régions-et-Sous-régions.html" class="xref page">À propos des Régions et Sous-régions</a></p>
+</li>
+<li>
+<p><a href="Security-Groups.html" class="xref page">Security Groups</a></p>
+</li>
+<li>
+<p><a href="Nets.html" class="xref page">Nets</a></p>
+</li>
+<li>
+<p><a href="Modifier-la-keypair-d-une-VM.html" class="xref page">Modifier la keypair d&#8217;une VM</a></p>
+</li>
+<li>
+<p><a href="Maintenance-de-notre-infrastructure.html" class="xref page">Maintenance de notre infrastructure</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Accessing the Metadata and User Data of a VM – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="Accessing-the-Metadata-and-User-Data-of-a-VM.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/Accessing-the-Metadata-and-User-Data-of-a-VM.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Accéder-aux-metadata-et-user-data-d-une-VM.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Accessing the Metadata and User Data of a VM</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can get information about the configuration of <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">virtual machine (VM)</span> by accessing metadata and user data from within the VM itself.</p>
+</div>
+<div class="paragraph">
+<p>This action enables you to access information that would otherwise be inaccessible inside the VM.</p>
+</div>
+<div class="paragraph">
+<p>You can also get this information from outside the VM. For more information, see <a href="Getting-Information-About-Your-VMs.html" class="xref page">Getting Information About Your VMs</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Metadata_0"><a class="anchor" href="Accessing-the-Metadata-and-User-Data-of-a-VM.html#Metadata_0"></a>Accessing the Metadata of a VM</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Before you begin:</strong> Access the <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span> whose metadata you want to access. For more information, see <a href="Accessing-Your-VMs.html" class="xref page">Accessing Your VMs</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>To access the metadata of a VM, type the following command in a terminal of the VM, where CATEGORY is any of the category or category/subcategory available:</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ curl http://169.254.169.254/latest/meta-data/CATEGORY</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can also type the address <code>http://169.254.169.254/latest/meta-data/CATEGORY</code> in a web browser.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">CATEGORY</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ami-id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the OUTSCALE machine image (OMI) used to create the VM.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ami-launch-index</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The creation index of the VM. For more information, see <a href="About-VMs.html#_general_information_about_vms" class="xref page">About VMs &gt; General Information About VMs</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>block-device-mapping/</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>This category contains the following subcategories:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ami</code>: The device name of the root device of the VM.</p>
+</li>
+<li>
+<p><code>ebsN</code>: The device name of any additional volume attached to the VM, where <code>N</code> is an index starting from 1.</p>
+</li>
+<li>
+<p><code>root</code>: Same as <code>ami</code>.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hostname</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The primary private DNS of the VM.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>instance-id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the VM.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>instance-type</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The type of VM.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>local-hostname</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Same as <code>hostname</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>local-ipv4</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The primary private IP of the VM.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mac</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The primary Media Access Control (MAC) address of the VM.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>network/interfaces/macs/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A list of MAC addresses associated with the VM.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>network/interfaces/macs/MAC_ADDRESS/</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>This category contains the following subcategories, where <code>MAC_ADDRESS</code> is any MAC address associated with the VM:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>device-number</code>: The number of the ethernet device for the network interface.</p>
+</li>
+<li>
+<p><code>gateway-ipv4</code>: The private IP for the gateway.</p>
+</li>
+<li>
+<p><code>interface-id</code>: The ID of the network interface.</p>
+</li>
+<li>
+<p><code>ipv4-associations/PUBLIC_IP</code>: The private IP associated with the <code>PUBLIC_IP</code> address of the network interface.</p>
+</li>
+<li>
+<p><code>local-hostname</code>: The private DNS for the network interface.</p>
+</li>
+<li>
+<p><code>local-ip4s</code>: The private IP for the network interface.</p>
+</li>
+<li>
+<p><code>mac</code>: The MAC address for the network interface.</p>
+</li>
+<li>
+<p><code>owner-id</code>: The account ID of the owner of the network interface.</p>
+</li>
+<li>
+<p><code>public-hostname</code>: The public DNS, if any, for the network interface.</p>
+</li>
+<li>
+<p><code>public-ipv4s</code>: The <span class="tooltip" data-tooltip="External IP (EIP) in AWS-Compliant APIs">public IP</span> for the network interface.</p>
+</li>
+<li>
+<p><code>security-group-ids</code>: A list of security group IDs for the network interface.</p>
+</li>
+<li>
+<p><code>security-groups</code>: A list of security group names for the network interface.</p>
+</li>
+<li>
+<p><code>subnet-id</code>: The ID of the Subnet for the network interface.</p>
+</li>
+<li>
+<p><code>subnet-ipv4-cidr-block</code>: In a <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span>, a range of IPs for the Subnet, in CIDR notation.</p>
+</li>
+<li>
+<p><code>vpc-id</code>: In a Net, the ID of the Net for the network interface.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>placement</code>/</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>This category contains the following subcategories:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>availability-zone</code>: The <span class="tooltip" data-tooltip="Availability Zone (AZ) in AWS-Compliant APIs">Subregion</span> where the VM is.</p>
+</li>
+<li>
+<p><code>server</code>: The server where the VM is.</p>
+</li>
+<li>
+<p><code>cluster</code>: The cluster where the VM is.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>public-hostname</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The public DNS of the VM.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>public-keys/0/openssh-key</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The public part of the keypair for the VM. For more information, see <a href="About-Keypairs.html" class="xref page">About Keypairs</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>reservation-id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the reservation the VM is associated with.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>security-groups</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A list of security group names for the VM. For more information, see <a href="About-Security-Groups.html" class="xref page">About Security Groups</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tags/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A list of tags associated with the VM. For more information, see <a href="About-Tags.html" class="xref page">About Tags</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tags/KEY_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The tag Value corresponding to the <code>KEY_NAME</code> tag Key.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The requested metadata of the VM appears.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="User Data_1"><a class="anchor" href="Accessing-the-Metadata-and-User-Data-of-a-VM.html#User Data_1"></a>Accessing the User Data of a VM</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Before you begin:</strong> Access the <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span> whose user data you want to access. For more information, see <a href="Accessing-Your-VMs.html" class="xref page">Accessing Your VMs</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>To access the user data of a VM, type the following command in a terminal of the VM:</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ curl http://169.254.169.254/latest/user-data</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can also type the address <code>http://169.254.169.254/latest/user-data</code> in a web browser.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The user data of the VM appears.</p>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="About-VMs.html" class="xref page">About VMs</a></p>
+</li>
+<li>
+<p><a href="Getting-Information-About-Your-VMs.html" class="xref page">Getting Information About Your VMs</a></p>
+</li>
+<li>
+<p><a href="Configuring-a-VM-with-User-Data-and-OUTSCALE-Tags.html" class="xref page">Configuring a VM with User Data and OUTSCALE Tags</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

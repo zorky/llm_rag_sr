@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gérer les CA – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Gérer-les-CA.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Gérer-les-CA.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Managing-CAs.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Gérer les CA</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez gérer les Autorités de certification (CA) dans le but de les utiliser comme critères pour vos règles d&#8217;accès API. Pour en savoir plus, voir <a href="À-propos-des-règles-d-accès-API.html" class="xref page">À propos des règles d&#8217;accès API</a>.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour renforcer davantage la sécurité de votre compte, nous recommandons de diversifier vos facteurs d&#8217;authentification. Par défaut, les certificats et les identifiants servent de facteur de connaissance. Les certificats peuvent servir de facteur de possession lorsqu&#8217;ils sont stockés sur des dispositifs physiques tels que des cartes à puce.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="OSC CLI_0"><a class="anchor" href="Gérer-les-CA.html#OSC CLI_0"></a>Gérer les CA avec OSC CLI</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_créer_une_ca"><a class="anchor" href="Gérer-les-CA.html#_créer_une_ca"></a>Créer une CA</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateCa</strong> command creates a Client Certificate Authority (CA).</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="../../en/userguide/About-API-Access-Rules.html" target="_blank" rel="noopener">About API Access Rules</a>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Example with access key/secret key authentication</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api CreateCa --profile "default" \
+    --CaPem="$(cat ca-certificate.pem)" \
+    --Description "CA example"</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Example with login/password authentication</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api CreateCa --profile "default" --authentication-method "password" --login "$OSC_EMAIL" --password "$OSC_PASSWORD" \
+    --CaPem="$(cat ca-certificate.pem)" \
+    --Description "CA example"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CaPem</code>: The CA in PEM format.<br>
+With OSC CLI, use the following syntax to make sure your CA file is correctly parsed: <code>--CaPem=&quot;$(cat FILENAME)&quot;</code>.</p>
+</li>
+<li>
+<p><code>Description</code>: (optional) The description of the CA.</p>
+</li>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateCa</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Ca</code>: Information about the Client Certificate Authority (CA).</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CaFingerprint</code>: The fingerprint of the CA.</p>
+</li>
+<li>
+<p><code>CaId</code>: The ID of the CA.</p>
+</li>
+<li>
+<p><code>Description</code>: The description of the CA.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "Ca": {
+    "Description": "CA example",
+    "CaId": "ca-fedcba0987654321fedcba0987654321",
+    "CaFingerprint": "1234567890abcdef1234567890abcdef12345678"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_obtenir_des_informations_sur_vos_ca"><a class="anchor" href="Gérer-les-CA.html#_obtenir_des_informations_sur_vos_ca"></a>Obtenir des informations sur vos CA</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadCas</strong> command gets information about one or more of your Client Certificate Authorities (CAs).</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Example with access key/secret key authentication</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api ReadCas --profile "default" \
+    --Filters '{
+        "CaIds": ["ca-fedcba0987654321fedcba0987654321"]
+      }'</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Example with login/password authentication</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api ReadCas --profile "default" --authentication-method "password" --login "$OSC_EMAIL" --password "$OSC_PASSWORD" \
+    --Filters '{
+        "CaIds": ["ca-fedcba0987654321fedcba0987654321"]
+      }'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Filters</code>: (optional) One or more filters.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CaFingerprints</code>: (optional) The fingerprints of the CAs.</p>
+</li>
+<li>
+<p><code>CaIds</code>: (optional) The IDs of the CAs.</p>
+</li>
+<li>
+<p><code>Descriptions</code>: (optional) The descriptions of the CAs.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadCas</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Cas</code>: Information about one or more CAs.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CaFingerprint</code>: The fingerprint of the CA.</p>
+</li>
+<li>
+<p><code>CaId</code>: The ID of the CA.</p>
+</li>
+<li>
+<p><code>Description</code>: The description of the CA.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "Cas": [
+    {
+      "Description": "CA example",
+      "CaId": "ca-fedcba0987654321fedcba0987654321",
+      "CaFingerprint": "1234567890abcdef1234567890abcdef12345678"
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_modifier_une_ca"><a class="anchor" href="Gérer-les-CA.html#_modifier_une_ca"></a>Modifier une CA</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>UpdateCa</strong> command modifies the specified attribute of a Client Certificate Authority (CA).</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Example with access key/secret key authentication</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api UpdateCa --profile "default" \
+    --CaId "ca-fedcba0987654321fedcba0987654321" \
+    --Description "New description"</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Example with login/password authentication</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api UpdateCa --profile "default" --authentication-method "password" --login "$OSC_EMAIL" --password "$OSC_PASSWORD" \
+    --CaId "ca-fedcba0987654321fedcba0987654321" \
+    --Description "New description"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CaId</code>: The ID of the CA.</p>
+</li>
+<li>
+<p><code>Description</code>: (optional) The description of the CA.</p>
+</li>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>UpdateCa</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Ca</code>: Information about the Client Certificate Authority (CA).</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CaFingerprint</code>: The fingerprint of the CA.</p>
+</li>
+<li>
+<p><code>CaId</code>: The ID of the CA.</p>
+</li>
+<li>
+<p><code>Description</code>: The description of the CA.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "Ca": {
+    "Description": "New description",
+    "CaId": "ca-fedcba0987654321fedcba0987654321",
+    "CaFingerprint": "1234567890abcdef1234567890abcdef12345678"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_supprimer_une_ca"><a class="anchor" href="Gérer-les-CA.html#_supprimer_une_ca"></a>Supprimer une CA</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>DeleteCa</strong> command deletes a specified Client Certificate Authority (CA).</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Example with access key/secret key authentication</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api DeleteCa --profile "default" \
+    --CaId "ca-fedcba0987654321fedcba0987654321"</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Example with login/password authentication</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api DeleteCa --profile "default" --authentication-method "password" --login "$OSC_EMAIL" --password "$OSC_PASSWORD" \
+    --CaId "ca-fedcba0987654321fedcba0987654321"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CaId</code>: The ID of the CA you want to delete.</p>
+</li>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>DeleteCa</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="oapi-cli_1"><a class="anchor" href="Gérer-les-CA.html#oapi-cli_1"></a>Gérer les CA avec oapi-cli</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_créer_une_ca_2"><a class="anchor" href="Gérer-les-CA.html#_créer_une_ca_2"></a>Créer une CA</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateCa</strong> command creates a Client Certificate Authority (CA).</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="../../en/userguide/About-API-Access-Rules.html" target="_blank" rel="noopener">About API Access Rules</a>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Example with access key/secret key authentication</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" CreateCa \
+    --CaPem --file "ca-certificate.pem" \
+    --Description "CA example"</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Example with login/password authentication</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" --login "$OSC_EMAIL" --password "$OSC_PASSWORD" CreateCa \
+    --CaPem --file "ca-certificate.pem" \
+    --Description "CA example"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CaPem</code>: The CA in PEM format.<br>
+With OSC CLI, use the following syntax to make sure your CA file is correctly parsed: <code>--CaPem=&quot;$(cat FILENAME)&quot;</code>.</p>
+</li>
+<li>
+<p><code>Description</code>: (optional) The description of the CA.</p>
+</li>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateCa</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Ca</code>: Information about the Client Certificate Authority (CA).</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CaFingerprint</code>: The fingerprint of the CA.</p>
+</li>
+<li>
+<p><code>CaId</code>: The ID of the CA.</p>
+</li>
+<li>
+<p><code>Description</code>: The description of the CA.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "Ca": {
+    "Description": "CA example",
+    "CaId": "ca-fedcba0987654321fedcba0987654321",
+    "CaFingerprint": "1234567890abcdef1234567890abcdef12345678"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_obtenir_des_informations_sur_vos_ca_2"><a class="anchor" href="Gérer-les-CA.html#_obtenir_des_informations_sur_vos_ca_2"></a>Obtenir des informations sur vos CA</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadCas</strong> command gets information about one or more of your Client Certificate Authorities (CAs).</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Example with access key/secret key authentication</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" ReadCas \
+    --Filters '{
+        "CaIds": ["ca-fedcba0987654321fedcba0987654321"]
+      }'</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Example with login/password authentication</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" --login "$OSC_EMAIL" --password "$OSC_PASSWORD" ReadCas \
+    --Filters '{
+        "CaIds": ["ca-fedcba0987654321fedcba0987654321"]
+      }'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Filters</code>: (optional) One or more filters.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CaFingerprints</code>: (optional) The fingerprints of the CAs.</p>
+</li>
+<li>
+<p><code>CaIds</code>: (optional) The IDs of the CAs.</p>
+</li>
+<li>
+<p><code>Descriptions</code>: (optional) The descriptions of the CAs.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadCas</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Cas</code>: Information about one or more CAs.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CaFingerprint</code>: The fingerprint of the CA.</p>
+</li>
+<li>
+<p><code>CaId</code>: The ID of the CA.</p>
+</li>
+<li>
+<p><code>Description</code>: The description of the CA.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "Cas": [
+    {
+      "Description": "CA example",
+      "CaId": "ca-fedcba0987654321fedcba0987654321",
+      "CaFingerprint": "1234567890abcdef1234567890abcdef12345678"
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_modifier_une_ca_2"><a class="anchor" href="Gérer-les-CA.html#_modifier_une_ca_2"></a>Modifier une CA</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>UpdateCa</strong> command modifies the specified attribute of a Client Certificate Authority (CA).</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Example with access key/secret key authentication</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" UpdateCa \
+    --CaId "ca-fedcba0987654321fedcba0987654321" \
+    --Description "New description"</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Example with login/password authentication</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" --login "$OSC_EMAIL" --password "$OSC_PASSWORD" UpdateCa \
+    --CaId "ca-fedcba0987654321fedcba0987654321" \
+    --Description "New description"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CaId</code>: The ID of the CA.</p>
+</li>
+<li>
+<p><code>Description</code>: (optional) The description of the CA.</p>
+</li>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>UpdateCa</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Ca</code>: Information about the Client Certificate Authority (CA).</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CaFingerprint</code>: The fingerprint of the CA.</p>
+</li>
+<li>
+<p><code>CaId</code>: The ID of the CA.</p>
+</li>
+<li>
+<p><code>Description</code>: The description of the CA.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "Ca": {
+    "Description": "New description",
+    "CaId": "ca-fedcba0987654321fedcba0987654321",
+    "CaFingerprint": "1234567890abcdef1234567890abcdef12345678"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_supprimer_une_ca_2"><a class="anchor" href="Gérer-les-CA.html#_supprimer_une_ca_2"></a>Supprimer une CA</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>DeleteCa</strong> command deletes a specified Client Certificate Authority (CA).</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Example with access key/secret key authentication</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" DeleteCa \
+    --CaId "ca-fedcba0987654321fedcba0987654321"</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Example with login/password authentication</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" --login "$OSC_EMAIL" --password "$OSC_PASSWORD" DeleteCa \
+    --CaId "ca-fedcba0987654321fedcba0987654321"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CaId</code>: The ID of the CA you want to delete.</p>
+</li>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>DeleteCa</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Page connexe</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-de-votre-politique-d-accès-API.html" class="xref page">À propos de votre politique d&#8217;accès API</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Méthodes API correspondantes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#createca" class="xref page">CreateCa (API OUTSCALE)</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readcas" class="xref page">ReadCas (API OUTSCALE)</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#updateca" class="xref page">UpdateCa (API OUTSCALE)</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#deleteca" class="xref page">DeleteCa (API OUTSCALE)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

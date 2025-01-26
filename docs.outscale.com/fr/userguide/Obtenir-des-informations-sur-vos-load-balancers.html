@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Obtenir des informations sur vos load balancers – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Obtenir-des-informations-sur-vos-load-balancers.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Obtenir-des-informations-sur-vos-load-balancers.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Getting-Information-About-Your-Load-Balancers.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Obtenir des informations sur vos load balancers</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez obtenir des informations sur vos load balancers en utilisant AWS CLI.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Cockpit v2_0"><a class="anchor" href="Obtenir-des-informations-sur-vos-load-balancers.html#Cockpit v2_0"></a>Obtenir des informations sur vos load balancers avec Cockpit v2</h2>
+<div class="sectionbody">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Voir le dashboard <strong>Load Balancers</strong>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="OSC CLI_1"><a class="anchor" href="Obtenir-des-informations-sur-vos-load-balancers.html#OSC CLI_1"></a>Obtenir des informations sur vos load balancers avec OSC CLI</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadLoadBalancers</strong> command lists one or more load balancers and their attributes.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api ReadLoadBalancers --profile "default" \
+    --Filters '{
+        "LoadBalancerNames": ["private*"]
+      }'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Filters</code>: (optional) One or more filters.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LoadBalancerNames</code>: (optional) The names of the load balancers.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadLoadBalancers</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LoadBalancers</code>: Information about one or more load balancers.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccessLog</code>: Information about access logs.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>IsEnabled</code>: If true, access logs are enabled for your load balancer. If false, they are not. If you set this to true in your request, the <code>OsuBucketName</code> parameter is required.</p>
+</li>
+<li>
+<p><code>OsuBucketName</code>: The name of the OOS bucket for the access logs.</p>
+</li>
+<li>
+<p><code>OsuBucketPrefix</code>: The path to the folder of the access logs in your OOS bucket (by default, the <code>root</code> level of your bucket).</p>
+</li>
+<li>
+<p><code>PublicationInterval</code>: The time interval for the publication of access logs in the OOS bucket, in minutes. This value can be either <code>5</code> or <code>60</code> (by default, <code>60</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ApplicationStickyCookiePolicies</code>: The stickiness policies defined for the load balancer.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CookieName</code>: The name of the application cookie used for stickiness.</p>
+</li>
+<li>
+<p><code>PolicyName</code>: The mnemonic name for the policy being created. The name must be unique within a set of policies for this load balancer.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>BackendIps</code>: One or more <span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">public IPs</span> of backend <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VMs</span>.</p>
+</li>
+<li>
+<p><code>BackendVmIds</code>: One or more IDs of backend VMs for the load balancer.</p>
+</li>
+<li>
+<p><code>DnsName</code>: The DNS name of the load balancer.</p>
+</li>
+<li>
+<p><code>HealthCheck</code>: Information about the health check configuration.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CheckInterval</code>: The number of seconds between two requests (between <code>5</code> and <code>600</code> both included).</p>
+</li>
+<li>
+<p><code>HealthyThreshold</code>: The number of consecutive successful requests before considering the VM as healthy (between <code>2</code> and <code>10</code> both included).</p>
+</li>
+<li>
+<p><code>Path</code>: If you use the HTTP or HTTPS protocols, the request URL path.</p>
+</li>
+<li>
+<p><code>Port</code>: The port number (between <code>1</code> and <code>65535</code>, both included).</p>
+</li>
+<li>
+<p><code>Protocol</code>: The protocol for the URL of the VM (<code>HTTP</code> | <code>HTTPS</code> | <code>TCP</code> | <code>SSL</code>).</p>
+</li>
+<li>
+<p><code>Timeout</code>: The maximum waiting time for a response before considering the VM as unhealthy, in seconds (between <code>2</code> and <code>60</code> both included).</p>
+</li>
+<li>
+<p><code>UnhealthyThreshold</code>: The number of consecutive failed requests before considering the VM as unhealthy (between <code>2</code> and <code>10</code> both included).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Listeners</code>: The listeners for the load balancer.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>BackendPort</code>: The port on which the backend VM is listening (between <code>1</code> and <code>65535</code>, both included).</p>
+</li>
+<li>
+<p><code>BackendProtocol</code>: The protocol for routing traffic to backend VMs (<code>HTTP</code> | <code>HTTPS</code> | <code>TCP</code> | <code>SSL</code>).</p>
+</li>
+<li>
+<p><code>LoadBalancerPort</code>: The port on which the load balancer is listening (between <code>1</code> and <code>65535</code>, both included).</p>
+</li>
+<li>
+<p><code>LoadBalancerProtocol</code>: The routing protocol (<code>HTTP</code> | <code>HTTPS</code> | <code>TCP</code> | <code>SSL</code>).</p>
+</li>
+<li>
+<p><code>PolicyNames</code>: The names of the policies. If there are no policies enabled, the list is empty.</p>
+</li>
+<li>
+<p><code>ServerCertificateId</code>: The OUTSCALE Resource Name (ORN) of the server certificate. For more information, see <a href="../../en/userguide/Resource-Identifiers.html#_outscale_resource_names_orns" target="_blank" rel="noopener">Resource Identifiers &gt; OUTSCALE Resource Names (ORNs)</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>LoadBalancerName</code>: The name of the load balancer.</p>
+</li>
+<li>
+<p><code>LoadBalancerStickyCookiePolicies</code>: The policies defined for the load balancer.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CookieExpirationPeriod</code>: The time period, in seconds, after which the cookie should be considered stale.<br>
+If <code>1</code>, the stickiness session lasts for the duration of the browser session.</p>
+</li>
+<li>
+<p><code>PolicyName</code>: The name of the stickiness policy.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>LoadBalancerType</code>: The type of load balancer. Valid only for load balancers in a <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span>.<br>
+If <code>LoadBalancerType</code> is <code>internet-facing</code>, the load balancer has a public DNS name that resolves to a public IP.<br>
+If <code>LoadBalancerType</code> is <code>internal</code>, the load balancer has a public DNS name that resolves to a private IP.</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net for the load balancer.</p>
+</li>
+<li>
+<p><code>PublicIp</code>: (internet-facing only) The public IP associated with the load balancer.</p>
+</li>
+<li>
+<p><code>SecuredCookies</code>: Whether secure cookies are enabled for the load balancer.</p>
+</li>
+<li>
+<p><code>SecurityGroups</code>: One or more IDs of security groups for the load balancers. Valid only for load balancers in a Net.</p>
+</li>
+<li>
+<p><code>SourceSecurityGroup</code>: Information about the source security group of the load balancer, which you can use as part of your inbound rules for your registered VMs.<br>
+To only allow traffic from load balancers, add a security group rule that specifies this source security group as the inbound source.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SecurityGroupAccountId</code>: The account ID of the owner of the security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: The name of the security group.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Subnets</code>: The ID of the Subnet in which the load balancer was created.</p>
+</li>
+<li>
+<p><code>SubregionNames</code>: The ID of the <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Subregion</span> in which the load balancer was created.</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the load balancer.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "LoadBalancers": [
+    {
+      "Tags": [],
+      "SourceSecurityGroup": {
+        "SecurityGroupName": "security-group-example",
+        "SecurityGroupAccountId": "123456789012"
+      },
+      "SecuredCookies": false,
+      "PublicIp": "192.0.2.0",
+      "Subnets": [
+        "subnet-12345678"
+      ],
+      "NetId": "vpc-12345678",
+      "BackendVmIds": [],
+      "ApplicationStickyCookiePolicies": [],
+      "SecurityGroups": [
+        "sg-12345678"
+      ],
+      "LoadBalancerType": "internet-facing",
+      "AccessLog": {
+        "PublicationInterval": 60,
+        "IsEnabled": false
+      },
+      "DnsName": "private-lb-example.123456789.eu-west-2.lbu.outscale.com",
+      "HealthCheck": {
+        "UnhealthyThreshold": 2,
+        "Timeout": 5,
+        "CheckInterval": 30,
+        "Protocol": "TCP",
+        "HealthyThreshold": 10,
+        "Port": 80
+      },
+      "LoadBalancerStickyCookiePolicies": [],
+      "SubregionNames": [
+        "eu-west-2a"
+      ],
+      "Listeners": [
+        {
+          "ServerCertificateId": "orn:ows:idauth::012345678910:server-certificate/Certificate",
+          "BackendPort": 80,
+          "BackendProtocol": "HTTP",
+          "LoadBalancerPort": 443,
+          "LoadBalancerProtocol": "HTTPS"
+        }
+      ],
+      "LoadBalancerName": "private-lb-example"
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="oapi-cli_2"><a class="anchor" href="Obtenir-des-informations-sur-vos-load-balancers.html#oapi-cli_2"></a>Obtenir des informations sur vos load balancers avec oapi-cli</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadLoadBalancers</strong> command lists one or more load balancers and their attributes.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" ReadLoadBalancers \
+    --Filters '{
+        "LoadBalancerNames": ["private*"]
+      }'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Filters</code>: (optional) One or more filters.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LoadBalancerNames</code>: (optional) The names of the load balancers.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadLoadBalancers</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LoadBalancers</code>: Information about one or more load balancers.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccessLog</code>: Information about access logs.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>IsEnabled</code>: If true, access logs are enabled for your load balancer. If false, they are not. If you set this to true in your request, the <code>OsuBucketName</code> parameter is required.</p>
+</li>
+<li>
+<p><code>OsuBucketName</code>: The name of the OOS bucket for the access logs.</p>
+</li>
+<li>
+<p><code>OsuBucketPrefix</code>: The path to the folder of the access logs in your OOS bucket (by default, the <code>root</code> level of your bucket).</p>
+</li>
+<li>
+<p><code>PublicationInterval</code>: The time interval for the publication of access logs in the OOS bucket, in minutes. This value can be either <code>5</code> or <code>60</code> (by default, <code>60</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ApplicationStickyCookiePolicies</code>: The stickiness policies defined for the load balancer.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CookieName</code>: The name of the application cookie used for stickiness.</p>
+</li>
+<li>
+<p><code>PolicyName</code>: The mnemonic name for the policy being created. The name must be unique within a set of policies for this load balancer.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>BackendIps</code>: One or more <span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">public IPs</span> of backend <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VMs</span>.</p>
+</li>
+<li>
+<p><code>BackendVmIds</code>: One or more IDs of backend VMs for the load balancer.</p>
+</li>
+<li>
+<p><code>DnsName</code>: The DNS name of the load balancer.</p>
+</li>
+<li>
+<p><code>HealthCheck</code>: Information about the health check configuration.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CheckInterval</code>: The number of seconds between two requests (between <code>5</code> and <code>600</code> both included).</p>
+</li>
+<li>
+<p><code>HealthyThreshold</code>: The number of consecutive successful requests before considering the VM as healthy (between <code>2</code> and <code>10</code> both included).</p>
+</li>
+<li>
+<p><code>Path</code>: If you use the HTTP or HTTPS protocols, the request URL path.</p>
+</li>
+<li>
+<p><code>Port</code>: The port number (between <code>1</code> and <code>65535</code>, both included).</p>
+</li>
+<li>
+<p><code>Protocol</code>: The protocol for the URL of the VM (<code>HTTP</code> | <code>HTTPS</code> | <code>TCP</code> | <code>SSL</code>).</p>
+</li>
+<li>
+<p><code>Timeout</code>: The maximum waiting time for a response before considering the VM as unhealthy, in seconds (between <code>2</code> and <code>60</code> both included).</p>
+</li>
+<li>
+<p><code>UnhealthyThreshold</code>: The number of consecutive failed requests before considering the VM as unhealthy (between <code>2</code> and <code>10</code> both included).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Listeners</code>: The listeners for the load balancer.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>BackendPort</code>: The port on which the backend VM is listening (between <code>1</code> and <code>65535</code>, both included).</p>
+</li>
+<li>
+<p><code>BackendProtocol</code>: The protocol for routing traffic to backend VMs (<code>HTTP</code> | <code>HTTPS</code> | <code>TCP</code> | <code>SSL</code>).</p>
+</li>
+<li>
+<p><code>LoadBalancerPort</code>: The port on which the load balancer is listening (between <code>1</code> and <code>65535</code>, both included).</p>
+</li>
+<li>
+<p><code>LoadBalancerProtocol</code>: The routing protocol (<code>HTTP</code> | <code>HTTPS</code> | <code>TCP</code> | <code>SSL</code>).</p>
+</li>
+<li>
+<p><code>PolicyNames</code>: The names of the policies. If there are no policies enabled, the list is empty.</p>
+</li>
+<li>
+<p><code>ServerCertificateId</code>: The OUTSCALE Resource Name (ORN) of the server certificate. For more information, see <a href="../../en/userguide/Resource-Identifiers.html#_outscale_resource_names_orns" target="_blank" rel="noopener">Resource Identifiers &gt; OUTSCALE Resource Names (ORNs)</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>LoadBalancerName</code>: The name of the load balancer.</p>
+</li>
+<li>
+<p><code>LoadBalancerStickyCookiePolicies</code>: The policies defined for the load balancer.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CookieExpirationPeriod</code>: The time period, in seconds, after which the cookie should be considered stale.<br>
+If <code>1</code>, the stickiness session lasts for the duration of the browser session.</p>
+</li>
+<li>
+<p><code>PolicyName</code>: The name of the stickiness policy.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>LoadBalancerType</code>: The type of load balancer. Valid only for load balancers in a <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span>.<br>
+If <code>LoadBalancerType</code> is <code>internet-facing</code>, the load balancer has a public DNS name that resolves to a public IP.<br>
+If <code>LoadBalancerType</code> is <code>internal</code>, the load balancer has a public DNS name that resolves to a private IP.</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net for the load balancer.</p>
+</li>
+<li>
+<p><code>PublicIp</code>: (internet-facing only) The public IP associated with the load balancer.</p>
+</li>
+<li>
+<p><code>SecuredCookies</code>: Whether secure cookies are enabled for the load balancer.</p>
+</li>
+<li>
+<p><code>SecurityGroups</code>: One or more IDs of security groups for the load balancers. Valid only for load balancers in a Net.</p>
+</li>
+<li>
+<p><code>SourceSecurityGroup</code>: Information about the source security group of the load balancer, which you can use as part of your inbound rules for your registered VMs.<br>
+To only allow traffic from load balancers, add a security group rule that specifies this source security group as the inbound source.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SecurityGroupAccountId</code>: The account ID of the owner of the security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: The name of the security group.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Subnets</code>: The ID of the Subnet in which the load balancer was created.</p>
+</li>
+<li>
+<p><code>SubregionNames</code>: The ID of the <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Subregion</span> in which the load balancer was created.</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the load balancer.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "LoadBalancers": [
+    {
+      "Tags": [],
+      "SourceSecurityGroup": {
+        "SecurityGroupName": "security-group-example",
+        "SecurityGroupAccountId": "123456789012"
+      },
+      "SecuredCookies": false,
+      "PublicIp": "192.0.2.0",
+      "Subnets": [
+        "subnet-12345678"
+      ],
+      "NetId": "vpc-12345678",
+      "BackendVmIds": [],
+      "ApplicationStickyCookiePolicies": [],
+      "SecurityGroups": [
+        "sg-12345678"
+      ],
+      "LoadBalancerType": "internet-facing",
+      "AccessLog": {
+        "PublicationInterval": 60,
+        "IsEnabled": false
+      },
+      "DnsName": "private-lb-example.123456789.eu-west-2.lbu.outscale.com",
+      "HealthCheck": {
+        "UnhealthyThreshold": 2,
+        "Timeout": 5,
+        "CheckInterval": 30,
+        "Protocol": "TCP",
+        "HealthyThreshold": 10,
+        "Port": 80
+      },
+      "LoadBalancerStickyCookiePolicies": [],
+      "SubregionNames": [
+        "eu-west-2a"
+      ],
+      "Listeners": [
+        {
+          "ServerCertificateId": "orn:ows:idauth::012345678910:server-certificate/Certificate",
+          "BackendPort": 80,
+          "BackendProtocol": "HTTP",
+          "LoadBalancerPort": 443,
+          "LoadBalancerProtocol": "HTTPS"
+        }
+      ],
+      "LoadBalancerName": "private-lb-example"
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI_3"><a class="anchor" href="Obtenir-des-informations-sur-vos-load-balancers.html#AWS CLI_3"></a>Obtenir des informations sur vos load balancers avec AWS CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Avant de commencer :</strong> Installez et configurez AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="_obtenir_des_informations_générales_sur_vos_load_balancers"><a class="anchor" href="Obtenir-des-informations-sur-vos-load-balancers.html#_obtenir_des_informations_générales_sur_vos_load_balancers"></a>Obtenir des informations générales sur vos load balancers</h3>
+<div class="paragraph">
+<p>Pour obtenir des informations sur un ou plusieurs load balancers, utilisez la commande <strong>describe-load-balancer</strong> en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws elb describe-load-balancers \
+    --profile YOUR_PROFILE \
+    --load-balancer-names my-load-balancer \
+    --endpoint https://lbu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>profile</code> : Le profil nommé que vous voulez utiliser, créé pendant la configuration d&#8217;AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p>(optionnel) <code>load-balancer-names</code> : Le nom d&#8217;un ou plusieurs load balancers.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si vous ne spécifiez aucun nom de load balancer, la requête renvoie une description de l&#8217;ensemble de vos load balancers.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><code>endpoint</code> : Le endpoint correspondant à la Région à laquelle vous voulez envoyer la requête. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>La commande <strong>describe-load-balancers</strong> renvoie les éléments suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LoadBalancerDescriptions</code> : Informations à propos d&#8217;un ou plusieurs load balancers. Cet élément contient les informations suivantes pour chaque load balancer :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Subnets</code> : L&#8217;ID du subnet dans lequel le load balancer a été créé, si celui-ci est dans un <span class="tooltip" data-tooltip="Net dans l'API OUTSCALE">VPC</span>.</p>
+</li>
+<li>
+<p><code>ListenerDescriptions</code> : Informations à propos d&#8217;un ou plusieurs listeners ajoutés au load balancer. Cet élément contient les informations suivantes pour chaque listener :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Listener</code> : Informations à propos d&#8217;un listener :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>InstancePort</code> : Le port sur lequel les <span class="tooltip" data-tooltip="machine virtuelle (VM) dans l'API OUTSCALE">instances</span> backend écoutent.</p>
+</li>
+<li>
+<p><code>LoadBalancerPort</code> : Le port sur lequel le load balancer écoute.</p>
+</li>
+<li>
+<p><code>Protocol</code> : Le protocole de routage du load balancer ( <code>HTTP</code>, <code>HTTPS</code>, <code>TCP</code> ou <code>SSL</code> ).</p>
+</li>
+<li>
+<p><code>InstanceProtocol</code> : Le protocole utilisé pour router le trafic vers les instances backend ( <code>HTTP</code> ou <code>TCP</code> ).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>PolicyNames</code> : Le nom des politiques mises en places pour le load balancer, s&#8217;il y en a.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>HealthCheck</code> : Informations à propos de la configuration du health check pour le load balancer. Cet élément contient les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>HealthyThreshold</code> : Le nombre de requêtes réussies consécutives nécessaires pour considérer l&#8217;instance comme saine.</p>
+</li>
+<li>
+<p><code>Interval</code> : Le nombre de secondes entre deux requêtes.</p>
+</li>
+<li>
+<p><code>Target</code> : Le port et le protocole pour les instances backend ciblées par les health checks (et le chemin à vérifier pour le protocole HTTP).</p>
+</li>
+<li>
+<p><code>Timeout</code> : Le temps d&#8217;attente maximum d&#8217;une réponse avant de considérer la requête comme non réussie, en secondes.</p>
+</li>
+<li>
+<p><code>UnhealthyThreshold</code> : Le nombre de requêtes non réussies consécutives pour considérer l&#8217;instance comme non saine.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>VPCId</code> : L&#8217;ID du VPC pour le load balancer, s&#8217;il y en a un.</p>
+</li>
+<li>
+<p><code>BackendServerDescriptions</code> : Informations à propos des instances backend. Cet élément contient les informations suivantes pour chaque instance backend :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>InstancePort</code> : Le port sur lequel les instances backend écoutent.</p>
+</li>
+<li>
+<p><code>PolicyNames</code> : Le nom des politiques activées pour les instances backend, s&#8217;il y en a.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Instances</code> : Informations à propos d&#8217;une ou plusieurs instances backend. Cet élément contient l&#8217;information suivante pour chaque instance backend :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>InstanceId</code> : L&#8217;ID de l&#8217;instance backend.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>DNSName</code> : Le nom DNS du load balancer.</p>
+</li>
+<li>
+<p><code>SecurityGroups</code> : Les security groups pour le load balancer, si celui-ci est dans un VPC.</p>
+</li>
+<li>
+<p><code>Policies</code> : Informations à propos des politiques pour le load balancer, s&#8217;il y en a :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LBCookieStickinessPolicies</code> : Le nom de la politique utilisée pour les permanences de sessions basées sur la durée.</p>
+</li>
+<li>
+<p><code>AppCookieStickinessPolicies</code> : Le nom de la politique pour les permanences de sessions contrôlées par application.</p>
+</li>
+<li>
+<p><code>OtherPolicies</code> : Le nom de politiques autres que les politiques de permanences de sessions.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>LoadBalancerName</code> : Le nom du load balancer.</p>
+</li>
+<li>
+<p><code>CreatedTime</code> : La date et l&#8217;heure de création du load balancer.</p>
+</li>
+<li>
+<p><code>AvailabilityZones</code> : L&#8217;ID de l&#8217;<span class="tooltip" data-tooltip="Sous-région dans l'API OUTSCALE">Availability Zone (AZ)</span> dans laquelle le load balancer a été créé. Dans le Cloud public, c&#8217;est l&#8217;AZ spécifiée lors de la création du load balancer. Dans un VPC, c&#8217;est l&#8217;AZ qui correspond au subnet spécifié lors de la création du load balancer.</p>
+</li>
+<li>
+<p><code>Scheme</code> : Le type de load balancer. Pour en savoir plus, voir <a href="À-propos-des-load-balancers.html#_types_de_load_balancers" class="xref page">À propos des load balancers &gt; Types de load balancers</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de résultat</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "LoadBalancerDescriptions": [
+    {
+      "Subnets": [
+          "subnet-12345678"
+      ],
+      "ListenerDescriptions": [
+          {
+              "Listener": {
+                  "InstancePort": 80,
+                  "LoadBalancerPort": 80,
+                  "Protocol": "HTTP",
+                  "InstanceProtocol": "HTTP"
+              },
+              "PolicyNames": []
+          },
+      ],
+      "HealthCheck": {
+          "HealthyThreshold": 3,
+          "Interval": 15,
+          "Target": "HTTP:80/index.html",
+          "Timeout": 3,
+          "UnhealthyThreshold": 3
+      },
+      "VPCId": "vpc-87654321",
+      "BackendServerDescriptions": [
+          {
+              "InstancePort": 80,
+              "PolicyNames": []
+          }
+      ],
+      "Instances": [
+          {
+              "InstanceId": "i-56781234"
+          },
+          {
+              "InstanceId": "i-43218765"
+          }
+      ],
+      "DNSName": "my-load-balancer-1234567890.lbu.eu-west-2.outscale.com",
+      "SecurityGroups": [
+          "sg-18273465"
+      ],
+      "Policies": {
+          "LBCookieStickinessPolicies": [],
+          "AppCookieStickinessPolicies": [],
+          "OtherPolicies": []
+      },
+      "LoadBalancerName": "my-load-balancer",
+      "CreatedTime": "2016-05-12T05:22:08.364Z",
+      "AvailabilityZones": [
+          "eu-west-2a"
+      ],
+      "Scheme": "internet-facing",
+      "SourceSecurityGroup": {
+          "OwnerAlias": "123456789012",
+          "GroupName": "my-lb-sg"
+      }
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_obtenir_des_informations_sur_les_attributs_de_vos_load_balancers"><a class="anchor" href="Obtenir-des-informations-sur-vos-load-balancers.html#_obtenir_des_informations_sur_les_attributs_de_vos_load_balancers"></a>Obtenir des informations sur les attributs de vos load balancers</h3>
+<div class="paragraph">
+<p>Pour obtenir des informations sur les attributs d&#8217;un load balancer, utilisez la commande <strong>describe-load-balancer-attributes</strong> en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws elb describe-load-balancer-attributes \
+    --profile YOUR_PROFILE \
+    --load-balancer-name LOAD_BALANCER_NAME \
+    --endpoint https://lbu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>profile</code> : Le profil nommé que vous voulez utiliser, créé pendant la configuration d&#8217;AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>load-balancer-name</code> : Le nom du load balancer dont vous voulez obtenir les attributs.</p>
+</li>
+<li>
+<p><code>endpoint</code> : Le endpoint correspondant à la Région à laquelle vous voulez envoyer la requête. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>La commande <strong>describe-load-balancer-attributes</strong> renvoie les éléments suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LoadBalancerAttributes</code> : Informations sur les attributs du load balancer. Cet élément contient les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccessLog</code> : Informations sur la publication des access logs. Cet élément contient les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Enabled</code> : Si <code>true</code>, les access logs sont activés pour le load balancer spécifié. Si <code>false</code>, ils ne le sont pas.</p>
+</li>
+<li>
+<p><code>S3BucketName</code> : Le nom du bucket OOS dans lequel les access logs sont publiés. Pour en savoir plus, voir <a href="À-propos-d-OOS.html" class="xref page">À propos d&#8217;OOS</a>.</p>
+</li>
+<li>
+<p><code>EmitInterval</code> : L’intervalle de temps pour la publication des access logs dans le bucket OOS, en minutes. Cette valeur peut être 5 ou 60 (par défaut, 60).</p>
+</li>
+<li>
+<p><code>S3BucketPrefix</code> : Le chemin d’accès au répertoire dans votre bucket OOS dans lequel les access logs sont publiés (par défaut, le niveau root du bucket).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ConnectionDraining</code> : Informations sur le drainage des connexions. Cet élément contient les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Enabled</code> : Si <code>true</code>, le drainage de connexion est activé pour votre load balancer. Si <code>false</code>, il ne l’est pas.</p>
+</li>
+<li>
+<p><code>Timeout</code> : La durée maximum en secondes durant laquelle le load balancer laisse les connexions ouvertes avant de désenregistrer les instances.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ConnectionSettings</code> : Informations sur le délai d’inactivité des connexions. Cet élément contient les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>IdleTimeout</code> : La durée d’inactivité de la connexion en secondes avant sa fermeture par le load balancer.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>AdditionalAttributes</code> : Informations sur les attributs additionnels des load balancers. Cet élément contient les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code> : Le nom de l’attribut, par exemple <code>SecuredCookies</code>.</p>
+</li>
+<li>
+<p><code>Value</code> : La valeur de l’attribut. Si le nom de l’attribut est <code>SecuredCookies</code> et sa valeur est <code>true</code>, les cookies sécurisés sont activés. Si <code>false</code>, ils sont désactivés.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de résultat</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "LoadBalancerAttributes": {
+        "AccessLog": {
+            "Enabled": true,
+            "S3BucketName": "BUCKET_NAME",
+            "EmitInterval": 60,
+            "S3BucketPrefix": "BUCKET_PREFIX"
+        },
+        "ConnectionDraining": {
+            "Enabled": true,
+            "Timeout": 1
+        },
+        "ConnectionSettings": {
+            "IdleTimeout": 1
+        },
+        "AdditionalAttributes": [
+            {
+                "Key": "SecuredCookies",
+                "Value": "true"
+            }
+        ]
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-load-balancers.html" class="xref page">À propos des load balancers</a></p>
+</li>
+<li>
+<p><a href="À-propos-d-OOS.html" class="xref page">À propos d&#8217;OOS</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-vos-access-logs.html" class="xref page">Obtenir des informations sur vos access logs</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Méthodes API correspondantes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#readloadbalancers" class="xref page">ReadLoadBalancers (API OUTSCALE)</a></p>
+</li>
+<li>
+<p><a href="../../lbu.html#describeloadbalancers" class="xref page">DescribeLoadBalancer (LBU)</a></p>
+</li>
+<li>
+<p><a href="../../lbu.html#describeloadbalancerattributes" class="xref page">DescribeLoadBalancerAttributes (LBU)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

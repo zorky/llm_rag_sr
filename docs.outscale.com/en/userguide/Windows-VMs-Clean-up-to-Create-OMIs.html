@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Windows VMs Clean-up to Create OMIs – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="Windows-VMs-Clean-up-to-Create-OMIs.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/Windows-VMs-Clean-up-to-Create-OMIs.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Nettoyage-des-VM-Windows-pour-créer-des-OMI.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Windows VMs Clean-up to Create OMIs</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This topic lists the elements of a Windows <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">virtual machine (VM)</span> you can clean up before creating an OMI, especially if you mean to share it with other users or to make it public.</p>
+</div>
+<div class="paragraph">
+<p>An OMI created from a VM or a snapshot has the same characteristics as this VM or the VM the snapshot is created from. Moreover, a VM can contain sensitive information that you do not want to share.</p>
+</div>
+<div class="paragraph">
+<p>We therefore strongly recommend cleaning up these elements from your VM, or the VM the snapshot is created from, before creating the OMI.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="Windows-VMs-Clean-up-to-Create-OMIs.html#_overview"></a>Overview</h2>
+<div class="sectionbody">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Creating multiple <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VMs</span> from an OMI that has not been cleaned up beforehand will make those VMs unstable in a Windows environment as they will share the same UUID that is supposed to be unique.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You need to clean up your VM before executing the <strong>OMI Creation Launcher</strong> script located at <strong>C:\Windows\Outscale\scripts\</strong>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The sections below list the elements you can clean up before creating an OMI:</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_accounts_configuration"><a class="anchor" href="Windows-VMs-Clean-up-to-Create-OMIs.html#_accounts_configuration"></a>Accounts Configuration</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_guest_account"><a class="anchor" href="Windows-VMs-Clean-up-to-Create-OMIs.html#_guest_account"></a>Guest Account</h3>
+<div class="paragraph">
+<p>Disable the guest account by going to <strong>Computer Management</strong> &gt; <strong>System Tools</strong> &gt; <strong>Local Users and Group</strong> &gt; <strong>Users</strong> and clicking <strong>Disable guest</strong>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_profile_usage_information"><a class="anchor" href="Windows-VMs-Clean-up-to-Create-OMIs.html#_profile_usage_information"></a>Profile Usage Information</h3>
+<div class="paragraph">
+<p>In a PowerShell prompt, delete previous sysprep log files and clean the AppData folder, history of registry, and history of PowerShell ISE:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-powershell hljs" data-lang="powershell">Remove-Item -Path "C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Recent\*" -Force -Recurse -Confirm:$false -ErrorAction SilentlyContinue
+Remove-Item -Path "C:\Users\Administrator\AppData\Local\Temp\*" -Force -Recurse -Confirm:$false -ErrorAction SilentlyContinue
+Remove-Item -path "C:\Windows\System32\sysprep\Panther\setupact.log" -Force -Recurse -Confirm:$false -ErrorAction SilentlyContinue
+Remove-Item -path "C:\Windows\System32\sysprep\Panther\setuperr.log" -Force -Recurse -Confirm:$false -ErrorAction SilentlyContinue
+Remove-Item -Path "C:\Windows\System32\sysprep\Panther\IE\setupact.log" -Force -Recurse -Confirm:$false -ErrorAction SilentlyContinue
+remove-item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\*" -Force -Recurse -Confirm:$false -ErrorAction SilentlyContinue
+Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\TypedPaths" -Name * -Confirm:$false -ErrorAction SilentlyContinue
+remove-item -Path "C:\Documents and Settings\Administrator\Recent\*" -Force -Recurse -Confirm:$false -ErrorAction SilentlyContinue
+remove-item -Path "C:\Documents and Settings\Administrator\Local Settings\Temp\*" -Force -Recurse -Confirm:$false -ErrorAction SilentlyContinue
+remove-item -Path "C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Recent\*" -Force -Recurse -Confirm:$false -ErrorAction SilentlyContinue
+Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Applets\Regedit\" -Name "LastKey" -ErrorAction SilentlyContinue
+Remove-Item -Path "C:\Users\Administrator\AppData\Local\microsoft_corporation\powershell_ise.exe_StrongName_lw2v2vm3wmtzzpebq33gybmeoxukb04w\3.0.0.0\user.config" -Force -Confirm:$false -ErrorAction SilentlyContinue</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_start_menu_run_history"><a class="anchor" href="Windows-VMs-Clean-up-to-Create-OMIs.html#_start_menu_run_history"></a>Start Menu Run History</h3>
+<div class="paragraph">
+<p>In a PowerShell prompt, clean the execute/run dialog box:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-powershell hljs" data-lang="powershell">foreach ($item in (Get-ChildItem -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist)){Clear-Item -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\$($item.PSChildName)\Count}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_explorer_run_history"><a class="anchor" href="Windows-VMs-Clean-up-to-Create-OMIs.html#_explorer_run_history"></a>Explorer Run History</h3>
+<div class="paragraph">
+<p>In a PowerShell prompt, clean the Windows Explorer history:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-powershell hljs" data-lang="powershell">Clear-Item -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU  -Force -Confirm:$false -ErrorAction SilentlyContinue</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_internet_explorer_history"><a class="anchor" href="Windows-VMs-Clean-up-to-Create-OMIs.html#_internet_explorer_history"></a>Internet Explorer History</h3>
+<div class="paragraph">
+<p>In a PowerShell prompt, clean the Internet Explorer history:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-powershell hljs" data-lang="powershell">RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 255
+RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 1
+RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 2
+RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 8
+RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 16
+RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 32</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_file_shares"><a class="anchor" href="Windows-VMs-Clean-up-to-Create-OMIs.html#_file_shares"></a>File Shares</h3>
+<div class="paragraph">
+<p>Disable file share points that are accessible by unauthenticated users by going to <strong>Computer Management</strong> &gt; <strong>System Tools</strong> &gt; <strong>Shared Folders</strong> &gt; <strong>Shares</strong>.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>We recommend disabling file shares completely.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_windows_domain"><a class="anchor" href="Windows-VMs-Clean-up-to-Create-OMIs.html#_windows_domain"></a>Windows Domain</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Ensure that your <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span> is not connected to any Windows domain, by going to <strong>Control Panel</strong> &gt; <strong>System and Security</strong> &gt; <strong>System</strong> and checking that your VM is on a workgroup and not on a domain.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vm_configuration_on_outscale_cloud"><a class="anchor" href="Windows-VMs-Clean-up-to-Create-OMIs.html#_vm_configuration_on_outscale_cloud"></a>VM Configuration on OUTSCALE Cloud</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_outscale_logs"><a class="anchor" href="Windows-VMs-Clean-up-to-Create-OMIs.html#_outscale_logs"></a>OUTSCALE Logs</h3>
+<div class="paragraph">
+<p>In a PowerShell prompt, clean the OUTSCALE logs located in C:\Windows\Outscale\logs\*:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-powershell hljs" data-lang="powershell">remove-item -Path "C:\Windows\Outscale\logs\*" -Force -Confirm:$false -ErrorAction SilentlyContinue</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_outscale_temporary_files"><a class="anchor" href="Windows-VMs-Clean-up-to-Create-OMIs.html#_outscale_temporary_files"></a>OUTSCALE Temporary Files</h3>
+<div class="paragraph">
+<p>In a PowerShell prompt, clean the OUTSCALE temporary files in C:\Windows\Outscale\tmp\*:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-powershell hljs" data-lang="powershell">Remove-Item -Path "C:\Windows\Outscale\tmp\*" -Force -Recurse -Confirm:$false -ErrorAction SilentlyContinue</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_user_data"><a class="anchor" href="Windows-VMs-Clean-up-to-Create-OMIs.html#_user_data"></a>User Data</h3>
+<div class="paragraph">
+<p>In a PowerShell prompt, clean the user data you specified for the <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span>, in C:\Windows\Outscale\userdata\*:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-powershell hljs" data-lang="powershell">Remove-Item -Path "C:\Windows\Outscale\userdata\*" -Force -Recurse -Confirm:$false -ErrorAction SilentlyContinue</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more information about user data, see <a href="Configuring-a-VM-with-User-Data-and-OUTSCALE-Tags.html" class="xref page">Configuring a VM with User Data and OUTSCALE Tags</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_logs"><a class="anchor" href="Windows-VMs-Clean-up-to-Create-OMIs.html#_logs"></a>Logs</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_temporary_files"><a class="anchor" href="Windows-VMs-Clean-up-to-Create-OMIs.html#_temporary_files"></a>Temporary Files</h3>
+<div class="paragraph">
+<p>In a PowerShell prompt, clean the temporary files on your <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-powershell hljs" data-lang="powershell">remove-item -Path "C:\Windows\Temp\*" -Force -Recurse -Confirm:$false -ErrorAction SilentlyContinue</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_windows_event_logs"><a class="anchor" href="Windows-VMs-Clean-up-to-Create-OMIs.html#_windows_event_logs"></a>Windows Event Logs</h3>
+<div class="paragraph">
+<p>In a PowerShell prompt, clear the Windows event logs:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-powershell hljs" data-lang="powershell">Clear-EventLog Application
+Clear-EventLog System
+Clear-EventLog Security</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>These logs must be the last element you clean.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Creating-an-OMI-from-a-VM.html" class="xref page">Creating an OMI from a VM</a></p>
+</li>
+<li>
+<p><a href="Creating-an-OMI-from-a-Snapshot.html" class="xref page">Creating an OMI from a Snapshot</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

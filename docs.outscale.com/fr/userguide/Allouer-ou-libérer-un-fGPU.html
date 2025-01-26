@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Allouer ou libérer un fGPU – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Allouer-ou-libérer-un-fGPU.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Allouer-ou-libérer-un-fGPU.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Allocating-or-Releasing-an-fGPU.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Allouer ou libérer un fGPU</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez allouer un flexible GPU (fGPU) à votre compte, et l&#8217;en libérer à tout moment.</p>
+</div>
+<div class="paragraph">
+<p>L&#8217;allocation d&#8217;un fGPU vous permet d&#8217;attacher celui-ci à une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machine virtuelle (VM)</span>. Pour en savoir plus, voir <a href="Attacher-ou-détacher-un-fGPU.html" class="xref page">Attacher ou détacher un fGPU</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Cockpit v2_0"><a class="anchor" href="Allouer-ou-libérer-un-fGPU.html#Cockpit v2_0"></a>Allouer ou libérer un fGPU avec Cockpit v2</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_allouer_un_fgpu"><a class="anchor" href="Allouer-ou-libérer-un-fGPU.html#_allouer_un_fgpu"></a>Allouer un fGPU</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans le dashboard <strong>Flexible GPUs</strong>, cliquez sur <span class="image"><img src="_images/IconAddFull.svg" alt="IconAddFull"></span> <strong>Allouer un flexible GPU</strong>.<br>
+La boîte de dialogue ALLOUER UN FLEXIBLE GPU apparaît.</p>
+</li>
+<li>
+<p>Dans la liste <strong>Modèle de flexible GPU</strong>, sélectionnez le modèle de fGPU que vous voulez allouer.</p>
+</li>
+<li>
+<p>(optionnel) Dans la liste <strong>Génération de processeur</strong>, sélectionnez une des générations de processeur compatibles. Si non spécifié, la plus ancienne génération de processeur compatible est sélectionnée.</p>
+</li>
+<li>
+<p>Dans la liste <strong>Sous-région</strong>, sélectionnez la Sous-région pour le fGPU.</p>
+</li>
+<li>
+<p>Cochez ou décochez la case <strong>Libérer le fGPU quand l&#8217;instance est terminée</strong> :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Si la case est cochée, le fGPU est automatiquement libéré de votre compte lorsque la <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> à laquelle il est attaché est terminée.</p>
+</li>
+<li>
+<p>Si la case est décochée, le fGPU est détaché et reste alloué à votre compte lorsque la VM à laquelle il est attaché est terminée.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cliquez sur <strong>Allouer</strong>.<br>
+Le fGPU est alloué à votre compte.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_libérer_un_fgpu"><a class="anchor" href="Allouer-ou-libérer-un-fGPU.html#_libérer_un_fgpu"></a>Libérer un fGPU</h3>
+<div class="sect3">
+<h4 id="_libérer_un_fgpu_attaché_à_aucune_vm"><a class="anchor" href="Allouer-ou-libérer-un-fGPU.html#_libérer_un_fgpu_attaché_à_aucune_vm"></a>Libérer un fGPU attaché à aucune VM</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans le dashboard <strong>Flexible GPUs</strong>, cochez la case du fGPU que vous voulez libérer de votre compte.<br>
+Le fGPU est sélectionné.</p>
+</li>
+<li>
+<p>Cliquez sur <span class="image"><img src="_images/IconTerminate.svg" alt="IconTerminate"></span> <strong>Libérer</strong>.<br>
+Une boîte de dialogue de confirmation apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Libérer</strong>.<br>
+Le fGPU est libéré de votre compte.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_libérer_un_fgpu_attaché_à_une_vm"><a class="anchor" href="Allouer-ou-libérer-un-fGPU.html#_libérer_un_fgpu_attaché_à_une_vm"></a>Libérer un fGPU attaché à une VM</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans le dashboard <strong>Flexible GPUs</strong>, cochez la case du fGPU que vous voulez libérer de votre compte.<br>
+Le fGPU est sélectionné.</p>
+</li>
+<li>
+<p>Cliquez sur <span class="image"><img src="_images/IconTerminate.svg" alt="IconTerminate"></span> <strong>Libérer</strong>.<br>
+Une boîte de dialogue de confirmation apparaît.</p>
+</li>
+<li>
+<p>Dans la boîte de dialogue de confirmation, entrez "LIBÉRER" dans le champ de texte et cliquez sur <strong>Libérer</strong>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si la VM est en cours de fonctionnement, elle sera arrêtée.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Le fGPU est libéré de votre compte.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="OSC CLI_1"><a class="anchor" href="Allouer-ou-libérer-un-fGPU.html#OSC CLI_1"></a>Allouer ou libérer un fGPU avec OSC CLI</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_allouer_un_fgpu_2"><a class="anchor" href="Allouer-ou-libérer-un-fGPU.html#_allouer_un_fgpu_2"></a>Allouer un fGPU</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateFlexibleGpu</strong> command allocates a flexible GPU (fGPU) to your account.<br>
+You can then attach this fGPU to a <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">virtual machine (VM)</span>.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="../../en/userguide/About-Flexible-GPUs.html" target="_blank" rel="noopener">About Flexible GPUs</a>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api CreateFlexibleGpu --profile "default" \
+    --ModelName "nvidia-p100" \
+    --Generation "v5" \
+    --SubregionName "eu-west-2a" \
+    --DeleteOnVmDeletion True</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteOnVmDeletion</code>: (optional) If true, the fGPU is deleted when the VM is terminated.</p>
+</li>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Generation</code>: (optional) The processor generation that the fGPU must be compatible with. If not specified, the oldest possible processor generation is selected (as provided by <a href="../../api%3Fconsole.html#readflexiblegpucatalog" class="xref page">ReadFlexibleGpuCatalog</a> for the specified model of fGPU).</p>
+</li>
+<li>
+<p><code>ModelName</code>: The model of fGPU you want to allocate. For more information, see <a href="../../en/userguide/About-Flexible-GPUs.html" target="_blank" rel="noopener">About Flexible GPUs</a>.</p>
+</li>
+<li>
+<p><code>SubregionName</code>: The <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Subregion</span> in which you want to create the fGPU.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateFlexibleGpu</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>FlexibleGpu</code>: Information about the flexible GPU (fGPU).</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteOnVmDeletion</code>: If true, the fGPU is deleted when the VM is terminated.</p>
+</li>
+<li>
+<p><code>FlexibleGpuId</code>: The ID of the fGPU.</p>
+</li>
+<li>
+<p><code>Generation</code>: The compatible processor generation.</p>
+</li>
+<li>
+<p><code>ModelName</code>: The model of fGPU. For more information, see <a href="../../en/userguide/About-Flexible-GPUs.html" target="_blank" rel="noopener">About Flexible GPUs</a>.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the fGPU (<code>allocated</code> | <code>attaching</code> | <code>attached</code> | <code>detaching</code>).</p>
+</li>
+<li>
+<p><code>SubregionName</code>: The Subregion where the fGPU is located.</p>
+</li>
+<li>
+<p><code>VmId</code>: The ID of the VM the fGPU is attached to, if any.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "FlexibleGpu": {
+    "SubregionName": "eu-west-2a",
+    "DeleteOnVmDeletion": true,
+    "Generation": "v5",
+    "ModelName": "nvidia-p100",
+    "State": "allocated",
+    "FlexibleGpuId": "fgpu-12345678"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_libérer_un_fgpu_2"><a class="anchor" href="Allouer-ou-libérer-un-fGPU.html#_libérer_un_fgpu_2"></a>Libérer un fGPU</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>DeleteFlexibleGpu</strong> command releases a flexible GPU (fGPU) from your account.<br>
+The fGPU becomes free to be used by someone else.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api DeleteFlexibleGpu --profile "default" \
+    --FlexibleGpuId "fgpu-12345678"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>FlexibleGpuId</code>: The ID of the fGPU you want to delete.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>DeleteFlexibleGpu</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="oapi-cli_2"><a class="anchor" href="Allouer-ou-libérer-un-fGPU.html#oapi-cli_2"></a>Allouer ou libérer un fGPU avec oapi-cli</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_allouer_un_fgpu_3"><a class="anchor" href="Allouer-ou-libérer-un-fGPU.html#_allouer_un_fgpu_3"></a>Allouer un fGPU</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateFlexibleGpu</strong> command allocates a flexible GPU (fGPU) to your account.<br>
+You can then attach this fGPU to a <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">virtual machine (VM)</span>.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="../../en/userguide/About-Flexible-GPUs.html" target="_blank" rel="noopener">About Flexible GPUs</a>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" CreateFlexibleGpu \
+    --ModelName "nvidia-p100" \
+    --Generation "v5" \
+    --SubregionName "eu-west-2a" \
+    --DeleteOnVmDeletion True</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteOnVmDeletion</code>: (optional) If true, the fGPU is deleted when the VM is terminated.</p>
+</li>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Generation</code>: (optional) The processor generation that the fGPU must be compatible with. If not specified, the oldest possible processor generation is selected (as provided by <a href="../../api%3Fconsole.html#readflexiblegpucatalog" class="xref page">ReadFlexibleGpuCatalog</a> for the specified model of fGPU).</p>
+</li>
+<li>
+<p><code>ModelName</code>: The model of fGPU you want to allocate. For more information, see <a href="../../en/userguide/About-Flexible-GPUs.html" target="_blank" rel="noopener">About Flexible GPUs</a>.</p>
+</li>
+<li>
+<p><code>SubregionName</code>: The <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Subregion</span> in which you want to create the fGPU.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateFlexibleGpu</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>FlexibleGpu</code>: Information about the flexible GPU (fGPU).</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteOnVmDeletion</code>: If true, the fGPU is deleted when the VM is terminated.</p>
+</li>
+<li>
+<p><code>FlexibleGpuId</code>: The ID of the fGPU.</p>
+</li>
+<li>
+<p><code>Generation</code>: The compatible processor generation.</p>
+</li>
+<li>
+<p><code>ModelName</code>: The model of fGPU. For more information, see <a href="../../en/userguide/About-Flexible-GPUs.html" target="_blank" rel="noopener">About Flexible GPUs</a>.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the fGPU (<code>allocated</code> | <code>attaching</code> | <code>attached</code> | <code>detaching</code>).</p>
+</li>
+<li>
+<p><code>SubregionName</code>: The Subregion where the fGPU is located.</p>
+</li>
+<li>
+<p><code>VmId</code>: The ID of the VM the fGPU is attached to, if any.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "FlexibleGpu": {
+    "SubregionName": "eu-west-2a",
+    "DeleteOnVmDeletion": true,
+    "Generation": "v5",
+    "ModelName": "nvidia-p100",
+    "State": "allocated",
+    "FlexibleGpuId": "fgpu-12345678"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_libérer_un_fgpu_3"><a class="anchor" href="Allouer-ou-libérer-un-fGPU.html#_libérer_un_fgpu_3"></a>Libérer un fGPU</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>DeleteFlexibleGpu</strong> command releases a flexible GPU (fGPU) from your account.<br>
+The fGPU becomes free to be used by someone else.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" DeleteFlexibleGpu \
+    --FlexibleGpuId "fgpu-12345678"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>FlexibleGpuId</code>: The ID of the fGPU you want to delete.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>DeleteFlexibleGpu</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-flexible-GPU.html" class="xref page">À propos des flexible GPU</a></p>
+</li>
+<li>
+<p><a href="Attacher-ou-détacher-un-fGPU.html" class="xref page">Attacher ou détacher un fGPU</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Méthodes API correspondantes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#createflexiblegpu" class="xref page">CreateFlexibleGpu (API OUTSCALE)</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#deleteflexiblegpu" class="xref page">DeleteFlexibleGpu (API OUTSCALE)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

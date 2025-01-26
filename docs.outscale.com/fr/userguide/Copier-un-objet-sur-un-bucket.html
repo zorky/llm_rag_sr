@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Copier un objet sur un bucket – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Copier-un-objet-sur-un-bucket.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Copier-un-objet-sur-un-bucket.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Copying-an-Object-to-a-Bucket.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Copier un objet sur un bucket</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez copier un objet depuis l&#8217;un de vos buckets dans un autre bucket que vous possédez, ou dans le bucket d&#8217;un autre utilisateur si vous avez les permissions appropriées. Vous pouvez également copier un objet depuis le bucket d&#8217;un autre utilisateur dans l&#8217;un de vos buckets. Pour en savoir plus, voir <a href="Référence-des-Access-Control-List-ACL.html" class="xref page">Référence des Access Control List (ACL)</a>.</p>
+</div>
+<div class="paragraph">
+<p>Vous êtes le propriétaire de la copie de l&#8217;objet, qui est indépendante de l&#8217;objet source. Vous ne pouvez pas changer la clé de l&#8217;objet une fois celui-ci copié dans le bucket. Si vous copiez un objet avec le même nom qu&#8217;un autre objet déjà contenu dans le bucket, l&#8217;objet que vous déposez remplace l&#8217;ancien objet. Si le versioning du bucket est activé, cet ancien objet est conservé comme version précédente. Pour en savoir plus, voir <a href="Activer-ou-désactiver-le-versioning-d-un-bucket.html" class="xref page">Activer ou désactiver le versioning d&#8217;un bucket</a>.</p>
+</div>
+<div class="paragraph">
+<p>Cette action renvoie également un ETag. Cet élément est nécessaire pour créer un dépôt partitionné. Pour en savoir plus, voir <a href="Créer-un-dépôt-partitionné.html" class="xref page">Créer un dépôt partitionné</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI (s3api)_0"><a class="anchor" href="Copier-un-objet-sur-un-bucket.html#AWS CLI (s3api)_0"></a>Copier un objet sur un bucket avec AWS CLI (s3api)</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Avant de commencer :</strong> Installez et configurez AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Pour copier un objet dans l&#8217;un de vos buckets, utilisez la commande <strong>copy-object</strong> en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws s3api copy-object \
+    --profile YOUR_PROFILE \
+    --key OBJECT \
+    --bucket DESTINATION_BUCKET \
+    --acl private \
+    --grant-full-control "id=USER_ID, id=USER_ID" \
+    --grant-read "id=USER_ID, id=USER_ID" \
+    --grant-read-acp "id=USER_ID, id=USER_ID" \
+    --grant-write-acp "id=USER_ID, id=USER_ID" \
+    --cache-control "no-cache" \
+    --content-disposition "inline" \
+    --content-encoding  "gzip" \
+    --content-language "en" \
+    --content-type "image/png" \
+    --copy-source SOURCE_BUCKET/SOURCE_OBJECT \
+    --copy-source-if-match "\"b4fb2aaa356797d9a28bfc640a973720\"" \
+    --copy-source-if-modified-since "2023-01-01T00:00:00Z" \
+    --copy-source-if-none-match "\"b4fb2aaa356797d9a28bfc640a973720\"" \
+    --copy-source-if-unmodified-since "2023-01-01T00:00:00Z" \
+    --expires "2024-01-01T00:00:00Z" \
+    --metadata "{\"key1\": \"value1\", \"key2\": \"value2"}\" \
+    --metadata-directive "COPY" \
+    --tagging "{\"key1\": \"value1\", \"key2\": \"value2"}\" \
+    --tagging-directive "REPLACE" \
+    --website-redirect-location "/new-page.html" \
+    --object-lock-mode "COMPLIANCE" \
+    --object-lock-retain-until-date "2025-01-01T00:00:00Z" \
+    --endpoint https://oos.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>profile</code> : Le profil nommé que vous voulez utiliser, créé pendant la configuration d&#8217;AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>key</code> : La clé pour le nouvel objet.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous pouvez utilisez le même préfixe dans les clés de plusieurs objets, au format suivant : <code>prefix/key1</code>, <code>prefix/key2</code>, et ainsi de suite.</p>
+</div>
+<div class="paragraph">
+<p>Cette action crée une architecture virtuelle dans votre bucket qui vous permet de retrouver vos objets plus vite lorsque vous les listez. Pour en savoir plus, voir <a href="Lister-les-objets-d-un-bucket.html" class="xref page">Lister les objets d&#8217;un bucket</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><code>bucket</code> : Le nom du bucket où vous souhaitez que l&#8217;objet soit copié.</p>
+</li>
+<li>
+<p>(optionnel) <code>acl</code> : Les permissions que vous accordez pour votre bucket (<code>private</code> | <code>public-read</code> | <code>public-read-write</code> | <code>authenticated-read</code>).</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Si vous ne spécifiez pas de permission pour votre bucket au moment de sa création, celui-ci sera automatiquement configuré comme <code>private</code>.</p>
+</li>
+<li>
+<p>Lorsque vous spécifiez une nouvelle permission, celle-ci remplace toutes les anciennes. Par conséquent, vous devez spécifier toutes les permissions dans une seule commande.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus à propos des permissions existantes, voir <a href="Obtenir-des-informations-sur-l-ACL-d-un-bucket.html" class="xref page">Obtenir des informations sur l&#8217;ACL d&#8217;un bucket</a> et <a href="Obtenir-des-informations-sur-l-ACL-d-un-objet.html" class="xref page">Obtenir des informations sur l&#8217;ACL d&#8217;un objet</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>grant-full-control</code> : Un ou plusieurs ID d&#8217;utilisateurs auxquels vous accordez la permission <code>full-control</code>.</p>
+</li>
+<li>
+<p>(optionnel) <code>grant-read</code> : Un ou plusieurs ID d&#8217;utilisateurs auxquels vous accordez la permission <code>read</code>.</p>
+</li>
+<li>
+<p>(optionnel) <code>grant-read-acp</code> : Un ou plusieurs ID d&#8217;utilisateurs auxquels vous accordez la permission <code>read-acp</code>.</p>
+</li>
+<li>
+<p>(optionnel) <code>grant-write</code> : Un ou plusieurs ID d&#8217;utilisateurs auxquels vous accordez la permission <code>write</code>.</p>
+</li>
+<li>
+<p>(optionnel) <code>grant-write-acp</code> : Un ou plusieurs ID d&#8217;utilisateurs auxquels vous accordez la permission <code>write-acp</code>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Vous devez spécifier des ID utilisateur S3. Vous pouvez récupérer les ID utilisateur S3 via les méthodes <a href="Lister-vos-buckets.html" class="xref page">Lister vos buckets</a> et <a href="Lister-les-objets-d-un-bucket.html" class="xref page">Lister les objets d&#8217;un bucket</a>.</p>
+</li>
+<li>
+<p>Vous pouvez également spécifier des adresses e-mail utilisateur en utilisant le format <code>emailaddress=name@domain.com</code>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>cache-control</code> : Comment vous souhaitez que l&#8217;objet soit traité en termes de mise en cache (<code>max-age</code> | <code>max-stale</code> | <code>min-fresh</code> | <code>no-cache</code> | <code>no-store</code> | <code>no-transform</code> | <code>only-if-cached</code> | <code>stale-if-error</code>).</p>
+</li>
+<li>
+<p>(optionnel) <code>content-disposition</code> : Comment vous souhaitez que l&#8217;objet soit affiché lorsque vous y accédez par le biais d&#8217;un navigateur (<code>"inline"</code> | <code>"attachment"</code>  | <code>"attachment; filename="&lt;NOM_DU_FICHIER&gt;""</code>)</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>inline</code> : Si possible, demande au navigateur d&#8217;afficher le contenu à l&#8217;intérieur de la fenêtre du navigateur. Cet attribut est utile pour les images, les PDF et autres types de médias que les navigateurs peuvent facilement interpréter.</p>
+</li>
+<li>
+<p><code>attachment</code> : Quel que soit le type de fichier, demande au navigateur de télécharger le contenu au lieu de l&#8217;afficher en ligne. Le fichier est ainsi enregistré localement.</p>
+</li>
+<li>
+<p><code>"attachment; filename="&lt;NOM_DU_FICHIER&gt;""</code> : Quel que soit le type de fichier, demande au navigateur de télécharger le contenu au lieu de l&#8217;afficher en ligne. Le fichier est ainsi enregistré localement sous le nom de fichier spécifié.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>content-encoding</code> : Le format d&#8217;encodage de l&#8217;objet (<code>gzip</code> | <code>compress</code> | <code>deflate</code> | <code>identity</code> | <code>br</code>).</p>
+</li>
+<li>
+<p>(optionnel) <code>content-language</code> : La langue dans laquelle le contenu de l&#8217;objet est rédigé, en code de langue (format ISO 639).</p>
+</li>
+<li>
+<p>(optionnel) <code>content-type</code> : Le type MIME (Multipurpose Internet Mail Extensions) de l&#8217;objet.<br></p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Un attribut <code>content-type</code> mal défini ou absent peut entraîner une mauvaise interprétation ou un mauvais traitement des objets par les navigateurs. En conséquence, vous pouvez rencontrer des difficultés pour accéder à vos objets ou les visualiser à l&#8217;aide de votre navigateur préféré.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><code>copy-source</code> : Le chemin vers le bucket source contenant l&#8217;objet que vous souhaitez copier.</p>
+</li>
+<li>
+<p>(optionnel) <code>copy-source-if-match</code> : Copie l’objet uniquement si son ETag correspond à l’ETag indiqué pour cet attribut.</p>
+</li>
+<li>
+<p>(optionnel) <code>copy-source-if-modified-since</code> : Copie l’objet seulement s’il a été modifié après la date et l’heure indiquées au format UTC pour cet attribut.</p>
+</li>
+<li>
+<p>(optionnel) <code>copy-source-if-none-match</code> : Copie l’objet uniquement si son ETag ne correspond pas à l’ETag indiqué pour cet attribut.</p>
+</li>
+<li>
+<p>(optionnel) <code>copy-source-if-unmodified-since</code> : Copie l’objet uniquement s’il n’a pas été modifié depuis la date et l’heure indiquées au format UTC pour cet attribut.</p>
+</li>
+<li>
+<p>(optionnel) <code>expires</code> : La date et l&#8217;heure, au format UTC, à laquelle vous considérez que l&#8217;objet ne peut plus être mis en cache et est considéré comme périmé.</p>
+</li>
+<li>
+<p>(optionnel) <code>metadata</code> : Une carte des entrées de metadata supplémentaires que vous pouvez indiquer librement.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>key</code> : Le nom de la metadata.</p>
+</li>
+<li>
+<p><code>value</code> : La valeur de la metadata.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>metadata-directive</code> : Indique si les metadata doivent être copiées à partir de l&#8217;objet source ou remplacées par les metadata fournies dans la requête (<code>COPY</code> ou <code>REPLACE</code>).</p>
+</li>
+<li>
+<p>(optionnel) <code>tagging</code> : L&#8217;ensemble de balises que vous voulez associer à l&#8217;objet et qui doit être utilisé en conjonction avec l&#8217;élément <code>TaggingDirective</code>. L&#8217;ensemble de balises doit être au format requête URL.</p>
+</li>
+<li>
+<p>(optionnel) <code>tagging-directive</code> : Indique si l&#8217;ensemble de balises doit être copié à partir de l&#8217;objet source ou remplacé par l&#8217;ensemble de balises fourni dans la requête (<code>COPY</code> ou <code>REPLACE</code>).</p>
+</li>
+<li>
+<p>(optionnel) <code>website-redirect-location</code> : Si vous avez configuré le bucket de destination comme un site web, redirige les requêtes pour cet objet vers un autre objet dans le même bucket ou vers une URL externe.</p>
+</li>
+<li>
+<p>(optionnel) <code>object-lock-mode</code> : Si Object Lock a été activé sur le bucket de destination, vous pouvez indiquer son mode. Pour en savoir plus, voir <a href="Configurer-un-Object-Lock-par-défaut-sur-un-bucket.html" class="xref page">Configurer un Object Lock par défaut sur un bucket</a>.</p>
+</li>
+<li>
+<p>(optionnel) <code>object-lock-retain-until-date</code> : Si Object Lock a été activé sur le bucket de destination, vous pouvez indiquer la date de rétention de l&#8217;objet. Pour en savoir plus, voir <a href="Configurer-un-Object-Lock-spécifique-sur-un-objet.html" class="xref page">Configurer un Object Lock spécifique sur un objet</a>.</p>
+</li>
+<li>
+<p><code>endpoint</code> : Le endpoint correspondant à la Région à laquelle vous voulez envoyer la requête. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>La commande <strong>copy-object</strong> renvoie les éléments suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VersionId</code> : L&#8217;ID de la version de l&#8217;objet copié.</p>
+</li>
+<li>
+<p><code>CopyObjectResult</code> : Informations à propos de la copie. Cet élément contient les informations suivantes à propos de la copie :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LastModified</code> : La date et l&#8217;heure, au format UTC, à laquelle l&#8217;objet a été copié.</p>
+</li>
+<li>
+<p><code>ETag</code> : L&#8217;ETag de votre objet dont vous avez besoin pour utiliser les commandes <strong>multipart upload</strong>. Pour en savoir plus, voir <a href="Créer-un-dépôt-partitionné.html" class="xref page">Créer un dépôt partitionné</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de résultat</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json"> {
+    "VersionId": "aJf9Af6Xzf0H00000000001I4j3QKItW",
+    "CopyObjectResult": {
+        "LastModified": "2017-01-05T13:28:34.676Z",
+        "ETag": "fae4684b3d9544fababdd01e9a620584"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI (s3)_1"><a class="anchor" href="Copier-un-objet-sur-un-bucket.html#AWS CLI (s3)_1"></a>Copier un objet sur un bucket avec AWS CLI (s3)</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Avant de commencer :</strong> Installez et configurez AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Pour copier un objet dans l&#8217;un de vos buckets, utilisez la commande <strong>cp</strong> en suivant cette syntaxe :</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si vous souhaitez déplacer l&#8217;objet plutôt que le copier, remplacez la commande <code>cp</code> par la commande <code>mv</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws s3 cp s3://SOURCE_BUCKET/SOURCE_OBJECT s3://DESTINATION_BUCKET/DESTINATION_OBJECT \
+    --profile YOUR_PROFILE \
+    --debug \
+    --dryrun \
+    --acl public-read \
+    --cache-control "no-cache" \
+    --content-disposition "inline" \
+    --content-encoding "gzip" \
+    --content-language "en" \
+    --content-type image/png \
+    --expires "2024-03-01T00:00:00Z" \
+    --metadata '{"key1": "value1", "key2": "value2"}' \
+    --copy-props none \
+    --expected-size 1234 \
+    --website-redirect "/new-page.html" \
+    --endpoint https://oos.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :
+* <code>s3://SOURCE_BUCKET/SOURCE_OBJECT</code> : Le chemin vers l&#8217;objet que vous souhaitez copier.
+* <code>s3://DESTINATION_BUCKET</code> : Le nom du bucket où vous souhaitez que l&#8217;objet soit copié.
+* (optionnel)<code>/DESTINATION_OBJECT</code> : Le nom de l&#8217;objet copié, si vous souhaitez lui attribuer un nom différent de l&#8217;objet source.
+* (optionnel) <code>profile</code> : Le profil nommé que vous voulez utiliser, créé pendant la configuration d&#8217;AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.
+* (optionnel) <code>debug</code> : Si inclus, renvoie un rapport détaillé de l&#8217;opération. Cet attribut est utile pour analyser et résoudre les problèmes que vous pouvez rencontrer.
+* (optionnel) <code>dryrun</code> : Fournit une vue d&#8217;ensemble des opérations effectuées par la commande sans pour autant l&#8217;exécuter. Vous pouvez utiliser cet attribut comme mesure de sécurité pour examiner l&#8217;impact d&#8217;une commande avant de l&#8217;exécuter.
+* (optionnel) <code>acl</code> : Les permissions pour la copie de l&#8217;objet (<code>private</code> | <code>public-read</code> | <code>public-read-write</code> | <code>authenticated-read</code> | <code>bucket-owner-read</code> | <code>bucket-owner-full-control</code>).</p>
+</div>
+<div class="paragraph">
+<p>+</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Si vous ne spécifiez pas de permission pour votre bucket au moment de sa création, celui-ci sera automatiquement configuré comme <code>private</code>.</p>
+</li>
+<li>
+<p>Lorsque vous spécifiez une nouvelle permission, celle-ci remplace toutes les anciennes. Par conséquent, vous devez spécifier toutes les permissions dans une seule commande.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus à propos des permissions existantes, voir <a href="Obtenir-des-informations-sur-l-ACL-d-un-bucket.html" class="xref page">Obtenir des informations sur l&#8217;ACL d&#8217;un bucket</a> et <a href="Obtenir-des-informations-sur-l-ACL-d-un-objet.html" class="xref page">Obtenir des informations sur l&#8217;ACL d&#8217;un objet</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>cache-control</code> : Comment vous souhaitez que l&#8217;objet soit traité en termes de mise en cache (<code>max-age</code> | <code>max-stale</code> | <code>min-fresh</code> | <code>no-cache</code> | <code>no-store</code> | <code>no-transform</code> | <code>only-if-cached</code> | <code>stale-if-error</code>).</p>
+</li>
+<li>
+<p>(optionnel) <code>content-disposition</code> : Comment vous souhaitez que l&#8217;objet soit affiché lorsque vous y accédez par le biais d&#8217;un navigateur (<code>"inline"</code> | <code>"attachment"</code>  | <code>"attachment; filename="&lt;NOM_DU_FICHIER&gt;""</code>)</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>inline</code> : Si possible, demande au navigateur d&#8217;afficher le contenu à l&#8217;intérieur de la fenêtre du navigateur. Cet attribut est utile pour les images, les PDF et autres types de médias que les navigateurs peuvent facilement interpréter.</p>
+</li>
+<li>
+<p><code>attachment</code> : Quel que soit le type de fichier, demande au navigateur de télécharger le contenu au lieu de l&#8217;afficher en ligne. Le fichier est ainsi enregistré localement.</p>
+</li>
+<li>
+<p><code>"attachment; filename="&lt;NOM_DU_FICHIER&gt;""</code> : Quel que soit le type de fichier, demande au navigateur de télécharger le contenu au lieu de l&#8217;afficher en ligne. Le fichier est ainsi enregistré localement sous le nom de fichier spécifié.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>content-encoding</code> : Le format d&#8217;encodage de l&#8217;objet (<code>gzip</code> | <code>compress</code> | <code>deflate</code> | <code>identity</code> | <code>br</code>).</p>
+</li>
+<li>
+<p>(optionnel) <code>content-language</code> : La langue dans laquelle le contenu de l&#8217;objet est rédigé, en code de langue (format ISO 639).</p>
+</li>
+<li>
+<p>(optionnel) <code>content-type</code> : Le type MIME (Multipurpose Internet Mail Extensions) de l&#8217;objet.<br></p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Un attribut <code>content-type</code> mal défini ou absent peut entraîner une mauvaise interprétation ou un mauvais traitement des objets par les navigateurs. En conséquence, vous pouvez rencontrer des difficultés pour accéder à vos objets ou les visualiser à l&#8217;aide de votre navigateur préféré.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>expires</code> : La date et l&#8217;heure, au format UTC, à laquelle vous considérez que l&#8217;objet ne peut plus être mis en cache et est considéré comme périmé.</p>
+</li>
+<li>
+<p>(optionnel) <code>metadata</code> : Une carte des entrées de metadata supplémentaires que vous pouvez indiquer librement.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>key</code> : Le nom de la metadata.</p>
+</li>
+<li>
+<p>(optionnel) <code>value</code> : La valeur de la metadata.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>copy-props</code> : Détermine les propriétés que vous souhaitez copier depuis l&#8217;objet source (<code>none</code> | <code>metadata-directive</code> | <code>default</code>).</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>none</code> ne copie aucune des propriétés de l&#8217;objet source.</p>
+</li>
+<li>
+<p><code>metadata-directive</code> copie les valeurs suivantes depuis l&#8217;objet source : <code>content-type</code>, <code>content-language</code>, <code>content-encoding</code>, <code>content-disposition</code>, <code>cache-control</code>, <code>expires</code>, et <code>metadata</code>.</p>
+</li>
+<li>
+<p><code>default-value</code> copie les tags et les metadata spécifiées par la valeur <code>metadata-directive</code> de l&#8217;objet source.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>expected-size</code> : Si l&#8217;objet est supérieur à 50 Go, spécifie la taille attendue du téléchargement, en octets. Cet attribut est utile si vous souhaitez confirmer l&#8217;intégrité ou la taille attendue du fichier téléchargé. Pour en savoir plus, voir <a href="Tutoriel-Utiliser-un-dépôt-partitionné-avec-AWS-CLI-s3.html" class="xref page">Tutoriel : Utiliser un dépôt partitionné avec AWS CLI (s3)</a>.</p>
+</li>
+<li>
+<p>(optionnel) <code>website-redirect</code> : Si vous avez configuré le bucket comme un site web, redirige les demandes pour cet objet vers un autre objet dans le même bucket ou vers une URL externe.</p>
+</li>
+<li>
+<p><code>endpoint</code> : Le endpoint correspondant à la Région à laquelle vous voulez envoyer la requête. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="s3cmd_2"><a class="anchor" href="Copier-un-objet-sur-un-bucket.html#s3cmd_2"></a>Copier un objet sur un bucket avec s3cmd</h2>
+<div class="sectionbody">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous pouvez gérer vos ressources de stockage objet en utilisant des commandes s3cmd. Pour en savoir plus, voir <a href="s3cmd.html" class="xref page">s3cmd</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Déposer-un-objet-dans-un-bucket.html" class="xref page">Déposer un objet dans un bucket</a></p>
+</li>
+<li>
+<p><a href="Supprimer-les-objets-d-un-bucket.html" class="xref page">Supprimer les objets d&#8217;un bucket</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

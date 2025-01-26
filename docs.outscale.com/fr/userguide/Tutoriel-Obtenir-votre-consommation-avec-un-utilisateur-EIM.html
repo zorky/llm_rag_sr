@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Tutoriel : Obtenir votre consommation avec un utilisateur EIM – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Tutoriel-Obtenir-votre-consommation-avec-un-utilisateur-EIM.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Tutoriel-Obtenir-votre-consommation-avec-un-utilisateur-EIM.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Tutorial-Getting-Your-Consumption-Using-an-EIM-User.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Tutoriel : Obtenir votre consommation avec un utilisateur EIM</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>En termes de gouvernance, une bonne pratique peut être de créer un utilisateur EIM dont le seul droit est de lire les informations de consommation de votre compte. De cette façon, vous pouvez donner accès à votre consommation à une personne ou un script dédié sans pour autant avoir à leur donner d&#8217;autres droits sur le reste de votre compte.</p>
+</div>
+<div class="paragraph">
+<p>D&#8217;abord, vous devez utiliser votre compte racine pour créer et configurer l&#8217;utilisateur EIM.</p>
+</div>
+<div class="paragraph">
+<p>Ensuite, l&#8217;autre personne ou script doit configurer son OSC CLI pour utiliser les identifiants de l&#8217;utilisateur EIM.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_compte_racine_créer_et_configurer_lutilisateur_eim"><a class="anchor" href="Tutoriel-Obtenir-votre-consommation-avec-un-utilisateur-EIM.html#_compte_racine_créer_et_configurer_lutilisateur_eim"></a>(Compte racine) Créer et configurer l&#8217;utilisateur EIM</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Créez l&#8217;utilisateur EIM :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli eim CreateUser --profile "default" \
+  --UserName "readconsumption-user"</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour en savoir plus sur cette commande, voir <a href="../../eim.html#createuser" class="xref page">CreateUser</a> dans la documentation de l&#8217;API EIM.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Créez une politique autorisant uniquement l&#8217;action ReadConsumptionAccount :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli eim CreatePolicy --profile "default" \
+  --PolicyName "readconsumption-policy" \
+  --PolicyDocument '{ \
+      "Statement": [ \
+        { \
+          "Action": "api:ReadConsumptionAccount", \
+          "Resource": ["*"], \
+          "Effect": "Allow" \
+        } \
+      ] \
+    }'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande renvoie plusieurs éléments de réponse, dont un élément <code>Arn</code> (par exemple, <code>"arn:aws:iam::123456789012:policy/readconsumption-policy"</code>).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour en savoir plus sur cette commande, voir <a href="../../eim.html#createpolicy" class="xref page">CreatePolicy</a> dans la documentation de l&#8217;API EIM.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Attachez la politique à l&#8217;utilisateur EIM :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli eim AttachUserPolicy --profile "default" \
+  --PolicyArn "arn:aws:iam::123456789012:policy/readconsumption-policy" \
+  --UserName "readconsumption-user"</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour en savoir plus sur cette commande, voir <a href="../../eim.html#attachuserpolicy" class="xref page">AttachUserPolicy</a> dans la documentation de l&#8217;API EIM.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Créez une access key pour l&#8217;utilisateur EIM :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli eim CreateAccessKey --profile "default" \
+  --UserName "readconsumption-user"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande renvoie plusieurs éléments de réponse, dont un élément <code>AccessKeyId</code> et un élément <code>SecretAccessKey</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour en savoir plus sur cette commande, voir <a href="../../eim.html#createaccesskey" class="xref page">CreateAccessKey</a> dans la documentation de l&#8217;API EIM.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_utilisateur_eim_configurez_votre_profil_osc_cli"><a class="anchor" href="Tutoriel-Obtenir-votre-consommation-avec-un-utilisateur-EIM.html#_utilisateur_eim_configurez_votre_profil_osc_cli"></a>(Utilisateur EIM) Configurez votre profil OSC CLI</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans le fichier <strong>.osc_sdk/config.json</strong>, configurez un profil pour utiliser l&#8217;access key et la secret key de l&#8217;utilisateur EIM :</p>
+<div class="listingblock">
+<div class="title">.osc_sdk/config.json</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+   "readconsumption-user": {
+      "access_key": "AAAAAAAAAAAAAAAAAAAA",
+      "secret_key": "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+      "host": "outscale.com",
+      "https": true,
+      "method": "POST",
+      "region": "eu-west-2"
+   }
+}</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>L&#8217;utilisateur EIM peut maintenant lancer l&#8217;action <strong>ReadConsumptionAccount</strong> avec OSC CLI :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api ReadConsumptionAccount --profile "readconsumption-user" \
+  --FromDate 2022-06-01 \
+  --ToDate 2022-07-01 \
+  --Overall False</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Le paramètre <code>Overall</code> spécifie s&#8217;il faut renvoyer une consommation consolidée :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Si <code>False</code>, renvoie uniquement la consommation du compte qui envoie cette commande.</p>
+</li>
+<li>
+<p>Si <code>True</code> et la commande est envoyée depuis un paying account, renvoie la consommation consolidée du paying account et de tous les comptes liés.</p>
+</li>
+<li>
+<p>Si <code>True</code> et la commande est envoyée depuis un compte lié, ne renvoie rien.</p>
+</li>
+</ul>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Dans tous les cas, la consommation est celle d&#8217;un ou plusieurs comptes et non celle de l&#8217;utilisateur EIM. La notion de consommation d&#8217;un utilisateur EIM n&#8217;a pas de sens, car les ressources Cloud ne sont pas allouées aux utilisateurs EIM mais aux comptes eux-mêmes.</p>
+</div>
+<div class="paragraph">
+<p>EIM doit être considéré comme un ensemble d&#8217;identifiants auxquels on autorise à effectuer tels ou tels appels API sur un compte spécifique. Pour en savoir plus, voir <a href="À-propos-des-utilisateurs-EIM.html" class="xref page">À propos des utilisateurs EIM</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour en savoir plus sur cette commande, voir <a href="Obtenir-des-informations-sur-la-consommation-de-vos-ressources.html#_Obtenir_des_informations_sur_la_consommation_de_vos_ressources_avec_OSC_CLI" class="xref page">Obtenir des informations sur la consommation de vos ressources &gt; OSC CLI</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-de-votre-compte.html" class="xref page">À propos de votre compte</a></p>
+</li>
+<li>
+<p><a href="À-propos-des-utilisateurs-EIM.html" class="xref page">À propos des utilisateurs EIM</a></p>
+</li>
+<li>
+<p><a href="Installer-et-configurer-OSC-CLI.html" class="xref page">Installer et configurer OSC CLI</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-la-consommation-de-vos-ressources.html" class="xref page">Obtenir des informations sur la consommation de vos ressources</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

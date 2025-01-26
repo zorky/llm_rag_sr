@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Resource Isolation – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="Resource-Isolation.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/Resource-Isolation.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Isolation-des-ressources.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Resource Isolation</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>3DS OUTSCALE provides Infrastructure as a Service (IaaS) solutions and manages more than 30k <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">virtual machines (VMs)</span>.</p>
+</div>
+<div class="paragraph">
+<p>Resource isolation control is a vital feature for our user security. This document explains how resources are isolated from one another and how users can control part of this isolation for their needs.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_api_isolation"><a class="anchor" href="Resource-Isolation.html#_api_isolation"></a>API Isolation</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_authentication"><a class="anchor" href="Resource-Isolation.html#_authentication"></a>Authentication</h3>
+<div class="paragraph">
+<p>3DS OUTSCALE&#8217;s Application Programming Interface (API) exposes logical objects or resources which can be manipulated.</p>
+</div>
+<div class="paragraph">
+<p>Each API action (read, create, link, etc.) is performed remotely by authenticated users.</p>
+</div>
+<div class="paragraph">
+<p>Users sign their requests using the <a href="About-Signatures-of-API-Requests.html" class="xref page">AWS signature (v4)</a> method. This method ensures user identity and request integrity.</p>
+</div>
+<div class="paragraph">
+<p>Once signed, the request is sent to 3DS OUTSCALE through a secured https connection (TLS).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_resource_access"><a class="anchor" href="Resource-Isolation.html#_resource_access"></a>Resource Access</h3>
+<div class="paragraph">
+<p>Once the user is authenticated and request integrity is verified, TINA software ensures resource isolation and performs actions only on the resources of the authenticated user.</p>
+</div>
+<div class="paragraph">
+<p>TINA software is tested through 3DS OUTSCALE&#8217;s secure development methods.</p>
+</div>
+<div class="paragraph">
+<p>A dedicated Quality Assurance team develops and automates TINA software testing before and after each deployment in production.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_network_isolation"><a class="anchor" href="Resource-Isolation.html#_network_isolation"></a>Network Isolation</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_security_groups"><a class="anchor" href="Resource-Isolation.html#_security_groups"></a>Security Groups</h3>
+<div class="paragraph">
+<p>A security group is a logical resource managed by the user and which acts as a logical firewall. Security groups contain a list of network flow rules to allow flow (a deny policy is applied by default).</p>
+</div>
+<div class="paragraph">
+<p>A security group can then be applied to a specific resource like a <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">virtual machine (VM)</span> or a gateway. This generic security framework allows users to control their resource isolation on a network level.</p>
+</div>
+<div class="paragraph">
+<p>When applied or modified, a security group is translated to corresponding firewall rules which are deployed over the TINA architecture.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_public_cloud"><a class="anchor" href="Resource-Isolation.html#_public_cloud"></a>Public Cloud</h3>
+<div class="paragraph">
+<p>The public Cloud allows users to create VMs with internet access.</p>
+</div>
+<div class="paragraph">
+<p>VMs created in the public Cloud network cannot receive any communication from another VM unless the owner explicitly allows a specific incoming network flow. Therefore, users are using the same logical network, meaning an incorrect configuration of security group (logical firewall) rules can lead to isolation breach, unlike with <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Nets</span> (see below).</p>
+</div>
+<div class="paragraph">
+<p>Network flows are managed by users using security group rules. A VM always has a security group applied, which is empty by default (which means no traffic is allowed access to the VM).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_net"><a class="anchor" href="Resource-Isolation.html#_net"></a>Net</h3>
+<div class="paragraph">
+<p>A Net is a logical network, like VLANs or VXLANs. Each user can have and can manage multiple Nets at the same time. Each Net is fully isolated from other Nets unless they belong to the same user.</p>
+</div>
+<div class="paragraph">
+<p>By design, a Net, contrary to the public Cloud, cannot be misconfigured by the user to lead to an isolation breach.</p>
+</div>
+<div class="paragraph">
+<p>As Net networks are isolated, users are free to choose their network addressing at Net creation without conflicting with any existing network.</p>
+</div>
+<div class="paragraph">
+<p>By default, no internet route is configured on a Net, which provides a fully isolated network from any external resource.</p>
+</div>
+<div class="sect3">
+<h4 id="_subnets"><a class="anchor" href="Resource-Isolation.html#_subnets"></a>Subnets</h4>
+<div class="paragraph">
+<p>Subnets are a subset of a Net network. Subnets can communicate only by adding routes which are controlled by the user using Route Tables logical objects.</p>
+</div>
+<div class="paragraph">
+<p>VMs located in a Net Subnet still have at least one security group attached, which segregates VM access.</p>
+</div>
+<div class="paragraph">
+<p>As part of a Net network, Subnets are fully isolated.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_external_net_communication"><a class="anchor" href="Resource-Isolation.html#_external_net_communication"></a>External Net Communication</h4>
+<div class="paragraph">
+<p>An optional <span class="tooltip" data-tooltip="Internet gateway in AWS-Compliant APIs">internet service</span> can be added or removed from a Net in order to enable the user to configure a default route to the internet.</p>
+</div>
+<div class="paragraph">
+<p>Other traffic can be routed inside a Net. For example, a user can configure a <span class="tooltip" data-tooltip="virtual private gateway in AWS-Compliant APIs">virtual gateway</span> (VPN) to access their Net network.</p>
+</div>
+<div class="paragraph">
+<p>All routes and network flows can be described and managed through 3DS OUTSCALE&#8217;s API. This way, users control their resource access and isolation.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_virtual_machine_isolation"><a class="anchor" href="Resource-Isolation.html#_virtual_machine_isolation"></a>Virtual Machine Isolation</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_hypervisor_and_virtual_machine_isolation"><a class="anchor" href="Resource-Isolation.html#_hypervisor_and_virtual_machine_isolation"></a>Hypervisor and Virtual Machine Isolation</h3>
+<div class="paragraph">
+<p><span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VMs</span> are essentially a functional simulation of a physical computer. This simulation is computed in real time on real hardware (hypervisor).</p>
+</div>
+<div class="paragraph">
+<p>Each hypervisor contains processors with Intel x86 virtualization instructions (vmx family).</p>
+</div>
+<div class="paragraph">
+<p>These Intel processor features have been made in order to isolate running VMs from hypervisor and to accelerate simulations.</p>
+</div>
+<div class="paragraph">
+<p>Management of VM compute and memory isolation is performed by the hypervisor&#8217;s operating system (OS): 3DS OUTSCALE uses mainly the Linux kernel with KVM module and QEMU.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_virtual_machine_isolation_on_same_hypervisor"><a class="anchor" href="Resource-Isolation.html#_virtual_machine_isolation_on_same_hypervisor"></a>Virtual Machine Isolation on Same Hypervisor</h3>
+<div class="paragraph">
+<p>VM compute and memory isolation is provided using the same method as above.</p>
+</div>
+<div class="paragraph">
+<p>VMs running on the same hypervisor cannot alter or interact with one another without communicating over the network.</p>
+</div>
+<div class="paragraph">
+<p>Each VM network communication is sent through a specific virtual network interface (vNIC). A vNIC provides isolation using encapsulation and tunneling to a specific firewall.</p>
+</div>
+<div class="paragraph">
+<p>Firewalls are managed by 3DS OUTSCALE and are responsible for applying, filtering, and routing according to some specific (limited) user configurations: route tables and security group rules.</p>
+</div>
+<div class="paragraph">
+<p>This network architecture ensures a controlled isolation of VM communications.</p>
+</div>
+<div class="paragraph">
+<p>Furthermore, the customer can choose a dedicated hardware as an improved security measure.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_storage_isolation"><a class="anchor" href="Resource-Isolation.html#_storage_isolation"></a>Storage Isolation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>3DS OUTSCALE provides mainly two types of persistent storage: Block Storage Unit (BSU) and OUTSCALE Object Storage (OOS).</p>
+</div>
+<div class="sect2">
+<h3 id="_block_storage_unit"><a class="anchor" href="Resource-Isolation.html#_block_storage_unit"></a>Block Storage Unit</h3>
+<div class="paragraph">
+<p>A BSU is a persistent logical storage which is attached to a <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span>. It can be controlled by the user though API management and through the user&#8217;s VM.</p>
+</div>
+<div class="paragraph">
+<p>When attached to a VM, a BSU is detected as a <a href="https://en.wikipedia.org/wiki/Device_file#BLOCKDEV" target="_blank" rel="noopener">block device</a> on which the user is free to write data (though a filesystem, for example).</p>
+</div>
+<div class="paragraph">
+<p>Attachment of a BSU to a VM is controlled by TINA software which ensures that the user is allowed to attach the disk to a specific VM.</p>
+</div>
+<div class="paragraph">
+<p>This way, a user cannot access data stored on a BSU of another user, thus providing BSU isolation.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_outscale_object_storage_oos"><a class="anchor" href="Resource-Isolation.html#_outscale_object_storage_oos"></a>OUTSCALE Object Storage (OOS)</h3>
+<div class="paragraph">
+<p>Each OOS object that contains data is contained inside an OOS bucket.</p>
+</div>
+<div class="paragraph">
+<p>Access rights on OOS objects and OOS buckets are fully managed by the users. Without proper permission, a user or an anonymous user cannot access specific user data.</p>
+</div>
+<div class="paragraph">
+<p>Isolation is performed through access permissions. The permission system is managed by OOS software which is based on Scality&#8217;s RING technology with S3 support.</p>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="About-Security-Groups.html" class="xref page">About Security Groups</a></p>
+</li>
+<li>
+<p><a href="About-Nets.html" class="xref page">About Nets</a></p>
+</li>
+<li>
+<p><a href="Block-Storage-Unit-BSU.html" class="xref page">Block Storage Unit (BSU)</a></p>
+</li>
+<li>
+<p><a href="About-OOS.html" class="xref page">About OOS</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ and Amazon Web Services™ are trademarks of Amazon Technologies, Inc or its affiliates in the United States and/or other countries.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

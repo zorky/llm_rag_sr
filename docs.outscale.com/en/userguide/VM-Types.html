@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>VM Types – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="VM-Types.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/VM-Types.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Types-de-VM.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content static">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">VM Types</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span> types determine the hardware characteristics of your virtual machines (VMs).</p>
+</div>
+<div class="paragraph">
+<p>You must specify a VM type when you create a VM, but you can also modify the VM type later on. For more information, see <a href="Creating-VMs.html" class="xref page">Creating VMs</a> and <a href="Modifying-a-VM-Attribute.html" class="xref page">Modifying a VM Attribute</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_characteristics"><a class="anchor" href="VM-Types.html#_characteristics"></a>Characteristics</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span> type determines the hardware characteristics of your VM, including:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Compute characteristics: CPU generation, number of vCPUs, amount of memory, and performance flag.</p>
+</li>
+<li>
+<p>Network characteristics: maximum number of <span class="tooltip" data-tooltip="flexible network interface (FNI) in AWS-Compliant APIs">NICs</span> you can attach, and maximum number of private IPs you can assign per NIC. For more information, see <a href="About-NICs.html" class="xref page">About NICs</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The CPU generation is a value that corresponds to a family of Intel CPUs:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>v2: Intel Ivy Bridge</p>
+</li>
+<li>
+<p>v3: Intel Haswell</p>
+</li>
+<li>
+<p>v4: Intel Broadwell</p>
+</li>
+<li>
+<p>v5: Intel Skylake</p>
+</li>
+<li>
+<p>v6: Intel Ice Lake</p>
+</li>
+<li>
+<p>v7: Intel Sapphire Rapids</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The v2, v3, and v4 generations have reached their End of Support and Maintenance (EOSM) states. Their availability is not guaranteed. For more information, see <a href="End-of-Life-Policy.html" class="xref page">End-of-Life Policy</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>For more information about these CPU families, see the <a href="https://ark.intel.com/" target="_blank" rel="noopener">official Intel documentation</a>.</p>
+</div>
+<div class="paragraph">
+<p>The performance flag is a value that determines the overall performance of the vCPUs:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>1 (highest): Maximum compute capacity on all the vCPUs of the VM. This value is ideal for intensive compute applications that require stable performances during the VM lifecycle.</p>
+</li>
+<li>
+<p>2 (high): High compute capacity on all the vCPUs of the VM. This value applies to most cases and offers varying performances over time.</p>
+</li>
+<li>
+<p>3 (medium): Performance with significant variability on all the vCPUs of the VM. This option does not guarantee consistent performance, but is ideal for machines with low CPU demand.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_available_vm_types"><a class="anchor" href="VM-Types.html#_available_vm_types"></a>Available VM Types</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_tina_type"><a class="anchor" href="VM-Types.html#_tina_type"></a>TINA Type</h3>
+<div class="paragraph">
+<p>The TINA type enables you to fully customize the compute characteristics of your <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span>.</p>
+</div>
+<div class="paragraph">
+<p>When you specify a TINA type for a VM, you must follow the tinavW.cXrYpZ format, where:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>W is a CPU generation between 2 and 7.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The v2, v3, and v4 generations have reached or are reaching their End of Support and Maintenance (EOSM) states. Their availability is not guaranteed. For more information, see <a href="End-of-Life-Policy.html" class="xref page">End-of-Life Policy</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>X is a number of vCPUs between 1 and 78.</p>
+</li>
+<li>
+<p>Y is an amount of memory between 1 and 1039 GiB.</p>
+</li>
+<li>
+<p>(optional) Z is a performance flag between 1 and 3.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The TINA type allows a maximum of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>8 <span class="tooltip" data-tooltip="flexible network interface (FNI) in AWS-Compliant APIs">NICs</span> (including primary network interface)</p>
+</li>
+<li>
+<p>10 private IPs per NIC (including primary IP)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_aws_types"><a class="anchor" href="VM-Types.html#_aws_types"></a>AWS Types</h3>
+<div class="paragraph">
+<p>AWS types are predefined VM types. They include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>VM types named after those of AWS. They are provided for compatibility purposes.</p>
+</li>
+<li>
+<p>VM types unique to 3DS OUTSCALE, but named according to a similar naming pattern as AWS. In the table below, their family is marked with an asterisk (*).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Each AWS type has a corresponding TINA type in terms of compute characteristics, but they differ in terms of NIC characteristics.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The following table presents the available AWS types. You can also list them by API using the <a href="../../api%3Fconsole.html#readvmtypes" class="xref page">ReadVmTypes</a> or <a href="../../fcu.html#describeinstancetypes" class="xref page">DescribeInstanceTypes</a> methods.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Family</th>
+<th class="tableblock halign-left valign-top">Corresponding TINA Type</th>
+<th class="tableblock halign-left valign-top">CPU Generation</th>
+<th class="tableblock halign-left valign-top">vCPUs</th>
+<th class="tableblock halign-left valign-top">Memory (in GiB)</th>
+<th class="tableblock halign-left valign-top">Performance Flag</th>
+<th class="tableblock halign-left valign-top">Max. Number of NICs (Including Primary Network Interface)</th>
+<th class="tableblock halign-left valign-top">Max. Number of Private IPs per NIC (Including Primary IP)</th>
+<th class="tableblock halign-left valign-top">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">c4.2xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Compute optimized</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c8r15p1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">c4.4xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Compute optimized</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c16r31p1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">31</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">c4.8xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Compute optimized</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c36r61p1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">36</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">61</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">c4.large</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Compute optimized</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c2r4p1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">c4.xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Compute optimized</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c4r8p1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">c5.18xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Compute optimized</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav5.c72r147p1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">72</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">147</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">c5.2xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Compute optimized</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav5.c8r16p1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">c5.4xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Compute optimized</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav5.c16r33p1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">33</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">c5.8xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Compute optimized</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav5.c36r74p1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">36</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">74</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">c5.9xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Compute optimized</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav5.c36r72p1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">36</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">72</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">c5.large</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Compute optimized</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav5.c2r4p1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">c5.xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Compute optimized</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav5.c4r8p1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">io5.12xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Big data usage*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c36r492p2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">36</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">492</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">io5.18xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Big data usage*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c54r737p2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">54</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">737</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">io5.2xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Big data usage*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c6r82p2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">82</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">io5.4xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Big data usage*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c12r164p2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">164</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">io5.6xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Big data usage*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c18r246p2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">18</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">246</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">io5.8xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Big data usage*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c24r328p2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">328</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m4.10xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">General purpose</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c40r164p2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">40</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">164</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m4.2xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">General purpose</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c8r33p2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">33</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m4.4xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">General purpose</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c16r66p2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">66</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m4.large</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">General purpose</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c2r8p2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m4.xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">General purpose</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c4r16p2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m5.12xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">General purpose</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav5.c48r197p2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">48</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">197</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m5.2xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">General purpose</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav5.c8r33p2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">33</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m5.4xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">General purpose</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav5.c16r66p2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">66</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m5.large</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">General purpose</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav5.c2r8p2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m5.xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">General purpose</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav5.c4r16p2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mv3.2xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">General purpose*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c8r31p2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">31</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides 1 dedicated GPU (nvidia-k2)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mv3.large</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">General purpose*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c2r8p2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides 1 dedicated GPU (nvidia-k2)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mv3.xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">General purpose*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c4r15p2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides 1 dedicated GPU (nvidia-k2)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">oc5.12xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Compute optimized*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c36r492p1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">36</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">492</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">oc5.18xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Compute optimized*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c54r737p1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">54</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">737</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">oc5.2xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Compute optimized*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c6r82p1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">82</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">oc5.4xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Compute optimized*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c12r164p1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">164</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">oc5.6xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Compute optimized*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c18r246p1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">18</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">246</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">oc5.8xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Compute optimized*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c24r328p1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">328</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">og4.2xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Remote visualization*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c16r123p1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">123</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides 2 dedicated GPUs (nvidia-k2)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">og4.4xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Remote visualization*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c24r184p1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">184</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides 3 dedicated GPUs (nvidia-k2)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">og4.8xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Remote visualization*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c32r246p1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">246</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides 4 dedicated GPUs (nvidia-k2)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">og4.xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Remote visualization*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c8r61p1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">61</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides 1 dedicated GPU (nvidia-k2)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">om5.12xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Memory optimized*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c36r983p2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">36</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">983</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">om5.18xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Memory optimized*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c54r1475p2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">54</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1475</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">om5.2xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Memory optimized*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c6r164p2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">164</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">om5.4xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Memory optimized*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c12r328p2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">328</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">om5.6xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Memory optimized*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c18r492p2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">18</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">492</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">om5.8xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Memory optimized*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c24r655p2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">655</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">p100.2xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GPU-based*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav5.c8r61p1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">61</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides 1 dedicated GPU (nvidia-p100)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">p100.4xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GPU-based*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav5.c16r122p1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">122</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides 1 dedicated GPU (nvidia-p100)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">p100.8xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GPU-based*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav5.c32r244p1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">244</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides 2 dedicated GPUs (nvidia-p100)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">p3.2xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GPU-based*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav5.c8r61p1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">61</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides 1 dedicated GPU (nvidia-p100)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">p6.8xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GPU-based*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav5.c32r244p1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">244</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides 1 dedicated GPU (nvidia-p6)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">r4.16xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Memory optimized</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c64r500p2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">64</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">500</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">r4.2xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Memory optimized</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c8r62p2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">62</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">r4.4xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Memory optimized</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c16r125p2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">125</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">r4.8xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Memory optimized</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c32r250p2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">250</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">r4.large</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Memory optimized</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c2r16p2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">r4.xlarge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Memory optimized</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tinav4.c4r31p2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">31</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Related Page</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="About-VMs.html" class="xref page">About VMs</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ and Amazon Web Services™ are trademarks of Amazon Technologies, Inc or its affiliates in the United States and/or other countries.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

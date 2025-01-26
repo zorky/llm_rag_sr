@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Getting Information About Your OMIs – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="Getting-Information-About-Your-OMIs.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/Getting-Information-About-Your-OMIs.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Obtenir-des-informations-sur-vos-OMI.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Getting Information About Your OMIs</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Using AWS CLI, you can get information about the OMIs you can use to create <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">virtual machines (VMs)</span>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>OMIs that you have created.</p>
+</li>
+<li>
+<p>OMIs that other accounts have shared with you.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Cockpit v2_0"><a class="anchor" href="Getting-Information-About-Your-OMIs.html#Cockpit v2_0"></a>Getting Information About Your OMIs Using Cockpit v2</h2>
+<div class="sectionbody">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>See
+the <strong>Images</strong> dashboard.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="OSC CLI_1"><a class="anchor" href="Getting-Information-About-Your-OMIs.html#OSC CLI_1"></a>Getting Information About Your OMIs Using OSC CLI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <strong>ReadImages</strong> command lists one or more OUTSCALE machine images (OMIs) you can use.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Reading a specific image</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api ReadImages --profile "default" \
+    --Filters '{
+        "ImageIds": ["ami-12345678"]
+      }'</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Reading Ubuntu and RockyLinux images created by Outscale</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api ReadImages --profile "default" \
+    --Filters '{
+        "AccountAliases": ["Outscale"],
+        "ImageNames": ["Ubuntu*", "RockyLinux*"]
+      }'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Filters</code>: (optional) One or more filters.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountAliases</code>: (optional) The account aliases of the owners of the OMIs.</p>
+</li>
+<li>
+<p><code>AccountIds</code>: (optional) The account IDs of the owners of the OMIs. By default, all the OMIs for which you have launch permissions are described.</p>
+</li>
+<li>
+<p><code>Architectures</code>: (optional) The architectures of the OMIs (<code>i386</code> | <code>x86_64</code>).</p>
+</li>
+<li>
+<p><code>BlockDeviceMappingDeleteOnVmDeletion</code>: (optional) Whether the volumes are deleted or not when terminating the <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span>.</p>
+</li>
+<li>
+<p><code>BlockDeviceMappingDeviceNames</code>: (optional) The device names for the volumes.</p>
+</li>
+<li>
+<p><code>BlockDeviceMappingSnapshotIds</code>: (optional) The IDs of the snapshots used to create the volumes.</p>
+</li>
+<li>
+<p><code>BlockDeviceMappingVolumeSizes</code>: (optional) The sizes of the volumes, in gibibytes (GiB).</p>
+</li>
+<li>
+<p><code>BlockDeviceMappingVolumeTypes</code>: (optional) The types of volumes (<code>standard</code> | <code>gp2</code> | <code>io1</code>).</p>
+</li>
+<li>
+<p><code>Descriptions</code>: (optional) The descriptions of the OMIs, provided when they were created.</p>
+</li>
+<li>
+<p><code>FileLocations</code>: (optional) The locations of the buckets where the OMI files are stored.</p>
+</li>
+<li>
+<p><code>Hypervisors</code>: (optional) The hypervisor type of the OMI (always <code>xen</code>).</p>
+</li>
+<li>
+<p><code>ImageIds</code>: (optional) The IDs of the OMIs.</p>
+</li>
+<li>
+<p><code>ImageNames</code>: (optional) The names of the OMIs, provided when they were created.</p>
+</li>
+<li>
+<p><code>PermissionsToLaunchAccountIds</code>: (optional) The account IDs which have launch permissions for the OMIs.</p>
+</li>
+<li>
+<p><code>PermissionsToLaunchGlobalPermission</code>: (optional) If true, lists all public OMIs. If false, lists all private OMIs.</p>
+</li>
+<li>
+<p><code>ProductCodeNames</code>: (optional) The names of the product codes associated with the OMI.</p>
+</li>
+<li>
+<p><code>ProductCodes</code>: (optional) The product codes associated with the OMI.</p>
+</li>
+<li>
+<p><code>RootDeviceNames</code>: (optional) The name of the root device. This value must be /dev/sda1.</p>
+</li>
+<li>
+<p><code>RootDeviceTypes</code>: (optional) The types of root device used by the OMIs (<code>bsu</code> or <code>ebs</code>).</p>
+</li>
+<li>
+<p><code>States</code>: (optional) The states of the OMIs (<code>pending</code> | <code>available</code> | <code>failed</code>).</p>
+</li>
+<li>
+<p><code>TagKeys</code>: (optional) The keys of the tags associated with the OMIs.</p>
+</li>
+<li>
+<p><code>TagValues</code>: (optional) The values of the tags associated with the OMIs.</p>
+</li>
+<li>
+<p><code>Tags</code>: (optional) The key/value combination of the tags associated with the OMIs, in the following format: &quot;Filters&quot;:{&quot;Tags&quot;:[&quot;TAGKEY=TAGVALUE&quot;]}.</p>
+</li>
+<li>
+<p><code>VirtualizationTypes</code>: (optional) The virtualization types (always <code>hvm</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>NextPageToken</code>: (optional) The token to request the next page of results. Each token refers to a specific page.</p>
+</li>
+<li>
+<p><code>ResultsPerPage</code>: (optional) The maximum number of logs returned in a single response (between <code>1</code> and <code>1000</code>, both included). By default, <code>100</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadImages</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Images</code>: Information about one or more OMIs.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountAlias</code>: The account alias of the owner of the OMI.</p>
+</li>
+<li>
+<p><code>AccountId</code>: The account ID of the owner of the OMI.</p>
+</li>
+<li>
+<p><code>Architecture</code>: The architecture of the OMI.</p>
+</li>
+<li>
+<p><code>BlockDeviceMappings</code>: One or more block device mappings.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Bsu</code>: Information about the BSU volume to create.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteOnVmDeletion</code>: By default or if set to true, the volume is deleted when terminating the VM. If false, the volume is not deleted when terminating the VM.</p>
+</li>
+<li>
+<p><code>Iops</code>: The number of I/O operations per second (IOPS). This parameter must be specified only if you create an <code>io1</code> volume. The maximum number of IOPS allowed for <code>io1</code> volumes is <code>13000</code> with a maximum performance ratio of 300 IOPS per gibibyte.</p>
+</li>
+<li>
+<p><code>SnapshotId</code>: The ID of the snapshot used to create the volume.</p>
+</li>
+<li>
+<p><code>VolumeSize</code>: The size of the volume, in gibibytes (GiB).<br>
+If you specify a snapshot ID, the volume size must be at least equal to the snapshot size.<br>
+If you specify a snapshot ID but no volume size, the volume is created with a size similar to the snapshot one.</p>
+</li>
+<li>
+<p><code>VolumeType</code>: The type of the volume (<code>standard</code> | <code>io1</code> | <code>gp2</code>). If not specified in the request, a <code>standard</code> volume is created.<br>
+For more information about volume types, see <a href="About-Volumes.html#_volume_types_and_iops" target="_blank" rel="noopener">About Volumes &gt; Volume Types and IOPS</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>DeviceName</code>: The device name for the volume. For a root device, you must use <code>/dev/sda1</code>. For other volumes, you must use <code>/dev/sdX</code>, <code>/dev/sdXX</code>, <code>/dev/xvdX</code>, or <code>/dev/xvdXX</code> (where the first <code>X</code> is a letter between <code>b</code> and <code>z</code>, and the second <code>X</code> is a letter between <code>a</code> and <code>z</code>).</p>
+</li>
+<li>
+<p><code>VirtualDeviceName</code>: The name of the virtual device (<code>ephemeralN</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>CreationDate</code>: The date and time (UTC) at which the OMI was created.</p>
+</li>
+<li>
+<p><code>Description</code>: The description of the OMI.</p>
+</li>
+<li>
+<p><code>FileLocation</code>: The location from which the OMI files were created.</p>
+</li>
+<li>
+<p><code>ImageId</code>: The ID of the OMI.</p>
+</li>
+<li>
+<p><code>ImageName</code>: The name of the OMI.</p>
+</li>
+<li>
+<p><code>ImageType</code>: The type of the OMI.</p>
+</li>
+<li>
+<p><code>PermissionsToLaunch</code>: Permissions for the resource.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountIds</code>: One or more account IDs that the permission is associated with.</p>
+</li>
+<li>
+<p><code>GlobalPermission</code>: A global permission for all accounts.<br>
+(Request) Set this parameter to true to make the resource public (if the parent parameter is <code>Additions</code>) or to make the resource private (if the parent parameter is <code>Removals</code>).<br>
+(Response) If true, the resource is public. If false, the resource is private.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ProductCodes</code>: The product codes associated with the OMI.</p>
+</li>
+<li>
+<p><code>RootDeviceName</code>: The name of the root device.</p>
+</li>
+<li>
+<p><code>RootDeviceType</code>: The type of root device used by the OMI (always <code>bsu</code>).</p>
+</li>
+<li>
+<p><code>State</code>: The state of the OMI (<code>pending</code> | <code>available</code> | <code>failed</code>).</p>
+</li>
+<li>
+<p><code>StateComment</code>: Information about the change of state.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>StateCode</code>: The code of the change of state.</p>
+</li>
+<li>
+<p><code>StateMessage</code>: A message explaining the change of state.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the OMI.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>NextPageToken</code>: The token to request the next page of results. Each token refers to a specific page.</p>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Reading a specific image</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "Images": [
+    {
+      "StateComment": {},
+      "State": "available",
+      "RootDeviceType": "bsu",
+      "RootDeviceName": "/dev/sda1",
+      "ProductCodes": [
+        "0001"
+      ],
+      "PermissionsToLaunch": {
+        "GlobalPermission": false,
+        "AccountIds": []
+      },
+      "AccountId": "123456789012",
+      "Tags": [],
+      "Description": "",
+      "ImageId": "ami-12345678",
+      "BlockDeviceMappings": [
+        {
+          "DeviceName": "/dev/sda1",
+          "Bsu": {
+            "VolumeType": "standard",
+            "DeleteOnVmDeletion": true,
+            "VolumeSize": 50,
+            "SnapshotId": "snap-12345678"
+          }
+        }
+      ],
+      "ImageType": "machine",
+      "CreationDate": "2010-10-01T12:34:56.789Z",
+      "FileLocation": "123456789012/create-image-example",
+      "Architecture": "x86_64",
+      "ImageName": "create-image-example"
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Reading Ubuntu and RockyLinux images created by Outscale</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "Images": [
+    {
+      "StateComment": {},
+      "State": "available",
+      "RootDeviceType": "bsu",
+      "RootDeviceName": "/dev/sda1",
+      "ProductCodes": [
+        "0001"
+      ],
+      "PermissionsToLaunch": {
+        "GlobalPermission": true,
+        "AccountIds": []
+      },
+      "AccountId": "123456789012",
+      "Tags": [],
+      "Description": "",
+      "ImageId": "ami-12345678",
+      "BlockDeviceMappings": [
+        {
+          "DeviceName": "/dev/sda1",
+          "Bsu": {
+            "VolumeType": "standard",
+            "DeleteOnVmDeletion": true,
+            "VolumeSize": 10,
+            "SnapshotId": "snap-12345678"
+          }
+        }
+      ],
+      "ImageType": "machine",
+      "AccountAlias": "Outscale",
+      "CreationDate": "2010-10-01T12:34:56.789Z",
+      "FileLocation": "Outscale/Ubuntu-2010.10.01-0",
+      "Architecture": "x86_64",
+      "ImageName": "Ubuntu-2010.10.01-0"
+    },
+    {
+      "StateComment": {},
+      "State": "available",
+      "RootDeviceType": "bsu",
+      "RootDeviceName": "/dev/sda1",
+      "ProductCodes": [
+        "0001"
+      ],
+      "PermissionsToLaunch": {
+        "GlobalPermission": true,
+        "AccountIds": []
+      },
+      "AccountId": "123456789012",
+      "Tags": [],
+      "Description": "",
+      "ImageId": "ami-12345678",
+      "BlockDeviceMappings": [
+        {
+          "DeviceName": "/dev/sda1",
+          "Bsu": {
+            "VolumeType": "standard",
+            "DeleteOnVmDeletion": true,
+            "VolumeSize": 10,
+            "SnapshotId": "snap-12345678"
+          }
+        }
+      ],
+      "ImageType": "machine",
+      "AccountAlias": "Outscale",
+      "CreationDate": "2010-10-01T12:34:56.789Z",
+      "FileLocation": "Outscale/RockyLinux-2010.10.01-0",
+      "Architecture": "x86_64",
+      "ImageName": "RockyLinux-2010.10.01-0"
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="oapi-cli_2"><a class="anchor" href="Getting-Information-About-Your-OMIs.html#oapi-cli_2"></a>Getting Information About Your OMIs Using oapi-cli</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <strong>ReadImages</strong> command lists one or more OUTSCALE machine images (OMIs) you can use.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Reading a specific image</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" ReadImages \
+    --Filters '{
+        "ImageIds": ["ami-12345678"]
+      }'</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Reading Ubuntu and RockyLinux images created by Outscale</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" ReadImages \
+    --Filters '{
+        "AccountAliases": ["Outscale"],
+        "ImageNames": ["Ubuntu*", "RockyLinux*"]
+      }'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Filters</code>: (optional) One or more filters.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountAliases</code>: (optional) The account aliases of the owners of the OMIs.</p>
+</li>
+<li>
+<p><code>AccountIds</code>: (optional) The account IDs of the owners of the OMIs. By default, all the OMIs for which you have launch permissions are described.</p>
+</li>
+<li>
+<p><code>Architectures</code>: (optional) The architectures of the OMIs (<code>i386</code> | <code>x86_64</code>).</p>
+</li>
+<li>
+<p><code>BlockDeviceMappingDeleteOnVmDeletion</code>: (optional) Whether the volumes are deleted or not when terminating the <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span>.</p>
+</li>
+<li>
+<p><code>BlockDeviceMappingDeviceNames</code>: (optional) The device names for the volumes.</p>
+</li>
+<li>
+<p><code>BlockDeviceMappingSnapshotIds</code>: (optional) The IDs of the snapshots used to create the volumes.</p>
+</li>
+<li>
+<p><code>BlockDeviceMappingVolumeSizes</code>: (optional) The sizes of the volumes, in gibibytes (GiB).</p>
+</li>
+<li>
+<p><code>BlockDeviceMappingVolumeTypes</code>: (optional) The types of volumes (<code>standard</code> | <code>gp2</code> | <code>io1</code>).</p>
+</li>
+<li>
+<p><code>Descriptions</code>: (optional) The descriptions of the OMIs, provided when they were created.</p>
+</li>
+<li>
+<p><code>FileLocations</code>: (optional) The locations of the buckets where the OMI files are stored.</p>
+</li>
+<li>
+<p><code>Hypervisors</code>: (optional) The hypervisor type of the OMI (always <code>xen</code>).</p>
+</li>
+<li>
+<p><code>ImageIds</code>: (optional) The IDs of the OMIs.</p>
+</li>
+<li>
+<p><code>ImageNames</code>: (optional) The names of the OMIs, provided when they were created.</p>
+</li>
+<li>
+<p><code>PermissionsToLaunchAccountIds</code>: (optional) The account IDs which have launch permissions for the OMIs.</p>
+</li>
+<li>
+<p><code>PermissionsToLaunchGlobalPermission</code>: (optional) If true, lists all public OMIs. If false, lists all private OMIs.</p>
+</li>
+<li>
+<p><code>ProductCodeNames</code>: (optional) The names of the product codes associated with the OMI.</p>
+</li>
+<li>
+<p><code>ProductCodes</code>: (optional) The product codes associated with the OMI.</p>
+</li>
+<li>
+<p><code>RootDeviceNames</code>: (optional) The name of the root device. This value must be /dev/sda1.</p>
+</li>
+<li>
+<p><code>RootDeviceTypes</code>: (optional) The types of root device used by the OMIs (<code>bsu</code> or <code>ebs</code>).</p>
+</li>
+<li>
+<p><code>States</code>: (optional) The states of the OMIs (<code>pending</code> | <code>available</code> | <code>failed</code>).</p>
+</li>
+<li>
+<p><code>TagKeys</code>: (optional) The keys of the tags associated with the OMIs.</p>
+</li>
+<li>
+<p><code>TagValues</code>: (optional) The values of the tags associated with the OMIs.</p>
+</li>
+<li>
+<p><code>Tags</code>: (optional) The key/value combination of the tags associated with the OMIs, in the following format: &quot;Filters&quot;:{&quot;Tags&quot;:[&quot;TAGKEY=TAGVALUE&quot;]}.</p>
+</li>
+<li>
+<p><code>VirtualizationTypes</code>: (optional) The virtualization types (always <code>hvm</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>NextPageToken</code>: (optional) The token to request the next page of results. Each token refers to a specific page.</p>
+</li>
+<li>
+<p><code>ResultsPerPage</code>: (optional) The maximum number of logs returned in a single response (between <code>1</code> and <code>1000</code>, both included). By default, <code>100</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadImages</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Images</code>: Information about one or more OMIs.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountAlias</code>: The account alias of the owner of the OMI.</p>
+</li>
+<li>
+<p><code>AccountId</code>: The account ID of the owner of the OMI.</p>
+</li>
+<li>
+<p><code>Architecture</code>: The architecture of the OMI.</p>
+</li>
+<li>
+<p><code>BlockDeviceMappings</code>: One or more block device mappings.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Bsu</code>: Information about the BSU volume to create.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteOnVmDeletion</code>: By default or if set to true, the volume is deleted when terminating the VM. If false, the volume is not deleted when terminating the VM.</p>
+</li>
+<li>
+<p><code>Iops</code>: The number of I/O operations per second (IOPS). This parameter must be specified only if you create an <code>io1</code> volume. The maximum number of IOPS allowed for <code>io1</code> volumes is <code>13000</code> with a maximum performance ratio of 300 IOPS per gibibyte.</p>
+</li>
+<li>
+<p><code>SnapshotId</code>: The ID of the snapshot used to create the volume.</p>
+</li>
+<li>
+<p><code>VolumeSize</code>: The size of the volume, in gibibytes (GiB).<br>
+If you specify a snapshot ID, the volume size must be at least equal to the snapshot size.<br>
+If you specify a snapshot ID but no volume size, the volume is created with a size similar to the snapshot one.</p>
+</li>
+<li>
+<p><code>VolumeType</code>: The type of the volume (<code>standard</code> | <code>io1</code> | <code>gp2</code>). If not specified in the request, a <code>standard</code> volume is created.<br>
+For more information about volume types, see <a href="About-Volumes.html#_volume_types_and_iops" target="_blank" rel="noopener">About Volumes &gt; Volume Types and IOPS</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>DeviceName</code>: The device name for the volume. For a root device, you must use <code>/dev/sda1</code>. For other volumes, you must use <code>/dev/sdX</code>, <code>/dev/sdXX</code>, <code>/dev/xvdX</code>, or <code>/dev/xvdXX</code> (where the first <code>X</code> is a letter between <code>b</code> and <code>z</code>, and the second <code>X</code> is a letter between <code>a</code> and <code>z</code>).</p>
+</li>
+<li>
+<p><code>VirtualDeviceName</code>: The name of the virtual device (<code>ephemeralN</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>CreationDate</code>: The date and time (UTC) at which the OMI was created.</p>
+</li>
+<li>
+<p><code>Description</code>: The description of the OMI.</p>
+</li>
+<li>
+<p><code>FileLocation</code>: The location from which the OMI files were created.</p>
+</li>
+<li>
+<p><code>ImageId</code>: The ID of the OMI.</p>
+</li>
+<li>
+<p><code>ImageName</code>: The name of the OMI.</p>
+</li>
+<li>
+<p><code>ImageType</code>: The type of the OMI.</p>
+</li>
+<li>
+<p><code>PermissionsToLaunch</code>: Permissions for the resource.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountIds</code>: One or more account IDs that the permission is associated with.</p>
+</li>
+<li>
+<p><code>GlobalPermission</code>: A global permission for all accounts.<br>
+(Request) Set this parameter to true to make the resource public (if the parent parameter is <code>Additions</code>) or to make the resource private (if the parent parameter is <code>Removals</code>).<br>
+(Response) If true, the resource is public. If false, the resource is private.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ProductCodes</code>: The product codes associated with the OMI.</p>
+</li>
+<li>
+<p><code>RootDeviceName</code>: The name of the root device.</p>
+</li>
+<li>
+<p><code>RootDeviceType</code>: The type of root device used by the OMI (always <code>bsu</code>).</p>
+</li>
+<li>
+<p><code>State</code>: The state of the OMI (<code>pending</code> | <code>available</code> | <code>failed</code>).</p>
+</li>
+<li>
+<p><code>StateComment</code>: Information about the change of state.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>StateCode</code>: The code of the change of state.</p>
+</li>
+<li>
+<p><code>StateMessage</code>: A message explaining the change of state.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the OMI.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>NextPageToken</code>: The token to request the next page of results. Each token refers to a specific page.</p>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Reading a specific image</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "Images": [
+    {
+      "StateComment": {},
+      "State": "available",
+      "RootDeviceType": "bsu",
+      "RootDeviceName": "/dev/sda1",
+      "ProductCodes": [
+        "0001"
+      ],
+      "PermissionsToLaunch": {
+        "GlobalPermission": false,
+        "AccountIds": []
+      },
+      "AccountId": "123456789012",
+      "Tags": [],
+      "Description": "",
+      "ImageId": "ami-12345678",
+      "BlockDeviceMappings": [
+        {
+          "DeviceName": "/dev/sda1",
+          "Bsu": {
+            "VolumeType": "standard",
+            "DeleteOnVmDeletion": true,
+            "VolumeSize": 50,
+            "SnapshotId": "snap-12345678"
+          }
+        }
+      ],
+      "ImageType": "machine",
+      "CreationDate": "2010-10-01T12:34:56.789Z",
+      "FileLocation": "123456789012/create-image-example",
+      "Architecture": "x86_64",
+      "ImageName": "create-image-example"
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Reading Ubuntu and RockyLinux images created by Outscale</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "Images": [
+    {
+      "StateComment": {},
+      "State": "available",
+      "RootDeviceType": "bsu",
+      "RootDeviceName": "/dev/sda1",
+      "ProductCodes": [
+        "0001"
+      ],
+      "PermissionsToLaunch": {
+        "GlobalPermission": true,
+        "AccountIds": []
+      },
+      "AccountId": "123456789012",
+      "Tags": [],
+      "Description": "",
+      "ImageId": "ami-12345678",
+      "BlockDeviceMappings": [
+        {
+          "DeviceName": "/dev/sda1",
+          "Bsu": {
+            "VolumeType": "standard",
+            "DeleteOnVmDeletion": true,
+            "VolumeSize": 10,
+            "SnapshotId": "snap-12345678"
+          }
+        }
+      ],
+      "ImageType": "machine",
+      "AccountAlias": "Outscale",
+      "CreationDate": "2010-10-01T12:34:56.789Z",
+      "FileLocation": "Outscale/Ubuntu-2010.10.01-0",
+      "Architecture": "x86_64",
+      "ImageName": "Ubuntu-2010.10.01-0"
+    },
+    {
+      "StateComment": {},
+      "State": "available",
+      "RootDeviceType": "bsu",
+      "RootDeviceName": "/dev/sda1",
+      "ProductCodes": [
+        "0001"
+      ],
+      "PermissionsToLaunch": {
+        "GlobalPermission": true,
+        "AccountIds": []
+      },
+      "AccountId": "123456789012",
+      "Tags": [],
+      "Description": "",
+      "ImageId": "ami-12345678",
+      "BlockDeviceMappings": [
+        {
+          "DeviceName": "/dev/sda1",
+          "Bsu": {
+            "VolumeType": "standard",
+            "DeleteOnVmDeletion": true,
+            "VolumeSize": 10,
+            "SnapshotId": "snap-12345678"
+          }
+        }
+      ],
+      "ImageType": "machine",
+      "AccountAlias": "Outscale",
+      "CreationDate": "2010-10-01T12:34:56.789Z",
+      "FileLocation": "Outscale/RockyLinux-2010.10.01-0",
+      "Architecture": "x86_64",
+      "ImageName": "RockyLinux-2010.10.01-0"
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI_3"><a class="anchor" href="Getting-Information-About-Your-OMIs.html#AWS CLI_3"></a>Getting Information About Your OMIs Using AWS CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Before you begin:</strong> Install and configure AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="_getting_general_information_about_your_omis"><a class="anchor" href="Getting-Information-About-Your-OMIs.html#_getting_general_information_about_your_omis"></a>Getting General Information About Your OMIs</h3>
+<div class="paragraph">
+<p>To get information about one or more OMIs, use the <strong>describe-images</strong> command following this syntax:</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws ec2 describe-images \
+    --profile YOUR_PROFILE \
+    --image-ids ami-12345678 ami-87654321 ami-56781234 \
+    --owners 1234567890000 \
+    --executable-users 0000987654321 \
+    --filters Name=X,Values=Y \
+    --endpoint https://fcu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optional) <code>profile</code>: The named profile you want to use, created when configuring AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+<li>
+<p>(optional) <code>image-ids</code>: One or more OMI IDs.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you do not specify any OMI ID, all your OMIs or all the OMIs matching the specified filters if any are described.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optional) <code>owners</code>: The account ID of one or more owners of OMIs. By default, all the OMIs for which you have launch permissions are described.</p>
+</li>
+<li>
+<p>(optional) <code>executable-users</code>: The account IDs allowed to use the OMIs.</p>
+</li>
+<li>
+<p>(optional) <code>filters</code>: One or more filters, in the "Name=X,Values=Y" format.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can specify several values for a same filter using the "Name=X,Values=Y, Z" format.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following filters are available:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>architecture</code>: The architecture of the OMI (<code>i386</code> or <code>x86_64</code>).</p>
+</li>
+<li>
+<p><code>block-device-mapping.delete-on-termination</code>: Indicates whether the volume is deleted when terminating the <span class="tooltip" data-tooltip="virtual machine (VM) in OUTSCALE API">instance</span>.</p>
+</li>
+<li>
+<p><code>block-device-mapping.device-name</code>: The device name assigned to the volume (in the format <code>/dev/sdX</code>, <code>/dev/sdXX</code>, <code>/dev/xvdX</code>, or <code>/dev/xvdXX</code>).</p>
+</li>
+<li>
+<p><code>block-device-mapping.snapshot-id</code>: The ID of the snapshot used to create the volume.</p>
+</li>
+<li>
+<p><code>block-device-mapping.volume-size</code>: The size of the volume, in gibibytes (GiB).</p>
+</li>
+<li>
+<p><code>block-device-mapping.volume-type</code>: The type of volume (<code>standard</code> | <code>gp2</code> | <code>io1</code>).</p>
+</li>
+<li>
+<p><code>description</code>: The description of the OMI, provided when it was created.</p>
+</li>
+<li>
+<p><code>hypervisor</code>: The hypervisor type of the instance (always <code>xen</code>).</p>
+</li>
+<li>
+<p><code>image-id</code>: The ID of the OMI.</p>
+</li>
+<li>
+<p><code>image-type</code>: The type of OMI (always <code>machine</code> for official OMIs).</p>
+</li>
+<li>
+<p><code>is-public</code>: Indicates whether the OMI has public launch permissions.</p>
+</li>
+<li>
+<p><code>manifest-location</code>: The location of the OMI manifest.</p>
+</li>
+<li>
+<p><code>name</code>: The name of the OMI, provided when it was created.</p>
+</li>
+<li>
+<p><code>owner-alias</code>: The account alias of the owner of the OMI.</p>
+</li>
+<li>
+<p><code>owner-id</code>: The account ID of the owner of the OMI.</p>
+</li>
+<li>
+<p><code>platform</code>: The platform.</p>
+</li>
+<li>
+<p><code>product-code.type</code>: The type of the product code associated with the OMI.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Once a product code is applied to an OMI, it cannot be removed.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><code>root-device-name</code>: The device name assigned to the root device (for example, /dev/sda1).</p>
+</li>
+<li>
+<p><code>root-device-type</code>: The type of root device used by the OMI (always <code>ebs)</code>.</p>
+</li>
+<li>
+<p><code>state</code>: The current state of the OMI (<code>pending</code> | <code>available</code> | <code>failed</code>).</p>
+</li>
+</ul>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>tag-key</code>: The key of a tag associated with the resource.</p>
+</li>
+<li>
+<p><code>tag-value</code>: The value of a tag associated with the resource.</p>
+</li>
+<li>
+<p><code>tag:XXXX</code>: The value of a tag associated with the resource, where <code>XXXX</code> is the key of the tag.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>To filter a tag whose key is <code>XXXX</code> and value is <code>YYYY</code>, you can therefore use either of the following two formats:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>--filters Name=tag-key,Values=XXXX Name=tag-value,Values=YYYY</code></p>
+</li>
+<li>
+<p><code>--filters Name=tag:XXXX,Values=YYYY</code></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>virtualization-type</code>: The virtualization type of the instance (always <code>hvm</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>endpoint</code>: The endpoint corresponding to the Region you want to send the request to. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>describe-images</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Images</code>: Information about one or more OMIs. This element contains the following information:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VirtualizationType</code>: The virtualization type of the instance (always <code>hvm</code>).</p>
+</li>
+<li>
+<p><code>Name</code>: The name of the OMI.</p>
+</li>
+<li>
+<p><code>Hypervisor</code>: The hypervisor type of the instance (always <code>xen</code>).</p>
+</li>
+<li>
+<p><code>ImageId</code>: The ID of the OMI.</p>
+</li>
+<li>
+<p><code>Platform</code>: No information returned.</p>
+</li>
+<li>
+<p><code>State</code>: The current state of the OMI.</p>
+</li>
+<li>
+<p><code>BlockDeviceMappings</code>: One or more block device mappings. For more information, see <a href="Defining-Block-Device-Mappings.html" class="xref page">Defining Block Device Mappings</a>.</p>
+</li>
+<li>
+<p><code>Architecture</code>: The architecture of the OMI.</p>
+</li>
+<li>
+<p><code>ImageLocation</code>: The path to the OMI.</p>
+</li>
+<li>
+<p><code>RootDeviceType</code>: The type of root device for the instance (always <code>ebs</code>).</p>
+</li>
+<li>
+<p><code>OwnerId</code>: The account ID of the owner of the OMI.</p>
+</li>
+<li>
+<p><code>RootDeviceName</code>: The device name assigned to the root device of the instance.</p>
+</li>
+<li>
+<p><code>Public</code>: Indicates whether the OMI has public creation permissions.</p>
+</li>
+<li>
+<p><code>ImageType</code>: The type of OMI (always <code>machine</code> for official OMIs).</p>
+</li>
+<li>
+<p><code>Description</code>: The description of the OMI, if any.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "Images": [
+        {
+            "VirtualizationType": "hvm",
+            "Name": "Image_name",
+            "Hypervisor": "xen",
+            "ImageId": "ami-12345678",
+            "Platform": "",
+            "State": "available",
+            "BlockDeviceMappings": [
+                {
+                    "DeviceName": "/dev/sda1",
+                    "Ebs": {
+                        "DeleteOnTermination": true,
+                        "SnapshotId": "snap-87654321",
+                        "VolumeSize": 8,
+                        "VolumeType": "standard"
+                    }
+                }
+            ],
+            "Architecture": "x86_64",
+            "ImageLocation": "1234567890000/Image_name",
+            "RootDeviceType": "ebs",
+            "OwnerId": "1234567890000",
+            "RootDeviceName": "/dev/sda1",
+            "Public": false,
+            "ImageType": "machine",
+            "Description": "CentOS 7 with HAProxy installed and NAT configured"
+        }]
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_getting_information_about_an_attribute_of_an_omi"><a class="anchor" href="Getting-Information-About-Your-OMIs.html#_getting_information_about_an_attribute_of_an_omi"></a>Getting Information About an Attribute of an OMI</h3>
+<div class="paragraph">
+<p>You can get information about the list of accounts who have permissions to create an instance from the specified OMI. You can modify these permissions at any time. For more information, see <a href="Modifying-the-Attributes-of-an-OMI.html" class="xref page">Modifying the Attributes of an OMI</a>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>To get information about the accounts who have permissions to use an OMI from Cockpit, you need to use the <strong>Share OMI</strong> command. For more information, see <a href="Modifying-the-Attributes-of-an-OMI.html" class="xref page">Modifying the Attributes of an OMI</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>To get general information about an attribute of a specified OMI, use the <strong>describe-image-attribute</strong> command following this syntax:</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws ec2 describe-image-attribute \
+    --profile YOUR_PROFILE \
+    --image-id ami-12345678 \
+    --attribute launchPermission \
+    --endpoint https://fcu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optional) <code>profile</code>: The named profile you want to use, created when configuring AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>image-id</code>: The ID of the OMI.</p>
+</li>
+<li>
+<p><code>attribute</code>: The OMI attribute (<code>description</code> | <code>kernel</code> | <code>launchPermission</code> | <code>productCodes</code>).</p>
+</li>
+<li>
+<p><code>endpoint</code>: The endpoint corresponding to the Region you want to send the request to. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>describe-images</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The attribute value (here, <code>LaunchPermission</code>).</p>
+</li>
+<li>
+<p><code>ImageId</code>: The ID of the OMI.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "LaunchPermissions": [
+        {
+            "UserId": "12345679890000"
+        },
+        {
+            "UserId": "0000987654321"
+        }
+    ],
+    "ImageId": "ami-123456789"
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="About-OMIs.html" class="xref page">About OMIs</a></p>
+</li>
+<li>
+<p><a href="Creating-an-OMI.html" class="xref page">Creating an OMI</a></p>
+</li>
+<li>
+<p><a href="Getting-Information-About-Tags-Associated-with-a-Resource.html" class="xref page">Getting Information About Tags Associated with a Resource</a></p>
+</li>
+<li>
+<p><a href="Modifying-the-Attributes-of-an-OMI.html" class="xref page">Modifying the Attributes of an OMI</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Corresponding API Methods</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#readimages" class="xref page">ReadImages (OUTSCALE API)</a></p>
+</li>
+<li>
+<p><a href="../../fcu.html#describeimages" class="xref page">DescribeImages (FCU)</a></p>
+</li>
+<li>
+<p><a href="../../fcu.html#describeimageattribute" class="xref page">DescribeImageAttribute (FCU)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ and Amazon Web Services™ are trademarks of Amazon Technologies, Inc or its affiliates in the United States and/or other countries.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

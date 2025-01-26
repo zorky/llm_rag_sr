@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+  <title>Notes de mise à jour – Documentation publique OUTSCALE</title>
+  <link>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html</link>
+  <description>Notes de mise à jour – Documentation publique OUTSCALE</description>
+  <language>fr</language>
+  <copyright>Copyright © 2025 Outscale SAS</copyright>
+  <pubDate>Thu, 23 Jan 2025 14:30:16 GMT</pubDate>
+  <item>
+    <title>Nouveau mode de tarification horaire et annuel par type de VM</title>
+    <link>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html#_23_janvier_2025_nouveau_mode_de_tarification_horaire_et_annuel_par_type_de_vm</guid>
+    <description><![CDATA[<div class="sect1"><div class="sectionbody"><div class="sect2"><h3>Vendeur partenaire</h3><div class="ulist"><ul><li><p>Lors de la création d’un produit OMI et de la spécification de son offre, vous pouvez désormais configurer un mode de tarification horaire et annuel par type de <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span>. Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/Créer-et-publier-un-produit-OMI.html#_Offre" class="xref page">Créer et publier un produit OMI &gt; Offre</a>.</p></li><li><p>Ce nouveau mode de tarification remplace le mode de tarification À la demande (Prix fixe et Prix selon le type de VM).</p></li><li><p>En tant qu’organisation appartenant au marché Nuage public (UGAP), vous pouvez définir un tarif annuel par type de VM destiné aux acheteurs du marché Nuage public. Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/Créer-une-offre-Nuage-public-UGAP.html#_Offre_annuelle_par_type_de_VM" class="xref page">Créer une offre Nuage public (UGAP) &gt; Offre annuelle par type de VM</a>.</p></li></ul></div></div><div class="sect2"><h3>Acheteur</h3><div class="paragraph"><p>Vous pouvez désormais souscrire à des produits OMI sur la base d’une offre horaire et annuelle par type de VM. Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/https:/docs.outscale.com/fr/userguide/Souscrire-à-un-produit-OMI.html" class="xref page">Souscrire à un produit OMI</a> et la nouvelle page <a href="https:/docs.outscale.com/fr/userguide/Tarification-des-produits-OMI.html" class="xref page">Tarification des produits OMI</a>.</p></div></div><div class="sect2"><h3>Mise à jour de la documentation Acheteur</h3><div class="paragraph"><p>Les informations des pages <a href="Souscrire-à-un-produit-OMI.html" class="xref page">Souscrire à un produit OMI</a>, <a href="https:/docs.outscale.com/fr/userguide/Estimer-le-coût-d-un-produit.html" class="xref page">Estimer le coût d’un produit</a> et <a href="https:/docs.outscale.com/fr/userguide/Demander-une-estimation-d-une-offre-Nuage-public-UGAP.html" class="xref page">Demander une estimation d’une offre Nuage public (UGAP)</a> ont été réorganisées pour accompagner l’arrivée de ce nouveau mode de tarification horaire et annuel par type de VM.</p></div></div></div></div>]]></description>
+    <pubDate>Thu, 23 Jan 2025 00:00:00 GMT</pubDate>
+    <category>Nouveauté</category>
+    <category>Marketplace</category>
+    <category>Amélioration</category>
+    <category>Site de documentation</category>
+  </item>
+  <item>
+    <title>Mise à jour IAM</title>
+    <link>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html#_22_janvier_2025_mise_à_jour_iam</guid>
+    <description><![CDATA[<div class="sect1"><div class="sectionbody"><div class="sect2"><h3>Codes de récupération</h3><div class="paragraph"><p>Tous les utilisateurs peuvent maintenant configurer des codes de récupération. Ces codes peuvent être utilisés comme méthode de deuxième facteur d’authentification pour se connecter à Cockpit&nbsp;v2, au cas où votre méthode d’authentification multifacteur (MFA) choisie n’est pas disponible. Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/S-authentifier-avec-des-codes-de-récupération.html" class="xref page">S’authentifier avec des codes de récupération</a>.</p></div></div><div class="sect2"><h3>Politique de mots de passe</h3><div class="paragraph"><p>En plus des conditions initiale de notre politique de mots de passe, les nouveaux mots de passe sont maintenant évalués en fonction de leur force. Pour en savoir plus sur les séquences à éviter, voir <a href="https:/docs.outscale.com/fr/userguide/À-propos-de-la-protection-par-mot-de-passe.html" class="xref page">À propos de la protection par mot de passe</a>.</p></div></div></div></div>]]></description>
+    <pubDate>Wed, 22 Jan 2025 00:00:00 GMT</pubDate>
+    <category>Nouveauté</category>
+    <category>IAM</category>
+    <category>Amélioration</category>
+  </item>
+  <item>
+    <title>Cockpit 2.21.3</title>
+    <link>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html#_16_janvier_2025_cockpit_2_21_3</guid>
+    <description><![CDATA[<div class="sect1"><div class="sectionbody"><div class="sect2"><h3>Amélioration</h3><div class="ulist"><ul><li><p>Vous pouvez désormais sélectionner une génération de processeur compatible lors de l’allocation d’un flexible GPU. Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/Allouer-ou-libérer-un-fGPU.html#_allouer_un_fgpu" class="xref page">Allouer un fGPU</a>.</p></li></ul></div></div></div></div>]]></description>
+    <pubDate>Thu, 16 Jan 2025 00:00:00 GMT</pubDate>
+    <category>Amélioration</category>
+    <category>Cockpit</category>
+    <category>Puissance de calcul</category>
+  </item>
+  <item>
+    <title>TINA OS Update</title>
+    <link>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html#_15_janvier_2025_tina_os_update</guid>
+    <description><![CDATA[<div class="sect1"><div class="sectionbody"><div class="sect2"><h3>Identifiants uniques ajoutés aux keypairs</h3><div class="paragraph"><p>Pour améliorer la cohérence entre nos ressources cloud et faciliter leur gestion, les keypairs possèdent désormais un identifiant unique (ID) sous la forme d’un attribut <code>KeypairId</code> dans l’API OUTSCALE.</p></div><div class="paragraph"><p>Ce nouvel attribut <code>KeypairId</code> ne remplace pas l’attribut <code>KeypairName</code> actuel. L’attribut <code>KeypairName</code> reste entièrement fonctionnel.</p></div><div class="paragraph"><p>Chaque keypair créée a un ID attribué à sa création.<br>Pour les keypairs existantes, un ID leur sera attribué sans aucun impact sur votre utilisation.</p></div></div><div class="sect2"><h3>Tags ajoutés aux keypairs</h3><div class="paragraph"><p>Les keypairs supportent désormais l’utilisation des tags.</p></div><div class="paragraph"><p>Les tags sont des étiquettes qui vous permettent d’identifier et de classer vos ressources. Par exemple, vous pouvez utiliser les tags pour inventorier vos ressources, car ils vous permettent de filtrer celles qui partagent un même tag. Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/À-propos-des-tags.html" class="xref page">À propos des tags</a> et <a href="https:/docs.outscale.com/fr/userguide/Ajouter-ou-retirer-des-tags.html" class="xref page">Ajouter ou retirer des tags</a>.</p></div></div><div class="sect2"><h3>Comportement de CreateNetPeering (OUTSCALE API)</h3><div class="paragraph"><p>Lors de la précédente mise à jour de TINA OS, le paramètre <code>AccepterOwnerId</code> a été ajouté à la méthode API OUTSCALE <a href="https:/docs.outscale.com/api.html#createnetpeering" class="xref page">CreateNetPeering</a> comme optionnel.</p></div><div class="paragraph"><p>A partir de cette mise à jour, dans le cas du partage d’un <span class="tooltip" data-tooltip="VPC peering connection dans les API AWS-compliant">Net peering</span> entre deux Nets appartenant à deux utilisateurs différents, le paramètre <code>AccepterOwnerId</code> est désormais obligatoire.</p></div></div><div class="sect2"><h3>Démarrage des <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machines virtuelles (VMs)</span></h3><div class="paragraph"><p>Nous améliorons continuellement les performances du Cloud OUTSCALE, en particulier la durée de démarrage des VMs.</p></div><div class="paragraph"><p>Les premières améliorations visibles sont disponibles dans cette version de TINA OS.</p></div><div class="paragraph"><p>De nombreuses autres améliorations sont encore à venir dans les prochains mois.</p></div></div><div class="sect2"><h3>Paramètre retiré de l’API Flexible Compute Unit (FCU)</h3><div class="paragraph"><p>Dans l’API FCU, il n’est plus possible d’obtenir les types de produit associés aux snapshots.</p></div><div class="paragraph"><p>Par conséquent, la paramètre <code>SnapshotId</code> est retiré des méthodes API FCU <a href="https:/docs.outscale.com/api.html#getproducttype" class="xref page">GetProductType</a> et <a href="https:/docs.outscale.com/api.html#getproducttypes" class="xref page">GetProductTypes</a>.</p></div></div></div></div>]]></description>
+    <pubDate>Wed, 15 Jan 2025 00:00:00 GMT</pubDate>
+    <category>Nouveauté</category>
+    <category>Puissance de calcul</category>
+    <category>Amélioration</category>
+    <category>Suppression</category>
+  </item>
+  <item>
+    <title>Mise à jour de la politique de mots de passe</title>
+    <link>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html#_14_janvier_2025_mise_à_jour_de_la_politique_de_mots_de_passe</guid>
+    <description><![CDATA[<div class="sect1"><div class="sectionbody"><div class="paragraph"><p>Votre mot de passe doit maintenant avoir au moins 17 caractères, et ce sur toutes les régions. Pour en savoir plus sur la politique de mots de passe, voir <a href="https:/docs.outscale.com/fr/userguide/À-propos-de-la-protection-par-mot-de-passe.html" class="xref page">À propos de la protection par mot de passe</a>.</p></div></div></div>]]></description>
+    <pubDate>Tue, 14 Jan 2025 00:00:00 GMT</pubDate>
+    <category>Amélioration</category>
+    <category>IAM</category>
+  </item>
+  <item>
+    <title>Cockpit 2.21.2</title>
+    <link>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html#_9_janvier_2025_cockpit_2_21_2</guid>
+    <description><![CDATA[<div class="sect1"><div class="sectionbody"><div class="paragraph"><p>Les fonctionnalités suivantes sont désormais disponibles dans Cockpit&nbsp;v2&nbsp;:</p></div><div class="sect2"><h3>OMI</h3><div class="ulist"><ul><li><p>Vous pouvez désormais importer une OMI depuis un bucket. Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/Importer-une-OMI-depuis-un-bucket.html" class="xref page">Importer une image depuis un bucket</a></p></li></ul></div></div><div class="sect2"><h3>Amélioration</h3><div class="ulist"><ul><li><p>La modale de création de <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span> a été améliorée&nbsp;: vous pouvez désormais créer et configurer les ressources associées au Net lors de la création du Net. Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/Créer-un-Net.html" class="xref page">Créer un Net</a>.</p></li></ul></div></div></div></div>]]></description>
+    <pubDate>Thu, 09 Jan 2025 00:00:00 GMT</pubDate>
+    <category>Nouveauté</category>
+    <category>Cockpit</category>
+    <category>Puissance de calcul</category>
+    <category>Amélioration</category>
+    <category>Réseau</category>
+  </item>
+  <item>
+    <title>Services LLM Mistral disponibles pour le marché Nuage public (UGAP)</title>
+    <link>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html#_2_décembre_2024_services_llm_mistral_disponibles_pour_le_marché_nuage_public_ugap</guid>
+    <description><![CDATA[<div class="sect1"><div class="sectionbody"><div class="sect2"><h3>Acheteur</h3><div class="paragraph"><p>Vous pouvez désormais souscrire à des offres de services LLM Mistral en tant qu’acheteur du marché Nuage public (UGAP). Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/Demander-une-estimation-d-une-offre-Nuage-public-UGAP.html#_Offre_service_LLM_Mistral" class="xref page">Demander une estimation d’une offre Nuage public &gt; Offre service LLM Mistral</a> et <a href="https:/docs.outscale.com/fr/userguide/Souscrire-à-une-offre-Nuage-public-UGAP.html" class="xref page">Souscrire à une offre Nuage public (UGAP)</a>.</p></div></div></div></div>]]></description>
+    <pubDate>Mon, 02 Dec 2024 00:00:00 GMT</pubDate>
+    <category>Nouveauté</category>
+    <category>Marketplace</category>
+  </item>
+  <item>
+    <title>Cockpit 2.20</title>
+    <link>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html#_18_novembre_2024_cockpit_2_20</guid>
+    <description><![CDATA[<div class="sect1"><div class="sectionbody"><div class="sect2"><h3>Améliorations</h3><div class="ulist"><ul><li><p>Des cookies de suivi ont été ajoutés pour l’analyse du site web.</p></li><li><p>Un fil d’Ariane et une barre latérale ont été ajoutés pour améliorer l’expérience de navigation.</p></li><li><p>Les catégories ont été réorganisées.</p></li></ul></div></div></div></div>]]></description>
+    <pubDate>Mon, 18 Nov 2024 00:00:00 GMT</pubDate>
+    <category>Amélioration</category>
+    <category>Cockpit</category>
+  </item>
+  <item>
+    <title>Refonte de la page Mes souscriptions</title>
+    <link>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html#_7_novembre_2024_refonte_de_la_page_mes_souscriptions</guid>
+    <description><![CDATA[<div class="sect1"><div class="sectionbody"><div class="sect2"><h3>Acheteur</h3><div class="paragraph"><p>Le design de la page Mes souscriptions a été amélioré afin de présenter les informations relatives à vos souscriptions de manière plus claire et synthétique. Cette mise à jour comprend une réorganisation des informations OMI, qui s’affichent désormais dans un panneau latéral où les ID des OMI sont présentés par région de déploiement et par versions disponibles.</p></div></div></div></div>]]></description>
+    <pubDate>Thu, 07 Nov 2024 00:00:00 GMT</pubDate>
+    <category>Amélioration</category>
+    <category>Marketplace</category>
+  </item>
+  <item>
+    <title>Services LLM Mistral</title>
+    <link>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html#_24_octobre_2024_services_llm_mistral</guid>
+    <description><![CDATA[<div class="sect1"><div class="sectionbody"><div class="sect2"><h3>Acheteur</h3><div class="paragraph"><p>Vous pouvez désormais souscrire à des services LLM Mistral, incluant des modèles de langage ("large language model" ou "LLM" en anglais) et les ressources Cloud nécessaires, et déployer ces services directement depuis l’interface d’OUTSCALE Marketplace. Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/Souscrire-à-un-service-LLM-Mistral-et-le-déployer.html" class="xref page">Souscrire à un service LLM Mistral et le déployer</a>.</p></div></div></div></div>]]></description>
+    <pubDate>Thu, 24 Oct 2024 00:00:00 GMT</pubDate>
+    <category>Nouveauté</category>
+    <category>Marketplace</category>
+  </item>
+  <item>
+    <title>Mise à jour de la documentation des outils</title>
+    <link>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html#_17_octobre_2024_mise_à_jour_de_la_documentation_des_outils</guid>
+    <description><![CDATA[<div class="sect1"><div class="sectionbody"><div class="sect2"><h3>Documentation d’oapi-cli</h3><div class="paragraph"><p>oapi-cli est désormais documenté sur ce site web. Il s’agit du successeur d’OSC CLI, avec des fonctionnalités enrichies et une expérience utilisateur améliorée. Par exemple&nbsp;: une meilleure gestion des réponses en erreur, une autocomplétion Bash, et un système de variables.</p></div><div class="paragraph"><p>Cette mise à jour inclut&nbsp;:</p></div><div class="ulist"><ul><li><p>Une <a href="https:/docs.outscale.com/fr/userguide/Comparaison-entre-OSC-CLI-et-oapi-cli.html" class="xref page">Comparaison entre OSC CLI et oapi-cli</a>.</p></li><li><p>Une page pour <a href="https:/docs.outscale.com/fr/userguide/Installer-et-configurer-oapi-cli.html" class="xref page">Installer et configurer oapi-cli</a>.</p></li><li><p>Des onglets pour des exemples oapi-cli dans la <a href="https:/docs.outscale.com/api.html" class="xref page">documentation de l’API OUTSCALE</a> et dans les procédures du Guide utilisateur.</p></li></ul></div></div><div class="sect2"><h3>Correspondances entre API OUTSCALE et Terraform</h3><div class="paragraph"><p>La <a href="https:/docs.outscale.com/api.html" class="xref page">documentation de l’API OUTSCALE</a> inclut désormais aussi des onglets pour le langage HCL, qui est utilisé par le provider Terraform d’OUTSCALE. Ces onglets contiennent des liens vers les pages des ressources ou data sources Terraform correspondantes.</p></div><div class="paragraph"><p>Ainsi, si vous utilisez Terraform, vous pouvez plus facilement identifier les correspondances entre API OUTSCALE et provider Terraform d’OUTSCALE.</p></div></div></div></div>]]></description>
+    <pubDate>Thu, 17 Oct 2024 00:00:00 GMT</pubDate>
+    <category>Nouveauté</category>
+    <category>Site de documentation</category>
+    <category>API / outils</category>
+    <category>Amélioration</category>
+  </item>
+  <item>
+    <title>Amélioration de la section Object Storage</title>
+    <link>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html#_16_octobre_2024_amélioration_de_la_section_object_storage</guid>
+    <description><![CDATA[<div class="sect1"><div class="sectionbody"><div class="paragraph"><p>La section <code>À propos</code> d’OOS a été améliorée. Afin de mieux permettre de comprendre le fonctionnement du service, cette section a fait l’objet d’une refonte complète. Cette mise à jour comprend un contexte plus détaillé, des illustrations et des conseils sur la manière d’interagir au mieux avec OOS et d’en tirer le plus grand profit.</p></div></div></div>]]></description>
+    <pubDate>Wed, 16 Oct 2024 00:00:00 GMT</pubDate>
+    <category>Amélioration</category>
+    <category>Stockage objet</category>
+  </item>
+  <item>
+    <title>Nouvelle Sous-région</title>
+    <link>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html#_11_octobre_2024_nouvelle_sous_région</guid>
+    <description><![CDATA[<div class="sect1"><div class="sectionbody"><div class="paragraph"><p>Une nouvelle <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Sous-région</span> SecNumCloud nommée <code>cloudgouv-eu-west-1c</code> est désormais disponible. Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/À-propos-des-Régions-et-Sous-régions.html" class="xref page">À propos des Régions et Sous-régions</a>.</p></div></div></div>]]></description>
+    <pubDate>Fri, 11 Oct 2024 00:00:00 GMT</pubDate>
+    <category>Nouveauté</category>
+    <category>Infrastructure</category>
+  </item>
+  <item>
+    <title>Marché Nuage public (UGAP)</title>
+    <link>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html#_10_octobre_2024_marché_nuage_public_ugap</guid>
+    <description><![CDATA[<div class="sect1"><div class="sectionbody"><div class="paragraph"><p>3DS OUTSCALE peut désormais définir les organisations comme appartenant au marché Nuage public de l’Union des groupements d’achats publics (UGAP). Les organisations vendeurs partenaires peuvent créer des offres d’abonnement pour des produits images machines OUTSCALE (OMI), et les organisations acheteurs peuvent souscrire à de telles offres. Pour en savoir plus, voir le <a href="https://www.ugap.fr/informatique-et-telephonie-2/telecom-reseaux-serveur-13034/solutions-d-infrastructure-de-stockage-et-cloud-437/cloud-103007/cloud-public-iaas-paas-125402?totalNews=1" target="_blank" rel="noopener">site officiel de l’UGAP</a>, <a href="https:/docs.outscale.com/fr/userguide/Créer-une-offre-Nuage-public-UGAP.html" class="xref page">Créer une offre Nuage public (UGAP)</a>, et <a href="https:/docs.outscale.com/fr/userguide/Souscrire-à-une-offre-Nuage-public-UGAP.html" class="xref page">Souscrire à une offre Nuage public (UGAP)</a>.</p></div></div></div>]]></description>
+    <pubDate>Thu, 10 Oct 2024 00:00:00 GMT</pubDate>
+    <category>Nouveauté</category>
+    <category>Marketplace</category>
+  </item>
+  <item>
+    <title>Souscrire à des offres de licences Microsoft Windows</title>
+    <link>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html#_3_octobre_2024_souscrire_à_des_offres_de_licences_microsoft_windows</guid>
+    <description><![CDATA[<div class="sect1"><div class="sectionbody"><div class="sect2"><h3>Acheteur</h3><div class="paragraph"><p>Vous pouvez désormais souscrire à des offres de licences Microsoft Windows. Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/Estimer-le-coût-d-un-produit.html" class="xref page">Estimer le coût d’un produit</a> et <a href="https:/docs.outscale.com/fr/userguide/Souscrire-à-un-produit-OMI.html#_Licence_Microsoft_Windows" class="xref page">Souscrire à un produit OMI &gt; Licence Microsoft Windows</a>.</p></div></div></div></div>]]></description>
+    <pubDate>Thu, 03 Oct 2024 00:00:00 GMT</pubDate>
+    <category>Nouveauté</category>
+    <category>Marketplace</category>
+  </item>
+  <item>
+    <title>Cockpit 2.19.10</title>
+    <link>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html#_18_septembre_2024_cockpit_2_19_10</guid>
+    <description><![CDATA[<div class="sect1"><div class="sectionbody"><div class="paragraph"><p>Les fonctionnalités suivantes sont désormais disponibles dans Cockpit&nbsp;v2&nbsp;:</p></div><div class="sect2"><h3>Utilisateurs EIM</h3><div class="ulist"><ul><li><p>Vous pouvez désormais modifier le nom, l’e-mail et le chemin d’accès d’un utilisateur. Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/Modifier-un-utilisateur.html" class="xref page">Modifier un utilisateur</a>.</p></li><li><p>En tant qu’utilisateur root, vous pouvez désormais spécifier l’e-mail d’un utilisateur lors de sa création. Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/Créer-un-utilisateur.html" class="xref page">Créer un utilisateur</a>.</p></li><li><p>L’e-mail associé à un utilisateur apparaît désormais dans le dashboard <strong>EIM Users</strong>.</p></li></ul></div></div></div></div>]]></description>
+    <pubDate>Wed, 18 Sep 2024 00:00:00 GMT</pubDate>
+    <category>Amélioration</category>
+    <category>Cockpit</category>
+    <category>IAM</category>
+  </item>
+  <item>
+    <title>Mise à jour EIM dans l’API OUTSCALE</title>
+    <link>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html#_16_septembre_2024_mise_à_jour_eim_dans_lapi_outscale</guid>
+    <description><![CDATA[<div class="sect1"><div class="sectionbody"><div class="sect2"><h3>Nouvelle méthode&nbsp;: ReadEntitiesLinkedToPolicy</h3><div class="paragraph"><p>Vous pouvez maintenant obtenir des informations sur toutes les entités liées à une politique gérée spécifique avec la méthode API OUTSCALE <a href="https:/docs.outscale.com/api.html#readentitieslinkedtopolicy" class="xref page">ReadEntitiesLinkedToPolicy</a>. Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/Obtenir-des-informations-sur-les-entités-liées-à-une-politique-gérée.html" class="xref page">Obtenir des informations sur les entités liées à une politique gérée</a>.</p></div></div><div class="sect2"><h3>Améliorations mineures</h3><div class="ulist"><ul><li><p>Vous pouvez maintenant assigner une adresse e-mail à un utilisateur EIM avec les méthodes OUTSCALE API <a href="https:/docs.outscale.com/api.html#createuser" class="xref page">CreateUser</a> et <a href="https:/docs.outscale.com/api.html#updateuser" class="xref page">UpdateUser</a>.</p></li><li><p>La pagination et les filtres sont maintenant disponibles pour la méthode OUTSCALE API <a href="https:/docs.outscale.com/api.html#readuser" class="xref page">ReadUser</a>.</p></li></ul></div></div></div></div>]]></description>
+    <pubDate>Mon, 16 Sep 2024 00:00:00 GMT</pubDate>
+    <category>Nouveauté</category>
+    <category>IAM</category>
+    <category>API / outils</category>
+    <category>Amélioration</category>
+  </item>
+  <item>
+    <title>Mise à jour de TINA OS</title>
+    <link>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html#_16_septembre_2024_mise_à_jour_de_tina_os</guid>
+    <description><![CDATA[<div class="sect1"><div class="sectionbody"><div class="sect2"><h3>Appliance dans un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span></h3><div class="paragraph"><p>Pour des raisons de sécurité, ou pour des raisons de capacité de vos solutions logicielles, vous souhaitez déléguer le contrôle des flux réseau à votre appliance.</p></div><div class="paragraph"><p>Pour ce faire, vous avez la possibilité d’envoyer tous les trafics réseau externes vers la <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> qui porte votre appliance.</p></div><div class="paragraph"><p>Vous pouvez suivre ce tutoriel pour mettre en place une appliance dans un Net&nbsp;: <a href="https:/docs.outscale.com/fr/userguide/Mettre-en-place-une-appliance-dans-un-Net.html" class="xref page">Mettre en place une appliance dans un Net</a>.</p></div></div><div class="sect2"><h3>Harmonisation des comportements entre CreateNetPeering (API OUTSCALE) et CreateVpcPeeringConnection (API FCU)</h3><div class="paragraph"><p>Le paramètre <code>PeerOwnerId</code> de la méthode API FCU <a href="https:/docs.outscale.com/api.html#createvpcpeeringconnection" class="xref page">CreateVpcPeeringConnection</a> est désormais ajouté à la méthode API OUTSCALE correspondante <a href="https:/docs.outscale.com/api.html#createnetpeering" class="xref page">CreateNetPeering</a> sous le nom <code>AccepterOwnerId</code>.</p></div><div class="paragraph"><p>Cette intégration est faite en deux étapes&nbsp;:</p></div><div class="olist arabic"><ol class="arabic"><li><p>Dans cette version, le paramètre <code>AccepterOwnerId</code> est ajouté comme optionnel dans l’API OUTSCALE. Il est inclus dans cette release pour permettre aux utilisateurs et aux outils de l’intégrer dès maintenant.</p></li><li><p>Dans une prochaine version, ce paramètre sera obligatoire dans le cas d’un partage de connexion <span class="tooltip" data-tooltip="VPC peering connection dans les API AWS-compliant">Net peering</span> entre deux Nets appartenant à deux utilisateurs différents.</p></li></ol></div></div><div class="sect2"><h3>Harmonisation du paramètre <code>IsSourceDestChecked</code></h3><div class="paragraph"><p>Dans l’API OUTSCALE, la valeur du paramètre <code>IsSourceDestChecked</code> dans la <span class="tooltip" data-tooltip="flexible network interface (FNI) dans les API AWS-compliant">Network Interface Card (NIC)</span> principale, avec <code>0</code> comme index de périphérique, est désormais harmonisée avec le paramètre <code>IsSourceDestChecked</code> de la VM.</p></div><div class="paragraph"><p>Cette amélioration est aussi appliquée dans l’API Flexible Compute Unit (FCU) avec le paramètre <code>sourceDestCheck</code> de la <span class="tooltip" data-tooltip="network interface card (NIC) dans l'API OUTSCALE">Flexible Network Interface (FNI)</span> qui est harmonisé avec le paramètre <code>sourceDestCheck</code> de l’<span class="tooltip" data-tooltip="machine virtuelle (VM) dans l'API OUTSCALE">instance</span>.</p></div></div></div></div>]]></description>
+    <pubDate>Mon, 16 Sep 2024 00:00:00 GMT</pubDate>
+    <category>Nouveauté</category>
+    <category>Puissance de calcul</category>
+    <category>Amélioration</category>
+    <category>API / outils</category>
+  </item>
+  <item>
+    <title>Cockpit 2.19.9</title>
+    <link>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html#_10_septembre_2024_cockpit_2_19_9</guid>
+    <description><![CDATA[<div class="sect1"><div class="sectionbody"><div class="paragraph"><p>Les fonctionnalités suivantes sont désormais disponibles dans Cockpit&nbsp;v2&nbsp;:</p></div><div class="sect2"><h3>Utilisateurs EIM</h3><div class="ulist"><ul><li><p>Vous pouvez désormais modifier le nom et le chemin d’accès d’un utilisateur. Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/Modifier-un-utilisateur.html" class="xref page">Modifier un utilisateur</a>.</p></li></ul></div></div><div class="sect2"><h3>Améliorations</h3><div class="ulist"><ul><li><p>La vue de détails des ressources peut désormais être affichée en plein écran.</p></li><li><p>Les boutons, les boîtes de dialogue, et les champs de formulaire de l’interface ont été modernisés.</p></li><li><p>Le nombre total de ressources est désormais affiché sur chaque dashboard, à côté du lien de documentation, sous la forme suivante&nbsp;:&nbsp;<span class="image"><img src="https:/docs.outscale.com/fr/userguide/_images/IconBadgeResource.svg" alt="IconBadgeResource"></span>.</p></li></ul></div></div></div></div>]]></description>
+    <pubDate>Tue, 10 Sep 2024 00:00:00 GMT</pubDate>
+    <category>Nouveauté</category>
+    <category>Cockpit</category>
+    <category>IAM</category>
+    <category>Amélioration</category>
+  </item>
+  <item>
+    <title>Amélioration de l’affichage des réponses d’API et des éléments imbriqués</title>
+    <link>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html#_8_août_2024_amélioration_de_laffichage_des_réponses_dapi_et_des_éléments_imbriqués</guid>
+    <description><![CDATA[<div class="sect1"><div class="sectionbody"><div class="imageblock"><div class="content"><img src="https:/docs.outscale.com/en/userguide/_images/Release-Notes-2024-08-08.png" alt="Release Notes 2024 08 08" width="400"></div></div><div class="paragraph"><p>La mise en page de la <a href="https:/docs.outscale.com/api.html" class="xref page">documentation API</a> a été améliorée&nbsp;:</p></div><div class="ulist"><ul><li><p>Les paramètres de requête imbriqués et les éléments de réponse imbriqués sont désormais indiqués par des lignes verticales et des noeuds, au lieu de symboles d’indentation (<code>»</code>) précédemment.</p></li><li><p>Dans la partie réponse de chaque méthode, les éléments de la réponse 200 sont directement listés, au lieu d’avoir seulement un lien vers le schéma de la réponse.</p></li><li><p>Lorsqu’il existe plusieurs exemples pour une réponse, le premier exemple est visible par défaut tandis que les autres exemples sont contenus dans des blocs dépliables.</p></li></ul></div></div></div>]]></description>
+    <pubDate>Thu, 08 Aug 2024 00:00:00 GMT</pubDate>
+    <category>Amélioration</category>
+    <category>Site de documentation</category>
+    <category>API / outils</category>
+  </item>
+  <item>
+    <title>Définition des VM recommandées</title>
+    <link>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html#_6_août_2024_définition_des_vm_recommandées</guid>
+    <description><![CDATA[<div class="sect1"><div class="sectionbody"><div class="sect2"><h3>Vendeur partenaire</h3><div class="paragraph"><p>La définition des <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machines virtuelles (VM)</span> recommandées lors de la création d’un produit image machine OUTSCALE (OMI) a été améliorée. Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/Créer-et-publier-un-produit-OMI.html#_Offre" class="xref page">Créer et publier un produit OMI &gt; Offre</a>.</p></div></div></div></div>]]></description>
+    <pubDate>Tue, 06 Aug 2024 00:00:00 GMT</pubDate>
+    <category>Amélioration</category>
+    <category>Marketplace</category>
+  </item>
+  <item>
+    <title>Tutoriel de pagination</title>
+    <link>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html#_26_juillet_2024_tutoriel_de_pagination</guid>
+    <description><![CDATA[<div class="sect1"><div class="sectionbody"><div class="paragraph"><p>La page <a href="https:/docs.outscale.com/fr/userguide/Tutoriel-Paginer-une-requete-API.html" class="xref page">Tutoriel&nbsp;: Paginer une requête API</a> a été mise à jour pour inclure la méthode de pagination pour les requêtes OUTSCALE API concernant les politiques, les utilisateurs et les groupes d’utilisateurs.</p></div></div></div>]]></description>
+    <pubDate>Fri, 26 Jul 2024 00:00:00 GMT</pubDate>
+    <category>Amélioration</category>
+    <category>Site de documentation</category>
+    <category>API / outils</category>
+  </item>
+  <item>
+    <title>Mises à jour OUTSCALE Marketplace</title>
+    <link>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html#_23_juillet_2024_mises_à_jour_outscale_marketplace</guid>
+    <description><![CDATA[<div class="sect1"><div class="sectionbody"><div class="sect2"><h3>Contrat d’apporteur d’affaires</h3><div class="paragraph"><p>Lors de la création d’un produit infogéré, vous devez désormais lire et accepter le contrat d’apporteur d’affaires pour publier le produit. Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/Créer-et-publier-un-produit-infogéré.html#_Conditions_contractuelles" class="xref page">Créer et publier un produit infogéré &gt; Conditions contractuelles</a>.</p></div></div><div class="sect2"><h3>Sélection du système d’exploitation</h3><div class="paragraph"><p>Lors de la création d’un produit image machine OUTSCALE (OMI) et de la spécification du formulaire Versions, vous devez désormais sélectionnez le système d’exploitation depuis une liste et donner des précisions sur celui-ci. Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/Créer-et-publier-un-produit-OMI.html#_Versions" class="xref page">Créer et publier un produit OMI &gt; Versions</a>.</p></div></div></div></div>]]></description>
+    <pubDate>Tue, 23 Jul 2024 00:00:00 GMT</pubDate>
+    <category>Nouveauté</category>
+    <category>Marketplace</category>
+    <category>Amélioration</category>
+  </item>
+  <item>
+    <title>Cockpit 2.18</title>
+    <link>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html#_11_juillet_2024_cockpit_2_18</guid>
+    <description><![CDATA[<div class="sect1"><div class="sectionbody"><div class="paragraph"><p>Les fonctionnalités suivantes sont désormais disponibles dans Cockpit&nbsp;v2&nbsp;:</p></div><div class="sect2"><h3>Groupes EIM</h3><div class="ulist"><ul><li><p><a href="https:/docs.outscale.com/fr/userguide/Créer-un-groupe.html" class="xref page">Créer un groupe</a></p></li><li><p><a href="https:/docs.outscale.com/fr/userguide/Supprimer-un-groupe.html" class="xref page">Supprimer un groupe</a></p></li></ul></div></div><div class="sect2"><h3>Politiques EIM</h3><div class="ulist"><ul><li><p><a href="https:/docs.outscale.com/fr/userguide/Attacher-une-politique-gérée-à-un-utilisateur-ou-un-groupe.html#_attacher_une_politique_gérée_à_un_groupe" class="xref page">Attacher une politique gérée à un groupe</a></p></li><li><p><a href="https:/docs.outscale.com/fr/userguide/Détacher-une-politique-gérée-d-un-utilisateur-ou-un-groupe.html#_détacher_une_politique_gérée_dun_groupe" class="xref page">Détacher une politique gérée d’un groupe</a></p></li></ul></div></div><div class="sect2"><h3>Load balancers</h3><div class="ulist"><ul><li><p><a href="https:/docs.outscale.com/fr/userguide/Ajouter-ou-supprimer-des-listeners.html" class="xref page">Ajouter ou supprimer des listeners</a></p></li><li><p><a href="https:/docs.outscale.com/fr/userguide/Configurer-les-health-checks.html" class="xref page">Configurer les health checks</a></p></li><li><p><a href="https:/docs.outscale.com/fr/userguide/Activer-les-access-logs.html" class="xref page">Activer les access logs</a></p></li></ul></div></div><div class="sect2"><h3>Améliorations des load balancers</h3><div class="ulist"><ul><li><p>Vous pouvez désormais configurer de nouvelles options lors de la création d’un load balancer dans le Cloud public, telles que la confidentialité, l’<span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">IP publique</span>, et la <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Sous-région</span>. Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/Créer-un-load-balancer-relié-à-Internet-dans-le-Cloud-public.html" class="xref page">Créer un load balancer relié à Internet dans le Cloud public</a>.</p></li><li><p>Vous pouvez désormais configurer de nouvelles options lors de la création d’un load balancer relié à Internet dans un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span>, telles que la confidentialité, le type de load balancer, l’IP publique, le Subnet, et le security group. Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/Créer-un-load-balancer-relié-à-Internet-dans-un-Net.html" class="xref page">Créer un load balancer relié à Internet dans un Net</a>.</p></li><li><p>Vous pouvez désormais configurer les listeners, le health check, les access logs, et les <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> backend lors de la création d’un load balancer interne. Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/Créer-un-load-balancer-interne.html" class="xref page">Créer un load balancer interne</a>.</p></li></ul></div></div><div class="sect2"><h3>Autres améliorations</h3><div class="admonitionblock important"><table><tbody><tr><td class="icon"><i class="fa icon-important" title="Important"></i></td><td class="content"><div class="paragraph"><p>Le routage des dashboards a été modifié. Vous devez remplacer toutes les URL précédemment enregistrées.</p></div></td></tr></tbody></table></div><div class="ulist"><ul><li><p>Vous pouvez désormais détacher un fGPU attaché à une VM. Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/Allouer-ou-libérer-un-fGPU.html#_libérer_un_fgpu_attaché_à_une_vm" class="xref page">Libérer un fGPU attaché à une VM</a>.</p></li><li><p>Une estimation du coût du type de VM vous est désormais fournie à titre indicatif lors de la création d’une VM. Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/Créer-des-VM.html#_confirmer_la_création_des_vm" class="xref page">Créer des VM</a>.</p></li></ul></div></div></div></div>]]></description>
+    <pubDate>Thu, 11 Jul 2024 00:00:00 GMT</pubDate>
+    <category>Nouveauté</category>
+    <category>Cockpit</category>
+    <category>IAM</category>
+    <category>Réseau</category>
+    <category>Amélioration</category>
+    <category>Puissance de calcul</category>
+  </item>
+  <item>
+    <title>Estimation du coût d’un produit sur plusieurs VM</title>
+    <link>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html#_10_juillet_2024_estimation_du_coût_dun_produit_sur_plusieurs_vm</guid>
+    <description><![CDATA[<div class="sect1"><div class="sectionbody"><div class="sect2"><h3>Acheteur</h3><div class="paragraph"><p>Vous pouvez désormais estimer le coût d’utilisation d’un produit OUTSCALE machine image (OMI) sur plusieurs <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span>. Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/Estimer-le-coût-d-un-produit.html" class="xref page">Estimer le coût d’un produit</a>.</p></div></div></div></div>]]></description>
+    <pubDate>Wed, 10 Jul 2024 00:00:00 GMT</pubDate>
+    <category>Amélioration</category>
+    <category>Marketplace</category>
+  </item>
+  <item>
+    <title>Nouvelle fonctionnalité de synchronisation dans la documentation OOS</title>
+    <link>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html#_8_juillet_2024_nouvelle_fonctionnalité_de_synchronisation_dans_la_documentation_oos</guid>
+    <description><![CDATA[<div class="sect1"><div class="sectionbody"><div class="paragraph"><p>La documentation d’OUTSCALE Object Storage (OOS) inclut désormais la commande <code>sync</code>. Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/Synchroniser-des-objets-dans-un-bucket.html" class="xref page">Synchroniser des objets dans un bucket</a>.</p></div></div></div>]]></description>
+    <pubDate>Mon, 08 Jul 2024 00:00:00 GMT</pubDate>
+    <category>Nouveauté</category>
+    <category>Site de documentation</category>
+    <category>Stockage objet</category>
+  </item>
+  <item>
+    <title>Contrats de licence OMI BYOL et libres/open source</title>
+    <link>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html#_1_juillet_2024_contrats_de_licence_omi_byol_et_libresopen_source</guid>
+    <description><![CDATA[<div class="sect1"><div class="sectionbody"><div class="sect2"><h3>Vendeur partenaire</h3><div class="paragraph"><p>Lors de la création d’un produit OMI dont le mode de tarification est bring your own license (BYOL) ou libre/open source, vous devez désormais renseigner un lien vers le contrat de licence du produit dans la section Légal. Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/Créer-et-publier-un-produit-OMI.html#_Légal" class="xref page">Créer et publier un produit OMI &gt; Légal</a>.</p></div></div><div class="sect2"><h3>Acheteur</h3><div class="paragraph"><p>Lorsque vous souscrivez à un produit OMI dont le mode de tarification est bring your own license (BYOL) ou libre/open source, vous pouvez désormais consulter le contrat de licence du produit dans la page Mes souscriptions. Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/Souscrire-à-un-produit-OMI.html" class="xref page">Souscrire à un produit OMI</a>.</p></div></div></div></div>]]></description>
+    <pubDate>Mon, 01 Jul 2024 00:00:00 GMT</pubDate>
+    <category>Amélioration</category>
+    <category>Marketplace</category>
+  </item>
+  <item>
+    <title>Mise à jour de TINA OS</title>
+    <link>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html#_17_juin_2024_mise_à_jour_de_tina_os</guid>
+    <description><![CDATA[<div class="sect1"><div class="sectionbody"><div class="sect2"><h3>Performances CPU</h3><div class="paragraph"><p>Les performances des CPU ont été améliorées sur l’ensemble de nos Régions.</p></div><div class="paragraph"><p>Le placement des vCores des nouvelles <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machines virtuelles</span> est optimisé grâce à une meilleure prise en compte des zones <a href="https://fr.wikipedia.org/wiki/Non_uniform_memory_access" target="_blank" rel="noopener">NUMA</a> (Non uniform memory access) dans les processeurs Intel.</p></div></div><div class="sect2"><h3>Performances réseau</h3><div class="paragraph"><p>Les performances réseau des <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Nets</span> ont été améliorées sur l’ensemble de nos Régions.</p></div><div class="paragraph"><p>Pour les Nets nouvellement créés, le réseau est désormais capable de traiter un plus grand nombre de paquets par seconde et la capacité de la bande passante a été augmentée.</p></div></div><div class="sect2"><h3>Correctifs et améliorations mineures</h3><div class="ulist"><ul><li><p>Dans les méthodes <a href="https:/docs.outscale.com/api.html#createroutetable" class="xref page">RouteTable</a> de l’API OUTSCALE, le paramètre <code>GatewayId</code> peut désormais renvoyer la valeur <code>local</code>.</p></li><li><p>Dans l’API OUTSCALE, la création d’un <span class="tooltip" data-tooltip="VPC peering connection dans les API AWS-compliant">Net peering</span> entre un Net vous appartenant et celui d’un autre utilisateur a été corrigée.</p></li><li><p>Il n’est plus possible d’utiliser le nom <code>outscale-elb-sg</code> pour un security group. Ce nom est réservé l’usage d’OUTSCALE.</p></li><li><p>La performance de la méthode API FCU <a href="https:/docs.outscale.com/fcu.html#describeinstances" class="xref page">DescribeInstances</a> a été améliorée et permet d’obtenir simultanément les informations d’un plus grand nombre de VM.</p></li></ul></div></div></div></div>]]></description>
+    <pubDate>Mon, 17 Jun 2024 00:00:00 GMT</pubDate>
+    <category>Amélioration</category>
+    <category>Puissance de calcul</category>
+    <category>Réseau</category>
+    <category>API / outils</category>
+  </item>
+  <item>
+    <title>Nouvelle page de notes de mise à jour</title>
+    <link>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html#_17_juin_2024_nouvelle_page_de_notes_de_mise_à_jour</guid>
+    <description><![CDATA[<div class="sect1"><div class="sectionbody"><div class="paragraph"><p>Pour plus de visibilité, les notes de mise à jour de tous les produits et services du Cloud OUTSCALE sont désormais rassemblées sur une nouvelle page.</p></div><div class="paragraph"><p>Sur cette nouvelle page, chaque entrée est catégorisée avec des tags dans la colonne de gauche, et vous pouvez utiliser le menu à droite pour filtrer les entrées par tag.</p></div><div class="paragraph"><p>Les notes de mise à jour datant d’avant le 17 juin sont encore disponibles dans les anciennes pages&nbsp;:</p></div><div class="ulist"><ul><li><p><a href="https:/docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html" class="xref page">Historique de la documentation (ancienne page)</a></p></li><li><p><a href="https:/docs.outscale.com/fr/userguide/Notes-de-releases-API-ancienne-page.html" class="xref page">Notes de releases API (ancienne page)</a></p></li><li><p><a href="https:/docs.outscale.com/fr/userguide/Notes-de-releases-Cockpit-ancienne-page.html" class="xref page">Notes de releases Cockpit&nbsp;v2 (ancienne page)</a></p></li><li><p><a href="https:/docs.outscale.com/fr/userguide/Notes-de-releases-OUTSCALE-Marketplace-ancienne-page.html" class="xref page">Notes de releases OUTSCALE Marketplace (ancienne page)</a></p></li></ul></div></div></div>]]></description>
+    <pubDate>Mon, 17 Jun 2024 00:00:00 GMT</pubDate>
+    <category>Nouveauté</category>
+    <category>Suppression</category>
+    <category>API / outils</category>
+    <category>Cockpit</category>
+    <category>Facturation</category>
+    <category>IAM</category>
+    <category>Marketplace</category>
+    <category>Puissance de calcul</category>
+    <category>Réseau</category>
+    <category>Site de documentation</category>
+    <category>Stockage bloc</category>
+    <category>Stockage objet</category>
+  </item>
+</channel>
+</rss>

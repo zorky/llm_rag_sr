@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Mettre en place une appliance dans un Net – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Mettre-en-place-une-appliance-dans-un-Net.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Mettre-en-place-une-appliance-dans-un-Net.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Setting-Up-an-Appliance-in-a-Net.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Mettre en place une appliance dans un Net</h1>
+<div id="preamble" class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>Pour des raisons de sécurité, ou pour des raisons de capacité de vos solutions logicielles, vous souhaitez déléguer le contrôle des flux réseau à votre appliance.</p>
+</div>
+<div class="paragraph">
+<p>Pour ce faire, vous avez la possibilité d&#8217;envoyer tous les trafics réseau externes vers la <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> qui porte votre appliance.</p>
+</div>
+<div class="paragraph">
+<p>Ce guide explique la mise en place d’une appliance dans un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span>.</p>
+</div>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Créez un Net avec 10.0.0.0/16 comme plage d’IP. Voir <a href="Créer-un-Net.html" class="xref page">Créer un Net</a>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Lorsque vous créez le Net, n&#8217;utilisez pas le tag <code>osc.fcu.enable_lan_security_groups</code>. Le reste du tutoriel n&#8217;est pas compatible avec un Net possédant ce tag.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Configurez la VM-A :</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Créez un Subnet-A avec 10.0.1.0/24 comme plage d’IP. Voir <a href="Créer-un-Subnet-dans-un-Net.html" class="xref page">Créer un Subnet dans un Net</a>.</p>
+</li>
+<li>
+<p>Créez un <span class="tooltip" data-tooltip="Internet gateway dans les API AWS-compliant">internet service</span> et attachez-le au Net. Voir <a href="Créer-un-internet-service.html" class="xref page">Créer un internet service</a> et <a href="Attacher-un-internet-service-à-un-Net.html" class="xref page">Attacher un internet service à un Net</a>.</p>
+</li>
+<li>
+<p>Créez une route table et attachez-la au Subnet-A. Voir <a href="Créer-une-route-table.html" class="xref page">Créer une route table</a> et <a href="Attacher-une-route-table-à-un-Subnet.html" class="xref page">Attacher une route table à un Subnet</a>.</p>
+</li>
+<li>
+<p>Ajoutez une route par défaut dans le Subnet-A ciblant l’internet service. Voir <a href="Créer-une-route-table.html" class="xref page">Créer une route table</a>.</p>
+</li>
+<li>
+<p>Créez une VM-A dans le Subnet-A. Voir <a href="Créer-des-VM.html" class="xref page">Créer des VM</a>.</p>
+</li>
+<li>
+<p>Allouez une <span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">IP publique</span> à votre compte et attachez-la à la VM-A. Voir <a href="Allouer-une-IP-publique-à-votre-compte.html" class="xref page">Allouer une IP publique à votre compte</a> et <a href="Attacher-une-IP-publique-à-une-VM-ou-à-une-interface-réseau.html" class="xref page">Attacher une IP publique à une VM ou à une interface réseau</a>.</p>
+</li>
+<li>
+<p>Connectez-vous à votre appliance dans la VM-A et configurez-la selon vos besoins. Voir <a href="Accéder-à-vos-VM.html" class="xref page">Accéder à vos VM</a>.<br>
+Cette VM-A avec votre appliance agit désormais comme routeur.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Configurez la VM-B :</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Créez un Subnet-B avec 10.0.2.0/24 comme plage d’IP. Voir <a href="Créer-un-Subnet-dans-un-Net.html" class="xref page">Créer un Subnet dans un Net</a>.</p>
+</li>
+<li>
+<p>Créez une route table et attachez-la au Subnet-B. Voir <a href="Créer-une-route-table.html" class="xref page">Créer une route table</a> et <a href="Attacher-une-route-table-à-un-Subnet.html" class="xref page">Attacher une route table à un Subnet</a>.</p>
+</li>
+<li>
+<p>Ajoutez une route par défaut dans le Subnet-B ciblant la VM-A. Voir <a href="Créer-une-route-table.html" class="xref page">Créer une route table</a>.</p>
+</li>
+<li>
+<p>Créez une VM-B dans le Subnet-B. Voir <a href="Créer-des-VM.html" class="xref page">Créer des VM</a>.<br>
+Cette VM-B peut désormais recevoir le trafic entrant depuis Internet et envoyé par la VM-A.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/FR-sch-ApplianceRouter.png" alt="FR sch ApplianceRouter"></span></p>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-Nets.html" class="xref page">À propos des Nets</a></p>
+</li>
+<li>
+<p><a href="À-propos-des-VM.html" class="xref page">À propos des VM</a></p>
+</li>
+<li>
+<p><a href="À-propos-des-internet-services.html" class="xref page">À propos des internet services</a></p>
+</li>
+<li>
+<p><a href="À-propos-des-route-tables.html" class="xref page">À propos des route tables</a></p>
+</li>
+</ul>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Notes de releases API (ancienne page) – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Notes-de-releases-API-ancienne-page.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Notes-de-releases-API-ancienne-page.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/API-Release-Notes-Old-Page.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="1">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Notes de releases API (ancienne page)</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cette page liste les nouvelles fonctionnalités incluses dans chaque release de TINA OS.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2024"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_2024"></a>2024</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_juin_2024"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_juin_2024"></a>Juin 2024</h3>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Depuis le 17 juin 2024, les notes de mise à jour se trouvent sur une nouvelle page : <a href="Notes-de-mise-à-jour.html" class="xref page">Notes de mise à jour</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_avril_2024"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_avril_2024"></a>Avril 2024</h3>
+<div class="paragraph">
+<p>22 avril 2024 (eu-west-2) / 22 avril 2024 (cloudgouv-eu-west-1) / 15 avril 2024 (us-west-1) / 17 avril 2024 (us-east-2) / 16 avril 2024 (ap-northeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Dans l&#8217;API OUTSCALE, vous pouvez désormais gérer des groupes pour les utilisateurs EIM avec les méthodes <a href="../../api%3Fconsole.html#3ds-outscale-api-usergroup" class="xref page">UserGroup</a>. Les groupes vous permettent d&#8217;accorder des autorisations à plusieurs utilisateurs, facilitant ainsi la gestion des autorisations. Pour en savoir plus, voir <a href="À-propos-des-groupes-EIM.html" class="xref page">À propos des groupes EIM</a>.</p>
+</li>
+<li>
+<p>Vous pouvez désormais gérer des politiques pour vos groupes d&#8217;utilisateurs avec les méthodes <a href="../../api%3Fconsole.html#3ds-outscale-api-policy" class="xref page">Policy</a> suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#deleteusergrouppolicy" class="xref page">DeleteUserGroupPolicy</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#linkmanagedpolicytousergroup" class="xref page">LinkManagedPolicyToUserGroup</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#putusergrouppolicy" class="xref page">PutUserGroupPolicy</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readmanagedpolicieslinkedtousergroup" class="xref page">ReadManagedPoliciesLinkedToUserGroup</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readusergrouppolicies" class="xref page">ReadUserGroupPolicies</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readusergrouppolicy" class="xref page">ReadUserGroupPolicy</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#unlinkmanagedpolicyfromusergroup" class="xref page">UnlinkManagedPolicyFromUserGroup</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Vous pouvez désormais modifier la description d&#8217;une OMI avec le paramètre <code>Description</code> de la méthode API OUTSCALE <a href="../../api%3Fconsole.html#updateimage" class="xref page">UpdateImage</a>.</p>
+</li>
+<li>
+<p>Les méthodes API OUTSCALE <a href="../../api%3Fconsole.html#createnatservice" class="xref page">CreateNatService</a> et <a href="../../api%3Fconsole.html#readnatservices" class="xref page">ReadNatServices</a> supportent désormais le paramètre <code>ClientToken</code></p>
+</li>
+<li>
+<p>La méthode API OUTSCALE <a href="../../api%3Fconsole.html#readnics" class="xref page">ReadNics</a> supporte désormais le filtre <code>LinkPublicIpPublicDnsNames</code>.</p>
+</li>
+<li>
+<p>Les réponses de la méthode API OUTSCALE <a href="../../api%3Fconsole.html#readconsumptionaccount" class="xref page">ReadConsumptionAccount</a> sont désormais renvoyées dans la devise de votre compte.</p>
+</li>
+<li>
+<p>Dans l’API Flexible Compute Unit (FCU), les filtres suivants sont retirés de la méthode <a href="../../fcu.html#describeinstances" class="xref page">DescribeInstance</a> :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>dns-name</code></p>
+</li>
+<li>
+<p><code>private-dns-name</code></p>
+</li>
+<li>
+<p><code>network-interface.private-dns-name</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Vous pouvez désormais paginer les réponses des méthodes API OUTSCALE suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#readclientgateways" class="xref page">ReadClientGateways</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readdedicatedgroups" class="xref page">ReadDedicatedGroups</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readdirectlinkinterfaces" class="xref page">ReadDirectLinkInterfaces</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readdirectlinks" class="xref page">ReadDirectLinks</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readimageexporttasks" class="xref page">ReadImageExportTasks</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readinternetservices" class="xref page">ReadInternetServices</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readkeypairs" class="xref page">ReadKeypairs</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readlocations" class="xref page">ReadLocations</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readnetaccesspointservices" class="xref page">ReadNetAccessPointServices</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readnets" class="xref page">ReadNets</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readproducttypes" class="xref page">ReadProductTypes</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readpublicipranges" class="xref page">ReadPublicIpRanges</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readquotas" class="xref page">ReadQuotas</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readsecuritygroups" class="xref page">ReadSecurityGroups</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readsnapshotexporttasks" class="xref page">ReadSnapshotExportTasks</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readsnapshots" class="xref page">ReadSnapshots</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readsubnets" class="xref page">ReadSubnets</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readsubregions" class="xref page">ReadSubregions</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readtags" class="xref page">ReadTags</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readvmsstate" class="xref page">ReadVmsState</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readvmtypes" class="xref page">ReadVmTypes</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_janvier_2024"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_janvier_2024"></a>Janvier 2024</h3>
+<div class="paragraph">
+<p>15 janvier 2024 (eu-west-2) / 16 janvier 2024 (cloudgouv-eu-west-1) / 8 janvier 2024 (us-west-1) / 10 janvier 2024 (us-east-2) / 9 janvier 2024 (ap-northeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Vous pouvez désormais récupérer le coût unitaire (<code>UnitPrice</code>) et le coût total (<code>Price</code>) d&#8217;une ressource consommée, grâce au paramètre <code>ShowPrice</code> de la méthode <a href="../../api%3Fconsole.html#readconsumptionaccount" class="xref page">ReadConsumptionAccount</a>.</p>
+</li>
+<li>
+<p>Dans l&#8217;API OUTSCALE, vous pouvez désormais créer des groupes dédiés pour créer des <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> dans des groupes sur des servers dédiés.<br>
+Cela vous permet de bénéficier de la capacité maximum du server et vous garantit que seules les VM créées dans des groupes dédiées sont placées sur un ou plusieurs des serveurs dédiés. Pour en savoir plus, voir <a href="À-propos-des-groupes-dédiés.html" class="xref page">À propos des groupes dédiés</a>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Cette fonctionnalité est disponible en beta.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Vous pouvez désormais gérer les policies pour les utilisateurs EIM avec les méthodes <a href="../../api%3Fconsole.html#policy" class="xref page">Policy</a>.</p>
+</li>
+<li>
+<p>Vous pouvez désormais modifier la route table associée à un subnet specifique dans un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span> via la méthode <a href="../../api%3Fconsole.html#updateroutetablelink" class="xref page">UpdateRouteTableLink</a> dans l&#8217;API OUTSCALE. Pour en savoir plus, voir <a href="Changer-la-route-table-attachée-à-un-Subnet.html" class="xref page">Changer la route table attachée à un Subnet</a>.</p>
+</li>
+<li>
+<p>Vous pouvez désormais paginer les réponses des méthodes API OUTSCALE suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#readdhcpoptions" class="xref page">ReadDhcpOptions</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readimages" class="xref page">ReadImages</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readnatservices" class="xref page">ReadNatServices</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readnetaccesspoints" class="xref page">ReadNetAccessPoints</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readnetpeerings" class="xref page">ReadNetPeerings</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readpublicips" class="xref page">ReadPublicIps</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readroutetables" class="xref page">ReadRouteTables</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readvirtualgateways" class="xref page">ReadVirtualGateways</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readvms" class="xref page">ReadVms</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readvolumes" class="xref page">ReadVolumes</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readvpnconnections" class="xref page">ReadVpnConnections</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Les méthode API OUTSCALE suivantes supportent désormais de nouveaux filtres :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#readimages" class="xref page">ReadImages</a> : <code>ProductCodeNames</code>.</p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readnetpeerings" class="xref page">ReadNetPeerings</a> : <code>ExpirationDates</code>.</p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readsubregions" class="xref page">ReadSubregions</a> : <code>RegionsNames</code> and <code>States</code>.</p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readvmtypes" class="xref page">ReadVmTypes</a> : <code>EphemeralTypes</code>, <code>Eths</code> and <code>Gpus</code>.</p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readvms" class="xref page">ReadVms</a> : 60 nouveaux filtres sont supportés, pour en savoir plus voir la <a href="../../api%3Fconsole.html#readvms" class="xref page">documentation API OUTSCALE</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Seules les keypairs RSA peuvent déchiffrer le mot de passe d’une VM Windows. Pour en savoir plus, voir <a href="Accéder-à-une-VM-Windows.html" class="xref page">Accéder à une VM Windows</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2023"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_2023"></a>2023</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_juin_2023"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_juin_2023"></a>Juin 2023</h3>
+<div class="paragraph">
+<p>19 juin 2023 (eu-west-2) / 19 juin 2023 (cloudgouv-eu-west-1) / 12 juin 2023 (us-west-1) / 14 juin 2023 (us-east-2) / 12 juin 2023 (ap-northeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Vous pouvez désormais gérer les utilisateurs EIM via l&#8217;API OUTSCALE avec les méthodes <a href="../../api%3Fconsole.html#3ds-outscale-api-user" class="xref page">User</a>.</p>
+</li>
+<li>
+<p>Vous pouvez désormais gérer les access key des utilisateurs EIM via l&#8217;API OUTSCALE avec les méthodes <a href="../../api%3Fconsole.html#3ds-outscale-api-accesskey" class="xref page">AccessKey</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_avril_2023"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_avril_2023"></a>Avril 2023</h3>
+<div class="paragraph">
+<p>11 avril 2023 (eu-west-2) / 11 avril 2023 (cloudgouv-eu-west-1) / 3 avril 2023 (us-west-1) / 5 avril 2023 (us-east-2) / 3 avril 2023 (ap-northeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Dans l&#8217;API OUTSCALE, la nouvelle méthode <a href="../../api%3Fconsole.html#readcatalogs" class="xref page">ReadCatalogs</a> vous permet d&#8217;obtenir la liste des prix des services et ressources OUTSCALE dans une période déterminée (jusqu&#8217;à 3 ans). Pour en savoir plus, voir <a href="Obtenir-le-prix-de-vos-ressources.html" class="xref page">Obtenir le prix de vos ressources</a>.</p>
+</li>
+<li>
+<p>La méthode <a href="../../api%3Fconsole.html#readsnapshots" class="xref page">ReadSnapshots</a> supporte désormais les filtres <code>FromCreationDate</code> et <code>ToCreationDate</code> pour spécifier une période de création.</p>
+</li>
+<li>
+<p>Dans l&#8217;API OUTSCALE, le format <code>datetime</code> est désormais renommé <code>date-time</code>.</p>
+</li>
+<li>
+<p>Les méthodes API OUTSCALE suivantes supportent désormais les deux formats <code>date</code> et <code>date-time</code> :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#createaccesskey" class="xref page">CreateAccessKey</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#updateaccesskey" class="xref page">UpdateAccessKey</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readconsumptionaccount" class="xref page">ReadConsumptionAccount</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readapilogs" class="xref page">ReadApiLogs</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_février_2023"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_février_2023"></a>Février 2023</h3>
+<div class="paragraph">
+<p>27 février 2023 (eu-west-2) / 27 février 2023 (cloudgouv-eu-west-1) / 20 février 2023 (us-west-1) / 22 février 2023 (us-east-2) / 20 février 2023 (ap-northeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Dans l&#8217;API DirectLink, l&#8217;Autonomous System Number (ASN) des <span class="tooltip" data-tooltip="DirectLink interface dans l'API OUTSCALE">virtual interfaces privées</span> doit désormais être compris entre <code>64512</code> et <code>65534</code>. Les connexions existantes ne sont pas concernées.</p>
+</li>
+<li>
+<p>Dans l&#8217;API OUTSCALE, la méthode <a href="../../api%3Fconsole.html#updatedirectlinkinterface" class="xref page">UpdateDirectlinkInterface</a> supporte désormais uniquement la valeur <code>1500</code> pour le paramètre <code>Mtu</code>.</p>
+</li>
+<li>
+<p>Les comptes de la Région cloudgouv-eu-west-1 sont maintenant avertis par e-mail 13 jours, 8 jours et 1 jour avant l&#8217;expiration de leur mot de passe. Pour en savoir plus, voir <a href="À-propos-de-la-protection-par-mot-de-passe.html" class="xref page">À propos de la protection par mot de passe</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_janvier_2023"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_janvier_2023"></a>Janvier 2023</h3>
+<div class="paragraph">
+<p>16 janvier 2023 (eu-west-2) / 16 janvier 2023 (cloudgouv-eu-west-1) / 9 janvier 2023 (us-west-1) / 11 janvier 2023 (us-east-2) / 9 janvier 2023 (ap-northeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cette release améliore la stabilité et certains messages d&#8217;erreur.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2022"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_2022"></a>2022</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_novembre_2022"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_novembre_2022"></a>Novembre 2022</h3>
+<div class="paragraph">
+<p>7 novembre 2022 (eu-west-2) / 7 novembre 2022 (cloudgouv-eu-west-1) / 31 octobre 2022 (us-west-1) / 2 novembre 2022 (us-east-2) / 31 octobre 2022 (ap-northeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Désormais, si vous utilisez la méthode <a href="../../eim.html#createaccesskey" class="xref page">CreateAccessKey</a> de l&#8217;API Elastic Identity Management (EIM) sans spécifier le paramètre <code>UserName</code>, une access key est créée pour l&#8217;utilisateur qui envoie la requête.</p>
+</li>
+<li>
+<p>Les informations fournies par le BIOS et relatives au <code>vendor</code> et <code>product name</code> d&#8217;une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> ont été mises à jour pour <code>3DS OUTSCALE</code> et <code>3DS OUTSCALE VM</code> respectivement.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_septembre_2022"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_septembre_2022"></a>Septembre 2022</h3>
+<div class="paragraph">
+<p>26 septembre 2022 (eu-west-2) / 26 septembre 2022 (cloudgouv-eu-west-1) / 19 septembre 2022 (us-west-1) / 20 septembre 2022 (us-east-2) / 19 septembre 2022 (ap-northeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Vous pouvez désormais attacher jusqu&#8217;à 40 volumes par VM. Pour en savoir plus, voir <a href="À-propos-des-volumes.html" class="xref page">À propos des volumes</a>.</p>
+</li>
+<li>
+<p>Dans l&#8217;API OUTSCALE, le paramètre <code>Overall</code> de la méthode <a href="../../api%3Fconsole.html#readconsumptionaccount" class="xref page">ReadConsumptionAccount</a> est désormais paramétré à <code>false</code> par défaut.</p>
+</li>
+<li>
+<p>Une route invalide est désormais supprimée au lieu de rester dans l&#8217;état <code>blackhole</code>. Pour en savoir plus sur les routes, voir <a href="À-propos-des-route-tables.html" class="xref page">À propos des route tables</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_août_2022"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_août_2022"></a>Août 2022</h3>
+<div class="paragraph">
+<p>8 août 2022 (eu-west-2) / 8 août 2022 (cloudgouv-eu-west-1) / 1 août 2022 (us-west-1) / 2 août 2022 (us-east-2) / 1 août 2022 (ap-northeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Dans l&#8217;API OUTSCALE, vous pouvez activer la virtualisation imbriquée pour les VM ayant l&#8217;option d&#8217;allocation <code>dedicated</code>, via le paramètre <code>NestedVirtualization</code> des méthodes <a href="../../api%3Fconsole.html#createvms" class="xref page">CreateVms</a> et <a href="../../api%3Fconsole.html#updatevm" class="xref page">UpdateVm</a>. Pour en savoir plus, voir <a href="À-propos-des-VM.html#_virtualisation_imbriquée" class="xref page">À propos des VM &gt; Virtualisation imbriquée</a>.</p>
+</li>
+<li>
+<p>Dans l&#8217;API OUTSCALE, la méthode <a href="../../api%3Fconsole.html#updateloadbalancer" class="xref page">UpdateLoadBalancer</a> supporte désormais le paramètre <code>SecuredCookies</code>.</p>
+</li>
+<li>
+<p>Vous pouvez désormais importer des keypairs aux formats PEM, PKCS8, et RFC4716. Pour en savoir plus, voir la méthode <a href="../../api%3Fconsole.html#createkeypair" class="xref page">CreateKeypair</a> dans l&#8217;API OUTSCALE ou la méthode <a href="../../fcu.html#importkeypair" class="xref page">ImportKeyPair</a> dans l&#8217;API Flexible Compute Unit (FCU).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_juin_2022"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_juin_2022"></a>Juin 2022</h3>
+<div class="paragraph">
+<p>13 juin 2022 (eu-west-2) / 13 juin 2022 (cloudgouv-eu-west-1) / 6 juin 2022 (us-west-1) / 7 juin 2022 (us-east-2) / 6 juin 2022 (ap-northeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Dans l&#8217;API OUTSCALE, la nouvelle méthode <a href="../../api%3Fconsole.html#updatedirectlinkinterface" class="xref page">UpdateDirectLinkInterface</a> vous permet de mettre à jour la maximum transmission unit (MTU) d&#8217;une interface Directlink.</p>
+</li>
+<li>
+<p>Les comptes liés à un paying account peuvent désormais consulter leur propre consommation en utilisant la méthode <a href="../../api%3Fconsole.html#readconsumptionaccount" class="xref page">ReadConsumptionAccount</a> avec le nouveau paramètre <code>Overall</code> paramétré à <code>false</code>.</p>
+</li>
+<li>
+<p>Dans l&#8217;API OUTSCALE, vous pouvez désormais mettre à jour plusieurs attributs d&#8217;une VM en même temps avec la méthode <a href="../../api%3Fconsole.html#updatevm" class="xref page">UpdateVm</a>.</p>
+</li>
+<li>
+<p>Dans l&#8217;API OUTSCALE, la méthode <a href="../../api%3Fconsole.html#readsubregions" class="xref page">ReadSubregions</a> renvoie désormais le paramètre <code>LocationCode</code>.</p>
+</li>
+<li>
+<p>Dans l&#8217;API OUTSCALE, les méthodes <a href="../../api%3Fconsole.html#createservercertificate" class="xref page">CreateServerCertificate</a>, <a href="../../api%3Fconsole.html#readservercertificates" class="xref page">ReadServerCertificates</a>, et <a href="../../api%3Fconsole.html#updateservercertificate" class="xref page">UpdateServerCertificate</a> renvoient désormais le paramètre <code>Orn</code>.</p>
+</li>
+<li>
+<p>Dans l&#8217;API OUTSCALE, les méthodes <a href="../../api%3Fconsole.html#createdhcpoptions" class="xref page">CreateDhcpOptions</a> et <a href="../../api%3Fconsole.html#readdhcpoptions" class="xref page">ReadDhcpOptions</a> renvoient désormais le paramètre <code>LogServers</code>.</p>
+</li>
+<li>
+<p>Dans l&#8217;API OUTSCALE, tous les paramètres <code>With</code> de la méthode <a href="../../api%3Fconsole.html#readapilogs" class="xref page">ReadApiLogs</a> sont désormais paramétrés à <code>true</code> par défaut.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mai_2022"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_mai_2022"></a>Mai 2022</h3>
+<div class="paragraph">
+<p>2 mai 2022 (eu-west-2) / 2 mai 2022 (cloudgouv-eu-west-1) / 25 avril 2022 (us-west-1) / 26 avril 2022 (us-east-2) / 25 avril 2022 (ap-northeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Dans l&#8217;API OUTSCALE, les nouvelles méthodes <a href="../../api%3Fconsole.html#readpubliccatalog" class="xref page">ReadPublicCatalog</a> et <a href="../../api%3Fconsole.html#readcatalog" class="xref page">ReadCatalog</a> vous permettent d&#8217;obtenir des informations sur le prix des produits et services OUTSCALE.</p>
+</li>
+<li>
+<p>Dans l&#8217;API OUTSCALE, les méthodes <a href="../../api%3Fconsole.html#createvpnconnection" class="xref page">CreateVpnConnection</a>, <a href="../../api%3Fconsole.html#readvpnconnections" class="xref page">ReadVpnConnections</a>, et <a href="../../api%3Fconsole.html#updatevpnconnection" class="xref page">UpdateVpnConnection</a> renvoient désormais le paramètre <code>VgwTelemetries</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mars_2022"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_mars_2022"></a>Mars 2022</h3>
+<div class="paragraph">
+<p>14 mars 2022 (eu-west-2) / 14 mars 2022 (cloudgouv-eu-west-1) / 7 mars 2022 (us-west-1) / 8 mars 2022 (us-east-2) / 7 mars 2022 (ap-northeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Dans l&#8217;API OUTSCALE, les nouvelles méthodes <a href="../../api%3Fconsole.html#linkloadbalancerbackendmachines" class="xref page">LinkLoadBalancerBackendMachines</a> et <a href="../../api%3Fconsole.html#Unlinkloadbalancerbackendmachines" class="xref page">UnlinkLoadBalancerBackendMachines</a> vous permettent de spécifier les VM backend d&#8217;un load balancer aussi par leurs IP et plus seulement par leurs ID de VM.</p>
+</li>
+<li>
+<p>Dans l&#8217;API Flexible Compute Unit (FCU), vous pouvez spécifier des serveurs de log dans votre groupe d&#8217;options DHCP avec la méthode <a href="../../fcu.html#createdhcpoptions" class="xref page">CreateDhcpOptions</a>.</p>
+</li>
+<li>
+<p>La méthode <a href="../../api%3Fconsole.html#readapilogs" class="xref page">ReadApiLogs</a> supporte désormais deux filtres permettant de spécifier la plage de temps de récupération des logs : <code>QueryDateAfter</code> et <code>QueryDateBefore</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_janvier_2022"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_janvier_2022"></a>Janvier 2022</h3>
+<div class="paragraph">
+<p>31 janvier 2022 (eu-west-2) / 31 janvier 2022 (cloudgouv-eu-west-1) / 24 janvier 2022 (us-west-1) / 25 janvier 2022 (us-east-2) / 24 janvier 2022 (ap-northeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Le champ <code>Value</code> renvoyé par les méthodes ICU <strong>ReadPublicCatalog</strong> et <strong>ReadCatalog</strong> doit désormais être divisé par 100000 (cent mille) et non plus 1000 (mille) pour obtenir la valeur en devise du catalogue de la Région où la méthode API a été utilisée.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2021"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_2021"></a>2021</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_novembre_2021"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_novembre_2021"></a>Novembre 2021</h3>
+<div class="paragraph">
+<p>29 novembre 2021 (eu-west-2) / 9 décembre 2021 (cloudgouv-eu-west-1) / 22 novembre 2021 (us-west-1) / 23 novembre 2021 (us-east-2) / 22 novembre 2021 (ap-northeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Vous pouvez désormais modifier les attributs d&#8217;une connexion VPN avec la méthode API OUTSCALE <a href="../../api%3Fconsole.html#updatevpnconnection" class="xref page">UpdateVpnConnection</a>.</p>
+</li>
+<li>
+<p>Vous pouvez désormais spécifier le paramètre <code>PublicIp</code> pour les load balancers reliés à Internet avec les méthodes API OUTSCALE <a href="../../api%3Fconsole.html#createloadbalancer" class="xref page">CreateLoadBalancer</a> et <a href="../../api%3Fconsole.html#updateloadbalancer" class="xref page">UpdateLoadBalancer</a>.</p>
+</li>
+<li>
+<p>Dans l&#8217;API OUTSCALE, les méthodes concernant les <a href="../../api%3Fconsole.html#3ds-outscale-api-snapshot" class="xref page">snapshots</a> et les <a href="../../api%3Fconsole.html#3ds-outscale-api-volume" class="xref page">volumes</a> renvoient désormais le paramètre <code>CreationDate</code>.</p>
+</li>
+<li>
+<p>La méthode API OUTSCALE <a href="../../api%3Fconsole.html#readapiaccesspolicy" class="xref page">ReadApiAccessPolicy</a> supporte désormais le paramètre <code>DryRun</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_septembre_2021"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_septembre_2021"></a>Septembre 2021</h3>
+<div class="paragraph">
+<p>27 septembre 2021 (eu-west-2) / 20 septembre 2021 (us-west-1) / 21 septembre 2021 (us-east-2) / 20 septembre 2021 (ap-northeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Vous pouvez désormais modifier la date d&#8217;expiration d&#8217;une access key existante avec la méthode API OUTSCALE <a href="../../api%3Fconsole.html#updateaccesskey" class="xref page">UpdateAccessKey</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_août_2021"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_août_2021"></a>Août 2021</h3>
+<div class="paragraph">
+<p>2 août 2021 (eu-west-2) / 19 juillet 2021 (us-west-1) / 20 juillet 2021 (us-east-2) / 19 juillet 2021 (ap-northeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Une nouvelle fonctionnalité est désormais disponible en version bêta : la politique d&#8217;accès API. Elle vous fournit des options supplémentaires de sécurité pour vous authentifier. Vous pouvez par exemple activer une session de confiance pour faciliter le processus d&#8217;authentification si vous avez des règles d&#8217;accès API avec autorités de certification (CA). Pour en savoir plus, voir <a href="À-propos-de-votre-politique-d-accès-API.html" class="xref page">À propos de votre politique d&#8217;accès API</a>.</p>
+</li>
+<li>
+<p>Dans l&#8217;API OUTSCALE, l&#8217;authentification par e-mail et mot de passe est désormais disponible pour les méthodes correspondant aux ressources suivantes : <a href="../../api%3Fconsole.html#3ds-outscale-api-accesskey" class="xref page">access keys</a>, <a href="../../api%3Fconsole.html#3ds-outscale-api-apiaccesspolicy" class="xref page">API access policy</a>, <a href="../../api%3Fconsole.html#3ds-outscale-api-apiaccessrule" class="xref page">API access rules</a> et <a href="../../api%3Fconsole.html#3ds-outscale-api-ca" class="xref page">certificate authorities (CA)</a>. Pour en savoir plus, voir la section <a href="../../api%3Fconsole.html#authentication" class="xref page">Authentication</a>.</p>
+</li>
+<li>
+<p>La méthode API OUTSCALE <a href="../../api%3Fconsole.html#createloadbalancerpolicy" class="xref page">CreateLoadBalancerPolicy</a> supporte désormais le paramètre <code>CookieExpirationPeriod</code>.</p>
+</li>
+<li>
+<p>Le paramètre <code>CreationDate</code> est désormais renvoyé par les méthodes API OUTSCALE suivantes : <a href="../../api%3Fconsole.html#createvms" class="xref page">CreateVms</a>, <a href="../../api%3Fconsole.html#readvms" class="xref page">ReadVms</a> et <a href="../../api%3Fconsole.html#updatevm" class="xref page">UpdateVm</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_juin_2021"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_juin_2021"></a>Juin 2021</h3>
+<div class="paragraph">
+<p>7 juin 2021 (eu-west-2) / 31 mai 2021 (us-west-1) / 1 juin 2021 (us-east-2) / 31 mai 2021 (ap-northeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>La méthode API OUTSCALE <a href="../../api%3Fconsole.html#readconsumptionaccount" class="xref page">ReadConsumptionAccount</a> renvoie désormais les paramètres suivants : <code>AccountId</code>, <code>PayingAccountId</code> et <code>SubregionName</code>.</p>
+</li>
+<li>
+<p>Vous pouvez désormais modifier l&#8217;attribut <code>SecurityGroups</code> d&#8217;un load balancer (uniquement dans un Net) avec la méthode API OUTSCALE <a href="../../api%3Fconsole.html#updateloadbalancer" class="xref page">UpdateLoadBalancer</a>.</p>
+</li>
+<li>
+<p>Vous pouvez désormais modifier les attributs <code>Iops</code> et <code>VolumeType</code> d&#8217;un volume avec la méthode API OUTSCALE <a href="../../api%3Fconsole.html#updatevolume" class="xref page">UpdateVolume</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mars_2021"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_mars_2021"></a>Mars 2021</h3>
+<div class="paragraph">
+<p>22 mars 2021 (eu-west-2) / 15 mars 2021 (us-west-1) / 16 mars 2021 (us-east-2) / 15 mars 2021 (ap-northeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Les méthodes API OUTSCALE suivantes supportent désormais de nouveaux filtres :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#readimages" class="xref page">ReadImages</a> : <code>Hypervisors</code>, <code>ProductCodes</code></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readservercertificates" class="xref page">ReadServerCertificates</a> : <code>Paths</code></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readvmsstate" class="xref page">ReadVmsState</a> : <code>MaintenanceEventCodes</code>, <code>MaintenanceEventDescriptions</code>, <code>MaintenanceEventsNotAfter</code>, <code>MaintenanceEventsNotBefore</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_février_2021"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_février_2021"></a>Février 2021</h3>
+<div class="paragraph">
+<p>8 février 2021 (eu-west-2) / 1 février 2021 (us-west-1) / 2 février 2021 (us-east-2) / 1 février 2021 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>OUTSCALE Key Management Service (OKMS) est désormais en état de fin de vie et n&#8217;est plus utilisable. Pour en savoir plus, voir <a href="Politique-de-fin-de-vie.html" class="xref page">Politique de fin de vie</a>.</p>
+</li>
+<li>
+<p>Les méthodes API OUTSCALE <a href="../../api%3Fconsole.html#readnics" class="xref page">ReadNics</a> et <a href="../../api%3Fconsole.html#readsecuritygroups" class="xref page">ReadSecurityGroups</a> supportent désormais de nouveaux filtres.</p>
+</li>
+<li>
+<p>Le tag <code>private_only</code> prend effet également après un arrêt/démarrage de la <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span>. Pour en savoir plus, voir <a href="Configurer-une-VM-avec-les-user-data-et-les-tags-OUTSCALE.html" class="xref page">Configurer une VM avec les user data et les tags OUTSCALE</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2020"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_2020"></a>2020</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_décembre_2020"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_décembre_2020"></a>Décembre 2020</h3>
+<div class="paragraph">
+<p>28 décembre 2020 (eu-west-2) / 21 décembre 2020 (us-west-1) / 22 décembre 2020 (us-east-2) / 21 décembre 2020 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cette release améliore la stabilité et certains messages d&#8217;erreur.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_novembre_2020"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_novembre_2020"></a>Novembre 2020</h3>
+<div class="paragraph">
+<p>23 novembre 2020 (eu-west-2) / 16 novembre 2020 (us-west-1) / 17 novembre 2020 (us-east-2) / 16 novembre 2020 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Vous pouvez désormais limiter l&#8217;accès aux API de votre compte sur la base de plages d&#8217;IP spécifiques ou d&#8217;autorités de certification client (CA) spécifiques. Pour en savoir plus, voir les méthodes <a href="../../api%3Fconsole.html#3ds-outscale-api-apiaccessrule" class="xref page">ApiAccessRule</a> et les méthodes <a href="../../api%3Fconsole.html#3ds-outscale-api-ca" class="xref page">Ca</a>.</p>
+</li>
+<li>
+<p>Le service OUTSCALE Key Management Service (OKMS) est désormais accessible par l&#8217;API OUTSCALE. Pour en savoir plus, voir les méthodes <a href="../../api%3Fconsole.html#3ds-outscale-api-masterkey" class="xref page">MasterKey</a>.</p>
+</li>
+<li>
+<p>Vous pouvez désormais augmenter la taille d&#8217;un volume via la méthode API OUTSCALE suivante : <a href="../../api%3Fconsole.html#updatevolume" class="xref page">UpdateVolume</a>.<br></p>
+</li>
+<li>
+<p>Dans l&#8217;API Internal Call Unit (ICU), les méthodes <a href="../../icu.html#createaccesskey" class="xref page">CreateAccessKey</a>, <a href="../../icu.html#getaccesskey" class="xref page">GetAccessKey</a> and <a href="../../icu.html#listaccesskeys" class="xref page">ListAccessKeys</a> renvoient désormais le paramètre <code>expirationDate</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_octobre_2020"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_octobre_2020"></a>Octobre 2020</h3>
+<div class="paragraph">
+<p>12 octobre 2020 (eu-west-2) / 5 octobre 2020 (us-west-1) / 6 octobre 2020 (us-east-2) / 5 octobre 2020 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cette release améliore la stabilité et certains messages d&#8217;erreur.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_août_2020"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_août_2020"></a>Août 2020</h3>
+<div class="paragraph">
+<p>31 août 2020 (eu-west-2) / 17 août 2020 (us-west-1) / 25 août 2020 (us-east-2) / 24 août 2020 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>L&#8217;importation de keypair supporte désormais les formats ECDSA et Ed25519.</p>
+</li>
+<li>
+<p>Vous pouvez désormais spécifier une date d&#8217;expiration pour les access keys via le paramètre <code>ExpirationDate</code> de la méthode API OUTSCALE suivante :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#createaccesskey" class="xref page">CreateAccessKey</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Les méthodes API OUTSCALE suivantes supportent désormais de nouveaux filtres :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#readflexiblegpus" class="xref page">ReadFlexibleGpus</a> : <code>Generations</code></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readsubnets" class="xref page">ReadSubnets</a> : <code>TagKeys</code>, <code>TagValues</code>, <code>Tags</code></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readvpnconnections" class="xref page">ReadVpnConnections</a> : <code>TagKeys</code>, <code>TagValues</code>, <code>Tags</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_juillet_2020"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_juillet_2020"></a>Juillet 2020</h3>
+<div class="paragraph">
+<p>13 juillet 2020 (eu-west-2) / 6 juillet 2020 (us-west-1) / 7 juillet 2020 (us-east-2) / 6 juillet 2020 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Les méthodes API OUTSCALE suivantes supportent désormais de nouveaux filtres :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#readinternetservices" class="xref page">ReadInternetServices</a>: <code>LinkNetIds</code>, <code>LinkStates</code>.</p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readnets" class="xref page">ReadNets</a>: <code>IsDefault</code>.</p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readroutetables" class="xref page">ReadRouteTables</a>: <code>LinkRouteTableIds</code>, <code>LinkRouteTableMain</code>, <code>RouteDestinationServiceIds</code>.</p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readsecuritygroups" class="xref page">ReadSecurityGroups</a>: <code>NetIds</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Les méthodes API OUTSCALE suivantes supportent désormais le paramètre <code>DryRun</code> :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#createaccesskey" class="xref page">CreateAccessKey</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readaccesskeys" class="xref page">ReadAccessKeys</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#readsecretaccesskey" class="xref page">ReadSecretAccessKey</a></p>
+</li>
+<li>
+<p><a href="../../api%3Fconsole.html#updateaccesskey" class="xref page">UpdateAccessKey</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mai_2020"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_mai_2020"></a>Mai 2020</h3>
+<div class="paragraph">
+<p>18 mai 2020 (eu-west-2) / 13 mai 2020 (us-west-1) / 14 mai 2020 (us-east-2) / 14 mai 2020 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cette release améliore la stabilité et certains messages d&#8217;erreur.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_avril_2020"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_avril_2020"></a>Avril 2020</h3>
+<div class="paragraph">
+<p>14 avril 2020 (eu-west-2) / 30 mars 2020 (us-west-1) / 7 avril 2020 (us-east-2) / 30 mars 2020 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>La version 1.0 de l&#8217;API OUTSCALE est officiellement mise à disposition. Désormais, toutes les nouvelles fonctionnalités seront développées en premier lieu pour cette API.<br>
+Cette API est accessible depuis un unique endpoint. Pour en savoir plus, voir la <a href="../../api%3Fconsole.html" class="xref page">documentation de l&#8217;API OUTSCALE</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_janvier_2020"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_janvier_2020"></a>Janvier 2020</h3>
+<div class="paragraph">
+<p>13 janvier 2020 (eu-west-2) / 6 janvier 2020 (us-west-1) / 7 janvier 2020 (us-east-2) / 6 janvier 2020 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cette release améliore la stabilité et certains messages d&#8217;erreur.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2019"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_2019"></a>2019</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_novembre_2019"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_novembre_2019"></a>Novembre 2019</h3>
+<div class="paragraph">
+<p>25 novembre 2019 (eu-west-2) / 18 novembre 2019 (us-west-1) / 19 novembre 2019 (us-east-2) / 18 novembre 2019 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Les politiques Elastic Identity Management (EIM) supportent désormais les services <code>DirectLink</code> et <code>OKMS</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_octobre_2019"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_octobre_2019"></a>Octobre 2019</h3>
+<div class="paragraph">
+<p>28 octobre 2019 (eu-west-2) / 23 octobre 2019 (us-west-1) / 23 octobre 2019 (us-east-2) / 21 octobre 2019 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Les load balancers supportent désormais l&#8217;attribut additionnel <code>SecuredCookies</code>. Pour en savoir plus, voir <a href="../../lbu.html#modifyloadbalancerattributes" class="xref page">ModifyLoadBalancerAttributes</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_septembre_2019"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_septembre_2019"></a>Septembre 2019</h3>
+<div class="paragraph">
+<p>30 septembre 2019 (eu-west-2) / 23 septembre 2019 (us-west-1) / 24 septembre 2019 (us-east-2) / 23 septembre 2019 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Un nouveau service de gestion de vos clés de chiffrement est désormais disponible sur eu-west-2 : OUTSCALE Key Management Service (OKMS).</p>
+</li>
+<li>
+<p>Les load balancers prennent désormais en charge deux nouvelles fonctionnalités :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>La configuration du timeout de connexion. Pour en savoir plus, voir <a href="../../lbu.html#modifyloadbalancerattributes" class="xref page">ModifyLoadBalancerAttributes</a>.</p>
+</li>
+<li>
+<p>Le protocole proxy. Pour en savoir plus, voir <a href="../../lbu.html#createloadbalancerpolicy" class="xref page">CreateLoadBalancerPolicy</a> et <a href="../../lbu.html#setloadbalancerpoliciesforbackendserver" class="xref page">SetLoadBalancerPoliciesForBackendServer</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Pour lister tous les flexible GPU disponibles dans le catalogue public, la méthode <a href="../../api%3Fconsole.html#readflexiblegpucatalog" class="xref page">ReadFlexibleGpuCatalog</a> est désormais disponible.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_août_2019"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_août_2019"></a>Août 2019</h3>
+<div class="paragraph">
+<p>12 août 2019 (eu-west-2) / 5 août 2019 (us-west-1) / 6 août 2019 (us-east-2) / 5 août 2019 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Les flexible GPU sont désormais disponibles. Pour en savoir plus, voir <a href="À-propos-des-flexible-GPU.html" class="xref page">À propos des flexible GPU</a>.</p>
+</li>
+<li>
+<p>De nouveaux types de <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> sont disponibles. Pour en savoir plus, voir <a href="Types-de-VM.html" class="xref page">Types de VM</a>.</p>
+</li>
+<li>
+<p>Les load balancers supportent désormais le protocole UDP.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_juillet_2019"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_juillet_2019"></a>Juillet 2019</h3>
+<div class="paragraph">
+<p>8 juillet 2019 (eu-west-2) / 1 juillet 2019 (us-west-1) / 2 juillet 2019 (us-east-2) / 1 juillet 2019 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Les ports de listeners des load balancers supportent désormais toutes les valeurs entre 1 et 65535, toutes deux incluses.</p>
+</li>
+<li>
+<p>Le protocole TLS 1.0 n&#8217;est plus supporté sur les load balancers créés ou modifiés après cette release.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_juin_2019"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_juin_2019"></a>Juin 2019</h3>
+<div class="paragraph">
+<p>10 juin 2019 (eu-west-2) / 3 juin 2019 (us-west-1) / 4 juin 2019 (us-east-2) / 3 juin 2019 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Les tags sont maintenant pris en charge pour les <span class="tooltip" data-tooltip="NAT service dans l'API OUTSCALE">NAT gateways</span>, les <span class="tooltip" data-tooltip="Net dans l'API OUTSCALE">VPC</span> peering connections, les <span class="tooltip" data-tooltip="Net access point dans l'API OUTSCALE">VPC endpoints</span> et les tâches d’export.</p>
+</li>
+<li>
+<p>La méthode <a href="../../fcu.html#modifyimageattribute" class="xref page">ModifyImageAttribute</a> supporte désormais l’attribut Description.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mai_2019"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_mai_2019"></a>Mai 2019</h3>
+<div class="paragraph">
+<p>15 mai 2019 (eu-west-2) / 13 mai 2019 (us-west-1) / 14 mai 2019 (us-east-2) / 13 mai 2019 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Les méthodes <a href="../../fcu.html#createtags" class="xref page">CreateTags</a>, <a href="../../fcu.html#deletetags" class="xref page">DeleteTags</a> et <a href="../../fcu.html#describetags" class="xref page">DescribeTags</a> prennent maintenant en charge les <span class="tooltip" data-tooltip="IP publique dans l'API OUTSCALE">EIP</span>. La méthode <a href="../../fcu.html#describeaddresses" class="xref page">DescribeAddresses</a> renvoie maintenant les tags dans sa réponse.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_avril_2019"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_avril_2019"></a>Avril 2019</h3>
+<div class="paragraph">
+<p>15 avril 2019 (eu-west-2) / 8 avril 2019 (us-west-1) / 9 avril 2019 (us-east-2) / 8 avril 2019 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cette release améliore la stabilité et certains messages d&#8217;erreur.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mars_2019"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_mars_2019"></a>Mars 2019</h3>
+<div class="paragraph">
+<p>18 mars 2019 (eu-west-2) / 11 mars 2019 (us-west-1) / 12 mars 2019 (us-east-2) / 11 mars 2019 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>La méthode <strong>ReadPublicIpRanges</strong> est désormais possible sans authentification. Pour en savoir plus, voir <a href="../../fcu.html#readpublicipranges" class="xref page">ReadPublicIpRanges</a>.</p>
+</li>
+<li>
+<p>La méthode <strong>DescribeInstanceTypes</strong> supporte désormais les filtres <code>eth</code>, <code>ephemerals-type</code>, et <code>gpu</code>. Pour en savoir plus, voir <a href="../../fcu.html#describeinstancetypes" class="xref page">DescribeInstanceTypes</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_février_2019"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_février_2019"></a>Février 2019</h3>
+<div class="paragraph">
+<p>18 février 2019 (eu-west-2) / 12 février 2019 (us-west-1) / 11 février 2019 (us-east-2) / 11 février 2019 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Les méthodes <a href="../../fcu.html#createtags" class="xref page">CreateTags</a>, <a href="../../fcu.html#deletetags" class="xref page">DeleteTags</a> et <a href="../../fcu.html#describetags" class="xref page">DescribeTags</a> prennent maintenant en charge les options DHCP. La méthode <a href="../../fcu.html#describedhcpoptions" class="xref page">DescribeDhcpOptions</a> renvoie maintenant les tags dans sa réponse.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_janvier_2019"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_janvier_2019"></a>Janvier 2019</h3>
+<div class="paragraph">
+<p>21 janvier 2019 (eu-west-2) / 15 janvier 2019 (us-west-1) / 17 janvier 2019 (us-east-2) / 17 janvier 2019 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Les codes produits fonctionnent désormais avec les méthodes <a href="../../fcu.html#describeimages" class="xref page">DescribeImages</a>, <a href="../../fcu.html#describeimageattribute" class="xref page">DescribeImageAttribute</a> et <a href="../../fcu.html#modifyimageattribute" class="xref page">ModifyImageAttribute</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2018"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_2018"></a>2018</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_décembre_2018"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_décembre_2018"></a>Décembre 2018</h3>
+<div class="paragraph">
+<p>19 décembre 2018 (eu-west-2) / 18 décembre 2018 (us-west-1) / 17 décembre 2018 (us-east-2) / 17 décembre 2018 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cette release améliore la stabilité et certains messages d&#8217;erreur.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_novembre_2018"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_novembre_2018"></a>Novembre 2018</h3>
+<div class="paragraph">
+<p>26 novembre 2018 (eu-west-2) / 20 novembre 2018 (us-west-1) / 19 novembre 2018 (us-east-2) / 19 novembre 2018 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cette release améliore la stabilité et certains messages d&#8217;erreur.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_octobre_2018"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_octobre_2018"></a>Octobre 2018</h3>
+<div class="paragraph">
+<p>22 octobre 2018 (eu-west-2) / 16 octobre 2018 (us-west-1) / 15 octobre 2018 (us-east-2) / 15 octobre 2018 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cette release améliore la stabilité et certains messages d&#8217;erreur.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_septembre_2018"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_septembre_2018"></a>Septembre 2018</h3>
+<div class="paragraph">
+<p>19 septembre 2018 (eu-west-2) / 18 septembre 2018 (us-west-1) / 17 septembre 2018 (us-east-2) / 17 septembre 2018 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Une nouvelle méthode pour modifier un attribut d&#8217;un subnet est disponible. Pour en savoir plus, voir <a href="../../fcu.html#modifysubnetattribute" class="xref page">ModifySubnetAttribute</a>.</p>
+</li>
+<li>
+<p>L&#8217;attribut <code>InstanceInitiatedShutdownBehavior</code> peut désormais être modifié que la <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> soit à l&#8217;arrêt ou en cours de fonctionnement. Pour en savoir plus, voir <a href="../../fcu.html#modifyinstanceattribute" class="xref page">ModifyInstanceAttribute</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_août_2018"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_août_2018"></a>Août 2018</h3>
+<div class="paragraph">
+<p>27 août 2018 (eu-west-2) / 21 août 2018 (us-west-1) / 20 août 2018 (us-east-2) / 20 août 2018 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Une nouvelle méthode pour authentifier votre compte est désormais disponible. Pour en savoir plus, voir <a href="../../icu.html#authenticateaccount" class="xref page">AuthenticateAccount</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_juillet_2018"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_juillet_2018"></a>Juillet 2018</h3>
+<div class="paragraph">
+<p>30 juillet 2018 (eu-west-2) / 24 juillet 2018 (us-west-1) / 23 juillet 2018 (us-east-2) / 24 juillet 2018 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>De nouvelles méthodes pour utiliser une même connexion DirectLink avec différents comptes sont désormais disponibles. La méthode <strong>AllocatePrivateVirtualInterface</strong> vous permet de partager votre connexion DirectLink avec un autre compte OUTSCALE via la création d&#8217;une <span class="tooltip" data-tooltip="DirectLink interface dans l'API OUTSCALE">virtual interface privée</span> pour leur compte. Inversement, la méthode <strong>ConfirmPrivateVirtualInterface</strong> vous permet d&#8217;utiliser la connexion DirectLink d&#8217;un autre compte OUTSCALE qui a créé une virtual interface privée pour votre compte. Pour en savoir plus, voir <a href="../../directlink.html#allocateprivatevirtualinterface" class="xref page">AllocatePrivateVirtualInterface</a> et <a href="../../directlink.html#confirmprivatevirtualinterface" class="xref page">ConfirmPrivateVirtualInterface</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_juin_2018"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_juin_2018"></a>Juin 2018</h3>
+<div class="paragraph">
+<p>25 juin 2018 (eu-west-2) / 19 juin 2018 (us-west-1) / 18 juin 2018 (us-east-2) / 18 juin 2018 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Les méthodes <strong>DescribeRegions</strong> et <strong>DescribeAvailabilityZones</strong> ont été mises à jour. Pour en savoir plus, voir <a href="../../fcu.html#describeregions" class="xref page">DescribeRegions</a> et <a href="../../fcu.html#describeavailabilityzones" class="xref page">DescribeAvailabilityZones</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mai_2018"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_mai_2018"></a>Mai 2018</h3>
+<div class="paragraph">
+<p>21 mai 2018 (eu-west-2) / 15 mai 2018 (us-west-1) / 14 mai 2018 (us-east-2) / 14 mai 2018 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Dans la méthode <strong>AssociateAddress</strong>, l&#8217;attribut <code>AllowReassociation</code> est maintenant <code>true</code> par défaut dans le Cloud public, et <code>false</code> par défaut dans un <span class="tooltip" data-tooltip="Net dans l'API OUTSCALE">VPC</span>. Pour en savoir plus, voir <a href="../../fcu.html#associateaddress" class="xref page">AssociateAddress</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_avril_2018"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_avril_2018"></a>Avril 2018</h3>
+<div class="paragraph">
+<p>5 avril 2018 (eu-west-2) / 4 avril 2018 (us-west-1) / 3 avril 2018 (us-east-2) / 3 avril 2018 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Dans la méthode <strong>CreateLoadBalancer</strong>, l&#8217;attribut <code>SecurityGroups.member.N</code> est maintenant requis pour créer un Load Balancer dans un VPC. Pour en savoir plus, voir <a href="../../lbu.html#createloadbalancer" class="xref page">CreateLoadBalancer</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_février_2018"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_février_2018"></a>Février 2018</h3>
+<div class="paragraph">
+<p>14 février 2018 (eu-west-2) / 13 février 2018 (us-west-1) / 12 février 2018 (us-east-2) / 12 février 2018 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>La méthode <strong>ReadPublicIpRanges</strong> vous permet de lister les adresses IPv4 publiques d&#8217;une Région. Pour en savoir plus, voir <a href="../../fcu.html#readpublicipranges" class="xref page">ReadPublicIpRanges</a>.</p>
+</li>
+<li>
+<p>Les méthodes <strong>ReadCatalog</strong> et <strong>ReadPublicCatalog</strong> renvoient désormais les prix pour la Région de votre compte uniquement. L&#8217;attribut <code>Region</code> pour spécifier une autre Région n&#8217;est plus disponible. Pour en savoir plus, voir <a href="../../icu.html#readcatalog" class="xref page">ReadCatalog</a> ou <a href="../../icu.html#readpubliccatalog" class="xref page">ReadPublicCatalog</a>.</p>
+</li>
+<li>
+<p>Par défaut, le trafic entre deux security groups est maintenant autorisé à la fois à travers les <span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">IP publiques</span> et privées. Pour en savoir plus, voir <a href="../../fcu.html#authorizesecuritygroupegress" class="xref page">AuthorizeSecurityGroupEgress</a> et <a href="../../fcu.html#authorizesecuritygroupingress" class="xref page">AuthorizeSecurityGroupIngress</a>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour restreindre le trafic aux IP privées uniquement, contactez notre équipe Support : <a href="mailto:support@outscale.com">support@outscale.com</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_janvier_2018"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_janvier_2018"></a>Janvier 2018</h3>
+<div class="paragraph">
+<p>10 janvier 2018 (eu-west-2) / 9 janvier 2018 (us-west-1) / 8 janvier 2018 (us-east-2) / 8 janvier 2018 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>La méthode <strong>CopyAccount</strong> vous permet de créer une copie de votre compte OUTSCALE dans une autre Région du Cloud. Pour en savoir plus, voir <a href="../../icu.html#copyaccount" class="xref page">CopyAccount</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2017"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_2017"></a>2017</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_décembre_2017"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_décembre_2017"></a>Décembre 2017</h3>
+<div class="paragraph">
+<p>6 décembre 2017 (eu-west-2) / 5 décembre 2017 (us-west-1) / 4 décembre 2017 (us-east-2) / 5 décembre 2017 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Les listener rules vous permettent de rediriger le trafic entre un load balancer et ses <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> backend à partir du chemin d&#8217;accès de la requête. Pour en savoir plus, voir les six nouvelles méthodes suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../icu.html#createlistenerrule" class="xref page">CreateListenerRule</a></p>
+</li>
+<li>
+<p><a href="../../icu.html#deletelistenerrule" class="xref page">DeleteListenerRule</a></p>
+</li>
+<li>
+<p><a href="../../icu.html#readlistenerrules" class="xref page">ReadListenerRules</a></p>
+</li>
+<li>
+<p><a href="../../icu.html#updatelistenerrule" class="xref page">UpdateListenerRule</a></p>
+</li>
+<li>
+<p><a href="../../icu.html#registerinstanceswithlistenerrule" class="xref page">RegisterInstancesWithListenerRule</a></p>
+</li>
+<li>
+<p><a href="../../icu.html#deregisterinstancesfromlistenerrule" class="xref page">DeregisterInstancesFromListenerRule</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Un nouveau type d&#8217;<span class="tooltip" data-tooltip="machine virtuelle (VM) dans l'API OUTSCALE">instances</span> GPU Commodity est disponible : les instances gp3. Pour en savoir plus, voir <a href="Types-de-VM.html" class="xref page">Types de VM</a> et <a href="../../fcu.html#runinstances" class="xref page">RunInstances</a>.</p>
+</li>
+<li>
+<p>Le nouvel attribut <code>InstanceInitiatedShutDownBehavior</code> vous permet de définir le comportement de votre instance lorsque vous l&#8217;arrêtez ou la terminez. Par défaut ou si paramétré sur <code>stop</code>, l&#8217;instance est arrêtée. Si paramétré sur <code>restart</code>, l&#8217;instance est arrêtée puis automatiquement redémarrée. Si paramétré sur <code>terminate</code>, l&#8217;instance est arrêtée puis terminée. Pour en savoir plus, voir <a href="../../fcu.html#runinstances" class="xref page">RunInstances</a> ou <a href="../../fcu.html#modifyinstanceattribute" class="xref page">ModifyInstanceAttribute</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_septembre_2017"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_septembre_2017"></a>Septembre 2017</h3>
+<div class="paragraph">
+<p>13 septembre 2017 (eu-west-2) / 11 septembre 2017 (us-west-1) / 12 septembre 2017 (us-east-2) / 11 septembre 2017 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>La méthode <strong>CreateNatGateway</strong> crée une <span class="tooltip" data-tooltip="NAT service dans l'API OUTSCALE">NAT gateway</span> dans un subnet public d&#8217;un <span class="tooltip" data-tooltip="Net dans l'API OUTSCALE">VPC</span>. Pour en savoir plus, voir <a href="../../fcu.html#createnatgateway" class="xref page">CreateNatGateway</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_juin_2017"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_juin_2017"></a>Juin 2017</h3>
+<div class="paragraph">
+<p>23 juin 2017 (eu-west-2) / 27 juin 2017 (us-west-1) / 26 juin 2017 (us-east-2) / 26 juin 2017 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Une nouvelle méthode a été mise en place pour copier les snapshots et les OUTSCALE machine images (OMI) entre différentes Régions. Désormais, vous devez tout d&#8217;abord exporter le snapshot ou l&#8217;OMI dans un bucket OSU. L&#8217;autre compte doit ensuite l&#8217;importer dans l&#8217;autre Région. Cette fonctionnalité vous permet également de créer des sauvegardes de vos snapshots ou de vos OMI, ou de copier des snapshots ou des OMI au sein de la même Région. Pour en savoir plus, sur la copie inter-Régions pour les snapshots, voir <a href="../../fcu.html#createsnapshotexporttaskm" class="xref page">CreateSnapshotExportTask</a> et <a href="../../fcu.html#importsnapshot" class="xref page">ImportSnapshot</a>. Pour en savoir plus sur la copie inter-Régions pour les OMI, voir <a href="../../fcu.html#createimageexporttask" class="xref page">CreateImageExportTask</a> et <a href="../../fcu.html#registerimage" class="xref page">RegisterImage</a>.<br>
+Pour les copies intra-Région, les méthodes <a href="../../fcu.html#copysnapshot" class="xref page">CopySnapshot</a> et <a href="../../fcu.html#copyimage" class="xref page">CopyImage</a> sont toujours disponibles.</p>
+</li>
+<li>
+<p>Les Network Address Translation (NAT) gateways sont maintenant créées pour un subnet uniquement. Ainsi, vous devez créer une NAT gateway par subnet pour lequel vous souhaitez autoriser la connexion indirecte à Internet. Pour en savoir plus, voir <a href="../../fcu.html#createnatgateway" class="xref page">CreateNatGateway</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_avril_2017"><a class="anchor" href="Notes-de-releases-API-ancienne-page.html#_avril_2017"></a>Avril 2017</h3>
+<div class="paragraph">
+<p>27 avril 2017 (eu-west-2) / 25 avril 2017 (us-west-1) / 24 avril 2017 (us-east-2) / 24 avril 2017 (cn-southeast-1)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Un état <code>pending</code> a été ajouté aux <span class="tooltip" data-tooltip="Net access point dans l'API OUTSCALE">VPC endpoints</span> et aux NAT gateways. Ils ne sont maintenant disponibles que lorsqu&#8217;ils sont prêts à être utilisés. Pour en savoir plus, voir <a href="../../fcu.html#describevpcendpoints" class="xref page">DescribeVpcEndpoints</a>.</p>
+</li>
+<li>
+<p>La méthode <strong>ResetAccountPassword</strong> renvoie maintenant l&#8217;adresse e-mail du compte. Pour en savoir plus, voir <a href="../../icu.html#resetaccountpassword" class="xref page">ResetAccountPassword</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Historique-de-la-documentation-ancienne-page.html" class="xref page">Historique de la documentation (ancienne page)</a></p>
+</li>
+<li>
+<p><a href="Notes-de-releases-Cockpit-ancienne-page.html" class="xref page">Notes de releases Cockpit v2 (ancienne page)</a></p>
+</li>
+<li>
+<p><a href="Notes-de-releases-OUTSCALE-Marketplace-ancienne-page.html" class="xref page">Notes de releases OUTSCALE Marketplace (ancienne page)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

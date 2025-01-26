@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Utiliser les conditions Wait pour un objet – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Utiliser-les-conditions-Wait-pour-un-objet.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Utiliser-les-conditions-Wait-pour-un-objet.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Using-Wait-Conditions-For-An-Object.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Utiliser les conditions Wait pour un objet</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez utiliser les commandes <code>wait</code> pour mettre en pause l&#8217;exécution de votre script jusqu&#8217;à ce qu&#8217;une condition spécifique soit remplie pour votre bucket. Ceci est particulièrement utile pour les flux de travail automatisés, où vous devez vous assurer qu&#8217;un certain état est atteint avant de procéder à l&#8217;exécution suivante.</p>
+</div>
+<div class="paragraph">
+<p>Si vous avez besoin de récupérer les métadatas d&#8217;un objet spécifique, voir <a href="Obtenir-des-informations-sur-les-metadata-d-un-objet.html" class="xref page">Obtenir des informations sur les metadata d&#8217;un objet</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI (s3api)"><a class="anchor" href="Utiliser-les-conditions-Wait-pour-un-objet.html#AWS CLI (s3api)"></a>Utiliser les conditions Wait pour un objet avec AWS CLI (s3api)</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Avant de commencer :</strong> Installez et configurez AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="_attendre_quun_objet_existe"><a class="anchor" href="Utiliser-les-conditions-Wait-pour-un-objet.html#_attendre_quun_objet_existe"></a>Attendre qu&#8217;un objet existe</h3>
+<div class="paragraph">
+<p>Pour s&#8217;assurer qu&#8217;un objet existe et qu&#8217;il est accessible avant d&#8217;effectuer d&#8217;autres actions, utilisez la commande <strong>wait object-exists</strong> en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws s3api wait object-exists \
+    --profile YOUR_PROFILE \
+    --bucket BUCKET \
+    --if-match "\"12345a6b76656da1b64f287c8627af7\"" \
+    --if-modified-since "2024-01-10" \
+    --if-none-match "\"12345a6b76656da1b64f287c8627af7\"" \
+    --if-unmodified-since "2024-01-10" \
+    --key OBJECT \
+    --version-id qAfAAsAAuA00kclkg0A0AAuAAjaAtA. \
+    --part-number "1" \
+    --endpoint https://oos.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>profile</code> : Le profil nommé que vous voulez utiliser, créé pendant la configuration d&#8217;AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>bucket</code> : Le nom du bucket contenant l&#8217;objet dont vous voulez vérifier l&#8217;existence.</p>
+</li>
+<li>
+<p>(optionnel) <code>if-match</code> : Ne demande l&#8217;objet que si son ETag correspond à celui que vous avez indiqué pour cet attribut.</p>
+</li>
+<li>
+<p>(optionnel) <code>if-modified-since</code> : Ne demande l’objet que s’il a été modifié après la date (au format ISO 8601) indiquée pour cet attribut.</p>
+</li>
+<li>
+<p>(optionnel) <code>if-none-match</code> : Ne demande l&#8217;objet que si son ETag ne correspond pas à celui que vous avez indiqué pour cet attribut.</p>
+</li>
+<li>
+<p>(optionnel) <code>if-unmodified-since</code> : Ne demande l’objet que s’il n’a pas été modifié depuis la date (au format ISO 8601) indiquée pour cet attribut.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si les différentes conditions ne sont pas remplies, la commande renverra diverses erreurs : <code>error 412 : precondition failed</code> pour <code>if-match</code> et <code>if-unmodified-since</code>, et <code>error 304 : not modified</code> pour <code>if-modified-since</code> et <code>if-none-match</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><code>key</code> : Le nom de l&#8217;objet dont vous voulez vérifier l&#8217;existence.</p>
+</li>
+<li>
+<p>(optionnel) <code>version-id</code> : L&#8217;ID de la version de l&#8217;objet dont vous voulez vérifier l&#8217;existence. Pour en savoir plus, voir <a href="Utiliser-le-bucket-versioning.html" class="xref page">Utiliser le bucket versioning</a>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si l&#8217;attribut <code>version-id</code> commence par un tiret ("-"), vous devez le spécifier en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">--version-id=-qAfAAsAAuA00kclkg0A0AAuAAjaAtA.</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>part-number</code> : Le numéro de la partie de l&#8217;objet en cours de lecture (entre <code>1</code> et <code>10000</code>, les deux inclus). Pour en savoir plus, voir <a href="Utiliser-un-dépôt-partitionné.html" class="xref page">Utiliser un dépôt partitionné</a>.</p>
+</li>
+<li>
+<p><code>endpoint</code> : Le endpoint correspondant à la Région à laquelle vous voulez envoyer la requête. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>La commande interroge le bucket toutes les 5 secondes jusqu&#8217;à ce qu&#8217;un état de réussite soit atteint, après quoi la commande ne doit renvoyer aucun résultat.</p>
+</div>
+<div class="paragraph">
+<p>Néanmoins, après 20 échecs successifs (100 secondes au total), la commande renvoie le message d&#8217;erreur suivant :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de résultat</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">Waiter ObjectExists failed: Max attempts exceeded. Previously accepted state: Matched expected HTTP status code: 404</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_attendre_quun_objet_nexiste_plus"><a class="anchor" href="Utiliser-les-conditions-Wait-pour-un-objet.html#_attendre_quun_objet_nexiste_plus"></a>Attendre qu&#8217;un objet n&#8217;existe plus</h3>
+<div class="paragraph">
+<p>Pour s&#8217;assurer qu&#8217;un objet n&#8217;existe plus et n&#8217;est plus accessible avant d&#8217;effectuer d&#8217;autres actions, utilisez la commande <strong>wait object-not-exists</strong> en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws s3api wait object-not-exists \
+    --profile YOUR_PROFILE \
+    --bucket BUCKET \
+    --if-match "\"12345a6b76656da1b64f287c8627af7\"" \
+    --if-modified-since "2024-01-10" \
+    --if-none-match "\"12345a6b76656da1b64f287c8627af7\"" \
+    --if-unmodified-since "2024-01-10" \
+    --key OBJECT \
+    --version-id qAfAAsAAuA00kclkg0A0AAuAAjaAtA. \
+    --part-number "1" \
+    --endpoint https://oos.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>profile</code> : Le profil nommé que vous voulez utiliser, créé pendant la configuration d&#8217;AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>bucket</code> : Le nom du bucket contenant l&#8217;objet dont vous voulez attendre qu&#8217;il n&#8217;existe plus.</p>
+</li>
+<li>
+<p>(optionnel) <code>if-match</code> : Ne demande l&#8217;objet que si son ETag correspond à celui que vous avez indiqué pour cet attribut.</p>
+</li>
+<li>
+<p>(optionnel) <code>if-modified-since</code> : Ne demande l’objet que s’il a été modifié après la date (au format ISO 8601) indiquée pour cet attribut.</p>
+</li>
+<li>
+<p>(optionnel) <code>if-none-match</code> : Ne demande l&#8217;objet que si son ETag ne correspond pas à celui que vous avez indiqué pour cet attribut.</p>
+</li>
+<li>
+<p>(optionnel) <code>if-unmodified-since</code> : Ne demande l’objet que s’il n’a pas été modifié depuis la date (au format ISO 8601) indiquée pour cet attribut.</p>
+</li>
+<li>
+<p><code>key</code> : Le nom de l&#8217;objet dont vous voulez attendre qu&#8217;il n&#8217;existe plus.</p>
+</li>
+<li>
+<p>(optionnel) <code>version-id</code> : L&#8217;ID de la version de l&#8217;objet dont vous voulez vérifier l&#8217;existence. Pour en savoir plus, voir <a href="Utiliser-le-bucket-versioning.html" class="xref page">Utiliser le bucket versioning</a>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si l&#8217;attribut <code>version-id</code> commence par un tiret ("-"), vous devez le spécifier en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">--version-id=-qAfAAsAAuA00kclkg0A0AAuAAjaAtA.</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>part-number</code> : Le numéro de la partie de l&#8217;objet en cours de lecture (entre <code>1</code> et <code>10000</code>, les deux inclus). Pour en savoir plus, voir <a href="Utiliser-un-dépôt-partitionné.html" class="xref page">Utiliser un dépôt partitionné</a>.</p>
+</li>
+<li>
+<p><code>endpoint</code> : Le endpoint correspondant à la Région à laquelle vous voulez envoyer la requête. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>La commande interroge le bucket toutes les 5 secondes jusqu&#8217;à ce qu&#8217;un état de réussite soit atteint, après quoi la commande ne doit renvoyer aucun résultat.</p>
+</div>
+<div class="paragraph">
+<p>Néanmoins, après 20 échecs successifs (100 secondes au total), la commande renvoie le message d&#8217;erreur suivant :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de résultat</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">Waiter ObjectNotExists failed: Max attempts exceeded.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-d-OOS.html" class="xref page">À propos d&#8217;OOS</a></p>
+</li>
+<li>
+<p><a href="Outils-pour-utiliser-OOS.html" class="xref page">Outils pour utiliser OOS</a></p>
+</li>
+<li>
+<p><a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-un-bucket.html" class="xref page">Obtenir des informations sur un bucket</a></p>
+</li>
+<li>
+<p><a href="Utiliser-le-bucket-versioning.html" class="xref page">Utiliser le bucket versioning</a></p>
+</li>
+<li>
+<p><a href="Utiliser-un-dépôt-partitionné.html" class="xref page">Utiliser un dépôt partitionné</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

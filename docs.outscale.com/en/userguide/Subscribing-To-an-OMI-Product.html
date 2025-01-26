@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Subscribing To an OMI Product – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="Subscribing-To-an-OMI-Product.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/Subscribing-To-an-OMI-Product.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Souscrire-à-un-produit-OMI.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Subscribing To an OMI Product</h1>
+<div id="preamble" class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>As an OUTSCALE Marketplace buyer, you can subscribe to an OUTSCALE machine image (OMI) product from the catalog. You pay the software rate on the basis of the pricing model selected by the seller partner, as well as the rate for one or more OUTSCALE <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VMs</span>. For more information about pricing modes, see <a href="OMI-Products-Pricing.html" class="xref page">OMI Products Pricing</a>.</p>
+</div>
+<div class="paragraph">
+<p>When subscribing to a product, you are given access to all of its available OMIs, corresponding to its different versions and Regions of availability.</p>
+</div>
+<div class="paragraph">
+<p>You can then create virtual machines (VMs) from the corresponding OMI to deploy your product. For more information, see <a href="Creating-VMs.html" class="xref page">Creating VMs</a>. You can consume VMs on demand or reserve one or more VMs to benefit from discounts. For more information, see <a href="About-VMs.html#_reserved_VMs" class="xref page">About VMs &gt; Reserved VMs</a> and <a href="Getting-the-Price-of-Your-Resources.html" class="xref page">Getting the Price of Your Resources</a>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The costs indicated for the VM reservation do not include storage. For more information, see <a href="Block-Storage-Unit-BSU.html" class="xref page">Block Storage Unit (BSU)</a> and <a href="https://en.outscale.com/pricing/" target="_blank" rel="noopener">3DS OUTSCALE&#8217;s official price list</a>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can subscribe several times to an offer to reserve one or more VMs for another OUTSCALE account in your organization and/or in another Region.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>For more information about the subscription process to a Mistral LLM service, see <a href="Subscribing-To-a-Mistral-LLM-Service-and-Deploying-it.html" class="xref page">Subscribing To a Mistral LLM Service and Deploying it</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>To subscribe to an OMI product on OUTSCALE Marketplace:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In the Marketplace interface, click the <strong>Catalog</strong> tab.<br>
+The product catalog appears.</p>
+</li>
+<li>
+<p>Use the filters on the left-hand side to find the desired product.</p>
+</li>
+<li>
+<p>Click the desired product card.<br>
+The product page appears.</p>
+</li>
+<li>
+<p>Click <strong>Proceed to subscription</strong>.<br>
+The Subscription page appears.</p>
+</li>
+<li>
+<p></p>
+<details>
+<summary class="title">If you want to subscribe to an offer on a recurrent basis:</summary>
+<div class="content">
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>In the Software section, select the desired offer if there are several.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The commitment duration and billing frequency of the reservation and of the subscription offer are automatically aligned based on the selected offer.</p>
+</li>
+<li>
+<p>You can directly proceed to the <a href="Subscribing-To-an-OMI-Product.html#step6c">step 6. c.</a> of the procedure.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">If you want to subscribe to an hourly and yearly offer per VM type:</summary>
+<div class="content">
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>In the Software section, select the commitment duration, either <strong>On demand</strong> or <strong>1 year</strong>.</p>
+</li>
+<li>
+<p>If you choose a one-year commitment, select the desired number of licenses.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you choose a one-year commitment period, the billing frequency is predefined. You can proceed to the <a href="Subscribing-To-an-OMI-Product.html#step6c">step 6. c.</a> of the procedure.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</details>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The other offer types in the catalog do not require any configuration in this section. You can directly proceed to the next step.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>In the Virtual machine (VM) reservation section, specify whether you want to reserve one or more VMs.</p>
+<details>
+<summary class="title">If you want to reserve one or more VMs:</summary>
+<div class="content">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Reserving one or more VMs commits you to paying for the resources consumed for the duration of the reservation and according to the selected billing frequency.</p>
+</li>
+<li>
+<p>The costs indicated for the VM reservation do not include storage. For more information, see <a href="Block-Storage-Unit-BSU.html" class="xref page">Block Storage Unit (BSU)</a> and <a href="https://en.outscale.com/pricing/" target="_blank" rel="noopener">3DS OUTSCALE&#8217;s official price list</a>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Select the commitment duration, either <strong>1 month</strong>, <strong>1 year</strong>, <strong>2 years</strong>, or <strong>3 years</strong>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The selected commitment duration determines the available billing frequencies available at the next step.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Select the billing frequency, either <strong>At subscription</strong>, <strong>Monthly</strong>, or <strong>Yearly</strong>.</p>
+</li>
+<li>
+<p><a id="step6c"></a>Select a Region and the OUTSCALE account to benefit from the VM reservation.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The listed Regions are those on which the product is available.</p>
+</li>
+<li>
+<p>The listed OUTSCALE accounts are those that have been added to your organization. For more information, see <a href="Managing-OUTSCALE-Accounts-as-a-Buyer.html" class="xref page">Managing OUTSCALE Accounts as a Buyer</a>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Select a VM recommended by the seller partner.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Recommended VMs allow viable use of the product.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Type the number of VMs to reserve, at least <strong>1</strong>.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you are subscribing to a yearly offer per VM type, the number of licenses that you have selected in step 4 determines the number of VMs. You do not have to select a number of VMs at this step.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Select the start date of the reservation, or of the subscription if you are subscribing to an offer on a recurring basis.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>A VM reservation runs from the first day of the first month to the last day of the last month of the selected period. For example, if you reserve a VM for one year starting January 1, the reservation runs until December 31 inclusive.</p>
+</li>
+<li>
+<p>For an offer on a recurrent basis, the earliest you can start your subscription is on the first day of the following month.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Click <strong>Subscribe</strong>, then <strong>Confirm subscription</strong> if you are subscribing to a paying product.</p>
+</li>
+</ol>
+</div>
+</div>
+</details>
+</li>
+<li>
+<p>Click <strong>Subscribe</strong>, then <strong>Confirm subscription</strong> if you are subscribing to a paying product.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="About-OUTSCALE-Marketplace.html" class="xref page">About OUTSCALE Marketplace</a></p>
+</li>
+<li>
+<p><a href="Buyer.html" class="xref page">Buyer</a></p>
+</li>
+<li>
+<p><a href="About-OMIs.html" class="xref page">About OMIs</a></p>
+</li>
+<li>
+<p><a href="About-VMs.html#_reserved_vms" class="xref page">About VMs &gt; Reserved VMs</a></p>
+</li>
+<li>
+<p><a href="Getting-Information-About-Your-Subscriptions.html" class="xref page">Getting Information About Your Subscriptions</a></p>
+</li>
+</ul>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

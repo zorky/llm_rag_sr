@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>About Security Groups in LBU – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="About-Security-Groups-in-LBU.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/About-Security-Groups-in-LBU.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/À-propos-des-security-groups-dans-LBU.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">About Security Groups in LBU</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The network relationship between a load balancer and its backend <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">virtual machines (VMs)</span> is based on flow controls performed by security groups that you must configure to use a load balancer, either internal or internet-facing.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_general_information_about_security_groups_for_load_balancers"><a class="anchor" href="About-Security-Groups-in-LBU.html#_general_information_about_security_groups_for_load_balancers"></a>General Information About Security Groups for Load Balancers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The configuration of security groups for load balancers and backend <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VMs</span> depends on the type of platform in which the load balancer is (public Cloud or Net).</p>
+</div>
+<div class="paragraph">
+<p>All the security groups of your load balancers and backend VMs must allow inbound flows in TCP protocol on the port you want (port 80 if you want to use HTTP protocol).</p>
+</div>
+<div class="paragraph">
+<p>Backend VMs of a same load balancer can use the same security group, or you can use separate security groups for each backend VM. Each VM can use one or more security groups, and can therefore receive flows coming from both the load balancer and another source (for example another VM or the internet).</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can modify the security groups associated with a load balancer at any time. For more information, see <a href="Modifying-the-Attributes-of-a-Load-Balancer.html" class="xref page">Modifying the Attributes of a Load Balancer</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_security_groups_configuration_for_load_balancers_in_the_public_cloud"><a class="anchor" href="About-Security-Groups-in-LBU.html#_security_groups_configuration_for_load_balancers_in_the_public_cloud"></a>Security Groups Configuration for Load Balancers in the Public Cloud</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this architecture, the load balancer receives inbound flows coming from the internet and sends outbound flows to backend <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VMs</span> in the public Cloud. You only need to specify rules for inbound flows (source) for security groups in the public Cloud.</p>
+</div>
+<div class="paragraph">
+<p>The security group of the load balancer is automatically created and configured (outscale-elb-sg). You only need to configure a listener for the load balancer to receive requests in a specified protocol and on a specified port.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This security group is owned by 3DS OUTSCALE and enables you to configure the security groups of backend VMs. You cannot modify or perform any action on it, and it therefore does not appear in Cockpit, but is visible with the APIs.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The security groups of backend VMs must allow inbound flows coming from the security group of the load balancer. The name of this security group that you need to specify is outscale-elb-sg. As this security group belongs to 3DS OUTSCALE and not to your account, you also need to specify outscale-elb as the security group owner.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_security_groups_configuration_for_load_balancers_in_a_net"><a class="anchor" href="About-Security-Groups-in-LBU.html#_security_groups_configuration_for_load_balancers_in_a_net"></a>Security Groups Configuration for Load Balancers in a Net</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In a <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span>, the configuration of security groups depends on your architecture, that is whether flows go from a load balancer to backend <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VMs</span> or from one or more VMs to a load balancer.</p>
+</div>
+<div class="paragraph">
+<p>Unlike the public Cloud, no security group is automatically associated with a load balancer created in a Net. Therefore, you must create a security group to associate with any load balancer you create in a Net and configure it with proper rules.</p>
+</div>
+<div class="paragraph">
+<p>In a Net, you must specify rules for both inbound flows (source) and outbound flows (destination).</p>
+</div>
+<div class="sect2">
+<h3 id="_configuration_for_internet_facing_load_balancers_in_a_net"><a class="anchor" href="About-Security-Groups-in-LBU.html#_configuration_for_internet_facing_load_balancers_in_a_net"></a>Configuration for Internet-facing Load Balancers in a Net</h3>
+<div class="paragraph">
+<p>In this architecture, the load balancer receives inbound flows coming from the internet and sends outbound flows to backend VMs in a Net.</p>
+</div>
+<div class="paragraph">
+<p>The security group of the load balancer must:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Allow inbound flows coming from the internet</p>
+</li>
+<li>
+<p>Allow outbound flows going to the security groups of backend VMs</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you use different security groups for your backend VMs, you must specify all of them in the outbound flows rules.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The security groups of backend VMs must:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Allow inbound flows coming from the security group of the load balancer</p>
+</li>
+<li>
+<p>(optional) Allow outbound flows going to any resource you need.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configuration_for_internal_load_balancers"><a class="anchor" href="About-Security-Groups-in-LBU.html#_configuration_for_internal_load_balancers"></a>Configuration for Internal Load Balancers</h3>
+<div class="paragraph">
+<p>In this architecture, the load balancer receives inbound flows coming from one or more VMs of the Net and sends outbound flows to backend VMs.</p>
+</div>
+<div class="paragraph">
+<p>The security group of the load balancer must:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Allow inbound flows coming from the security groups of the VMs that send it requests</p>
+</li>
+<li>
+<p>Allow outbound flows going to the security groups of backend VMs</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you use different security groups for your backend VMs, you must specify all of them in the outbound flows rules.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The security groups of backend VMs must:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Allow inbound flows coming from the security group of the load balancer</p>
+</li>
+<li>
+<p>(optional) Allow outbound flows going to any resource you need</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Security-Groups.html" class="xref page">Security Groups</a></p>
+</li>
+<li>
+<p><a href="About-Load-Balancers.html" class="xref page">About Load Balancers</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

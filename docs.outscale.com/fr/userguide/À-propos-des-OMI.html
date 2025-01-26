@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>À propos des OMI – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="À-propos-des-OMI.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/À-propos-des-OMI.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/About-OMIs.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">À propos des OMI</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Une image machine OUTSCALE (OMI) est un modèle de <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machine virtuelle (VM)</span> qui contient au moins un système d&#8217;exploitation (operating system - OS) et éventuellement d&#8217;autres applications logicielles et d&#8217;autres configurations comme des block device mappings.</p>
+</div>
+<div class="paragraph">
+<p>Les OMI vous permettent de créer des VM avec une configuration prédéfinie et les applications logicielles dont vous avez besoin, sans avoir à installer ces applications sur toutes les VM que vous créez pour un même cas d&#8217;usage.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_informations_générales"><a class="anchor" href="À-propos-des-OMI.html#_informations_générales"></a>Informations générales</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Une OMI est une image machine utilisée comme modèle pour créer des <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> basées sur un volume Block Storage Unit (BSU) comme volume système. Une OMI fournit au moins un système d&#8217;exploitation (Linux ou Windows) et peut fournir des applications logicielles ou des copies d&#8217;autres volumes BSU.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour fonctionner correctement, les VMs Windows nécessitent au moins un processeur de génération v3, 2 vCores et 4 Gio de mémoire.
+Pour en savoir plus, voir <a href="Types-de-VM.html" class="xref page">Types de VM</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Une OMI fournit également une configuration pour les attributs de la VM, tels que <code>DisableApiTermination</code>, que vous pouvez modifier si besoin. Pour en savoir plus, voir <a href="Modifier-un-attribut-d-une-VM.html" class="xref page">Modifier un attribut d&#8217;une VM</a>.</p>
+</div>
+<div class="paragraph">
+<p>Les OMI peuvent être créées soit depuis un snapshot d&#8217;un volume, soit depuis une VM :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Si vous créez une OMI depuis un snapshot, celui-ci est utilisé pour créer le volume système des VM qui sont créées.</p>
+</li>
+<li>
+<p>Si vous créez une OMI depuis une VM, un snapshot du volume système est créé pour créer l&#8217;OMI, puis pour créer le volume système des VM qui sont créées. Si d&#8217;autres volumes BSU sont attachés à la VM source, un snapshot de chacun de ces volumes est créé et les VM sont créées avec une copie de chacun d&#8217;entre eux attachée.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Vous pouvez également ajouter des volumes supplémentaires à une OMI lors de sa création en utilisant le block device mapping. Pour en savoir plus, voir <a href="Définir-des-block-device-mappings.html" class="xref page">Définir des block device mappings</a>.</p>
+</li>
+<li>
+<p>Vous ne pouvez pas supprimer des snapshots qui sont utilisés par une OMI.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>3DS OUTSCALE fournit des OMI officielles, qui sont créées et maintenues à jour par 3DS OUTSCALE, ainsi que des OMI issues d&#8217;OUTSCALE Marketplace, qui sont créées et maintenues à jour par des vendeurs partenaires de l&#8217;écosystème de confiance de 3DS OUTSCALE.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez également créer vos propres OMI à partir de vos snapshots ou de vos VM. Par défaut, vos OMI sont privées, mais vous pouvez les partager avec un ou plusieurs comptes spécifiques.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Attention"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>3DS OUTSCALE ne peut pas garantir le bon fonctionnement des VM créées à partir de sources non officielles.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>3DS OUTSCALE garantit que le contenu des OMI officielles est à jour. Cependant, une fois qu&#8217;une VM est lancée depuis une de ces OMI, il vous incombe de mettre à jour vos environnements.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Deux architectures sont disponibles pour les OMI :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Architecture 32 bits (<code>i386</code>)</p>
+</li>
+<li>
+<p>Architecture 64 bits (<code>x86_64</code>)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>3DS OUTSCALE fournit uniquement des OMI officielles d&#8217;architecture 64 bits, mais vous pouvez créer des OMI avec une architecture 32 bits ou 64 bits.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_permissions_confidentialité_copies_et_exports_domi_vers_oos"><a class="anchor" href="À-propos-des-OMI.html#_permissions_confidentialité_copies_et_exports_domi_vers_oos"></a>Permissions, confidentialité, copies et exports d&#8217;OMI vers OOS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez partager vos OMI avec d&#8217;autres comptes au sein de la même Région. Ce partage permet à ces comptes de créer une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> depuis l&#8217;OMI ou de créer une copie de l&#8217;OMI. Vous restez propriétaire de l&#8217;OMI partagée. Pour en savoir plus, voir <a href="Modifier-les-attributs-d-une-OMI.html" class="xref page">Modifier les attributs d&#8217;une OMI</a>.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez également copier une OMI entre des comptes de Régions différentes ou au sein de la même Région. Contrairement à une OMI partagée, la copie d&#8217;une OMI est indépendante de l&#8217;OMI source : elle possède son propre ID et cycle de vie, et appartient à l&#8217;autre compte.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Pour copier une OMI entre des comptes de Régions différentes, le propriétaire de l&#8217;OMI source doit d&#8217;abord exporter l&#8217;OMI vers un bucket OUTSCALE Object Storage (OOS). L&#8217;autre compte doit ensuite l&#8217;importer à l&#8217;aide de l&#8217;URL pré-signée du fichier manifeste de l&#8217;OMI. Pour en savoir plus, voir <a href="Copier-une-OMI-vers-d-autres-Régions.html" class="xref page">Copier une OMI vers d&#8217;autres Régions</a>.</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Attention"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Avant d&#8217;exporter une OMI ou un snapshot vers une autre Région, assurez-vous que cette action est autorisée par toutes les licences tierces applicables. Si l&#8217;export est autorisé, seul l&#8217;export d&#8217;OMI garantit l&#8217;application des licences tierces dans la Région cible, alors que l&#8217;export de snapshot ne garantit pas leur application.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Pour copier une OMI entre des comptes de la même Région, vous pouvez soit utiliser la méthode exportation/importation ci-dessus, soit partager l&#8217;OMI avec l&#8217;autre compte, qui peut ensuite la copier. Pour en savoir plus, voir <a href="Copier-une-OMI-dans-la-même-Région.html" class="xref page">Copier une OMI dans la même Région</a>.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Nous vous recommandons fortement d&#8217;utiliser uniquement des OMI officielles ou des OMI issues d&#8217;OUTSCALE Marketplace. Les OMI issues d&#8217;autres sources sont susceptibles d&#8217;avoir un mot de passe root ou une clé SSH intégrée. Ces derniers ne sont pas supprimés lorsque vous créez une nouvelle VM et ajoutez votre keypair. Dans ces cas-là, vous devez vérifier le fichier <strong>~/.ssh/authorized_keys</strong> et garder uniquement la dernière entrée, qui correspond à la partie publique de votre keypair.</p>
+</li>
+<li>
+<p>Si vous utilisez une OMI Windows non officielle ou non Marketplace, assurez-vous que son créateur a effectué un sysprep sur la VM source avant de créer l&#8217;OMI. Sinon, les VM créées avec cette OMI ne fonctionnent pas correctement et ne sont pas supportées. Pour en savoir plus, voir la <a href="https://technet.microsoft.com/fr-fr/library/cc721940(v=ws.10).aspx" target="_blank" rel="noopener">documentation Windows Sysprep</a>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Exporter une OMI vers un bucket OOS vous permet également de créer un backup de cette OMI, stocké sur OOS.</p>
+</li>
+<li>
+<p>Copier une OMI vers une autre Région vous permet de créer des VM similaires dans des Régions différentes afin d&#8217;améliorer la disponibilité de vos applications.</p>
+</li>
+<li>
+<p>Si vous souhaitez utiliser une OMI dont vous n&#8217;êtes pas le propriétaire, nous vous recommandons fortement de créer votre propre copie de l&#8217;OMI avant de créer vos VM. Lorsque 3DS OUTSCALE met à jour ses OMI officielles, leur ID est modifié. Quant aux OMI créées par d&#8217;autres comptes, leur propriétaire peut les désenregistrer. Si vous utilisez des outils ou des scripts automatisés, votre déploiement peut alors être compromis. Créer votre propre OMI à partir d&#8217;une OMI partagée avec vous au préalable permet d&#8217;éviter ces risques.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-VM.html" class="xref page">À propos des VM</a></p>
+</li>
+<li>
+<p><a href="Créer-des-VM.html" class="xref page">Créer des VM</a></p>
+</li>
+<li>
+<p><a href="Référence-des-OMI-officielles.html" class="xref page">Référence des OMI officielles</a></p>
+</li>
+<li>
+<p><a href="Travailler-avec-les-snapshots.html" class="xref page">Travailler avec les snapshots</a></p>
+</li>
+<li>
+<p><a href="À-propos-d-OOS.html" class="xref page">À propos d&#8217;OOS</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

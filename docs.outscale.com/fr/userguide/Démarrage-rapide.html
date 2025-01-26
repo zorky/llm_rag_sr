@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Démarrage rapide – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Démarrage-rapide.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Démarrage-rapide.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Quickstart.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Démarrage rapide</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cette page de démarrage rapide vise à présenter le Cloud OUTSCALE ainsi que les outils pour l&#8217;utiliser.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_présentation"><a class="anchor" href="Démarrage-rapide.html#_présentation"></a>Présentation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>3DS OUTSCALE offre des solutions d&#8217;Infrastructure as a Service (IaaS), consistant à fournir des infrastructures informatiques à la demande. Les utilisateurs d&#8217;IaaS installent leurs propres applications et données dans les environnements virtuels fournis.</p>
+</div>
+<div class="paragraph">
+<p>Les ressources fournies sont classées comme suit :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Ressources de calcul. Pour en savoir plus, voir <a href="Puissance-de-calcul.html" class="xref page">Puissance de calcul</a>.</p>
+</li>
+<li>
+<p>Ressources de stockage. Pour en savoir plus, voir <a href="Stockage.html" class="xref page">Stockage</a>.</p>
+</li>
+<li>
+<p>Ressources de réseau et sécurité. Pour en savoir plus, voir <a href="Réseau-et-sécurité.html" class="xref page">Réseau et sécurité</a>.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Votre compte OUTSCALE détermine les quotas de ressources que vous pouvez consommer. Pour en savoir plus, voir <a href="Compte.html" class="xref page">Compte</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_outils_pour_gérer_vos_ressources"><a class="anchor" href="Démarrage-rapide.html#_outils_pour_gérer_vos_ressources"></a>Outils pour gérer vos ressources</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_api"><a class="anchor" href="Démarrage-rapide.html#_api"></a>API</h3>
+<div class="paragraph">
+<p>Les interfaces de programmation applicatives (API) sont le principal moyen de communiquer avec le Cloud OUTSCALE. Elles sont destinées à des utilisateurs ayant des connaissances en programmation. Les requêtes API peuvent être intégrées dans vos programmes et scripts, et sont particulièrement utiles à l&#8217;automatisation.</p>
+</div>
+<div class="paragraph">
+<p>3DS OUTSCALE développe d&#8217;abord tous ses services pour les API. Celles-ci vous permettent donc d&#8217;exécuter toutes les actions publiquement disponibles.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez utiliser les API suivantes :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>L&#8217;API OUTSCALE développée par 3DS OUTSCALE.</p>
+</li>
+<li>
+<p>Les API AWS-compliant développées par 3DS OUTSCALE, fournissant une interopérabilité avec les API d&#8217;Amazon Web Services.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus, voir <a href="À-propos-des-API.html" class="xref page">À propos des API</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sdk_et_cli"><a class="anchor" href="Démarrage-rapide.html#_sdk_et_cli"></a>SDK et CLI</h3>
+<div class="paragraph">
+<p>Des kits de développement logiciel (SDK) sont disponibles pour faciliter l&#8217;utilisation des API dans des langages de programmation spécifiques. Certains SDK prennent la forme d&#8217;interfaces en ligne de commande (CLI), permettant d&#8217;envoyer des requêtes API via des commandes dans votre terminal.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez utiliser les CLI suivantes :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>OSC CLI, développée par 3DS OUTSCALE. Pour en savoir plus, voir <a href="Installer-et-configurer-OSC-CLI.html" class="xref page">Installer et configurer OSC CLI</a>.</p>
+</li>
+<li>
+<p>oapi-cli, développée par 3DS OUTSCALE. Pour en savoir plus, voir <a href="Installer-et-configurer-oapi-cli.html" class="xref page">Installer et configurer oapi-cli</a>.</p>
+</li>
+<li>
+<p>AWS CLI, développée par Amazon Web Services. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus sur d&#8217;autres SDK disponibles, voir <a href="Outils-avancés-du-Cloud.html" class="xref page">Outils avancés du Cloud</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_interface_graphique"><a class="anchor" href="Démarrage-rapide.html#_interface_graphique"></a>Interface graphique</h3>
+<div class="paragraph">
+<p>Une interface graphique offre un moyen convivial d&#8217;interagir avec le Cloud OUTSCALE à l&#8217;aide d&#8217;éléments visuels tels que des boutons et des menus. Toutefois, les actions disponibles via API ne sont pas toutes disponibles via une interface graphique.</p>
+</div>
+<div class="paragraph">
+<p>Cockpit est l&#8217;interface graphique du Cloud OUTSCALE. C&#8217;est une interface web intuitive servant à gérer vos ressources. Pour en savoir plus, voir <a href="À-propos-de-Cockpit.html" class="xref page">À propos de Cockpit</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

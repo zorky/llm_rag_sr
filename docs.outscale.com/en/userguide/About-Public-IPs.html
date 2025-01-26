@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>About Public IPs – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="About-Public-IPs.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/About-Public-IPs.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/À-propos-des-IP-publiques.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">About Public IPs</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>A <span class="tooltip" data-tooltip="External IP (EIP) in AWS-Compliant APIs">public IP</span> is an IPv4 address that you can allocate to your account and then associate with one of your resources.</p>
+</div>
+<div class="paragraph">
+<p>You can disassociate a public IP from its resource at any time, and then reassociate it with another one. You can also fix a public IP to the <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">virtual machine (VM)</span> it is associated with through the stop and start process using an OUTSCALE tag. For more information, see <a href="Configuring-a-VM-with-User-Data-and-OUTSCALE-Tags.html" class="xref page">Configuring a VM with User Data and OUTSCALE Tags</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_general_information"><a class="anchor" href="About-Public-IPs.html#_general_information"></a>General Information</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><span class="tooltip" data-tooltip="External IP (EIP) in AWS-Compliant APIs">Public IPs</span> are public IPv4 addresses that you can allocate to your account. You can then associate them with the following resources:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VMs</span></p>
+</li>
+<li>
+<p>Network interfaces</p>
+</li>
+<li>
+<p>Internet-facing load balancers</p>
+</li>
+<li>
+<p><span class="tooltip" data-tooltip="NAT gateway in AWS-Compliant APIs">NAT services</span></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Public IPs enable communication with the internet. For more information, see <a href="About-Nets.html#_ip_addressing_and_access_to_the_internet" class="xref page">About Nets &gt; IP Addressing and Access to the Internet</a>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>To associate a public IP in a Net, the Net must have an <span class="tooltip" data-tooltip="Internet gateway in AWS-Compliant APIs">internet service</span> attached. For more information, see <a href="Connecting-VMs-in-a-Net-to-the-Internet.html" class="xref page">Connecting VMs in a Net to the Internet</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can disassociate and reassociate a public IP at any time. For example, this enables you, in case of VM failure, to transfer the public IP to another VM. Therefore, the new VM has the same public IP, which means that scripts or applications using this public IP do not encounter any issue. For more information, see the <a href="About-Public-IPs.html#public IP Association">[public IP Association]</a> section below.</p>
+</div>
+<div class="paragraph">
+<p>After you disassociate a public IP, it is still allocated to your account. If you do not use an allocated public IP anymore, you can release it to make it available for other accounts. For more information, see <a href="Unlinking-a-Public-IP-from-a-VM-or-a-Network-Interface.html" class="xref page">Unlinking a Public IP from a VM or a Network Interface</a> and <a href="Releasing-a-Public-IP-from-Your-Account.html" class="xref page">Releasing a Public IP from Your Account</a>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Ensure that none of your applications or scripts use the public IP you release.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_public_ip_association"><a class="anchor" href="About-Public-IPs.html#_public_ip_association"></a>Public IP Association</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can associate a <span class="tooltip" data-tooltip="External IP (EIP) in AWS-Compliant APIs">public IP</span> with only one resource at a time.</p>
+</div>
+<div class="paragraph">
+<p>If you associate a public IP with a <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span> or a network interface, using Cockpit you always need to disassociate the public IP before you can reassociate it with another resource. Using the APIs, you can configure a reassociation behavior: either prevent it, or automatically disassociate the public IP and reassociate it with the new VM or network interface you specify. For more information, see <a href="Linking-a-Public-IP-with-a-VM-or-a-Network-Interface.html" class="xref page">Linking a Public IP with a VM or a Network Interface</a>.</p>
+</div>
+<div class="paragraph">
+<p>If you create a <span class="tooltip" data-tooltip="NAT gateway in AWS-Compliant APIs">NAT service</span>, you need to specify a public IP. To modify the public IP associated with a NAT service, you need to delete the NAT service and re-create it with the new public IP. For more information, see <a href="Creating-a-NAT-Service.html" class="xref page">Creating a NAT Service</a>.</p>
+</div>
+<div class="paragraph">
+<p>You can also associate a public IP with an internet-facing load balancer when managing the load balancer. For more information on the association behavior, see <a href="About-Load-Balancers.html#_external_ip" class="xref page">About Load Balancers &gt; Public IP</a>. For more information on managing the load balancer, see <a href="Creating-an-Internet-facing-Load-Balancer-in-the-Public-Cloud.html" class="xref page">Creating an Internet-facing Load Balancer in the Public Cloud</a> or <a href="Creating-an-Internet-facing-Load-Balancer-in-a-Net.html" class="xref page">Creating an Internet-facing Load Balancer in a Net</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="_in_the_public_cloud"><a class="anchor" href="About-Public-IPs.html#_in_the_public_cloud"></a>In the Public Cloud</h3>
+<div class="paragraph">
+<p>An associated public IP replaces the default public IP of the VM. You can associate a public IP to a VM using one of the following solutions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Non-persistent association:<br>
+This solution instantly associates the public IP with a running VM. However, the public IP is disassociated from the VM every time you stop and start the VM. For more information, see <a href="Linking-a-Public-IP-with-a-VM-or-a-Network-Interface.html" class="xref page">Linking a Public IP with a VM or a Network Interface</a>.</p>
+</li>
+<li>
+<p>Persistent association:<br>
+This solution involves using a tag, <code>osc.fcu.eip.auto-attach</code>. This tag enables you to associate a public IP with a VM and fix this public IP to the VM through the stop and start process. The tag is taken into account only at boot, that is, after creation and after a stop start. You can add this tag using regular tags or in the user data of the VM, with <code>osc.fcu.eip.auto-attach</code> as Key and the public IP as Value. For more information, see <a href="Tagging-Your-Resources.html" class="xref page">Tagging Your Resources</a> or <a href="Configuring-a-VM-with-User-Data-and-OUTSCALE-Tags.html" class="xref page">Configuring a VM with User Data and OUTSCALE Tags</a>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>If you do not have time to stop and start your VM to associate the public IP with the VM using the <code>osc.fcu.eip.auto-attach</code> tag, you can associate the public IP using the non-persistent solution, and then add this tag to the VM using the same public IP as value. Therefore, the public IP will be fixed to the VM the next time you stop and start the VM.</p>
+</li>
+<li>
+<p>If you add the <code>osc.fcu.eip.auto-attach</code> tag to a VM that already has a public IP associated or replace its value with another public IP, the current public IP will be removed and replaced with the new public IP you specify as value the next time you stop and start the VM.</p>
+</li>
+<li>
+<p>As network interfaces do not follow a stop and start lifecycle, the association between a public IP and a network interface is always persistent.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_in_a_net"><a class="anchor" href="About-Public-IPs.html#_in_a_net"></a>In a Net</h3>
+<div class="paragraph">
+<p>The public IP attaches to the VM or to the primary network interface. If you are working with several network interfaces, you can choose to associate the public IP with any of the <span class="tooltip" data-tooltip="flexible network interface (FNI) in AWS-Compliant APIs">network interface cards (NICs)</span>. For more information, see <a href="About-NICs.html" class="xref page">About NICs</a>.<br>
+In a Net, public IP associations are only persistent. You can associate a public IP to a VM using one of the following solutions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Using a tag:<br>
+This solution involves using a tag, <code>osc.fcu.eip.auto-attach</code>. This tag enables you to associate a public IP with a VM and fix this public IP to the VM through the stop and start process. The tag is taken into account only at boot, that is, after creation and after a stop start. You can add this tag using regular tags or in the user data of the VM, with <code>osc.fcu.eip.auto-attach</code> as Key and the public IP as Value. For more information, see <a href="Tagging-Your-Resources.html" class="xref page">Tagging Your Resources</a> or <a href="Configuring-a-VM-with-User-Data-and-OUTSCALE-Tags.html" class="xref page">Configuring a VM with User Data and OUTSCALE Tags</a>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you add the <code>osc.fcu.eip.auto-attach</code> tag to a VM that already has a public IP associated or replace its value with another public IP, the current public IP will be removed and replaced with the new public IP you specify as value the next time you stop and start the VM.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Using the <strong>UpdateSubnet</strong> Method:<br>
+This solution involves setting the <code>MapPublicIpOnLaunch</code> parameter of the Subnet to <code>True</code>. It assigns a random IP to the VM in the Net and fix it to the VM through the stop and start process. For more information, see the <a href="../../api%3Fconsole.html#updateSubnet" class="xref page">UpdateSubnet</a> method.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Allocating-a-Public-IP-to-Your-Account.html" class="xref page">Allocating a Public IP to Your Account</a></p>
+</li>
+<li>
+<p><a href="Releasing-a-Public-IP-from-Your-Account.html" class="xref page">Releasing a Public IP from Your Account</a></p>
+</li>
+<li>
+<p><a href="About-VMs.html" class="xref page">About VMs</a></p>
+</li>
+<li>
+<p><a href="About-NICs.html" class="xref page">About NICs</a></p>
+</li>
+<li>
+<p><a href="About-NAT-Services.html" class="xref page">About NAT Services</a></p>
+</li>
+<li>
+<p><a href="About-Load-Balancers.html" class="xref page">About Load Balancers</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

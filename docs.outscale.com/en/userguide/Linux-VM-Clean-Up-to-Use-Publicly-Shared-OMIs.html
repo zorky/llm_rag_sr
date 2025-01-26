@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Linux VM Clean-Up to Use Publicly-Shared OMIs – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="Linux-VM-Clean-Up-to-Use-Publicly-Shared-OMIs.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/Linux-VM-Clean-Up-to-Use-Publicly-Shared-OMIs.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Nettoyage-des-VM-Linux-créées-à-partir-d-une-OMI-partagée.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Linux VM Clean-Up to Use Publicly-Shared OMIs</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This topic lists all or some of the actions you can take to reduce risks when using an OMI shared by another user.</p>
+</div>
+<div class="paragraph">
+<p>An OMI created from a <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">virtual machine (VM)</span> or a snapshot has the same characteristics as this VM or the VM the snapshot is created from. Therefore, the OMI may include backdoors, vulnerable configurations, or malicious software. Any VM created from a shared OMI thus includes the same risks as this OMI.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="Linux-VM-Clean-Up-to-Use-Publicly-Shared-OMIs.html#_overview"></a>Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This topic provides command samples for CentOs 7 Linux <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VMs</span>, but the list of actions is the same for other Linux VMs.</p>
+</div>
+<div class="paragraph">
+<p>You can execute these commands from anywhere in your VM and in any order.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>We strongly recommend creating the VM from the shared OMI in a separate, closed-streamed network, that is, using new security groups with SSH only and out of any <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span>. This prevents the VM from attacking any potentially vulnerable appliance in your network.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following sections gather the actions you can take to reduce risks when using a public OMI:</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_remote_access"><a class="anchor" href="Linux-VM-Clean-Up-to-Use-Publicly-Shared-OMIs.html#_remote_access"></a>Remote Access</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_ssh"><a class="anchor" href="Linux-VM-Clean-Up-to-Use-Publicly-Shared-OMIs.html#_ssh"></a>SSH</h3>
+<div class="paragraph">
+<p>Check that SSH is enabled with SSH keys only:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ cat /etc/ssh/sshd_config \| grep -e '^PermitRootLogin' -e '^StrictModes' -e '^RSAAuthentication' -e '^PubkeyAuthentication' -e '^PermitEmptyPasswords' -e '^AuthorizedKeysFile'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Expected result:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">PermitRootLogin without-password
+StrictModes yes
+RSAAuthentication yes
+PubkeyAuthentication yes
+PermitEmptyPasswords no
+AuthorizedKeysFile .ssh/authorized_keys</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the OMI is not meant to be accessed as root, the element <code>PermitRootLogin</code> is set to <code>no</code>. This enforces SSH-key authentication and denies passwords, considered a weak authentication method.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_extra_ssh_keys"><a class="anchor" href="Linux-VM-Clean-Up-to-Use-Publicly-Shared-OMIs.html#_extra_ssh_keys"></a>Extra SSH Keys</h3>
+<div class="paragraph">
+<p>Check that no extra SSH key is included:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ diff -q -b &lt;(curl -s http://169.254.169.254/latest/meta-data/public-keys/0/openssh-key)  &lt;(cat $HOME/.ssh/authorized_keys) &gt; /dev/null ; echo $?</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Expected result:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>0, if the ~/.ssh/authorized_keys file only contains the key provided by the meta-data server.</p>
+</li>
+<li>
+<p>1, if there is a difference.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This action compares the content of the ~/.ssh/authorized_keys file with all public keys allowed on the <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span>.</p>
+</div>
+<div class="paragraph">
+<p>You need to perform this action for each user meant to connect to the VM.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_extra_users"><a class="anchor" href="Linux-VM-Clean-Up-to-Use-Publicly-Shared-OMIs.html#_extra_users"></a>Extra Users</h3>
+<div class="paragraph">
+<p>Check that no extra user is included:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ cat /etc/passwd \| grep -vF -e "/bin/false" -e "/bin/nologin" -e "/usr/sbin/nologin"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Expected result:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A list of all users able to spawn a shell, that is, all users able to connect to the VM.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This command compares the results with what is expected to be on the OMI.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_launch_of_extra_services"><a class="anchor" href="Linux-VM-Clean-Up-to-Use-Publicly-Shared-OMIs.html#_launch_of_extra_services"></a>Launch of Extra Services</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_extra_services"><a class="anchor" href="Linux-VM-Clean-Up-to-Use-Publicly-Shared-OMIs.html#_extra_services"></a>Extra Services</h3>
+<div class="paragraph">
+<p>Check that no unwanted behavior is configured:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ ls /etc/init.d/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Expected result:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A list of all services.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Ensure you use the right distribution type. You can also use the /etc/rc.d/ directory.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_unwanted_commands"><a class="anchor" href="Linux-VM-Clean-Up-to-Use-Publicly-Shared-OMIs.html#_unwanted_commands"></a>Unwanted Commands</h3>
+<div class="paragraph">
+<p>Check that no unwanted commands are run:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ cat $HOME/.bashrc</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Expected result:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A list of commands automatically run when a shell is started.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You need to perform this action for each user able to connect to the <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_advanced_checks_for_high_security_needs"><a class="anchor" href="Linux-VM-Clean-Up-to-Use-Publicly-Shared-OMIs.html#_advanced_checks_for_high_security_needs"></a>Advanced Checks for High-Security Needs</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_running_processes"><a class="anchor" href="Linux-VM-Clean-Up-to-Use-Publicly-Shared-OMIs.html#_running_processes"></a>Running Processes</h3>
+<div class="paragraph">
+<p>Check running processes:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ ps aux</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Expected result:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A list of all running processes.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_open_ports"><a class="anchor" href="Linux-VM-Clean-Up-to-Use-Publicly-Shared-OMIs.html#_open_ports"></a>Open Ports</h3>
+<div class="paragraph">
+<p>Check open ports:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ netstat -nalp</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Expected result:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A list of all open ports, with the program path.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_crons"><a class="anchor" href="Linux-VM-Clean-Up-to-Use-Publicly-Shared-OMIs.html#_crons"></a>Crons</h3>
+<div class="paragraph">
+<p>Check crons:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ for user in $(cut -f1 -d: /etc/passwd); do crontab -u $user -l 2&gt;/dev/null \| grep -v '^#'; done
+$ ls /etc/cron.*/
+$ cat /etc/crontab
+$ cat /etc/rsyslog.conf /etc/rsyslog.d/*</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Expected result:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Lists of cron scripts.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To check what the crons do, you need to read the files and check the legitimacy of each one.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_anti_virus_scans"><a class="anchor" href="Linux-VM-Clean-Up-to-Use-Publicly-Shared-OMIs.html#_anti_virus_scans"></a>Anti-Virus Scans</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Check that no silent virus is included:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ yum install clamav clamav-update
+$ sed -i ‘/^Example/d’ /etc/freshclam.conf
+$ freshclam
+$ clamscan -r /</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Expected result:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A summary of the scan.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>These commands use Clamav, an open source anti-virus scanner available at the following address: <a href="https://www.clamav.<span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">net</span>/downloads" target="_blank" rel="noopener">https://www.clamav.net/downloads</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Linux-VMs-Clean-up-to-Create-OMIs.html" class="xref page">Linux VMs Clean-up to Create OMIs</a></p>
+</li>
+<li>
+<p><a href="Windows-VMs-Clean-up-to-Create-OMIs.html" class="xref page">Windows VMs Clean-up to Create OMIs</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

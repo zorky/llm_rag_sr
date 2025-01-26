@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Réduire la latence – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Réduire-la-latence.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Réduire-la-latence.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Reducing-Latency.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Réduire la latence</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez réduire la latence entre différentes <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machines virtuelles (VM)</span> pour les utiliser à leur capacité optimale.</p>
+</div>
+<div class="paragraph">
+<p>La latence est le délai entre l&#8217;action et le moment où celle-ci est effective. Moins vous avez de latence, plus vous pouvez gérer rapidement vos ressources.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez réduire la latence en plaçant les VM plus près les unes des autres, vous devez créer celles-ci avec le même compte et dans la même <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Sous-région</span>. Comme le Cloud est virtuel, pour une seule Sous-région, il y a différents sites physiques. Même si les VM sont dans la même Sous-région, elles peuvent être séparées physiquement. Utiliser le même compte augmente les changes que les VM soient sur la même Sous-région.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez vous assurer de réduire la latence au minimum en plaçant les VM plus près les unes des autres ; sur le même site physique. Vous pouvez utiliser des tags pour placer vos VM sur le même cluster ou hyperviseur.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez également réduire la latence en ne travaillant qu&#8217;avec un seul Subnet.
+Par défaut, les VMs dans un même Subnet peuvent communiquer entre elles sans aucune règle de security group nécessaire, grâce au contournement de pare-feu. Contourner un pare-feu consiste à désactiver des security groups afin de réduire la latence générale entre des VM. Cela permet aussi d&#8217;éviter des conflits avec des protocoles spécifiques, tels que ceux utilisés par Microsoft Windows. Pour en savoir plus, voir <a href="Référence-des-tags-user-data.html#_contournement_de_pare_feu" class="xref page">Référence des tags user data &gt; Contournement de pare-feu</a>. Si vous voulez une sécurité accrue entre vos VM, (par exemple, une sur un DLZ et l&#8217;autre sur un réseau interne), vous pouvez les placer dans des Subnets différents ou désactiver cette fonctionnalité.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_travailler_dans_une_seule_sous_région_ou_dans_un_seul_subnet"><a class="anchor" href="Réduire-la-latence.html#_travailler_dans_une_seule_sous_région_ou_dans_un_seul_subnet"></a>Travailler dans une seule Sous-région ou dans un seul Subnet</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Dans une seule <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Sous-région</span></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Vous pouvez créer des <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> dans la même Sous-région et avec le même compte. Pour en savoir plus, voir <a href="Créer-des-VM.html" class="xref page">Créer des VM</a>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Dans un seul Subnet d&#8217;un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Vous pouvez créer des VM dans le même Subnet. Pour en savoir plus sur les Subnets dans un Net, voir <a href="Créer-et-gérer-des-Subnets-dans-un-Net.html" class="xref page">Créer et gérer des Subnets dans un Net</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_rapprocher_les_vm"><a class="anchor" href="Réduire-la-latence.html#_rapprocher_les_vm"></a>Rapprocher les VM</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_sur_le_même_cluster"><a class="anchor" href="Réduire-la-latence.html#_sur_le_même_cluster"></a>Sur le même cluster</h3>
+<div class="paragraph">
+<p>Vous pouvez forcer vos <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> à être sur le même cluster en utilisant l&#8217;un de ces deux tags :</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Nom du tag</th>
+<th class="tableblock halign-left valign-top">Comportement</th>
+<th class="tableblock halign-left valign-top">Valeur</th>
+<th class="tableblock halign-left valign-top">Utilisable au boot avec les user data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>osc.fcu.attract_cluster</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Distribue les VM avec le même tag sur le même UCS.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Libre</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Oui</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>osc.fcu.attract_cluster_strict</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alias osc.fcu.attract_cluster mais échoue avec une erreur "InsuficientCapacity" si la requête ne peut être forcée.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Libre</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Oui</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Pour en savoir plus à propos de comment utiliser ces tags, voir <a href="Configurer-une-VM-avec-les-user-data-et-les-tags-OUTSCALE.html" class="xref page">Configurer une VM avec les user data et les tags OUTSCALE</a>.</p>
+</div>
+<div class="paragraph">
+<p>Si une erreur apparaît lors de l&#8217;utilisation du tag osc.fcu.attract_cluster_strict, utilisez cette commande lors du boot, dans le header des user data, en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">-----BEGIN OUTSCALE SECTION-----
+tags.osc.fcu.attract_cluster_strict=myclusterofvms_1
+-----END OUTSCALE SECTION-----</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sur_le_même_hyperviseur"><a class="anchor" href="Réduire-la-latence.html#_sur_le_même_hyperviseur"></a>Sur le même hyperviseur</h3>
+<div class="paragraph">
+<p>Vous pouvez forcer vos VM à être sur le même hyperviseur en utilisant l&#8217;un de ces deux tags :</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Le nombre de VM que vous pouvez placer sur le même hyperviseur dépend du type de VM et de la capacité de l&#8217;hyperviseur.</p>
+</li>
+<li>
+<p>Comme les VM sont placées sur le même hyperviseur, en cas de crash, toutes les VM seront impactées.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Nom du tag</th>
+<th class="tableblock halign-left valign-top">Comportement</th>
+<th class="tableblock halign-left valign-top">Valeur</th>
+<th class="tableblock halign-left valign-top">Utilisable au boot avec les user data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>osc.fcu.attract_server</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Distribue les VM avec le même tag sur la même slide.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Libre</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Oui</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>osc.fcu.attract_server_strict</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alias osc.fcu.attract_server mais échoue avec une erreur "InsuficientCapacity" si la requête ne peut être forcée.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Libre</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Oui</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Pour en savoir plus à propos de comment utiliser ces tags, voir <a href="Configurer-une-VM-avec-les-user-data-et-les-tags-OUTSCALE.html" class="xref page">Configurer une VM avec les user data et les tags OUTSCALE</a>.</p>
+</div>
+<div class="paragraph">
+<p>Si une erreur apparaît lors de l&#8217;utilisation du tag osc.fcu.attract_server_strict, utilisez cette commande lors du boot, dans le header des user data, en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">-----BEGIN OUTSCALE SECTION-----
+tags.osc.fcu.attract_server_strict=myclusterofvms_1
+-----END OUTSCALE SECTION-----</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Forcer un <code>attract_server</code> force automatiquement un <code>attract_cluster</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_isolation_du_security_group_à_lintérieur_dun_subnet"><a class="anchor" href="Réduire-la-latence.html#_isolation_du_security_group_à_lintérieur_dun_subnet"></a>Isolation du security group à l&#8217;intérieur d&#8217;un Subnet</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Par défaut, grâce à une amélioration du réseau, les <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> au sein d&#8217;un même Subnet peuvent communiquer entre elles sans règles de security group requises. Ceci permet de réduire la latence entre deux VM et d&#8217;éviter des problèmes avec des protocoles spécifiques, comme ceux utilisés par Microsoft Windows. Si vous souhaitez mettre en place un plus grande sécurité entre deux VM (par exemple une en DMZ et une autre dans un réseau interne), placez-les dans des Subnets différents ou désactiver cette fonctionnalité.</p>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

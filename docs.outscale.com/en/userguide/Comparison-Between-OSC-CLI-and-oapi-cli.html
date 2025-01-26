@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Comparison Between OSC CLI and oapi-cli – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="Comparison-Between-OSC-CLI-and-oapi-cli.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/Comparison-Between-OSC-CLI-and-oapi-cli.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Comparaison-entre-OSC-CLI-et-oapi-cli.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Comparison Between OSC CLI and oapi-cli</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This page presents the main differences between OSC CLI and oapi-cli, in order to familiarize yourself with the latter or help you migrate your scripts from the former to the latter.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_api_support"><a class="anchor" href="Comparison-Between-OSC-CLI-and-oapi-cli.html#_api_support"></a>API Support</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>OSC CLI enables you to send requests to the OUTSCALE API and most of our AWS-compliant APIs.</p>
+</div>
+<div class="paragraph">
+<p>On the other hand, oapi-cli supports the OUTSCALE API exclusively as it is dedicated to providing first-class support to it.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Therefore, if you do not need to use the AWS-compliant APIs, you can fully migrate to oapi-cli. If you need to use the AWS-compliant APIs, you will still need OSC CLI. Both CLIs can co-exist on the same machine.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>For more information on the APIs provided by OUTSCALE, see <a href="About-the-APIs.html" class="xref page">About the APIs</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_maturity_level"><a class="anchor" href="Comparison-Between-OSC-CLI-and-oapi-cli.html#_maturity_level"></a>Maturity Level</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>OSC CLI is the historical command-line interface for OUTSCALE. It is now in maintenance mode, meaning bugs are still fixed for it but no new features are added to it.</p>
+</div>
+<div class="paragraph">
+<p>oapi-cli is the newer command-line interface for OUTSCALE, providing expanded features and improved user experience. oapi-cli currently has a maturity level of <span class="image"><img src="_images/Project-Incubating-blue.svg" alt="Incubating"></span> according to the classification of our <a href="Open-Source-Projects.html" class="xref page">Open Source Projects</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_features_exclusive_to_oapi_cli"><a class="anchor" href="Comparison-Between-OSC-CLI-and-oapi-cli.html#_features_exclusive_to_oapi_cli"></a>Features Exclusive to oapi-cli</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_handling_of_error_responses"><a class="anchor" href="Comparison-Between-OSC-CLI-and-oapi-cli.html#_handling_of_error_responses"></a>Handling of Error Responses</h3>
+<div class="paragraph">
+<p>With oapi-cli, if you receive an error response from the API, the JSON error object is cleanly parsed and printed in your terminal. This differs from OSC CLI, which, as a CLI written in Python, only prints a Python traceback in your terminal.</p>
+</div>
+<div class="paragraph">
+<p>In both cases, the <a href="../../api-errors.html" class="xref page">List of OUTSCALE API Errors</a> page remains useful to find additional descriptions of the errors.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_bash_autocompletion"><a class="anchor" href="Comparison-Between-OSC-CLI-and-oapi-cli.html#_bash_autocompletion"></a>Bash Autocompletion</h3>
+<div class="paragraph">
+<p>oapi-cli provides a Bash autocompletion feature. For more information, see the <a href="https://github.com/outscale/oapi-cli?tab=readme-ov-file#autocompletion" target="_blank" rel="noopener">README</a> on GitHub.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_variable_system"><a class="anchor" href="Comparison-Between-OSC-CLI-and-oapi-cli.html#_variable_system"></a>Variable System</h3>
+<div class="paragraph">
+<p>oapi-cli provides a pseudo-variable system which enables you to chain several commands while dynamically using values from received responses. For more information, see the <a href="https://github.com/outscale/oapi-cli?tab=readme-ov-file#autocompletion" target="_blank" rel="noopener">README</a> on GitHub.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_differences_in_syntaxes_between_osc_cli_and_oapi_cli"><a class="anchor" href="Comparison-Between-OSC-CLI-and-oapi-cli.html#_differences_in_syntaxes_between_osc_cli_and_oapi_cli"></a>Differences in Syntaxes Between OSC CLI and oapi-cli</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_overview"><a class="anchor" href="Comparison-Between-OSC-CLI-and-oapi-cli.html#_overview"></a>Overview</h3>
+<div class="paragraph">
+<p>The default syntaxes of the two CLIs are similar, so migrating from one to the other does not require complex rewriting. In most cases, rewriting an OSC CLI command for oapi-cli only involves replacing <code>osc-cli api</code> with <code>oapi-cli</code> at the start of the command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api ReadVolumes --Filters '{ "VolumeStates": ["in-use"] }'
+$ oapi-cli ReadVolumes --Filters '{ "VolumeStates": ["in-use"] }'</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>oapi-cli also provides alternate ways to specify the parameter values, especially for nested parameters, but these are completely optional. For more information, see <a href="Installing-and-Configuring-oapi-cli.html" class="xref page">Installing and Configuring oapi-cli &gt; Using Alternate Syntaxes</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The sections below present the few actually notable differences that you need to consider when migrating to oapi-cli.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_order_of_the_options"><a class="anchor" href="Comparison-Between-OSC-CLI-and-oapi-cli.html#_order_of_the_options"></a>Order of the Options</h3>
+<div class="paragraph">
+<p>Historically, the OSC CLI examples in this documentation have put the authentication options (such as <code>--profile</code>) after the name of the call, but you can also put them before it, separate from the call&#8217;s request parameters (in the following example, <code>--Filters</code>):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api ReadVolumes --profile "default" --Filters '{ "VolumeStates": ["in-use"] }'
+$ osc-cli --profile "default" api ReadVolumes --Filters '{ "VolumeStates": ["in-use"] }'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With oapi-cli however, you have to put the authentication options before the name of the call:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" ReadVolumes --Filters '{ "VolumeStates": ["in-use"] }'</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_booleans"><a class="anchor" href="Comparison-Between-OSC-CLI-and-oapi-cli.html#_booleans"></a>Booleans</h3>
+<div class="paragraph">
+<p>With OSC CLI, booleans need to start with a capital letter, due to OSC CLI being written in Python:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">--DryRun True</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With oapi-cli, booleans are case-insensitive:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">--DryRun true</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_numerical_strings"><a class="anchor" href="Comparison-Between-OSC-CLI-and-oapi-cli.html#_numerical_strings"></a>Numerical Strings</h3>
+<div class="paragraph">
+<p>With OSC CLI, if you want to specify a number as a string, rather than as an integer (for example in <a href="../../api%3Fconsole.html#createnetpeering" class="xref page">CreateNetPeering</a>), you must wrap it in two pairs of quotes:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">--AccepterOwnerId '"123456789012"'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With oapi-cli, numerical strings are correctly recognized:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">--AccepterOwnerId "123456789012"</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_json_strings"><a class="anchor" href="Comparison-Between-OSC-CLI-and-oapi-cli.html#_json_strings"></a>JSON Strings</h3>
+<div class="paragraph">
+<p>With OSC CLI, if you want to specify JSON data as a string (for example in <a href="../../api%3Fconsole.html#createpolicy" class="xref page">CreatePolicy</a>), you must escape this data:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">--Document '"{\"Statement\": [ {\"Effect\": \"Allow\", \"Action\": [\"*\"], \"Resource\": [\"*\"]} ]}"'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With oapi-cli, the best practice is to write your JSON data in a file and pass it with the <code>--jsonstr-file</code> argument:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">--Document --jsonstr-file "policy.json"</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_certificate_strings"><a class="anchor" href="Comparison-Between-OSC-CLI-and-oapi-cli.html#_certificate_strings"></a>Certificate Strings</h3>
+<div class="paragraph">
+<p>With OSC CLI, if you want to specify a certificate as a string (for example in <a href="../../api%3Fconsole.html#createca" class="xref page">CreateCa</a>), the recommended way is to use a Shell command substitution:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">--CaPem="$(cat ca-certificate.pem)"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With oapi-cli, the best practice is to pass the content of the certificate file by using the <code>--file</code> argument:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">--CaPem --file "ca-certificate.pem"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Installing-and-Configuring-oapi-cli.html" class="xref page">Installing and Configuring oapi-cli</a></p>
+</li>
+<li>
+<p><a href="https://github.com/outscale/oapi-cli" target="_blank" rel="noopener">oapi-cli GitHub repository</a></p>
+</li>
+<li>
+<p><a href="Installing-and-Configuring-OSC-CLI.html" class="xref page">Installing and Configuring OSC CLI</a></p>
+</li>
+<li>
+<p><a href="https://github.com/outscale/osc-cli" target="_blank" rel="noopener">OSC CLI GitHub repository</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ and Amazon Web Services™ are trademarks of Amazon Technologies, Inc or its affiliates in the United States and/or other countries.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

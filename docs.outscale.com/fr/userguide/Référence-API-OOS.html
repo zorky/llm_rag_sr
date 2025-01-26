@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Référence API OOS – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Référence-API-OOS.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Référence-API-OOS.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/OOS-API-Reference.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Référence API OOS</h1>
+<div id="preamble" class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>OUTSCALE Object Storage (OOS) est compatible avec l&#8217;API Simple Storage Service (S3) d&#8217;Amazon Web Service (AWS). Vous pouvez donc utiliser OOS avec n’importe quel outil compatible S3. Pour en savoir plus, voir <a href="Outils-pour-utiliser-OOS.html" class="xref page">Outils pour utiliser OOS</a>.</p>
+</div>
+<div class="paragraph">
+<p>Ce tableau liste les méthodes API S3 supportées par OOS afin de gérer vos ressources de stockage objet, ainsi que les commandes CLI (s3api et s3) correspondantes.</p>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Méthode API S3</th>
+<th class="tableblock halign-left valign-top">Commande s3api</th>
+<th class="tableblock halign-left valign-top">Commande s3</th>
+<th class="tableblock halign-left valign-top">Procédure</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AbortMultipartUpload</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">abort-multipart-upload</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Annuler-un-dépôt-partitionné.html" class="xref page">Annuler un dépôt partitionné</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CompleteMultipartUpload</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">complete-multipart-upload</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Finaliser-un-dépôt-partitionné.html" class="xref page">Finaliser un dépôt partitionné</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CopyObject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">copy-object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cp ou mv</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Copier-un-objet-sur-un-bucket.html" class="xref page">Copier un objet sur un bucket</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CreateBucket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">create-bucket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mb</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Créer-un-bucket.html" class="xref page">Créer un bucket</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CreateMultipartUpload</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">create-multipart-upload</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Créer-un-dépôt-partitionné.html" class="xref page">Créer un dépôt partitionné</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DeleteBucket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete-bucket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rb</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Supprimer-un-bucket.html" class="xref page">Supprimer un bucket</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DeleteBucketCors</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete-bucket-cors</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Supprimer-la-configuration-CORS-d-un-bucket.html" class="xref page">Supprimer la configuration CORS d&#8217;un bucket</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DeleteBucketLifecycle</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete-bucket-lifecycle</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Supprimer-une-configuration-de-cycle-de-vie.html" class="xref page">Supprimer une configuration de cycle de vie</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DeleteBucketPolicy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete-bucket-policy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DeleteBucketWebsite</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete-bucket-website</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Supprimer-un-site-web-sur-bucket.html" class="xref page">Supprimer un site web sur bucket</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DeleteObject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete-object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Supprimer-les-objets-d-un-bucket.html#_supprimer_un_objet_dun_bucket_avec_aws_cli" class="xref page">Supprimer les objets d’un bucket &gt; Supprimer un objet d’un bucket avec AWS CLI</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DeleteObjectTagging</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete-object-tagging</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Gérer-les-tags-d-un-objet.html#_Supprimer_tous_les_tags_dun_objet" class="xref page">Gérer les tags d&#8217;un objet &gt; Supprimer tous les tags d&#8217;un objet</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GetBucketAcl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get-bucket-acl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Obtenir-des-informations-sur-l-ACL-d-un-bucket.html" class="xref page">Obtenir des informations sur l&#8217;ACL d&#8217;un bucket</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GetBucketCors</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get-bucket-cors</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Obtenir-des-informations-sur-la-configuration-CORS-d-un-bucket.html" class="xref page">Obtenir des informations sur la configuration CORS d&#8217;un bucket</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GetBucketLifecycleConfiguration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get-bucket-lifecycle-configuration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Obtenir-des-informations-sur-la-configuration-de-cycle-de-vie-de-votre-bucket.html" class="xref page">Obtenir des informations sur la configuration de cycle de vie de votre bucket</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GetBucketLocation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get-bucket-location</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Obtenir-des-informations-sur-un-bucket.html#_obtenir_des_informations_sur_la_localisation_dun_bucket" class="xref page">Obtenir des informations sur un bucket &gt; Obtenir des informations sur la localisation d’un bucket</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GetBucketPolicy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get-bucket-policy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GetBucketVersioning</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get-bucket-versioning</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Obtenir-des-informations-sur-le-versioning-d-un-bucket.html" class="xref page">Obtenir des informations sur le versioning d&#8217;un bucket</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GetBucketWebsite</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get-bucket-website</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Obtenir-des-informations-sur-un-site-web-sur-bucket.html" class="xref page">Obtenir des informations sur un site web sur bucket</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GetObject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get-object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Télécharger-un-objet-depuis-un-bucket.html" class="xref page">Télécharger un objet depuis un bucket</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GetObjectAcl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get-object-acl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Obtenir-des-informations-sur-l-ACL-d-un-objet.html" class="xref page">Obtenir des informations sur l&#8217;ACL d&#8217;un objet</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GetObjectLockConfiguration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get-object-lock-configuration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Configurer-un-Object-Lock-par-défaut-sur-un-bucket.html#_obtenir_des_informations_sur_une_configuration_object_lock" class="xref page">Configurer un Object Lock par défaut sur un bucket &gt; Obtenir des informations sur une configuration Object Lock</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GetObjectRetention</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get-object-retention</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Configurer-un-Object-Lock-spécifique-sur-un-objet.html#_obtenir_des_informations_sur_les_paramètres_de_rétention_dun_objet" class="xref page">Configurer un Object Lock spécifique sur un objet &gt; Obtenir des informations sur les paramètres de rétention d’un objet</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GetObjectTagging</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get-object-tagging</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Gérer-les-tags-d-un-objet.html#_Obtenir_des_informations_sur_les_tags_dun_objet" class="xref page">Gérer les tags d&#8217;un objet &gt; Obtenir des informations sur les tags d’un objet</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HeadBucket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">head-bucket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Obtenir-des-informations-sur-un-bucket.html#_vérifier_lexistence_et_laccès_au_bucket" class="xref page">Obtenir des informations sur un bucket &gt; Vérifier l’existence et l’accès au bucket</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HeadObject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">head-object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Obtenir-des-informations-sur-les-metadata-d-un-objet.html" class="xref page">Obtenir des informations sur les metadata d&#8217;un objet</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ListBuckets</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list-buckets</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ls</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Lister-vos-buckets.html" class="xref page">Lister vos buckets</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ListMultipartUploads</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list-multipart-uploads</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Lister-les-dépôts-partitionnés-d-un-bucket.html" class="xref page">Lister les dépôts partitionnés d&#8217;un bucket</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ListObjects</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list-objects</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ls</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Lister-les-objets-d-un-bucket.html" class="xref page">Lister les objets d&#8217;un bucket</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ListObjectVersions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list-object-versions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Lister-les-versions-d-un-objet.html" class="xref page">Lister les versions d&#8217;un objet</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ListParts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list-parts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Lister-les-parties-d-un-dépôt-partitionné.html" class="xref page">Lister les parties d&#8217;un dépôt partitionné</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PutBucketAcl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">put-bucket-acl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Configurer-l-ACL-d-un-bucket.html" class="xref page">Configurer l&#8217;ACL d&#8217;un bucket</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PutBucketCors</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">put-bucket-cors</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Appliquer-une-configuration-CORS-sur-un-bucket.html" class="xref page">Appliquer une configuration CORS sur un bucket</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PutBucketLifecycleConfiguration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">put-bucket-lifecycle-configuration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Appliquer-une-configuration-de-cycle-de-vie-à-votre-bucket.html" class="xref page">Appliquer une configuration de cycle de vie à votre bucket</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PutBucketPolicy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">put-bucket-policy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PutBucketVersioning</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">put-bucket-versioning</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Activer-ou-désactiver-le-versioning-d-un-bucket.html" class="xref page">Activer ou désactiver le versioning d&#8217;un bucket</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PutBucketWebsite</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">put-bucket-website</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">website</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Créer-un-site-web-sur-bucket.html" class="xref page">Créer un site web sur bucket</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PutObject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">put-object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Déposer-un-objet-dans-un-bucket.html" class="xref page">Déposer un objet dans un bucket</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PutObjectAcl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">put-object-acl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Configurer-l-ACL-d-un-objet.html" class="xref page">Configurer l&#8217;ACL d&#8217;un objet</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PutObjectLockConfiguration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">put-object-lock-configuration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Configurer-un-Object-Lock-par-défaut-sur-un-bucket.html#_appliquer_une_configuration_object_lock_sur_un_bucket" class="xref page">Configurer un Object Lock par défaut sur un bucket &gt; Appliquer une configuration Object Lock sur un bucket</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PutObjectRetention</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">put-object-retention</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Configurer-un-Object-Lock-spécifique-sur-un-objet.html#_verrouiller_un_objet_avec_des_paramètres_de_rétention" class="xref page">Configurer un Object Lock spécifique sur un objet &gt; Verrouiller un objet avec des paramètres de rétention</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PutObjectTagging</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">put-object-tagging</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Gérer-les-tags-d-un-objet.html" class="xref page">Gérer les tags d&#8217;un objet &gt; Taguer un objet</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UploadPart</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">upload-part</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Déposer-une-partie.html" class="xref page">Déposer une partie</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UploadPartCopy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">upload-part-copy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Copier-un-objet-existant-en-tant-que-partie.html" class="xref page">Copier un objet existant en tant que partie</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wait bucket-exists</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Utiliser-les-conditions-Wait-pour-un-bucket.html#_attendre_quun_bucket_existe" class="xref page">Utiliser les conditions Wait pour un bucket &gt; Attendre qu’un bucket existe</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wait bucket-not-exists</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Utiliser-les-conditions-Wait-pour-un-bucket.html#_attendre_quun_bucket_nexiste_plus" class="xref page">Utiliser les conditions Wait pour un bucket &gt; Attendre qu’un bucket n&#8217;existe plus</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wait object-exists</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Utiliser-les-conditions-Wait-pour-un-objet.html#_attendre_quun_objet_existe" class="xref page">Utiliser les conditions Wait pour un objet &gt; Attendre qu’un objet existe</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wait object-not-exists</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Utiliser-les-conditions-Wait-pour-un-objet.html#_attendre_quun_objet_nexiste_plus" class="xref page">Utiliser les conditions Wait pour un objet &gt; Attendre qu’un objet n&#8217;existe plus</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">presign</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Créer-une-URL-pré-signée.html" class="xref page">Créer une URL pré-signée</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sync</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="Synchroniser-des-objets-dans-un-bucket.html" class="xref page">Synchroniser des objets dans un bucket</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-d-OOS.html" class="xref page">À propos d&#8217;OOS</a></p>
+</li>
+<li>
+<p><a href="Outils-pour-utiliser-OOS.html" class="xref page">Outils pour utiliser OOS</a></p>
+</li>
+<li>
+<p><a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a></p>
+</li>
+</ul>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

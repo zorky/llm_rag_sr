@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Linking a Public IP with a VM or a Network Interface – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="Linking-a-Public-IP-with-a-VM-or-a-Network-Interface.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/Linking-a-Public-IP-with-a-VM-or-a-Network-Interface.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Attacher-une-IP-publique-à-une-VM-ou-à-une-interface-réseau.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Linking a Public IP</span> with a <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM or a Network Interface</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can link a <span class="tooltip" data-tooltip="External IP (EIP) in AWS-Compliant APIs">public IP</span> with a <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">virtual machine (VM)</span> or a network interface, either in the public Cloud or in a <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span>.</p>
+</div>
+<div class="paragraph">
+<p>In the public Cloud, the public IP replaces the public IP of the VM. In a Net, it links a public IP to the VM or the network interface. For more information, see <a href="About-Public-IPs.html#_public_ip_association" class="xref page">About Public IPs &gt; Public IP Association</a>.</p>
+</div>
+<div class="paragraph">
+<p>You can also link a public IP with a <span class="tooltip" data-tooltip="NAT gateway in AWS-Compliant APIs">NAT service</span>. However, you can do so only when creating the NAT service. For more information, see <a href="Creating-a-NAT-Service.html" class="xref page">Creating a NAT Service</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Cockpit v2_0"><a class="anchor" href="Linking-a-Public-IP-with-a-VM-or-a-Network-Interface.html#Cockpit v2_0"></a>Linking a Public IP Using Cockpit v2</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_linking_a_public_ip_to_a_vm"><a class="anchor" href="Linking-a-Public-IP-with-a-VM-or-a-Network-Interface.html#_linking_a_public_ip_to_a_vm"></a>Linking a <span class="tooltip" data-tooltip="External IP (EIP) in AWS-Compliant APIs">Public IP</span> to a <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Before you begin</strong>: To link a public IP to a VM, ensure that the <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span> has an <span class="tooltip" data-tooltip="Internet gateway in AWS-Compliant APIs">internet service</span> attached. For more information, see <a href="Attaching-an-Internet-Service-to-a-Net.html" class="xref page">Attaching an Internet Service to a Net</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In the <strong>Public IPs</strong> dashboard, check the box of the public IP you want to link.<br>
+The public IP is selected.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can also link a public IP to a VM in the <strong>VMs</strong> dashboard.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Click <span class="image"><img src="_images/IconLink.svg" alt="IconLink"></span> <strong>Link to VM</strong>.<br>
+The LINK TO VM dialog box appears.</p>
+</li>
+<li>
+<p>From the list, select the VM you want to link the public IP to.</p>
+</li>
+<li>
+<p>(optional) Select the <strong>Auto-link the selected VM</strong> box to automatically link the public IP to the selected VM at every VM restart.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>A tag is added to the VM with <code>osc.fcu.eip.auto-attach</code> as Key and your public IP as Value. The public IP is linked to your VM every time it is restarted. For more information, see <a href="Configuring-a-VM-with-User-Data-and-OUTSCALE-Tags.html" class="xref page">Configuring a VM with User Data and OUTSCALE Tags</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Click <strong>Link</strong>.<br>
+The public IP is linked to the VM.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_linking_a_public_ip_to_a_nic"><a class="anchor" href="Linking-a-Public-IP-with-a-VM-or-a-Network-Interface.html#_linking_a_public_ip_to_a_nic"></a>Linking a Public IP to a <span class="tooltip" data-tooltip="flexible network interface (FNI) in AWS-Compliant APIs">NIC</span></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Before you begin</strong>: To link a public IP to a NIC, ensure that the Net has an internet service attached. For more information, see <a href="Attaching-an-Internet-Service-to-a-Net.html" class="xref page">Attaching an Internet Service to a Net</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In the <strong>Public IPs</strong> dashboard, check the box of the public IP you want to link.<br>
+The public IP is selected.</p>
+</li>
+<li>
+<p>Click <span class="image"><img src="_images/IconLink.svg" alt="IconLink"></span> <strong>Link to NIC</strong>.<br>
+The LINK TO NIC dialog box appears.</p>
+</li>
+<li>
+<p>From the list, select the NIC you want to link the public IP to.</p>
+</li>
+<li>
+<p>Click <strong>Link</strong>.<br>
+The public IP is linked to the NIC.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="OSC CLI_1"><a class="anchor" href="Linking-a-Public-IP-with-a-VM-or-a-Network-Interface.html#OSC CLI_1"></a>Linking a Public IP Using OSC CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Before you begin</strong>: To link a <span class="tooltip" data-tooltip="External IP (EIP) in AWS-Compliant APIs">public IP</span> to a <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span> or a network interface in a <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span>, ensure that the Net has an <span class="tooltip" data-tooltip="Internet gateway in AWS-Compliant APIs">internet service</span> attached. For more information, see <a href="Attaching-an-Internet-Service-to-a-Net.html" class="xref page">Attaching an Internet Service to a Net</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The <strong>LinkPublicIp</strong> command associates a public IP with a virtual machine (VM) or a <span class="tooltip" data-tooltip="flexible network interface (FNI) in AWS-Compliant APIs">network interface card (NIC)</span>, in the public Cloud or in a Net. You can associate a public IP with only one VM or network interface at a time.<br>
+To associate a public IP in a Net, ensure that the Net has an internet service attached. For more information, see the <a href="../../api%3Fconsole.html#linkinternetservice" class="xref page">LinkInternetService</a> method.<br>
+By default, the public IP is disassociated every time you stop and start the VM. For a persistent association, you can add the <code>osc.fcu.eip.auto-attach</code> tag to the VM with the public IP as value. For more information, see the <a href="../../api%3Fconsole.html#createtags" class="xref page">CreateTags</a> method.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can associate a public IP with a network address translation (NAT) service only when creating the <span class="tooltip" data-tooltip="NAT gateway in AWS-Compliant APIs">NAT service</span>. To modify its public IP, you need to delete the NAT service and re-create it with the new public IP. For more information, see the <a href="../../api%3Fconsole.html#createnatservice" class="xref page">CreateNatService</a> method.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Linking a public IP to a VM</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api LinkPublicIp --profile "default" \
+    --PublicIp "192.0.2.0" \
+    --VmId "i-12345678"</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Linking a public IP to a NIC</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api LinkPublicIp --profile "default" \
+    --PublicIp "192.0.2.0" \
+    --NicId "eni-12345678"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AllowRelink</code>: (optional) If true, allows the public IP to be associated with the VM or NIC that you specify even if it is already associated with another VM or NIC. If false, prevents the public IP from being associated with the VM or NIC that you specify if it is already associated with another VM or NIC. (By default, true in the public Cloud, false in a Net.)</p>
+</li>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>NicId</code>: (optional) (Net only) The ID of the NIC. This parameter is required if the VM has more than one NIC attached. Otherwise, you need to specify the <code>VmId</code> parameter instead. You cannot specify both parameters at the same time.</p>
+</li>
+<li>
+<p><code>PrivateIp</code>: (optional) (Net only) The primary or secondary private IP of the specified NIC. By default, the primary private IP.</p>
+</li>
+<li>
+<p><code>PublicIp</code>: (optional) The public IP. This parameter is required unless you use the <code>PublicIpId</code> parameter.</p>
+</li>
+<li>
+<p><code>PublicIpId</code>: (optional) The allocation ID of the public IP. This parameter is required unless you use the <code>PublicIp</code> parameter.</p>
+</li>
+<li>
+<p><code>VmId</code>: (optional) The ID of the VM.<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>In the public Cloud, this parameter is required.<br></p>
+</li>
+<li>
+<p>In a Net, this parameter is required if the VM has only one NIC. Otherwise, you need to specify the <code>NicId</code> parameter instead. You cannot specify both parameters at the same time.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>LinkPublicIp</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LinkPublicIpId</code>: (Net only) The ID representing the association of the public IP with the VM or the NIC.</p>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Linking a public IP to a VM</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "LinkPublicIpId": "eipassoc-12345678"
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Linking a public IP to a NIC</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "LinkPublicIpId": "eipassoc-12345678"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="oapi-cli_2"><a class="anchor" href="Linking-a-Public-IP-with-a-VM-or-a-Network-Interface.html#oapi-cli_2"></a>Linking a Public IP Using oapi-cli</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Before you begin</strong>: To link a <span class="tooltip" data-tooltip="External IP (EIP) in AWS-Compliant APIs">public IP</span> to a <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span> or a network interface in a <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span>, ensure that the Net has an <span class="tooltip" data-tooltip="Internet gateway in AWS-Compliant APIs">Internet service</span> attached. For more information, see <a href="Attaching-an-Internet-Service-to-a-Net.html" class="xref page">Attaching an Internet Service to a Net</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The <strong>LinkPublicIp</strong> command associates a public IP with a virtual machine (VM) or a <span class="tooltip" data-tooltip="flexible network interface (FNI) in AWS-Compliant APIs">network interface card (NIC)</span>, in the public Cloud or in a Net. You can associate a public IP with only one VM or network interface at a time.<br>
+To associate a public IP in a Net, ensure that the Net has an internet service attached. For more information, see the <a href="../../api%3Fconsole.html#linkinternetservice" class="xref page">LinkInternetService</a> method.<br>
+By default, the public IP is disassociated every time you stop and start the VM. For a persistent association, you can add the <code>osc.fcu.eip.auto-attach</code> tag to the VM with the public IP as value. For more information, see the <a href="../../api%3Fconsole.html#createtags" class="xref page">CreateTags</a> method.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can associate a public IP with a network address translation (NAT) service only when creating the <span class="tooltip" data-tooltip="NAT gateway in AWS-Compliant APIs">NAT service</span>. To modify its public IP, you need to delete the NAT service and re-create it with the new public IP. For more information, see the <a href="../../api%3Fconsole.html#createnatservice" class="xref page">CreateNatService</a> method.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Linking a public IP to a VM</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" LinkPublicIp \
+    --PublicIp "192.0.2.0" \
+    --VmId "i-12345678"</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Linking a public IP to a NIC</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" LinkPublicIp \
+    --PublicIp "192.0.2.0" \
+    --NicId "eni-12345678"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AllowRelink</code>: (optional) If true, allows the public IP to be associated with the VM or NIC that you specify even if it is already associated with another VM or NIC. If false, prevents the public IP from being associated with the VM or NIC that you specify if it is already associated with another VM or NIC. (By default, true in the public Cloud, false in a Net.)</p>
+</li>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>NicId</code>: (optional) (Net only) The ID of the NIC. This parameter is required if the VM has more than one NIC attached. Otherwise, you need to specify the <code>VmId</code> parameter instead. You cannot specify both parameters at the same time.</p>
+</li>
+<li>
+<p><code>PrivateIp</code>: (optional) (Net only) The primary or secondary private IP of the specified NIC. By default, the primary private IP.</p>
+</li>
+<li>
+<p><code>PublicIp</code>: (optional) The public IP. This parameter is required unless you use the <code>PublicIpId</code> parameter.</p>
+</li>
+<li>
+<p><code>PublicIpId</code>: (optional) The allocation ID of the public IP. This parameter is required unless you use the <code>PublicIp</code> parameter.</p>
+</li>
+<li>
+<p><code>VmId</code>: (optional) The ID of the VM.<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>In the public Cloud, this parameter is required.<br></p>
+</li>
+<li>
+<p>In a Net, this parameter is required if the VM has only one NIC. Otherwise, you need to specify the <code>NicId</code> parameter instead. You cannot specify both parameters at the same time.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>LinkPublicIp</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LinkPublicIpId</code>: (Net only) The ID representing the association of the public IP with the VM or the NIC.</p>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Linking a public IP to a VM</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "LinkPublicIpId": "eipassoc-12345678"
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Linking a public IP to a NIC</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "LinkPublicIpId": "eipassoc-12345678"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI_3"><a class="anchor" href="Linking-a-Public-IP-with-a-VM-or-a-Network-Interface.html#AWS CLI_3"></a>Associating an EIP Using AWS CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Before you begin:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Install and configure AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+<li>
+<p>To associate an <span class="tooltip" data-tooltip="public IP in OUTSCALE API">EIP</span> with an <span class="tooltip" data-tooltip="virtual machine (VM) in OUTSCALE API">instance</span> or a network interface in a <span class="tooltip" data-tooltip="Net in OUTSCALE API">VPC</span>, ensure that the VPC has an <span class="tooltip" data-tooltip="Internet service in OUTSCALE API">internet gateway</span> attached. For more information, see <a href="Attaching-an-Internet-Service-to-a-Net.html" class="xref page">Attaching an Internet Service</span> to a <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</a>.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>To associate an EIP with an instance or a network interface, use the <strong>associate-address</strong> command following this syntax:</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws ec2 associate-address \
+    --profile YOUR_PROFILE \
+    --allocation-id eipalloc-12345678 \
+    --public-ip NOT_SPECIFIED \
+    [--allow-reassociation | --no-allow-reassociation] \
+    --instance-id i-12345678 \
+    --network-interface-id NOT_SPECIFIED \
+    --private-ip-address 10.0.0.0 \
+    --endpoint https://fcu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optional) <code>profile</code>: The named profile you want to use, created when configuring AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+<li>
+<p>(optional) <code>allocation-id</code>: The allocation ID of the EIP in your account.</p>
+</li>
+<li>
+<p>(optional) <code>public-ip</code>: The EIP.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>In the public Cloud, you need to specify the <code>public-ip</code> attribute.</p>
+</li>
+<li>
+<p>In a Net, you need to specify the <code>allocation-id</code> attribute.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optional) <code>allow-reassociation</code> | <code>no-allow-reassociation</code>: If set to <code>allow-reassociation</code>, the EIP is disassociated from any current instance or network interface and reassociated with the specified one. If set to <code>no-allow-reassociation</code>, an error message is returned if you try to reassociate an EIP that is already associated.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>By default, this attribute is set to <code>allow-reassociation</code> in the public Cloud, and to <code>no-allow-reassociation</code> in a VPC.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optional) <code>instance-id</code>: The ID of the instance you want to associate the EIP with, if the instance has only one network interface.</p>
+</li>
+<li>
+<p>(optional) <code>network-interface-id</code>: The ID of the network interface you want to associate the EIP with, if the instance has several network interfaces.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>In the public Cloud, you need to specify the <code>instance-id</code> attribute.</p>
+</li>
+<li>
+<p>In a VPC, you need to specify the <code>instance-id</code> attribute if the instance has only one network interface. If the instance has more than one network interface attached, you need to specify the <code>network-interface-id</code> attribute instead.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optional) <code>private-ip-address</code>: The primary or secondary private IP of the specified network interface (by default, the primary private IP).</p>
+</li>
+<li>
+<p><code>endpoint</code>: The endpoint corresponding to the Region you want to send the request to. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In the public Cloud, the <strong>associate-address</strong> command returns no element. In a VPC, it returns the following element:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(VPC only) <code>AssociationId</code>: The ID of the association of the EIP with the instance or the network interface.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "AssociationId": "eipassoc-12345678"
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>A tag is added to the <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span> with <code>osc.fcu.eip.auto-attach</code> as Key and your <span class="tooltip" data-tooltip="External IP (EIP) in AWS-Compliant APIs">public IP</span> as Value. The public IP is associated to your VM every time it is restarted. For more information, see <a href="Configuring-a-VM-with-User-Data-and-OUTSCALE-Tags.html" class="xref page">Configuring a VM with User Data and OUTSCALE Tags</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="About-Public-IPs.html" class="xref page">About Public IPs</a></p>
+</li>
+<li>
+<p><a href="Allocating-a-Public-IP-to-Your-Account.html" class="xref page">Allocating a Public IP to Your Account</a></p>
+</li>
+<li>
+<p><a href="Unlinking-a-Public-IP-from-a-VM-or-a-Network-Interface.html" class="xref page">Unlinking a Public IP from a VM or a Network Interface</a></p>
+</li>
+<li>
+<p><a href="About-VMs.html" class="xref page">About VMs</a></p>
+</li>
+<li>
+<p><a href="About-NICs.html" class="xref page">About NICs</a></p>
+</li>
+<li>
+<p><a href="Creating-a-NAT-Service.html" class="xref page">Creating a NAT Service</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Corresponding API Methods</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#linkpublicip" class="xref page">LinkPublicIp (OUTSCALE API)</a></p>
+</li>
+<li>
+<p><a href="../../fcu.html#associateaddress" class="xref page">AssociateAddress (FCU)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ and Amazon Web Services™ are trademarks of Amazon Technologies, Inc or its affiliates in the United States and/or other countries.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

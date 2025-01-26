@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Réversibilité – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Réversibilité.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Réversibilité.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Réversibilité</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>3DS OUTSCALE ne manipule pas les données de ses clients mais fournit un socle technique capable d&#8217;héberger des applicatifs, gérés par l&#8217;utilisateur, qui traitent des données. Cependant, au-delà de cette définition classique, la réversibilité concerne aujourd&#8217;hui les infrastructures.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_combinaison_avec_liaas"><a class="anchor" href="Réversibilité.html#_combinaison_avec_liaas"></a>Combinaison avec l&#8217;IaaS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>L&#8217;arrivée du Cloud computing s&#8217;est faite avec l&#8217;exploitation, entre autres, des interfaces de programmation applicatives (API), qui peuvent être définies comme une fonction métier, exposée sur Internet pour commander et orchestrer un ensemble de ressources dans le but de fournir un service informatique. Cette orchestration peut être programmatique, reproductible et standard. C&#8217;est pourquoi 3DS OUTSCALE exploite un socle technique générique limitant l&#8217;adhérence à un fournisseur, ce qui facilite grandement les migrations entre prestataires. <strong>3DS OUTSCALE fournit également des fonctions d&#8217;API qui permettent d&#8217;exporter les <em>disques virtuels</em> sur lesquels les données sont stockées.</strong> Ces fonctions sont disponibles dans l&#8217;Infrastructure as a Service (IaaS) nommé <em>Flexible Compute Unit</em> (FCU).</p>
+</div>
+<div class="paragraph">
+<p>La migration vers le Cloud est le moment idéal pour envisager une vision plus standardisée et automatisée de la livraison de ressources telles que les <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machines virtuelles</span> ou le stockage. C&#8217;est ainsi que l&#8217;ensemble de l&#8217;industrie se repose sur des concepts qui font office de l&#8217;état de l&#8217;art. Penser sa migration dans l&#8217;IaaS est, par essence, penser sa réversibilité. Les outils et fonctions le permettant sont intégrés aux API des fournisseurs.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conforme_aux_standards_du_métier"><a class="anchor" href="Réversibilité.html#_conforme_aux_standards_du_métier"></a>Conforme aux standards du métier</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>3DS OUTSCALE propose une méthode de commande et d&#8217;orchestration de son infrastructure via une API qui répond aux standards du marché, considérés comme l&#8217;état de l&#8217;art actuel des API IaaS : exploitables à travers de nombreux outils, libres, et disponibles sur différentes plateformes de collaboration telles que <a href="https://www.github.com" target="_blank" rel="noopener">https://www.github.com</a>.</p>
+</div>
+<div class="paragraph">
+<p>Les recettes de déploiement d&#8217;infrastructure produites avec les outils suivants peuvent être utilisées chez différents fournisseurs d&#8217;infrastructure compatibles avec les API de type AWS-EC2.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_liste_non_exhaustive_des_outils_majeurs_compatibles_avec_lapi_de_3dsoutscale"><a class="anchor" href="Réversibilité.html#_liste_non_exhaustive_des_outils_majeurs_compatibles_avec_lapi_de_3dsoutscale"></a>Liste non exhaustive des outils majeurs compatibles avec l&#8217;API de 3DS OUTSCALE</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Nom</th>
+<th class="tableblock halign-left valign-top">Site web</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Apache Libcloud</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://libcloud.apache.org/" target="_blank" rel="noopener">https://libcloud.apache.org/</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AWS CLI</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/aws/aws-cli" target="_blank" rel="noopener">https://github.com/aws/aws-cli</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AWS JS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/aws/aws-sdk-js" target="_blank" rel="noopener">https://github.com/aws/aws-sdk-js</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AWS Java</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/aws/aws-sdk-java" target="_blank" rel="noopener">https://github.com/aws/aws-sdk-java</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boto</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/boto/boto" target="_blank" rel="noopener">https://github.com/boto/boto</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Eucalyptus</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/eucalyptus/eucalyptus/wiki" target="_blank" rel="noopener">https://github.com/eucalyptus/eucalyptus/wiki</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">s3cmd</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/s3tools/s3cmd" target="_blank" rel="noopener">https://github.com/s3tools/s3cmd</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Terraform</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.terraform.io/" target="_blank" rel="noopener">https://www.terraform.io/</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Packer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.packer.io" target="_blank" rel="noopener">https://www.packer.io</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_champs_dapplication_de_la_réversibilité"><a class="anchor" href="Réversibilité.html#_champs_dapplication_de_la_réversibilité"></a>Champs d&#8217;application de la réversibilité</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_exploitation_de_lapi"><a class="anchor" href="Réversibilité.html#_exploitation_de_lapi"></a>Exploitation de l&#8217;API</h3>
+<div class="paragraph">
+<p>3DS OUTSCALE expose son API publique, elle permet de manipuler des concepts élémentaires de l&#8217;informatique (voir la liste ci-dessous) afin que l&#8217;utilisateur puisse les assembler à sa convenance pour concevoir son architecture cible. 3DS OUTSCALE est responsable de la livraison des éléments commandés par API mais n&#8217;est pas l&#8217;opérateur de cet API.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Adresses IPv4</p>
+</li>
+<li>
+<p>Porte d&#8217;accès pour réseau VPN, Internet et NAT</p>
+</li>
+<li>
+<p>Option de configuration DHCP</p>
+</li>
+<li>
+<p>Images machines</p>
+</li>
+<li>
+<p>Clés SSH pour accéder aux <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machines virtuelles</span></p>
+</li>
+<li>
+<p>Multiples interfaces réseau pour machines virtuelles</p>
+</li>
+<li>
+<p>Interconnexion de réseaux privés virtuels</p>
+</li>
+<li>
+<p>Table de routage au sein du réseau privé virtuel</p>
+</li>
+<li>
+<p>Contrôle des flux d&#8217;accès réseau (groupe de sécurité)</p>
+</li>
+<li>
+<p>Photo instantanée du stockage</p>
+</li>
+<li>
+<p>Manipulation de réseaux privés virtuels (<span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span> &amp; Subnets)</p>
+</li>
+<li>
+<p>Nommage dynamique des ressources virtuelles</p>
+</li>
+<li>
+<p>Balance de charge</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_exploitation_des_ressources_associées"><a class="anchor" href="Réversibilité.html#_exploitation_des_ressources_associées"></a>Exploitation des ressources associées</h3>
+<div class="sect3">
+<h4 id="_puissance_de_calcul"><a class="anchor" href="Réversibilité.html#_puissance_de_calcul"></a>Puissance de calcul</h4>
+<div class="paragraph">
+<p>3DS OUTSCALE se repose sur la technologie QEMU-KVM pour fournir la virtualisation des systèmes d&#8217;exploitation à ses utilisateurs. QEMU-KVM est une technologie libre (<a href="https://www.qemu.org/" target="_blank" rel="noopener">https://www.qemu.org/</a>) et simple d&#8217;accès : aucun élément technologique n&#8217;étant privé, il est de fait pleinement possible de recréer une infrastructure virtuelle hébergée chez 3DS OUTSCALE sur des machines traditionnelles. Aussi, QEMU-KVM est exploité par la majeure partie des fournisseurs d&#8217;IaaS. De plus, des outils de conversion des images machines produites avec QEMU-KVM permettent de migrer vers des infrastructures virtualisées du type XEN ou VMWare. Voir <a href="https://qemu.weilnetz.de/doc/2.11/qemu-doc.html#QEMU-compared-to-other-emulators" target="_blank" rel="noopener">A.3 QEMU compared to other emulators</a> ainsi que la partie <a href="https://qemu.weilnetz.de/doc/2.11/qemu-doc.html#qemu_005fimg_005finvocation" target="_blank" rel="noopener">2.7.4 qemu-img Invocation</a>.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Ressource</th>
+<th class="tableblock halign-left valign-top">Réversibilité</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Authentification</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-ban"></i></span> Non</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cette ressource est détenue et gérée par OUTSCALE. Vous pouvez consulter les informations d&#8217;authentification dans la documentation API OUTSCALE : <a href="../../api%3Fconsole.html#authentication-schemes" class="xref page">Authentication Schemes</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Access key</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-ban"></i></span> Non</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cette ressource est détenue et gérée par OUTSCALE. Vous pouvez consulter les attributs de cette ressource via la méthode API OUTSCALE <a href="../../api%3Fconsole.html#readaccesskeys" class="xref page">ReadAccessKeys</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Politique d&#8217;accès API</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span> Oui (partielle)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vous pouvez consulter les attributs de cette ressource via la méthode API OUTSCALE <a href="../../api%3Fconsole.html#readapiaccesspolicy" class="xref page">ReadApiAccessPolicy</a>.</p>
+<p class="tableblock">Il est cependant possible que cette ressource ne puisse pas être intégrée ailleurs en l&#8217;état.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Règle d&#8217;accès API</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span> Oui (partielle)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vous pouvez consulter les attributs de cette ressource via la méthode API OUTSCALE <a href="../../api%3Fconsole.html#readapiaccessrules" class="xref page">ReadApiAccessRules</a>.</p>
+<p class="tableblock">Il est cependant possible que cette ressource ne puisse pas être intégrée ailleurs en l&#8217;état.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Compte</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span> Oui (partielle)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vous pouvez consulter les attributs de cette ressource via la méthode API OUTSCALE <a href="../../api%3Fconsole.html#readaccounts" class="xref page">ReadAccounts</a>.</p>
+<p class="tableblock">Il est cependant possible que cette ressource ne puisse pas être intégrée ailleurs en l&#8217;état.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Flexible GPU</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-ban"></i></span> Non</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cette ressource est détenue et gérée par OUTSCALE. Vous pouvez consulter les attributs de cette ressource via la méthode API OUTSCALE <a href="../../api%3Fconsole.html#readflexiblegpus" class="xref page">ReadFlexibleGpus</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Image</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span> Oui</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Une image peut être exportée au format QCOW2 ou RAW vers le service OOS.</p>
+<p class="tableblock">Elle peut ensuite être téléchargée. Pour en savoir plus, voir <a href="Exporter-une-OMI-vers-un-bucket.html" class="xref page">Exporter une OMI vers un bucket</a> et <a href="Télécharger-un-objet-depuis-un-bucket.html" class="xref page">Télécharger un objet depuis un bucket</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VM</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span> Oui (partielle)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Les metadata et user data de cette ressource peuvent être consultées depuis la VM elle-même. Pour en savoir plus, voir <a href="Accéder-aux-metadata-et-user-data-d-une-VM.html" class="xref page">Accéder aux metadata et user data d&#8217;une VM</a>.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez consulter les attributs de cette ressource via :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>la méthode API OUTSCALE <a href="../../api%3Fconsole.html#readvms" class="xref page">ReadVms</a>,</p>
+</li>
+<li>
+<p>la console d&#8217;une VM via la méthode API OUTSCALE <a href="../../api%3Fconsole.html#readconsoleoutput" class="xref page">ReadConsoleOutput</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Il est cependant possible que cette ressource ne puisse pas être intégrée ailleurs en l&#8217;état.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Product type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-ban"></i></span> Non</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cette ressource est détenue et gérée par OUTSCALE. Vous pouvez consulter les attributs de cette ressource via la méthode API OUTSCALE <a href="../../api%3Fconsole.html#readproducttypes" class="xref page">ReadProductTypes</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quota</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-ban"></i></span> Non</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cette ressource est détenue et gérée par OUTSCALE. Vous pouvez consulter les attributs de cette ressource via la méthode API OUTSCALE <a href="../../api%3Fconsole.html#readquotas" class="xref page">ReadQuotas</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Région</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-ban"></i></span> Non</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cette ressource est détenue et gérée par OUTSCALE. Vous pouvez consulter les attributs de cette ressource via la méthode API OUTSCALE <a href="../../api%3Fconsole.html#readregions" class="xref page">ReadRegions</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Sous-région</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-ban"></i></span> Non</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cette ressource est détenue et gérée par OUTSCALE. Vous pouvez consulter les attributs de cette ressource via la méthode API OUTSCALE <a href="../../api%3Fconsole.html#readsubregions" class="xref page">ReadSubregions</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tâche</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-ban"></i></span> Non</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cette ressource est détenue et gérée par OUTSCALE. Vous pouvez consulter les attributs de cette ressource via les méthodes API OUTSCALE <a href="../../api%3Fconsole.html#readsnapshotexporttasks" class="xref page">ReadSnapshotExportTasks</a> et <a href="../../api%3Fconsole.html#readimageexporttasks" class="xref page">ReadImageExportTasks</a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_stockage_bloc"><a class="anchor" href="Réversibilité.html#_stockage_bloc"></a>Stockage bloc</h4>
+<div class="paragraph">
+<p>Le stockage bloc accompagnant les machines virtuelles se comporte comme un disque dur classique (à plateau ou SSD). N&#8217;importe quel système de fichier standard (ext4, xfs, FAT32, NTFS) est compatible avec l&#8217;IaaS de 3DS OUTSCALE et permet d&#8217;exploiter la donnée stockée sur disques.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Ressource</th>
+<th class="tableblock halign-left valign-top">Réversibilité</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Snapshot</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span> Oui</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Les attributs d&#8217;un snapshot peuvent être consultés via la méthode API <a href="../../api%3Fconsole.html#readsnapshots" class="xref page">ReadSnapshots</a>.</p>
+<p class="tableblock">Un snapshot peut être exporté au format QCOW2 ou RAW vers le service OOS.<br>
+Il peut ensuite être téléchargé. Pour en savoir plus, voir <a href="Exporter-un-snapshot-sur-un-bucket.html" class="xref page">Exporter un snapshot sur un bucket</a> et <a href="Télécharger-un-objet-depuis-un-bucket.html" class="xref page">Télécharger un objet depuis un bucket</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Volume</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span> Oui</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Les attributs d&#8217;un volume peuvent être consultés via la méthode API <a href="../../api%3Fconsole.html#readvolumes" class="xref page">ReadVolumes</a>.</p>
+<p class="tableblock">Un volume peut être exporté en réalisant un snapshot de celui-ci et en l&#8217;exportant au format QCOW2 ou RAW vers le service OOS.<br>
+Il peut ensuite être téléchargé. Pour en savoir plus, voir <a href="Exporter-un-snapshot-sur-un-bucket.html" class="xref page">Exporter un snapshot sur un bucket</a> et <a href="Télécharger-un-objet-depuis-un-bucket.html" class="xref page">Télécharger un objet depuis un bucket</a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_réseau"><a class="anchor" href="Réversibilité.html#_réseau"></a>Réseau</h4>
+<div class="paragraph">
+<p>3DS OUTSCALE propose deux modes d&#8217;exploitation du réseau dans l&#8217;IaaS : Le premier, dit <em>public</em>, et le second, dit <em><span class="tooltip" data-tooltip="Net dans l'API OUTSCALE">Virtual Private Cloud</span></em> (VPC). Les composants réseaux fournis par 3DS OUTSCALE sont configurables par API et respectent le standard RFC 1918 (<a href="https://tools.ietf.org/html/rfc1918" target="_blank" rel="noopener">https://tools.ietf.org/html/rfc1918</a>), ouvert et largement adopté. Le plan d&#8217;adressage est reproductible chez de nombreux fournisseurs ainsi que localement.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Ressource</th>
+<th class="tableblock halign-left valign-top">Réversibilité</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="tooltip" data-tooltip="customer gateway dans les API AWS-compliant">Client gateway</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span> Oui</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vous pouvez consulter la configuration de cette ressource via la méthode API OUTSCALE <a href="../../api%3Fconsole.html#readclientgateways" class="xref page">ReadClientGateways</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Connexion VPN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span> Oui (partielle)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vous pouvez consulter la configuration de cette ressource via la méthode API OUTSCALE <a href="../../api%3Fconsole.html#readvpnconnections" class="xref page">ReadVpnConnections</a>.</p>
+<p class="tableblock">Il est cependant possible que cette ressource ne puisse pas être intégrée ailleurs en l’état.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="tooltip" data-tooltip="Internet gateway dans les API AWS-compliant">Internet service</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-ban"></i></span> Non</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cette ressource est détenue et gérée par OUTSCALE. Vous pouvez consulter les attributs de cette ressource via la méthode API OUTSCALE <a href="../../api%3Fconsole.html#readinternetservices" class="xref page">ReadInternetServices</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">IP publique</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span> Oui (partielle)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vous pouvez consulter les attributs de cette ressource via la méthode API OUTSCALE <a href="../../api%3Fconsole.html#readpublicips" class="xref page">ReadPublicIps</a>.</p>
+<p class="tableblock">Il est cependant possible que cette ressource ne puisse pas être intégrée ailleurs en l&#8217;état.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Keypair</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span> Oui (partielle)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vous pouvez consulter les attributs de cette ressource via la méthode API OUTSCALE <a href="../../api%3Fconsole.html#readkeypairs" class="xref page">ReadKeypairs</a>.</p>
+<p class="tableblock">Il est cependant possible que cette ressource ne puisse pas être intégrée ailleurs en l&#8217;état.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nat Service</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-ban"></i></span> Non</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cette ressource est détenue et gérée par OUTSCALE. Vous pouvez consulter les attributs de cette ressource via la méthode API OUTSCALE <a href="../../api%3Fconsole.html#readnatservices" class="xref page">ReadNatServices</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Net</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span> Oui (partielle)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">La topologie du réseau peut être consultée via la méthode API OUTSCALE <a href="../../api%3Fconsole.html#readnets" class="xref page">ReadNets</a>.</p>
+<p class="tableblock">Il est cependant possible que cette ressource ne puisse pas être intégrée ailleurs en l&#8217;état.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="tooltip" data-tooltip="VPC endpoint dans les API AWS-compliant">Net access point</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-ban"></i></span> Non</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cette ressource est détenue et gérée par OUTSCALE. Vous pouvez consulter les attributs de cette ressource via la méthode API OUTSCALE <a href="../../api%3Fconsole.html#updatenetaccesspoint" class="xref page">ReadNetAccessPoints</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="tooltip" data-tooltip="VPC peering connection dans les API AWS-compliant">Net peering</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span> Oui (partielle)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">La liste des Net peerings établis entre des Nets ainsi que leurs statuts peut être consultée via la méthode API OUTSCALE <a href="../../api%3Fconsole.html#readnetpeerings" class="xref page">ReadNetPeerings</a>.</p>
+<p class="tableblock">Il est cependant possible que cette ressource ne puisse pas être intégrée ailleurs en l&#8217;état.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="tooltip" data-tooltip="flexible network interface (FNI) dans les API AWS-compliant">NIC</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span> Oui (partielle)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vous pouvez consulter la configuration de cette ressource via la méthode API OUTSCALE <a href="../../api%3Fconsole.html#readnics" class="xref page">ReadNics</a>.</p>
+<p class="tableblock">Il est cependant possible que cette ressource ne puisse pas être intégrée ailleurs en l&#8217;état.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Options DHCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span> Oui</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Les options DHCP associées à un Net peuvent être consultées via la méthode API OUTSCALE <a href="../../api%3Fconsole.html#readdhcpoptions" class="xref page">ReadDhcpOptions</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Règles d&#8217;un security group</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span> Oui</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Les informations et règles de filtrage d&#8217;une règle d&#8217;un security group sont disponibles via les attributs d&#8217;un security group. Vous pouvez consulter les attributs de cette ressource via la méthode API OUTSCALE <a href="../../api%3Fconsole.html#readsecuritygroups" class="xref page">ReadSecurityGroups</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Security group</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-ban"></i></span> Non</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cette ressource est détenue et gérée par OUTSCALE. Vous pouvez consulter les attributs de cette ressource via la méthode API OUTSCALE <a href="../../api%3Fconsole.html#readsecuritygroups" class="xref page">ReadSecurityGroups</a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_stockage_objet"><a class="anchor" href="Réversibilité.html#_stockage_objet"></a>Stockage objet</h4>
+<div class="paragraph">
+<p>3DS OUTSCALE exploite la technologie RING de Scality pour son service de stockage objet nommé <em>OUTSCALE Object Storage</em> (OOS), compatible avec le standard S3.</p>
+</div>
+<div class="paragraph">
+<p>Ce service stocke des fichiers sans les modifier, tout en les mettant à disposition via le protocole HTTPS. Pour récupérer un fichier stocké sur le service OOS, il suffit de le télécharger avec un navigateur Internet ou avec un outil permettant d&#8217;accéder à des liens HTTPS (wget, curl&#8230;&#8203;).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_balance_de_charge"><a class="anchor" href="Réversibilité.html#_balance_de_charge"></a>Balance de charge</h4>
+<div class="paragraph">
+<p>3DS OUTSCALE propose un service de balance de charge nommé <em>Load Balancer Unit</em> (LBU) qui permet d&#8217;appliquer une répartition en round-robin des requêtes HTTP, HTTPS, TCP, SSL reçues. Ce service est basé sur le logiciel libre HaProxy : seule la configuration non-public de cet outil peut freiner la réversibilité et la reproductibilité du comportement exact de la balance de charge.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_directlink"><a class="anchor" href="Réversibilité.html#_directlink"></a>DirectLink</h4>
+<div class="paragraph">
+<p>3DS OUTSCALE propose un service de connexion DirectLink entre votre réseau et l’infrastructure OUTSCALE pour accéder à vos ressources dans un Net sans passer par un fournisseur d’accès à Internet.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Ressource</th>
+<th class="tableblock halign-left valign-top">Réversibilité</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DirectLink</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span> Oui (partielle)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vous pouvez consulter les attributs de cette ressource via la méthode API OUTSCALE <a href="../../api%3Fconsole.html#readdirectlinks" class="xref page">ReadDirectLinks</a>.</p>
+<p class="tableblock">Il est cependant possible que cette ressource ne puisse pas être intégrée ailleurs en l&#8217;état.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="tooltip" data-tooltip="virtual interface privée dans les API AWS-compliant">DirectLink interface</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span> Oui (partielle)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vous pouvez consulter les attributs de cette ressource via la méthode API OUTSCALE <a href="../../api%3Fconsole.html#readdirectlinkinterfaces" class="xref page">ReadDirectLinkInterfaces</a>.</p>
+<p class="tableblock">Il est cependant possible que cette ressource ne puisse pas être intégrée ailleurs en l&#8217;état.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Site DirectLink</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-ban"></i></span> Non</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cette ressource est détenue et gérée par OUTSCALE. Vous pouvez consulter les attributs de cette ressource via la méthode API OUTSCALE <a href="../../api%3Fconsole.html#readlocations" class="xref page">Locations</a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_déploiement_agnostique"><a class="anchor" href="Réversibilité.html#_déploiement_agnostique"></a>Déploiement agnostique</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_automatisation_abstraction_et_modularité_du_déploiement_dinfrastructure"><a class="anchor" href="Réversibilité.html#_automatisation_abstraction_et_modularité_du_déploiement_dinfrastructure"></a>Automatisation, abstraction et modularité du déploiement d&#8217;infrastructure</h3>
+<div class="paragraph">
+<p>3DS OUTSCALE expose ses API publiquement : elles permettent de commander un ensemble de ressources disponibles quasi instantanément.</p>
+</div>
+<div class="paragraph">
+<p>La commande de ressources peut s&#8217;effectuer grâce aux outils listés plus haut dans ce document : il s&#8217;agit de <em>l&#8217;Infrastructure As Code</em>. C&#8217;est avec à cette approche que l&#8217;utilisateur crée une procédure codifiée, automatisée et évolutive. Les outils listés permettent, comme Terraform, d&#8217;écrire une recette de déploiement compatible avec plusieurs fournisseurs d&#8217;infrastructure. De fait, l&#8217;adhérence de l&#8217;utilisateur à un fournisseur est réduite à son maximum et le coût de redéploiement est plus faible que dans le cas d&#8217;une gestion d&#8217;infrastructure manuelle.</p>
+</div>
+<div class="paragraph">
+<p>Les concepts piliers du IaaS sont basés sur la virtualisation qui est une couche d&#8217;abstraction réduisant l&#8217;adhérence à la pile technologique exploitée. 3DS OUTSCALE fournit des systèmes d&#8217;exploitation <em>vanilla</em> disponibles librement, appelés <em>OUTSCALE Machine Images</em> (OMI), et compatibles avec AWS et OpenStack, un orchestrateur d&#8217;IaaS ouvert. L&#8217;administration et les éléments contenus dans une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machine virtuelle</span> basée sur la distribution Linux GNU/Debian (disponible ici : <a href="https://cloud.debian.org/images/openstack/current-10/" target="_blank" rel="noopener">https://cloud.debian.org/images/openstack/current-10/</a>) est identique chez plusieurs fournisseurs et même exploitable "localement".</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_migration_des_données"><a class="anchor" href="Réversibilité.html#_migration_des_données"></a>Migration des données</h3>
+<div class="paragraph">
+<p>3DS OUTSCALE ne traite ni les données ni les applicatifs de ses clients. Cependant, en tant qu’hébergeur, il stocke les disques durs virtuels appelés <em>Block Storage Unit</em> (BSU)<em>,</em> qui sont attachés aux machines virtuelles.</p>
+</div>
+<div class="paragraph">
+<p>Une fonction d&#8217;API (<a href="../../fcu.html#createsnapshotexporttask" class="xref page">ROOT::fcu.adoc#createsnapshotexporttask</a>) nommée <em>CreateSnapshotExportTask</em> permet à l&#8217;utilisateur d&#8217;obtenir une copie parfaite de son disque dans le format ouvert <em>qcow2</em> ou dans un format <em>brut (RAW)</em>. Cette copie est ensuite récupérable par l&#8217;utilisateur avec un navigateur, qui peut en faire une exploitation locale avec le logiciel libre QEMU, ou en effectuant une copie chez un hébergeur traditionnel ou un service IaaS.</p>
+</div>
+<div class="paragraph">
+<p><strong>Page connexe</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Glossaire.html" class="xref page">Glossaire</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Tutoriel : Utiliser un dépôt partitionné avec AWS CLI (s3) – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Tutoriel-Utiliser-un-dépôt-partitionné-avec-AWS-CLI-s3.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Tutoriel-Utiliser-un-dépôt-partitionné-avec-AWS-CLI-s3.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Tutorial-Using-Multipart-Upload-With-AWS-CLI-s3.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Tutoriel : Utiliser un dépôt partitionné avec AWS CLI (s3)</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Un dépôt partitionné vous permet de déposer de manière efficace et fiable des objets volumineux dans un bucket. Son principe est de décomposer un objet en parties plus petites en vue d&#8217;un dépôt parallèle.</p>
+</div>
+<div class="paragraph">
+<p>Cette fonctionnalité est à la fois compatible avec les commandes s3 de haut niveau et les commandes s3api de bas niveau.</p>
+</div>
+<div class="paragraph">
+<p>Pour les opérations nécessitant un contrôle plus granulaire, voir <a href="Utiliser-un-dépôt-partitionné-avec-AWS-CLI-s3api.html" class="xref page">Utiliser un dépôt partitionné avec AWS CLI (s3api)</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_récupérer_la_somme_de_contrôle_md5_de_votre_objet"><a class="anchor" href="Tutoriel-Utiliser-un-dépôt-partitionné-avec-AWS-CLI-s3.html#_récupérer_la_somme_de_contrôle_md5_de_votre_objet"></a>Récupérer la somme de contrôle MD5 de votre objet</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Avant de commencer :</strong> Installez et configurez AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>La somme de contrôle MD5 est un nombre hexadécimal de 32 caractères constituant l&#8217;empreinte numérique de votre objet. Pour déposer un objet en une seule partie (généralement pour des objets de 5 Go ou moins), la somme de contrôle MD5 de l&#8217;objet correspond automatiquement à l&#8217;ETag fourni au terme du dépôt.</p>
+</div>
+<div class="paragraph">
+<p>Ce n&#8217;est pas le cas lors du processus de dépôt partitionné automatiquement initié pour les objets volumineux lorsque les commandes de haut niveau sont utilisées. En effet, les objets volumineux sont divisés en plusieurs parties et sont déposés séparément. Une fois toutes les parties déposées, elles sont combinées pour former l&#8217;objet original. Comme s3 additionne les sommes de contrôle de chaque partie dans un dépôt partitonné pour calculer les ETags, l&#8217;ETag renvoyé ne correspond alors pas à la somme de contrôle MD5 d&#8217;origine de l&#8217;objet.</p>
+</div>
+<div class="paragraph">
+<p>Avant de lancer un dépôt partitionné à l&#8217;aide de commandes s3 de haut niveau, vous devez donc calculer la somme de contrôle MD5 de votre objet afin d&#8217;en garantir l&#8217;intégrité.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Naviguez jusqu&#8217;à l&#8217;emplacement de l&#8217;objet volumineux que vous souhaitez déposer.</p>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ cd LOCAL_PATH</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Exécutez la commande suivante pour calculer la somme de contrôle MD5 de votre objet :</p>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ md5 LARGE_OBJECT_TO_UPLOAD</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>La somme de contrôle MD5 de votre objet est renvoyée.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_créer_et_finaliser_un_dépôt_partitionné_avec_aws_cli_s3"><a class="anchor" href="Tutoriel-Utiliser-un-dépôt-partitionné-avec-AWS-CLI-s3.html#_créer_et_finaliser_un_dépôt_partitionné_avec_aws_cli_s3"></a>Créer et finaliser un dépôt partitionné avec AWS CLI (s3)</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Avant de commencer :</strong> Installez et configurez AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Pour déposer un fichier volumineux dans votre bucket et automatiquement déclencher le processus de dépôt partitionné, utilisez la commande <strong>cp</strong> en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws s3 cp LOCAL_PATH/LARGE_OBJECT_TO_UPLOAD s3://BUCKET/ \
+   --profile YOUR_PROFILE \
+   --debug \
+   --acl public-read \
+   --grant-full-control "id=USER_ID, id=USER_ID" \
+   --grant-read "id=USER_ID, id=USER_ID" \
+   --grant-read-acp "id=USER_ID, id=USER_ID" \
+   --grant-write "id=USER_ID, id=USER_ID" \
+   --cache-control "no-cache" \
+   --content-disposition "inline" \
+   --content-encoding "gzip" \
+   --content-language "en" \
+   --content-type text/plain \
+   --expires "2024-03-01T00:00:00Z" \
+   --metadata "{\"md5\": \"98ecc26f79229e2388dba73f8f521a95\"}" \
+   --metadata-directive "REPLACE" \
+   --expected-size 123456789 \
+   --website-redirect "/new-page.html" \
+   --endpoint https://oos.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Certains des attributs utilisés dans cet exemple de requête sont optionnels mais sont fortement recommandés si vous souhaitez garder une trace du processus de dépôt partitionné. Ces attributs sont <code>debug</code>, <code>metadata</code> et <code>expected-size</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>s3://BUCKET/LARGE_OBJECT_TO_UPLOAD</code> : Le chemin d&#8217;accès à l&#8217;objet volumineux que vous souhaitez déposer dans le bucket. S3 lance automatiquement le processus de dépôt partitionné pour les objets volumineux en les divisant en parties plus petites, de sorte à assurer un dépôt efficace et fiable. Ces parties sont ensuite réassemblées à l&#8217;emplacement désigné dans le bucket.</p>
+</li>
+<li>
+<p>(optionnel) <code>profile</code> : Le profil nommé que vous voulez utiliser, créé pendant la configuration d&#8217;AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p>(optionnel) <code>debug</code> : Si inclus, renvoie le rapport détaillé de l&#8217;opération, ce qui est utile pour analyser et résoudre les problèmes. Dans le contexte du dépôt partitionné, il permet de voir exactement comment votre objet a été partitionné puis réassemblé, ainsi que les ETags attribués à chaque partie.</p>
+</li>
+<li>
+<p>(optionnel) <code>acl</code> : Les permissions que vous accordez pour votre bucket (<code>private</code> | <code>public-read</code> | <code>public-read-write</code> | <code>authenticated-read</code>).</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Si vous ne spécifiez pas de permission pour votre bucket au moment de sa création, celui-ci sera automatiquement configuré comme <code>private</code>.</p>
+</li>
+<li>
+<p>Lorsque vous spécifiez une nouvelle permission, celle-ci remplace toutes les anciennes. Par conséquent, vous devez spécifier toutes les permissions dans une seule commande.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus à propos des permissions existantes, voir <a href="Obtenir-des-informations-sur-l-ACL-d-un-bucket.html" class="xref page">Obtenir des informations sur l&#8217;ACL d&#8217;un bucket</a> et <a href="Obtenir-des-informations-sur-l-ACL-d-un-objet.html" class="xref page">Obtenir des informations sur l&#8217;ACL d&#8217;un objet</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>grant-full-control</code> : Un ou plusieurs ID d&#8217;utilisateurs auxquels vous accordez la permission <code>full-control</code>.</p>
+</li>
+<li>
+<p>(optionnel) <code>grant-read</code> : Un ou plusieurs ID d&#8217;utilisateurs auxquels vous accordez la permission <code>read</code>.</p>
+</li>
+<li>
+<p>(optionnel) <code>grant-read-acp</code> : Un ou plusieurs ID d&#8217;utilisateurs auxquels vous accordez la permission <code>read-acp</code>.</p>
+</li>
+<li>
+<p>(optionnel) <code>grant-write</code> : Un ou plusieurs ID d&#8217;utilisateurs auxquels vous accordez la permission <code>write</code>.</p>
+</li>
+<li>
+<p>(optionnel) <code>grant-write-acp</code> : Un ou plusieurs ID d&#8217;utilisateurs auxquels vous accordez la permission <code>write-acp</code>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Vous devez spécifier des ID utilisateur S3. Vous pouvez récupérer les ID utilisateur S3 via les méthodes <a href="Lister-vos-buckets.html" class="xref page">Lister vos buckets</a> et <a href="Lister-les-objets-d-un-bucket.html" class="xref page">Lister les objets d&#8217;un bucket</a>.</p>
+</li>
+<li>
+<p>Vous pouvez également spécifier des adresses e-mail utilisateur en utilisant le format <code>emailaddress=name@domain.com</code>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>cache-control</code> : Comment vous souhaitez que l’objet soit traité en termes de mise en cache (<code>max-age</code> | <code>max-stale</code> | <code>min-fresh</code> | <code>no-cache</code> | <code>no-store</code> | <code>no-transform</code> | <code>only-if-cached</code> | <code>stale-if-error</code>).</p>
+</li>
+<li>
+<p>(optionnel) <code>content-disposition</code> : Comment vous souhaitez que l&#8217;objet soit affiché lorsque vous y accédez par le biais d&#8217;un navigateur (<code>"inline"</code> | <code>"attachment"</code>  | <code>"attachment; filename="&lt;NOM_DU_FICHIER&gt;""</code>)</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>inline</code> : Si possible, demande au navigateur d&#8217;afficher le contenu à l&#8217;intérieur de la fenêtre du navigateur. Cet attribut est utile pour les images, les PDF et autres types de médias que les navigateurs peuvent facilement interpréter.</p>
+</li>
+<li>
+<p><code>attachment</code> : Quel que soit le type de fichier, demande au navigateur de télécharger le contenu au lieu de l&#8217;afficher en ligne. Le fichier est ainsi enregistré localement.</p>
+</li>
+<li>
+<p><code>"attachment; filename="&lt;NOM_DU_FICHIER&gt;""</code> : Quel que soit le type de fichier, demande au navigateur de télécharger le contenu au lieu de l&#8217;afficher en ligne. Le fichier est ainsi enregistré localement sous le nom de fichier spécifié.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>content-encoding</code> : Le format d&#8217;encodage de l&#8217;objet (<code>gzip</code> | <code>compress</code> | <code>deflate</code> | <code>identity</code> | <code>br</code>).</p>
+</li>
+<li>
+<p>(optionnel) <code>content-language</code> : La langue dans laquelle le contenu de l&#8217;objet est rédigé, en code de langue (format ISO 639).</p>
+</li>
+<li>
+<p>(optionnel) <code>content-type</code> : Le type MIME (Multipurpose Internet Mail Extensions) de l&#8217;objet.<br></p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Un attribut <code>content-type</code> mal défini ou absent peut entraîner une mauvaise interprétation ou un mauvais traitement des objets par les navigateurs. En conséquence, vous pouvez rencontrer des difficultés pour accéder à vos objets ou les visualiser à l&#8217;aide de votre navigateur préféré.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>expected-size</code> : Spécifie la taille attendue du dépôt, en octets. Cette valeur est utile pour les objets de plus de 50 Go, car elle optimise l&#8217;allocation des parties et l&#8217;utilisation des ressources au cours du processus de dépôt partitionné;</p>
+</li>
+<li>
+<p>(optionnel) <code>expires</code> : La date et l’heure, au format UTC, à laquelle vous considérez que l’objet ne peut plus être mis en cache et est considéré comme périmé.</p>
+</li>
+<li>
+<p>(optionnel) <code>metadata</code> : Une carte des entrées de metadata supplémentaires que vous pouvez indiquer librement.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>key</code> : Le nom de la metadata.</p>
+</li>
+<li>
+<p><code>value</code> : La valeur de la metadata.<br></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Comme le montre l&#8217;exemple ci-dessous, vous pouvez stocker la somme de contrôle MD5 de votre objet à l&#8217;aide de l&#8217;attribut <code>metadata</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>metadata-directive</code> : Indique si les metadata doivent être copiées à partir de l’objet source ou remplacées par les metadata fournies dans la requête (<code>COPY</code> ou <code>REPLACE</code>).</p>
+</li>
+<li>
+<p>(optionnel) <code>website-redirect</code> : Si vous avez configuré le bucket de destination comme un site web, redirige les requêtes pour cet objet vers un autre objet dans le même bucket ou vers une URL externe.</p>
+</li>
+<li>
+<p><code>endpoint</code> : Le endpoint correspondant à la Région à laquelle vous voulez envoyer la requête. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Votre objet volumineux est déposé dans votre bucket, le processus de dépôt partitionné étant automatiquement initié en arrière-plan. Pour récupérer des informations sur l&#8217;objet, voir <a href="Obtenir-des-informations-sur-les-metadata-d-un-objet.html" class="xref page">Obtenir des informations sur les metadata d&#8217;un objet</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Utiliser-un-dépôt-partitionné-avec-AWS-CLI-s3api.html" class="xref page">Utiliser un dépôt partitionné avec AWS CLI (s3api)</a></p>
+</li>
+<li>
+<p><a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-les-metadata-d-un-objet.html" class="xref page">Obtenir des informations sur les metadata d&#8217;un objet</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

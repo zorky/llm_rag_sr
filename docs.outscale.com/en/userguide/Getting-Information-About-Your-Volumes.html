@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Getting Information About Your Volumes – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="Getting-Information-About-Your-Volumes.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/Getting-Information-About-Your-Volumes.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Obtenir-des-informations-sur-vos-volumes.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Getting Information About Your Volumes</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can get information about your volumes using AWS CLI, like their type, size, and attachment to a <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">virtual machine (VM)</span>.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Cockpit v2_0"><a class="anchor" href="Getting-Information-About-Your-Volumes.html#Cockpit v2_0"></a>Getting Information About Your Volumes Using Cockpit v2</h2>
+<div class="sectionbody">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>See
+the <strong>Volumes</strong> dashboard.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="OSC CLI_1"><a class="anchor" href="Getting-Information-About-Your-Volumes.html#OSC CLI_1"></a>Getting Information About Your Volumes Using OSC CLI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <strong>ReadVolumes</strong> command lists one or more specified Block Storage Unit (BSU) volumes.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api ReadVolumes --profile "default" \
+    --Filters '{
+        "VolumeIds": ["vol-12345678"]
+      }'</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api ReadVolumes --profile "default" \
+    --Filters '{
+        "VolumeStates": ["in-use"],
+        "VolumeTypes": ["gp2", "io1"]
+      }'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Filters</code>: (optional) One or more filters.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CreationDates</code>: (optional) The dates and times at which the volumes were created, in ISO 8601 date-time format (for example, <code>2020-06-30T00:00:00.000Z</code>).</p>
+</li>
+<li>
+<p><code>LinkVolumeDeleteOnVmDeletion</code>: (optional) Whether the volumes are deleted or not when terminating the <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VMs</span>.</p>
+</li>
+<li>
+<p><code>LinkVolumeDeviceNames</code>: (optional) The VM device names.</p>
+</li>
+<li>
+<p><code>LinkVolumeLinkDates</code>: (optional) The dates and times at which the volumes were attached, in ISO 8601 date-time format (for example, <code>2020-06-30T00:00:00.000Z</code>).</p>
+</li>
+<li>
+<p><code>LinkVolumeLinkStates</code>: (optional) The attachment states of the volumes (<code>attaching</code> | <code>detaching</code> | <code>attached</code> | <code>detached</code>).</p>
+</li>
+<li>
+<p><code>LinkVolumeVmIds</code>: (optional) One or more IDs of VMs.</p>
+</li>
+<li>
+<p><code>SnapshotIds</code>: (optional) The snapshots from which the volumes were created.</p>
+</li>
+<li>
+<p><code>SubregionNames</code>: (optional) The names of the <span class="tooltip" data-tooltip="Availability Zone (AZ) in AWS-Compliant APIs">Subregions</span> in which the volumes were created.</p>
+</li>
+<li>
+<p><code>TagKeys</code>: (optional) The keys of the tags associated with the volumes.</p>
+</li>
+<li>
+<p><code>TagValues</code>: (optional) The values of the tags associated with the volumes.</p>
+</li>
+<li>
+<p><code>Tags</code>: (optional) The key/value combination of the tags associated with the volumes, in the following format: &quot;Filters&quot;:{&quot;Tags&quot;:[&quot;TAGKEY=TAGVALUE&quot;]}.</p>
+</li>
+<li>
+<p><code>VolumeIds</code>: (optional) The IDs of the volumes.</p>
+</li>
+<li>
+<p><code>VolumeSizes</code>: (optional) The sizes of the volumes, in gibibytes (GiB).</p>
+</li>
+<li>
+<p><code>VolumeStates</code>: (optional) The states of the volumes (<code>creating</code> | <code>available</code> | <code>in-use</code> | <code>updating</code> | <code>deleting</code> | <code>error</code>).</p>
+</li>
+<li>
+<p><code>VolumeTypes</code>: (optional) The types of the volumes (<code>standard</code> | <code>gp2</code> | <code>io1</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>NextPageToken</code>: (optional) The token to request the next page of results. Each token refers to a specific page.</p>
+</li>
+<li>
+<p><code>ResultsPerPage</code>: (optional) The maximum number of logs returned in a single response (between <code>1</code> and <code>1000</code>, both included). By default, <code>100</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadVolumes</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>NextPageToken</code>: The token to request the next page of results. Each token refers to a specific page.</p>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Volumes</code>: Information about one or more volumes.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CreationDate</code>: The date and time (UTC) at which the volume was created.</p>
+</li>
+<li>
+<p><code>Iops</code>: The number of I/O operations per second (IOPS):<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>For <code>io1</code> volumes, the number of provisioned IOPS<br></p>
+</li>
+<li>
+<p>For <code>gp2</code> volumes, the baseline performance of the volume</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>LinkedVolumes</code>: Information about your volume attachment.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteOnVmDeletion</code>: If true, the volume is deleted when terminating the VM. If false, the volume is not deleted when terminating the VM.</p>
+</li>
+<li>
+<p><code>DeviceName</code>: The name of the device.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the attachment of the volume (<code>attaching</code> | <code>detaching</code> | <code>attached</code> | <code>detached</code>).</p>
+</li>
+<li>
+<p><code>VmId</code>: The ID of the VM.</p>
+</li>
+<li>
+<p><code>VolumeId</code>: The ID of the volume.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Size</code>: The size of the volume, in gibibytes (GiB).</p>
+</li>
+<li>
+<p><code>SnapshotId</code>: The snapshot from which the volume was created.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the volume (<code>creating</code> | <code>available</code> | <code>in-use</code> | <code>updating</code> | <code>deleting</code> | <code>error</code>).</p>
+</li>
+<li>
+<p><code>SubregionName</code>: The Subregion in which the volume was created.</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the volume.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>VolumeId</code>: The ID of the volume.</p>
+</li>
+<li>
+<p><code>VolumeType</code>: The type of the volume (<code>standard</code> | <code>gp2</code> | <code>io1</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "Volumes": [
+    {
+      "VolumeId": "vol-12345678",
+      "Tags": [],
+      "VolumeType": "gp2",
+      "SubregionName": "eu-west-2a",
+      "State": "in-use",
+      "CreationDate": "2010-10-01T12:34:56.789Z",
+      "Iops": 100,
+      "LinkedVolumes": [
+        {
+          "VolumeId": "vol-12345678",
+          "DeleteOnVmDeletion": false,
+          "DeviceName": "/dev/sdb",
+          "State": "attached",
+          "VmId": "i-12345678"
+        }
+      ],
+      "Size": 10
+    }
+  ],
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="oapi-cli_2"><a class="anchor" href="Getting-Information-About-Your-Volumes.html#oapi-cli_2"></a>Getting Information About Your Volumes Using oapi-cli</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <strong>ReadVolumes</strong> command lists one or more specified Block Storage Unit (BSU) volumes.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" ReadVolumes \
+    --Filters '{
+        "VolumeIds": ["vol-12345678"]
+      }'</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" ReadVolumes \
+    --Filters '{
+        "VolumeStates": ["in-use"],
+        "VolumeTypes": ["gp2", "io1"]
+      }'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Filters</code>: (optional) One or more filters.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CreationDates</code>: (optional) The dates and times at which the volumes were created, in ISO 8601 date-time format (for example, <code>2020-06-30T00:00:00.000Z</code>).</p>
+</li>
+<li>
+<p><code>LinkVolumeDeleteOnVmDeletion</code>: (optional) Whether the volumes are deleted or not when terminating the <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VMs</span>.</p>
+</li>
+<li>
+<p><code>LinkVolumeDeviceNames</code>: (optional) The VM device names.</p>
+</li>
+<li>
+<p><code>LinkVolumeLinkDates</code>: (optional) The dates and times at which the volumes were attached, in ISO 8601 date-time format (for example, <code>2020-06-30T00:00:00.000Z</code>).</p>
+</li>
+<li>
+<p><code>LinkVolumeLinkStates</code>: (optional) The attachment states of the volumes (<code>attaching</code> | <code>detaching</code> | <code>attached</code> | <code>detached</code>).</p>
+</li>
+<li>
+<p><code>LinkVolumeVmIds</code>: (optional) One or more IDs of VMs.</p>
+</li>
+<li>
+<p><code>SnapshotIds</code>: (optional) The snapshots from which the volumes were created.</p>
+</li>
+<li>
+<p><code>SubregionNames</code>: (optional) The names of the <span class="tooltip" data-tooltip="Availability Zone (AZ) in AWS-Compliant APIs">Subregions</span> in which the volumes were created.</p>
+</li>
+<li>
+<p><code>TagKeys</code>: (optional) The keys of the tags associated with the volumes.</p>
+</li>
+<li>
+<p><code>TagValues</code>: (optional) The values of the tags associated with the volumes.</p>
+</li>
+<li>
+<p><code>Tags</code>: (optional) The key/value combination of the tags associated with the volumes, in the following format: &quot;Filters&quot;:{&quot;Tags&quot;:[&quot;TAGKEY=TAGVALUE&quot;]}.</p>
+</li>
+<li>
+<p><code>VolumeIds</code>: (optional) The IDs of the volumes.</p>
+</li>
+<li>
+<p><code>VolumeSizes</code>: (optional) The sizes of the volumes, in gibibytes (GiB).</p>
+</li>
+<li>
+<p><code>VolumeStates</code>: (optional) The states of the volumes (<code>creating</code> | <code>available</code> | <code>in-use</code> | <code>updating</code> | <code>deleting</code> | <code>error</code>).</p>
+</li>
+<li>
+<p><code>VolumeTypes</code>: (optional) The types of the volumes (<code>standard</code> | <code>gp2</code> | <code>io1</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>NextPageToken</code>: (optional) The token to request the next page of results. Each token refers to a specific page.</p>
+</li>
+<li>
+<p><code>ResultsPerPage</code>: (optional) The maximum number of logs returned in a single response (between <code>1</code> and <code>1000</code>, both included). By default, <code>100</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadVolumes</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>NextPageToken</code>: The token to request the next page of results. Each token refers to a specific page.</p>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Volumes</code>: Information about one or more volumes.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CreationDate</code>: The date and time (UTC) at which the volume was created.</p>
+</li>
+<li>
+<p><code>Iops</code>: The number of I/O operations per second (IOPS):<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>For <code>io1</code> volumes, the number of provisioned IOPS<br></p>
+</li>
+<li>
+<p>For <code>gp2</code> volumes, the baseline performance of the volume</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>LinkedVolumes</code>: Information about your volume attachment.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteOnVmDeletion</code>: If true, the volume is deleted when terminating the VM. If false, the volume is not deleted when terminating the VM.</p>
+</li>
+<li>
+<p><code>DeviceName</code>: The name of the device.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the attachment of the volume (<code>attaching</code> | <code>detaching</code> | <code>attached</code> | <code>detached</code>).</p>
+</li>
+<li>
+<p><code>VmId</code>: The ID of the VM.</p>
+</li>
+<li>
+<p><code>VolumeId</code>: The ID of the volume.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Size</code>: The size of the volume, in gibibytes (GiB).</p>
+</li>
+<li>
+<p><code>SnapshotId</code>: The snapshot from which the volume was created.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the volume (<code>creating</code> | <code>available</code> | <code>in-use</code> | <code>updating</code> | <code>deleting</code> | <code>error</code>).</p>
+</li>
+<li>
+<p><code>SubregionName</code>: The Subregion in which the volume was created.</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the volume.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>VolumeId</code>: The ID of the volume.</p>
+</li>
+<li>
+<p><code>VolumeType</code>: The type of the volume (<code>standard</code> | <code>gp2</code> | <code>io1</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "Volumes": [
+    {
+      "VolumeId": "vol-12345678",
+      "Tags": [],
+      "VolumeType": "gp2",
+      "SubregionName": "eu-west-2a",
+      "State": "in-use",
+      "CreationDate": "2010-10-01T12:34:56.789Z",
+      "Iops": 100,
+      "LinkedVolumes": [
+        {
+          "VolumeId": "vol-12345678",
+          "DeleteOnVmDeletion": false,
+          "DeviceName": "/dev/sdb",
+          "State": "attached",
+          "VmId": "i-12345678"
+        }
+      ],
+      "Size": 10
+    }
+  ],
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI_3"><a class="anchor" href="Getting-Information-About-Your-Volumes.html#AWS CLI_3"></a>Getting Information About Your Volumes Using AWS CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Before you begin:</strong> Install and configure AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>To get information about your volumes, use the <strong>describe-volumes</strong> command following this syntax:</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws ec2 describe-volumes \
+    --profile YOUR_PROFILE \
+    --volume-id vol-12345678 \
+    --filters Name=X,Values=Y \
+    --endpoint https://fcu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optional) <code>profile</code>: The named profile you want to use, created when configuring AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+<li>
+<p>(optional) <code>volume-id</code>: One or more volume IDs.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you do not specify any volume ID, the request returns a description of all your volumes.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optional) <code>filters</code>: One or more filters, in the "Name=X,Values=Y" format.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can specify several values for a same filter using the "Name=X,Values=Y, Z" format.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following filters are available:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>attachment.attach-time</code>: The time at which the attachment was initiated.</p>
+</li>
+<li>
+<p><code>attachment.delete-on-termination</code>: Whether the volume is deleted when terminating the <span class="tooltip" data-tooltip="virtual machine (VM) in OUTSCALE API">instance</span>.</p>
+</li>
+<li>
+<p><code>attachment.device</code>: The device on which the volume is attached.</p>
+</li>
+<li>
+<p><code>attachment.instance-id</code>: The ID of the instance the volume is attached to.</p>
+</li>
+<li>
+<p><code>attachment.status</code>: The attachment state (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>)</p>
+</li>
+<li>
+<p><code>availability-zone</code>: The <span class="tooltip" data-tooltip="Subregion in OUTSCALE API">Availability Zone</span> in which the volume was created. For more information, see <a href="About-Regions-and-Subregions.html" class="xref page">About Regions and Subregions</a>.</p>
+</li>
+<li>
+<p><code>create-time</code>: The date and time of creation.</p>
+</li>
+</ul>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>tag-key</code>: The key of a tag associated with the resource.</p>
+</li>
+<li>
+<p><code>tag-value</code>: The value of a tag associated with the resource.</p>
+</li>
+<li>
+<p><code>tag:XXXX</code>: The value of a tag associated with the resource, where <code>XXXX</code> is the key of the tag.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>To filter a tag whose key is <code>XXXX</code> and value is <code>YYYY</code>, you can therefore use either of the following two formats:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>--filters Name=tag-key,Values=XXXX Name=tag-value,Values=YYYY</code></p>
+</li>
+<li>
+<p><code>--filters Name=tag:XXXX,Values=YYYY</code></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>volume-id</code>: The ID of the volume.</p>
+</li>
+<li>
+<p><code>volume-type</code>: The type of the volume (<code>standard</code> | <code>gp2</code> | <code>io1</code>).</p>
+</li>
+<li>
+<p><code>snapshot-id</code>: The snapshot from which the volume was created.</p>
+</li>
+<li>
+<p><code>size</code>: The size of the volume, in gibibytes (GiB).</p>
+</li>
+<li>
+<p><code>status</code>: The state of the volume (<code>creating</code> | <code>available</code> | <code>in-use</code> | <code>deleting</code> | <code>error</code>). For more information, see <a href="About-Volumes.html" class="xref page">About Volumes</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>endpoint</code>: The endpoint corresponding to the Region you want to send the request to. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>describe-volumes</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Volumes</code>: Information about one or more volumes. This element contains the following information:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AvailabilityZone</code>: The Availability Zone where the volume is.</p>
+</li>
+<li>
+<p><code>Attachments</code>: Information about your volume attachment to an instance. This element contains the following information:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AttachTime</code>: The date and time at which the volume was attached to the instance.</p>
+</li>
+<li>
+<p><code>InstanceId</code>: The ID of the instance.</p>
+</li>
+<li>
+<p><code>VolumeId</code>: The ID of the volume.</p>
+</li>
+<li>
+<p><code>State</code>: The attachment state of the volume (<code>attaching</code> | <code>detaching</code> | <code>attached</code> | <code>detached</code>).</p>
+</li>
+<li>
+<p><code>DeleteOnTermination</code>: If <code>true</code>, the volume is deleted when terminating the instance. If <code>false</code>, the volume is not deleted when terminating the instance.</p>
+</li>
+<li>
+<p><code>Device</code>: The name of the device.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the volume. This element contains the following information:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>TagKey</code>: The key of the tag associated with the resource.</p>
+</li>
+<li>
+<p><code>TagValue</code>: The value of the tag associated with the resource.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>VolumeType</code>: The type of volume (<code>standard</code> | <code>gp2</code> | <code>io1</code>). For more information about volume types, see <a href="About-Volumes.html#_volume_types_and_iops" class="xref page">About Volumes &gt; Volume Types and IOPS</a>.</p>
+</li>
+<li>
+<p><code>VolumeId</code>: The ID of the volume.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the volume. For more information, see <a href="About-Volumes.html" class="xref page">About Volumes</a>.</p>
+</li>
+<li>
+<p>(io1 and gp2 only) <code>Iops</code>: The number of IOPS. For io1 volumes, the number of provisioned IOPS. For gp2 volumes, the baseline performance of the volume. For more information, see <a href="About-Volumes.html" class="xref page">About Volumes</a>.</p>
+</li>
+<li>
+<p><code>SnapshotId</code>: The ID of the snapshot from which you created the volume.</p>
+</li>
+<li>
+<p><code>CreateTime</code>: The date and time of creation.</p>
+</li>
+<li>
+<p><code>Size</code>: The size of the volume (in GiB).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"Volumes": [
+    {
+        "AvailabilityZone": "eu-west-2a",
+        "Attachments": [
+            {
+                "AttachTime": "2015-03-18T09:36:45.728Z",
+                "InstanceId": "i-12345678",
+                "VolumeId": "vol-87654321",
+                "State": "attached",
+                "DeleteOnTermination": false,
+                "Device": "/dev/xvdb"
+            }
+        ],
+        "Tags": [],
+        "VolumeType": "io1",
+        "VolumeId": "vol-87654321",
+        "State": "in-use",
+        "Iops": 500,
+        "SnapshotId": null,
+        "CreateTime": "2015-01-26T11:01:08.381Z",
+        "Size": 50
+    }
+]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="About-Volumes.html" class="xref page">About Volumes</a></p>
+</li>
+<li>
+<p><a href="Getting-Information-About-Your-Snapshots.html" class="xref page">Getting Information About Your Snapshots</a></p>
+</li>
+<li>
+<p><a href="Getting-Information-About-Tags-Associated-with-a-Resource.html" class="xref page">Getting Information About Tags Associated with a Resource</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Corresponding API Methods</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#readvolumes" class="xref page">ReadVolumes (OUTSCALE API)</a></p>
+</li>
+<li>
+<p><a href="../../fcu.html#describevolumes" class="xref page">DescribeVolumes (FCU)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ and Amazon Web Services™ are trademarks of Amazon Technologies, Inc or its affiliates in the United States and/or other countries.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

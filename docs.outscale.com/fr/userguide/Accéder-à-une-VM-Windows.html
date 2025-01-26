@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Accéder à une VM Windows – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Accéder-à-une-VM-Windows.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Accéder-à-une-VM-Windows.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Accessing-a-Windows-VM.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Accéder à une VM Windows</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez accéder à une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machine virtuelle (VM)</span> Windows avec une application de bureau à distance. Par exemple, Microsoft Remote Desktop vous permet de vous connecter à des machines virtuelles (VM) Windows depuis un système d&#8217;exploitation Windows ou macOS.</p>
+</div>
+<div class="paragraph">
+<p>Avant d&#8217;accéder à une VM Windows, vous devez déchiffrer le mot de passe de son compte administrateur, à l&#8217;aide de la clé privée de la keypair que vous avez associée à la VM.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Attention"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Seules les keypairs RSA peuvent déchiffrer le mot de passe d&#8217;une VM Windows.</p>
+</li>
+<li>
+<p>Vous pouvez récupérer le mot de passe de votre VM Windows uniquement au premier démarrage, car il n&#8217;est plus accessible après le premier redémarrage. Si vous n&#8217;avez pas récupéré le mot de passe, vous ne pouvez pas accéder à votre VM Windows et vous devez donc la terminer pour en créer une nouvelle.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Cette procédure est valable uniquement pour les VM issues d&#8217;OMI officielles, qui utilisent le système d&#8217;authentification par keypair par défaut. Dans d&#8217;autres cas, la méthode de connexion peut être différente. Pour en savoir plus, voir <a href="À-propos-des-keypairs.html" class="xref page">À propos des keypairs</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_déchiffrer_le_mot_de_passe_de_votre_vm"><a class="anchor" href="Accéder-à-une-VM-Windows.html#_déchiffrer_le_mot_de_passe_de_votre_vm"></a>Déchiffrer le mot de passe de votre VM</h2>
+<div class="sectionbody">
+<div class="sect2 tab">
+<h3 id="Cockpit v2_0"><a class="anchor" href="Accéder-à-une-VM-Windows.html#Cockpit v2_0"></a>Déchiffrer le mot de passe de votre <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> avec Cockpit v2</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Avant de commencer :</strong> Assurez-vous d&#8217;avoir une VM Windows prête.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Après sa création, une VM nécessite environ 10 minutes avant d&#8217;être prête. Vous pouvez vérifier si la VM est prête via la sortie de sa console. Pour en savoir plus, voir <a href="Consulter-la-sortie-de-la-console-d-une-VM.html" class="xref page">Consulter la sortie de la console d&#8217;une VM</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans le dashboard <strong>VM</strong>, cochez la case de la VM dont vous voulez le mot de passe.<br>
+La VM est sélectionnée.</p>
+</li>
+<li>
+<p>Cliquez sur <span class="image"><img src="_images/IconKey.svg" alt="IconKey"></span> <strong>Obtenir le mot de passe</strong>.<br>
+La boîte de dialogue OBTENIR LE MOT DE PASSE apparaît.<br></p>
+</li>
+<li>
+<p>Cliquez sur <span class="image"><img src="_images/IconExport.svg" alt="IconExport"></span> <strong>Importer</strong>.<br>
+Une fenêtre apparaît.</p>
+</li>
+<li>
+<p>Sélectionnez le fichier .rsa contenant la clé privée de la keypair sur votre ordinateur.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Seules les keypairs RSA peuvent déchiffrer le mot de passe d&#8217;une VM Windows.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Cliquez sur <strong>Soumettre</strong>.<br>
+Le mot de passe administrateur de votre VM est déchiffré, et est téléchargé sur votre ordinateur dans un fichier .txt.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Le mot de passe apparaît également dans une notification temporaire dans le coin inférieur droit de la page.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2 tab">
+<h3 id="OSC CLI_1"><a class="anchor" href="Accéder-à-une-VM-Windows.html#OSC CLI_1"></a>Déchiffrer le mot de passe de votre VM avec OSC CLI</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Avant de commencer :</strong> Assurez-vous d&#8217;avoir une VM Windows prête.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Après sa création, une VM nécessite environ 10 minutes avant d&#8217;être prête. Vous pouvez vérifier si la VM est prête via la sortie de sa console. Pour en savoir plus, voir <a href="Consulter-la-sortie-de-la-console-d-une-VM.html" class="xref page">Consulter la sortie de la console d&#8217;une VM</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadAdminPassword</strong> command gets the administrator password for a Windows running virtual machine (VM).<br>
+The administrator password is encrypted using the keypair you specified when launching the VM.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Only RSA keypairs can decrypt the password of a Windows VM.<br></p>
+</li>
+<li>
+<p>The administrator password is generated only on the first boot of the Windows VM. It is not returned after the first boot.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api ReadAdminPassword --profile "default" \
+    --VmId "i-12345678"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>VmId</code>: The ID of the VM.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadAdminPassword</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AdminPassword</code>: The password of the VM. After the first boot, returns an empty string.</p>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>VmId</code>: The ID of the VM.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "VmId": "i-12345678",
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "AdminPassword": "..."
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2 tab">
+<h3 id="oapi-cli_2"><a class="anchor" href="Accéder-à-une-VM-Windows.html#oapi-cli_2"></a>Déchiffrer le mot de passe de votre VM avec oapi-cli</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Avant de commencer :</strong> Assurez-vous d&#8217;avoir une VM Windows prête.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Après sa création, une VM nécessite environ 10 minutes avant d&#8217;être prête. Vous pouvez vérifier si la VM est prête via la sortie de sa console. Pour en savoir plus, voir <a href="Consulter-la-sortie-de-la-console-d-une-VM.html" class="xref page">Consulter la sortie de la console d&#8217;une VM</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadAdminPassword</strong> command gets the administrator password for a Windows running virtual machine (VM).<br>
+The administrator password is encrypted using the keypair you specified when launching the VM.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Only RSA keypairs can decrypt the password of a Windows VM.<br></p>
+</li>
+<li>
+<p>The administrator password is generated only on the first boot of the Windows VM. It is not returned after the first boot.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" ReadAdminPassword \
+    --VmId "i-12345678"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>VmId</code>: The ID of the VM.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadAdminPassword</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AdminPassword</code>: The password of the VM. After the first boot, returns an empty string.</p>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>VmId</code>: The ID of the VM.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "VmId": "i-12345678",
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "AdminPassword": "..."
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2 tab">
+<h3 id="AWS CLI_3"><a class="anchor" href="Accéder-à-une-VM-Windows.html#AWS CLI_3"></a>Déchiffrer le mot de passe de votre <span class="tooltip" data-tooltip="machine virtuelle (VM) dans l'API OUTSCALE">instance</span> avec AWS CLI</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Avant de commencer :</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Installez et configurez AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p>Assurez-vous d&#8217;avoir une instance Windows prête.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Après sa création, une instance nécessite environ 10 minutes avant d&#8217;être prête. Vous pouvez vérifier si l&#8217;instance est prête via la sortie de sa console. Pour en savoir plus, voir <a href="Consulter-la-sortie-de-la-console-d-une-VM.html" class="xref page">Consulter la sortie de la console d&#8217;une VM</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Pour décoder et déchiffrer le mot de passe administrateur de votre instance, utilisez la commande <strong>get-password-data</strong> en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws ec2 get-password-data \
+    --profile YOUR_PROFILE \
+    --instance-id i-12345678 \
+    --priv-launch-key ~/.ssh/keypair.rsa \
+    --endpoint https://fcu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>profile</code> : Le profil nommé que vous voulez utiliser, créé pendant la configuration d&#8217;AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>instance-id</code> : L&#8217;ID de l&#8217;instance à laquelle vous souhaitez accéder.</p>
+</li>
+<li>
+<p><code>priv-launch-key</code> : Le chemin vers le fichier .rsa contenant la clé privée de la keypair sur votre ordinateur.</p>
+</li>
+<li>
+<p><code>endpoint</code> : Le endpoint correspondant à la Région à laquelle vous voulez envoyer la requête. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>La commande <strong>get-password-data</strong> renvoie les éléments suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>InstanceId</code> : L&#8217;ID de l&#8217;instance.</p>
+</li>
+<li>
+<p><code>PasswordData</code> : Le mot de passe pour l&#8217;instance.</p>
+</li>
+<li>
+<p><code>Timestamp</code> : La date et l&#8217;heure de dernière mise à jour de la sortie, au format ISO 8601.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de résultat</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "InstanceId": "i-123456789",
+    "PasswordData": "/XxYy12Z*z",
+    "Timestamp": "2018-03-26T13:01:33.176Z"
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2 tab">
+<h3 id="Script bash_4"><a class="anchor" href="Accéder-à-une-VM-Windows.html#Script bash_4"></a>Déchiffrer le mot de passe de votre VM avec un script bash</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Avant de commencer :</strong> Assurez-vous d&#8217;avoir une VM Windows prête.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Après sa création, une VM nécessite environ 10 minutes avant d&#8217;être prête. Vous pouvez vérifier si la VM est prête via la sortie de sa console. Pour en savoir plus, voir <a href="Consulter-la-sortie-de-la-console-d-une-VM.html" class="xref page">Consulter la sortie de la console d&#8217;une VM</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Pour obtenir le mot de passe codé en Base64, consultez la sortie de la console de la VM. Pour en savoir plus, <a href="Consulter-la-sortie-de-la-console-d-une-VM.html" class="xref page">Consulter la sortie de la console d&#8217;une VM</a>.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">4/26/2017 11:50:17 AM : ==============================================
+4/26/2017 11:50:17 AM : OS : Microsoft Windows NT 10.0.14393
+4/26/2017 11:50:17 AM : OsVersion : 10.0.14393
+4/26/2017 11:50:17 AM : OsProductName : Microsoft Windows Server 2016 Datacenter
+4/26/2017 11:50:17 AM : Language : en-US
+4/26/2017 11:50:17 AM : AMI-ID : ami-12345678
+4/26/2017 11:50:17 AM : Instance-ID : i-12345678
+4/26/2017 11:50:17 AM : Username : Administrator
+4/26/2017 11:50:18 AM : Password : &lt;Password&gt;A123BcdEfgh4iJk/LmNo5pq+rSTuVWXYzAb6CDEfg78g9HIJ012Kl3m4NOpqrstuVWX5yzABcdEfgHYjkLMnoPqr/StUvwXyzA6bCdE/7FgHIjKLMN/OP8qRst9UvW0X1yZABCD2Ef34GHijKlmN5OhyrdoarduIEd7z/ejqWXcVFmgzOkqBgPVyrKR/eD6J8rq0Kq55DQjK5GF1hoDGDgCaAQ5DpkW0pw34CM5ak7UmV22veRhR0To94IvAnpi0sHH/LSraqfIWnoebouUjIK9dFdvYCtds4JfqThPIjZYQYn+DgaKqGFt2m1SdKRwqwGGb3pityiaUZ0P0MUemw==&lt;/Password&gt;
+4/26/2017 11:50:18 AM : Message : Windows is ready to use</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Dans la sortie de la console, copiez le mot de passe codé en Base64 entre les balises <code>&lt;password</code>&gt;&#8230;&#8203;<code>&lt;/password&gt;</code> et enregistrez-le dans un fichier texte sur votre machine.</p>
+</li>
+<li>
+<p>Pour décoder le mot de passe codé en Base64 puis le déchiffrer à l&#8217;aide de la clé privée, utilisez la commande suivante :</p>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ base64 --decode --input ~/Documents/instance_password.txt | openssl rsautl -decrypt -inkey ~/.ssh/keypair.rsa</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>input</code> : Le chemin vers le fichier contenant le mot de passe encodé sur votre ordinateur.</p>
+</li>
+<li>
+<p><code>inkey</code> : Le chemin vers le fichier .rsa contenant la clé privée de la keypair sur votre ordinateur.</p>
+<div class="paragraph">
+<p>Le mot de passe de la VM est renvoyé.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_accéder_à_une_vm_avec_microsoft_remote_desktop"><a class="anchor" href="Accéder-à-une-VM-Windows.html#_accéder_à_une_vm_avec_microsoft_remote_desktop"></a>Accéder à une VM avec Microsoft Remote Desktop</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Avant de commencer :</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Installez Microsoft Remote Desktop sur votre machine :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Sur Mac : voir la <a href="https://apps.apple.com/fr/app/microsoft-remote-desktop-10/id1295203466?mt=12" target="_blank" rel="noopener">version pour Mac</a>.</p>
+</li>
+<li>
+<p>Sur Windows : voir la <a href="https://www.microsoft.com/en-us/store/p/microsoft-remote-desktop/9wzdncrfj3ps" target="_blank" rel="noopener">version pour Windows</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Déchiffrez le mot de passe de la <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> à l&#8217;aide d&#8217;une des trois méthodes ci-dessus.</p>
+</li>
+<li>
+<p>Pour autoriser la connexion de votre machine à la VM, assurez-vous que la VM possède la règle de security group suivante :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Port : RDP (3389)</p>
+</li>
+<li>
+<p>Protocole : TCP</p>
+</li>
+<li>
+<p>CIDR : L&#8217;<span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">IP publique</span> de votre machine</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>L&#8217;IP CIDR attendue est l&#8217;IP publique de la machine que vous utilisez, pas l&#8217;IP publique de la VM.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus, voir <a href="Ajouter-des-règles-à-un-security-group.html" class="xref page">Ajouter des règles à un security group</a>.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Ouvrez l&#8217;application Microsoft Remote Desktop.</p>
+</li>
+<li>
+<p>Connectez-vous à la VM à l&#8217;aide de son IP publique et mot de passe administrateur.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>L&#8217;utilisateur par défaut pour les VM Windows créées avec des OMI officielles est <code>administrator</code>.</p>
+</li>
+<li>
+<p>Si vous utilisez une connexion VPN ou DirectLink, vous pouvez utiliser l&#8217;IP privée de la VM.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Vous avez maintenant accès au bureau de votre VM Windows.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Créer-des-VM.html" class="xref page">Créer des VM</a></p>
+</li>
+<li>
+<p><a href="Accéder-à-une-VM-Linux.html" class="xref page">Accéder à une VM Linux</a></p>
+</li>
+<li>
+<p><a href="Consulter-la-sortie-de-la-console-d-une-VM.html" class="xref page">Consulter la sortie de la console d&#8217;une VM</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Méthodes API correspondantes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#readadminpassword" class="xref page">ReadAdminPassword (API OUTSCALE)</a></p>
+</li>
+<li>
+<p><a href="../../fcu.html#getpassworddata" class="xref page">GetPasswordData (FCU)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

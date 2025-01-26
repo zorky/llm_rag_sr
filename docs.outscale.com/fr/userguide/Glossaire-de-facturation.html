@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Glossaire de facturation – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Glossaire-de-facturation.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Glossaire-de-facturation.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Billing-Glossary.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Glossaire de facturation</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous trouverez sur cette page un glossaire des intitulés de facturation OUTSCALE, ainsi que des informations sur nos principes de tarification.</p>
+</div>
+<div class="paragraph">
+<p>Les ressources OUTSCALE sont facturées à la carte ("pay-as-you-go") avec une précision à la seconde : vous payez uniquement les ressources utilisées, et toute heure entamée est facturée à la seconde et non comme une heure entière. Vous pouvez suivre votre consommation à tout moment. Pour en savoir plus, voir <a href="Obtenir-des-informations-sur-la-consommation-de-vos-ressources.html" class="xref page">Obtenir des informations sur la consommation de vos ressources</a>.</p>
+</div>
+<div class="paragraph">
+<p>La facturation s&#8217;applique aux ressources de calcul, stockage et réseau. Les taux peuvent varier selon la Région et la génération de matériel. Pour en savoir plus, voir les <a href="https://fr.outscale.com/tarifs/" target="_blank" rel="noopener">grilles tarifaires sur le site OUTSCALE</a>, ou contacter <a href="mailto:sales@outscale.com">sales@outscale.com</a>.</p>
+</div>
+<div class="paragraph">
+<p>Les intitulés de facturation sont au format <code>Nom_produit - Offre - Unité et durée</code>. Les ressources non listées dans ce glossaire, telles que les <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Nets</span>, ne sont pas facturées.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bsu"><a class="anchor" href="Glossaire-de-facturation.html#_bsu"></a>BSU</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_bsu_stockage_magnetic_par_gio_et_par_mois"><a class="anchor" href="Glossaire-de-facturation.html#_bsu_stockage_magnetic_par_gio_et_par_mois"></a><code>BSU - Stockage Magnetic - par Gio et par mois</code></h3>
+<div class="paragraph">
+<p>La capacité de stockage (en Gio) provisionnée lors de la création d&#8217;un volume <code>standard</code>, par mois.</p>
+</div>
+<div class="paragraph">
+<p>Le volume apparaît dans votre compte dans l&#8217;un des états suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>in-use</code> (attaché à une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machine virtuelle</span> (VM))</p>
+</li>
+<li>
+<p><code>available</code> (non attaché à une VM)</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Ce taux inclut les IOPS (opérations de lecture et d&#8217;écriture par seconde).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_bsu_stockage_performance_par_gio_et_par_mois"><a class="anchor" href="Glossaire-de-facturation.html#_bsu_stockage_performance_par_gio_et_par_mois"></a><code>BSU - Stockage Performance - par Gio et par mois</code></h3>
+<div class="paragraph">
+<p>La capacité de stockage (en Gio) provisionnée lors de la création d&#8217;un volume <code>gp2</code>, par mois.</p>
+</div>
+<div class="paragraph">
+<p>Le volume apparaît dans votre compte dans l&#8217;un des états suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>in-use</code> (attaché à une VM)</p>
+</li>
+<li>
+<p><code>available</code> (non attaché à une VM)</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Ce taux inclut les IOPS (opérations de lecture et d&#8217;écriture par seconde).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_bsu_stockage_enterprise_par_gio_et_par_mois"><a class="anchor" href="Glossaire-de-facturation.html#_bsu_stockage_enterprise_par_gio_et_par_mois"></a><code>BSU - Stockage Enterprise - par Gio et par mois</code></h3>
+<div class="paragraph">
+<p>La capacité de stockage (en Gio) provisionnée lors de la création d&#8217;un volume io1, par mois.</p>
+</div>
+<div class="paragraph">
+<p>Le volume apparaît dans votre compte dans l&#8217;un des états suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>in-use</code> (attaché à une VM)</p>
+</li>
+<li>
+<p><code>available</code> (non attaché à une VM)</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Ce taux n&#8217;inclut pas les IOPS (opérations de lecture et d&#8217;écriture par seconde). Pour en savoir plus, voir l&#8217;entrée <a href="Glossaire-de-facturation.html#BSU - Stockage Enterprise - par IOPS et par mois">[BSU - Stockage Enterprise - par IOPS et par mois]</a> ci-dessous.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_bsu_stockage_enterprise_par_iops_et_par_mois"><a class="anchor" href="Glossaire-de-facturation.html#_bsu_stockage_enterprise_par_iops_et_par_mois"></a><code>BSU - Stockage Enterprise - par IOPS et par mois</code></h3>
+<div class="paragraph">
+<p>Le nombre d&#8217;opérations de lecture et d&#8217;écriture par seconde (IOPS) provisionné lors de la création d&#8217;un volume <code>io1</code>, par mois.</p>
+</div>
+<div class="paragraph">
+<p>Le volume apparaît dans votre compte dans l&#8217;un des états suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>in-use</code> (attaché à une VM)</p>
+</li>
+<li>
+<p><code>available</code> (non attaché à une VM)</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Ce taux n&#8217;inclut pas la capacité de stockage. Pour en savoir plus, voir l&#8217;entrée <a href="Glossaire-de-facturation.html#BSU - Stockage Enterprise - par Gio et par mois">[BSU - Stockage Enterprise - par Gio et par mois]</a> ci-dessus.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_directlink"><a class="anchor" href="Glossaire-de-facturation.html#_directlink"></a>DirectLink</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_directlink_utilisation_port_1gbps_10gbps_par_mois"><a class="anchor" href="Glossaire-de-facturation.html#_directlink_utilisation_port_1gbps_10gbps_par_mois"></a><code>DirectLink - Utilisation port 1 Gbps / 10 Gbps - par mois</code></h3>
+<div class="paragraph">
+<p>L&#8217;utilisation d&#8217;un port DirectLink, par mois.</p>
+</div>
+<div class="paragraph">
+<p>Si vous utilisez plusieurs ports pour des besoins de redondance, ce taux est multiplié par le nombre de ports.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Le trafic est gratuit pour toutes les Régions où le service est disponible. Pour en savoir plus, voir la <a href="https://fr.outscale.com/tarifs/#directlink" target="_blank" rel="noopener">grille tarifaire DirectLink</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_fcu"><a class="anchor" href="Glossaire-de-facturation.html#_fcu"></a>FCU</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_fcu_transfert_de_données_trafic_sortant_par_gio"><a class="anchor" href="Glossaire-de-facturation.html#_fcu_transfert_de_données_trafic_sortant_par_gio"></a><code>FCU transfert de données - Trafic sortant - par Gio</code></h3>
+<div class="paragraph">
+<p>Le volume de données (en Gio) transférées depuis vos <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> vers Internet.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Le trafic sortant (depuis vos VM vers Internet) est gratuit pour les Régions suivantes :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>eu-west-2</p>
+</li>
+<li>
+<p>us-east-2</p>
+</li>
+<li>
+<p>us-west-1</p>
+</li>
+<li>
+<p>cloudgouv-eu-west-1</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Le trafic entrant (depuis Internet vers vos VM) est gratuit pour toutes les Régions.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ip_publique"><a class="anchor" href="Glossaire-de-facturation.html#_ip_publique"></a>IP publique</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_eip_ip_externe_non_associée_à_une_instance_démarrée_par_heure"><a class="anchor" href="Glossaire-de-facturation.html#_eip_ip_externe_non_associée_à_une_instance_démarrée_par_heure"></a><code>EIP</span> - IP externe non associée à une <span class="tooltip" data-tooltip="machine virtuelle (VM) dans l'API OUTSCALE">instance démarrée - par heure</code></h3>
+<div class="paragraph">
+<p>L&#8217;allocation (réservation) dans votre compte d&#8217;une <span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">IP publique</span>, par mois.</p>
+</div>
+<div class="paragraph">
+<p>L&#8217;IP publique n&#8217;est pas associée (pas utilisée) avec une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> démarrée ou une interface réseau dans le Cloud public.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_eip_ip_externe_dans_un_vpc_non_associée_à_une_instance_démarrée_par_heure"><a class="anchor" href="Glossaire-de-facturation.html#_eip_ip_externe_dans_un_vpc_non_associée_à_une_instance_démarrée_par_heure"></a><code>EIP - IP externe dans un VPC non associée à une instance démarrée - par heure</code></h3>
+<div class="paragraph">
+<p>L&#8217;allocation (réservation) dans votre compte d&#8217;une IP publique, par mois.</p>
+</div>
+<div class="paragraph">
+<p>L&#8217;IP publique n&#8217;est pas associée (pas utilisée) avec une VM démarrée ou une interface réseau dans un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_eip_ip_externe_additionnelle_dans_un_vpc_associée_à_une_instance_démarrée_par_heure"><a class="anchor" href="Glossaire-de-facturation.html#_eip_ip_externe_additionnelle_dans_un_vpc_associée_à_une_instance_démarrée_par_heure"></a><code>EIP - IP Externe additionnelle dans un VPC associée à une instance démarrée - par heure</code></h3>
+<div class="paragraph">
+<p>Une IP publique supplémentaire associée (utilisée) avec une VM ou une interface réseau dans un Net, par heure.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>La première IP publique que vous associez dans chaque Net est gratuite. Ce taux s&#8217;applique à partir de la deuxième IP publique associée.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_lbu"><a class="anchor" href="Glossaire-de-facturation.html#_lbu"></a>LBU</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_lbu_utilisation_par_service_et_par_heure"><a class="anchor" href="Glossaire-de-facturation.html#_lbu_utilisation_par_service_et_par_heure"></a><code>LBU - Utilisation - par service et par heure</code></h3>
+<div class="paragraph">
+<p>L&#8217;utilisation d&#8217;un load balancer déployé dans le Cloud public ou dans un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span>, par heure.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Ce taux n&#8217;inclut pas les données transférées via le load balancer. Pour en savoir plus, voir l&#8217;entrée <a href="Glossaire-de-facturation.html#LBU - Trafic sortant global - par Gio">[LBU - Trafic sortant global - par Gio]</a> ci-dessous.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_lbu_trafic_sortant_global_par_gio"><a class="anchor" href="Glossaire-de-facturation.html#_lbu_trafic_sortant_global_par_gio"></a><code>LBU - Trafic sortant global - par Gio</code></h3>
+<div class="paragraph">
+<p>Le volume de données (en Gio) transférées via le load balancer vers Internet.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Le trafic sortant (du load balancer vers Internet) est gratuit pour les Régions suivantes :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>eu-west-2</p>
+</li>
+<li>
+<p>us-east-2</p>
+</li>
+<li>
+<p>us-west-1</p>
+</li>
+<li>
+<p>cloudgouv-eu-west-1</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Le trafic entrant (d&#8217;Internet vers le load balancer) est gratuit pour toutes les Régions.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_nat_gateway"><a class="anchor" href="Glossaire-de-facturation.html#_nat_gateway"></a>NAT Gateway</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_nat_gateway_utilisation_par_heure"><a class="anchor" href="Glossaire-de-facturation.html#_nat_gateway_utilisation_par_heure"></a><code>NAT Gateway - Utilisation - par heure</code></h3>
+<div class="paragraph">
+<p>L&#8217;utilisation d&#8217;un <span class="tooltip" data-tooltip="NAT gateway dans les API AWS-compliant">NAT service</span> déployé, par heure.</p>
+</div>
+<div class="paragraph">
+<p>Le NAT service apparaît dans votre compte dans l&#8217;état <code>available</code>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Le trafic entrant (depuis Internet vers le NAT service) est gratuit pour toutes les Régions.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Les ressources supprimées peuvent apparaître dans votre compte pendant une heure, mais ne sont plus facturées.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_oos"><a class="anchor" href="Glossaire-de-facturation.html#_oos"></a>OOS</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_oos_stockage_enterprise_par_gio_et_par_mois"><a class="anchor" href="Glossaire-de-facturation.html#_oos_stockage_enterprise_par_gio_et_par_mois"></a><code>OOS - Stockage Enterprise - par Gio et par mois</code></h3>
+<div class="paragraph">
+<p>Le volume de données (en Gio) stockées dans vos buckets OOS, par mois.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Les taux des stockages varient selon la Région. Pour en savoir plus, voir la <a href="https://fr.outscale.com/tarifs/#stockageobj" target="_blank" rel="noopener">grille tarifaire stockage objet</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_oos_trafic_sortant_par_gio"><a class="anchor" href="Glossaire-de-facturation.html#_oos_trafic_sortant_par_gio"></a><code>OOS - Trafic sortant - par Gio</code></h3>
+<div class="paragraph">
+<p>Le volume de données (en Gio) transférées depuis vos buckets OOS vers Internet.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Le trafic sortant (de vos buckets OOS vers Internet) est gratuit pour les Régions suivantes :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>eu-west-2</p>
+</li>
+<li>
+<p>us-east-2</p>
+</li>
+<li>
+<p>us-west-1</p>
+</li>
+<li>
+<p>cloudgouv-eu-west-1</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Le trafic entrant (d&#8217;Internet vers vos buckets OOS) est gratuit pour toutes les Régions.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_snapshot"><a class="anchor" href="Glossaire-de-facturation.html#_snapshot"></a>Snapshot</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_snapshot_stockage_par_gio_et_par_mois"><a class="anchor" href="Glossaire-de-facturation.html#_snapshot_stockage_par_gio_et_par_mois"></a><code>Snapshot - Stockage - par Gio et par mois</code></h3>
+<div class="paragraph">
+<p>Premier snapshot d&#8217;un volume : La taille (en Gio) de votre snapshot stocké, par mois.</p>
+</div>
+<div class="paragraph">
+<p>Snapshots suivants du même volume : La taille (en Gio) des données modifiées depuis le snapshot précédent, par mois.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Ce taux s&#8217;applique à tous les snapshots, y compris ceux créés automatiquement lorsque vous créez une OUTSCALE machine image (OMI) depuis une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span>. Pour en savoir plus, voir <a href="À-propos-des-OMI.html" class="xref page">À propos des OMI</a>.</p>
+</li>
+<li>
+<p>Copier un snapshot entre différentes Régions entraîne des frais supplémentaires pour le transfert des données via Internet. Si le snapshot copié est stocké dans OUTSCALE Object Storage (OOS), les taux de stockage dans les Régions source et destination peuvent également être différents. Pour en savoir plus, voir la section <a href="Glossaire-de-facturation.html#_oos">OOS</a> ci-dessus.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vm"><a class="anchor" href="Glossaire-de-facturation.html#_vm"></a>VM</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_instance_on_demand_xx_taille_linux_windows_par_heure"><a class="anchor" href="Glossaire-de-facturation.html#_instance_on_demand_xx_taille_linux_windows_par_heure"></a><code>Instance - On demand - xx.taille Linux / Windows - par heure</code></h3>
+<div class="paragraph">
+<p>L&#8217;utilisation d&#8217;une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span>, prédéfinie ou personnalisable, par heure.</p>
+</div>
+<div class="paragraph">
+<p>Ce taux inclut tous les composants de la VM : calcul, mémoire et licences requises. Pour en savoir plus, voir <a href="Obtenir-le-prix-de-vos-ressources.html" class="xref page">Obtenir le prix de vos ressources</a>.</p>
+</div>
+<div class="paragraph">
+<p>Ce taux s&#8217;applique aux VM à l&#8217;état <code>running</code> uniquement. Les VM arrêtées et terminées ne sont pas facturées. Pour en savoir plus, voir <a href="À-propos-du-cycle-de-vie-des-VM.html" class="xref page">À propos du cycle de vie des VM</a>.</p>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus sur les types de VM disponibles et leurs capacités, voir <a href="Types-de-VM.html" class="xref page">Types de VM</a>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Les VM entraînent des frais supplémentaires pour le transfert des données. Pour en savoir plus, voir la section <a href="Glossaire-de-facturation.html#_fcu">FCU</a> ci-dessus.</p>
+</li>
+<li>
+<p>Un supplément de 10 % s&#8217;ajoute au tarif horaire standard des VM dédiées. Pour en savoir plus, voir <a href="Obtenir-le-prix-de-vos-ressources.html#_calculer_le_prix_des_vm_dédiées" class="xref page">Obtenir le prix de vos ressources &gt; Calculer le prix des VM dédiées</a>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Les VM terminées peuvent apparaître dans votre compte pendant une heure, mais ne sont plus facturées.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_instance_instance_dédiée_prix_additionnel_par_heure"><a class="anchor" href="Glossaire-de-facturation.html#_instance_instance_dédiée_prix_additionnel_par_heure"></a><code>Instance - Instance dédiée - Prix additionnel - par heure</code></h3>
+<div class="paragraph">
+<p>Un supplément de 2 € pour l&#8217;utilisation de VM dédiées.</p>
+</div>
+<div class="paragraph">
+<p>Ce supplément s&#8217;applique une fois par heure lorsque vous avez au moins une VM démarrée dans la Région. Pour en savoir plus, voir <a href="Obtenir-le-prix-de-vos-ressources.html#_calculer_le_prix_des_vm_dédiées" class="xref page">Obtenir le prix de vos ressources &gt; Calculer le prix des VM dédiées</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vpn"><a class="anchor" href="Glossaire-de-facturation.html#_vpn"></a>VPN</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_vpn_utilisation_par_heure"><a class="anchor" href="Glossaire-de-facturation.html#_vpn_utilisation_par_heure"></a><code>VPN - Utilisation - par heure</code></h3>
+<div class="paragraph">
+<p>L&#8217;utilisation d&#8217;une connexion VPN déployée, par heure.</p>
+</div>
+<div class="paragraph">
+<p>La connexion VPN apparaît dans votre compte dans l&#8217;état <code>available</code>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Le trafic entrant (depuis Internet vers la connexion VPN) est gratuit pour toutes les Régions.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Les ressources supprimées peuvent apparaître dans votre compte pendant une heure, mais ne sont plus facturées.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Obtenir-des-informations-sur-la-consommation-de-vos-ressources.html" class="xref page">Obtenir des informations sur la consommation de vos ressources</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-votre-compte-et-vos-quotas.html" class="xref page">Obtenir des informations sur votre compte et vos quotas</a></p>
+</li>
+<li>
+<p><a href="Obtenir-le-prix-de-vos-ressources.html" class="xref page">Obtenir le prix de vos ressources</a></p>
+</li>
+<li>
+<p><a href="À-propos-des-Régions-et-Sous-régions.html" class="xref page">À propos des Régions et Sous-régions</a></p>
+</li>
+<li>
+<p><a href="Licences-logicielles.html" class="xref page">Licences logicielles</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

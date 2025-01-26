@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>À propos des route tables – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="À-propos-des-route-tables.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/À-propos-des-route-tables.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/About-Route-Tables.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">À propos des route tables</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Les route tables (tables de routage) vous permettent de contrôler le routage du trafic d&#8217;un Subnet grâce à des routes que vous créez dans celles-ci. Chaque <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span> est créé avec une route table par défaut que vous pouvez modifier, mais vous pouvez également créer votre propre route table pour chaque Subnet.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez router le trafic vers différents éléments comme un <span class="tooltip" data-tooltip="Internet gateway dans les API AWS-compliant">internet service</span> ou un <span class="tooltip" data-tooltip="VPC endpoint dans les API AWS-compliant">Net access point</span>. Le trafic ciblant une IP du bloc CIDR du Net est toujours routé localement.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_route_tables_et_subnets"><a class="anchor" href="À-propos-des-route-tables.html#_route_tables_et_subnets"></a>Route Tables et Subnets</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Les route tables contrôlent le routage du trafic réseau grâce à des règles appelées routes qui indiquent où le trafic réseau est dirigé. Elles sont créées pour un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span> et sont utilisées par son routeur, qui est automatiquement créé au sein de votre Net, afin de déterminer comment router le trafic.</p>
+</div>
+<div class="paragraph">
+<p>Chaque Subnet d&#8217;un Net doit être associé à une route table, qui contrôle le routage pour toutes les <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machines virtuelles (VM)</span> placées dans ce Subnet. Une même route table peut être associée à plusieurs Subnets, mais un Subnet ne peut être associé qu&#8217;à une seule route table.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>De la même manière qu&#8217;il est recommandé de dédier un Subnet à une seule application, il est également recommandé d&#8217;utiliser une route table et un security group par Subnet.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Dans le schéma suivant, chaque Subnet est associé à une route table. Les VM du Subnet 1 peuvent accéder à Internet à travers l&#8217;<span class="tooltip" data-tooltip="Internet gateway dans les API AWS-compliant">internet service</span>, et les VM du Subnet 2 peuvent accéder à un service de stockage objet à l&#8217;aide du <span class="tooltip" data-tooltip="VPC endpoint dans les API AWS-compliant">Net access point</span>.</p>
+</div>
+<div class="paragraph">
+<div class="title">Subnets, route tables et routes</div>
+<p><span class="image"><img src="_images/FR-sch-General-RouteTables.png" alt="FR sch General RouteTables" width="700"></span></p>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus sur les routes vers un internet service et un Net access point, voir la section <a href="À-propos-des-route-tables.html#_routes_et_options_de_routage">Routes et options de routage</a> ci-dessous.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_route_table_principale_et_autres_route_tables"><a class="anchor" href="À-propos-des-route-tables.html#_route_table_principale_et_autres_route_tables"></a>Route table principale et autres route tables</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_route_table_principale"><a class="anchor" href="À-propos-des-route-tables.html#_route_table_principale"></a>Route table principale</h3>
+<div class="paragraph">
+<p>Lorsque vous créez un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span>, une route table est également automatiquement créée et considérée comme la route table principale. La route table principale agit comme un routeur implicite dans votre Net : elle contrôle le routage du trafic pour tous les Subnets qui ne sont pas explicitement associés avec une route table. Elle est donc implicitement associées à tout Subnet que vous créez dans le Net jusqu&#8217;à ce que vous l&#8217;associez explicitement à une route table.</p>
+</div>
+<div class="paragraph">
+<p>La route table principale créée avec le Net contient uniquement la route <code>local</code> à sa création, qui route tout trafic dirigé vers une cible dans le bloc CIDR du Net au sein du Net lui-même. Cette route ne peut être ni modifiée, ni supprimée. Vous pouvez ajouter ou supprimer des routes dans la route table principale, et modifier ces routes. Cependant, vous ne pouvez pas supprimer la route table principale.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez également définir quelle route table est la principale pour le Net, ce qui modifie ainsi la route table utilisée pour tout nouveau Subnet ou tout Subnet qui n&#8217;est pas explicitement associé à une route table.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous pouvez explicitement associer un Subnet avec la route table principale afin que la route table utilisée par le Subnet ne soit pas modifiée si vous définissez une autre route table comme la principale.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_autres_route_tables"><a class="anchor" href="À-propos-des-route-tables.html#_autres_route_tables"></a>Autres route tables</h3>
+<div class="paragraph">
+<p>Vous pouvez créer des route tables supplémentaires pour votre Net que vous pouvez ensuite associer avec un ou plusieurs Subnets. Vous pouvez ensuite y ajouter des routes, les remplacer ou les supprimer si besoin. Vous pouvez également supprimer une route table qui n&#8217;est plus associée à aucun Subnet.</p>
+</div>
+<div class="paragraph">
+<p>Toute route table que vous créez contient la route <code>local</code> que vous ne pouvez ni supprimer ni modifier. Pour protéger votre Net, vous pouvez garder la route table principale avec uniquement la route <code>local</code>, et explicitement associer chaque nouveau Subnet avec une route table que vous avez créée. Tout nouveau Subnet peut ainsi uniquement diriger le trafic au sein du Net uniquement jusqu&#8217;à ce que vous lui autorisiez explicitement de le diriger ailleurs grâce à des routes que vous ajoutez à sa route table. Ceci vous permet de contrôler comment le trafic sortant est routé pour chaque Subnet de votre Net.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_routes_et_options_de_routage"><a class="anchor" href="À-propos-des-route-tables.html#_routes_et_options_de_routage"></a>Routes et options de routage</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Une route spécifie :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>La destination du trafic, en notation CIDR. Cela peut être une plage d&#8217;IP ou une IP unique (en utilisant un préfixe en /32).</p>
+</li>
+<li>
+<p>La target, qui correspond à l&#8217;élément réseau utilisé pour atteindre la destination du trafic.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Vous pouvez router le trafic en utilisant les targets suivantes :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Local : Une route <code>local</code> est automatiquement ajoutée à toute route table créée dans un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span>, avec le bloc CIDR du Net en destination et <code>local</code> en target. Le trafic venant des <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> et allant vers une IP appartenant au bloc CIDR du Net reste ainsi au sein du réseau local du Net.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous ne pouvez ni modifier ni supprimer la route <code>local</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Un <span class="tooltip" data-tooltip="Internet gateway dans les API AWS-compliant">internet service</span> : Cela permet aux VM du Subnet qui ont une <span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">IP publique</span> associée d&#8217;être directement connectées à Internet à travers l&#8217;internet service du Net. Pour cela, vous devez ajouter une route avec le bloc CIDR 0.0.0.0/0 en destination et l&#8217;ID de l&#8217;internet service en target. Pour en savoir plus sur les internet services, voir <a href="À-propos-des-internet-services.html" class="xref page">À propos des internet services</a>.<br>
+Par exemple, la route table d&#8217;un Subnet avec des VM directement connectées à Internet dans un Net ayant le bloc CIDR 10.0.0.0/16 et l&#8217;internet service <code>igw-12345678</code> attachée à celui-ci contient les routes suivantes :</p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Destination</th>
+<th class="tableblock halign-left valign-top">Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10.0.0.0/16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>local</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.0.0.0/0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>igw-12345678</code></p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Un <span class="tooltip" data-tooltip="NAT gateway dans les API AWS-compliant">NAT service</span> : Cela permet aux VM du Subnet d&#8217;être indirectement connectées à Internet à travers un NAT service. Pour cela, vous devez ajouter une route avec le bloc CIDR 0.0.0.0/0 en destination et l&#8217;ID du NAT service en target. Pour en savoir plus sur les NAT services, voir <a href="À-propos-des-NAT-services.html" class="xref page">À propos des NAT services</a>.<br>
+Par exemple, la route table d&#8217;un Subnet avec des VM indirectement connectées à Internet dans un Net ayant le bloc CIDR 10.0.0.0/16 et utilisant le NAT service <code>nat-12345678</code> attaché au Net pour diriger le trafic vers Internet contient les routes suivantes :</p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Destination</th>
+<th class="tableblock halign-left valign-top">Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10.0.0.0/16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>local</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.0.0.0/0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>nat-12345678</code></p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Une VM ou une interface réseau au sein du Net : Cela permet aux VM dans un Subnet d&#8217;envoyer du trafic vers une VM ou une interface réseau en particulier. Vous pouvez router le trafic vers une VM lorsque celle-ci n&#8217;a qu&#8217;une interface réseau. Si la VM a des <span class="tooltip" data-tooltip="flexible network interface (FNI) dans les API AWS-compliant">network interface cards (NIC)</span> attachées, vous devez router le trafic vers une de ses interfaces réseau. Pour cela, vous devez ajouter une route avec le bloc CIDR approprié en destination et l&#8217;ID de la VM ou de l&#8217;interface réseau en target.<br>
+Par exemple, dans le même Net ayant le bloc CIDR 10.0.0.0/16, si une VM d&#8217;administration a une interface réseau <code>eni-11111111</code> dans un Subnet A avec pour IP 10.10.0.10 et une autre interface réseau dans un Subnet B, la route table d&#8217;un Subnet avec des VM ayant besoin de se connecter à cette VM d&#8217;administration depuis le Subnet A a les routes suivantes :</p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Destination</th>
+<th class="tableblock halign-left valign-top">Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10.0.0.0/16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>local</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10.10.0.10/32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eni-11111111</code></p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Une <span class="tooltip" data-tooltip="virtual private gateway dans les API AWS-compliant">virtual gateway</span> (VGW) : Cela permet aux VM du Subnet de diriger le trafic vers un réseau distant par une connexion VPN ou DirectLink. Pour cela, vous devez ajouter une route avec le bloc CIDR du réseau distant en destination et l&#8217;ID de la VGW attachée à votre Net en target, et créer une connexion VPN ou DirectLink en utilisant cette VGW. Pour en savoir plus, voir <a href="Connexions-VPN.html" class="xref page">Connexions VPN</a> and <a href="DirectLink.html" class="xref page">DirectLink</a>.<br>
+Par exemple, la route table d&#8217;un Subnet dans un Net ayant le bloc CIDR 10.0.0.0/16 dirigeant le trafic vers votre réseau interne ayant le bloc CIDR 192.168.1.0/24 à travers un connexion VPN utilisant la VGW <code>vgw-12345678</code> contient les routes suivantes :</p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Destination</th>
+<th class="tableblock halign-left valign-top">Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10.0.0.0/16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>local</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">192.168.1.0/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>vgw-12345678</code></p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Un <span class="tooltip" data-tooltip="VPC endpoint dans les API AWS-compliant">Net access point</span> : Cela vous permet de créer une connexion privée entre votre Net et un service OUTSCALE. La route appropriée avec l&#8217;ID de la prefix list du service (<code>pl-xxxxxxxx</code>) en destination et l&#8217;ID du Net access point (<code>vpce-xxxxxxxx</code>) en target est automatiquement ajoutée aux route tables que vous spécifiez pour le Net access point. Pour en savoir plus sur les Net access points, voir <a href="À-propos-des-Net-access-points.html" class="xref page">À propos des Net access points</a>. Pour en savoir plus sur les prefix lists, voir <a href="Obtenir-des-informations-sur-les-prefix-lists.html" class="xref page">Obtenir des informations sur les prefix lists</a>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous ne pouvez ni modifier ni supprimer cette route, mais vous pouvez modifier les route tables utilisées par le Net access point.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Un <span class="tooltip" data-tooltip="VPC peering connection dans les API AWS-compliant">Net peering</span> : Cela vous permet de diriger le trafic vers un Net pair. Pour cela, vous devez ajouter une route avec tout ou partie du bloc CIDR du Net pair en destination et l&#8217;ID du Net peering en target. Pour en savoir plus sur les Net peerings, voir <a href="À-propos-des-Net-peerings.html" class="xref page">À propos des Net peerings</a>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Le propriétaire du Net pair doit ajouter une route dans les route tables de son Net pour router le trafic vers votre Net.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Par exemple, la route table d&#8217;un Subnet dans un Net A ayant le bloc CIDR 10.0.0.0/16, dirigeant le trafic vers un Net pair B ayant le bloc CIDR 192.168.1.0/24 et utilisant le Net peering <code>pcx-12345678</code> contient les routes suivantes :</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Destination</th>
+<th class="tableblock halign-left valign-top">Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10.0.0.0/16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>local</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">192.168.1.0/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pcx-12345678</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Les route tables du Net pair B doivent contenir les routes suivantes :</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Destination</th>
+<th class="tableblock halign-left valign-top">Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">192.168.1.0/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>local</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10.0.0.0/16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pcx-12345678</code></p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Si la destination du trafic correspond à plusieurs routes dans la route table associée, la route la plus spécifique avec le bloc CIDR le plus restreint correspondant à cette destination est toujours celle utilisée pour router le trafic.</p>
+</div>
+<div class="paragraph">
+<p>Une route est toujours dans l&#8217;état suivant :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Active : La route est active et est utilisée pour router le trafic.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Page connexe</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-Nets.html" class="xref page">À propos des Nets</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

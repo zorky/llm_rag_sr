@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Interroger un modèle Mistral – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Interroger-un-modèle-Mistral.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Interroger-un-modèle-Mistral.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Querying-a-Mistral-Model.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Interroger un modèle Mistral</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cette page explique comment interroger un modèle Mistral via API une fois que vous avez déployé votre service LLM (large language model) depuis OUTSCALE Marketplace. Pour en savoir plus sur le déploiement d&#8217;un service LLM Mistral, voir <a href="Souscrire-à-un-service-LLM-Mistral-et-le-déployer.html#_Déployer_un_service_LLM_Mistral" class="xref page">Déployer un service LLM Mistral</a>.</p>
+</div>
+<div class="paragraph">
+<p>Les modèles déployés exposent une API REST que vous pouvez interroger à l&#8217;aide d&#8217;appels HTTP simples. Pour exécuter vos requêtes, vous devez définir les variables d&#8217;environnement suivantes :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>OUTSCALE_SERVER_URL</code>, qui correspond à l&#8217;URL de la <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machine virtuelle (VM)</span> qui héberge votre modèle Mistral.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>L&#8217;URL de votre serveur suit le modèle suivant : <code>http://${serveur}:5000</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><code>OUTSCALE_MODEL_NAME</code>, qui correspond au nom du modèle à interroger.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pour le modèle Small, le nom du modèle à indiquer est <code>small-2409</code>.</p>
+</li>
+<li>
+<p>Pour le modèle Codestral, le nom du modèle à indiquer est <code>codestral-2405</code>.</p>
+</li>
+<li>
+<p>Pour le modèle Ministral 8B, le nom du modèle à indiquer est <code>ministral-8b-2410</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Les exemples donnés ci-dessous utilisent des commandes cURL ou Python pour interroger un modèle. Pour en savoir plus sur les différents types de requêtes pour interroger un modèle Mistral, voir la
+<a href="https://docs.mistral.ai/deployment/cloud/outscale/" target="_blank" rel="noopener">documentation officielle Mistral</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_interroger_un_modèle_en_mode_complétion_de_conversation"><a class="anchor" href="Interroger-un-modèle-Mistral.html#_interroger_un_modèle_en_mode_complétion_de_conversation"></a>Interroger un modèle en mode complétion de conversation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez utiliser les commandes suivantes pour interroger votre modèle dans le cadre de tâches de génération de texte :</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="cURL (complétion)_0"><a class="anchor" href="Interroger-un-modèle-Mistral.html#cURL (complétion)_0"></a>cURL (complétion)</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ echo $OUTSCALE_SERVER_URL/v1/chat/completions
+$ echo $OUTSCALE_MODEL_NAME
+$ curl --location $OUTSCALE_SRV_URL/v1/chat/completions \
+  --header "Content-Type: application/json" \
+  --header "Accept: application/json" \
+  --data '{
+      "model": "$OUTSCALE_MODEL_NAME",
+      "temperature": 0,
+      "messages": [
+        {"role": "user", "content": "Who is the best French painter? Answer in one short sentence."}
+      ],
+      "stream": false
+    }'</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Python (complétion)_1"><a class="anchor" href="Interroger-un-modèle-Mistral.html#Python (complétion)_1"></a>Python (complétion)</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">import os
+from mistralai import Mistral
+
+client = Mistral(server_url="OUTSCALE_SERVER_URL")
+
+resp = client.chat.complete(
+    model="OUTSCALE_MODEL_NAME",
+    messages=[
+        {
+            "role": "user",
+            "content": "Who is the best French painter? Answer in one short sentence.",
+        }
+    ],
+    temperature=0
+)
+
+print(resp.choices[0].message.content)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_interroger_un_modèle_codestral_en_mode_complétion_fim"><a class="anchor" href="Interroger-un-modèle-Mistral.html#_interroger_un_modèle_codestral_en_mode_complétion_fim"></a>Interroger un modèle Codestral en mode complétion FIM</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez utiliser les commandes suivantes pour interroger votre modèle Codestral en mode FIM ("fill-in-the-middle" en anglais) dans le cadre de tâches de génération de code :</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="cURL (FIM)_2"><a class="anchor" href="Interroger-un-modèle-Mistral.html#cURL (FIM)_2"></a>cURL (FIM)</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$  curl --location $OUTSCALE_SERVER_URL/v1/fim/completions \
+   --header "Content-Type: application/json" \
+   --header "Accept: application/json" \
+   --data '{
+       "model": "$OUTSCALE_MODEL_NAME",
+       "prompt": "def count_words_in_file(file_path: str) -&gt; int:",
+       "suffix": "return n_words",
+       "stream": false
+     }'</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Python (FIM)_3"><a class="anchor" href="Interroger-un-modèle-Mistral.html#Python (FIM)_3"></a>Python (FIM)</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python"> import os
+ from mistralai import Mistral
+
+ client = Mistral(server_url="OUTSCALE_SERVER_URL")
+
+ resp = client.fim.complete(
+     model = "OUTSCALE_MODEL_NAME",
+     prompt="def count_words_in_file(file_path: str) -&gt; int:",
+     suffix="return n_words"
+ )
+
+ print(resp.choices[0].message.content)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Page connexe</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.mistral.ai/getting-started/clients/" target="_blank" rel="noopener">Documentation officielle Mistral - Clients</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

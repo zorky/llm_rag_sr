@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>AWS Java SDK – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="AWS-Java-SDK.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/AWS-Java-SDK.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/AWS-Java-SDK.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">AWS Java SDK</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Cette page est à ce jour disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The AWS Java SDK helps you code by providing Java APIs for 3DS OUTSCALE Cloud services.The single, downloadable package includes the AWS Java library, code samples, and documentation.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_prerequisites"><a class="anchor" href="AWS-Java-SDK.html#_prerequisites"></a>Prerequisites</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To use the AWS SDK for Java, ensure that you have the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A suitable Java Development Environment.</p>
+</li>
+<li>
+<p>A 3DS OUTSCALE account and access keys. For more information, see <a href="Démarrage-rapide.html" class="xref page">Démarrage rapide</a>.</p>
+</li>
+<li>
+<p>3DS OUTSCALE credentials (access keys) set in your environment or using the shared (by the AWS CLI and other SDKs) credentials file.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_linux_and_windows_configuration"><a class="anchor" href="AWS-Java-SDK.html#_linux_and_windows_configuration"></a>Linux and Windows Configuration</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Download the SDK from <a href="https://sdk-for-java.amazonwebservices.com/latest/aws-java-sdk.zip" target="_blank" rel="noopener">https://sdk-for-java.amazonwebservices.com/latest/aws-java-sdk.zip</a>.</p>
+</li>
+<li>
+<p>After downloading the SDK, extract the content into a local directory.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The SDK contains the following directories:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>documentation</code> – Contains the API documentation, which is also available at the following address: <a href="https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/" target="_blank" rel="noopener">AWS SDK for Java Reference</a>.</p>
+</li>
+<li>
+<p><code>lib</code> – Contains the SDK <code>.jar</code> files.</p>
+</li>
+<li>
+<p><code>samples</code> – Contains working code samples that demonstrate how to use the SDK.</p>
+</li>
+<li>
+<p><code>third-party</code> – Contains third-party libraries that are used by the SDK, such as Apache commons logging, AspectJ and the Spring framework.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To use the SDK, add the full path to the <code>lib</code> and <code>third-party</code> directories to the dependencies in your build file, and add them to your java <code>CLASSPATH</code> to run your code.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_examples"><a class="anchor" href="AWS-Java-SDK.html#_examples"></a>Examples</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The AWS SDK for Java comes packaged with a number of code samples that demonstrate many of the features of the SDK in build-able, runnable programs that you can study or modify to implement your own 3DS OUTSCALE solutions using the AWS SDK for Java.</p>
+</div>
+<div class="paragraph">
+<p>If you want to run simple scripts, you can use <a href="https://ant.apache.org/" target="_blank" rel="noopener">Ant</a> to easily build and run them from the command line.</p>
+</div>
+<div class="sect2">
+<h3 id="_initialization"><a class="anchor" href="AWS-Java-SDK.html#_initialization"></a>Initialization</h3>
+<div class="paragraph">
+<p>To initialize your connector on the 3DS OUTSCALE endpoint, you need to create your EC2 connection using the following code:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">amazonEC2 = new AmazonEC2Client(credentials);
+((AmazonEC2Client)amazonEC2).setEndpoint("https://fcu._REGION_NAME_.outscale.com");
+((AmazonEC2Client)amazonEC2).setSignerRegionOverride("_REGION_NAME_");</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Replace <em>REGION_NAME</em> with the Region you want to use.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Credentials will be loaded from the default location (~/.aws/credentials)</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>To get your access key ID and your secret key to allow a connection to the APIs, see <a href="Gérer-vos-access-keys.html" class="xref page">Gérer vos access keys</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_scripts"><a class="anchor" href="AWS-Java-SDK.html#_scripts"></a>Scripts</h3>
+<div class="paragraph">
+<p>In this sample, we use an EC2 client to get a list of all the <span class="tooltip" data-tooltip="Sous-région dans l'API OUTSCALE">Availability Zones</span>, and all <span class="tooltip" data-tooltip="machine virtuelle (VM) dans l'API OUTSCALE">instances</span> sorted by reservation ID:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">try {
+    DescribeAvailabilityZonesResult availabilityZonesResult = ec2.describeAvailabilityZones();
+    System.out.println("You have access to " + availabilityZonesResult.getAvailabilityZones().size() + " Availability Zones.");
+
+    DescribeInstancesResult describeInstancesRequest = ec2.describeInstances();
+    List&lt;Reservation&gt; reservations = describeInstancesRequest.getReservations();
+    Set&lt;Instance&gt; instances = new HashSet&lt;Instance&gt;();
+
+    for (Reservation reservation : reservations) {
+        instances.addAll(reservation.getInstances());
+    }
+
+    System.out.println("You have " + instances.size() + " Outscale EC2 instance(s) running.");
+        } catch (AmazonServiceException ase) {
+    System.out.println("Caught Exception: " + ase.getMessage());
+        System.out.println("Reponse Status Code: " + ase.getStatusCode());
+        System.out.println("Error Code: " + ase.getErrorCode());
+        System.out.println("Request ID: " + ase.getRequestId());
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To create a <span class="tooltip" data-tooltip="Net dans l'API OUTSCALE">VPC</span>:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Import the following libraries:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import com.amazonaws.services.ec2.model.CreateVpcRequest;
+import com.amazonaws.services.ec2.model.CreateVpcResult;
+import com.amazonaws.services.ec2.model.Vpc;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Execute the following code:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">System.out.println("Creating VPC...");
+CreateVpcRequest newVPC = new CreateVpcRequest("10.10.10.10/28");
+CreateVpcResult res = ec2.createVpc(newVPC);
+Vpc vpc = res.getVpc();
+String vpcId = vp.getVpcId();
+System.out.println("Created VPC " + vpcId);</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Official Documentation: <a href="https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/welcome.html" target="_blank" rel="noopener">https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/welcome.html</a></p>
+</li>
+<li>
+<p>Sources: <a href="https://github.com/aws/aws-sdk-java" target="_blank" rel="noopener">https://github.com/aws/aws-sdk-java</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

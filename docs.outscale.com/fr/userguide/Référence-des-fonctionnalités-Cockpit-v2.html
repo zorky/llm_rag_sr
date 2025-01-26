@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Référence des fonctionnalités Cockpit v2 – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Référence-des-fonctionnalités-Cockpit-v2.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Référence-des-fonctionnalités-Cockpit-v2.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Cockpit-v2-Features-Reference.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Référence des fonctionnalités Cockpit v2</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cette page liste les fonctionnalités actuellement supportées dans Cockpit v2 2.21.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Global_0"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#Global_0"></a>Global</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_espace_personnel_et_consommation"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#_espace_personnel_et_consommation"></a>Espace personnel et consommation</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Obtenir-des-informations-sur-votre-compte-et-vos-quotas.html#_Obtenir_des_informations_sur_votre_compte_et_vos_quotas_avec_Cockpit%C2%A0v2-beta" class="xref page">Obtenir des informations sur votre compte et vos quotas</a></p>
+</li>
+<li>
+<p><a href="Modifier-vos-informations-personnelles-et-votre-mot-de-passe.html#_Cockpit%C2%A0v2-beta" class="xref page">Modifier vos informations personnelles et votre mot de passe</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-vos-logs-d-API.html" class="xref page">Obtenir des informations sur vos logs d&#8217;API</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-la-consommation-de-vos-ressources.html#_Obtenir_des_informations_sur_la_consommation_de_vos_ressources_avec_Cockpit%C2%A0v2-beta" class="xref page">Obtenir des informations sur la consommation de vos ressources</a></p>
+</li>
+<li>
+<p><a href="Obtenir-le-prix-de-vos-ressources.html" class="xref page">Obtenir le prix de vos ressources</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_authentification"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#_authentification"></a>Authentification</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Se-connecter-et-déconnecter-d-une-session-de-confiance-avec-un-certificat.html" class="xref page">Se connecter et déconnecter d&#8217;une session de confiance avec un certificat</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tags"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#_tags"></a>Tags</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Ajouter-ou-retirer-des-tags.html#_Ajouter_ou_retirer_des_tags_avec_Cockpit%C2%A0v2-beta" class="xref page">Ajouter ou retirer des tags</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-les-tags-associés-à-une-ressource.html#_Obtenir_des_informations_sur_vos_tags_avec_Cockpit%C2%A0v2-beta" class="xref page">Obtenir des informations sur vos tags</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Compte_1"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#Compte_1"></a>Compte</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_access_keys"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#_access_keys"></a>Access keys</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Créer-une-access-key.html#_Créer_une_access_key_avec_Cockpit%C2%A0v2-beta" class="xref page">Créer une access key</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-vos-access-keys.html#_Obtenir_des_informations_sur_vos_access_keys_avec_Cockpit%C2%A0v2-beta" class="xref page">Obtenir des informations sur vos access keys</a></p>
+</li>
+<li>
+<p><a href="Modifier-une-access-key.html#_Modifier_une_access_key_avec_Cockpit%C2%A0v2-beta" class="xref page">Modifier une access key</a></p>
+</li>
+<li>
+<p><a href="Supprimer-une-access-key.html#_Supprimer_une_access_key_avec_Cockpit%C2%A0v2-beta" class="xref page">Supprimer une access key</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_règles_daccès_api"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#_règles_daccès_api"></a>Règles d&#8217;accès API</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Créer-une-règle-d-accès-API.html" class="xref page">Créer une règle d&#8217;accès API</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-vos-règles-d-accès-API.html" class="xref page">Obtenir des informations sur vos règles d&#8217;accès API</a></p>
+</li>
+<li>
+<p><a href="Modifier-une-règle-d-accès-API.html" class="xref page">Modifier une règle d&#8217;accès API</a></p>
+</li>
+<li>
+<p><a href="Supprimer-une-règle-d-accès-API.html" class="xref page">Supprimer une règle d&#8217;accès API</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Calcul_2"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#Calcul_2"></a>Calcul</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_machines_virtuelles"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#_machines_virtuelles"></a><span class="tooltip" data-tooltip="instance dans les API AWS-compliant">Machines virtuelles</span></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Créer-des-VM.html#_Créer_des_VM_avec_Cockpit%C2%A0v2" class="xref page">Créer des machines virtuelles (VM)</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-vos-VM.html#_Obtenir_des_informations_sur_vos_VM_avec_Cockpit%C2%A0v2-beta" class="xref page">Obtenir des informations sur vos VM</a></p>
+</li>
+<li>
+<p><a href="Consulter-la-sortie-de-la-console-d-une-VM.html#_Consulter_la_sortie_de_la_console_dune_VM_avec_Cockpit%C2%A0v2-beta" class="xref page">Consulter la sortie de la console d&#8217;une VM</a></p>
+</li>
+<li>
+<p><a href="Accéder-à-une-VM-Windows.html#_Déchiffrer_le_mot_de_passe_de_votre_VM_avec_Cockpit%C2%A0v2-beta" class="xref page">Déchiffrer le mot de passe d&#8217;une VM Windows</a></p>
+</li>
+<li>
+<p><a href="Arrêter-et-démarrer-des-VM.html#_Arrêter_et_démarrer_des_VM_avec_Cockpit%C2%A0v2-beta" class="xref page">Arrêter et démarrer des VM</a></p>
+</li>
+<li>
+<p><a href="Redémarrer-des-VM.html#_Redémarrer_une_VM_avec_Cockpit%C2%A0v2-beta" class="xref page">Redémarrer une VM</a></p>
+</li>
+<li>
+<p><a href="Configurer-une-VM-avec-les-user-data-et-les-tags-OUTSCALE.html" class="xref page">(lors de la création de la VM) Configurer une VM avec les user data et les tags OUTSCALE</a></p>
+</li>
+<li>
+<p><a href="Modifier-un-attribut-d-une-VM.html#_Modifier_un_attribut_dune_VM_avec_Cockpit%C2%A0v2-beta" class="xref page">Modifier un attribut d&#8217;une VM</a></p>
+</li>
+<li>
+<p><a href="Terminer-des-VM.html#_Terminer_une_VM_avec_Cockpit%C2%A0v2-beta" class="xref page">Terminer une VM</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_images"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#_images"></a>Images</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Créer-une-OMI-depuis-une-VM.html#_Créer_une_image_depuis_une_VM_avec_Cockpit%C2%A0v2-beta" class="xref page">Créer une image depuis une VM</a></p>
+</li>
+<li>
+<p><a href="Créer-une-OMI-depuis-un-snapshot.html#_Créer_une_image_depuis_un_snapshot_avec_Cockpit%C2%A0v2-beta" class="xref page">Créer une image depuis un snapshot</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-vos-OMI.html" class="xref page">Obtenir des informations sur vos images</a></p>
+</li>
+<li>
+<p><a href="Modifier-les-attributs-d-une-OMI.html#_Modifier_les_attributs_d_une_image_avec_Cockpit%C2%A0v2-beta" class="xref page">Modifier les attributs d&#8217;une image</a></p>
+</li>
+<li>
+<p><a href="Copier-une-OMI-dans-la-même-Région.html" class="xref page">Copier une image dans une même Région</a></p>
+</li>
+<li>
+<p><a href="Exporter-une-OMI-vers-un-bucket.html#_Exporter_une_image_vers_un_bucket_avec_Cockpit%C2%A0v2-beta" class="xref page">Exporter une image vers un bucket</a></p>
+</li>
+<li>
+<p><a href="Importer-une-OMI-depuis-un-bucket.html#_Importer_une_image_depuis_un_bucket_avec_Cockpit%C2%A0v2-beta" class="xref page">Importer une image vers un bucket</a></p>
+</li>
+<li>
+<p><a href="Supprimer-une-OMI.html#_Supprimer_une_image_avec_Cockpit%C2%A0v2-beta" class="xref page">Supprimer une image</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_flexible_gpu"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#_flexible_gpu"></a>Flexible GPU</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Allouer-ou-libérer-un-fGPU.html#_Allouer_ou_libérer_un_fGPU_avec_Cockpit%C2%A0v2-beta" class="xref page">Allouer ou libérer un fGPU</a></p>
+</li>
+<li>
+<p><a href="Attacher-ou-détacher-un-fGPU.html#_Lier_ou_détacher_un_fGPU_avec_Cockpit%C2%A0v2-beta" class="xref page">Attacher ou détacher un fGPU</a></p>
+</li>
+<li>
+<p><a href="Modifier-le-comportement-d-un-fGPU.html#_Modifier_le_comportement_dun_fGPU_avec_Cockpit%C2%A0v2-beta" class="xref page">Modifier le comportement d’un fGPU</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Stockage_3"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#Stockage_3"></a>Stockage</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_volumes"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#_volumes"></a>Volumes</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Créer-un-volume.html#_Créer_un_volume_avec_Cockpit%C2%A0v2-beta" class="xref page">Créer un volume</a></p>
+</li>
+<li>
+<p><a href="Créer-un-volume-à-partir-d-un-snapshot.html#_Créer_un_volume_à_partir_dun_snapshot_avec_Cockpit%C2%A0v2-beta" class="xref page">Créer un volume à partir d’un snapshot</a></p>
+</li>
+<li>
+<p><a href="Créer-des-VM.html#_choisir_un_volume_système" class="xref page">(lors de la création de la VM) Créer un volume système personnalisé</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-vos-volumes.html" class="xref page">Obtenir des informations sur vos volumes</a></p>
+</li>
+<li>
+<p><a href="Attacher-un-volume-à-une-VM.html#_Lier_un_volume_à_une_VM_avec_Cockpit%C2%A0v2-beta" class="xref page">Attacher un volume à une VM</a></p>
+</li>
+<li>
+<p><a href="Détacher-un-volume-d-une-VM.html#_Détacher_un_volume_dune_VM_avec_Cockpit%C2%A0v2-beta" class="xref page">Détacher un volume d&#8217;une VM</a></p>
+</li>
+<li>
+<p><a href="Supprimer-un-volume.html#_Supprimer_un_volume_avec_Cockpit%C2%A0v2-beta" class="xref page">Supprimer un volume</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_snapshots"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#_snapshots"></a>Snapshots</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Créer-un-snapshot-d-un-volume.html#_Créer_un_snapshot_dun_volume_avec_Cockpit%C2%A0v2-beta" class="xref page">Créer un snapshot d’un volume</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-vos-snapshots.html" class="xref page">Obtenir des informations sur vos snapshots</a></p>
+</li>
+<li>
+<p><a href="Gérer-les-permissions-pour-un-snapshot.html" class="xref page">Gérer les permissions pour un snapshot</a></p>
+</li>
+<li>
+<p><a href="Exporter-un-snapshot-sur-un-bucket.html#_Exporter_un_snapshot_sur_un_bucket_avec_Cockpit%C2%A0v2-beta" class="xref page">Exporter un snapshot sur un bucket</a></p>
+</li>
+<li>
+<p><a href="Importer-un-snapshot-depuis-un-bucket.html" class="xref page">Importer un snapshot depuis un bucket</a></p>
+</li>
+<li>
+<p><a href="Supprimer-un-snapshot.html#_Supprimer_un_snapshot_avec_Cockpit%C2%A0v2-beta" class="xref page">Supprimer un snapshot</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Sécurité_4"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#Sécurité_4"></a>Sécurité</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_ip_publiques"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#_ip_publiques"></a><span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">IP publiques</span></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Allouer-une-IP-publique-à-votre-compte.html#_Allouer_une_IP_publique_avec_Cockpit%C2%A0v2-beta" class="xref page">Allouer une IP publique</a></p>
+</li>
+<li>
+<p><a href="Attacher-une-IP-publique-à-une-VM-ou-à-une-interface-réseau.html#_Lier_une_IP_publique_avec_Cockpit%C2%A0v2-beta" class="xref page">Attacher une IP publique à une VM</span> ou à une <span class="tooltip" data-tooltip="flexible network interface (FNI) dans les API AWS-compliant">NIC</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-vos-IP-publiques.html" class="xref page">Obtenir des informations sur vos IP publiques</a></p>
+</li>
+<li>
+<p><a href="Détacher-une-IP-publique-d-une-VM-ou-d-une-interface-réseau.html#_Détacher_une_IP_publique_dune_VM_avec_Cockpit%C2%A0v2-beta" class="xref page">Détacher une IP publique d&#8217;une VM</a></p>
+</li>
+<li>
+<p><a href="Libérer-une-IP-publique-de-votre-compte.html#_Libérer_une_IP_publique_avec_Cockpit%C2%A0v2-beta" class="xref page">Libérer une IP publique</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_keypairs"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#_keypairs"></a>Keypairs</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Créer-une-keypair.html#_Créer_une_keypair_avec_Cockpit%C2%A0v2-beta" class="xref page">Créer une keypair</a></p>
+</li>
+<li>
+<p><a href="Importer-une-keypair.html#_Importer_une_keypair_avec_Cockpit%C2%A0v2-beta" class="xref page">Importer une keypair</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-vos-keypairs.html" class="xref page">Obtenir des informations sur vos keypairs</a></p>
+</li>
+<li>
+<p><a href="Supprimer-une-keypair.html#_Supprimer_une_keypair_avec_Cockpit%C2%A0v2-beta" class="xref page">Supprimer une keypair</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_security_groups"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#_security_groups"></a>Security groups</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Créer-des-VM.html#_choisir_des_security_groups" class="xref page">(lors de la création d&#8217;une VM) Créer un security group</a></p>
+</li>
+<li>
+<p><a href="Créer-un-security-group.html#_Créer_un_security_group_avec_Cockpit%C2%A0v2-beta" class="xref page">Créer un security group</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-vos-security-groups.html" class="xref page">Obtenir des informations sur vos security groups</a></p>
+</li>
+<li>
+<p><a href="Ajouter-des-règles-à-un-security-group.html#_Ajouter_des_règles_dentrée_ou_de_sortie_à_un_security_group_avec_Cockpit%C2%A0v2-beta" class="xref page">Ajouter des règles à un security group</a></p>
+</li>
+<li>
+<p><a href="Retirer-des-règles-d-un-security-group.html#_Retirer_une_règle_dun_security_group_avec_Cockpit%C2%A0v2-beta" class="xref page">Retirer une règle d&#8217;un security group</a></p>
+</li>
+<li>
+<p><a href="Supprimer-un-security-group.html#_Supprimer_un_security_group_avec_Cockpit%C2%A0v2-beta" class="xref page">Supprimer un security group</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_route_tables"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#_route_tables"></a>Route tables</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Créer-une-route-table.html#_Créer_une_route_table_avec_Cockpit%C2%A0v2-beta" class="xref page">Créer une route table</a></p>
+</li>
+<li>
+<p><a href="Créer-une-route.html#_Créer_une_route_avec_Cockpit%C2%A0v2-beta" class="xref page">Créer une route</a></p>
+</li>
+<li>
+<p><a href="Activer-la-propagation-des-routes.html" class="xref page">Activer la propagation des routes</a></p>
+</li>
+<li>
+<p><a href="Désactiver-la-propagation-des-routes.html" class="xref page">Désactiver la propagation des routes</a></p>
+</li>
+<li>
+<p><a href="Supprimer-une-route.html#_Supprimer_une_route_avec_Cockpit%C2%A0v2-beta" class="xref page">Supprimer une route</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-vos-route-tables.html" class="xref page">Obtenir des informations sur vos route tables</a></p>
+</li>
+<li>
+<p><a href="Attacher-une-route-table-à-un-Subnet.html#_Lier_une_route_table_à_un_Subnet_avec_Cockpit%C2%A0v2-beta" class="xref page">Attacher une route table à un Subnet</a></p>
+</li>
+<li>
+<p><a href="Détacher-une-route-table-d-un-Subnet.html#_Détacher_une_route_table_dun_Subnet_avec_Cockpit%C2%A0v2-beta" class="xref page">Détacher une route table</a></p>
+</li>
+<li>
+<p><a href="Supprimer-une-route-table.html#_Supprimer_une_route_table_avec_Cockpit%C2%A0v2-beta" class="xref page">Supprimer une route table</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_network_interface_cards"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#_network_interface_cards"></a>Network interface cards</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Créer-une-NIC.html#_Créer_une_NIC_avec_Cockpit%C2%A0v2-beta" class="xref page">Créer une NIC</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-vos-NIC.html#_Obtenir_des_informations_sur_vos_NIC_avec_Cockpit%C2%A0v2-beta" class="xref page">Obtenir des informations sur vos NIC</a></p>
+</li>
+<li>
+<p><a href="Attacher-une-NIC-à-une-VM.html#_Lier_une_NIC_à_une_VM_avec_Cockpit%C2%A0v2-beta" class="xref page">Attacher une NIC à une VM</a></p>
+</li>
+<li>
+<p><a href="Détacher-une-NIC-d-une-VM.html#_Détacher_une_NIC_dune_VM_avec_Cockpit%C2%A0v2-beta" class="xref page">Détacher une NIC d&#8217;une VM</a></p>
+</li>
+<li>
+<p><a href="Modifier-un-attribut-d-une-NIC.html#_Modifier_les_security_groups_associés_à_une_NIC_avec_Cockpit%C2%A0v2-beta" class="xref page">Modifier les security groups associés à une NIC</a></p>
+</li>
+<li>
+<p><a href="Attribuer-des-IP-privées-secondaires-à-une-NIC.html#_Lier_des_IP_privées_secondaires_à_une_NIC_avec_Cockpit%C2%A0v2-beta" class="xref page">Attacher des IP privées secondaires à une NIC</a></p>
+</li>
+<li>
+<p><a href="Retirer-des-IP-privées-secondaires-d-une-NIC.html#_Détacher_des_IP_privées_secondaires_dune_NIC_avec_Cockpit%C2%A0v2-beta" class="xref page">Détacher des IP privées secondaires d&#8217;une NIC</a></p>
+</li>
+<li>
+<p><a href="Supprimer-une-NIC.html#_Supprimer_une_NIC_avec_Cockpit%C2%A0v2-beta" class="xref page">Supprimer une NIC</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Net_5"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#Net_5"></a>Net</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_nets"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#_nets"></a><span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Nets</span></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Créer-un-Net.html#_Créer_un_Net_avec_Cockpit%C2%A0v2-beta" class="xref page">Créer un Net</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-vos-Nets.html" class="xref page">Obtenir des informations sur vos Nets</a></p>
+</li>
+<li>
+<p><a href="Créer-un-groupe-d-options-DHCP.html" class="xref page">Créer un groupe d&#8217;options DHCP</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-vos-options-DHCP.html" class="xref page">Obtenir des informations sur vos options DHCP</a></p>
+</li>
+<li>
+<p><a href="Modifier-le-groupe-d-options-DHCP-associé-à-un-Net.html#_Modifier_le_groupe_doptions_DHCP_associé_à_un_Net_avec_Cockpit%C2%A0v2-beta" class="xref page">Modifier le groupe d&#8217;options DHCP associé à un Net</a></p>
+</li>
+<li>
+<p><a href="Supprimer-un-groupe-d-options-DHCP.html" class="xref page">Supprimer un groupe d&#8217;options DHCP</a></p>
+</li>
+<li>
+<p><a href="Supprimer-un-Net.html#_Supprimer_un_Net_avec_Cockpit%C2%A0v2-beta" class="xref page">Supprimer un Net</a></p>
+</li>
+<li>
+<p><a href="Créer-un-Subnet-dans-un-Net.html#_Créer_un_Subnet_avec_Cockpit%C2%A0v2-beta" class="xref page">Créer un Subnet</a></p>
+</li>
+<li>
+<p><a href="Supprimer-un-Subnet.html#_Supprimer_un_Subnet_avec_Cockpit%C2%A0v2-beta" class="xref page">Supprimer un Subnet</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_net_peerings"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#_net_peerings"></a><span class="tooltip" data-tooltip="VPC peering connection dans les API AWS-compliant">Net peerings</span></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Créer-un-Net-peering.html#_Créer_un_Net_peering_avec_Cockpit%C2%A0v2-beta" class="xref page">Créer un Net peering</a></p>
+</li>
+<li>
+<p><a href="Accepter-un-Net-peering.html#_Accepter_un_Net_peering_avec_Cockpit%C2%A0v2-beta" class="xref page">Accepter un Net peering</a></p>
+</li>
+<li>
+<p><a href="Rejeter-un-Net-peering.html#_Rejeter_un_Net_peering_avec_Cockpit%C2%A0v2-beta" class="xref page">Rejeter un Net peering</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-vos-Net-peerings.html#_Obtenir_des_informations_sur_vos_Net_peerings_avec_Cockpit%C2%A0v2-beta" class="xref page">Obtenir des informations sur vos Net peerings</a></p>
+</li>
+<li>
+<p><a href="Supprimer-un-Net-peering.html#_Supprimer_un_Net_peering_avec_Cockpit%C2%A0v2-beta" class="xref page">Supprimer un Net peering</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_directlink"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#_directlink"></a>DirectLink</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Obtenir-des-informations-sur-les-sites-DirectLink.html#_Obtenir_des_informations_sur_les_sites_DirectLink_avec_Cockpit%C2%A0v2-beta" class="xref page">Obtenir des informations sur les sites DirectLink</a></p>
+</li>
+<li>
+<p><a href="Demander-une-connexion.html#_Demander_une_connexion_avec_Cockpit%C2%A0v2-beta" class="xref page">Demander une connexion</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-vos-connexions.html#_Obtenir_des_informations_sur_vos_connexions_avec_Cockpit%C2%A0v2-beta" class="xref page">Obtenir des informations sur vos connexions</a></p>
+</li>
+<li>
+<p><a href="Supprimer-une-connexion.html#_Supprimer_une_connexion_avec_Cockpit%C2%A0v2-beta" class="xref page">Supprimer une connexion</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_directlink_interfaces"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#_directlink_interfaces"></a><span class="tooltip" data-tooltip="virtual interface privée dans les API AWS-compliant">DirectLink interfaces</span></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Créer-une-DirectLink-interface.html#_Créer_une_DirectLink_interface_avec_Cockpit%C2%A0v2-beta" class="xref page">Créer une DirectLink interface</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-vos-virtual-gateways-DirectLink.html#_Obtenir_des_informations_sur_vos_virtual_gateways_DirectLink_avec_Cockpit%C2%A0v2-beta" class="xref page">Obtenir des informations sur vos virtual gateways (DirectLink)</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-vos-DirectLink-interfaces.html#_Obtenir_des_informations_sur_vos_DirectLink_interfaces_avec_Cockpit%C2%A0v2-beta" class="xref page">Obtenir des informations sur vos DirectLink interfaces</a></p>
+</li>
+<li>
+<p><a href="Supprimer-une-DirectLink-interface.html#_Supprimer_une_DirectLink_interface_avec_Cockpit%C2%A0v2-beta" class="xref page">Supprimer une DirectLink interface</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_net_access_points"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#_net_access_points"></a><span class="tooltip" data-tooltip="VPC endpoint dans les API AWS-compliant">Net access points</span></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Créer-un-Net-access-point.html#_Créer_un_Net_access_point_avec_Cockpit%C2%A0v2-beta" class="xref page">Créer un Net access point</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-vos-Net-access-points.html#_Obtenir_des_informations_sur_vos_Net_access_points_avec_Cockpit%C2%A0v2-beta" class="xref page">Obtenir des informations sur vos Net access points</a></p>
+</li>
+<li>
+<p><a href="Ajouter-ou-retirer-une-route-table-associée-à-un-Net-access-point.html#_Ajouter_ou_retirer_une_route_table_associée_à_un_Net_access_point_avec_Cockpit%C2%A0v2-beta" class="xref page">Ajouter ou retirer une route table associée à un Net access point</a></p>
+</li>
+<li>
+<p><a href="Supprimer-un-Net-access-point.html#_Supprimer_un_Net_access_point_avec_Cockpit%C2%A0v2-beta" class="xref page">Supprimer un Net access point</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_nat_services"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#_nat_services"></a><span class="tooltip" data-tooltip="NAT gateway dans les API AWS-compliant">NAT services</span></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Créer-un-NAT-service.html#_Créer_un_NAT_service_avec_Cockpit%C2%A0v2-beta" class="xref page">Créer un NAT service</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-vos-NAT-services.html" class="xref page">Obtenir des informations sur vos NAT services</a></p>
+</li>
+<li>
+<p><a href="Supprimer-un-NAT-service.html#_Supprimer_un_NAT_service_avec_Cockpit%C2%A0v2-beta" class="xref page">Supprimer un NAT service</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_internet_services"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#_internet_services"></a><span class="tooltip" data-tooltip="Internet gateway dans les API AWS-compliant">Internet services</span></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Créer-un-internet-service.html#_Créer_un_internet_service_avec_Cockpit%C2%A0v2-beta" class="xref page">Créer un internet service</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-vos-internet-services.html" class="xref page">Obtenir des informations sur vos internet services</a></p>
+</li>
+<li>
+<p><a href="Attacher-un-internet-service-à-un-Net.html#_Lier_un_internet_service_avec_Cockpit%C2%A0v2-beta" class="xref page">Attacher un internet service à un Net</a></p>
+</li>
+<li>
+<p><a href="Détacher-un-internet-service-d-un-Net.html#_Détacher_un_internet_service_avec_Cockpit%C2%A0v2-beta" class="xref page">Détacher un internet service d&#8217;un Net</a></p>
+</li>
+<li>
+<p><a href="Supprimer-un-internet-service.html#_Supprimer_un_internet_service_avec_Cockpit%C2%A0v2-beta" class="xref page">Supprimer un internet service</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_client_gateways"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#_client_gateways"></a><span class="tooltip" data-tooltip="customer gateway dans les API AWS-compliant">Client gateways</span></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Créer-une-client-gateway.html#_Créer_une_client_gateway_avec_Cockpit%C2%A0v2-beta" class="xref page">Créer une client gateway</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-vos-client-gateways.html" class="xref page">Obtenir des informations sur vos client gateways</a></p>
+</li>
+<li>
+<p><a href="Supprimer-une-client-gateway.html#_Supprimer_une_client_gateway_avec_Cockpit%C2%A0v2-beta" class="xref page">Supprimer une client gateway</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_virtual_gateways"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#_virtual_gateways"></a>Virtual gateways</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Créer-une-virtual-gateway.html" class="xref page">Créer une virtual gateway</a></p>
+</li>
+<li>
+<p><a href="Attacher-une-virtual-gateway.html" class="xref page">Attacher une virtual gateway</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-vos-virtual-gateways.html" class="xref page">Obtenir des informations sur vos virtual gateways</a></p>
+</li>
+<li>
+<p><a href="Détacher-une-virtual-gateway.html" class="xref page">Détacher une virtual gateway</a></p>
+</li>
+<li>
+<p><a href="Supprimer-une-virtual-gateway.html" class="xref page">Supprimer une virtual gateway</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_connexions_vpn"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#_connexions_vpn"></a>Connexions VPN</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Créer-une-connexion-VPN.html#_Créer_une_connexion_VPN_avec_Cockpit%C2%A0v2-beta" class="xref page">Créer une connexion VPN</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-vos-connexions-VPN.html" class="xref page">Obtenir des informations sur vos connexions VPN</a></p>
+</li>
+<li>
+<p><a href="Supprimer-une-connexion-VPN.html#_Supprimer_une_connexion_VPN_avec_Cockpit%C2%A0v2-beta" class="xref page">Supprimer une connexion VPN</a></p>
+</li>
+<li>
+<p><a href="Créer-une-route-pour-une-connexion-VPN.html" class="xref page">Créer une route pour une connexion VPN</a></p>
+</li>
+<li>
+<p><a href="Supprimer-une-route-d-une-connexion-VPN.html" class="xref page">Supprimer une route d&#8217;une connexion VPN</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Services_6"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#Services_6"></a>Services</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_load_balancers"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#_load_balancers"></a>Load balancers</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Créer-un-load-balancer-relié-à-Internet-dans-le-Cloud-public.html" class="xref page">Créer un load balancer relié à Internet dans le Cloud public</a></p>
+</li>
+<li>
+<p><a href="Créer-un-load-balancer-interne.html" class="xref page">Créer un load balancer interne</a></p>
+</li>
+<li>
+<p><a href="Modifier-les-attributs-d-un-load-balancer.html" class="xref page">Modifier les attributs d&#8217;un load balancer</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-vos-load-balancers.html" class="xref page">Obtenir des informations sur vos load balancers</a></p>
+</li>
+<li>
+<p><a href="Ajouter-ou-supprimer-des-listeners.html" class="xref page">Ajouter des listeners</a></p>
+</li>
+<li>
+<p><a href="Enregistrer-des-VM-auprès-d-un-load-balancer.html" class="xref page">Enregistrer des VM auprès d&#8217;un load balancer</a></p>
+</li>
+<li>
+<p><a href="Désenregistrer-des-VM-d-un-load-balancer.html" class="xref page">Désenregistrer des VM d&#8217;un load balancer</a></p>
+</li>
+<li>
+<p><a href="Configurer-les-health-checks.html" class="xref page">Configurer les health checks</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-la-santé-d-une-VM-backend.html" class="xref page">Obtenir des informations sur la santé d&#8217;une VM backend</a></p>
+</li>
+<li>
+<p><a href="Activer-les-access-logs.html" class="xref page">Activer les access logs</a></p>
+</li>
+<li>
+<p><a href="Supprimer-un-load-balancer.html#_Supprimer_un_load_balancer_avec_Cockpit%C2%A0v2-beta" class="xref page">Supprimer un load balancer</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="IAM_7"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#IAM_7"></a>IAM</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_eim_users"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#_eim_users"></a>EIM Users</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Créer-un-utilisateur.html" class="xref page">Créer un utilisateur</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-vos-utilisateurs.html" class="xref page">Obtenir des informations sur vos utilisateurs</a></p>
+</li>
+<li>
+<p><a href="Modifier-un-utilisateur.html" class="xref page">Modifier un utilisateur</a></p>
+</li>
+<li>
+<p><a href="Supprimer-un-utilisateur.html" class="xref page">Supprimer un utilisateur</a></p>
+</li>
+<li>
+<p><a href="Créer-une-access-key-EIM.html" class="xref page">Créer une access key EIM</a></p>
+</li>
+<li>
+<p><a href="Lister-les-access-keys-EIM-associées-à-un-utilisateur.html" class="xref page">Lister les access keys EIM associées à un utilisateur</a></p>
+</li>
+<li>
+<p><a href="Modifier-une-access-key-EIM.html" class="xref page">Modifier une access key EIM</a></p>
+</li>
+<li>
+<p><a href="Supprimer-une-access-key-EIM.html" class="xref page">Supprimer une access key EIM</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_eim_policies"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#_eim_policies"></a>EIM Policies</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Créer-une-politique-gérée.html" class="xref page">Créer une politique gérée</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-une-politique-gérée.html" class="xref page">Obtenir des informations sur une politique gérée</a></p>
+</li>
+<li>
+<p><a href="Attacher-une-politique-gérée-à-un-utilisateur-ou-un-groupe.html" class="xref page">Attacher une politique gérée à un utilisateur ou un groupe</a></p>
+</li>
+<li>
+<p><a href="Détacher-une-politique-gérée-d-un-utilisateur-ou-un-groupe.html" class="xref page">Détacher une politique gérée d&#8217;un utilisateur ou un groupe</a></p>
+</li>
+<li>
+<p><a href="Lister-des-politiques-gérées.html" class="xref page">Lister des politiques gérées</a></p>
+</li>
+<li>
+<p><a href="Supprimer-une-politique-gérée.html" class="xref page">Supprimer une politique gérée</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_eim_groups"><a class="anchor" href="Référence-des-fonctionnalités-Cockpit-v2.html#_eim_groups"></a>EIM Groups</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Créer-un-groupe.html" class="xref page">Créer un groupe</a></p>
+</li>
+<li>
+<p><a href="Ajouter-ou-retirer-un-utilisateur-d-un-groupe.html" class="xref page">Ajouter ou retirer un utilisateur d&#8217;un groupe</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-vos-groupes.html" class="xref page">Obtenir des informations sur vos groupes</a></p>
+</li>
+<li>
+<p><a href="Supprimer-un-groupe.html" class="xref page">Supprimer un groupe</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Page connexe</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-de-Cockpit.html" class="xref page">À propos de Cockpit</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

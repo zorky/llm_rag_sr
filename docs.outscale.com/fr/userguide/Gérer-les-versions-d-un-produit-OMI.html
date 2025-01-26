@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gérer les versions d&#8217;un produit OMI – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Gérer-les-versions-d-un-produit-OMI.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Gérer-les-versions-d-un-produit-OMI.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Managing-OMI-Product-Versions.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Gérer les versions d&#8217;un produit OMI</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>En tant que vendeur partenaire sur OUTSCALE Marketplace, vous avez accès aux tableaux Versions de vos produits OMI qui listent une ou plusieurs versions, leurs ID, versions de logiciels, dates de modification et statuts de publication. À partir de ces tableaux, vous pouvez publier, modifier et dépublier les versions des produits OMI. Les souscripteurs et les administrateurs de leurs organisations sont automatiquement informés par e-mail lorsque des versions sont publiées et dépubliées.</p>
+</div>
+<div class="paragraph">
+<p>Lorsque vous publiez une version d&#8217;un produit OMI sur la Marketplace, vous devez d&#8217;abord créer une OMI sur le Cloud OUTSCALE.</p>
+</div>
+<div class="paragraph">
+<p>Lorsqu&#8217;une nouvelle version est publiée, une copie de l&#8217;OMI correspondante est automatiquement créée, avec un product code spécifique associé. Pour en savoir plus, voir <a href="Créer-et-publier-un-produit-OMI.html" class="xref page">Créer et publier un produit OMI</a>. L&#8217;accès à cette copie d&#8217;OMI est automatiquement donné aux souscripteurs existants afin de leur permettre de créer des <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machines virtuelles</span> à partir de celle-ci. Pour en savoir plus, voir <a href="À-propos-des-OMI.html#__permissions_copies_et_exports_domi_vers_oos" class="xref page">À propos des OMI &gt; Permissions, copies et exports d’OMI vers OOS</a>.</p>
+</div>
+<div class="paragraph">
+<p>À la publication d&#8217;une version, sa date de modification est mise à jour sur la page produit correspondante et dans le tableau Mes produits. 3DS OUTSCALE recommande par e-mail aux souscripteurs et aux administrateurs de leurs organisations de mettre à niveau vers les dernières versions publiées. Lorsqu&#8217;une version est modifiée, la date de modification est mise à jour dans le tableau Versions.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez dépublier une version car elle a atteint sa fin de vie ou pour un problème de sécurité. À la dépublication d&#8217;une version, l&#8217;OMI correspondante est automatiquement supprimée du Cloud OUTSCALE, mais les souscripteurs peuvent continuer à utiliser les machines virtuelles (VM) déjà créées depuis l&#8217;OMI. La date de modification et le statut de publication de la version sont mis à jour dans le tableau Versions du produit correspondant. La dernière version disponible est également mise à jour sur la page produit.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez également dépublier un produit OMI entièrement, c&#8217;est-à-dire toutes ses versions. Pour en savoir plus, voir <a href="Dépublier-un-produit.html" class="xref page">Dépublier un produit</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Publier une version_0"><a class="anchor" href="Gérer-les-versions-d-un-produit-OMI.html#Publier une version_0"></a>Publier une version</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans le coin supérieur droit de l&#8217;interface, cliquez sur votre nom d&#8217;utilisateur ou votre adresse e-mail.<br>
+Un menu déroulant apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Mes produits</strong>.<br>
+La page Mes produits apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Modifier</strong> <span class="image"><img src="_images/ico-Marketplace-Edit.svg" alt="ico Marketplace Edit"></span> sur la ligne produit souhaitée.<br>
+La page produit correspondante apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Accéder</strong> dans la section Versions.<br>
+Le tableau Versions apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Créer une version</strong>.<br>
+Le formulaire Versions est affiché et certains champs sont préremplis sur la base de la dernière version créée.</p>
+</li>
+<li>
+<p>Dans la section Informations de l&#8217;OMI :</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Sélectionnez le nom ou l&#8217;ID de l&#8217;OMI approprié.<br>
+Le nom de l&#8217;OMI et l&#8217;ID de la copie de l&#8217;OMI sont automatiquement renseignés.</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Attention"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Le nom ou l&#8217;ID de l&#8217;OMI ne peuvent pas être modifiés après la publication de la version, mais vous pouvez publier de nouvelles versions de votre produit OMI avec de nouveaux noms ou ID d&#8217;OMI.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Les OMI sélectionnables sont celles qui sont créées via le compte TINA correspondant et sur la Région correspondante.</p>
+</li>
+<li>
+<p>Pour un fonctionnement optimal sur la Marketplace, ces OMI doivent rester privées. Pour en savoir plus, voir <a href="À-propos-des-OMI.html" class="xref page">À propos des OMI</a>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) Modifiez la version du logiciel.</p>
+</li>
+<li>
+<p>(optionnel) Modifiez le système d&#8217;exploitation.</p>
+</li>
+<li>
+<p>(optionnel) Modifiez la base logicielle en ajoutant des éléments.</p>
+</li>
+<li>
+<p>Saisissez une note de release.</p>
+</li>
+<li>
+<p>(optionnel) Modifiez les instructions d&#8217;utilisation de votre produit.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Cliquez sur <strong>Publier</strong>.<br>
+La boîte de dialogue Copie de l&#8217;OMI apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Poursuivre la publication</strong>.<br>
+La demande de publication est envoyée à 3DS OUTSCALE et nécessite un délai de traitement. La version est au statut <span class="image"><img src="_images/Pending.svg" alt="Pending"></span> et ne pourra pas être modifiée avant d&#8217;être au statut publiée.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Modifier une version_1"><a class="anchor" href="Gérer-les-versions-d-un-produit-OMI.html#Modifier une version_1"></a>Modifier une version</h2>
+<div class="sectionbody">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous ne pouvez pas modifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Une version d&#8217;un produit OMI dont le statut de publication est dépublié.</p>
+</li>
+<li>
+<p>Le nom ou l&#8217;ID de l&#8217;OMI d&#8217;une version d&#8217;un produit publié.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans le coin supérieur droit de l&#8217;interface, cliquez sur votre nom d&#8217;utilisateur ou votre adresse e-mail.<br>
+Un menu déroulant apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Mes produits</strong>.<br>
+La page Mes produits apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Modifier</strong> <span class="image"><img src="_images/ico-Marketplace-Edit.svg" alt="ico Marketplace Edit"></span> sur la ligne produit souhaitée.<br>
+La page produit correspondante apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Accéder</strong> dans la section Versions.<br>
+Le tableau Versions apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Modifier</strong> <span class="image"><img src="_images/ico-Marketplace-Edit.svg" alt="ico Marketplace Edit"></span> sur la ligne version souhaitée.<br>
+Le formulaire Versions correspondant apparaît.</p>
+</li>
+<li>
+<p>Modifiez les informations souhaitées et cliquez sur <strong>Publier les modifications</strong>.<br>
+Les modifications sont publiées sur la Marketplace.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Dépublier une version_2"><a class="anchor" href="Gérer-les-versions-d-un-produit-OMI.html#Dépublier une version_2"></a>Dépublier une version</h2>
+<div class="sectionbody">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous ne pouvez pas dépublier l&#8217;unique version restante d&#8217;un produit.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_dans_le_cas_dune_fin_de_vie"><a class="anchor" href="Gérer-les-versions-d-un-produit-OMI.html#_dans_le_cas_dune_fin_de_vie"></a>Dans le cas d&#8217;une fin de vie</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans le coin supérieur droit de l&#8217;interface, cliquez sur votre nom d&#8217;utilisateur ou votre adresse e-mail.<br>
+Un menu déroulant apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Mes produits</strong>.<br>
+La page Mes produits apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Modifier</strong> <span class="image"><img src="_images/ico-Marketplace-Edit.svg" alt="ico Marketplace Edit"></span> sur la ligne produit souhaitée.<br>
+La page produit correspondante apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Accéder</strong> dans la section Versions.<br>
+Le tableau Versions apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Dépublier</strong> <span class="image"><img src="_images/ico-Marketplace-Unpublish.svg" alt="ico Marketplace Unpublish"></span> sur la ligne de version souhaitée.<br>
+Une popup apparaît.</p>
+</li>
+<li>
+<p>Dans la liste Motif de dépublication, sélectionnez <strong>Fin de vie de version</strong> et cliquez sur <strong>Dépublier</strong>.<br>
+La version est dépubliée et les souscripteurs et les administrateurs de leurs organisations sont informés par e-mail.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dans_le_cas_dun_problème_de_sécurité"><a class="anchor" href="Gérer-les-versions-d-un-produit-OMI.html#_dans_le_cas_dun_problème_de_sécurité"></a>Dans le cas d&#8217;un problème de sécurité</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans le coin supérieur droit de l&#8217;interface, cliquez sur votre nom d&#8217;utilisateur ou votre adresse e-mail.<br>
+Un menu déroulant apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Mes produits</strong>.<br>
+La page Mes produits apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Modifier</strong> <span class="image"><img src="_images/ico-Marketplace-Edit.svg" alt="ico Marketplace Edit"></span> sur la ligne produit souhaitée.<br>
+La page produit correspondante apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Accéder</strong> dans la section Versions.<br>
+Le tableau Versions apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Dépublier</strong> <span class="image"><img src="_images/ico-Marketplace-Unpublish.svg" alt="ico Marketplace Unpublish"></span> sur la ligne de version souhaitée.<br>
+Une popup apparaît.</p>
+</li>
+<li>
+<p>Dans la liste Motif de dépublication, sélectionnez <strong>Problème de sécurité</strong> et cliquez sur <strong>Suivant</strong>.</p>
+</li>
+<li>
+<p>Spécifiez :</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Le problème de sécurité.</p>
+</li>
+<li>
+<p>(optionnel) Le correctif.</p>
+</li>
+<li>
+<p>La version de remplacement.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Cliquez sur <strong>Dépublier</strong>.<br>
+La version est dépubliée et les souscripteurs et les administrateurs de leurs organisations sont informés par e-mail.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-d-OUTSCALE-Marketplace.html" class="xref page">À propos d&#8217;OUTSCALE Marketplace</a></p>
+</li>
+<li>
+<p><a href="Créer-et-publier-un-produit-OMI.html" class="xref page">Créer et publier un produit OMI</a></p>
+</li>
+<li>
+<p><a href="Modifier-un-produit.html" class="xref page">Modifier un produit</a></p>
+</li>
+<li>
+<p><a href="Dépublier-un-produit.html" class="xref page">Dépublier un produit</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

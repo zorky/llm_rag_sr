@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Créer et publier un produit OMI – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Créer-et-publier-un-produit-OMI.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Créer-et-publier-un-produit-OMI.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Creating-and-Publishing-an-OMI-Product.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Créer et publier un produit OMI</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>En tant que vendeur partenaire sur OUTSCALE Marketplace, vous pouvez créer un produit image machine OUTSCALE (OMI) et le publier sur la Marketplace pour que les acheteurs puissent le consulter et y souscrire.</p>
+</div>
+<div class="paragraph">
+<p>Lorsque vous créez un produit OMI, vous devez spécifier ses informations générales, configurer une ou plusieurs versions et une ou plusieurs offres, et joindre ou lier le contrat de licence. Vous pouvez également fournir un modèle permettant d&#8217;automatiser le déploiement du produit.</p>
+</div>
+<div class="paragraph">
+<p>Par défaut, les produits OMI sont publiés sur cloudgouv-eu-west-1 et peuvent également être publiés sur eu-west-2.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez configurer une offre horaire et annuelle par type de <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span>, libre/open source, bring your own license (BYOL), ou une ou plusieurs offres abonnement pour votre produit OMI.<br></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Une offre horaire et annuelle par type de VM combine le tarif du produit OMI et le tarif de la ou des machines virtuelles (VM) OUTSCALE choisies.</p>
+</li>
+<li>
+<p>Dans le cas d&#8217;une offre libre/open source, seul le tarif de la ou des VM OUTSCALE choisies s&#8217;applique.</p>
+</li>
+<li>
+<p>Dans le cas d&#8217;une offre BYOL, la facturation du produit OMI est gérée par le vendeur partenaire en dehors de la Marketplace, et le tarif de la ou des VM OUTSCALE choisies s&#8217;applique.</p>
+</li>
+<li>
+<p>Une offre abonnement combine le tarif du produit OMI et le tarif de la ou des VM OUTSCALE choisies.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Vous devez d&#8217;abord créer votre vitrine avant de pouvoir créer un produit. Pour en savoir plus, voir <a href="Créer-votre-vitrine.html" class="xref page">Créer votre vitrine</a>.</p>
+</li>
+<li>
+<p>Vous devez compléter et enregistrer toutes les sections, dans l&#8217;ordre de votre choix, pour pouvoir publier le produit sur la Marketplace. Les sections à compléter sont marquées par un tag <span class="image"><img src="_images/ico-Marketplace-To-Be-Completed-Tag.svg" alt="ico Marketplace To Be Completed Tag"></span>.</p>
+</li>
+<li>
+<p>Lorsque vous créez un produit, vous devez fournir toutes les informations et tous les documents en français et en anglais dans les onglets donnés pour pouvoir publier votre produit sur la Marketplace.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Sélection du type de produit_0"><a class="anchor" href="Créer-et-publier-un-produit-OMI.html#Sélection du type de produit_0"></a>Sélection du type de produit</h2>
+<div class="sectionbody">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Attention"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Le type de produit et le mode de tarification ne pourront pas être modifiés ultérieurement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans le coin supérieur droit de l&#8217;interface, cliquez sur votre nom d&#8217;utilisateur ou votre adresse e-mail.<br>
+Un menu déroulant apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Mes produits</strong>.<br>
+La page Mes produits apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Créer un produit</strong>.<br>
+La page Type de produit apparaît.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>Image machine OUTSCALE (OMI)</strong>.<br>
+La liste de modes de tarification apparaît.</p>
+</li>
+<li>
+<p>Sélectionnez le mode de tarification, soit <strong>Par type de VM (à l&#8217;heure et à l&#8217;année)</strong>, <strong>Bring your own license (BYOL)</strong>, <strong>Libre/open source</strong> ou <strong>Abonnement</strong>.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Confirmer</strong>.<br>
+La page de Création de votre produit apparaît, avec différentes sections à compléter.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Informations générales_1"><a class="anchor" href="Créer-et-publier-un-produit-OMI.html#Informations générales_1"></a>Informations générales</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans la page Création de votre produit, cliquez sur <strong>Accéder</strong> dans la section Informations générales.<br>
+Le formulaire Informations générales apparaît.</p>
+</li>
+<li>
+<p>Importer un logo pour votre produit.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Ce logo doit être un fichier de 2 Mo ou moins.</p>
+</li>
+<li>
+<p>Nous recommandons d&#8217;importer un logo transparent et sans bordures pour un affichage correct.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Saisissez un nom pour votre produit.</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Attention"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Le nom du produit ne peut pas être modifié après la publication du produit.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Sélectionnez une ou plusieurs catégories pour votre produit.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Vous pouvez sélectionner jusqu&#8217;à trois catégories pour votre produit.</p>
+</li>
+<li>
+<p>Les catégories sélectionnées seront utilisées pour filtrer votre produit.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Sélectionnez <strong>eu-west-2</strong> si vous souhaitez publier le produit dans cette Région également.</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Attention"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Les Régions ne peuvent pas être modifiées après la publication du produit.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Dans la section Synthèse :</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Saisissez une description courte pour votre produit.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Ce champ doit contenir entre un et 200 caractères.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Saisissez une description longue pour votre produit.</p>
+</li>
+<li>
+<p>Saisissez les points clés de votre produit.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>(optionnel) Dans la section Médias :</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Importez les fichiers JPG souhaités pour illustrer votre produit.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Vous pouvez ajouter jusqu&#8217;à six fichiers JPG de 2 Mo ou moins.</p>
+</li>
+<li>
+<p>Le format recommandé est 1440 pixels par 1024 pixels.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Saisissez l&#8217;URL d&#8217;une vidéo YouTube.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Dans la section Support :</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Saisissez les informations concernant le support de votre produit.</p>
+</li>
+<li>
+<p>Saisissez la politique de mise à jour de votre produit.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Cliquez sur <strong>Enregistrer</strong>.<br>
+Le formulaire est enregistré et un tag <span class="image"><img src="_images/ico-Marketplace-Completed-Tag.svg" alt="ico Marketplace Completed Tag"></span> est affiché dans la section Informations générales.</p>
+</li>
+<li>
+<p></p>
+<div class="openblock">
+<div class="content">
+<details>
+<summary class="title">Si vous avez complété toutes les sections du produit et que vous êtes prêt à le publier :</summary>
+<div class="content">
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Dans la page Création de votre produit, cliquez sur <strong>Publier le produit</strong> pour publier votre produit.<br>
+La boîte de dialogue Copie de l&#8217;OMI apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Poursuivre la publication</strong>.<br>
+La demande de publication est envoyée à 3DS OUTSCALE et nécessite un délai de traitement. Le produit est au statut <span class="image"><img src="_images/Pending.svg" alt="Pending"></span> et ne pourra pas être modifié avant d&#8217;être au statut <span class="image"><img src="_images/Published.svg" alt="Published"></span>.</p>
+</li>
+</ol>
+</div>
+</div>
+</details>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Versions_2"><a class="anchor" href="Créer-et-publier-un-produit-OMI.html#Versions_2"></a>Versions</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans la page Création de votre produit, cliquez sur <strong>Accéder</strong> dans la section Versions.<br>
+Le formulaire Versions apparaît.</p>
+</li>
+<li>
+<p>Dans la section Informations de l&#8217;OMI :</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Sélectionnez le nom et l&#8217;ID de l&#8217;OMI approprié.<br>
+Le nom et l&#8217;ID de la copie de l&#8217;OMI sont automatiquement renseignés.</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Attention"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Après avoir publié le produit, le nom et l&#8217;ID de l&#8217;OMI ne peuvent pas être modifiés, mais vous pouvez créer d&#8217;autres versions du produit avec d&#8217;autres noms et ID d&#8217;OMI depuis le tableau Versions. Pour en savoir plus, voir <a href="Gérer-les-versions-d-un-produit-OMI.html" class="xref page">Gérer les versions d&#8217;un produit OMI</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Les OMI sélectionnables sont celles qui sont créées via le compte TINA correspondant et sur la Région correspondante.</p>
+</li>
+<li>
+<p>Pour un fonctionnement optimal sur la Marketplace, ces OMI doivent rester privées. Pour en savoir plus, voir <a href="À-propos-des-OMI.html" class="xref page">À propos des OMI</a>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Saisissez la version du logiciel.</p>
+</li>
+<li>
+<p>Sélectionnez le système d&#8217;exploitation, soit <strong>Linux</strong> ou <strong>Windows</strong>.</p>
+</li>
+<li>
+<p>Donnez des précisions sur le système d&#8217;exploitation.</p>
+</li>
+<li>
+<p>Spécifiez la base logicielle en ajoutant des éléments.</p>
+</li>
+<li>
+<p>Saisissez une note de release.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Dans la section Informations de configuration, saisissez les instructions d&#8217;utilisation de votre produit.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Enregistrer</strong>.<br>
+Le formulaire est enregistré et un tag <span class="image"><img src="_images/ico-Marketplace-Completed-Tag.svg" alt="ico Marketplace Completed Tag"></span> est affiché dans la section Versions.</p>
+</li>
+<li>
+<p></p>
+<div class="openblock">
+<div class="content">
+<details>
+<summary class="title">Si vous avez complété toutes les sections du produit et que vous êtes prêt à le publier :</summary>
+<div class="content">
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Dans la page Création de votre produit, cliquez sur <strong>Publier le produit</strong> pour publier votre produit.<br>
+La boîte de dialogue Copie de l&#8217;OMI apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Poursuivre la publication</strong>.<br>
+La demande de publication est envoyée à 3DS OUTSCALE et nécessite un délai de traitement. Le produit est au statut <span class="image"><img src="_images/Pending.svg" alt="Pending"></span> et ne pourra pas être modifié avant d&#8217;être au statut <span class="image"><img src="_images/Published.svg" alt="Published"></span>.</p>
+</li>
+</ol>
+</div>
+</div>
+</details>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Légal_3"><a class="anchor" href="Créer-et-publier-un-produit-OMI.html#Légal_3"></a>Légal</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans la page Création de votre produit, cliquez sur <strong>Accéder</strong> dans la section Légal.
+Le formulaire Légal apparaît.</p>
+</li>
+<li>
+<p></p>
+<div class="openblock">
+<div class="content">
+<details>
+<summary class="title">Dans le cas d&#8217;un produit avec un mode de tarification horaire et annuel par type de <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> ou abonnement :</summary>
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Cliquez sur <strong>Importer</strong> pour importer le contrat de licence de votre produit.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Le contrat de licence doit être un fichier PDF de 6 Mo ou moins.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Cliquez sur <strong>Enregistrer</strong>.<br>
+Les contrats de licence anglais et français sont joints à votre produit et un tag <span class="image"><img src="_images/ico-Marketplace-Completed-Tag.svg" alt="ico Marketplace Completed Tag"></span> est affiché dans la section Légal.</p>
+</li>
+</ol>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">Dans le cas d&#8217;un produit avec un mode de tarification BYOL ou libre/open source :</summary>
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Saisissez l&#8217;URL du contrat de licence de votre produit.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Enregistrer</strong>.<br>
+Un tag <span class="image"><img src="_images/ico-Marketplace-Completed-Tag.svg" alt="ico Marketplace Completed Tag"></span> est affiché dans la section Légal.</p>
+</li>
+</ol>
+</div>
+</div>
+</details>
+</div>
+</div>
+</li>
+<li>
+<p></p>
+<div class="openblock">
+<div class="content">
+<details>
+<summary class="title">Si vous avez complété toutes les sections du produit et que vous êtes prêt à le publier :</summary>
+<div class="content">
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Dans la page Création de votre produit, cliquez sur <strong>Publier le produit</strong> pour publier votre produit.<br>
+La boîte de dialogue Copie de l&#8217;OMI apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Poursuivre la publication</strong>.<br>
+La demande de publication est envoyée à 3DS OUTSCALE et nécessite un délai de traitement. Le produit est au statut <span class="image"><img src="_images/Pending.svg" alt="Pending"></span> et ne pourra pas être modifié avant d&#8217;être au statut <span class="image"><img src="_images/Published.svg" alt="Published"></span>.</p>
+</li>
+</ol>
+</div>
+</div>
+</details>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Offre_4"><a class="anchor" href="Créer-et-publier-un-produit-OMI.html#Offre_4"></a>Offre</h2>
+<div class="sectionbody">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Attention"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Le tarif du logiciel ne peut pas être modifié après la publication du produit, sauf le tarif annuel d&#8217;une offre par type de <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans la page Création de votre produit, cliquez sur <strong>Accéder</strong> dans la section Offres.<br>
+Le formulaire Offres apparaît.</p>
+</li>
+<li>
+<p></p>
+<div class="openblock">
+<div class="content">
+<details>
+<summary class="title">Si vous avez sélectionné un mode de tarification Bring your own license (BYOL) ou Libre/open source :</summary>
+<div class="content">
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Dans la section Paramètres de votre offre :</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Saisissez un nom pour votre offre.</p>
+</li>
+<li>
+<p>Saisissez une description pour votre offre.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>En mode libre/open source et BYOL, aucun tarif produit n&#8217;est applicable.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Dans la section VM recommandées, ajoutez au moins une VM recommandée pour votre produit :</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Cliquez sur <strong>Ajouter une VM recommandée</strong>.<br>
+La fenêtre Ajouter une VM recommandée apparaît.</p>
+</li>
+<li>
+<p>Spécifiez les paramètres de la VM.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Enregistrer</strong>.<br>
+Le type de VM que vous venez de renseigner est ajouté dans le tableau.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Vous pouvez modifier les VM recommandées en cliquant sur <strong>Modifier</strong> <span class="image"><img src="_images/ico-Marketplace-Edit.svg" alt="ico Marketplace Edit"></span> pour la VM souhaitée.</p>
+</li>
+<li>
+<p>Vous pouvez supprimer les VM recommandées en cliquant sur <strong>Supprimer</strong> <span class="image"><img src="_images/ico-Marketplace-Delete.svg" alt="ico Marketplace Delete"></span> pour la VM souhaitée.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour en savoir plus sur les types de VM, voir <a href="Types-de-VM.html" class="xref page">Types de VM</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">Si vous avez sélectionné un mode de tarification Par type de VM (à l&#8217;heure et à l&#8217;année) :</summary>
+<div class="content">
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Dans la section Paramètres de votre offre :</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Saisissez un nom pour votre offre.</p>
+</li>
+<li>
+<p>Saisissez une description pour votre offre.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Dans la section Paramètres de votre tarif :</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Cliquez sur <strong>Ajouter un type de VM</strong>.<br>
+La fenêtre Ajouter un type de VM apparaît.</p>
+</li>
+<li>
+<p>Spécifiez les paramètres de la VM.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Enregistrer</strong>.<br>
+Une ligne est ajoutée dans le tableau avec les informations que vous venez de renseigner.</p>
+</li>
+<li>
+<p>Cliquez sur le champ <strong>Licence/heure</strong> pour spécifier un tarif hors taxes horaire pour votre licence, en fonction du type de VM paramétré.</p>
+</li>
+<li>
+<p>Cliquez sur le champ <strong>Licence/an</strong> pour spécifier un tarif hors taxes annuel pour votre licence, en fonction du type de VM paramétré.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Vous pouvez ajouter autant de types de VM que nécessaire.</p>
+</li>
+<li>
+<p>Vous ne pouvez pas ajouter deux fois un même type de VM.</p>
+</li>
+<li>
+<p>Pour en savoir plus sur les types de VM, voir <a href="Types-de-VM.html" class="xref page">Types de VM</a>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Vous pouvez modifier les types de VM en cliquant sur <strong>Modifier</strong> <span class="image"><img src="_images/ico-Marketplace-Edit.svg" alt="ico Marketplace Edit"></span> pour le type de VM souhaité.</p>
+</li>
+<li>
+<p>Vous pouvez supprimer les types de VM en cliquant sur <strong>Supprimer</strong> <span class="image"><img src="_images/ico-Marketplace-Delete.svg" alt="ico Marketplace Delete"></span> pour le type de VM souhaité.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Attention"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous ne pouvez pas modifier ou supprimer un type de VM une fois que l&#8217;offre est publiée.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Spécifiez un tarif par défaut hors taxes pour la licence.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Le tarif par défaut est appliqué lorsqu&#8217;un acheteur utilise votre produit sur une VM qui n&#8217;est pas incluse dans les types de VM de votre offre.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">Si vous avez sélectionné un mode de tarification Abonnement :</summary>
+<div class="content">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous pouvez créer plusieurs offres d&#8217;abonnement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Dans la page Offres, cliquez sur <strong>Créer une offre</strong>.</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Dans la section Paramètres de votre offre :</p>
+<div class="olist upperalpha">
+<ol class="upperalpha" type="A">
+<li>
+<p>Saisissez un nom pour votre offre.</p>
+</li>
+<li>
+<p>Saisissez une description pour votre offre.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Dans la section Tarif de votre offre :</p>
+<div class="olist upperalpha">
+<ol class="upperalpha" type="A">
+<li>
+<p>Sélectionnez une durée d&#8217;engagement, soit <strong>1 mois</strong>, <strong>1 an</strong>, <strong>2 ans</strong>, ou <strong>3 ans</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez la fréquence de facturation, soit <strong>À la souscription</strong>, <strong>Au mois</strong>, ou <strong>À l&#8217;année</strong>.</p>
+</li>
+<li>
+<p>Définissez un taux hors taxes pour votre offre.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Dans la section VM recommandées, ajoutez au moins une VM recommandée pour votre produit :</p>
+<div class="olist upperalpha">
+<ol class="upperalpha" type="A">
+<li>
+<p>Cliquez sur <strong>Ajouter une VM recommandée</strong>.<br>
+La fenêtre Ajouter une VM recommandée apparaît.</p>
+</li>
+<li>
+<p>Spécifiez les paramètres de la VM.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Enregistrer</strong>.<br>
+Le type de VM que vous venez de renseigner est ajouté dans le tableau.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Vous pouvez modifier les VM recommandées en cliquant sur <strong>Modifier</strong> <span class="image"><img src="_images/ico-Marketplace-Edit.svg" alt="ico Marketplace Edit"></span> pour la VM souhaitée.</p>
+</li>
+<li>
+<p>Vous pouvez supprimer les VM recommandées en cliquant sur <strong>Supprimer</strong> <span class="image"><img src="_images/ico-Marketplace-Delete.svg" alt="ico Marketplace Delete"></span> pour la VM souhaitée.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour en savoir plus sur les types de VM, voir <a href="Types-de-VM.html" class="xref page">Types de VM</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</details>
+</div>
+</div>
+</li>
+<li>
+<p>Cliquez sur <strong>Enregistrer</strong>.<br>
+Le formulaire est enregistré et un tag <span class="image"><img src="_images/ico-Marketplace-Completed-Tag.svg" alt="ico Marketplace Completed Tag"></span> est affiché dans la section Offre.</p>
+</li>
+<li>
+<p></p>
+<div class="openblock">
+<div class="content">
+<details>
+<summary class="title">Si vous avez complété toutes les sections du produit et que vous êtes prêt à le publier :</summary>
+<div class="content">
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Dans la page Création de votre produit, cliquez sur <strong>Publier le produit</strong> pour publier votre produit.<br>
+La boîte de dialogue Copie de l&#8217;OMI apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Poursuivre la publication</strong>.<br>
+La demande de publication est envoyée à 3DS OUTSCALE et nécessite un délai de traitement. Le produit est au statut <span class="image"><img src="_images/Pending.svg" alt="Pending"></span> et ne pourra pas être modifié avant d&#8217;être au statut <span class="image"><img src="_images/Published.svg" alt="Published"></span>.</p>
+</li>
+</ol>
+</div>
+</div>
+</details>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Modèle de déploiement_5"><a class="anchor" href="Créer-et-publier-un-produit-OMI.html#Modèle de déploiement_5"></a>Modèle de déploiement</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>La section Modèle de déploiement est optionnelle.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans la page Création de votre produit, cliquez sur <strong>Accéder</strong> dans la section Modèle de déploiement.<br>
+Le formulaire Modèle de déploiement apparaît.</p>
+</li>
+<li>
+<p>Saisissez l&#8217;URL de dépôt Git vers le modèle.</p>
+</li>
+<li>
+<p>Saisissez une description du modèle.</p>
+</li>
+<li>
+<p>Saisissez les instructions d&#8217;utilisation du modèle.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous pouvez ajouter jusqu&#8217;à six fichiers JPG de 2 Mo ou moins.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) Importez un schéma d&#8217;architecture.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Le schéma d&#8217;architecture doit être un fichier PNG de 2 Mo ou moins.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Cliquez sur <strong>Enregistrer</strong>.<br>
+Le formulaire est enregistré et un tag <span class="image"><img src="_images/ico-Marketplace-Completed-Tag.svg" alt="ico Marketplace Completed Tag"></span> est affiché dans la section Modèle de déploiement.</p>
+</li>
+<li>
+<p></p>
+<div class="openblock">
+<div class="content">
+<details>
+<summary class="title">Si vous avez complété toutes les sections du produit et que vous êtes prêt à le publier :</summary>
+<div class="content">
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Dans la page Création de votre produit, cliquez sur <strong>Publier le produit</strong> pour publier votre produit.<br>
+La boîte de dialogue Copie de l&#8217;OMI apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Poursuivre la publication</strong>.<br>
+La demande de publication est envoyée à 3DS OUTSCALE et nécessite un délai de traitement. Le produit est au statut <span class="image"><img src="_images/Pending.svg" alt="Pending"></span> et ne pourra pas être modifié avant d&#8217;être au statut <span class="image"><img src="_images/Published.svg" alt="Published"></span>.</p>
+</li>
+</ol>
+</div>
+</div>
+</details>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-d-OUTSCALE-Marketplace.html" class="xref page">À propos d&#8217;OUTSCALE Marketplace</a></p>
+</li>
+<li>
+<p><a href="À-propos-des-OMI.html" class="xref page">À propos des OMI</a></p>
+</li>
+<li>
+<p><a href="Vendeur-partenaire.html" class="xref page">Vendeur partenaire</a></p>
+</li>
+<li>
+<p><a href="Packer.html" class="xref page">Packer</a></p>
+</li>
+<li>
+<p><a href="Modifier-un-produit.html" class="xref page">Modifier un produit</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Méthode API correspondante</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#createimage" class="xref page">CreateImage</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

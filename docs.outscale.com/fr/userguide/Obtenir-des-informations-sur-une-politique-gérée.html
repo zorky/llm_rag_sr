@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Obtenir des informations sur une politique gérée – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Obtenir-des-informations-sur-une-politique-gérée.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Obtenir-des-informations-sur-une-politique-gérée.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Getting-Information-About-a-Managed-Policy.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Obtenir des informations sur une politique gérée</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez obtenir des informations à propos des caractéristiques générales d&#8217;une politique gérée, comme sa version par défaut et le nombre d&#8217;utilisateurs ou groupes auxquels elle est attachée, et à propos des autorisations contenues dans son document de politique.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Cockpit v2_0"><a class="anchor" href="Obtenir-des-informations-sur-une-politique-gérée.html#Cockpit v2_0"></a>Obtenir des informations sur une politique gérée avec Cockpit v2</h2>
+<div class="sectionbody">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Voir le dashboard <strong>EIM Policies</strong>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="OSC CLI_1"><a class="anchor" href="Obtenir-des-informations-sur-une-politique-gérée.html#OSC CLI_1"></a>Obtenir des informations sur une politique gérée avec OSC CLI</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadPolicy</strong> command lists information about a specified managed policy.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api ReadPolicy --profile "default" \
+    --PolicyOrn "orn:ows:idauth::012345678910:policy/example/example-user-policy"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>PolicyOrn</code>: The OUTSCALE Resource Name (ORN) of the policy. For more information, see <a href="../../en/userguide/Resource-Identifiers.html" target="_blank" rel="noopener">Resource Identifiers</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadPolicy</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Policy</code>: Information about the policy.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CreationDate</code>: The date and time (UTC) at which the policy was created.</p>
+</li>
+<li>
+<p><code>Description</code>: A friendly name for the policy (between 0 and 1000 characters).</p>
+</li>
+<li>
+<p><code>IsLinkable</code>: Indicates whether the policy can be linked to a group or an EIM user.</p>
+</li>
+<li>
+<p><code>LastModificationDate</code>: The date and time (UTC) at which the policy was last modified.</p>
+</li>
+<li>
+<p><code>Orn</code>: The OUTSCALE Resource Name (ORN) of the policy. For more information, see <a href="../../en/userguide/Resource-Identifiers.html" target="_blank" rel="noopener">Resource Identifiers</a>.</p>
+</li>
+<li>
+<p><code>Path</code>: The path to the policy.</p>
+</li>
+<li>
+<p><code>PolicyDefaultVersionId</code>: The ID of the policy default version.</p>
+</li>
+<li>
+<p><code>PolicyId</code>: The ID of the policy.</p>
+</li>
+<li>
+<p><code>PolicyName</code>: The name of the policy.</p>
+</li>
+<li>
+<p><code>ResourcesCount</code>: The number of resources attached to the policy.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "Policy": {
+    "ResourcesCount": 0,
+    "PolicyName": "example-user-policy",
+    "PolicyDefaultVersionId": "v1",
+    "Path": "/example/",
+    "CreationDate": "2010-10-01T12:34:56.789+0000",
+    "Description": "Example of description",
+    "PolicyId": "ABCDEFGHIJKLMNOPQRSTUVWXYZ01234",
+    "Orn": "orn:ows:idauth::012345678910:policy/example/example-user-policy",
+    "IsLinkable": true,
+    "LastModificationDate": "2010-10-01T12:34:56.789+0000"
+  },
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="oapi-cli_2"><a class="anchor" href="Obtenir-des-informations-sur-une-politique-gérée.html#oapi-cli_2"></a>Obtenir des informations sur une politique gérée avec oapi-cli</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadPolicy</strong> command lists information about a specified managed policy.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" ReadPolicy \
+    --PolicyOrn "orn:ows:idauth::012345678910:policy/example/example-user-policy"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>PolicyOrn</code>: The OUTSCALE Resource Name (ORN) of the policy. For more information, see <a href="../../en/userguide/Resource-Identifiers.html" target="_blank" rel="noopener">Resource Identifiers</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadPolicy</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Policy</code>: Information about the policy.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CreationDate</code>: The date and time (UTC) at which the policy was created.</p>
+</li>
+<li>
+<p><code>Description</code>: A friendly name for the policy (between 0 and 1000 characters).</p>
+</li>
+<li>
+<p><code>IsLinkable</code>: Indicates whether the policy can be linked to a group or an EIM user.</p>
+</li>
+<li>
+<p><code>LastModificationDate</code>: The date and time (UTC) at which the policy was last modified.</p>
+</li>
+<li>
+<p><code>Orn</code>: The OUTSCALE Resource Name (ORN) of the policy. For more information, see <a href="../../en/userguide/Resource-Identifiers.html" target="_blank" rel="noopener">Resource Identifiers</a>.</p>
+</li>
+<li>
+<p><code>Path</code>: The path to the policy.</p>
+</li>
+<li>
+<p><code>PolicyDefaultVersionId</code>: The ID of the policy default version.</p>
+</li>
+<li>
+<p><code>PolicyId</code>: The ID of the policy.</p>
+</li>
+<li>
+<p><code>PolicyName</code>: The name of the policy.</p>
+</li>
+<li>
+<p><code>ResourcesCount</code>: The number of resources attached to the policy.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "Policy": {
+    "ResourcesCount": 0,
+    "PolicyName": "example-user-policy",
+    "PolicyDefaultVersionId": "v1",
+    "Path": "/example/",
+    "CreationDate": "2010-10-01T12:34:56.789+0000",
+    "Description": "Example of description",
+    "PolicyId": "ABCDEFGHIJKLMNOPQRSTUVWXYZ01234",
+    "Orn": "orn:ows:idauth::012345678910:policy/example/example-user-policy",
+    "IsLinkable": true,
+    "LastModificationDate": "2010-10-01T12:34:56.789+0000"
+  },
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI_3"><a class="anchor" href="Obtenir-des-informations-sur-une-politique-gérée.html#AWS CLI_3"></a>Obtenir des informations sur une politique gérée avec AWS CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Avant de commencer :</strong> Installez et configurez AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="_obtenir_des_informations_générales_sur_une_politique_gérée"><a class="anchor" href="Obtenir-des-informations-sur-une-politique-gérée.html#_obtenir_des_informations_générales_sur_une_politique_gérée"></a>Obtenir des informations générales sur une politique gérée</h3>
+<div class="paragraph">
+<p>Pour obtenir des informations générales à propos d&#8217;une politique gérée, utilisez la commande <strong>get-policy</strong> en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws iam get-policy \
+    --profile YOUR_PROFILE \
+    --policy-arn arn:aws:iam::123456789012:policy/MY_POLICY \
+    --endpoint https://eim.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>profile</code> : Le profil nommé que vous voulez utiliser, créé pendant la configuration d&#8217;AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>policy-arn</code> : L&#8217;OUTSCALE Resource Name (ORN) de la politique.</p>
+</li>
+<li>
+<p><code>endpoint</code> : Le endpoint correspondant à la Région à laquelle vous voulez envoyer la requête. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>La commande <strong>get-policy</strong> renvoie les éléments suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Policy</code> : Informations à propos de la politique spécifiée. Cet élément contient les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>PolicyName</code> : Le nom de la politique.</p>
+</li>
+<li>
+<p><code>CreateDate</code> : La date et l&#8217;heure de création de la politique.</p>
+</li>
+<li>
+<p><code>AttachmentCount</code> : Le nombre d&#8217;identités EIM (utilisateurs ou groupes) auxquelles la politique est attachée.</p>
+</li>
+<li>
+<p><code>IsAttachable</code> : Si <code>true</code>, la politique peut être attachée à une identité EIM. Si <code>false</code>, elle ne le peut pas.</p>
+</li>
+<li>
+<p><code>PolicyId</code> : L&#8217;ID de la politique.</p>
+</li>
+<li>
+<p><code>DefaultVersionId</code> : L&#8217;ID de la version de la politique définie comme celle par défaut.</p>
+</li>
+<li>
+<p><code>Path</code> : Le chemin pour la politique.</p>
+</li>
+<li>
+<p><code>Arn</code> : L&#8217;OUTSCALE Resource Name (ORN) de la politique.</p>
+</li>
+<li>
+<p><code>UpdateDate</code> : La date et l&#8217;heure de la dernière mise à jour de la politique.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de résultat</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "Policy": {
+        "PolicyName": "my-policy",
+        "CreateDate": "2015-06-17T19:23;32Z",
+        "AttachmentCount": "0",
+        "IsAttachable": true,
+        "PolicyId": "Z27SI6FQMGNQ2EXAMPLE1",
+        "DefaultVersionId": "v1",
+        "Path": "/",
+        "Arn": "arn:aws:iam::123456789012:policy/my-policy",
+        "UpdateDate": "2015-06-17T19:23:32Z"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_obtenir_des_informations_à_propos_du_contenu_dune_version_de_politique"><a class="anchor" href="Obtenir-des-informations-sur-une-politique-gérée.html#_obtenir_des_informations_à_propos_du_contenu_dune_version_de_politique"></a>Obtenir des informations à propos du contenu d&#8217;une version de politique</h3>
+<div class="paragraph">
+<p>Pour obtenir des informations à propos du contenu d&#8217;une version de politique, utilisez la commande <strong>get-policy-version</strong> en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws iam get-policy-version \
+    --profile YOUR_PROFILE \
+    --policy-arn arn:aws:iam::123456789012:policy/MY_POLICY \
+    --version-id v2 \
+    --endpoint https://eim.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>profile</code> : Le profil nommé que vous voulez utiliser, créé pendant la configuration d&#8217;AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>policy-arn</code> : L&#8217;OUTSCALE Resource Name (ORN) de la politique.</p>
+</li>
+<li>
+<p><code>version-id</code> : L&#8217;ID de la version de la politique.</p>
+</li>
+<li>
+<p><code>endpoint</code> : Le endpoint correspondant à la Région à laquelle vous voulez envoyer la requête. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>La commande <strong>get-policy-version</strong> renvoie les éléments suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>PolicyVersion</code> : Informations à propos de la version de la politique. Cet élément contient les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CreateDate</code> : La date et l&#8217;heure de création de la version de la politique.</p>
+</li>
+<li>
+<p><code>VersionId</code> : L&#8217;ID de la version de la politique.</p>
+</li>
+<li>
+<p><code>Document</code> : Le document de politique.</p>
+</li>
+<li>
+<p><code>IsDefaultVersion</code> : Si <code>true</code>, la version de politique est celle par défaut.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de résultat</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "PolicyVersion": {
+        "CreateDate": "2016-05-12T18:43:524Z",
+        "VersionId": "v2",
+        "Document": {
+                      "Statement": [
+                              {
+                                      "Action": ["*"],
+                                      "Resource": ["*"],
+                                      "Effect": "Allow"
+                              }
+                      ]
+                }
+        "IsDefaultVersion": "false"
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-politiques.html" class="xref page">À propos des politiques</a></p>
+</li>
+<li>
+<p><a href="Lister-des-politiques-gérées.html" class="xref page">Lister des politiques gérées</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-une-politique-incluse.html" class="xref page">Obtenir des informations sur une politique incluse</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Méthodes API correspondantes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#readpolicy" class="xref page">ReadPolicy (API OUTSCALE)</a></p>
+</li>
+<li>
+<p><a href="../../eim.html#getpolicy" class="xref page">GetPolicy (EIM)</a></p>
+</li>
+<li>
+<p><a href="../../eim.html#getpolicyversion" class="xref page">GetPolicyVersion (EIM)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

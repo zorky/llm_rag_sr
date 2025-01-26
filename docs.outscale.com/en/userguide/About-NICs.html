@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>About NICs – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="About-NICs.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/About-NICs.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/À-propos-des-NIC.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">About NICs</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><span class="tooltip" data-tooltip="network interface card (NIC) in OUTSCALE API">Flexible network interfaces (FNIs)</span> are additional virtual network interfaces that you can attach to <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">virtual machines (VMs)</span> in a <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span>. They act as virtual network cards that enable you to partition your network and to redirect the network traffic to another VM, as they can be detached and attached to another VM at any time.</p>
+</div>
+<div class="paragraph">
+<p><span class="tooltip" data-tooltip="flexible network interface (FNI) in AWS-Compliant APIs">NICs</span> have one or more private IPs assigned, and optionally a <span class="tooltip" data-tooltip="External IP (EIP) in AWS-Compliant APIs">public IP</span>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_primary_network_interface_and_nics"><a class="anchor" href="About-NICs.html#_primary_network_interface_and_nics"></a>Primary Network Interface and NICs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VMs</span> are created with a default network interface, to which a private IP is assigned. This network interface is called the primary network interface and cannot be detached from the VM. The IPs assigned to a VM are actually assigned to this primary network interface.</p>
+</div>
+<div class="paragraph">
+<p>You can create additional network interfaces that you can attach to and detach from VMs in a <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span> at any time. These additional network interfaces are called <span class="tooltip" data-tooltip="flexible network interface (FNI) in AWS-Compliant APIs">network interface cards (NICs)</span>. NICs enable VMs to be connected to several networks and to partition the VM network. This may be required for security issues if you want to use, for example, different networks for different roles within your organization, or different services for different customers.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>NICs do not increase the VM network bandwidth.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The maximum number of NICs that you can attach to a VM depends on the VM type. For more information, see <a href="VM-Types.html" class="xref page">VM Types</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_nics_attributes"><a class="anchor" href="About-NICs.html#_nics_attributes"></a>NICs Attributes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A <span class="tooltip" data-tooltip="flexible network interface (FNI) in AWS-Compliant APIs">NIC</span> includes the following attributes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>An ID in the <code>eni-XXXXXX</code> format that is automatically assigned to the NIC when it is created.</p>
+</li>
+<li>
+<p>(optional) A description.</p>
+</li>
+<li>
+<p>A primary private IP, automatically assigned by the DHCP server or that you can manually define.</p>
+</li>
+<li>
+<p>(optional) One or more secondary private IPs. Adding several private IPs partitions the <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span> network. This also enables you to have multiple IPs for a VM. For more information, see <a href="Assigning-Secondary-Private-IPs-to-a-NIC.html" class="xref page">Assigning Secondary Private IPs to a NIC</a>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>All private IPs (primary and secondary) assigned to a NIC must be in the IP range of the Subnet of the NIC.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optional) A <span class="tooltip" data-tooltip="External IP (EIP) in AWS-Compliant APIs">public IP</span>, through the use of a public IP attached to the NIC. For more information, see <a href="Linking-a-Public-IP-with-a-VM-or-a-Network-Interface.html" class="xref page">Linking a Public IP with a VM or a Network Interface</a>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>By default, VMs in a <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span> do not have access to and cannot be accessed from the internet. To enable access to and from the internet, you need to attach a public IP to the VM (primary network interface) or to a NIC, a route table to the Subnet where the VM or the NIC is, and an <span class="tooltip" data-tooltip="Internet gateway in AWS-Compliant APIs">internet service</span> to the Net. The internet traffic goes from the NIC to the internet through the corresponding routing table and the internet service. For more information, see <a href="Nets.html" class="xref page">Nets</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>One or more security groups associated with the NIC. As the IPs assigned to a VM are in reality assigned to its primary network interface, the behavior of the security groups is the same for VMs and for NICs. For more information, see <a href="Security-Groups.html" class="xref page">Security Groups</a>.</p>
+</li>
+<li>
+<p>A Media Access Control (MAC) address to physically identify the NIC.</p>
+</li>
+<li>
+<p>(optional) A source/destination check flag, to send or receive traffic on behalf of another VM.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A private DNS name associated with the primary private IP is assigned to the NIC. If you assign one or more secondary private IPs, a private DNS name associated with each one of them is also assigned to the NIC. However, the private DNS name used and returned by default is the private DNS name associated with the primary private IP. If you attach a public IP to a NIC, the public DNS name associated with it is also assigned to this NIC.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_nics_attachment_to_vms"><a class="anchor" href="About-NICs.html#_nics_attachment_to_vms"></a>NICs</span> Attachment to <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VMs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can attach or detach a <span class="tooltip" data-tooltip="flexible network interface (FNI) in AWS-Compliant APIs">NIC</span> from a <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span> at any time, regardless of the state of the VM. For more information, see <a href="Attaching-a-NIC-to-a-VM.html" class="xref page">Attaching a NIC to a VM</a> and <a href="Detaching-a-NIC-from-a-VM.html" class="xref page">Detaching a NIC from a VM</a>.</p>
+</div>
+<div class="paragraph">
+<p>You can also create and attach NICs to a VM at creation. For more information, see <a href="Creating-VMs.html" class="xref page">Creating VMs</a>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you want to attach more than one NIC to a VM, a network interface configuration may be required depending on the chosen operating system (OS). This includes IP addressing and routing. You can configure the network interface directly on the OS level in the VM.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>An attachment ID in the <code>eni-attach-XXXXXXXX</code> format is assigned to the NIC each time you attach it to a VM. When you attach a NIC to a VM, you also need to specify a device index for the attachment between 1 and 7 (both included). Device index 0 is reserved for the primary network interface of the VM.</p>
+</div>
+<div class="paragraph">
+<p>The attributes of a NIC remain when the NIC is detached and attached to another VM. When you attach a NIC to another VM, the traffic related to this NIC is automatically redirected to this VM. An NIC can only be attached to one VM at a time.</p>
+</div>
+<div class="paragraph">
+<p>By default, when VMs with attached NICs are terminated, the NICs created with the VMs are deleted, while the NICs created after the creation of the VMs are detached.</p>
+</div>
+<div class="paragraph">
+<p>While <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Nets</span> are available for a Region, NICs are created in a Subnet and are available for the <span class="tooltip" data-tooltip="Availability Zone (AZ) in AWS-Compliant APIs">Subregion</span> of this Subnet only. Therefore, you can attach NICs only to VMs placed in Subnets within this Subregion.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Attaching several NICs placed in the same Subnet to a VM may cause networking issues such as asymmetric routing. Whenever possible, use NICs from different Subnets, or secondary private IPs on the primary network interface or on a NIC.</p>
+</li>
+<li>
+<p>NICs depend on the Subnet where they are located. Therefore, the NIC network traffic is routed using the route table associated with this Subnet, independently from the VM it is attached to.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following schema shows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A VM A with two NICs (<span class="tooltip" data-tooltip="network interface card (NIC) in OUTSCALE API">FNI</span> 1 and NIC 2) placed in Subnet 1 and Subnet 2, belonging to the same Subregion.</p>
+</li>
+<li>
+<p>A VM B with one NIC (FNI 3) placed in Subnet 2.</p>
+</li>
+<li>
+<p>The way traffic is routed from NIC 3 to NIC 1 using the route table 2 associated with Subnet 2.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Subnets, VM and NICs Infrastructure</div>
+<p><span class="image"><img src="_images/sch-NIC-Infrastructure.png" alt="sch NIC Infrastructure" width="500"></span></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Traffic between NICs placed in the same Subnet is locally routed.</p>
+</li>
+<li>
+<p>Network interfaces are placed in Subnets, but the VMs themselves are not. In fact, when creating a Net infrastructure, placing a VM in a Subnet corresponds to placing its primary network interface in this Subnet. Attaching additional NICs placed in different Subnets to a VM therefore enables it to be present in different Subnets.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>A NIC can be in one of the following states:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>available</code>: The NIC is created and available to be attached to a VM.</p>
+</li>
+<li>
+<p><code>attaching</code>: The attachment process of the NIC to a VM is in progress.</p>
+</li>
+<li>
+<p><code>in-use</code>: The NIC is attached to a VM, and can send and receive network traffic.</p>
+</li>
+<li>
+<p><code>detaching</code>: The detachment process of the NIC from a VM is in progress.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Additionally, a NIC can be in one of the following attachment states:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>attaching</code>: The attachment process of the NIC to the specified VM is in progress.</p>
+</li>
+<li>
+<p><code>attached</code>: The attachment process of the NIC to the specified VM is finished.</p>
+</li>
+<li>
+<p><code>detaching</code>: The detachment process of the NIC from the specified VM is in progress.</p>
+</li>
+<li>
+<p><code>detached</code>: The detachment process of the NIC from the specified VM is finished.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Flexible-Compute-Unit-FCU.html" class="xref page">Flexible Compute Unit (FCU)</a></p>
+</li>
+<li>
+<p><a href="Nets.html" class="xref page">Nets</a></p>
+</li>
+<li>
+<p><a href="Creating-a-NIC.html" class="xref page">Creating a NIC</a></p>
+</li>
+<li>
+<p><a href="Public-IPs.html" class="xref page">Public IPs</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

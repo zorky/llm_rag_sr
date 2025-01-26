@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Creating a Net Access Point – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="Creating-a-Net-Access-Point.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/Creating-a-Net-Access-Point.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Créer-un-Net-access-point.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Creating a <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span> Access Point</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can create a <span class="tooltip" data-tooltip="VPC endpoint in AWS-Compliant APIs">Net access point</span> in your Net to enable your <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">virtual machines (VMs)</span> to access another OUTSCALE service through a private connection.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Cockpit v2_0"><a class="anchor" href="Creating-a-Net-Access-Point.html#Cockpit v2_0"></a>Creating a <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span> Access Point Using Cockpit v2</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Before you begin:</strong> Make sure you have enough quota to allocate one <span class="tooltip" data-tooltip="External IP (EIP) in AWS-Compliant APIs">public IP</span> to your account, as one is automatically allocated when creating a <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net access point</span>. For more information, see <a href="Getting-Information-About-Your-Account-and-Quotas.html" class="xref page">Getting Information About Your Account and Quotas</a> and <a href="About-Net-Access-Points.html" class="xref page">About Net Access Points</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In the <strong>Net Access Points</strong> dashboard, click <span class="image"><img src="_images/IconAddFull.svg" alt="IconAddFull"></span> <strong>Create Net Access Point</strong>.<br>
+The CREATE NET ACCESS POINT dialog box appears.</p>
+</li>
+<li>
+<p>In the <strong>Name</strong> field, type a name for the Net access point.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This action adds a Name tag of 255 characters maximum. You can use any character, including accented letters.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>From the <strong>Net</strong> list, select the Net you want to create an access point for.</p>
+</li>
+<li>
+<p>From the <strong>Service</strong> list, select the service for which you want to create a public connection through a Net access point.</p>
+</li>
+<li>
+<p>From the <strong>Route table(s)</strong> section, check the box of the route table that you want to associate with the Net access point.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Multiselection is available.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Click <strong>Create</strong>.<br>
+The Net access point is created.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="OSC CLI_1"><a class="anchor" href="Creating-a-Net-Access-Point.html#OSC CLI_1"></a>Creating a <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span> Access Point Using OSC CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Before you begin:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Get the name of the prefix list corresponding to the service you want to access using the <span class="tooltip" data-tooltip="VPC endpoint in AWS-Compliant APIs">Net access point</span>. For more information, see <a href="Getting-Information-About-Prefix-Lists.html" class="xref page">Getting Information About Prefix Lists</a>.</p>
+</li>
+<li>
+<p>Make sure you have enough quota to allocate one <span class="tooltip" data-tooltip="External IP (EIP) in AWS-Compliant APIs">public IP</span> to your account, as one is automatically allocated when creating a Net access point. For more information, see <a href="Getting-Information-About-Your-Account-and-Quotas.html" class="xref page">Getting Information About Your Account and Quotas</a> and <a href="About-Net-Access-Points.html" class="xref page">About Net Access Points</a>.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The <strong>CreateNetAccessPoint</strong> command creates a Net access point to access an OUTSCALE service from this Net without using the Internet and public IPs.<br>
+You specify the service using its name. For more information about the available services, see <a href="../../api%3Fconsole.html#readnetaccesspointservices" class="xref page">ReadNetAccessPointServices</a>.<br>
+ <br>
+To control the routing of traffic between the Net and the specified service, you can specify one or more route tables. <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">Virtual machines</span> placed in Subnets associated with the specified route table thus use the Net access point to access the service. When you specify a route table, a route is automatically added to it with the destination set to the prefix list ID of the service, and the target set to the ID of the access point.</p>
+</div>
+<div class="paragraph">
+<p>When a Net access point is created, a public IP is automatically allocated to your account and used for the Net access point. This public IP is not connected to the Internet. It is counted in your quota, but it is not billed.<br>
+ <br>
+For more information, see <a href="About-Net-Access-Points.html" target="_blank" rel="noopener">About Net Access Points</a>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api CreateNetAccessPoint --profile "default" \
+    --NetId "vpc-12345678" \
+    --RouteTableIds '["rtb-12345678"]' \
+    --ServiceName "com.outscale.eu-west-2.oos"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net.</p>
+</li>
+<li>
+<p><code>RouteTableIds</code>: (optional) One or more IDs of route tables to use for the connection.</p>
+</li>
+<li>
+<p><code>ServiceName</code>: The name of the service (in the format <code>com.outscale.region.service</code>).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateNetAccessPoint</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>NetAccessPoint</code>: Information about the Net access point.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>NetAccessPointId</code>: The ID of the Net access point.</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net with which the Net access point is associated.</p>
+</li>
+<li>
+<p><code>RouteTableIds</code>: The ID of the route tables associated with the Net access point.</p>
+</li>
+<li>
+<p><code>ServiceName</code>: The name of the service with which the Net access point is associated.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the Net access point (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the Net access point.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "NetAccessPoint": {
+    "Tags": [],
+    "NetAccessPointId": "vpce-12345678",
+    "RouteTableIds": [
+      "rtb-12345678"
+    ],
+    "State": "pending",
+    "NetId": "vpc-12345678",
+    "ServiceName": "com.outscale.eu-west-2.oos"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="oapi-cli_2"><a class="anchor" href="Creating-a-Net-Access-Point.html#oapi-cli_2"></a>Creating a <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span> Access Point Using oapi-cli</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Before you begin:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Get the name of the prefix list corresponding to the service you want to access using the <span class="tooltip" data-tooltip="VPC endpoint in AWS-Compliant APIs">Net access point</span>. For more information, see <a href="Getting-Information-About-Prefix-Lists.html" class="xref page">Getting Information About Prefix Lists</a>.</p>
+</li>
+<li>
+<p>Make sure you have enough quota to allocate one <span class="tooltip" data-tooltip="External IP (EIP) in AWS-Compliant APIs">public IP</span> to your account, as one is automatically allocated when creating a Net access point. For more information, see <a href="Getting-Information-About-Your-Account-and-Quotas.html" class="xref page">Getting Information About Your Account and Quotas</a> and <a href="About-Net-Access-Points.html" class="xref page">About Net Access Points</a>.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The <strong>CreateNetAccessPoint</strong> command creates a Net access point to access an OUTSCALE service from this Net without using the Internet and public IPs.<br>
+You specify the service using its name. For more information about the available services, see <a href="../../api%3Fconsole.html#readnetaccesspointservices" class="xref page">ReadNetAccessPointServices</a>.<br>
+ <br>
+To control the routing of traffic between the Net and the specified service, you can specify one or more route tables. <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">Virtual machines</span> placed in Subnets associated with the specified route table thus use the Net access point to access the service. When you specify a route table, a route is automatically added to it with the destination set to the prefix list ID of the service, and the target set to the ID of the access point.</p>
+</div>
+<div class="paragraph">
+<p>When a Net access point is created, a public IP is automatically allocated to your account and used for the Net access point. This public IP is not connected to the Internet. It is counted in your quota, but it is not billed.<br>
+ <br>
+For more information, see <a href="About-Net-Access-Points.html" target="_blank" rel="noopener">About Net Access Points</a>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" CreateNetAccessPoint \
+    --NetId "vpc-12345678" \
+    --RouteTableIds '["rtb-12345678"]' \
+    --ServiceName "com.outscale.eu-west-2.oos"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net.</p>
+</li>
+<li>
+<p><code>RouteTableIds</code>: (optional) One or more IDs of route tables to use for the connection.</p>
+</li>
+<li>
+<p><code>ServiceName</code>: The name of the service (in the format <code>com.outscale.region.service</code>).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateNetAccessPoint</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>NetAccessPoint</code>: Information about the Net access point.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>NetAccessPointId</code>: The ID of the Net access point.</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net with which the Net access point is associated.</p>
+</li>
+<li>
+<p><code>RouteTableIds</code>: The ID of the route tables associated with the Net access point.</p>
+</li>
+<li>
+<p><code>ServiceName</code>: The name of the service with which the Net access point is associated.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the Net access point (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the Net access point.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "NetAccessPoint": {
+    "Tags": [],
+    "NetAccessPointId": "vpce-12345678",
+    "RouteTableIds": [
+      "rtb-12345678"
+    ],
+    "State": "pending",
+    "NetId": "vpc-12345678",
+    "ServiceName": "com.outscale.eu-west-2.oos"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI_3"><a class="anchor" href="Creating-a-Net-Access-Point.html#AWS CLI_3"></a>Creating a VPC Endpoint Using AWS CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Before you begin:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Install and configure AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+<li>
+<p>Get the name of the prefix list corresponding to the service you want to access using the <span class="tooltip" data-tooltip="Net in OUTSCALE API">VPC</span> endpoint. For more information, see <a href="Getting-Information-About-Prefix-Lists.html" class="xref page">Getting Information About Prefix Lists</a>.</p>
+</li>
+<li>
+<p>Make sure you have enough quota to allocate one <span class="tooltip" data-tooltip="public IP in OUTSCALE API">EIP</span> to your account, as one is automatically allocated when creating a VPC endpoint</span>. For more information, see <a href="Getting-Information-About-Your-Account-and-Quotas.html" class="xref page">Getting Information About Your Account and Quotas</a> and <a href="About-Net-Access-Points.html" class="xref page">About <span class="tooltip" data-tooltip="VPC endpoint in AWS-Compliant APIs"><span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net Access Points</span></a>.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>To create a VPC endpoint, use the <strong>create-vpc-endpoint</strong> command following this syntax:</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws ec2 create-vpc-endpoint \
+    --profile YOUR_PROFILE \
+    --vpc-id vpc-1234abcd \
+    --service-name com.outscale.eu-west-2.oos \
+    --route-table-ids rtb-12345678 \
+    --endpoint https://fcu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optional) <code>profile</code>: The named profile you want to use, created when configuring AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>vpc-id</code>: The ID of the VPC.</p>
+</li>
+<li>
+<p><code>service-name</code>: The name of the prefix list corresponding to the service.</p>
+</li>
+<li>
+<p>(optional) <code>route-table-ids</code>: One or more IDs of route tables to which you want to add a route to the service using the VPC endpoint.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><span class="tooltip" data-tooltip="virtual machine (VM) in OUTSCALE API">Instances</span> placed in subnets associated with the specified route tables use the VPC endpoint to access the service within the VPC Region. When you specify a route table, a route is automatically added to it with the destination set to the ID of the service prefix list, and the target set to the ID of the VPC endpoint.</p>
+</li>
+<li>
+<p>If you do not specify any route table ID, no route is added in any route table. You then need to associate one or more route tables with the VPC endpoint to automatically create the appropriate route into them. For more information, see <a href="Adding-or-Removing-a-Route-Table-Associated-with-a-Net-Access-Point.html" class="xref page">Adding or Removing a Route Table Associated with a Net Access Point</a>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><code>endpoint</code>: The endpoint corresponding to the Region you want to send the request to. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>create-vpc-endpoint</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VpcEndpoint</code>: Information about the newly created VPC endpoint. This element contains the following information:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VpcId</code>: The ID of the VPC in which the VPC endpoint is.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the VPC endpoint. For more information, see <a href="About-Net-Access-Points.html" class="xref page">About Net Access Points</a>.</p>
+</li>
+<li>
+<p><code>ServiceName</code>: The name of the prefix list corresponding to the service.</p>
+</li>
+<li>
+<p><code>RouteTableIds</code>: One or more IDs of route tables routing traffic to the service using the VPC endpoint.</p>
+</li>
+<li>
+<p><code>VpcEndpointId</code>: The ID of the VPC endpoint.</p>
+</li>
+<li>
+<p><code>CreationTimestamp</code>: The date and time of creation of the VPC endpoint.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "VpcEndpoint": {
+                 "VpcId": "vpc-12345678",
+                 "State": "pending",
+                 "ServiceName": "com.outscale.eu-west-2.oos",
+                 "RouteTableIds": [
+                                   "rtb-1234abcd"
+                                  ],
+                 "VpcEndpointId": "vpce-87654321",
+                 "CreationTimestamp": "2016-11-07T10:32:14Z"
+                }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The VPC endpoint is created and a route to the service using it is added to the specified route tables.</p>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="About-Net-Access-Points.html" class="xref page">About Net Access Points</a></p>
+</li>
+<li>
+<p><a href="About-Nets.html" class="xref page">About Nets</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Corresponding API Methods</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#createnetaccesspoint" class="xref page">CreateNetAccessPoint (OUTSCALE API)</a></p>
+</li>
+<li>
+<p><a href="../../fcu.html#createvpcendpoint" class="xref page">CreateVpcEndpoint (FCU)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ and Amazon Web Services™ are trademarks of Amazon Technologies, Inc or its affiliates in the United States and/or other countries.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

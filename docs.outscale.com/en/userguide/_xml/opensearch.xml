@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+  <ShortName>OUTSCALE Docs EN</ShortName>
+  <Description>Search the OUTSCALE Public Documentation</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Image width="16" height="16" type="image/x-icon">https://docs.outscale.com/_/img/favicon.ico</Image>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://docs.outscale.com/en/userguide/_xml/opensearch.xml"/>
+  <Url type="text/html" template="https://docs.outscale.com/en/userguide/Search.html?q={searchTerms}"/>
+  <moz:SearchForm>https://docs.outscale.com/en/userguide/Search.html</moz:SearchForm>
+</OpenSearchDescription>

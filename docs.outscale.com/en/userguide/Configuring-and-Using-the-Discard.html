@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Configuring and Using the Discard – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="Configuring-and-Using-the-Discard.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/Configuring-and-Using-the-Discard.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Configurer-et-utiliser-le-Discard.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Configuring and Using the Discard</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Discard command allows cleaning unused blocks on a disk. All BSU volumes support this command, provided that the operating system is compatible and properly configured.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This command has different names depending on the operating system (for example Trim, Discard or Unmap). In this guide, the command is named Discard.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Using the Discard command reduces the space consumed by snapshots, and therefore their cost. It may also improve the IOPS (input output per second) performances. For more information, see <a href="About-Volumes.html" class="xref page">About Volumes</a>.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>It is recommended to use the Discard command each time you create a snapshot.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This technical guide describes 3 methods to configure and using the Discard command:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Launching the discard periodically</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>We recommend using this method. This method is applied by default to our official images since January 2024.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Launching the discard manually</p>
+</li>
+<li>
+<p>Configuring the discard when mounting a volume</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This method can be dangerous and must be used with full knowledge of the possible impact on the performance.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_making_sure_the_discard_is_available"><a class="anchor" href="Configuring-and-Using-the-Discard.html#_making_sure_the_discard_is_available"></a>Making Sure the Discard is Available</h2>
+<div class="sectionbody">
+<div class="sect2 tab">
+<h3 id="Linux_0"><a class="anchor" href="Configuring-and-Using-the-Discard.html#Linux_0"></a>Making Sure the Discard is Available on Linux</h3>
+<div class="paragraph">
+<p>Use the following command:<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ lsblk -D /dev/vda</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the Discard is available, you will get information about the disk:</p>
+<div class="listingblock">
+<div class="title">Result Sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">NAME   DISC-ALN DISC-GRAN DISC-MAX DISC-ZERO
+vda         512      512B       2G         0
+└─vda1        0      512B       2G         0</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>If the Discard is unavailable, the returned elements are set to <code>0</code>:</p>
+<div class="listingblock">
+<div class="title">Result Sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">NAME   DISC-ALN DISC-GRAN DISC-MAX DISC-ZERO
+vda           0        0B       0B         0
+└─vda1        0        0B       0B         0</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2 tab">
+<h3 id="Windows_1"><a class="anchor" href="Configuring-and-Using-the-Discard.html#Windows_1"></a>Making Sure the Discard is Available on Windows</h3>
+<div class="paragraph">
+<p>On Windows, you cannot check the availability of Discard on each disk.</p>
+</div>
+<div class="paragraph">
+<p>Use the following command to check that automatic Discard detection is enabled:<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-powershell hljs" data-lang="powershell">fsutil behavior query DisableDeleteNotify</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the automatic Discard detection is activated, the command returns the following element:</p>
+<div class="listingblock">
+<div class="title">Result Sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-powershell hljs" data-lang="powershell">DisableDeleteNotify = 1 (Enabled)</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>If the automatic Discard detection is not activated, the command returns the following element:</p>
+<div class="listingblock">
+<div class="title">Result Sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-powershell hljs" data-lang="powershell">DisableDeleteNotify = 0 (Disabled)</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuring_and_using_methods_of_the_discard"><a class="anchor" href="Configuring-and-Using-the-Discard.html#_configuring_and_using_methods_of_the_discard"></a>Configuring and Using Methods of the Discard</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>We recommend using this method. This method is applied by default to our official images since January 2024.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_launching_the_discard_periodically"><a class="anchor" href="Configuring-and-Using-the-Discard.html#_launching_the_discard_periodically"></a>Launching the Discard Periodically</h3>
+<div class="sect3 tab">
+<h4 id="Linux_2"><a class="anchor" href="Configuring-and-Using-the-Discard.html#Linux_2"></a>Method 1: Launching the Discard Periodically on Linux</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>View the service status with the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ systemctl status fstrim.timer</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The command returns the following elements:</p>
+</div>
+<div class="listingblock">
+<div class="title">Result Sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">● fstrim.timer - Discard unused blocks once a week
+   Loaded: loaded (/usr/lib/systemd/system/fstrim.timer; disabled; vendor preset: disabled)
+   Active: inactive (dead)
+  Trigger: n/a
+     Docs: man:fstrim</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Activate and configure the task with the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ systemctl enable fstrim.timer</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Make sure the task is defined with the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ systemctl list-timers</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The command returns the following elements:</p>
+</div>
+<div class="listingblock">
+<div class="title">Result Sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">NEXT                         LEFT        LAST                         PASSED       UNIT                         ACTIVATES
+Wed 2023-10-04 14:53:08 UTC  56min left  Wed 2023-10-04 13:27:59 UTC  28min ago    dnf-makecache.timer          dnf-makecache.service
+Thu 2023-10-05 00:00:00 UTC  10h left    n/a                          n/a          unbound-anchor.timer         unbound-anchor.service
+Thu 2023-10-05 12:44:59 UTC  22h left    Wed 2023-10-04 12:44:59 UTC  1h 11min ago systemd-tmpfiles-clean.timer systemd-tmpfiles-clean.service
+Mon 2023-10-09 00:00:00 UTC  4 days left n/a                          n/a          fstrim.timer                 fstrim.service
+
+4 timers listed.
+Pass --all to see loaded but inactive timers, too.</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>View the task status with the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ systemctl status fstrim.timer</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The command returns the following elements:</p>
+</div>
+<div class="listingblock">
+<div class="title">Result Sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">● fstrim.timer - Discard unused blocks once a week
+   Loaded: loaded (/usr/lib/systemd/system/fstrim.timer; enabled; vendor preset: disabled)
+   Active: active (waiting) since Wed 2023-10-04 13:55:44 UTC; 1s ago
+  Trigger: Mon 2023-10-09 00:00:00 UTC; 4 days left
+     Docs: man:fstrim
+
+oct. 04 13:55:44 ip-10-0-0-00.website.exemple.com systemd[1]: Started Discard unused blocks once a week.</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3 tab">
+<h4 id="Windows_3"><a class="anchor" href="Configuring-and-Using-the-Discard.html#Windows_3"></a>Launching the Discard Periodically on Windows</h4>
+<div class="paragraph">
+<p>Windows is able to detect automatically if the disk is compatible with the Discard. A periodical task can be configured in the Disk Management.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In <strong>Disk Management</strong>, right-click a disk and click <strong>Properties</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Tools</strong> tab, click <strong>Optimize</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Scheduled optimization</strong> section, click <strong>Change settings</strong>.</p>
+</li>
+<li>
+<p>Customize the frequency.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>It is recommended to define a weekly frequency.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Click <strong>OK</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_method_2_launching_the_discard_manually"><a class="anchor" href="Configuring-and-Using-the-Discard.html#_method_2_launching_the_discard_manually"></a>Method 2: Launching the Discard Manually</h3>
+<div class="sect3 tab">
+<h4 id="Linux_4"><a class="anchor" href="Configuring-and-Using-the-Discard.html#Linux_4"></a>Launching the Discard Manually on Linux</h4>
+<div class="paragraph">
+<p>You can launch the Discard manually at any time on all systems of mounted files with the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">fstrim -v --all</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The command returns in GiB or in octet the trimmed space on the volume.</p>
+</div>
+<div class="listingblock">
+<div class="title">Result Sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">/ : 7,9 GiB (8507092992 octets) trimmed</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_method_3_configuring_the_discard_when_mounting_a_volume"><a class="anchor" href="Configuring-and-Using-the-Discard.html#_method_3_configuring_the_discard_when_mounting_a_volume"></a>Method 3: Configuring the Discard When Mounting a Volume</h3>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This command may affect significantly the performances.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3 tab">
+<h4 id="Linux_5"><a class="anchor" href="Configuring-and-Using-the-Discard.html#Linux_5"></a>Configuring the Discard When Mounting a Volume on Linux</h4>
+<div class="paragraph">
+<p>You can configure the Discard when mounting a volume with the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">mount -o discard /dev/sda /mnt</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Related Page</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="About-Volumes.html" class="xref page">About Volumes</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

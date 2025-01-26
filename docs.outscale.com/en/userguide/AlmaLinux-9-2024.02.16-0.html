@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>AlmaLinux-9-2024.02.16-0 – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="AlmaLinux-9-2024.02.16-0.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/AlmaLinux-9-2024.02.16-0.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/AlmaLinux-9-2024.02.16-0.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">AlmaLinux-9-2024.02.16-0</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This topic contains technical specifications for the AlmaLinux-9-2024.02.16-0 OUTSCALE Machine Image (OMI).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_omi_ids"><a class="anchor" href="AlmaLinux-9-2024.02.16-0.html#_omi_ids"></a>OMI IDs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This OMI has the following IDs depending on the Regions:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Region</th>
+<th class="tableblock halign-left valign-top">eu-west-2</th>
+<th class="tableblock halign-left valign-top">us-east-2</th>
+<th class="tableblock halign-left valign-top">us-west-1</th>
+<th class="tableblock halign-left valign-top">cloudgouv-eu-west-1</th>
+<th class="tableblock halign-left valign-top">ap-northeast-1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">ID</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ami-8aa04ca1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ami-3ae73f45</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ami-36cfaada</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ami-62202fa1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ami-dbb626e8</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_specifications"><a class="anchor" href="AlmaLinux-9-2024.02.16-0.html#_specifications"></a>Specifications</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Specification</th>
+<th class="tableblock halign-left valign-top">Information</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Official image used</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://repo.almalinux.org/almalinux/9.3/cloud/x86_64/images/AlmaLinux-9-GenericCloud-latest.x86_64.qcow2" target="_blank" rel="noopener">https://repo.almalinux.org/almalinux/9.3/cloud/x86_64/images/AlmaLinux-9-GenericCloud-latest.x86_64.qcow2</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kernel options added</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N/A</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Custom packages added</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">osc-udev-rules-20230103-1.x86_64.rpm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud-Init configuration</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">20_user.cfg</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">system_info:
+  default_user:
+    name: outscale</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">99_metadata.cfg</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">disable-ec2-metadata: false
+
+datasource_list: [ Ec2 ]
+datasource:
+  Ec2:
+    strict_id: false
+    metadata_urls: [ 'http://169.254.169.254:80' ]
+    timeout: 5
+    max_wait: 10</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default SSH configuration</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">X11Forwarding no
+PermitTunnel no
+PermitRootLogin no
+RSAAuthentication yes
+PubkeyAuthentication yes
+PasswordAuthentication no
+UseDNS no
+ChallengeResponseAuthentication no
+GSSAPIAuthentication no</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SSH user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>outscale</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_package_list"><a class="anchor" href="AlmaLinux-9-2024.02.16-0.html#_package_list"></a>Package List</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">Installed Packages
+NetworkManager.x86_64               1:1.44.0-3.el9                 @System
+NetworkManager-libnm.x86_64         1:1.44.0-3.el9                 @System
+NetworkManager-team.x86_64          1:1.44.0-3.el9                 @System
+NetworkManager-tui.x86_64           1:1.44.0-3.el9                 @System
+PackageKit.x86_64                   1.2.4-2.el9                    @System
+PackageKit-glib.x86_64              1.2.4-2.el9                    @System
+abattis-cantarell-fonts.noarch      0.301-4.el9                    @System
+acl.x86_64                          2.3.1-3.el9                    @System
+adobe-source-code-pro-fonts.noarch  2.030.1.050-12.el9.1           @System
+almalinux-gpg-keys.x86_64           9.3-1.el9                      @System
+almalinux-logos.x86_64              90.5.1-1.1.el9                 @System
+almalinux-release.x86_64            9.3-1.el9                      @System
+almalinux-repos.x86_64              9.3-1.el9                      @System
+alternatives.x86_64                 1.24-1.el9                     @System
+audit.x86_64                        3.0.7-104.el9                  @System
+audit-libs.x86_64                   3.0.7-104.el9                  @System
+authselect.x86_64                   1.2.6-2.el9                    @System
+authselect-libs.x86_64              1.2.6-2.el9                    @System
+basesystem.noarch                   11-13.el9                      @System
+bash.x86_64                         5.1.8-6.el9_1                  @System
+binutils.x86_64                     2.35.2-42.el9                  @System
+binutils-gold.x86_64                2.35.2-42.el9                  @System
+bzip2-libs.x86_64                   1.0.8-8.el9                    @System
+c-ares.x86_64                       1.19.1-1.el9                   @System
+ca-certificates.noarch              2023.2.60_v7.0.306-90.1.el9_2  @System
+checkpolicy.x86_64                  3.5-1.el9                      @System
+chrony.x86_64                       4.3-1.el9                      @System
+cloud-init.noarch                   23.1.1-11.el9.alma.1           @System
+cloud-utils-growpart.x86_64         0.33-1.el9                     @System
+cockpit-bridge.x86_64               300.1-1.el9_3.alma.1           @System
+cockpit-system.noarch               300.1-1.el9_3.alma.1           @System
+cockpit-ws.x86_64                   300.1-1.el9_3.alma.1           @System
+coreutils.x86_64                    8.32-34.el9                    @System
+coreutils-common.x86_64             8.32-34.el9                    @System
+cpio.x86_64                         2.13-16.el9                    @System
+cracklib.x86_64                     2.9.6-27.el9                   @System
+cracklib-dicts.x86_64               2.9.6-27.el9                   @System
+cronie.x86_64                       1.5.7-8.el9                    @System
+cronie-anacron.x86_64               1.5.7-8.el9                    @System
+crontabs.noarch                     1.11-27.20190603git.el9_0      @System
+crypto-policies.noarch              20230731-1.git94f0e2c.el9_3.1  @System
+crypto-policies-scripts.noarch      20230731-1.git94f0e2c.el9_3.1  @System
+cryptsetup-libs.x86_64              2.6.0-3.el9                    @System
+curl.x86_64                         7.76.1-26.el9_3.2              @System
+cyrus-sasl-lib.x86_64               2.1.27-21.el9                  @System
+dbus.x86_64                         1:1.12.20-8.el9                @System
+dbus-broker.x86_64                  28-7.el9                       @System
+dbus-common.noarch                  1:1.12.20-8.el9                @System
+dbus-libs.x86_64                    1:1.12.20-8.el9                @System
+device-mapper.x86_64                9:1.02.195-3.el9               @System
+device-mapper-libs.x86_64           9:1.02.195-3.el9               @System
+dhcp-client.x86_64                  12:4.4.2-19.b1.el9             @System
+dhcp-common.noarch                  12:4.4.2-19.b1.el9             @System
+diffutils.x86_64                    3.7-12.el9                     @System
+dmidecode.x86_64                    1:3.5-1.el9                    @System
+dnf.noarch                          4.14.0-8.el9.alma.1            @System
+dnf-data.noarch                     4.14.0-8.el9.alma.1            @System
+dnf-plugins-core.noarch             4.3.0-11.el9_3                 @System
+dosfstools.x86_64                   4.2-3.el9                      @System
+dracut.x86_64                       057-44.git20230822.el9         @System
+dracut-config-generic.x86_64        057-44.git20230822.el9         @System
+dracut-network.x86_64               057-44.git20230822.el9         @System
+dracut-squash.x86_64                057-44.git20230822.el9         @System
+e2fsprogs.x86_64                    1.46.5-3.el9                   @System
+e2fsprogs-libs.x86_64               1.46.5-3.el9                   @System
+efi-filesystem.noarch               6-2.el9_0.0.1                  @System
+efibootmgr.x86_64                   16-12.el9                      @System
+efivar-libs.x86_64                  38-3.el9                       @System
+elfutils-debuginfod-client.x86_64   0.189-3.el9                    @System
+elfutils-default-yama-scope.noarch  0.189-3.el9                    @System
+elfutils-libelf.x86_64              0.189-3.el9                    @System
+elfutils-libs.x86_64                0.189-3.el9                    @System
+ethtool.x86_64                      2:6.2-1.el9                    @System
+expat.x86_64                        2.5.0-1.el9                    @System
+file.x86_64                         5.39-14.el9                    @System
+file-libs.x86_64                    5.39-14.el9                    @System
+filesystem.x86_64                   3.16-2.el9                     @System
+findutils.x86_64                    1:4.8.0-6.el9                  @System
+flashrom.x86_64                     1.2-10.el9                     @System
+fonts-filesystem.noarch             1:2.0.5-7.el9.1                @System
+freetype.x86_64                     2.10.4-9.el9                   @baseos
+fuse-libs.x86_64                    2.9.9-15.el9                   @System
+fwupd.x86_64                        1.8.16-1.el9.alma.1            @System
+fwupd-plugin-flashrom.x86_64        1.8.16-1.el9.alma.1            @System
+gawk.x86_64                         5.1.0-6.el9                    @System
+gawk-all-langpacks.x86_64           5.1.0-6.el9                    @System
+gdbm-libs.x86_64                    1:1.19-4.el9                   @System
+gdisk.x86_64                        1.0.7-5.el9                    @System
+gdk-pixbuf2.x86_64                  2.42.6-3.el9                   @System
+geolite2-city.noarch                20191217-6.el9                 @System
+geolite2-country.noarch             20191217-6.el9                 @System
+gettext.x86_64                      0.21-8.el9                     @System
+gettext-libs.x86_64                 0.21-8.el9                     @System
+glib-networking.x86_64              2.68.3-3.el9                   @System
+glib2.x86_64                        2.68.4-11.el9                  @System
+glibc.x86_64                        2.34-83.el9_3.7                @System
+glibc-common.x86_64                 2.34-83.el9_3.7                @System
+glibc-gconv-extra.x86_64            2.34-83.el9_3.7                @System
+glibc-minimal-langpack.x86_64       2.34-83.el9_3.7                @System
+gmp.x86_64                          1:6.2.0-13.el9                 @System
+gnupg2.x86_64                       2.3.3-4.el9                    @System
+gnutls.x86_64                       3.7.6-23.el9_3.3               @baseos
+gobject-introspection.x86_64        1.68.0-11.el9                  @System
+gpgme.x86_64                        1.15.1-6.el9                   @System
+graphite2.x86_64                    1.3.14-9.el9                   @baseos
+grep.x86_64                         3.6-5.el9                      @System
+groff-base.x86_64                   1.22.4-10.el9                  @System
+grub2-common.noarch                 1:2.06-70.el9_3.2.alma.2       @baseos
+grub2-efi-x64.x86_64                1:2.06-70.el9_3.2.alma.2       @baseos
+grub2-pc.x86_64                     1:2.06-70.el9_3.2.alma.2       @baseos
+grub2-pc-modules.noarch             1:2.06-70.el9_3.2.alma.2       @baseos
+grub2-tools.x86_64                  1:2.06-70.el9_3.2.alma.2       @baseos
+grub2-tools-efi.x86_64              1:2.06-70.el9_3.2.alma.2       @baseos
+grub2-tools-extra.x86_64            1:2.06-70.el9_3.2.alma.2       @baseos
+grub2-tools-minimal.x86_64          1:2.06-70.el9_3.2.alma.2       @baseos
+grubby.x86_64                       8.40-63.el9                    @System
+gsettings-desktop-schemas.x86_64    40.0-6.el9                     @System
+gssproxy.x86_64                     0.8.4-6.el9                    @System
+gzip.x86_64                         1.12-1.el9                     @System
+harfbuzz.x86_64                     2.7.4-8.el9                    @baseos
+hdparm.x86_64                       9.62-2.el9                     @System
+hostname.x86_64                     3.23-6.el9                     @System
+hwdata.noarch                       0.348-9.11.el9                 @System
+ima-evm-utils.x86_64                1.4-4.el9                      @System
+inih.x86_64                         49-6.el9                       @System
+initscripts-rename-device.x86_64    10.11.5-1.el9                  @System
+initscripts-service.noarch          10.11.5-1.el9                  @System
+ipcalc.x86_64                       1.0.0-5.el9                    @System
+iproute.x86_64                      6.2.0-5.el9                    @System
+iputils.x86_64                      20210202-9.el9                 @System
+irqbalance.x86_64                   2:1.9.2-3.el9                  @System
+jansson.x86_64                      2.14-1.el9                     @System
+json-c.x86_64                       0.14-11.el9                    @System
+json-glib.x86_64                    1.6.6-1.el9                    @System
+kbd.x86_64                          2.4.0-9.el9                    @System
+kbd-legacy.noarch                   2.4.0-9.el9                    @System
+kbd-misc.noarch                     2.4.0-9.el9                    @System
+kernel.x86_64                       5.14.0-362.8.1.el9_3           @System
+kernel-core.x86_64                  5.14.0-362.8.1.el9_3           @System
+kernel-modules.x86_64               5.14.0-362.8.1.el9_3           @System
+kernel-modules-core.x86_64          5.14.0-362.8.1.el9_3           @System
+kernel-tools.x86_64                 5.14.0-362.8.1.el9_3           @System
+kernel-tools-libs.x86_64            5.14.0-362.8.1.el9_3           @System
+kexec-tools.x86_64                  2.0.26-8.el9                   @System
+keyutils.x86_64                     1.6.3-1.el9                    @System
+keyutils-libs.x86_64                1.6.3-1.el9                    @System
+kmod.x86_64                         28-9.el9                       @System
+kmod-libs.x86_64                    28-9.el9                       @System
+kpartx.x86_64                       0.8.7-22.el9                   @System
+krb5-libs.x86_64                    1.21.1-1.el9                   @System
+less.x86_64                         590-2.el9_2                    @System
+libacl.x86_64                       2.3.1-3.el9                    @System
+libappstream-glib.x86_64            0.7.18-4.el9                   @System
+libarchive.x86_64                   3.5.3-4.el9                    @System
+libassuan.x86_64                    2.5.5-3.el9                    @System
+libatomic.x86_64                    11.4.1-2.1.el9.alma            @System
+libattr.x86_64                      2.5.1-3.el9                    @System
+libbasicobjects.x86_64              0.1.1-53.el9                   @System
+libblkid.x86_64                     2.37.4-15.el9                  @System
+libbpf.x86_64                       2:1.2.0-1.el9                  @System
+libbrotli.x86_64                    1.0.9-6.el9                    @System
+libcap.x86_64                       2.48-9.el9_2                   @System
+libcap-ng.x86_64                    0.8.2-7.el9                    @System
+libcap-ng-python3.x86_64            0.8.2-7.el9                    @System
+libcbor.x86_64                      0.7.0-5.el9                    @System
+libcollection.x86_64                0.7.0-53.el9                   @System
+libcom_err.x86_64                   1.46.5-3.el9                   @System
+libcomps.x86_64                     0.1.18-1.el9                   @System
+libcurl.x86_64                      7.76.1-26.el9_3.2              @System
+libdaemon.x86_64                    0.14-23.el9                    @System
+libdb.x86_64                        5.3.28-53.el9                  @System
+libdhash.x86_64                     0.5.0-53.el9                   @System
+libdnf.x86_64                       0.69.0-6.el9_3.alma.1          @System
+libeconf.x86_64                     0.4.1-3.el9_2                  @System
+libedit.x86_64                      3.1-38.20210216cvs.el9         @System
+libestr.x86_64                      0.1.11-4.el9                   @System
+libev.x86_64                        4.33-5.el9                     @System
+libevent.x86_64                     2.1.12-6.el9                   @System
+libfastjson.x86_64                  0.99.9-5.el9                   @System
+libfdisk.x86_64                     2.37.4-15.el9                  @System
+libffi.x86_64                       3.4.2-8.el9                    @System
+libfido2.x86_64                     1.13.0-1.el9                   @System
+libgcab1.x86_64                     1.4-6.el9                      @System
+libgcc.x86_64                       11.4.1-2.1.el9.alma            @System
+libgcrypt.x86_64                    1.10.0-10.el9_2                @System
+libgomp.x86_64                      11.4.1-2.1.el9.alma            @System
+libgpg-error.x86_64                 1.42-5.el9                     @System
+libgudev.x86_64                     237-1.el9                      @System
+libgusb.x86_64                      0.3.8-2.el9                    @System
+libibverbs.x86_64                   46.0-1.el9                     @System
+libicu.x86_64                       67.1-9.el9                     @System
+libidn2.x86_64                      2.3.0-7.el9                    @System
+libini_config.x86_64                1.3.1-53.el9                   @System
+libjcat.x86_64                      0.1.6-3.el9                    @System
+libjpeg-turbo.x86_64                2.0.90-6.el9_1                 @System
+libkcapi.x86_64                     1.3.1-3.el9                    @System
+libkcapi-hmaccalc.x86_64            1.3.1-3.el9                    @System
+libksba.x86_64                      1.5.1-6.el9_1                  @System
+libldb.x86_64                       2.7.2-2.el9                    @System
+libmaxminddb.x86_64                 1.5.2-3.el9                    @System
+libmnl.x86_64                       1.0.4-15.el9                   @System
+libmodulemd.x86_64                  2.13.0-2.el9                   @System
+libmount.x86_64                     2.37.4-15.el9                  @System
+libndp.x86_64                       1.8-4.el9                      @System
+libnfsidmap.x86_64                  1:2.5.4-20.el9                 @System
+libnghttp2.x86_64                   1.43.0-5.el9_3.1               @System
+libnl3.x86_64                       3.7.0-1.el9                    @System
+libnl3-cli.x86_64                   3.7.0-1.el9                    @System
+libpath_utils.x86_64                0.2.1-53.el9                   @System
+libpcap.x86_64                      14:1.10.0-4.el9                @System
+libpipeline.x86_64                  1.5.3-4.el9                    @System
+libpng.x86_64                       2:1.6.37-12.el9                @System
+libproxy.x86_64                     0.4.15-35.el9                  @System
+libproxy-webkitgtk4.x86_64          0.4.15-35.el9                  @System
+libpsl.x86_64                       0.21.1-5.el9                   @System
+libpwquality.x86_64                 1.4.4-8.el9                    @System
+libref_array.x86_64                 0.1.5-53.el9                   @System
+librepo.x86_64                      1.14.5-1.el9                   @System
+libreport-filesystem.noarch         2.15.2-6.el9.alma              @System
+libseccomp.x86_64                   2.5.2-2.el9                    @System
+libselinux.x86_64                   3.5-1.el9                      @System
+libselinux-utils.x86_64             3.5-1.el9                      @System
+libsemanage.x86_64                  3.5-2.el9                      @System
+libsepol.x86_64                     3.5-1.el9                      @System
+libsigsegv.x86_64                   2.13-4.el9                     @System
+libsmartcols.x86_64                 2.37.4-15.el9                  @System
+libsmbios.x86_64                    2.4.3-4.el9                    @System
+libsolv.x86_64                      0.7.24-2.el9                   @System
+libsoup.x86_64                      2.72.0-8.el9                   @System
+libss.x86_64                        1.46.5-3.el9                   @System
+libssh.x86_64                       0.10.4-11.el9                  @System
+libssh-config.noarch                0.10.4-11.el9                  @System
+libsss_certmap.x86_64               2.9.1-4.el9_3.alma.1           @System
+libsss_idmap.x86_64                 2.9.1-4.el9_3.alma.1           @System
+libsss_nss_idmap.x86_64             2.9.1-4.el9_3.alma.1           @System
+libsss_sudo.x86_64                  2.9.1-4.el9_3.alma.1           @System
+libstdc++.x86_64                    11.4.1-2.1.el9.alma            @System
+libstemmer.x86_64                   0-18.585svn.el9                @System
+libsysfs.x86_64                     2.1.1-10.el9                   @System
+libtalloc.x86_64                    2.4.0-2.el9                    @System
+libtasn1.x86_64                     4.16.0-8.el9_1                 @System
+libtdb.x86_64                       1.4.8-2.el9                    @System
+libteam.x86_64                      1.31-16.el9_1                  @System
+libtevent.x86_64                    0.14.1-2.el9                   @System
+libtirpc.x86_64                     1.3.3-2.el9                    @System
+libtraceevent.x86_64                1.5.3-3.el9                    @System
+libunistring.x86_64                 0.9.10-15.el9                  @System
+liburing.x86_64                     2.3-2.el9                      @System
+libusbx.x86_64                      1.0.26-1.el9                   @System
+libuser.x86_64                      0.63-13.el9                    @System
+libutempter.x86_64                  1.2.1-6.el9                    @System
+libuuid.x86_64                      2.37.4-15.el9                  @System
+libverto.x86_64                     0.3.2-3.el9                    @System
+libverto-libev.x86_64               0.3.2-3.el9                    @System
+libxcrypt.x86_64                    4.4.18-3.el9                   @System
+libxcrypt-compat.x86_64             4.4.18-3.el9                   @System
+libxml2.x86_64                      2.9.13-5.el9_3                 @baseos
+libxmlb.x86_64                      0.3.10-1.el9                   @System
+libyaml.x86_64                      0.2.5-7.el9                    @System
+libzstd.x86_64                      1.5.1-2.el9                    @System
+linux-firmware-whence.noarch        20230814-140.el9_3             @System
+lmdb-libs.x86_64                    0.9.29-3.el9                   @System
+logrotate.x86_64                    3.18.0-8.el9                   @System
+lshw.x86_64                         B.02.19.2-10.el9               @System
+lsscsi.x86_64                       0.32-6.el9                     @System
+lua-libs.x86_64                     5.4.4-4.el9                    @System
+lz4-libs.x86_64                     1.9.3-5.el9                    @System
+lzo.x86_64                          2.10-7.el9                     @System
+man-db.x86_64                       2.9.3-7.el9                    @System
+microcode_ctl.noarch                4:20230808-2.el9               @System
+mokutil.x86_64                      2:0.6.0-4.el9                  @System
+mpfr.x86_64                         4.1.0-7.el9                    @System
+ncurses.x86_64                      6.2-10.20210508.el9            @System
+ncurses-base.noarch                 6.2-10.20210508.el9            @System
+ncurses-libs.x86_64                 6.2-10.20210508.el9            @System
+nettle.x86_64                       3.8-3.el9_0                    @System
+newt.x86_64                         0.52.21-11.el9                 @System
+nfs-utils.x86_64                    1:2.5.4-20.el9                 @System
+npth.x86_64                         1.6-8.el9                      @System
+numactl-libs.x86_64                 2.0.16-1.el9                   @System
+openldap.x86_64                     2.6.3-1.el9                    @System
+openssh.x86_64                      8.7p1-34.el9                   @System
+openssh-clients.x86_64              8.7p1-34.el9                   @System
+openssh-server.x86_64               8.7p1-34.el9                   @System
+openssl.x86_64                      1:3.0.7-25.el9_3               @baseos
+openssl-libs.x86_64                 1:3.0.7-25.el9_3               @baseos
+os-prober.x86_64                    1.77-10.el9                    @System
+osc-udev.x86_64                     2.2-1                          @@commandline
+p11-kit.x86_64                      0.24.1-2.el9                   @System
+p11-kit-trust.x86_64                0.24.1-2.el9                   @System
+pam.x86_64                          1.5.1-15.el9                   @System
+parted.x86_64                       3.5-2.el9                      @System
+passwd.x86_64                       0.80-12.el9                    @System
+pciutils-libs.x86_64                3.7.0-5.el9                    @System
+pcre.x86_64                         8.44-3.el9.3                   @System
+pcre2.x86_64                        10.40-2.el9                    @System
+pcre2-syntax.noarch                 10.40-2.el9                    @System
+pigz.x86_64                         2.5-4.el9                      @System
+policycoreutils.x86_64              3.5-2.el9                      @System
+policycoreutils-python-utils.noarch 3.5-2.el9                      @System
+polkit.x86_64                       0.117-11.el9                   @System
+polkit-libs.x86_64                  0.117-11.el9                   @System
+polkit-pkla-compat.x86_64           0.1-21.el9                     @System
+popt.x86_64                         1.18-8.el9                     @System
+prefixdevname.x86_64                0.1.0-8.el9                    @System
+procps-ng.x86_64                    3.3.17-13.el9                  @System
+psmisc.x86_64                       23.4-3.el9                     @System
+publicsuffix-list-dafsa.noarch      20210518-3.el9                 @System
+python-unversioned-command.noarch   3.9.18-1.el9_3.1               @appstream
+python3.x86_64                      3.9.18-1.el9_3.1               @baseos
+python3-attrs.noarch                20.3.0-7.el9                   @System
+python3-audit.x86_64                3.0.7-104.el9                  @System
+python3-babel.noarch                2.9.1-2.el9                    @System
+python3-chardet.noarch              4.0.0-5.el9                    @System
+python3-configobj.noarch            5.0.6-25.el9                   @System
+python3-dasbus.noarch               1.4-5.el9                      @System
+python3-dateutil.noarch             1:2.8.1-7.el9                  @System
+python3-dbus.x86_64                 1.2.18-2.el9                   @System
+python3-distro.noarch               1.5.0-7.el9                    @System
+python3-dnf.noarch                  4.14.0-8.el9.alma.1            @System
+python3-dnf-plugins-core.noarch     4.3.0-11.el9_3                 @System
+python3-file-magic.noarch           5.39-14.el9                    @System
+python3-gobject-base.x86_64         3.40.1-6.el9                   @System
+python3-gobject-base-noarch.noarch  3.40.1-6.el9                   @System
+python3-gpg.x86_64                  1.15.1-6.el9                   @System
+python3-hawkey.x86_64               0.69.0-6.el9_3.alma.1          @System
+python3-idna.noarch                 2.10-7.el9                     @System
+python3-jinja2.noarch               2.11.3-4.el9                   @System
+python3-jsonpatch.noarch            1.21-16.el9                    @System
+python3-jsonpointer.noarch          2.0-4.el9                      @System
+python3-jsonschema.noarch           3.2.0-13.el9                   @System
+python3-libcomps.x86_64             0.1.18-1.el9                   @System
+python3-libdnf.x86_64               0.69.0-6.el9_3.alma.1          @System
+python3-libs.x86_64                 3.9.18-1.el9_3.1               @baseos
+python3-libselinux.x86_64           3.5-1.el9                      @System
+python3-libsemanage.x86_64          3.5-2.el9                      @System
+python3-libxml2.x86_64              2.9.13-5.el9_3                 @baseos
+python3-linux-procfs.noarch         0.7.1-1.el9                    @System
+python3-markupsafe.x86_64           1.1.1-12.el9                   @System
+python3-netifaces.x86_64            0.10.6-15.el9                  @System
+python3-oauthlib.noarch             3.1.1-5.el9                    @System
+python3-perf.x86_64                 5.14.0-362.8.1.el9_3           @System
+python3-pexpect.noarch              4.8.0-7.el9                    @System
+python3-pip-wheel.noarch            21.2.3-7.el9                   @System
+python3-policycoreutils.noarch      3.5-2.el9                      @System
+python3-prettytable.noarch          0.7.2-27.el9                   @System
+python3-ptyprocess.noarch           0.6.0-12.el9                   @System
+python3-pyrsistent.x86_64           0.17.3-8.el9                   @System
+python3-pyserial.noarch             3.4-12.el9                     @System
+python3-pysocks.noarch              1.7.1-12.el9                   @System
+python3-pytz.noarch                 2021.1-5.el9                   @System
+python3-pyudev.noarch               0.22.0-6.el9                   @System
+python3-pyyaml.x86_64               5.4.1-6.el9                    @System
+python3-requests.noarch             2.25.1-7.el9_2                 @System
+python3-rpm.x86_64                  4.16.1.3-27.el9_3              @baseos
+python3-setools.x86_64              4.4.3-1.el9                    @System
+python3-setuptools.noarch           53.0.0-12.el9                  @System
+python3-setuptools-wheel.noarch     53.0.0-12.el9                  @System
+python3-six.noarch                  1.15.0-9.el9                   @System
+python3-systemd.x86_64              234-18.el9                     @System
+python3-urllib3.noarch              1.26.5-3.el9_3.1               @baseos
+qemu-guest-agent.x86_64             17:8.0.0-16.el9_3.1.alma.1     @System
+quota.x86_64                        1:4.06-6.el9                   @System
+quota-nls.noarch                    1:4.06-6.el9                   @System
+readline.x86_64                     8.1-4.el9                      @System
+rootfiles.noarch                    8.1-31.el9                     @System
+rpcbind.x86_64                      1.2.6-5.el9                    @System
+rpm.x86_64                          4.16.1.3-27.el9_3              @baseos
+rpm-build-libs.x86_64               4.16.1.3-27.el9_3              @baseos
+rpm-libs.x86_64                     4.16.1.3-27.el9_3              @baseos
+rpm-plugin-audit.x86_64             4.16.1.3-27.el9_3              @baseos
+rpm-plugin-selinux.x86_64           4.16.1.3-27.el9_3              @baseos
+rpm-plugin-systemd-inhibit.x86_64   4.16.1.3-27.el9_3              @appstream
+rpm-sign-libs.x86_64                4.16.1.3-27.el9_3              @baseos
+rsync.x86_64                        3.2.3-19.el9                   @System
+rsyslog.x86_64                      8.2102.0-117.el9               @System
+rsyslog-logrotate.x86_64            8.2102.0-117.el9               @System
+sed.x86_64                          4.8-9.el9                      @System
+selinux-policy.noarch               38.1.23-1.el9                  @System
+selinux-policy-targeted.noarch      38.1.23-1.el9                  @System
+setroubleshoot-plugins.noarch       3.3.14-4.el9                   @System
+setroubleshoot-server.x86_64        3.3.32-1.el9                   @System
+setup.noarch                        2.13.7-9.el9                   @System
+sg3_utils.x86_64                    1.47-9.el9                     @System
+sg3_utils-libs.x86_64               1.47-9.el9                     @System
+shadow-utils.x86_64                 2:4.9-8.el9                    @System
+shared-mime-info.x86_64             2.1-5.el9                      @System
+shim-x64.x86_64                     15.6-1.el9.alma.1              @System
+slang.x86_64                        2.3.2-11.el9                   @System
+snappy.x86_64                       1.1.8-8.el9                    @System
+sos.noarch                          4.6.0-5.el9.alma.1             @System
+sqlite-libs.x86_64                  3.34.1-7.el9_3                 @baseos
+squashfs-tools.x86_64               4.4-8.git1.el9                 @System
+sscg.x86_64                         3.0.0-7.el9                    @System
+sssd-client.x86_64                  2.9.1-4.el9_3.alma.1           @System
+sssd-common.x86_64                  2.9.1-4.el9_3.alma.1           @System
+sssd-kcm.x86_64                     2.9.1-4.el9_3.alma.1           @System
+sssd-nfs-idmap.x86_64               2.9.1-4.el9_3.alma.1           @System
+sudo.x86_64                         1.9.5p2-10.el9_3               @baseos
+systemd.x86_64                      252-18.el9                     @System
+systemd-libs.x86_64                 252-18.el9                     @System
+systemd-pam.x86_64                  252-18.el9                     @System
+systemd-rpm-macros.noarch           252-18.el9                     @System
+systemd-udev.x86_64                 252-18.el9                     @System
+tar.x86_64                          2:1.34-6.el9_1                 @System
+tcpdump.x86_64                      14:4.99.0-7.el9                @System
+teamd.x86_64                        1.31-16.el9_1                  @System
+tpm2-tss.x86_64                     3.2.2-2.el9                    @System
+tuned.noarch                        2.21.0-1.el9_3                 @System
+tzdata.noarch                       2023c-1.el9                    @System
+usermode.x86_64                     1.114-4.el9                    @System
+userspace-rcu.x86_64                0.12.1-6.el9                   @System
+util-linux.x86_64                   2.37.4-15.el9                  @System
+util-linux-core.x86_64              2.37.4-15.el9                  @System
+vim-minimal.x86_64                  2:8.2.2637-20.el9_1            @System
+virt-what.x86_64                    1.25-5.el9                     @System
+webkit2gtk3-jsc.x86_64              2.40.5-1.el9_3.1               @appstream
+which.x86_64                        2.21-29.el9                    @System
+xfsprogs.x86_64                     5.19.0-4.el9                   @System
+xz.x86_64                           5.2.5-8.el9_0                  @System
+xz-libs.x86_64                      5.2.5-8.el9_0                  @System
+yum.noarch                          4.14.0-8.el9.alma.1            @System
+yum-utils.noarch                    4.3.0-11.el9_3                 @System
+zlib.x86_64                         1.2.11-40.el9                  @System</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="About-OMIs.html" class="xref page">About OMIs</a></p>
+</li>
+<li>
+<p><a href="Official-OMIs-Reference.html" class="xref page">Official OMIs Reference</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

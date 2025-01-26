@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>AlmaLinux-8-2024.11.28-0 – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="AlmaLinux-8-2024.11.28-0.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/AlmaLinux-8-2024.11.28-0.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/AlmaLinux-8-2024.11.28-0.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">AlmaLinux-8-2024.11.28-0</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cette page contient des spécifications techniques pour l&#8217;image machine OUTSCALE (OMI) AlmaLinux-8-2024.11.28-0.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_id_de_lomi"><a class="anchor" href="AlmaLinux-8-2024.11.28-0.html#_id_de_lomi"></a>ID de l&#8217;OMI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cette OMI a les ID suivants en fonction de la Région :</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Région</th>
+<th class="tableblock halign-left valign-top">eu-west-2</th>
+<th class="tableblock halign-left valign-top">us-east-2</th>
+<th class="tableblock halign-left valign-top">us-west-1</th>
+<th class="tableblock halign-left valign-top">cloudgouv-eu-west-1</th>
+<th class="tableblock halign-left valign-top">ap-northeast-1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">ID</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ami-7af4dfba</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ami-a452207f</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ami-6e952ca2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ami-7c8d9c55</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ami-a7301cc8</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_spécifications"><a class="anchor" href="AlmaLinux-8-2024.11.28-0.html#_spécifications"></a>Spécifications</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Spécification</th>
+<th class="tableblock halign-left valign-top">Information</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Image officielle utilisée</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://raw.repo.almalinux.org/almalinux/8.10/cloud/x86_64/images/AlmaLinux-8-GenericCloud-latest.x86_64.qcow2" target="_blank" rel="noopener">https://raw.repo.almalinux.org/almalinux/8.10/cloud/x86_64/images/AlmaLinux-8-GenericCloud-latest.x86_64.qcow2</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Options Kernel ajoutées</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GRUB_CMDLINE_LINUX="acpi_irq_isa=10 <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">net</span>.ifnames=0"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Paquets custom ajoutés</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">osc-udev-rules-20230103-1.x86_64.rpm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Configuration Cloud-Init</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">20_user.cfg</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">system_info:
+  default_user:
+    name: outscale</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">99_metadata.cfg</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">disable-ec2-metadata: false
+
+datasource_list: [ Ec2 ]
+datasource:
+  Ec2:
+    strict_id: false
+    metadata_urls: [ 'http://169.254.169.254:80' ]
+    timeout: 5
+    max_wait: 10</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Configuration SSH par défaut</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">X11Forwarding no
+PermitTunnel no
+PermitRootLogin no
+RSAAuthentication yes
+PubkeyAuthentication yes
+PasswordAuthentication no
+UseDNS no
+ChallengeResponseAuthentication no
+GSSAPIAuthentication no</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Utilisateur SSH</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>outscale</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_liste_des_paquets"><a class="anchor" href="AlmaLinux-8-2024.11.28-0.html#_liste_des_paquets"></a>Liste des paquets</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">Installed Packages
+NetworkManager.x86_64               1:1.40.16-15.el8_9                          @System
+NetworkManager-libnm.x86_64         1:1.40.16-15.el8_9                          @System
+NetworkManager-team.x86_64          1:1.40.16-15.el8_9                          @System
+NetworkManager-tui.x86_64           1:1.40.16-15.el8_9                          @System
+PackageKit.x86_64                   1.1.12-7.el8                                @System
+PackageKit-glib.x86_64              1.1.12-7.el8                                @System
+abattis-cantarell-fonts.noarch      0.0.25-6.el8                                @System
+acl.x86_64                          2.2.53-3.el8                                @System
+almalinux-logos.x86_64              84.5-1.el8                                  @System
+almalinux-release.x86_64            8.10-1.el8                                  @System
+audit.x86_64                        3.1.2-1.el8                                 @System
+audit-libs.x86_64                   3.1.2-1.el8                                 @System
+authselect.x86_64                   1.2.6-2.el8                                 @System
+authselect-libs.x86_64              1.2.6-2.el8                                 @System
+basesystem.noarch                   11-5.el8                                    @System
+bash.x86_64                         4.4.20-5.el8                                @System
+bind-export-libs.x86_64             32:9.11.36-16.el8_10.2                      @baseos
+brotli.x86_64                       1.0.6-3.el8                                 @System
+bubblewrap.x86_64                   0.4.0-2.el8_10                              @baseos
+bzip2-libs.x86_64                   1.0.6-27.el8_10.alma.1                      @baseos
+c-ares.x86_64                       1.13.0-11.el8_10                            @System
+ca-certificates.noarch              2023.2.60_v7.0.306-80.0.el8_8               @System
+cairo.x86_64                        1.15.12-6.el8                               @System
+cairo-gobject.x86_64                1.15.12-6.el8                               @System
+checkpolicy.x86_64                  2.9-1.el8                                   @System
+chkconfig.x86_64                    1.19.2-1.el8                                @System
+chrony.x86_64                       4.5-1.el8                                   @System
+cloud-init.noarch                   23.4-7.el8_10.7.alma.1                      @System
+cloud-utils-growpart.noarch         0.33-0.el8                                  @System
+cockpit-bridge.x86_64               310.4-1.el8_10                              @System
+cockpit-system.noarch               310.4-1.el8_10                              @System
+cockpit-ws.x86_64                   310.4-1.el8_10                              @System
+coreutils.x86_64                    8.30-15.el8                                 @System
+coreutils-common.x86_64             8.30-15.el8                                 @System
+cpio.x86_64                         2.12-11.el8                                 @System
+cracklib.x86_64                     2.9.6-15.el8                                @System
+cracklib-dicts.x86_64               2.9.6-15.el8                                @System
+cronie.x86_64                       1.5.2-10.el8                                @System
+cronie-anacron.x86_64               1.5.2-10.el8                                @System
+crontabs.noarch                     1.11-17.20190603git.el8                     @System
+crypto-policies.noarch              20230731-1.git3177e06.el8                   @System
+crypto-policies-scripts.noarch      20230731-1.git3177e06.el8                   @System
+cryptsetup-libs.x86_64              2.3.7-7.el8                                 @System
+curl.x86_64                         7.61.1-34.el8_10.2                          @baseos
+cyrus-sasl-lib.x86_64               2.1.27-6.el8_5                              @System
+dbus.x86_64                         1:1.12.8-26.el8                             @System
+dbus-common.noarch                  1:1.12.8-26.el8                             @System
+dbus-daemon.x86_64                  1:1.12.8-26.el8                             @System
+dbus-glib.x86_64                    0.110-2.el8                                 @System
+dbus-libs.x86_64                    1:1.12.8-26.el8                             @System
+dbus-tools.x86_64                   1:1.12.8-26.el8                             @System
+dejavu-fonts-common.noarch          2.35-7.el8                                  @System
+dejavu-sans-mono-fonts.noarch       2.35-7.el8                                  @System
+device-mapper.x86_64                8:1.02.181-14.el8                           @System
+device-mapper-libs.x86_64           8:1.02.181-14.el8                           @System
+dhcp-client.x86_64                  12:4.3.6-50.el8_10                          @System
+dhcp-common.noarch                  12:4.3.6-50.el8_10                          @System
+dhcp-libs.x86_64                    12:4.3.6-50.el8_10                          @System
+diffutils.x86_64                    3.6-6.el8                                   @System
+dmidecode.x86_64                    1:3.5-1.el8                                 @System
+dnf.noarch                          4.7.0-20.el8.alma                           @System
+dnf-data.noarch                     4.7.0-20.el8.alma                           @System
+dnf-plugins-core.noarch             4.0.21-25.el8                               @System
+dosfstools.x86_64                   4.1-6.el8                                   @System
+dracut.x86_64                       049-233.git20240115.el8                     @System
+dracut-config-generic.x86_64        049-233.git20240115.el8                     @System
+dracut-config-rescue.x86_64         049-233.git20240115.el8                     @System
+dracut-network.x86_64               049-233.git20240115.el8                     @System
+dracut-squash.x86_64                049-233.git20240115.el8                     @System
+e2fsprogs.x86_64                    1.45.6-5.1.el8.alma.1                       @System
+e2fsprogs-libs.x86_64               1.45.6-5.1.el8.alma.1                       @System
+efi-filesystem.noarch               3-3.el8                                     @System
+efibootmgr.x86_64                   16-1.el8.0.1                                @System
+efivar-libs.x86_64                  37-4.el8                                    @System
+elfutils-debuginfod-client.x86_64   0.190-2.el8                                 @System
+elfutils-default-yama-scope.noarch  0.190-2.el8                                 @System
+elfutils-libelf.x86_64              0.190-2.el8                                 @System
+elfutils-libs.x86_64                0.190-2.el8                                 @System
+ethtool.x86_64                      2:5.13-2.el8                                @System
+expat.x86_64                        2.2.5-16.el8_10                             @baseos
+file.x86_64                         5.33-26.el8                                 @System
+file-libs.x86_64                    5.33-26.el8                                 @System
+filesystem.x86_64                   3.8-6.el8                                   @System
+findutils.x86_64                    1:4.6.0-22.el8                              @System
+fontconfig.x86_64                   2.13.1-4.el8                                @System
+fontpackages-filesystem.noarch      1.44-22.el8                                 @System
+freetype.x86_64                     2.9.1-9.el8                                 @System
+fuse-libs.x86_64                    2.9.7-19.el8                                @System
+fwupd.x86_64                        1.7.8-2.el8.alma                            @System
+gawk.x86_64                         4.2.1-4.el8                                 @System
+gdbm.x86_64                         1:1.18-2.el8                                @System
+gdbm-libs.x86_64                    1:1.18-2.el8                                @System
+gdisk.x86_64                        1.0.3-11.el8                                @System
+gdk-pixbuf2.x86_64                  2.36.12-6.el8_10                            @System
+geolite2-city.noarch                20180605-1.el8                              @System
+geolite2-country.noarch             20180605-1.el8                              @System
+gettext.x86_64                      0.19.8.1-17.el8                             @System
+gettext-libs.x86_64                 0.19.8.1-17.el8                             @System
+glib-networking.x86_64              2.56.1-1.1.el8                              @System
+glib2.x86_64                        2.56.4-162.el8                              @System
+glibc.x86_64                        2.28-251.el8_10.2                           @System
+glibc-common.x86_64                 2.28-251.el8_10.2                           @System
+glibc-gconv-extra.x86_64            2.28-251.el8_10.2                           @System
+glibc-langpack-en.x86_64            2.28-251.el8_10.2                           @System
+gmp.x86_64                          1:6.1.2-11.el8                              @System
+gnupg2.x86_64                       2.2.20-3.el8_6                              @System
+gnupg2-smime.x86_64                 2.2.20-3.el8_6                              @System
+gnutls.x86_64                       3.6.16-8.el8_9.3                            @System
+gobject-introspection.x86_64        1.56.1-1.el8                                @System
+gpgme.x86_64                        1.13.1-12.el8                               @System
+grep.x86_64                         3.1-6.el8                                   @System
+groff-base.x86_64                   1.22.3-18.el8                               @System
+grub2-common.noarch                 1:2.02-158.el8_10.alma.1                    @baseos
+grub2-efi-x64.x86_64                1:2.02-158.el8_10.alma.1                    @baseos
+grub2-pc.x86_64                     1:2.02-158.el8_10.alma.1                    @baseos
+grub2-pc-modules.noarch             1:2.02-158.el8_10.alma.1                    @baseos
+grub2-tools.x86_64                  1:2.02-158.el8_10.alma.1                    @baseos
+grub2-tools-efi.x86_64              1:2.02-158.el8_10.alma.1                    @baseos
+grub2-tools-extra.x86_64            1:2.02-158.el8_10.alma.1                    @baseos
+grub2-tools-minimal.x86_64          1:2.02-158.el8_10.alma.1                    @baseos
+grubby.x86_64                       8.40-49.el8                                 @System
+gsettings-desktop-schemas.x86_64    3.32.0-6.el8                                @System
+gssproxy.x86_64                     0.8.0-21.el8                                @System
+gzip.x86_64                         1.9-13.el8_5                                @System
+hardlink.x86_64                     1:1.3-6.el8                                 @System
+hdparm.x86_64                       9.54-4.el8                                  @System
+hostname.x86_64                     3.20-6.el8                                  @System
+hwdata.noarch                       0.314-8.22.el8                              @System
+ima-evm-utils.x86_64                1.3.2-12.el8                                @System
+info.x86_64                         6.5-7.el8                                   @System
+initscripts.x86_64                  10.00.18-1.el8                              @System
+ipcalc.x86_64                       0.2.4-4.el8                                 @System
+iproute.x86_64                      6.2.0-6.el8_10                              @System
+iptables-libs.x86_64                1.8.5-11.el8_9                              @System
+iputils.x86_64                      20180629-11.el8                             @System
+irqbalance.x86_64                   2:1.9.2-1.el8                               @System
+jansson.x86_64                      2.14-1.el8                                  @System
+json-c.x86_64                       0.13.1-3.el8                                @System
+json-glib.x86_64                    1.4.4-1.el8                                 @System
+kbd.x86_64                          2.0.4-11.el8                                @System
+kbd-legacy.noarch                   2.0.4-11.el8                                @System
+kbd-misc.noarch                     2.0.4-11.el8                                @System
+kernel.x86_64                       4.18.0-553.16.1.el8_10                      @System
+kernel.x86_64                       4.18.0-553.27.1.el8_10                      @baseos
+kernel-core.x86_64                  4.18.0-553.16.1.el8_10                      @System
+kernel-core.x86_64                  4.18.0-553.27.1.el8_10                      @baseos
+kernel-modules.x86_64               4.18.0-553.16.1.el8_10                      @System
+kernel-modules.x86_64               4.18.0-553.27.1.el8_10                      @baseos
+kernel-tools.x86_64                 4.18.0-553.27.1.el8_10                      @baseos
+kernel-tools-libs.x86_64            4.18.0-553.27.1.el8_10                      @baseos
+kexec-tools.x86_64                  2.0.26-14.el8_10.1                          @System
+keyutils.x86_64                     1.5.10-9.el8                                @System
+keyutils-libs.x86_64                1.5.10-9.el8                                @System
+kmod.x86_64                         25-20.el8                                   @System
+kmod-libs.x86_64                    25-20.el8                                   @System
+kpartx.x86_64                       0.8.4-41.el8                                @System
+krb5-libs.x86_64                    1.18.2-30.el8_10                            @baseos
+langpacks-en.noarch                 1.0-12.el8                                  @System
+less.x86_64                         530-3.el8_10                                @System
+libX11.x86_64                       1.6.8-8.el8                                 @System
+libX11-common.noarch                1.6.8-8.el8                                 @System
+libXau.x86_64                       1.0.9-3.el8                                 @System
+libXext.x86_64                      1.3.4-1.el8                                 @System
+libXrender.x86_64                   0.9.10-7.el8                                @System
+libacl.x86_64                       2.2.53-3.el8                                @System
+libappstream-glib.x86_64            0.7.14-3.el8                                @System
+libarchive.x86_64                   3.3.3-5.el8                                 @System
+libassuan.x86_64                    2.5.1-3.el8                                 @System
+libatasmart.x86_64                  0.19-14.el8                                 @System
+libattr.x86_64                      2.4.48-3.el8                                @System
+libbasicobjects.x86_64              0.1.1-40.el8                                @System
+libblkid.x86_64                     2.32.1-46.el8                               @System
+libblockdev.x86_64                  2.28-6.el8                                  @System
+libblockdev-crypto.x86_64           2.28-6.el8                                  @System
+libblockdev-fs.x86_64               2.28-6.el8                                  @System
+libblockdev-loop.x86_64             2.28-6.el8                                  @System
+libblockdev-mdraid.x86_64           2.28-6.el8                                  @System
+libblockdev-part.x86_64             2.28-6.el8                                  @System
+libblockdev-swap.x86_64             2.28-6.el8                                  @System
+libblockdev-utils.x86_64            2.28-6.el8                                  @System
+libbpf.x86_64                       0.5.0-1.el8                                 @System
+libbytesize.x86_64                  1.4-3.el8                                   @System
+libcap.x86_64                       2.48-6.el8_9                                @System
+libcap-ng.x86_64                    0.7.11-1.el8                                @System
+libcollection.x86_64                0.7.0-40.el8                                @System
+libcom_err.x86_64                   1.45.6-5.1.el8.alma.1                       @System
+libcomps.x86_64                     0.1.18-1.el8                                @System
+libcroco.x86_64                     0.6.12-4.el8_2.1                            @System
+libcurl.x86_64                      7.61.1-34.el8_10.2                          @baseos
+libdaemon.x86_64                    0.14-15.el8                                 @System
+libdb.x86_64                        5.3.28-42.el8_4                             @System
+libdb-utils.x86_64                  5.3.28-42.el8_4                             @System
+libdhash.x86_64                     0.5.0-40.el8                                @System
+libdnf.x86_64                       0.63.0-20.el8_10.alma.1                     @System
+libedit.x86_64                      3.1-23.20170329cvs.el8                      @System
+libestr.x86_64                      0.1.10-3.el8                                @System
+libev.x86_64                        4.24-6.el8                                  @System
+libevent.x86_64                     2.1.8-5.el8                                 @System
+libfastjson.x86_64                  0.99.9-2.el8                                @System
+libfdisk.x86_64                     2.32.1-46.el8                               @System
+libffi.x86_64                       3.1-24.el8                                  @System
+libgcab1.x86_64                     1.1-1.el8                                   @System
+libgcc.x86_64                       8.5.0-22.el8_10                             @System
+libgcrypt.x86_64                    1.8.5-7.el8_6                               @System
+libgomp.x86_64                      8.5.0-22.el8_10                             @System
+libgpg-error.x86_64                 1.31-1.el8                                  @System
+libgudev.x86_64                     232-4.el8                                   @System
+libgusb.x86_64                      0.3.0-1.el8                                 @System
+libibverbs.x86_64                   48.0-1.el8                                  @System
+libidn2.x86_64                      2.2.0-1.el8                                 @System
+libini_config.x86_64                1.3.1-40.el8                                @System
+libkcapi.x86_64                     1.4.0-2.el8                                 @System
+libkcapi-hmaccalc.x86_64            1.4.0-2.el8                                 @System
+libksba.x86_64                      1.3.5-9.el8_7                               @System
+libldb.x86_64                       2.8.0-0.el8                                 @System
+libmaxminddb.x86_64                 1.2.0-10.el8_9.1                            @System
+libmnl.x86_64                       1.0.4-6.el8                                 @System
+libmodman.x86_64                    2.0.1-17.el8                                @System
+libmodulemd.x86_64                  2.13.0-1.el8                                @System
+libmount.x86_64                     2.32.1-46.el8                               @System
+libndp.x86_64                       1.7-7.el8_10.alma.1                         @System
+libnfsidmap.x86_64                  1:2.3.3-59.el8                              @System
+libnghttp2.x86_64                   1.33.0-6.el8_10.1                           @System
+libnl3.x86_64                       3.7.0-1.el8                                 @System
+libnl3-cli.x86_64                   3.7.0-1.el8                                 @System
+libnsl2.x86_64                      1.2.0-2.20180605git4a062cf.el8              @System
+libpath_utils.x86_64                0.2.1-40.el8                                @System
+libpcap.x86_64                      14:1.9.1-5.el8                              @System
+libpipeline.x86_64                  1.5.0-2.el8                                 @System
+libpng.x86_64                       2:1.6.34-5.el8                              @System
+libproxy.x86_64                     0.4.15-5.2.el8                              @System
+libpsl.x86_64                       0.20.2-6.el8                                @System
+libpwquality.x86_64                 1.4.4-6.el8                                 @System
+libref_array.x86_64                 0.1.5-40.el8                                @System
+librepo.x86_64                      1.14.2-5.el8                                @System
+libreport-filesystem.x86_64         2.9.5-15.el8.alma.1                         @System
+libseccomp.x86_64                   2.5.2-1.el8                                 @System
+libsecret.x86_64                    0.18.6-1.el8                                @System
+libselinux.x86_64                   2.9-8.el8                                   @System
+libselinux-utils.x86_64             2.9-8.el8                                   @System
+libsemanage.x86_64                  2.9-9.el8_6                                 @System
+libsepol.x86_64                     2.9-3.el8                                   @System
+libsigsegv.x86_64                   2.11-5.el8                                  @System
+libsmartcols.x86_64                 2.32.1-46.el8                               @System
+libsmbios.x86_64                    2.4.1-2.el8                                 @System
+libsolv.x86_64                      0.7.20-6.el8                                @System
+libsoup.x86_64                      2.62.3-6.el8_10                             @baseos
+libss.x86_64                        1.45.6-5.1.el8.alma.1                       @System
+libssh.x86_64                       0.9.6-14.el8                                @System
+libssh-config.noarch                0.9.6-14.el8                                @System
+libsss_autofs.x86_64                2.9.4-4.el8_10                              @System
+libsss_certmap.x86_64               2.9.4-4.el8_10                              @System
+libsss_idmap.x86_64                 2.9.4-4.el8_10                              @System
+libsss_nss_idmap.x86_64             2.9.4-4.el8_10                              @System
+libsss_sudo.x86_64                  2.9.4-4.el8_10                              @System
+libstdc++.x86_64                    8.5.0-22.el8_10                             @System
+libstemmer.x86_64                   0-10.585svn.el8                             @System
+libsysfs.x86_64                     2.1.0-25.el8                                @System
+libtalloc.x86_64                    2.4.1-0.el8                                 @System
+libtasn1.x86_64                     4.13-4.el8_7                                @System
+libtdb.x86_64                       1.4.9-0.el8                                 @System
+libteam.x86_64                      1.31-4.el8                                  @System
+libtevent.x86_64                    0.16.0-0.el8                                @System
+libtirpc.x86_64                     1.1.4-12.el8_10                             @System
+libudisks2.x86_64                   2.9.0-16.el8                                @System
+libunistring.x86_64                 0.9.9-3.el8                                 @System
+libusbx.x86_64                      1.0.23-4.el8                                @System
+libuser.x86_64                      0.62-25.el8                                 @System
+libutempter.x86_64                  1.1.6-14.el8                                @System
+libuuid.x86_64                      2.32.1-46.el8                               @System
+libverto.x86_64                     0.3.2-2.el8                                 @System
+libverto-libev.x86_64               0.3.2-2.el8                                 @System
+libxcb.x86_64                       1.13.1-1.el8                                @System
+libxcrypt.x86_64                    4.1.1-6.el8                                 @System
+libxkbcommon.x86_64                 0.9.1-1.el8                                 @System
+libxml2.x86_64                      2.9.7-18.el8_10.1                           @System
+libxmlb.x86_64                      0.1.15-1.el8                                @System
+libyaml.x86_64                      0.1.7-5.el8                                 @System
+libzstd.x86_64                      1.4.4-1.el8                                 @System
+linux-firmware.noarch               20241014-125.git06bad2f1.el8_10             @baseos
+lmdb-libs.x86_64                    0.9.24-2.el8                                @System
+logrotate.x86_64                    3.14.0-6.el8                                @System
+lshw.x86_64                         B.02.19.2-6.el8                             @System
+lsscsi.x86_64                       0.32-3.el8                                  @System
+lua-libs.x86_64                     5.3.4-12.el8                                @System
+lz4-libs.x86_64                     1.8.3-3.el8_4                               @System
+lzo.x86_64                          2.08-14.el8                                 @System
+man-db.x86_64                       2.7.6.1-18.el8                              @System
+mdadm.x86_64                        4.2-14.el8_10                               @System
+memstrack.x86_64                    0.2.5-2.el8                                 @System
+microcode_ctl.x86_64                4:20230808-2.20231009.1.el8_9               @System
+mokutil.x86_64                      1:0.3.0-12.el8                              @System
+mozjs60.x86_64                      60.9.0-4.el8                                @System
+mpfr.x86_64                         3.1.6-1.el8                                 @System
+ncurses.x86_64                      6.1-10.20180224.el8                         @System
+ncurses-base.noarch                 6.1-10.20180224.el8                         @System
+ncurses-libs.x86_64                 6.1-10.20180224.el8                         @System
+nettle.x86_64                       3.4.1-7.el8                                 @System
+newt.x86_64                         0.52.20-11.el8                              @System
+nfs-utils.x86_64                    1:2.3.3-59.el8                              @System
+npth.x86_64                         1.5-4.el8                                   @System
+nspr.x86_64                         4.35.0-1.el8_8                              @System
+nss.x86_64                          3.90.0-7.el8_10                             @System
+nss-softokn.x86_64                  3.90.0-7.el8_10                             @System
+nss-softokn-freebl.x86_64           3.90.0-7.el8_10                             @System
+nss-sysinit.x86_64                  3.90.0-7.el8_10                             @System
+nss-util.x86_64                     3.90.0-7.el8_10                             @System
+numactl-libs.x86_64                 2.0.16-4.el8                                @System
+openldap.x86_64                     2.4.46-19.el8_10                            @System
+openssh.x86_64                      8.0p1-25.el8_10                             @System
+openssh-clients.x86_64              8.0p1-25.el8_10                             @System
+openssh-server.x86_64               8.0p1-25.el8_10                             @System
+openssl.x86_64                      1:1.1.1k-14.el8_6                           @baseos
+openssl-libs.x86_64                 1:1.1.1k-14.el8_6                           @baseos
+openssl-pkcs11.x86_64               0.4.10-3.el8                                @System
+os-prober.x86_64                    1.74-9.el8                                  @System
+osc-udev.x86_64                     2.2-1                                       @@commandline
+p11-kit.x86_64                      0.23.22-2.el8                               @System
+p11-kit-trust.x86_64                0.23.22-2.el8                               @System
+pam.x86_64                          1.3.1-34.el8_10                             @System
+parted.x86_64                       3.2-39.el8                                  @System
+passwd.x86_64                       0.80-4.el8                                  @System
+pciutils-libs.x86_64                3.7.0-3.el8                                 @System
+pcre.x86_64                         8.42-6.el8                                  @System
+pcre2.x86_64                        10.32-3.el8_6                               @System
+pigz.x86_64                         2.4-4.el8                                   @System
+pinentry.x86_64                     1.1.0-2.el8                                 @System
+pixman.x86_64                       0.38.4-4.el8                                @System
+platform-python.x86_64              3.6.8-67.el8_10.alma.1                      @baseos
+platform-python-pip.noarch          9.0.3-24.el8                                @System
+platform-python-setuptools.noarch   39.2.0-8.el8_10                             @System
+policycoreutils.x86_64              2.9-26.el8_10                               @System
+policycoreutils-python-utils.noarch 2.9-26.el8_10                               @System
+polkit.x86_64                       0.115-15.el8_10.2                           @System
+polkit-libs.x86_64                  0.115-15.el8_10.2                           @System
+polkit-pkla-compat.x86_64           0.1-12.el8                                  @System
+popt.x86_64                         1.18-1.el8                                  @System
+prefixdevname.x86_64                0.1.0-6.el8                                 @System
+procps-ng.x86_64                    3.3.15-14.el8                               @System
+psmisc.x86_64                       23.1-5.el8                                  @System
+publicsuffix-list-dafsa.noarch      20180723-1.el8                              @System
+python3-audit.x86_64                3.1.2-1.el8                                 @System
+python3-babel.noarch                2.5.1-7.el8                                 @System
+python3-cairo.x86_64                1.16.3-6.el8                                @System
+python3-cffi.x86_64                 1.11.5-6.el8                                @System
+python3-chardet.noarch              3.0.4-7.el8                                 @System
+python3-configobj.noarch            5.0.6-11.el8                                @System
+python3-cryptography.x86_64         3.2.1-7.el8_9                               @System
+python3-dateutil.noarch             1:2.6.1-6.el8                               @System
+python3-dbus.x86_64                 1.2.4-15.el8                                @System
+python3-decorator.noarch            4.2.1-2.el8                                 @System
+python3-dnf.noarch                  4.7.0-20.el8.alma                           @System
+python3-dnf-plugins-core.noarch     4.0.21-25.el8                               @System
+python3-gobject.x86_64              3.28.3-2.el8                                @System
+python3-gobject-base.x86_64         3.28.3-2.el8                                @System
+python3-gpg.x86_64                  1.13.1-12.el8                               @System
+python3-hawkey.x86_64               0.63.0-20.el8_10.alma.1                     @System
+python3-idna.noarch                 2.5-7.el8_10                                @System
+python3-jinja2.noarch               2.10.1-5.el8_10                             @System
+python3-jsonpatch.noarch            1.21-2.el8                                  @System
+python3-jsonpointer.noarch          1.10-11.el8                                 @System
+python3-jsonschema.noarch           2.6.0-4.el8                                 @System
+python3-jwt.noarch                  1.6.1-2.el8                                 @System
+python3-libcomps.x86_64             0.1.18-1.el8                                @System
+python3-libdnf.x86_64               0.63.0-20.el8_10.alma.1                     @System
+python3-libs.x86_64                 3.6.8-67.el8_10.alma.1                      @baseos
+python3-libselinux.x86_64           2.9-8.el8                                   @System
+python3-libsemanage.x86_64          2.9-9.el8_6                                 @System
+python3-libxml2.x86_64              2.9.7-18.el8_10.1                           @System
+python3-linux-procfs.noarch         0.7.3-1.el8                                 @System
+python3-magic.noarch                5.33-26.el8                                 @System
+python3-markupsafe.x86_64           0.23-19.el8                                 @System
+python3-netifaces.x86_64            0.10.6-4.el8                                @System
+python3-oauthlib.noarch             2.1.0-1.el8                                 @System
+python3-perf.x86_64                 4.18.0-553.27.1.el8_10                      @baseos
+python3-pexpect.noarch              4.3.1-3.el8                                 @System
+python3-pip-wheel.noarch            9.0.3-24.el8                                @System
+python3-ply.noarch                  3.9-9.el8                                   @System
+python3-policycoreutils.noarch      2.9-26.el8_10                               @System
+python3-prettytable.noarch          0.7.2-14.el8                                @System
+python3-ptyprocess.noarch           0.5.2-4.el8                                 @System
+python3-pycparser.noarch            2.14-14.el8                                 @System
+python3-pydbus.noarch               0.6.0-5.el8                                 @System
+python3-pyserial.noarch             3.1.1-9.el8                                 @System
+python3-pysocks.noarch              1.6.8-3.el8                                 @System
+python3-pytz.noarch                 2017.2-11.el8                               @System
+python3-pyudev.noarch               0.21.0-7.el8                                @System
+python3-pyyaml.x86_64               3.12-12.el8                                 @System
+python3-requests.noarch             2.20.0-3.el8_8                              @System
+python3-rpm.x86_64                  4.14.3-31.el8                               @System
+python3-setools.x86_64              4.3.0-5.el8                                 @System
+python3-setuptools.noarch           39.2.0-8.el8_10                             @System
+python3-setuptools-wheel.noarch     39.2.0-8.el8_10                             @System
+python3-six.noarch                  1.11.0-8.el8                                @System
+python3-syspurpose.x86_64           1.28.42-1.el8.alma.1                        @System
+python3-systemd.x86_64              234-8.el8                                   @System
+python3-unbound.x86_64              1.16.2-5.el8_9.6                            @System
+python3-urllib3.noarch              1.24.2-8.el8_10                             @System
+qemu-guest-agent.x86_64             15:6.2.0-53.module_el8.10.0+3906+b8f20084.2 @appstream
+quota.x86_64                        1:4.04-14.el8                               @System
+quota-nls.noarch                    1:4.04-14.el8                               @System
+readline.x86_64                     7.0-10.el8                                  @System
+rootfiles.noarch                    8.1-22.el8                                  @System
+rpcbind.x86_64                      1.2.5-10.el8                                @System
+rpm.x86_64                          4.14.3-31.el8                               @System
+rpm-build-libs.x86_64               4.14.3-31.el8                               @System
+rpm-libs.x86_64                     4.14.3-31.el8                               @System
+rpm-plugin-selinux.x86_64           4.14.3-31.el8                               @System
+rpm-plugin-systemd-inhibit.x86_64   4.14.3-31.el8                               @System
+rsync.x86_64                        3.1.3-19.el8_7.1                            @System
+rsyslog.x86_64                      8.2102.0-15.el8                             @System
+sed.x86_64                          4.5-5.el8                                   @System
+selinux-policy.noarch               3.14.3-139.el8_10                           @System
+selinux-policy-targeted.noarch      3.14.3-139.el8_10                           @System
+setroubleshoot-plugins.noarch       3.3.14-1.el8                                @System
+setroubleshoot-server.x86_64        3.3.26-6.el8                                @System
+setup.noarch                        2.12.2-9.el8                                @System
+sg3_utils.x86_64                    1.44-6.el8                                  @System
+sg3_utils-libs.x86_64               1.44-6.el8                                  @System
+shadow-utils.x86_64                 2:4.6-22.el8                                @System
+shared-mime-info.x86_64             1.9-4.el8                                   @System
+shim-x64.x86_64                     15.8-4.el8_9.alma.2                         @System
+slang.x86_64                        2.3.2-3.el8                                 @System
+snappy.x86_64                       1.1.8-3.el8                                 @System
+sos.noarch                          4.7.1-3.el8_10.alma.1                       @System
+sqlite-libs.x86_64                  3.26.0-19.el8_9                             @System
+squashfs-tools.x86_64               4.3-21.el8                                  @System
+sscg.x86_64                         3.0.0-7.el8                                 @System
+sssd-client.x86_64                  2.9.4-4.el8_10                              @System
+sssd-common.x86_64                  2.9.4-4.el8_10                              @System
+sssd-kcm.x86_64                     2.9.4-4.el8_10                              @System
+sssd-nfs-idmap.x86_64               2.9.4-4.el8_10                              @System
+sudo.x86_64                         1.9.5p2-1.el8_9                             @System
+systemd.x86_64                      239-82.el8_10.1                             @System
+systemd-libs.x86_64                 239-82.el8_10.1                             @System
+systemd-pam.x86_64                  239-82.el8_10.1                             @System
+systemd-udev.x86_64                 239-82.el8_10.1                             @System
+tar.x86_64                          2:1.30-9.el8                                @System
+tcpdump.x86_64                      14:4.9.3-5.el8                              @System
+teamd.x86_64                        1.31-4.el8                                  @System
+timedatex.x86_64                    0.5-3.el8                                   @System
+tpm2-tss.x86_64                     2.3.2-6.el8                                 @System
+trousers.x86_64                     0.3.15-2.el8                                @System
+trousers-lib.x86_64                 0.3.15-2.el8                                @System
+tuned.noarch                        2.22.1-4.el8_10.1                           @System
+tzdata.noarch                       2024a-1.el8                                 @System
+udisks2.x86_64                      2.9.0-16.el8                                @System
+unbound-libs.x86_64                 1.16.2-5.el8_9.6                            @System
+util-linux.x86_64                   2.32.1-46.el8                               @System
+vim-minimal.x86_64                  2:8.0.1763-19.el8_6.4                       @System
+virt-what.x86_64                    1.25-4.el8                                  @System
+volume_key-libs.x86_64              0.3.11-6.el8                                @System
+which.x86_64                        2.21-20.el8                                 @System
+xfsprogs.x86_64                     5.0.0-12.el8                                @System
+xkeyboard-config.noarch             2.28-1.el8                                  @System
+xz.x86_64                           5.2.4-4.el8_6                               @System
+xz-libs.x86_64                      5.2.4-4.el8_6                               @System
+yum.noarch                          4.7.0-20.el8.alma                           @System
+yum-utils.noarch                    4.0.21-25.el8                               @System
+zlib.x86_64                         1.2.11-25.el8                               @System</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-OMI.html" class="xref page">À propos des OMI</a></p>
+</li>
+<li>
+<p><a href="Référence-des-OMI-officielles.html" class="xref page">Référence des OMI officielles</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

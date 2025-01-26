@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Support technique – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Support-technique.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Support-technique.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Technical-Support.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Support technique</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Le Support technique de 3DS OUTSCALE est disponible pour vous accompagner au quotidien et répondre à vos questions.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_heures_de_service"><a class="anchor" href="Support-technique.html#_heures_de_service"></a>Heures de service</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>3DS OUTSCALE fournit un support client 24h/24 et 7 jours/7, avec un monitoring de niveau 1 et possible escalade vers les niveaux 2 et 3.</p>
+</div>
+<div class="paragraph">
+<p>Les tickets de support sont traités uniquement durant les jours ouvrés entre 8h et 20h.</p>
+</div>
+<div class="paragraph">
+<p>Le Service Level Agreement (SLA) de notre support est décrit à l&#8217;annexe A SLA10 de nos <a href="https://fr.outscale.com/cgucgv/" target="_blank" rel="noopener">Conditions générales de ventes et d&#8217;utilisation</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_demandes_de_support"><a class="anchor" href="Support-technique.html#_demandes_de_support"></a>Demandes de support</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez soumettre une demande de support par différents moyens, en français ou en anglais :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Web : <a href="https://support.outscale.com" target="_blank" rel="noopener">https://support.outscale.com</a></p>
+</li>
+<li>
+<p>E-mail : <a href="mailto:support@outscale.com">support@outscale.com</a></p>
+</li>
+<li>
+<p>Téléphone : 0826 206 307 depuis la France, +33 1 53 27 52 70 autre part</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour ouvrir un ticket via le Web ou par e-mail, vous devez d&#8217;abord <a href="https://support.outscale.com/hc/fr-fr/signin" target="_blank" rel="noopener">créer un compte Zendesk</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Une fois que vous recevez un numéro de ticket, utilisez ce numéro dans tous vos échanges avec le support.</p>
+</div>
+<div class="paragraph">
+<p>Ouvrez un ticket par problème plutôt qu&#8217;un ticket combinant plusieurs problèmes.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Lorsque vous ouvrez un nouveau ticket de support, vous devez fournir les informations suivantes :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>La <strong>Région</strong> (par exemple, eu-west-2)</p>
+</li>
+<li>
+<p>L'<strong>ID du compte</strong> ou l&#8217;e-mail du compte</p>
+</li>
+<li>
+<p>Le <strong>timestamp</strong> de l&#8217;incident (en UTC de préférence)</p>
+</li>
+<li>
+<p>Le cas échéant, les <strong>ID</strong> des ressources concernées, les outils utilisés et leurs versions, etc.</p>
+</li>
+<li>
+<p>En plus, pour un problème de réseau :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>L'<strong>IP source</strong></p>
+</li>
+<li>
+<p>L'<strong>IP de destination</strong></p>
+</li>
+<li>
+<p>Le résultat de cette commande (lancée depuis la machine source) :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ mtr -c 100 from IP_DESTINATION</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>En plus, pour un problème d&#8217;IOPS :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>L'<strong>ID du volume</strong></p>
+</li>
+<li>
+<p>L'<strong>ID de la machine virtuelle (VM)</strong></p>
+</li>
+<li>
+<p>Le résultat de cette commande (lancée depuis la machine source) :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ fio --name fio_test_file --direct=1 --rw=randwrite --bs=16k --size=1G --numjobs=16 --time_based --runtime=180 --group_reporting --norandommap</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_projets_open_source"><a class="anchor" href="Support-technique.html#_projets_open_source"></a>Projets open source</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Pour les projets open source OUTSCALE indiqués comme <span class="image"><img src="_images/Project-Graduated-green.svg" alt="Graduated"></span>, vous pouvez créer des tickets directement sur GitHub. Ces projets incluent, entre autres :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Terraform : <a href="https://github.com/outscale-dev/terraform-provider-outscale" target="_blank" rel="noopener">terraform-provider-outscale</a></p>
+</li>
+<li>
+<p>Packer : <a href="https://github.com/outscale/omi-packer" target="_blank" rel="noopener">omi-packer</a>, <a href="https://github.com/outscale/packer-plugin-outscale" target="_blank" rel="noopener">packer-plugin-outscale</a></p>
+</li>
+<li>
+<p>Block Storage Unit (BSU) CSI driver : <a href="https://github.com/outscale-dev/osc-bsu-csi-driver" target="_blank" rel="noopener">osc-bsu-csi-driver</a></p>
+</li>
+<li>
+<p>Cloud Controller Manager (CCM) : <a href="https://github.com/outscale-dev/cloud-provider-osc" target="_blank" rel="noopener">cloud-provider-osc</a></p>
+</li>
+<li>
+<p>SDK pour Go : <a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">osc-sdk-go</a></p>
+</li>
+<li>
+<p>SDK pour Python : <a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">osc-sdk-python</a></p>
+</li>
+<li>
+<p>SDK pour JavaScript : <a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">osc-sdk-js</a></p>
+</li>
+<li>
+<p>Curl : <a href="https://github.com/outscale-dev/curl" target="_blank" rel="noopener">curl</a></p>
+</li>
+<li>
+<p>OSC CLI : <a href="https://github.com/outscale/osc-cli" target="_blank" rel="noopener">osc-cli</a></p>
+</li>
+<li>
+<p>Kubernetes Cluster API : <a href="https://github.com/outscale-dev/cluster-api-provider-outscale" target="_blank" rel="noopener">cluster-api-provider-outscale</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus, voir <a href="Projets-open-source.html" class="xref page">Projets open source</a>.</p>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

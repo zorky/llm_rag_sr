@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Mécanismes de résilience d&#8217;OOS – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Mécanismes-de-résilience-d-OOS.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Mécanismes-de-résilience-d-OOS.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/OOS-Resilience-Mechanisms.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Mécanismes de résilience d&#8217;OOS</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>La solution OUTSCALE Object Storage (OOS) est basée sur deux technologies :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Le codage d&#8217;effacement (ou Erasure Coding) : pour les plus grands volumes de données afin d&#8217;économiser de l&#8217;espace et améliorer la protection,</p>
+</li>
+<li>
+<p>La réplication : pour les plus petits volumes de données afin de les récupérer rapidement et minimiser les pertes.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Cette combinaison optimale garantit que chaque donnée est stockée de la manière la plus efficace possible, en fonction de sa taille.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_quest_ce_que_le_codage_deffacement"><a class="anchor" href="Mécanismes-de-résilience-d-OOS.html#_quest_ce_que_le_codage_deffacement"></a>Qu&#8217;est-ce que le codage d&#8217;effacement ?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Le codage d&#8217;effacement est une méthode de protection des données consistant à améliorer la tolérance aux failles et à optimiser l&#8217;efficacité du stockage.</p>
+</div>
+<div class="paragraph">
+<p>Elle consiste à diviser les données d&#8217;origine en plusieurs blocs et à ajouter des blocs de parité (données redondantes codées). De cette manière, les données peuvent être facilement reconstruites même si plusieurs parties sont perdues ou corrompues en cas de défaillance de l&#8217;environnement.</p>
+</div>
+<div class="paragraph">
+<p>Le codage d&#8217;effacement permet également de récupérer des données à partir d&#8217;un sous-ensemble des fragments d&#8217;origine, puisque les données sont réparties entre différents emplacements, serveurs et lecteurs au sein d&#8217;une même Région. Le codage d&#8217;effacement est donc particulièrement résistant aux défaillances simultanées.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ce_que_le_codage_deffacement_fait_à_votre_objet"><a class="anchor" href="Mécanismes-de-résilience-d-OOS.html#_ce_que_le_codage_deffacement_fait_à_votre_objet"></a>Ce que le codage d&#8217;effacement fait à votre objet</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<div class="title">Division de l&#8217;objet</div>
+<p><span class="image"><img src="_images/FR-sch-OOS-ErasureCoding1.png" alt="FR sch OOS ErasureCoding1"></span></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Divise l&#8217;objet en plusieurs blocs de données.</p>
+</li>
+<li>
+<p>Encode des données supplémentaires pour assurer sa redondance et son intégrité.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Dans cet exemple, le fait d&#8217;avoir deux blocs de données et deux blocs de parité permet de perdre au maximum deux blocs sur les quatre au total.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_comment_les_blocs_peuvent_être_distribués_parmi_les_availability_zones_az"><a class="anchor" href="Mécanismes-de-résilience-d-OOS.html#_comment_les_blocs_peuvent_être_distribués_parmi_les_availability_zones_az"></a>Comment les blocs peuvent être distribués parmi les <span class="tooltip" data-tooltip="Sous-région dans l'API OUTSCALE">Availability Zones (AZ)</span></h3>
+<div class="paragraph">
+<div class="title">Distribution possible des blocs</div>
+<p><span class="image"><img src="_images/FR-sch-OOS-ErasureCoding2.png" alt="FR sch OOS ErasureCoding2"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_que_se_passe_t_il_en_cas_de_défaillance_dune_az"><a class="anchor" href="Mécanismes-de-résilience-d-OOS.html#_que_se_passe_t_il_en_cas_de_défaillance_dune_az"></a>Que se passe-t-il en cas de défaillance d&#8217;une AZ ?</h3>
+<div class="paragraph">
+<div class="title">Scénario possible : La perte d&#8217;une AZ</div>
+<p><span class="image"><img src="_images/FR-sch-OOS-ErasureCoding3.png" alt="FR sch OOS ErasureCoding3"></span></p>
+</div>
+<div class="paragraph">
+<p>Dans cet exemple, l&#8217;intégrité de l&#8217;objet est maintenue même en cas de perte de deux blocs (ou d&#8217;une AZ entière), car deux blocs suffisent à restaurer l&#8217;objet. Cette opération est réalisée par à une opération binaire : dans ce scénario, le <code>bloc 2</code> est créé à partir du <code>bloc 1</code> et du <code>bloc de parité 1</code>.</p>
+</div>
+<div class="paragraph">
+<div class="title">Opération binaire</div>
+<p><span class="image"><img src="_images/FR-sch-OOS-ErasureCoding4.png" alt="FR sch OOS ErasureCoding4"></span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_quest_ce_que_la_réplication"><a class="anchor" href="Mécanismes-de-résilience-d-OOS.html#_quest_ce_que_la_réplication"></a>Qu&#8217;est-ce que la réplication ?</h2>
+<div class="sectionbody">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Attention"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Le processus décrit ci-dessous concerne les mécanismes internes de sécurité et de résilience des données sur OOS, qui relèvent de la responsabilité de OUTSCALE. Il ne concerne pas la fonction de réplication de buckets de plus haut niveau fournie par S3, qui n&#8217;est pas encore prise en charge de notre côté.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>La réplication est un processus utilisé pour améliorer la disponibilité et la durabilité des données dans différentes <span class="tooltip" data-tooltip="Sous-région dans l'API OUTSCALE">AZ</span>. L&#8217;erasure coding étant fiable pour les objets de grande taille, la réplication est un processus utilisé pour améliorer la disponibilité et la durabilité des données dans différentes AZ pour les petits objets.</p>
+</div>
+<div class="paragraph">
+<p>Elle consiste à créer plusieurs copies des données, appelées répliques, et à les répartir sur des emplacements physiques distincts en fonction d&#8217;un facteur de réplication.</p>
+</div>
+<div class="paragraph">
+<p>Par exemple, si l&#8217;on utilise un facteur de réplication de trois, trois copies supplémentaires d&#8217;une donnée sont créées, ce qui donne un total de quatre copies.
+Ces deux copies sont alors stockées dans une première AZ, et les deux autres dans une seconde AZ.
+Cette répartition permet une meilleure tolérance aux failles en permettant la restauration des données, même si une zone entière est défaillante.</p>
+</div>
+<div class="paragraph">
+<p>La réplication sur plusieurs zones garantit donc une forte résilience des données, ce qui est idéal pour les environnements critiques où l&#8217;accessibilité continue des données est cruciale.</p>
+</div>
+<div class="sect2">
+<h3 id="_comment_les_répliques_sont_distribuées_parmi_les_availability_zones_az"><a class="anchor" href="Mécanismes-de-résilience-d-OOS.html#_comment_les_répliques_sont_distribuées_parmi_les_availability_zones_az"></a>Comment les répliques sont distribuées parmi les Availability Zones (AZ)</h3>
+<div class="paragraph">
+<div class="title">Réplication d&#8217;objets</div>
+<p><span class="image"><img src="_images/FR-sch-OOS-Replication.png" alt="FR sch OOS Replication"></span></p>
+</div>
+<div class="paragraph">
+<p><strong>Page connexe</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-Régions-et-Sous-régions.html" class="xref page">À propos des Régions et Sous-régions</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

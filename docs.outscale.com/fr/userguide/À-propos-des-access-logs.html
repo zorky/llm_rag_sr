@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>À propos des access logs – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="À-propos-des-access-logs.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/À-propos-des-access-logs.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/About-Access-Logs.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">À propos des access logs</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Les access logs (journaux d&#8217;accès) fournissent des informations détaillées sur les requêtes envoyées à vos load balancers.</p>
+</div>
+<div class="paragraph">
+<p>Par défaut, les access logs sont désactivés. Vous pouvez les activer ou désactiver à tout moment. Pour en savoir plus, voir <a href="Modifier-les-attributs-d-un-load-balancer.html" class="xref page">Activer ou désactiver les access logs pour vos load balancers</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_informations_générales"><a class="anchor" href="À-propos-des-access-logs.html#_informations_générales"></a>Informations générales</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Les access logs sont publiés dans des fichiers logs dans un bucket OUTSCALE Object Storage (OOS). Pour activer les access logs, vous devez spécifier le nom du bucket OOS dans lequel le load balancer peut les publier. Pour en savoir plus, voir <a href="À-propos-d-OOS.html" class="xref page">À propos d&#8217;OOS</a>, <a href="Activer-les-access-logs.html" class="xref page">Activer les access logs</a> et <a href="Modifier-les-attributs-d-un-load-balancer.html" class="xref page">Modifier les attributs d&#8217;un load balancer</a>.</p>
+</div>
+<div class="paragraph">
+<p>Le load balancer et le bucket OOS doivent être situés dans la même Région, mais peuvent appartenir à des comptes différents. Dans ce cas, vous devez accorder au load balancer les droits d&#8217;accès au bucket OOS. Pour en savoir plus, voir <a href="Configurer-l-ACL-d-un-bucket.html" class="xref page">Configurer l&#8217;ACL d&#8217;un bucket</a>.</p>
+</div>
+<div class="paragraph">
+<p>Après la désactivation des access logs, les fichiers logs existants restent dans le bucket OOS jusqu&#8217;à ce que vous les supprimiez. Pour en savoir plus, voir <a href="Supprimer-les-objets-d-un-bucket.html" class="xref page">Supprimer les objets d&#8217;un bucket</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_fichiers_logs"><a class="anchor" href="À-propos-des-access-logs.html#_fichiers_logs"></a>Fichiers logs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Le load balancer publie un fichier log dans le bucket OOS toutes les 5 ou 60 minutes (par défaut, 60 minutes). Vous pouvez modifier cet intervalle à tout moment. Pour en savoir plus, voir <a href="Modifier-les-attributs-d-un-load-balancer.html" class="xref page">Activer ou désactiver les access logs pour vos load balancers</a>.</p>
+</div>
+<div class="paragraph">
+<p>Les fichiers logs sont automatiquement nommés selon le format suivant :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">bucket[/prefix]/OWSLogs/account-id/lbu/region/yyyy/mm/dd/account-id_lbu_region_load-balancer-name_end-time_ip-address_random-string.log</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ce format se compose des éléments suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>bucket</code> : Le nom du bucket OOS dans lequel les access logs sont publiés.</p>
+</li>
+<li>
+<p><code>prefix</code> : Le chemin d&#8217;accès du répertoire dans le bucket OOS pour les access logs. Si aucun chemin d&#8217;accès n&#8217;est spécifié, ils sont publiés au niveau <code>root</code> du bucket.</p>
+</li>
+<li>
+<p><code>account-id</code> : L&#8217;ID du compte du propriétaire du load balancer.</p>
+</li>
+<li>
+<p><code>region</code> : La Région dans laquelle le load balancer et le bucket OOS sont situés.</p>
+</li>
+<li>
+<p><code>yyyy/mm/dd</code> : La date de publication du fichier log.</p>
+</li>
+<li>
+<p><code>load-balancer-name</code> : Le nom du load balancer qui a publié le fichier log.</p>
+</li>
+<li>
+<p><code>end-time</code> : La date et l&#8217;heure de fin de l&#8217;intervalle de publication. Par exemple, un fichier log daté 20170210T1940Z contient les access logs entre 19:35 et 19:40 si l&#8217;intervalle est de 5 minutes.</p>
+</li>
+<li>
+<p><code>ip-address</code> : L&#8217;IP du load balancer qui a traité la requête. Pour un load balancer interne, son IP privée.</p>
+</li>
+<li>
+<p><code>random-string</code> : Une chaîne de caractères aléatoire générée par le système.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_entrées_logs"><a class="anchor" href="À-propos-des-access-logs.html#_entrées_logs"></a>Entrées logs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Dans un fichier log, chaque entrée log correspond à une seule requête envoyée au load balancer. Ceci inclut également les requêtes qui n&#8217;ont jamais atteint de <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machine virtuelle (VM)</span> backend, telles que les requêtes mal formées ou les requêtes auxquelles aucune VM saine ne peut répondre.</p>
+</div>
+<div class="paragraph">
+<p>Les entrées logs utilisent le format suivant :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Pour les protocoles HTTP et HTTPS</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">timelog lbu user:port backend:port total_time/request_time/wait_time/connection_time/server_response_time lbu_state_code request_size response_size "request" "user_agent" ssl_cipher ssl_protocol</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Pour les protocoles TCP et SSL</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">timelog lbu user:port backend:port total_time/wait_time/connection_time lbu_state_code request_size response_size "request" "user_agent" ssl_cipher ssl_protocol</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Les champs des entrées logs dépendent du protocole de routage du listener (HTTP, HTTPS, TCP, SSL). Ils sont séparés par un espace, excepté les champs de durée qui sont séparés par une barre oblique. Pour en savoir plus, voir <a href="À-propos-des-load-balancers.html" class="xref page">À propos des load balancers</a>.</p>
+</div>
+<div class="paragraph">
+<p>Les champs suivants sont disponibles :</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>timelog</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">La date et l&#8217;heure à laquelle le load balancer a reçu la requête de l&#8217;utilisateur (par exemple 20170210T1940Z).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lbu</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Le nom du load balancer qui a reçu la requête de l&#8217;utilisateur.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>user:port</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L&#8217;IP et le port utilisés par l&#8217;utilisateur pour se connecter au load balancer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">`backend:port `</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>L&#8217;IP et le port de la VM backend qui a traité la requête.</p>
+</div>
+<div class="paragraph">
+<p>Cette valeur peut être :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>&#8220;–&#8221; si l&#8217;utilisateur a envoyé une requête incomplète, que le load balancer ne peut donc distribuer à aucune VM backend.</p>
+</li>
+<li>
+<p>&#8220;-1&#8221; si la VM backend ne répond pas avant le délai d&#8217;expiration.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>total_time</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>La durée totale de traitement de la requête par le load balancer.</p>
+</div>
+<div class="paragraph">
+<p>Cette durée correspond au temps écoulé entre :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Le moment où l&#8217;utilisateur envoie la requête au load balancer</p>
+</li>
+<li>
+<p>Le moment où le load balancer renvoie la réponse à l&#8217;utilisateur.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>request_time</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>(Listeners HTTP uniquement)</em> La durée totale de réception de la requête de l&#8217;utilisateur par le load balancer.</p>
+</div>
+<div class="paragraph">
+<p>Cette durée correspond au temps écoulé entre :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Le moment où le load balancer accepte la connexion de l&#8217;utilisateur</p>
+</li>
+<li>
+<p>Le moment où le load balancer reçoit la dernière en-tête HTTP de réponse.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>La valeur &#8220;-1&#8221; signifie que le load balancer n&#8217;a jamais reçu la ligne vide indiquant la fin des en-têtes, par exemple lorsque l&#8217;utilisateur est déconnecté prématurément.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>wait_time</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>La durée totale d&#8217;attribution d&#8217;un créneau de connexion à la requête.</p>
+</div>
+<div class="paragraph">
+<p>Cette durée inclut l&#8217;attente au serveur et à la VM backend. Elle dépend de la taille de la file d&#8217;attente, et du temps nécessaire aux serveur pour traiter les requêtes précédentes.</p>
+</div>
+<div class="paragraph">
+<p>La valeur &#8220;-1&#8221; signifie que la requête a été annulée avant d&#8217;atteindre la file d&#8217;attente, par exemple lorsqu&#8217;elle est invalide ou refusée.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>connection_time</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>La durée totale d&#8217;établissement de la connexion TCP à la VM backend par le load balancer.</p>
+</div>
+<div class="paragraph">
+<p>Cette durée correspond au temps écoulé entre :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Le moment où le load balancer envoie la requête de connexion, ou le paquet TCP SYN</p>
+</li>
+<li>
+<p>Le moment où la VM backend accepte la requête de connexion, ou renvoie le paquet SYN/ACK.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>La valeur &#8220;-1&#8221; signifie que la connexion n&#8217;a jamais été établie.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>server_response_time</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>(Listeners HTTP uniquement)</em> La durée totale de réponse par la VM backend.</p>
+</div>
+<div class="paragraph">
+<p>Cette durée correspond au temps écoulé entre :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Le moment où le load balancer établit une connexion TCP avec la VM backend</p>
+</li>
+<li>
+<p>Le moment où la VM backend renvoie ses en-têtes de réponse complètes.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>La valeur &#8220;-1&#8221; signifie que le load balancer n&#8217;a jamais reçu la ligne vide indiquant la fin des en-têtes, par exemple lorsque la VM backend est déconnectée avant la fin du traitement de la requête.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lbu_state_code</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>(Listeners HTTP uniquement)</em> Le code HTTP de la réponse du load balancer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>request_size</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>La taille de la requête reçue de l&#8217;utilisateur, en octets.</p>
+</div>
+<div class="paragraph">
+<p>Cette valeur inclut :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>(Listeners HTTP/HTTPS)</em> Le corps de la requête sans les en-têtes.</p>
+</li>
+<li>
+<p><em>(Listeners TCP/SSL)</em> Le corps de la requête avec les en-têtes.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>response_size</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>La taille de la réponse renvoyée à l&#8217;utilisateur, en octets.</p>
+</div>
+<div class="paragraph">
+<p>Cette valeur inclut :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>(Listeners HTTP/HTTPS)</em> Le corps de la requête sans les en-têtes.</p>
+</li>
+<li>
+<p><em>(Listeners TCP/SSL)</em> Le corps de la requête avec les en-têtes.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>request</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>La requête de l&#8217;utilisateur, entre guillemets et au format suivant :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">Méthode HTTP + Protocole://Host en-tête:port + chemin d'accès + version HTTP</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>(Listeners TCP)</em> L&#8217;URL est remplacée par trois tirets séparés par un espace, et suivis d&#8217;un espace (- - - ).</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>user_agent</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>(Listeners HTTP/HTTPS uniquement)</em> Une chaîne de caractères qui identifie l&#8217;utilisateur, entre guillemets.</p>
+</div>
+<div class="paragraph">
+<p>Cette chaîne contient un ou plusieurs identifiants produit, au format suivant : <code>produit[/version]</code>.</p>
+</div>
+<div class="paragraph">
+<p>Au-delà de 8 Kio, la chaîne est tronquée.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ssl_cipher</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>(Listeners HTTPS/SSL uniquement)</em> Le chiffrement SSL.</p>
+</div>
+<div class="paragraph">
+<p>Ce champ apparaît uniquement si la connexion SSL/TLS entrante a été établie après une negotiation réussie. Sinon, sa valeur est &#8220;-&#8221;.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ssl_protocol</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>(Listeners HTTPS/SSL uniquement)</em> Le protocole SSL.</p>
+</div>
+<div class="paragraph">
+<p>Ce champ apparaît uniquement si la connexion SSL/TLS entrante a été établie après une negotiation réussie. Sinon, sa valeur est &#8220;-&#8221;.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-load-balancers.html" class="xref page">À propos des load balancers</a></p>
+</li>
+<li>
+<p><a href="À-propos-d-OOS.html" class="xref page">À propos d&#8217;OOS</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-vos-access-logs.html" class="xref page">Obtenir des informations sur vos access logs</a></p>
+</li>
+<li>
+<p><a href="Modifier-les-attributs-d-un-load-balancer.html" class="xref page">Modifier les attributs d&#8217;un load balancer</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

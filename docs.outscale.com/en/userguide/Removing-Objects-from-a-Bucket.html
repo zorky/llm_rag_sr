@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Removing Objects from a Bucket – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="Removing-Objects-from-a-Bucket.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/Removing-Objects-from-a-Bucket.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Supprimer-les-objets-d-un-bucket.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Removing Objects from a Bucket</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can remove one or more objects you uploaded or copied into a bucket.</p>
+</div>
+<div class="paragraph">
+<p>You cannot remove an object if you do not have the <code>write</code> or <code>full-control</code> permission for the bucket that contains the object. For more information, see <a href="Access-Control-List-ACL-Reference.html" class="xref page">Access Control List (ACL) Reference</a>.</p>
+</div>
+<div class="paragraph">
+<p>If you enabled versioning on your bucket, you need to specify the <code>version-id</code> of the version you want to remove. To completely remove an object, you need to remove all its versions from the bucket. For more information, see <a href="Listing-the-Versions-of-an-Object.html" class="xref page">Listing the Versions of an Object</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI (s3api)_0"><a class="anchor" href="Removing-Objects-from-a-Bucket.html#AWS CLI (s3api)_0"></a>Removing Objects from a Bucket Using AWS CLI (s3api)</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Before you begin:</strong> Install and configure AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="_removing_an_object_from_a_bucket"><a class="anchor" href="Removing-Objects-from-a-Bucket.html#_removing_an_object_from_a_bucket"></a>Removing an Object from a Bucket</h3>
+<div class="paragraph">
+<p>To remove an object from a bucket, use the <strong>delete-object</strong> command following this syntax:</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws s3api delete-object \
+    --profile YOUR_PROFILE \
+    --debug \
+    --bucket BUCKET \
+    --key OBJECT \
+    --version-id qAfAAsAAuA00kclkg0A0AAuAAjaAtA. \
+    --endpoint https://oos.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optional) <code>profile</code>: The named profile you want to use, created when configuring AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>bucket</code>: The name of the bucket from which you want to remove an object.</p>
+</li>
+<li>
+<p>(optional) <code>debug</code>: When included, returns the detailed log of the operation. This is useful to analyze and troubleshoot issues you may be encountering.</p>
+</li>
+<li>
+<p><code>key</code>: The name of the object in the bucket.</p>
+</li>
+<li>
+<p>(optional) <code>version-id</code>: If you enabled bucket versioning at least once, even if it is now disabled, the ID of the version of the object you want to remove.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If the <code>version-id</code> starts with a hyphen (-), you need to specify the attribute following this syntax:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">--version-id=-qAfAAsAAuA00kclkg0A0AAuAAjaAtA.</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><code>endpoint</code>: The endpoint corresponding to the Region you want to send the request to. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If you have never enabled versioning in this bucket, the <strong>delete-object</strong> command does not return any element.</p>
+</div>
+<div class="paragraph">
+<p>If you have ever enabled versioning in this bucket, even if you disabled it later, the <strong>delete-object</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VersionId</code>: The version ID of the object you removed.</p>
+</li>
+<li>
+<p><code>DeleteMarker</code>: If you removed an object without specifying its version ID, the creation of a delete marker (always <code>true</code>). For more information, see <a href="About-Delete-Markers.html" class="xref page">About Delete Markers</a>.</p>
+<div class="listingblock">
+<div class="title">Result Sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "VersionId": "IlkGwkYgCoITL6SNC5lpj2um8vNnDqD",
+    "DeleteMarker": true
+}</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_removing_several_objects_from_a_bucket"><a class="anchor" href="Removing-Objects-from-a-Bucket.html#_removing_several_objects_from_a_bucket"></a>Removing Several Objects from a Bucket</h3>
+<div class="paragraph">
+<p>To remove several objects from a bucket, use the <strong>delete-objects</strong> command following this syntax:</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws s3api delete-objects \
+    --profile YOUR_PROFILE \
+    --bucket BUCKET \
+    --delete '{"Objects": [{"Key": "OBJECT_1"}, {"Key": "OBJECT_2", "VersionId": "B1WsEK0saANNAKcOAJj0aIA00RozTpzr"}], "Quiet": false}' \
+    --endpoint https://oos.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optional) <code>profile</code>: The named profile you want to use, created when configuring AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>bucket</code>: The name of the bucket from which you want to remove objects.</p>
+</li>
+<li>
+<p><code>delete</code>: Information about the objects you want to remove. This element contains the following attributes you need to specify:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Objects</code>: The list of objects you want to remove.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The names of the objects in the bucket.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can specify up to 1000 keys.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optional) <code>VersionId</code>: If the bucket versioning was enabled, even if it is now disabled, the version IDs of the objects you want to remove.</p>
+</li>
+<li>
+<p>(optional) <code>quiet</code>: If <code>true</code>, returns only the keys of objects that could not be deleted.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>endpoint</code>: The endpoint corresponding to the Region you want to send the request to. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If you have never enabled versioning in this bucket, the <strong>delete-objects</strong> command returns the following element:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The names of the objects you removed.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result Sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "Deleted": [
+        {
+            "Key": "OBJECT_1"
+        },
+        {
+            "Key": "OBJECT_2"
+        }
+    ]
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you enabled bucket versioning at least once, even if you disabled it later, the <strong>delete-objects</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Deleted</code>: Information about the objects you removed. This element contains the following information:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The names of the objects you removed.</p>
+</li>
+<li>
+<p><code>DeleteMarker</code>: If you removed objects without specifying their version ID, the creation of delete markers (always <code>true</code>).For more information, see <a href="About-Delete-Markers.html" class="xref page">About Delete Markers</a>.</p>
+</li>
+<li>
+<p><code>DeleteMarkerVersionId</code>: If the bucket versioning is enabled, the version IDs of the delete markers.</p>
+</li>
+<li>
+<p><code>VersionID</code>: If you specified the version IDs of objects, the version IDs of the objects you removed.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result Sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "Deleted": [
+        {
+            "Key": "OBJECT_1",
+            "DeleteMarker": true,
+            "DeleteMarkerVersionId": "yCYmn.BwXmCViMvaCBrUz-eGUKwJK4r"
+        },
+        {
+            "Key": "OBJECT_2",
+            "VersionId": "B1WsEK0saANNAKcOAJj0aIA00RozTpzr"
+        }
+    ]
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI (s3)_1"><a class="anchor" href="Removing-Objects-from-a-Bucket.html#AWS CLI (s3)_1"></a>Removing Objects from a Bucket Using AWS CLI (s3)</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Before you begin:</strong> Install and configure AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>To remove several objects from a bucket, use the <strong>rm</strong> command following this syntax:</p>
+</div>
+<div class="listingblock">
+<div class="title">Request Sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws s3 rm s3://YOUR_BUCKET/YOUR_OBJECT \
+    --profile YOUR_PROFILE \
+    --dryrun \
+    --endpoint https://oos.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>s3://YOUR_BUCKET/YOUR_OBJECT</code>: The path to the object you want to remove from the bucket.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can specify the version ID of an object following this syntax: <code>s3://YOUR_BUCKET/YOUR_OBJECT?versionID=&lt;YOUR_VERSION_ID&gt;</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optional) <code>profile</code>: The named profile you want to use, created when configuring AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+<li>
+<p>(optional) <code>dryrun</code>: Provides an overview of the operations performed by the command without actually running it. This is used as a safety measure to review the impact of a command before executing it.</p>
+</li>
+<li>
+<p><code>endpoint</code>: The endpoint corresponding to the Region you want to send the request to. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="s3cmd_2"><a class="anchor" href="Removing-Objects-from-a-Bucket.html#s3cmd_2"></a>Removing Objects from a Bucket Using s3cmd</h2>
+<div class="sectionbody">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can manage your object storage resources using s3cmd commands. For more information, see <a href="s3cmd.html" class="xref page">s3cmd</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Uploading-an-Object-to-a-Bucket.html" class="xref page">Uploading an Object to a Bucket</a></p>
+</li>
+<li>
+<p><a href="Listing-the-Objects-of-a-Bucket.html" class="xref page">Listing the Objects of a Bucket</a></p>
+</li>
+<li>
+<p><a href="Listing-the-Versions-of-an-Object.html" class="xref page">Listing the Versions of an Object</a></p>
+</li>
+<li>
+<p><a href="Enabling-or-Disabling-Bucket-Versioning.html" class="xref page">Enabling or Disabling Bucket Versioning</a></p>
+</li>
+<li>
+<p><a href="About-Delete-Markers.html" class="xref page">About Delete Markers</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ and Amazon Web Services™ are trademarks of Amazon Technologies, Inc or its affiliates in the United States and/or other countries.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

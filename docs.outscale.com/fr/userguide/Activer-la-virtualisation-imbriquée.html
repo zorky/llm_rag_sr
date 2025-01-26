@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Activer la virtualisation imbriquée – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Activer-la-virtualisation-imbriquée.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Activer-la-virtualisation-imbriquée.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Enabling-Nested-Virtualization.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Activer la virtualisation imbriquée</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>En activant la virtualisation imbriquée, vous pouvez démarrer des <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machines virtuelles (VM)</span> au sein d&#8217;autres VM.
+Cette option est disponible uniquement pour les VM créées dans un groupe dédié. Pour en savoir plus, voir <a href="À-propos-des-groupes-dédiés.html" class="xref page">À propos des groupes dédiés</a>.</p>
+</div>
+<div class="paragraph">
+<p>Ce guide technique explique comment activer et utiliser la virtualisation imbriquée sur Rocky Linux et Windows Server 2019.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Dans cette procédure d&#8217;exemple, l&#8217;image utilisée pour la VM imbriquée est basée sur un live CD. Le système d&#8217;exploitation sera directement chargé sur la mémoire de l&#8217;ordinateur.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Linux_0"><a class="anchor" href="Activer-la-virtualisation-imbriquée.html#Linux_0"></a>Activer la virtualisation imbriquée sur Linux</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Créez une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> dédiée, en utilisant par exemple les paramètres suivants :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api CreateVms \
+    --profile "default" \
+    --VmType "tinav4.c16r32p2" \
+    --ImageId "ami-e58ac287" \
+    --KeypairName "MyKeyPair" \
+    --NestedVirtualization True \
+    --Placement '{"Tenancy": "dedicated"}'
+    --BlockDeviceMappings '[
+      {
+        "Bsu": {"VolumeSize": 50}, "DeviceName": "/dev/sda1"
+      }
+    ]'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>profile</code> : Le profil nommé que vous voulez utiliser, créé pendant la configuration d&#8217;OSC CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-OSC-CLI.html" class="xref page">Installer et configurer OSC CLI</a>.</p>
+</li>
+<li>
+<p><code>VmType</code> : Le type de la VM.</p>
+</li>
+<li>
+<p><code>ImageId</code> : L&#8217;ID de l&#8217;OMI utilisée pour créer la VM. Pour en savoir plus, voir <a href="Référence-des-OMI-officielles.html" class="xref page">Référence des OMI officielles</a>.</p>
+</li>
+<li>
+<p><code>KeypairName</code> : Le nom de votre keypair.</p>
+</li>
+<li>
+<p><code>NestedVirtualization</code> : Doit être paramétré sur <code>true</code> pour activer la virtualisation imbriquée.</p>
+</li>
+<li>
+<p><code>Placement</code> : Le placement de la VM. Doit être paramétré sur <code>dedicated</code>. Pour en savoir plus, voir <a href="À-propos-des-VM.html#_allocation_des_vm" class="xref page">À propos des VM &gt; Allocation des VM</a>.</p>
+</li>
+<li>
+<p><code>BlockDeviceMappings</code> : Un ou plusieurs block device mappings pour la VM. Pour en savoir plus, voir <a href="Définir-des-block-device-mappings.html" class="xref page">Définir des block device mappings</a>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Assurez-vous que votre VM hôte possède suffisamment de mémoire et de cœurs pour démarrer des VM imbriquées.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Accédez à votre VM. Pour en savoir plus, voir <a href="Accéder-à-une-VM-Linux.html" class="xref page">Accéder à une VM Linux</a>.</p>
+</li>
+<li>
+<p>Exécutez la commande suivante pour mettre à jour les paquets existants :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ sudo dnf update</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>(optionnel) Assurez-vous que la virtualisation imbriquée est activée :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ cat /proc/cpuinfo | egrep "vmx|svm"</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous devez obtenir <code>vmx</code> ou <code>svm</code> dans le résultat, selon si votre VM possède un CPU Intel ou AMD.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Installez les paquets nécessaires :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ sudo dnf install @virt virt-top libguestfs-tools virt-install</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Démarrez et activez le démon libvirtd :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ sudo systemctl enable --now libvirtd</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Téléchargez l&#8217;image Linux que vous voulez lancer.<br>
+Dans cet exemple, on télécharge Debian 11 :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ curl -O https://cdimage.debian.org/debian-cd/current/amd64/iso-dvd/debian-11.5.0-amd64-DVD-1.iso</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Assurez-vous que QEMU peut accéder à vos fichiers et les lire :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ sudo cp /home/outscale/debian-11.5.0-amd64-DVD-1.iso /var/lib/libvirt/images/debian-11.5.0-amd64-DVD-1.iso</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Créez un disque dur virtuel :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ sudo qemu-img create -f qcow2 /var/lib/libvirt/images/debian.qcow2 30G</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>debian</code> : Le nom du disque dur virtuel que vous voulez créer.<br></p>
+</li>
+<li>
+<p><code>30</code> : L&#8217;espace que vous voulez attribuer au disque dur virtuel.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Créez une VM au sein de votre VM :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ sudo virt-install \
+    --virt-type kvm \
+    --name Debian11 \
+    --ram 2024 \
+    --disk /var/lib/libvirt/images/debian.qcow2 \
+    --network network=default \
+    --graphics vnc,listen=0.0.0.0 \
+    --noautoconsole \
+    --os-type=linux \
+    --os-variant=generic \
+    --cdrom=/var/lib/libvirt/images/debian-11.5.0-amd64-DVD-1.iso</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>name</code> : Le nom que vous voulez donner à votre VM</p>
+</li>
+<li>
+<p><code>ram</code> : La quantité de mémoire que vous voulez attribuer à votre VM, en mégaoctets (Mo)</p>
+</li>
+<li>
+<p><code>disk</code> : Le chemin du disque dur virtuel créé</p>
+</li>
+<li>
+<p><code>cd-rom</code> : Le chemin du fichier ISO que vous voulez utiliser pour installer la VM</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Exécutez la commande suivante pour lister toutes les VM en cours et arrêtées :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ sudo virsh list --all</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Vous pouvez désormais utiliser SSH pour vous connecter à la VM imbriquée.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Windows Server 2019_1"><a class="anchor" href="Activer-la-virtualisation-imbriquée.html#Windows Server 2019_1"></a>Activer la virtualisation imbriquée sur Windows Server 2019</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Créez une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> dédiée, en utilisant par exemple les paramètres suivants :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api CreateVms \
+    --profile "default" \
+    --VmType "tinav4.c16r32p2" \
+    --ImageId "ami-f4901add" \
+    --KeypairName "MyKeyPair" \
+    --NestedVirtualization True \
+    --Placement '{"Tenancy": "dedicated"}'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>profile</code> : Le profil nommé que vous voulez utiliser, créé pendant la configuration d&#8217;OSC CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-OSC-CLI.html" class="xref page">Installer et configurer OSC CLI</a>.</p>
+</li>
+<li>
+<p><code>VmType</code> : Le type de la VM.</p>
+</li>
+<li>
+<p><code>ImageId</code> : L&#8217;ID de l&#8217;OMI utilisée pour créer la VM. Pour en savoir plus, voir <a href="Référence-des-OMI-officielles.html" class="xref page">Référence des OMI officielles</a>.</p>
+</li>
+<li>
+<p><code>KeypairName</code> : Le nom de votre keypair.</p>
+</li>
+<li>
+<p><code>NestedVirtualization</code> : Doit être paramétré sur <code>true</code> pour activer la virtualisation imbriquée.</p>
+</li>
+<li>
+<p><code>Placement</code> : Le placement de la VM. Doit être paramétré sur <code>dedicated</code>. Pour en savoir plus, voir <a href="À-propos-des-VM.html#_allocation_des_vm" class="xref page">À propos des VM &gt; Allocation des VM</a>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Assurez-vous que votre VM hôte possède suffisamment de mémoire, de cœurs, et d&#8217;espace de stockage pour démarrer des VM imbriquées.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Accédez à votre VM. Pour en savoir plus, voir <a href="Accéder-à-une-VM-Windows.html" class="xref page">Accéder à une VM Windows</a>.</p>
+</li>
+<li>
+<p>Cherchez <strong>Activer ou désactiver des fonctionnalités Windows</strong> depuis le menu Démarrer et ouvrez-le.</p>
+</li>
+<li>
+<p>La fenêtre <strong>Assistant Ajout de rôles et de fonctionnalités</strong> s&#8217;ouvre.</p>
+</li>
+<li>
+<p>Sélectionnez le type d&#8217;installation que vous préférez.<br>
+Cliquez sur <strong>Suivant</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez l&#8217;emplacement d&#8217;installation des rôles et des fonctionnalités.<br>
+Cliquez sur <strong>Suivant</strong>.</p>
+</li>
+<li>
+<p>Assurez-vous que <strong>Hyper-V</strong> est sélectionné.<br>
+Une fenêtre s&#8217;ouvre, assurez-vous que <strong>Inclure les outils de gestion (si applicable)</strong> est sélectionné.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Ajouter des fonctionnalités</strong>.</p>
+</li>
+<li>
+<p>Continuez l&#8217;installation.</p>
+</li>
+<li>
+<p>Redémarrez votre VM.</p>
+</li>
+<li>
+<p>Ouvrez <strong>Gestionnaire Hyper-V</strong> depuis le menu Démarrer.</p>
+</li>
+<li>
+<p>Sélectionnez le nom de votre appareil.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Nouveau</strong> puis <strong>Ordinateur virtuel</strong> dans le menu d&#8217;actions à droite.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous pouvez également cliquer sur <strong>Quick Create</strong> et sélectionner une image parmi les systèmes d&#8217;exploitation disponibles.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Tapez un nom pour votre VM.<br>
+Cliquez sur <strong>Suivant</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>Génération 1</strong>.<br>
+Cliquez sur <strong>Suivant</strong>.</p>
+</li>
+<li>
+<p>Assurez-vous d&#8217;allouer au moins 4096 Mo de mémoire de démarrage.<br>
+Cliquez sur <strong>Suivant</strong>.</p>
+</li>
+<li>
+<p>(optionnel) Sélectionnez une carte réseau.<br>
+Cliquez sur <strong>Suivant</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>Créer un disque dur virtuel</strong>. Assurez-vous que la taille est inférieure à 400 Go.<br>
+Cliquez sur <strong>Suivant</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>Installer un système d&#8217;exploitation à partir d&#8217;un CD/DVD-ROM de démarrage</strong> &gt; <strong>Fichier image (.iso):</strong>, et importez l&#8217;image du système d&#8217;exploitation que vous voulez lancer.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>Suivant</strong> puis <strong>Terminer</strong>.</p>
+</li>
+<li>
+<p>Faites un clic droit sur la VM que vous venez de créer et sélectionnez <strong>Démarrer</strong>.<br>
+Répétez l&#8217;opération puis sélectionnez <strong>Connecter</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-VM.html" class="xref page">À propos des VM</a></p>
+</li>
+<li>
+<p><a href="Accéder-à-une-VM-Linux.html" class="xref page">Accéder à une VM Linux</a></p>
+</li>
+<li>
+<p><a href="Référence-des-OMI-officielles.html" class="xref page">Référence des OMI officielles</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

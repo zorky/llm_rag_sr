@@ -1,0 +1,3542 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>3DS OUTSCALE API v1.34.0 - Errors – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="api-errors.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="_/css/site.css">
+    <link rel="stylesheet" href="_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="_/css/apidocs/screen.css">
+    <link rel="stylesheet" media="screen" href="_/css/apidocs/screen_overrides.css">
+    <link rel="stylesheet" media="screen" href="_/css/apidocs/theme_overrides.css">
+    <link rel="stylesheet" media="print" href="_/css/apidocs/print.css">
+    <link rel="stylesheet" media="print" href="_/css/apidocs/print_overrides.css">
+    <link rel="shortcut icon" href="_/img/favicon.ico">
+    <script src="_/js/apidocs/lib/_jquery.js"></script>
+    <script src="_/js/apidocs/lib/_jquery.highlight.js"></script>
+    <script src="_/js/apidocs/lib/_lunr.js"></script>
+    <script src="_/js/apidocs/lib/_imagesloaded.min.js"></script>
+    <script src="_/js/apidocs/lib/_energize.js"></script>
+    <script src="_/js/apidocs/app/_search.js"></script>
+    <meta name="theme-color" content="#F3F7F9">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article apidocs">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="en/userguide/Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="fcu.html">FCU</a></li>
+                      <li><a href="lbu.html">LBU</a></li>
+                      <li><a href="eim.html">EIM</a></li>
+                      <li><a href="icu.html">ICU</a></li>
+                      <li><a href="directlink.html">DirectLink</a></li>
+                      <li><a href="en/userguide/OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="en/userguide/AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="en/userguide/About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="en/userguide/Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="en/userguide/Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="en/userguide/Release-Notes.html">Release Notes</a>
+              </li>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+
+<main class="article">
+  <div class="content ">
+  <div id="api-body" data-languages="[]">
+    <div class="toc-wrapper nav-container">
+      <aside class="nav">
+
+
+        <div id="toc" class="toc-menu toc-list-h1" data-levels="2">
+          <ul class="toc-list-h1">
+
+
+              <li class="sg-parent">
+
+                <a href="api-errors.html#errors" class="toc-h1 toc-link" data-level="1" data-title="3DS OUTSCALE API v1.34.0 - Errors">3DS OUTSCALE API v1.34.0 - Errors</a>
+
+              </li>
+
+          </ul>
+        </div>
+
+      </aside>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="api">
+        <h1 id="errors">3DS OUTSCALE API v1.34.0 - Errors</h1>
+<div>This page lists the errors that the 3DS OUTSCALE API can return.
+<p>If you encounter an error in a response, search for the returned <code>Code</code> in this page to find more details about the error.</p>
+<p><a href="https://en.outscale.com/terms-of-service/" target="_blank" rel="noopener">Terms of service</a>.
+Email: <a href="mailto:support@outscale.com">support@outscale.com</a>.
+License: <a href="https://opensource.org/licenses/BSD-3-Clause" target="_blank" rel="noopener">BSD 3 Clause</a>.</div></p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Type</th>
+<th>Description</th>
+<th>HTTP status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0</code></td>
+<td><code>DefaultError</code></td>
+<td><strong>ErrorDefaultError</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>1</code></td>
+<td><code>AccessDenied</code></td>
+<td><strong>ErrorAuthenticationFailed</strong></td>
+<td>401</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td><code>AccessDenied</code></td>
+<td><strong>ErrorHttpMethodNotAllowed</strong></td>
+<td>405</td>
+</tr>
+<tr>
+<td><code>4</code></td>
+<td><code>AccessDenied</code></td>
+<td><strong>ErrorUnauthorizedOperation</strong></td>
+<td>401</td>
+</tr>
+<tr>
+<td><code>5</code></td>
+<td><code>AccessDenied</code></td>
+<td><strong>ErrorNotAuthorized</strong></td>
+<td>401</td>
+</tr>
+<tr>
+<td><code>6</code></td>
+<td><code>AccessDenied</code></td>
+<td><strong>ErrorOperationThrottled</strong>: Request rate exceeded</td>
+<td>503</td>
+</tr>
+<tr>
+<td><code>7</code></td>
+<td><code>AccessDenied</code></td>
+<td><strong>ErrorUserNotAllowed</strong></td>
+<td>401</td>
+</tr>
+<tr>
+<td><code>8</code></td>
+<td><code>WrongAuthenticationMethod</code></td>
+<td><strong>ErrorWrongAuthenticationMethod</strong>: The authentication method '{auth_meth}' is invalid.</td>
+<td>403</td>
+</tr>
+<tr>
+<td><code>9</code></td>
+<td><code>AuthFailure</code></td>
+<td><strong>ErrorAuthFailure</strong>: The authentication using login/password is not allowed for this call.</td>
+<td>401</td>
+</tr>
+<tr>
+<td><code>10</code></td>
+<td><code>MissingLoginPassword</code></td>
+<td><strong>ErrorMissingLoginPassword</strong>: The credentials are missing for authentication.</td>
+<td>403</td>
+</tr>
+<tr>
+<td><code>11</code></td>
+<td><code>AccessDenied</code></td>
+<td><strong>ErrorBruteForceAccessLocked</strong>: Too many failed connection attempts. Your access has been permanently locked. Please, contact the support to unlock it.</td>
+<td>401</td>
+</tr>
+<tr>
+<td><code>12</code></td>
+<td><code>AccessDenied</code></td>
+<td><strong>ErrorUnknownAuthorizationType</strong>: The authentication type specified in the Authorization header is unknown.</td>
+<td>401</td>
+</tr>
+<tr>
+<td><code>13</code></td>
+<td><code>AccessDenied</code></td>
+<td><strong>ErrorTemporaryBruteForceAccessLockedException</strong>: Too many failed connection attempts. Your access has been locked for 60 seconds.</td>
+<td>401</td>
+</tr>
+<tr>
+<td><code>14</code></td>
+<td><code>AccessDenied</code></td>
+<td><strong>ErrorUnmatchedApiAccessRules</strong>: The authentication method does not comply with the API access rules configured for your account. Please, use a valid certificate or IP address.</td>
+<td>401</td>
+</tr>
+<tr>
+<td><code>15</code></td>
+<td><code>AccessDenied</code></td>
+<td><strong>ErrorExpiredRequestDate</strong>: The timestamp {timestamp} is invalid, the request is too old and has expired since {expiration_date}.</td>
+<td>401</td>
+</tr>
+<tr>
+<td><code>16</code></td>
+<td><code>InvalidLoginPassword</code></td>
+<td><strong>ErrorInvalidLoginPassword</strong>: The password you provided does not match the login {account}.</td>
+<td>403</td>
+</tr>
+<tr>
+<td><code>20</code></td>
+<td><code>PasswordExpired</code></td>
+<td><strong>ErrorPasswordExpired</strong>: The password has expired.</td>
+<td>401</td>
+</tr>
+<tr>
+<td><code>21</code></td>
+<td><code>AccessDenied</code></td>
+<td><strong>ErrorInvalidJsonWebToken</strong>: The json web token is invalid.</td>
+<td>401</td>
+</tr>
+<tr>
+<td><code>22</code></td>
+<td><code>AccessDenied</code></td>
+<td><strong>ErrorRequestInFuture</strong>: The timestamp {timestamp} is invalid, the request date is set in the future. It should have been set to {latest_allowed_date} at the latest.</td>
+<td>401</td>
+</tr>
+<tr>
+<td><code>23</code></td>
+<td><code>AccessDenied</code></td>
+<td><strong>ErrorExpiredJsonWebToken</strong>: The json web token is expired.</td>
+<td>401</td>
+</tr>
+<tr>
+<td><code>1000</code></td>
+<td><code>DependencyProblem</code></td>
+<td><strong>ErrorClusterHasDevices</strong></td>
+<td>424</td>
+</tr>
+<tr>
+<td><code>1001</code></td>
+<td><code>DependencyProblem</code></td>
+<td><strong>ErrorCustomerGatewayHasDependencies</strong>: The <span class="tooltip" data-tooltip="customer gateway in AWS-Compliant APIs">client gateway</span> '{id}' has dependencies and cannot be deleted.</td>
+<td>424</td>
+</tr>
+<tr>
+<td><code>1002</code></td>
+<td><code>DependencyProblem</code></td>
+<td><strong>ErrorDeviceHasCluster</strong></td>
+<td>424</td>
+</tr>
+<tr>
+<td><code>1003</code></td>
+<td><code>DependencyProblem</code></td>
+<td><strong>ErrorGatewayDoesNotExist</strong>: An <span class="tooltip" data-tooltip="Internet gateway in AWS-Compliant APIs">Internet service</span> must be attached to the <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span>.</td>
+<td>424</td>
+</tr>
+<tr>
+<td><code>1004</code></td>
+<td><code>DependencyProblem</code></td>
+<td><strong>ErrorGatewayHasEip</strong>: The Net '{vpc}' has one or more mapped <span class="tooltip" data-tooltip="External IP (EIP) in AWS-Compliant APIs">public IPs</span>. Please unmap those public IPs before detaching the service.</td>
+<td>424</td>
+</tr>
+<tr>
+<td><code>1005</code></td>
+<td><code>DependencyProblem</code></td>
+<td><strong>ErrorGatewayHasElbDependency</strong>: A load balancer is present on Net '{vpc}'. The Internet service '{internetGatewayId}' cannot be detached.</td>
+<td>424</td>
+</tr>
+<tr>
+<td><code>1006</code></td>
+<td><code>DependencyProblem</code></td>
+<td><strong>ErrorGatewayHasVpcDependency</strong>: The Internet service '{internetGatewayId}' has dependencies and cannot be deleted.</td>
+<td>424</td>
+</tr>
+<tr>
+<td><code>1007</code></td>
+<td><code>DependencyProblem</code></td>
+<td><strong>ErrorGatewayIsNotAttached</strong>: The resource '{gatewayId}' is not attached to Net '{vpcId}'.</td>
+<td>424</td>
+</tr>
+<tr>
+<td><code>1008</code></td>
+<td><code>DependencyProblem</code></td>
+<td><strong>ErrorGroupHasMember</strong></td>
+<td>424</td>
+</tr>
+<tr>
+<td><code>1009</code></td>
+<td><code>DependencyProblem</code></td>
+<td><strong>ErrorMissingRootDevice</strong>: The <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span> '{vm}' does not have a volume attached at root device: '{root}'.</td>
+<td>424</td>
+</tr>
+<tr>
+<td><code>1010</code></td>
+<td><code>DependencyProblem</code></td>
+<td><strong>ErrorNoGateway</strong>: The Net '{network}' is not attached to any Internet service.</td>
+<td>424</td>
+</tr>
+<tr>
+<td><code>1011</code></td>
+<td><code>DependencyProblem</code></td>
+<td><strong>ErrorNoServerSlot</strong></td>
+<td>424</td>
+</tr>
+<tr>
+<td><code>1012</code></td>
+<td><code>DependencyProblem</code></td>
+<td><strong>ErrorPzHasDevices</strong></td>
+<td>424</td>
+</tr>
+<tr>
+<td><code>1013</code></td>
+<td><code>DependencyProblem</code></td>
+<td><strong>ErrorVmHasPci</strong></td>
+<td>424</td>
+</tr>
+<tr>
+<td><code>1014</code></td>
+<td><code>DependencyProblem</code></td>
+<td><strong>ErrorVmHasSsd</strong></td>
+<td>424</td>
+</tr>
+<tr>
+<td><code>1015</code></td>
+<td><code>DependencyProblem</code></td>
+<td><strong>ErrorVpcHasDependencies</strong>: The Net '{vpcId}' has dependencies and cannot be deleted.</td>
+<td>424</td>
+</tr>
+<tr>
+<td><code>1016</code></td>
+<td><code>DependencyProblem</code></td>
+<td><strong>ErrorVpnGatewayHasDependencies</strong>: The <span class="tooltip" data-tooltip="virtual private gateway in AWS-Compliant APIs">virtual gateway</span> '{id}' has dependencies and cannot be deleted.</td>
+<td>424</td>
+</tr>
+<tr>
+<td><code>1017</code></td>
+<td><code>DependencyProblem</code></td>
+<td><strong>ErrorCgHasAlreadyVpnc</strong>: The client gateway '{cg}' already has a VPN connection '{vpnc}'.</td>
+<td>424</td>
+</tr>
+<tr>
+<td><code>2000</code></td>
+<td><code>InternalError</code></td>
+<td><strong>ErrorChecksumError</strong>: Outscale faced an internal error while processing your request</td>
+<td>500</td>
+</tr>
+<tr>
+<td><code>2001</code></td>
+<td><code>InternalError</code></td>
+<td><strong>ErrorCleanupFailure</strong></td>
+<td>500</td>
+</tr>
+<tr>
+<td><code>2002</code></td>
+<td><code>InternalError</code></td>
+<td><strong>ErrorDivisionByZero</strong></td>
+<td>500</td>
+</tr>
+<tr>
+<td><code>2003</code></td>
+<td><code>InternalError</code></td>
+<td><strong>ErrorKeyGenerationFailure</strong></td>
+<td>500</td>
+</tr>
+<tr>
+<td><code>2004</code></td>
+<td><code>InternalError</code></td>
+<td><strong>ErrorNegativeValue</strong></td>
+<td>500</td>
+</tr>
+<tr>
+<td><code>2005</code></td>
+<td><code>InternalError</code></td>
+<td><strong>ErrorNoLifecycle</strong></td>
+<td>500</td>
+</tr>
+<tr>
+<td><code>2006</code></td>
+<td><code>InternalError</code></td>
+<td><strong>ErrorSnapshotCreationFailed</strong></td>
+<td>500</td>
+</tr>
+<tr>
+<td><code>2007</code></td>
+<td><code>InternalError</code></td>
+<td><strong>ErrorServiceUnavailable</strong></td>
+<td>500</td>
+</tr>
+<tr>
+<td><code>2008</code></td>
+<td><code>InternalError</code></td>
+<td><strong>ErrorRequestTimeout</strong></td>
+<td>500</td>
+</tr>
+<tr>
+<td><code>2010</code></td>
+<td><code>InternalError</code></td>
+<td><strong>OkmsServerError</strong></td>
+<td>500</td>
+</tr>
+<tr>
+<td><code>2013</code></td>
+<td><code>ServerIsNotReady</code></td>
+<td><strong>ErrorServerIsNotReady</strong></td>
+<td>500</td>
+</tr>
+<tr>
+<td><code>2014</code></td>
+<td><code>UnknownKeyFormat</code></td>
+<td><strong>ErrorUnknownKeyFormat</strong></td>
+<td>500</td>
+</tr>
+<tr>
+<td><code>2015</code></td>
+<td><code>InvalidLifecycleRole</code></td>
+<td><strong>ErrorInvalidLifecycleRole</strong></td>
+<td>500</td>
+</tr>
+<tr>
+<td><code>2016</code></td>
+<td><code>InvalidLifecycle</code></td>
+<td><strong>ErrorInvalidLifecycle</strong></td>
+<td>500</td>
+</tr>
+<tr>
+<td><code>2017</code></td>
+<td><code>MigrationNotPossible</code></td>
+<td><strong>ErrorMigrationNotPossible</strong></td>
+<td>500</td>
+</tr>
+<tr>
+<td><code>3000</code></td>
+<td><code>InvalidParameter</code></td>
+<td><strong>ErrorUnexpectedField</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>3001</code></td>
+<td><code>InvalidParameter</code></td>
+<td><strong>ErrorInvalidParameter</strong>: The parameter '{param}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>3002</code></td>
+<td><code>InvalidParameter</code></td>
+<td><strong>ErrorInvalidParameterCombination</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>3003</code></td>
+<td><code>InvalidParameter</code></td>
+<td><strong>ErrorInvalidJsonFormat</strong>: The request body must be a valid JSON object.</td>
+<td>422</td>
+</tr>
+<tr>
+<td><code>3004</code></td>
+<td><code>InvalidParameter</code></td>
+<td><strong>ErrorIoexception</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>3005</code></td>
+<td><code>InvalidParameter</code></td>
+<td><strong>DigestNotReadyException</strong>: Digest computation last covered date {lastCoveredDate} has not reached required date {requiredDate}.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>3007</code></td>
+<td><code>InvalidParameter</code></td>
+<td><strong>ErrorInvalidParameterCombination</strong>: You must provide all the following parameters: '{options}'.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>3008</code></td>
+<td><code>InvalidParameter</code></td>
+<td><strong>ErrorInvalidParameterCombination</strong>: The following parameters '{args}' cannot be provided together. You can only provide '{high}' of them.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>3010</code></td>
+<td><code>UnsupportedMediaType</code></td>
+<td><strong>ErrorUnsupportedMediaType</strong>: The specified media type for '{call_name}' is not supported. The following is supported: {type}.</td>
+<td>415</td>
+</tr>
+<tr>
+<td><code>3019</code></td>
+<td><code>InvalidParameterType</code></td>
+<td><strong>ErrorUnknownParameterType</strong>: The parameter type of {param_name} is unknown.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>3020</code></td>
+<td><code>InvalidParameter</code></td>
+<td><strong>ErrorUnexpectedStickinessPolicyConfiguration</strong>: The parameter '{param}' is not applicable for the PolicyType '{policy_type}'.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>3021</code></td>
+<td><code>InvalidParameter</code></td>
+<td><strong>ErrorUnexpectedLoadBalancerConfiguration</strong>: The parameter '{param}' is not applicable for this load balancer type or configuration.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>3022</code></td>
+<td><code>InvalidParameter</code></td>
+<td><strong>ErrorInvalidParameterCombinationAzsSubnets</strong>: These parameters cannot be provided together: SubregionNames and Subnets. You can only provide '{high}' of them.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>3023</code></td>
+<td><code>InvalidParameter</code></td>
+<td><strong>ErrorBucketNameNotSet</strong>: Access log can only be enabled when an OSU bucket name is provided.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4000</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorAccessKeysNotFound</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4001</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorArchitectureMismatch</strong>: The requested architecture for VM type '{vm_architectures}' does not match the manifest for image '{imageId}': '{image}'.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4002</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorBucketNotFound</strong>: The bucket is unavailable for access log.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4003</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorDeviceNameNotAssociated</strong>: This device is not associated with the VM '{id}': '{device_name}'.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4004</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorEmptyTarget</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4005</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorEnableAccessLogNotFound</strong>: The enable key is missing for access log.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4006</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorBucketNameEmpty</strong>: The bucket name cannot be empty.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4007</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInstanceInvalidTenancy</strong>: The provided value ('{tenancy}') for the parameter 'Placement.Tenancy' is invalid.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4008</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidAffinityTarget</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4009</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidAsn</strong>: The provided value ('{asn}') for the parameter 'BgpAsn' is invalid.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4010</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidAsnRange</strong>: The provided value ('{asn}') for the parameter 'BgpAsn' is not in a valid range.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4011</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidBdm</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4012</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidBillingValue</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4013</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidBlock</strong>: The provided value ('{cidr}') for the parameter 'IpRange' is invalid.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4014</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidBlockSize</strong>: The provided value ('{cidr}') for the parameter 'IpRange' is invalid. The block size has to be between {min} and {max}.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4015</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidCidrSize</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4016</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidClassName</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4017</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidConfiguration</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4018</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidCount</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4019</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidDeviceName</strong>: The provided value ('{name}') for the parameter 'Device' is invalid.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4021</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidEndPort</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4022</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidFieldValue</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4023</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidFilter</strong>: {message}</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4024</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidHostPattern</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4025</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidId</strong>: The provided resource ID ('{id}') is invalid.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4026</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidImageName</strong>: The provided value ('{name}') for the parameter 'ImageName' is invalid. The image name has to follow these constraints: [a-zA-Z0-9_ ()/.-], length: (3, 128).</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4027</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidImportPath</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4028</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidBackendPort</strong>: The provided value ('{backend_port}') for the parameter 'BackendPort' is invalid. This value has not been configured for any listener.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4029</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidIops</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4030</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidIpAddress</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4031</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidIsolationMode</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4032</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidKey</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4033</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidKeySize</strong>: The provided value for the parameter 'PublicKey' is invalid. The key size has to be one of these values: {256, 384, 521, 1024, 2048, 4096}.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4034</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidKeypairIndex</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4035</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidKeypairName</strong>: The provided value ('{name}') for the parameter 'KeypairName' is invalid. The keypair name has to follow these constraints: ASCII printable characters, length: (1, 255).</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4036</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidLbName</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4037</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidLbPort</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4038</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidLifecycle</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4039</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidLifecycleRole</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4040</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidCiphertext</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4041</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidManifestFormat</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4042</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidMethodName</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4043</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidName</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4044</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidNotification</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4045</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameter</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4046</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterSet</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4047</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterValue</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4049</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidPathPattern</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4050</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidPermissionFormat</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4051</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidPortSpecification</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4052</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidProfile</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4053</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidProtocol</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4054</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidProtocolLayer</strong>: The provided values for LoadBalancerProtocol ('{load_balancer_protocol}') and BackendProtocol ('{backend_protocol}') are incompatible. Both protocols must be in the same layer.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4055</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidQuorum</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4056</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidRange</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4057</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidRootMapping</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4058</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidRuleAction</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4059</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidRuleName</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4060</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidLoadBalancerType</strong>: The provided value ('{load_balancer_type}') for the parameter 'LoadBalancerType' is invalid. This parameter can only be specified when you create a load balancer in a Net.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4061</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidSnapshotId</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4062</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidSource</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4063</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidStartIp</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4064</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidStartPort</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4065</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidStickyPolicyCookieName</strong>: The provided value ('{cookie_name}') for the parameter 'CookieName' is invalid. The cookie name cannot contains spaces.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4066</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidStickyPolicyExpiration</strong>: The provided value ('{expiration}') for the parameter 'Expiration' is invalid. The expiration period should be greater than 0.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4067</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidStickyPolicyName</strong>: The provided value ('{name}') for the parameter 'PolicyName' is invalid. The policy name has to follow these constraints: [a-zA-Z0-9-], length: (1, 32).</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4068</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidStopIp</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4069</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidTagKey</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4070</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidTagValue</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4071</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidTagValueLength</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4072</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidTarget</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4073</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidType</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4074</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidUrl</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4075</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidUrlFormat</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4076</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidVirtualName</strong>: The provided value ('{name}') for the parameter 'BlockDeviceMappings.VirtualDeviceName' is invalid. The virtual device name should have this format: ephemeral.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4077</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidVolumeDeviceNameAssociation</strong>: The provided association into the BlockDeviceMappings, for the device name ('{device_name}') and the volume ID ('{volume_id}'), is invalid.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4078</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidVolumeSize</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4079</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidVpnPropagation</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4080</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidVpnType</strong>: The provided value ('{type}') for the parameter 'ConnectionType' is invalid. The value must be 'ipsec.1'.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4081</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidZone</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4082</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidZoneOwner</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4083</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidKeypairType</strong>: The type ('{type}') of the provided keypair '{keypair}' is invalid. The supported values are '{expected_types}'.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4084</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorLoadBalancerAttributeNotFound</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4085</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorMultipleStickyPoliciesForbidden</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4086</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorNetworkMismatch</strong>: Cannot perform the action with the VM '{vm}'. The VM's Net ('{net_vm}') doesn't match the load balancer's Net ('{net_lbu}').</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4087</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorNotWindowsInstance</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4088</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorOsuConnectionError</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4089</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorOverlappingTimespan</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4091</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorTokenMismatch</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4093</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorUndefinedForwarding</strong>: The parameters HostNamePattern and PathPattern cannot be simultaneously.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4094</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorUnknownExportVersion</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4095</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorValidationError</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4096</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorVmTypeNotSupported</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4097</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorWrongCertificateOrn</strong>: The provided value ('{value}') for the parameter 'ServerCertificateId' is invalid.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4098</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorWrongDate</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4099</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorWrongEmitInterval</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4100</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorWrongEventType</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4101</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorWrongPrefix</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4102</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorWrongProtocolForSSL</strong>: The provided LoadBalancerProtocol ('{load_balancer_protocol}') doesn't accept SSL certificate ('{value}').</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4103</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorWrongResourceType</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4104</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidIdPrefix</strong>: The provided value '{invalid}' does not respect the expected ID prefix '{prefixes}'.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4105</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorMalformedId</strong>: The provided value '{given_id}' is malformed.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4106</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterValueLength</strong>: The length of the provided value for parameter '{param}' is invalid: '{vlength}'. The expected length is '{length}'.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4108</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterType</strong>: The provided value '{value}' for parameter '{key}' must be of type '{form}'.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4109</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidIntervalType</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4110</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterType</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4111</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParametersValue</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4112</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidFilterValue</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4113</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidMaxResultsPerPageValue</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4114</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidArg</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4115</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorParseError</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4116</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorNextPageTokenExpired</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4117</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidNextPageTokenValue</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4118</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorServicevalidationexception</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4119</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorTokenExists</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4120</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorAuthenticationexception</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4121</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorAuthfailure</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4122</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorNoSuchEntityException</strong>: NoSuchEntityException</td>
+<td>404</td>
+</tr>
+<tr>
+<td><code>4123</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidformatexception</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4124</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorValidationexception</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4125</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>TooSmallVolumeSize</strong>: The Volume size ({volume_size} GiB) must be greater than {snapshot_id} size ({snapshot_size} GiB).</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4128</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidLoadBalancerType</strong>: The provided value ('{value}') for the parameter '{param_name}' is invalid. It has to be one of these values: {supported_value}.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4129</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterValue</strong>: The provided value '{value}' for parameter '{param}' is invalid. The supported values are '{options}'.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4130</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterValue</strong>: The value '{value}' for parameter '{param}' is invalid. No length can be calculated from it.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4131</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterValue</strong>: The value '{value}' of parameter 'orders' must be list of tuples in format: [(, 'ASC'), (, 'DESC')]. This is an internal error. Please, contact the support.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4132</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterValue</strong>: The provided value '{value}' for parameter '{param}' must be of type '{form}'.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4133</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterValue</strong>: The IPv4 address '{value}' is invalid.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4134</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterValue</strong>: The IPv4 network '{value}' is invalid.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4135</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterValue</strong>: The provided value '{value}' for parameter '{param}' is invalid. The expected interval is '{options}'. Please interpret 'None' as no-limit.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4136</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterValue</strong>: The provided value '{value}' for parameter '{param}' must contain alphanumeric characters only.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4137</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterValue</strong>: The provided value '{value}' for parameter '{param}' must contain numeric characters only.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4138</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterValue</strong>: The provided value '{value}' for parameter '{param}' is invalid. The supported patterns are '{options}'.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4139</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterValue</strong>: The provided '{value}' for parameter '{param}' must be in ISO 8601 date-time format.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4140</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterValue</strong>: The provided value '{interval}' must be tuple containing min and max values. This is an internal error. Please, contact the support.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4141</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterValue</strong>: The provided value '{intervals}' must be tuple containing min and max values. This is an internal error. Please, contact the support.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4152</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterType</strong>: The '{param}' parameter with value '{value}' must be '{expected_type}' type.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4166</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidHeaderDate</strong>: The provided value '{header_date}' for header {header_name} must be in ISO 8601 date-time format.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4170</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterValueEnum</strong>: The value '{value}' of '{param}' does not match any of the expected values: '{enum}'.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4171</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterValueMinMax</strong>: '{param}' should have '{context}'. You have provided the value '{value}'.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4172</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterValueItems</strong>: '{param}' should have '{context}'. You have provided the array '{value}' which contains '{cus_items}' items.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4173</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterValueLength</strong>: '{param}' should have '{context}'. You have provided the value '{value}' which contains '{cus_length}' characters.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4174</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterValueProperties</strong>: '{param}' should have '{context}'. You have provided the object '{value}' which contains '{cus_properties}' properties.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4175</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterValueMultipleOf</strong>: The value '{value}' of '{param}' is not a multiple of '{multiple}'.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4176</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterValuePattern</strong>: The value '{value}' of '{param}' does not match the pattern '{pattern}'.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4177</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorMalformedCertificateException</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4178</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorPermissionPolicyValidationException</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4179</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorKeyPairMismatchException</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4183</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterValue</strong>: The provided value '{value}' for parameter '{param}' is invalid.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4184</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterValue</strong>: The provided value '{value}' for parameter '{param}' is invalid.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4185</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterValue</strong>: The provided value '{value}' for parameter '{param}' is invalid.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4189</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterValueLength</strong>: Parameter cannot be empty: {param_name}</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4190</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterValue</strong>: {message}</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4196</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterValue</strong>: The provided value '{value}' for parameter '{param}' is invalid.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4199</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorSameSourceAndTarget</strong>: The provided value '{vpc_id}' for parameter AccepterNetId is invalid. The values for AccepterNetId and SourceNetId must be different.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4200</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorLocalRouteAlreadyExists</strong>: Destination '{destination}' is a 'local' route and cannot be modified or deleted.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4202</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidIopsSizeRatio</strong>: Iops to volume size ratio is too high: '{ratio}' Max: '{max_iops_size_ratio}'</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4203</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>InvalidSnapshotSize</strong>: The provided value ('{snapshot_size}') for the parameter 'SnapshotSize' must be greater than 0.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4204</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>InvalidPortRange</strong>: The provided values '{ports}' for the parameters '(FromPortRange, ToPortRange)' are invalid for the protocol '{protocol}'.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4205</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>InvalidUserData</strong>: The provided value ('{user_data}') for the parameter 'UserData' is invalid : BASE64 encoding error</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4206</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>PolicyValidationException</strong>: The syntax of the provided policy '{policyString}' is not valid.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4208</code></td>
+<td><code>InvalidHeaderValue</code></td>
+<td><strong>ErrorInvalidAcceptHeader</strong>: The Accept header is malformed. You should use one of these content types: '{content_types}'.</td>
+<td>406</td>
+</tr>
+<tr>
+<td><code>4210</code></td>
+<td><code>InvalidValue</code></td>
+<td><strong>ValidationException</strong>: At least one of your request parameters doesn't meet the requirement: {violations}.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4211</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterCombinationTimeoutInterval</strong>: CheckInterval must be greater than Timeout</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4212</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorInvalidParameterCombinationProtocolPath</strong>: Path is only valid for HTTP and HTTPS</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4213</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorTooManyWildcards</strong>: The provided value ('{value}') for parameter '{param}' is invalid. The maximum number of wildcards ('{wildcards_limit}') is exceeded.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4214</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorReservedSecurityGroupName</strong>: The provided value '{name}' for the parameter 'SecurityGroupName' is invalid. This name is reserved for OUTSCALE use.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>4215</code></td>
+<td><code>InvalidParameterValue</code></td>
+<td><strong>ErrorNoSuchUnitPrice</strong>: The unit price for service ('{service}'), operation ('{operation}') and type ('{type}') doesn't exists.</td>
+<td>404</td>
+</tr>
+<tr>
+<td><code>5000</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorDeviceNotInCluster</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5001</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorGatewayDoesNotExist</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5002</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorGhostlyVm</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5003</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorInvalidInstance</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5004</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorInvalidVpc</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5005</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoAzForUser</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5006</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoPzAvailable</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5007</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchAttachment</strong>: The LinkNicId '{id}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5008</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchAuthorization</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5009</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchAz</strong>: The SubregionName '{name}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5010</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchAzmapping</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5011</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchCall</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5012</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchCertificate</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5013</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchCluster</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5014</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchConfiguration</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5015</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchCustomerGateway</strong>: The ClientGatewayId '{id}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5016</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchDataFile</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5017</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchDevice</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5018</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchDhcpoptions</strong>: The DhcpOptionsId '{id}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5019</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchGateway</strong>: The InternetServiceId '{id}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5020</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchGroup</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5021</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchGroupInPublicCloud</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5022</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchGroupIdInVpc</strong>: The SecurityGroupId '{id}' doesn't exist in this Net.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5023</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchImage</strong>: The ImageId '{id}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5024</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchInstanceType</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5025</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchIp</strong>: The PublicIp '{ip}' doesn't exist for the account '{owner}'.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5026</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchIpAssociation</strong>: The LinkPublicIpId '{id}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5027</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchKey</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5028</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchListener</strong>: The listener for the load balancer '{name}' doesn't exist on the following load balancer port(s): '{ports}'.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5029</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchListenerRule</strong>: The listener rule '{listener_rule_name}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5030</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchLoadBalancer</strong>: The LoadBalancer '{load_balancer_name}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5031</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchManifest</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5032</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchNatGateway</strong>: The NatServiceId '{id}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5033</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchNetwork</strong>: The NetId '{id}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5034</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchNetworkEndpoint</strong>: The NetAccessPointId '{id}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5035</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchNetworklink</strong>: The NetPeeringId '{id}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5036</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchNic</strong>: The NicId '{id}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5037</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchObject</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5038</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchOperation</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5039</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchPendingCall</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5040</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchIpRangeList</strong>: The IpRangeListId '{id}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5041</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchPz</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5042</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchQuota</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5044</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchResource</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5045</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchRoute</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5046</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchRouteTable</strong>: The RouteTableId '{id}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5047</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchRtbAssoc</strong>: The LinkRouteTableId '{id}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5048</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchServer</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5049</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchServerGroup</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5050</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchServergroup</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5051</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchShard</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5052</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchSite</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5053</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchSlot</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5054</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchSnapshot</strong>: The SnapshotId '{id}' doesn't exist for the account '{owner}'.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5055</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchStaticRoute</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5056</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchStickyPolicy</strong>: The PolicyName '{policy_name}' doesn't exist in the LoadBalancer '{load_balancer_name}'.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5057</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchSubnet</strong>: The SubnetId '{id}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5058</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchTask</strong>: The ExportTaskId '{id}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5059</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchType</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5060</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchUserGroup</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5061</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchVlanPool</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5062</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchVlanRange</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5063</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchVm</strong>: The VmId '{id}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5064</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchVolume</strong>: The VolumeId '{id}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5065</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchVpc</strong>: The NetId '{id}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5066</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchVpnAttachment</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5067</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchVpnConnection</strong>: The VpnConnectionId '{id}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5068</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchVpnGateway</strong>: The VirtualGatewayId '{id}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5069</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorZeroCandidate</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5070</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchSSLCertificate</strong>: The ServerCertificateId '{value}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5071</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchKeypair</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5072</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchConnection</strong>: The DirectLinkId '{id}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5073</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchInterface</strong>: The DirectLinkInterfaceId '{id}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5074</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchGpuReservation</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5075</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchUser</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5076</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNosuchentityexception</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5077</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchAllocatedip</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5078</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchCmk</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5080</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchIpId</strong>: The PublicIpId '{id}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5081</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>NoSuchVmTemplate</strong>: The VmTemplate '{id}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5082</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>NoSuchVmGroup</strong>: The VmGroup '{id}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5091</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>NoSuchDedicatedGroup</strong>: The DedicatedGroup '{id}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5092</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>NoSuchIpRangeListName</strong>: The IpRangeListName '{name}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5093</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchProductCode</strong>: The ProductCode '{id}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5094</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorUnknownPrincipalException</strong>: The account, user or assumed role user doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5095</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchEntityException</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5098</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchEntityExceptionUserPathNameForAccount</strong>: The user '{user_name}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5099</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchEntityExceptionUserPathNameForAccount</strong>: The access key '{accessKey_pid}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5100</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchEntityExceptionRegionNames</strong>: The region '{region_names}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5101</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchGroupNameInVpc</strong>: The Security Group name '{name}' doesn't exist in this Net.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5102</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchEntityExceptionManagedPolicyNameScope</strong>: The policy '{name}' doesn't exist in the scope of the account '{scope}'.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5103</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchEntityExceptionManagedPolicyNameScopeVersionId</strong>: The policy '{name}' or it's version '{versionId}' doesn't exist.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>5104</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchEntityExceptionGroupName</strong>: The group with the name '{group_name}' and the path '{group_path}' doesn't exist</td>
+<td>404</td>
+</tr>
+<tr>
+<td><code>5105</code></td>
+<td><code>InvalidResource</code></td>
+<td><strong>ErrorNoSuchEntityExceptionPolicy</strong>: The policy doesn't exist for the specified entity: {entity_orn}</td>
+<td>404</td>
+</tr>
+<tr>
+<td><code>6000</code></td>
+<td><code>InvalidState</code></td>
+<td><strong>ErrorInvalidCgState</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>6001</code></td>
+<td><code>InvalidImageState</code></td>
+<td><strong>ErrorInvalidImageState</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>6002</code></td>
+<td><code>InvalidRouterState</code></td>
+<td><strong>ErrorInvalidRouterState</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>6003</code></td>
+<td><code>InvalidState</code></td>
+<td><strong>ErrorInvalidState</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>6004</code></td>
+<td><code>InvalidState</code></td>
+<td><strong>ErrorInvalidStateTransition</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>6005</code></td>
+<td><code>InvalidSubnetState</code></td>
+<td><strong>ErrorInvalidSubnetState</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>6006</code></td>
+<td><code>InvalidVmState</code></td>
+<td><strong>ErrorInvalidVmState</strong>: Cannot perform the action. The VM ('{vm}') is in an invalid state ('{state}').</td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>6007</code></td>
+<td><code>InvalidVolumeState</code></td>
+<td><strong>ErrorInvalidVolumeState</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>6008</code></td>
+<td><code>InvalidVpgState</code></td>
+<td><strong>ErrorInvalidVpgState</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>6009</code></td>
+<td><code>InvalidVpnConnectionState</code></td>
+<td><strong>ErrorInvalidVpnConnectionState</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>6010</code></td>
+<td><code>InvalidState</code></td>
+<td><strong>ErrorCmkInvalidState</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>6011</code></td>
+<td><code>InvalidConnectionState</code></td>
+<td><strong>ErrorInvalidConnectionState</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>6012</code></td>
+<td><code>InvalidInterfaceState</code></td>
+<td><strong>ErrorInvalidInterfaceState</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>6013</code></td>
+<td><code>InvalidVmGroupState</code></td>
+<td><strong>ErrorInvalidVmGroupState</strong>: Cannot perform the action, the VmGroup '{id}' must be in the 'available' state.</td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>6014</code></td>
+<td><code>InvalidAccessKeyState</code></td>
+<td><strong>ErrorInvalidAccessKeyState</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>6015</code></td>
+<td><code>InvalidNicState</code></td>
+<td><strong>ErrorInvalidNicState</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>6016</code></td>
+<td><code>InvalidServerState</code></td>
+<td><strong>ErrorInvalidServerState</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>6017</code></td>
+<td><code>InvalidAgentState</code></td>
+<td><strong>ErrorInvalidAgentState</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>6019</code></td>
+<td><code>InvalidSlotState</code></td>
+<td><strong>ErrorInvalidSlotState</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>6020</code></td>
+<td><code>InvalidNatGatewayState</code></td>
+<td><strong>ErrorInvalidNatGatewayState</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>6021</code></td>
+<td><code>InvalidFlexibleGpuState</code></td>
+<td><strong>ErrorInvalidFlexibleGpuState</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>6022</code></td>
+<td><code>InvalidSnapshotState</code></td>
+<td><strong>ErrorInvalidSnapshotState</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>6023</code></td>
+<td><code>InvalidAccountState</code></td>
+<td><strong>ErrorInvalidAccountState</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>6024</code></td>
+<td><code>InvalidVpcState</code></td>
+<td><strong>ErrorInvalidVpcState</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>6025</code></td>
+<td><code>InvalidAddressState</code></td>
+<td><strong>ErrorInvalidAddressState</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>6026</code></td>
+<td><code>InvalidStreamingState</code></td>
+<td><strong>ErrorInvalidStreamingState</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>6027</code></td>
+<td><code>InvalidTaskState</code></td>
+<td><strong>ErrorInvalidTaskState</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>6028</code></td>
+<td><code>InvalidCallState</code></td>
+<td><strong>ErrorInvalidCallState</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>6029</code></td>
+<td><code>InvalidVpcEndpointState</code></td>
+<td><strong>ErrorInvalidVpcEndpointState</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>6030</code></td>
+<td><code>InvalidShardState</code></td>
+<td><strong>ErrorInvalidShardState</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>6031</code></td>
+<td><code>InvalidLoadBalancerState</code></td>
+<td><strong>ErrorInvalidLoadBalancerState</strong>: Cannot perform the action. The load balancer '{load_balancer_name}' is in an invalid state ('{state}').</td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>7000</code></td>
+<td><code>MissingParameter</code></td>
+<td><strong>ErrorMissingParameter</strong>: One or more required parameters are missing: '{missing_parameters}'.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>7001</code></td>
+<td><code>MissingParameter</code></td>
+<td><strong>ErrorMissingValueExpirationOrCookieName</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>7002</code></td>
+<td><code>MissingParameter</code></td>
+<td><strong>ErrorSubnetParameterCompulsory</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>7003</code></td>
+<td><code>MissingParameter</code></td>
+<td><strong>ErrorNoRootSnapshot</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>7006</code></td>
+<td><code>MissingParameter</code></td>
+<td><strong>ErrorMissingParameter</strong>: You must provide at least '{low}' of the following parameters: '{args}'.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>7007</code></td>
+<td><code>MissingParameter</code></td>
+<td><strong>ErrorMissingParameter</strong>: The parameter '{param}' is required.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>7009</code></td>
+<td><code>MissingParameter</code></td>
+<td><strong>ErrorMissingHeaderDate</strong>: The header '{header_name}' is required.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>7010</code></td>
+<td><code>MissingParameter</code></td>
+<td><strong>ErrorMissingCredentials</strong>: You need to provide credentials to perform this action. Please, refer to the documentation for authentication modes.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>7013</code></td>
+<td><code>MissingParameter</code></td>
+<td><strong>ErrorMissingParameter</strong>: The parameter '{param}' is required.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>7014</code></td>
+<td><code>MissingParameter</code></td>
+<td><strong>ErrorMissingSSLCertificate</strong>: The parameter 'ServerCertificateId' is required for this LoadBalancerProtocol '{load_balancer_protocol}'.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>7015</code></td>
+<td><code>MissingHeaderValue</code></td>
+<td><strong>ErrorMissingAcceptHeader</strong>: The Accept header is missing or empty. You should use one of these content types: '{content_types}'.</td>
+<td>406</td>
+</tr>
+<tr>
+<td><code>7016</code></td>
+<td><code>MissingParameter</code></td>
+<td><strong>ErrorMissingCookieName</strong>: The parameter 'CookieName' is required in policies of type 'app'.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>8000</code></td>
+<td><code>OperationNotSupported</code></td>
+<td><strong>ErrorActionNotConfirmed</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>8001</code></td>
+<td><code>OperationNotSupported</code></td>
+<td><strong>ErrorBadUsage</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>8002</code></td>
+<td><code>OperationNotSupported</code></td>
+<td><strong>ErrorCannotDetachDeviceIndex</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>8003</code></td>
+<td><code>OperationNotSupported</code></td>
+<td><strong>ErrorCannotDetachRoot</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>8004</code></td>
+<td><code>OperationNotSupported</code></td>
+<td><strong>ErrorEgressNotSupported</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>8006</code></td>
+<td><code>OperationNotSupported</code></td>
+<td><strong>ErrorImmutableKeypair</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>8007</code></td>
+<td><code>OperationNotSupported</code></td>
+<td><strong>ErrorIsolatedInstance</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>8008</code></td>
+<td><code>OperationNotSupported</code></td>
+<td><strong>ErrorMappingNotSupported</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>8009</code></td>
+<td><code>OperationNotSupported</code></td>
+<td><strong>ErrorMigrating</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>8010</code></td>
+<td><code>OperationNotSupported</code></td>
+<td><strong>ErrorNotImplemented</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>8011</code></td>
+<td><code>OperationNotSupported</code></td>
+<td><strong>ErrorNotPermitted</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>8012</code></td>
+<td><code>OperationNotSupported</code></td>
+<td><strong>ErrorNotSupported</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>8014</code></td>
+<td><code>OperationNotSupported</code></td>
+<td><strong>ErrorNumericalNotSupported</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>8015</code></td>
+<td><code>OperationNotSupported</code></td>
+<td><strong>ErrorPaginationNotImplemented</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>8016</code></td>
+<td><code>OperationNotSupported</code></td>
+<td><strong>ErrorRootSnapshotNotModifiable</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>8017</code></td>
+<td><code>OperationNotSupported</code></td>
+<td><strong>ErrorUnexportableImage</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>8018</code></td>
+<td><code>OperationNotSupported</code></td>
+<td><strong>ErrorApiTerminationLocked</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>8019</code></td>
+<td><code>OperationNotSupported</code></td>
+<td><strong>ErrorInterRegionCopyNotImplemented</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>8023</code></td>
+<td><code>OperationNotSupported</code></td>
+<td><strong>ErrorNestedNotActivated</strong>: Nested virtualization is not yet activated in this Region.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>8029</code></td>
+<td><code>TooManyStorageDevicesPerVm</code></td>
+<td><strong>ErrorTooManyStorageDevicesPerVm</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>8030</code></td>
+<td><code>ActionNotPermitted</code></td>
+<td><strong>ErrorActionNotPermitted</strong>: Cannot perform the {action} with owner={owner} on resource={resource}</td>
+<td>405</td>
+</tr>
+<tr>
+<td><code>8031</code></td>
+<td><code>OperationNotSupported</code></td>
+<td><strong>ErrorCannotDetachMainPrivateIp</strong>: <span class="tooltip" data-tooltip="flexible network interface (FNI) in AWS-Compliant APIs">NIC</span>'s ('{nic_id}') main private IP ('{main_private_ip}') cannot be detached.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>8032</code></td>
+<td><code>ContentTypeNotsupported</code></td>
+<td><strong>ErrorUnsupportedAcceptHeader</strong>: The requested response ContentType is not supported. You should use one of these content types: '{content_types}'.</td>
+<td>406</td>
+</tr>
+<tr>
+<td><code>8033</code></td>
+<td><code>OperationNotSupported</code></td>
+<td><strong>ErrorNotImplementInLBU</strong>: {detail}</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>9000</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorAlready-exist</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9001</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorAmbiguousIp</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9002</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorBusy</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9003</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorDeviceConflict</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9004</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorDeviceInUse</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9005</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorDuplicateCidr</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9006</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorDuplicateConnection</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9007</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorDuplicateEmailAddress</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9008</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorDuplicateGroup</strong>: Cannot perform the action, the SecurityGroupName '{group_name}' already exists.</td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9009</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorDuplicateId</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9010</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorDuplicateInterface</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9011</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorDuplicateKey</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9012</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorDuplicateListener</strong>: Cannot perform the action, a listener already exists for '{load_balancer_name}' with LoadBalancerPort '{load_balancer_port}' with a different configuration.</td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9013</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorDuplicateLoadbalancerName</strong>: Cannot perform the action. The load balancer name '{load_balancer_name}' already exists.</td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9014</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorDuplicateMountPoint</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9015</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorDuplicateName</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9016</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorDuplicatePort</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9017</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorDuplicateIpRangeListGroup</strong>: Cannot perform the action, the permission '{prefix_list}({target})' already exists for the group '{group}'.</td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9018</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorDuplicateProduct</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9019</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorDuplicateRouter</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9020</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorDuplicateShard</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9021</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorDuplicatePolicyName</strong>: Cannot perform the action, the PolicyName '{policy_name}' already exists for the LoadBalancer '{load_balancer_name}'.</td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9022</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorDuplicateUsername</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9023</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorDuplicateVlan</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9024</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorGatewayIsAlreadyAttached</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9027</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorGatewayNotAttached</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9028</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorGroupAlreadyExists</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9029</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorInUse</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9030</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorInvalidVpnConnection</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9031</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorLockedAddress</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9032</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorMigrating,alreadyMigrating</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9033</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorNotMigrating</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9034</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorMultipleStickinessPoliciesForbidden</strong>: Multiple stickiness policies in listeners are not allowed.</td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9035</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorNoRuleBackend</strong>: Cannot perform the action. The listener rule must have at least one backend VM.</td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9037</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorNatGatewayAlreadyExists</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9038</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorNetworkEndpointAlreadyExists</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9039</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorNeverStarted</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9040</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorNicInUse</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9041</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorNoGeneratedPassword</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9042</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorNoKeypairAssociated</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9043</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorNoVpnNetwork</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9044</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorNotInVpcBlock</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9045</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorNotPublicSubnet</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9046</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorPasswordAlreadySet</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9047</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorDuplicateListenerRulePriority</strong>: Cannot perform the action. The listener rule priority '{rule_priority}' already exists.</td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9048</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorPzAlreadyMapped</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9049</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorPzNotEnabled</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9050</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorReservedBlock</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9051</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorReservedGroup</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9052</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorRouteAlreadyExists</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9053</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorRouteDoesNotExist</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9054</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorDuplicateListenerRuleName</strong>: Cannot perform the action. The listener rule name '{rule_name}' already exists.</td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9055</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorStickinessPolicyInUse</strong>: Cannot perform the action, the policy '{policy_name}' is used by at least one listener.</td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9056</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorInvalidProtocolStickinessPolicy</strong>: Cannot perform the action, the policy '{policy_name}' cannot be associated to a listener with LoadBalancerProtocol '{load_balancer_protocol}'.</td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9057</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorSubnetAlreadyInUse</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9058</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorSubnetConflict</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9059</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorSubnetIsAssociated</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9060</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorTag-already-exist</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9061</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorVmAlreadyStreaming</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9062</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorVmNotInVpc</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9063</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorVolumeNotInUse</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9064</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorVolumeNotStreamable</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9065</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorVpcAlreadyAttached</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9066</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorVpcIsAssociated</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9067</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorVpcPeeringConnectionAlreadyExists</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9068</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorVpnConnectionIsNotStatic</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9069</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorVpncConflict</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9070</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorZoneAlreadyExist</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9071</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorZoneMismatch</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9072</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorVmSpecsMismatch</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9073</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorEntityalreadyexistsexception</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9074</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorPasswordpolicyviolationexception</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9075</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorDefaultCmk</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9076</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>EntityRestrictionsException</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9078</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorDuplicateSite</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9079</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorConnectionInUse</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9080</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorPortInUse</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9081</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorRouterInUse</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9082</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorSiteInUse</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9084</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorDhcpOptionsInUse</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9085</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorGroupInUse</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9086</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorPrivateIpInUse</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9087</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorPublicIpInUse</strong>: Cannot perform the action. The public IP '{ip}' is already associated with another resource ('{association}').</td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9088</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorNicInUse</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9089</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorIpRangeListInUse</strong>: Cannot delete the IP range list '{id}' due to existing associations ('{associations}').</td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9090</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorProductInUse</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9091</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorPzInUse</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9092</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorRouteTableInUse</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9093</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorShardInUse</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9094</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorSnapshotInUse</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9095</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorSubnetInUse</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9096</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorVlanRangeInUse</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9097</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorVpcInUse</strong></td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9098</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>VmTemplateInUse</strong>: Cannot perform the action, the VmTemplate '{id}' is used by at least one other resource.</td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9099</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorDedicatedGroupInUse</strong>: Dedicated group '{id}' has resources: {ids}</td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9100</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorDuplicateIpRangeListName</strong>: Cannot perform the action, the IpRangeListName '{prefix_list}' already exists for the account '{owner}'.</td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9101</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorDuplicateIpRangeListCidr</strong>: Cannot perform the action, repeated values '{cidrs}'. Please ensure that all Cidr in the Entries are unique.</td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9102</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorNotInSameVpc</strong>: Route table '{rtb_id}' and resource '{resource_id}' must be in the same network.</td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9103</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorInVpcBlock</strong>: Destination '{subnet_cidr}' must be outside the network CIDR '{vpc_cidr}'.</td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9104</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorEntityRestrictionsExceptionAccessKeyStatus</strong>: The access key '{accessKey_pid}' should be INACTIVE.</td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9105</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorEntityRestrictionsExceptionUserNameForAccount</strong>: The user '{user_name}' already exist.</td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9106</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorEntityRestrictionsExceptionUserAttachedEntities</strong>: The user has dependencies.</td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9107</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorDuplicateRule</strong>: Cannot perform the action, the security group rule '{permission_name}' already exists on the specified group.</td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9108</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorPrivateIpMismatch</strong>: One or more IPv4 addresses ('{unknown_ips}') are not associated to the NIC '{nic}'.</td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9109</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorNotInSubnetBlock</strong>: IPv4 address '{ip}' does not fall within the network CIDR of '{subnet_id}' ('{subnet_cidr}').</td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>9112</code></td>
+<td><code>ResourceConflict</code></td>
+<td><strong>ErrorPolicyInUse</strong>: Cannot perform the action, the policy '{policy_name}' is used by at least one backend.</td>
+<td>409</td>
+</tr>
+<tr>
+<td><code>10001</code></td>
+<td><code>InsufficientCapacity</code></td>
+<td><strong>ErrorInsufficientResource</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10002</code></td>
+<td><code>InsufficientCapacity</code></td>
+<td><strong>ErrorTooManyCmk</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10003</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorMigrationPortsExhausted</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10004</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorResolutionHasTooManySgs</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10005</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyAccesskeys</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10006</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyAccountsCreated</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10007</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyCertificate</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10008</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyConcurrentSnapshots</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10009</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyCookieParamSet</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10010</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyInstances</strong>: The maximum number of VMs ('{limit}') is exceeded.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10011</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyIps</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10012</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyListenerRules</strong>: The maximum number of listener rules ('{limit}') is exceeded.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10013</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyListeners</strong>: The maximum number of listeners ('{limit}') is exceeded.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10014</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyLoadBalancers</strong>: The maximum number of load balancers ('{limit}') is exceeded.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10015</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyNetworkInterfaces</strong>: The maximum number of NICs ('{limit}') is exceeded.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10016</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyPz</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10017</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManySgRules</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10018</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyVolumes</strong>: The maximum number of volumes ('{limit}') is exceeded.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10019</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooMuchPz</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10020</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorVpnGatewayAttachmentLimitReached</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10021</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyPrivateIps</strong>: The maximum number of private IPs per NIC ('{limit}') is exceeded.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10022</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyVpcs</strong>: The maximum number of Nets ('{limit}') is exceeded.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10023</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyIgws</strong>: The maximum number of Internet services ('{limit}') is exceeded.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10024</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooMuchVolumeSize</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10025</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyIops</strong>: The maximum number of IOPS ('{limit}') is exceeded.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10026</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManySnapshots</strong>: The maximum number of snapshots ('{limit}') is exceeded.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10027</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyCgws</strong>: The maximum number of client gateways ('{limit}') is exceeded.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10028</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyConnections</strong>: The maximum number of connections ('{limit}') is exceeded.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10029</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyCores</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10030</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyGpu</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10031</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyInterfaces</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10032</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyNatGateways</strong>: The maximum number of <span class="tooltip" data-tooltip="NAT gateway in AWS-Compliant APIs">NAT services</span> ('{limit}') is exceeded.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10033</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyNetworkEndpoints</strong>: The maximum number of <span class="tooltip" data-tooltip="VPC endpoint in AWS-Compliant APIs">Net access points</span> ('{limit}') is exceeded.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10034</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyNetworklinkRequests</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10035</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyNetworklinks</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10036</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyNicSgs</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10037</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyRtbs</strong>: The maximum number of route tables ('{limit}') is exceeded.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10038</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManySgs</strong>: The maximum number of security groups ('{limit}') is exceeded.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10039</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyVpgs</strong>: The maximum number of virtual gateways ('{limit}') is exceeded.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10040</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyStaticRoutes</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10041</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyTags</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10042</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooMuchMemory</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10043</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyBgpRoutes</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10044</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyBypassGroup</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10045</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooMuchBypassGroupSize</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10046</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyGpuReservations</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10047</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorLimitexceedexception</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10048</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManySubnets</strong>: The maximum number of Subnets ('{limit}') is exceeded.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10049</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorLimitExceedExceptionFromIdentauth</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10050</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorPendingImageLimitExceeded</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10051</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>TooManyIpRangeLists</strong>: The maximum number of ip range lists ('{limit}') is exceeded.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10052</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorVpnConnectionLimitExceeded</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10053</code></td>
+<td><code>InsufficientCapacity</code></td>
+<td><strong>ErrorNotEnoughVms</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10054</code></td>
+<td><code>InsufficientCapacity</code></td>
+<td><strong>ErrorNoVmsFound</strong></td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10055</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>TooManyIpRangeListEntries</strong>: The maximum number of ip range list entries ('{limit}') is exceeded.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10056</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>VmGroupsQuotaLimit</strong>: The maximum number of {quota} ('{limit}') is exceeded.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10057</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyRtbRules</strong>: The maximum number of route table rules ('{limit}') is exceeded.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>10058</code></td>
+<td><code>TooManyResources (QuotaExceeded)</code></td>
+<td><strong>ErrorTooManyDedicatedServers</strong>: The maximum number of dedicated servers ('{limit}') is exceeded.</td>
+<td>400</td>
+</tr>
+<tr>
+<td><code>11000</code></td>
+<td><code>UserAccountProblem</code></td>
+<td><strong>ErrorAccountDisabled</strong></td>
+<td>403</td>
+</tr>
+<tr>
+<td><code>11001</code></td>
+<td><code>UserAccountProblem</code></td>
+<td><strong>ErrorAccountisnotactiveexception</strong></td>
+<td>401</td>
+</tr>
+<tr>
+<td><code>12000</code></td>
+<td><code>InvalidAction</code></td>
+<td><strong>ErrorInvalidAction</strong>: The action is invalid for this web service: '{invalid_action}'.</td>
+<td>404</td>
+</tr>
+<tr>
+<td><code>12001</code></td>
+<td><code>InvalidAction</code></td>
+<td><strong>ErrorDictionaryVersionDoesNotExists</strong></td>
+<td>404</td>
+</tr>
+<tr>
+<td><code>12002</code></td>
+<td><code>MethodNotAllowed</code></td>
+<td><strong>ErrorMethodNotAllowed</strong>: The received method '{received_method}' does not match the supported methods: {supported_methods}.</td>
+<td>405</td>
+</tr>
+</tbody>
+</table>
+<!-- Renderer: Shins v2.6.0 -->
+      </div>
+      <div class="dark-box">
+
+      </div>
+    </div>
+  </div>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="https://docs.outscale.com/Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script id="site-script" src="_/js/site.js" data-ui-root-path="./_"></script>
+    <script src="_/js/apidocs/app/_lang.js"></script>
+    <script src="_/js/apidocs/app/_nav.js"></script>
+    <script src="_/js/apidocs/app/copy-to-clipboard.js"></script>
+  </body>
+</html>

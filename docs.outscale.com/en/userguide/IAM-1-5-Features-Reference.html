@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>IAM 1.5 Features Reference – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="IAM-1-5-Features-Reference.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/IAM-1-5-Features-Reference.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Référence-des-fonctionnalités-IAM-1-5.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">IAM 1.5 Features Reference</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>On September 18, 2023 on eu-west-2, a new version of IAM has been released. This page summarizes all the new features and updates.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_new_multi_factor_authentication_for_cockpitv2"><a class="anchor" href="IAM-1-5-Features-Reference.html#_new_multi_factor_authentication_for_cockpitv2"></a>New Multi-Factor Authentication for Cockpit v2</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Two new multi-factor authentication (MFA) methods have been added to Cockpit v2:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A security key, or device biometrics, using WebAuthn. For more information, see <a href="Setting-Up-MFA-for-Your-Account-Using-WebAuthn-or-an-OTP.html#_webauthn" class="xref page">Setting Up MFA for Your Account Using WebAuthn or an OTP &gt; WebAuthn</a>.</p>
+</li>
+<li>
+<p>A one-time password (OTP) using an authentication application. For more information, see <a href="Setting-Up-MFA-for-Your-Account-Using-WebAuthn-or-an-OTP.html#_One-Time_Password" class="xref page">Setting Up MFA for Your Account Using WebAuthn or an OTP &gt; One-Time Password</a>.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>WebAuthn is a web standard using public key cryptography, that allows to authenticate on web applications through a security key (via USB, like a YubiKey, or built into your smartphone or tablet) or through the biometrics authentication on your computer or smartphone.</p>
+</li>
+<li>
+<p>An OTP is a short sequence of autogenerated numbers delivered in an application. It is only available for one short period of time, thus making it more difficult to use maliciously.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="About-Authentication.html" class="xref page">About Authentication</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_trusted_env_and_trusted_session"><a class="anchor" href="IAM-1-5-Features-Reference.html#_trusted_env_and_trusted_session"></a>Trusted Env and Trusted Session</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The existing Trusted Env feature has been updated. This can impact your authentication on Cockpit v2.</p>
+</div>
+<div class="paragraph">
+<p>When the <code>RequireTrustedEnv</code> parameter of the <code>UpdateApiAccessPolicy</code> method is activated, it is now required for all EIM users of the root account to log in to Cockpit v2 using multi-factor authentication (MFA). More specifically, it is required that they set up the WebAuthn authentication method. They can then authenticate using either the WebAuthn method, or the OTP method. For more information, see <a href="Setting-Up-MFA-for-Your-Account-Using-WebAuthn-or-an-OTP.html" class="xref page">Setting Up MFA for Your Account Using WebAuthn or an OTP</a>.</p>
+</div>
+<div class="paragraph">
+<p>As a reminder, activating Trusted Env allows you to activate a trusted session. Trusted sessions provide an additional layer of security to a root account and all its users. For more information on trusted sessions, see <a href="About-Your-API-Access-Policy.html#_trusted_session" class="xref page">About Your API Access Policy &gt; Trusted Session</a>.</p>
+</div>
+<div class="paragraph">
+<p>To activate a trusted session, a root account needs to meet the following requirements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>All their access keys must have expiration dates.</p>
+</li>
+<li>
+<p>All their API access rules must specify a CA.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>As a result of the new MFA feature, the MFA method based on x509 certificates will be deprecated at the end of 2023. On that date, all the x509 certificates in your API access rules will be obsolete and deleted.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_password_reset"><a class="anchor" href="IAM-1-5-Features-Reference.html#_password_reset"></a>Password Reset</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As a result of the new version of IAM, you can no longer reset your password via the <code>SendResetPasswordEmail</code> and <code>ResetAccountPassword</code> API methods.</p>
+</div>
+<div class="paragraph">
+<p>You can now only reset your password via the reset password button on Cockpit v2. For more information, see <a href="Modifying-Your-Personal-Information-and-Password.html" class="xref page">Modifying Your Personal Information and Password</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_eim_users_authentication"><a class="anchor" href="IAM-1-5-Features-Reference.html#_eim_users_authentication"></a>EIM Users Authentication</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It is now possible for Elastic Identity Management (EIM) users to create their own password that they can then use to log in to Cockpit v2. For more information, see <a href="Creating-a-Password-as-an-EIM-User.html" class="xref page">Creating a Password as an EIM User</a>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>EIM users do not have their own email addresses, so if an EIM user needs to reset their password, the reset password email will be sent to the email address of the root account.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="About-Authentication.html" class="xref page">About Authentication</a></p>
+</li>
+<li>
+<p><a href="Activating-a-Trusted-Session.html" class="xref page">Activating a Trusted Session</a></p>
+</li>
+<li>
+<p><a href="Creating-a-Password-as-an-EIM-User.html" class="xref page">Creating a Password as an EIM User</a></p>
+</li>
+<li>
+<p><a href="Setting-Up-MFA-for-Your-Account-Using-WebAuthn-or-an-OTP.html" class="xref page">Setting Up MFA for Your Account Using WebAuthn or an OTP</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Corresponding API Method</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#updateapiaccesspolicy" class="xref page">UpdateAccessKeyPolicy (OUTSCALE API)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>À propos des Net peerings – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="À-propos-des-Net-peerings.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/À-propos-des-Net-peerings.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/About-Net-Peerings.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">À propos des <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span> peerings</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Un <span class="tooltip" data-tooltip="VPC peering connection dans les API AWS-compliant">Net peering</span> (appairage de réseaux) permet à deux Nets de communiquer l&#8217;un avec l&#8217;autre par une connexion privée. Les <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machines virtuelles (VM)</span> des Nets pairs peuvent accéder les unes aux autres.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_informations_générales"><a class="anchor" href="À-propos-des-Net-peerings.html#_informations_générales"></a>Informations générales</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Les <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Nets</span> pairs peuvent appartenir au même compte ou à des comptes différents. Vous pouvez créer plusieurs connexions pour chacun de vos Nets. Cependant, vous ne pouvez pas créer plus d&#8217;une connexion entre deux mêmes Nets au même moment.</p>
+</div>
+<div class="paragraph">
+<p>Une <span class="tooltip" data-tooltip="VPC peering connection dans les API AWS-compliant">Net peering</span> connexion est une connexion privée utilisant des IP privées. Les blocs CIDR des Nets pairs ne doivent pas se chevaucher. Les Nets pairs doivent être situés dans la même Région. Cependant, leurs Subnets peuvent être situés dans des <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Sous-régions</span> différentes. Pour en savoir plus, voir <a href="À-propos-des-Régions-et-Sous-régions.html" class="xref page">À propos des Régions et Sous-régions</a>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Les Nets pairs doivent contenir au moins une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> chacun avant la création du Net peering.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Exemple de deux blocs CIDR qui ne se chevauchent pas :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>10.0.0.0/16</p>
+</li>
+<li>
+<p>172.16.0.0/16</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Lorsque vous créez une connexion, une requête est envoyée au Net auquel vous voulez vous connecter. Le propriétaire de ce Net doit accepter cette requête pour que la connexion soit établie. Pour en savoir plus, voir la section <a href="À-propos-des-Net-peerings.html#_cycle_de_vie">Cycle de vie</a> ci-dessous.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Si vous utilisez Cockpit pour créer un Net peering entre deux Nets qui appartiennent à votre compte, la requête est automatiquement acceptée.</p>
+</li>
+<li>
+<p>Une peering connection entre deux Nets se fait dans les deux sens. Si une connexion de A vers B a déjà été créée et acceptée, créer une connexion de B vers A n&#8217;est pas nécessaire et serait automatiquement rejetée.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Une fois la connexion créée, le trafic réseau entre les Nets pairs est possible. Vous devez mettre à jour leurs route tables et leurs security groups pour autoriser le trafic. Pour en savoir plus, voir la section <a href="À-propos-des-Net-peerings.html#_configuration_réseau">Configuration réseau</a> ci-dessous.</p>
+</div>
+<div class="paragraph">
+<p>Un Net peering est une connexion directe, individuelle et non transitive. Ainsi, des Nets pairs ne peuvent pas communiquer avec d&#8217;autres Nets auxquels ils ne sont pas directement connectés. Deux Nets chacun connecté au même troisième Net ne peuvent pas utiliser celui-ci comme point de transit pour accéder l&#8217;un à l&#8217;autre.</p>
+</div>
+<div class="paragraph">
+<div class="title">Connexion non transitive à travers un Net peering</div>
+<p><span class="image"><img src="_images/FR-sch-General-NetPeering.png" alt="FR sch General NetPeering"></span></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour assurer redondance et haute disponibilité, vous pouvez connecter deux Nets dont les Subnets sont situés dans des Sous-régions différentes.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_cycle_de_vie"><a class="anchor" href="À-propos-des-Net-peerings.html#_cycle_de_vie"></a>Cycle de vie</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Une fois demandée, un <span class="tooltip" data-tooltip="VPC peering connection dans les API AWS-compliant">Net peering</span> peut passer par plusieurs états. À chaque état, différentes actions sont possibles.</p>
+</div>
+<div class="paragraph">
+<div class="title">Cycle de vie d&#8217;un Net peering</div>
+<p><span class="image"><img src="_images/FR-sch-General-VPCPeeringConnectionLifecycle.png" alt="FR sch General VPCPeeringConnectionLifecycle"></span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>failed</code> : La création du Net peering a échoué. Cela se produit, par exemple, si les Nets sont situés dans des Régions différentes, ou si leurs blocs CIDR se chevauchent. Une connexion à l&#8217;état <code>failed</code> ne peut être ni acceptée, ni rejetée, ni supprimée.</p>
+</li>
+<li>
+<p><code>pending-acceptance</code> : La connexion est en attente d&#8217;une action du propriétaire du Net accepteur, qui peut l&#8217;accepter ou la rejeter. Entre-temps, le propriétaire du Net requêteur peut toujours supprimer sa requête. Si aucune action n&#8217;est effectuée, la requête expire après 7 jours.</p>
+</li>
+<li>
+<p><code>expired</code> : La requête a expiré. La connexion ne peut plus être acceptée, ni rejetée, ni supprimée.</p>
+</li>
+<li>
+<p><code>rejected</code> : La connexion a été rejetée par le propriétaire du Net accepteur. Aucune connexion n&#8217;est créée entre les Nets. La connexion ne peut plus être acceptée ni supprimée.</p>
+</li>
+<li>
+<p><code>active</code> : La connexion a été acceptée par le propriétaire du Net accepteur. Une connexion est créée entre les Nets. L&#8217;un ou l&#8217;autre des propriétaires des Nets pairs peut la supprimer.</p>
+</li>
+<li>
+<p><code>deleted</code> : La connexion a été supprimée par l&#8217;un ou l&#8217;autre des propriétaires des Nets pairs.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Les connexions dont l&#8217;état est <code>failed</code>, <code>expired</code> ou <code>deleted</code> restent visibles pendant 1 heure.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuration_réseau"><a class="anchor" href="À-propos-des-Net-peerings.html#_configuration_réseau"></a>Configuration réseau</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_route_tables"><a class="anchor" href="À-propos-des-Net-peerings.html#_route_tables"></a>Route tables</h3>
+<div class="paragraph">
+<p>Pour autoriser le trafic entre des <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Nets</span> pairs, vous devez mettre à jour les route tables associées à leurs Subnets.</p>
+</div>
+<div class="paragraph">
+<p>Chacun des propriétaires des Nets doit créer une nouvelle route avec le bloc CIDR de l&#8217;autre Net en destination, et l&#8217;ID du <span class="tooltip" data-tooltip="VPC peering connection dans les API AWS-compliant">Net peering</span> en target. Cela permet aux <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> de diriger le trafic entre les deux Nets.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Nous vous recommandons d&#8217;attendre que le Net peering devienne <code>active</code> avant de créer une route.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<div class="title">Architecture d&#8217;un Net peering</div>
+<p><span class="image"><img src="_images/FR-sch-General-NetPeeringArchitecture.png" alt="FR sch General NetPeeringArchitecture" width="700"></span></p>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus, voir <a href="À-propos-des-route-tables.html" class="xref page">À propos des route tables</a> et <a href="Tutoriel-Configurer-un-Net-peering.html" class="xref page">Tutoriel : Configurer un Net peering</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_security_groups"><a class="anchor" href="À-propos-des-Net-peerings.html#_security_groups"></a>Security groups</h3>
+<div class="paragraph">
+<p>Pour autoriser le trafic entre les VM des Nets pairs, vous devez mettre à jour les security groups associés à leurs VM.</p>
+</div>
+<div class="paragraph">
+<p>Chacun des propriétaires des Nets doit ajouter les règles appropriées autorisant les flux sortants et entrants depuis et vers le Subnet de l&#8217;autre Net. Pour en savoir plus, voir <a href="À-propos-des-security-groups.html" class="xref page">À propos des security groups</a> et <a href="Tutoriel-Configurer-un-Net-peering.html" class="xref page">Tutoriel : Configurer un Net peering</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Nets.html" class="xref page">Nets</a></p>
+</li>
+<li>
+<p><a href="Tutoriel-Configurer-un-Net-peering.html" class="xref page">Tutoriel : Configurer un Net peering</a></p>
+</li>
+<li>
+<p><a href="Créer-un-Net-peering.html" class="xref page">Créer un Net peering</a></p>
+</li>
+<li>
+<p><a href="Accepter-un-Net-peering.html" class="xref page">Accepter un Net peering</a></p>
+</li>
+<li>
+<p><a href="Rejeter-un-Net-peering.html" class="xref page">Rejeter un Net peering</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-vos-Net-peerings.html" class="xref page">Obtenir des informations sur vos Net peerings</a></p>
+</li>
+<li>
+<p><a href="Supprimer-un-Net-peering.html" class="xref page">Supprimer un Net peering</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

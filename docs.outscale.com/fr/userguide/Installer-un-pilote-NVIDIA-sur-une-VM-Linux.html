@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Installer un pilote NVIDIA sur une VM Linux – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Installer-un-pilote-NVIDIA-sur-une-VM-Linux.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Installer-un-pilote-NVIDIA-sur-une-VM-Linux.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Installing-an-NVIDIA-Driver-on-a-Linux-VM.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Installer un pilote NVIDIA sur une VM Linux</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cette page décrit comment installer un pilote NVIDIA pour les GPU supportés, sur une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machine virtuelle (VM)</span> Linux CentOS 7.</p>
+</div>
+<div class="paragraph">
+<p>Une VM peut être équipée d&#8217;un GPU par le biais de certains types de VM spécifiques, ou par l&#8217;attachement d&#8217;un flexible GPU. Pour en savoir plus, voir <a href="Types-de-VM.html" class="xref page">Types de VM</a> ou <a href="À-propos-des-flexible-GPU.html" class="xref page">À propos des flexible GPU</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installer_le_pilote_nvidia_pour_p2"><a class="anchor" href="Installer-un-pilote-NVIDIA-sur-une-VM-Linux.html#_installer_le_pilote_nvidia_pour_p2"></a>Installer le pilote NVIDIA pour P2</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Depuis votre <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span>, vérifiez que le GPU est présent :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ yum install -y pciutils
+$ lspci</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Mettez à jour vos paquets et dépendances :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ yum update -y # /!\ Redémarrez s'il y a une mise à jour du noyau
+$ yum install -y patch epel-release kernel-devel</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Désactivez le pilote Nouveau par défaut :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ echo blacklist nouveau &gt; /etc/modprobe.d/blacklist-nvidia-nouveau.conf
+$ echo options nouveau modeset=0 &gt;&gt; /etc/modprobe.d/blacklist-nvidia-nouveau.conf
+$ rmmod nouveau</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Installez CUDA Toolkit 8.0 :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ yum-config-manager --add-repo https://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/cuda-rhel7.repo
+$ yum clean all
+$ yum -y install cuda-8-0</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Le dernier pilote NVIDIA compatible avec K2 est la version 367.134, mais vous devez la patcher pour qu&#8217;elle fonctionne avec le noyau de CentOS 7 :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ curl 'https://us.download.nvidia.com/XFree86/Linux-x86_64/367.134/NVIDIA-Linux-x86_64-367.134.run' -o NVIDIA-Linux-x86_64-367.134.run
+$ sh NVIDIA-Linux-x86_64-367.134.run -x
+$ cd NVIDIA-Linux-x86_64-367.134
+$ echo "H4sIAL3q8V4AA81WbW/aMBD+vPwKT5UmKARIwnvVqRkxbdS8IBOo9smixLRZIUFOYJ3W/vedCbBIayntqDYL4sS+53KP/fgufjCZINkZLTgq8yhKys7QNExdtoJwcS/fN+u0XpW1eqOkaNXyHeMhm5bDZeAHI9nns8wt/JelMSovYl6O+Xgzs4HuwEiyLB/k5R/UitKSFVVWGkjR2lq9rSilyqahgrhKhULhLUGCb7UiV+qyqiJFaatau1YpaZpW05SG0lz7PjtDcq2lFlV42bo/O5PQUTBBPpsEIfNzzpAaxKa659pmh9qugfvYo/pQNy39i4XzEhJNmJhux7OogbsAGObSlaHnGCbsnks86gwv7T61se2Sr8UU9mdLaVCgQW/YjAazecQTGi7vZjGdsVnEfxQl+WmoiKHjOh5xLapblnv1IEYGjuV2LrGRL0qF53EZq918dMNYE+l+2YfEyPfX0U+u/23ktnlOdA9vt9C9cjDpX5i9fWjMghs+ShidRT6LWUKj7yHj8W0w38nJ1vseJg9/Qy/jIsv0iIU+iLR8jF7QJzou76/QQR9WpKd38NtUuohhTeajMXubUgl2DExevUK7YC8x92BoSE2n6+5HNaE+W9IgnET/AbfHEwlJKE5GSTCGji/GCRJh+jxYMg6B08zTKfop+QcrHbDpry4dK8whSsfK0TuVjo3v36VDbavNdq1VqmqKqirVViVTOhrVYgMVVldRNjaNs2TBQ4QJoT2P5OAxf5LOPsKOrXSzOTnR9Tc2hpMTcjZhnIVwdhbhNBrfQeX5BDsINvLn61HMwEPhCeB8kTwPQNJaweno7Sj0pwyUcJzeCQPBolqtCRppJ3hIyI9C1k7RkGVyAEcfT5EzsKw86Gir/H1YwPwm9pfiT023C5VdS+hODqjfORyK0u0rtZGCDqHg1NM7SXjrPKthDX6tUkXTVE1ptloZDddVsfmr6zOfPiJFDhwCubNHoLg43uqb5yi1QhmjLsE4R0WKzKeJCHLlShPrQVG2pjET+tkTPeGMbcCFvVEgqswbRaEUanqC2QW2epBeRdGkXdOy4JuG9j0y6Hj0Qu+LNN730tmObVCdnOelXzvAfRF/CwAA" | base64 --decode | gzip -d &gt; nvidia-k2.patch
+$ patch -p3 &lt; nvidia-k2.patch
+$ ./nvidia-installer -q -s -a</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour vérifier que les modules <code>nvidia*</code> sont présents sur la VM, tapez :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ lsmod</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installer_le_pilote_nvidia_pour_p6_ou_p100"><a class="anchor" href="Installer-un-pilote-NVIDIA-sur-une-VM-Linux.html#_installer_le_pilote_nvidia_pour_p6_ou_p100"></a>Installer le pilote NVIDIA pour P6 ou P100</h2>
+<div class="sectionbody">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour installer le CUDA Toolkit 11.0 requis sur une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> utilisant l&#8217;image machine OUTSCALE CentOS 7, vous devez démarrer votre VM avec un volume root au moins 1 GiO plus grand que les 10 GiO par défaut.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Depuis votre VM, vérifiez que le GPU est présent :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ yum install -y pciutils
+$ lspci</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Mettez à jour vos paquets et dépendances :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ yum update -y # /!\ Redémarrez s'il y a une mise à jour du noyau
+$ yum install -y patch epel-release kernel-devel</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Désactivez le pilote Nouveau par défaut :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ echo blacklist nouveau &gt; /etc/modprobe.d/blacklist-nvidia-nouveau.conf
+$ echo options nouveau modeset=0 &gt;&gt; /etc/modprobe.d/blacklist-nvidia-nouveau.conf
+$ rmmod nouveau</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Installez CUDA Toolkit 11.0 et le pilote NVIDIA le plus récent :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ yum-config-manager --add-repo https://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/cuda-rhel7.repo
+$ yum clean all
+$ yum -y install nvidia-driver-latest-dkms cuda-11-0
+$ /sbin/dkms build -m nvidia -v $(rpm -qa kmod-nvidia-latest-dkms | cut -d '-' -f 5) -k $(uname -r)
+$ /sbin/dkms install -m nvidia -v $(rpm -qa kmod-nvidia-latest-dkms | cut -d '-' -f 5) -k $(uname -r)</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour vérifier que les modules <code>nvidia*</code> sont présents sur la VM, tapez :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ lsmod</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tester_le_gpu"><a class="anchor" href="Installer-un-pilote-NVIDIA-sur-une-VM-Linux.html#_tester_le_gpu"></a>Tester le GPU</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Pour tester le GPU, vous pouvez lancer les commandes suivantes :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ cd /usr/local/cuda/bin
+$ ./cuda-install-samples*.sh ~
+$ cd ~/NVIDIA*/4_Finance/binomialOptions
+$ make &amp;&amp; make run</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Page connexe</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Accéder-à-vos-VM.html" class="xref page">Accéder à vos VM</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

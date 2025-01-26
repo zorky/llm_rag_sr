@@ -1,0 +1,1 @@
+!function(){const t=document.querySelectorAll(".language-shell .hljs-meta");for(let n=0,e=t.length;n<e;n++){const e=t[n],o=t[n].nextSibling;e.textContent.startsWith("\n")&&(t[n].previousSibling.textContent+="\n"),e.textContent.endsWith("$ ")&&(e.textContent="",o.textContent=o.textContent.trimStart())}}();

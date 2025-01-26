@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Release Notes – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="Release-Notes.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/Release-Notes.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article release-notes">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Notes-de-mise-à-jour.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content  release-notes">
+<aside class="toc sidebar" data-title="Contents" data-levels="0">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Release Notes <span class="title-bracket">(also available in <a href="_rss/Release-Notes.xml">RSS format</a>)</span></h1>
+<div class="sect1">
+<h2 id="_january_23_2025_new_hourly_and_yearly_pricing_mode_per_vm_type"><a class="anchor" href="Release-Notes.html#_january_23_2025_new_hourly_and_yearly_pricing_mode_per_vm_type"></a><strong>January 23, 2025</strong> New Hourly and Yearly Pricing Mode per VM Type</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3>Seller Partner</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="added">New feature</span> </p>
+</li>
+<li>
+<p> <span class="tag">Marketplace</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>When creating an OMI product and specifying its offer, you can now configure an hourly and yearly pricing mode per <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span> type. For more information, see <a href="Creating-and-Publishing-an-OMI-Product.html#_Offer" class="xref page">Creating and Publishing an OMI Product &gt; Offer</a>.</p>
+</li>
+<li>
+<p>This new pricing mode replaces the On Demand pricing mode (Fixed rate and Rate by VM type).</p>
+</li>
+<li>
+<p>As an organization within the Nuage public (UGAP) market, you can specify a yearly rate by VM type destined to the Nuage public market buyers. For more information, see <a href="Creating-a-Nuage-public-Offer-UGAP.html#_Yearly_Offer_per_VM_Type" class="xref page">Creating a Nuage public Offer (UGAP) &gt; Yearly Offer per VM Type)</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3>Buyer</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="added">New feature</span> </p>
+</li>
+<li>
+<p> <span class="tag">Marketplace</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>You can now subscribe to an OMI product on the basis of an hourly and yearly offer per VM type. For more information, see <a href="Subscribing-To-an-OMI-Product.html" class="xref page">Subscribing To an OMI Product</a> and the new <a href="OMI-Products-Pricing.html" class="xref page">OMI Products Pricing</a> page.</p>
+</div>
+</div>
+<div class="sect2">
+<h3>Buyer Documentation Update</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="improved">Improvement</span> </p>
+</li>
+<li>
+<p> <span class="tag">Documentation site</span>   <span class="tag">Marketplace</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The information from the <a href="Subscribing-To-an-OMI-Product.html" class="xref page">Subscribing To an OMI Product</a>, <a href="Estimating-the-Cost-of-a-Product.html" class="xref page">Estimating the Cost of a Product</a> and <a href="Requesting-an-Estimation-for-a-Nuage-public-Offer-UGAP.html" class="xref page">Requesting an Estimation for a Nuage public Offer (UGAP)</a> pages has been reorganized following the introduction of this new hourly and yearly pricing mode per VM type.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_january_22_2025_iam_update"><a class="anchor" href="Release-Notes.html#_january_22_2025_iam_update"></a><strong>January 22, 2025</strong> IAM Update</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3>Recovery Codes</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="added">New feature</span> </p>
+</li>
+<li>
+<p> <span class="tag">IAM</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>All users can now set up recovery codes. These codes can be used as a second factor authentication method to log in to Cockpit v2, in case your preferred multi-factor authentication (MFA) method is unavailable. For more information, see <a href="Authenticating-Using-Recovery-Codes.html" class="xref page">Authenticating Using Recovery Codes</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3>Password Policy</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="improved">Improvement</span> </p>
+</li>
+<li>
+<p> <span class="tag">IAM</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Additionally to the original requirements of our password policy, new passwords are now gauged on strength. For more information on patterns to avoid, see <a href="About-Password-Protection.html" class="xref page">About Password Protection</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_january_16_2025_cockpit_2_21_3"><a class="anchor" href="Release-Notes.html#_january_16_2025_cockpit_2_21_3"></a><strong>January 16, 2025</strong> Cockpit 2.21.3</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3>Improvement</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="improved">Improvement</span> </p>
+</li>
+<li>
+<p> <span class="tag">Cockpit</span> </p>
+</li>
+<li>
+<p> <span class="tag">Compute</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You can now select a compatible processor generation when allocating a flexible GPU. For more information, see <a href="Allocating-or-Releasing-an-fGPU.html#_allocating_an_fgpu" class="xref page">Allocating an fGPU</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_january_15_2024_tina_os_update"><a class="anchor" href="Release-Notes.html#_january_15_2024_tina_os_update"></a><strong>January 15, 2024</strong> TINA OS Update</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3>Unique Identifiers Added to Keypairs</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="added">New feature</span> </p>
+</li>
+<li>
+<p> <span class="tag">Compute</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>To enhance consistency across our cloud resources and ease their management, keypairs now include a unique identifier (ID) available as a <code>KeypairId</code> attribute in the OUTSCALE API.</p>
+</div>
+<div class="paragraph">
+<p>The new <code>KeypairId</code> attribute is not a substitute of the current <code>KeypairName</code> attribute. The <code>KeypairName</code> attribute remains fully functional.</p>
+</div>
+<div class="paragraph">
+<p>Each keypair created receives its ID upon creation.<br>
+For existing keypairs, they will be assigned an ID without any impact on your usage.</p>
+</div>
+</div>
+<div class="sect2">
+<h3>Tags Added to Keypairs</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="added">New feature</span> </p>
+</li>
+<li>
+<p> <span class="tag">Compute</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Keypairs now support the use of tags.</p>
+</div>
+<div class="paragraph">
+<p>Tags are labels that enable you to categorize your resources and identify them. For example, you can use tags to make inventories of your resources, as you can filter resources that share the same tag. For more information, see <a href="About-Tags.html" class="xref page">About Tags</a> and <a href="Adding-or-Removing-Tags.html" class="xref page">Adding or Removing Tags</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3>Behavior of CreateNetPeering (OUTSCALE API)</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="improved">Improvement</span> </p>
+</li>
+<li>
+<p> <span class="tag">Compute</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>In the previous TINA OS update, the <code>AccepterOwnerId</code> parameter was added to the <a href="../../api%3Fconsole.html#createnetpeering" class="xref page">CreateNetPeering</a> OUTSCALE API method as optional.</p>
+</div>
+<div class="paragraph">
+<p>From this update, in the case of sharing a <span class="tooltip" data-tooltip="VPC peering connection in AWS-Compliant APIs">Net peering</span> connection between two Nets belonging to two different users, the <code>AccepterOwnerId</code> parameter is now mandatory.</p>
+</div>
+</div>
+<div class="sect2">
+<h3>Starting <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">Virtual Machines (VMs)</span></h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="improved">Improvement</span> </p>
+</li>
+<li>
+<p> <span class="tag">Compute</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>We are continuously improving the performances of the OUTSCALE Cloud, especially the duration VMs start times.</p>
+</div>
+<div class="paragraph">
+<p>The first visible advances are available in this release of TINA OS.</p>
+</div>
+<div class="paragraph">
+<p>Many more improvements are still on the way in the coming months.</p>
+</div>
+</div>
+<div class="sect2">
+<h3>Parameter Removed From the Flexible Compute Unit (FCU) API</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="removed">Removal</span> </p>
+</li>
+<li>
+<p> <span class="tag">Compute</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>In the FCU API, it is no longer possible to get the product types associated to snapshots.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, the <code>SnapshotId</code> parameter is removed from the <a href="../../api%3Fconsole.html#getproducttype" class="xref page">GetProductType</a> and <a href="../../api%3Fconsole.html#getproducttypes" class="xref page">GetProductTypes</a> FCU API methods.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_january_14_2025_password_policy_update"><a class="anchor" href="Release-Notes.html#_january_14_2025_password_policy_update"></a><strong>January 14, 2025</strong> Password Policy Update</h2>
+<div class="sectionbody">
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="improved">Improvement</span> </p>
+</li>
+<li>
+<p> <span class="tag">IAM</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Your password must now be at least 17 characters, on all regions. For more information on the password policy, see <a href="About-Password-Protection.html" class="xref page">About Password Protection</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_january_9_2025_cockpit_2_21_2"><a class="anchor" href="Release-Notes.html#_january_9_2025_cockpit_2_21_2"></a><strong>January 9, 2025</strong> Cockpit 2.21.2</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following features are now available in Cockpit v2:</p>
+</div>
+<div class="sect2">
+<h3>OMI</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="added">New feature</span> </p>
+</li>
+<li>
+<p> <span class="tag">Cockpit</span> </p>
+</li>
+<li>
+<p> <span class="tag">Compute</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You can now import an OMI from a Bucket. For more information, see <a href="Importing-an-OMI-from-a-Bucket.html" class="xref page">Importing an Image from a Bucket</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3>Improvement</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="improved">Improvement</span> </p>
+</li>
+<li>
+<p> <span class="tag">Cockpit</span> </p>
+</li>
+<li>
+<p> <span class="tag">Network</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span> creation modal has been improved: you can now create and configure the Net associated resources when creating a Net. For more information, see <a href="Creating-a-Net.html" class="xref page">Creating a Net</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_december_2_2024_mistral_llm_services_available_for_the_nuage_public_market_ugap"><a class="anchor" href="Release-Notes.html#_december_2_2024_mistral_llm_services_available_for_the_nuage_public_market_ugap"></a><strong>December 2, 2024</strong> Mistral LLM Services Available for the Nuage public Market (UGAP)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3>Buyer</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="added">New feature</span> </p>
+</li>
+<li>
+<p> <span class="tag">Marketplace</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>You can now subscribe to LLM Mistral services offers as a buyer of the Nuage public market (UGAP). For more information, see <a href="Requesting-an-Estimation-for-a-Nuage-public-Offer-UGAP.html#_Mistral_LLM_Service_Offer" class="xref page">Requesting an Estimation for a Nuage public Offer &gt; Mistral LLM Service Offer</a> and <a href="Subscribing-To-a-Nuage-public-Offer-UGAP.html" class="xref page">Subscribing To a Nuage public Offer (UGAP)</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_november_18_2024_cockpit_2_20"><a class="anchor" href="Release-Notes.html#_november_18_2024_cockpit_2_20"></a><strong>November 18, 2024</strong> Cockpit 2.20</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3>Improvements</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="improved">Improvement</span> </p>
+</li>
+<li>
+<p> <span class="tag">Cockpit</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Tracking cookies have been added for website analytics.</p>
+</li>
+<li>
+<p>Breadcrumbs and sidebar have been added to enhance the navigation experience.</p>
+</li>
+<li>
+<p>Categories have been reorganized.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_november_7_2024_rework_of_the_my_subscriptions_page"><a class="anchor" href="Release-Notes.html#_november_7_2024_rework_of_the_my_subscriptions_page"></a><strong>November 7, 2024</strong> Rework of the My subscriptions Page</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3>Buyer</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="improved">Improvement</span> </p>
+</li>
+<li>
+<p> <span class="tag">Marketplace</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The design of the My subscriptions page has been improved to provide a clearer and more concise display of the information related to your subscriptions. This update includes a reorganization of the OMI information, which is now displayed in a side panel where OMI IDs are presented by deployment region and by available versions.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_october_24_2024_mistral_llm_services"><a class="anchor" href="Release-Notes.html#_october_24_2024_mistral_llm_services"></a><strong>October 24, 2024</strong> Mistral LLM Services</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3>Buyer</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="added">New feature</span> </p>
+</li>
+<li>
+<p> <span class="tag">Marketplace</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>You can now subscribe to Mistral LLM services, which include large language models (LLMs) and the necessary Cloud resources, and deploy these services directly from the OUTSCALE Marketplace interface. For more information, see <a href="Subscribing-To-a-Mistral-LLM-Service-and-Deploying-it.html" class="xref page">Subscribing To a Mistral LLM Service and Deploying it</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_october_17_2024_tooling_documentation_update"><a class="anchor" href="Release-Notes.html#_october_17_2024_tooling_documentation_update"></a><strong>October 17, 2024</strong> Tooling Documentation Update</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3>oapi-cli Documentation</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="added">New feature</span> </p>
+</li>
+<li>
+<p> <span class="tag">Documentation site</span>   <span class="tag">API / tools</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>oapi-cli is now documented on this website. oapi-cli is the successor of OSC CLI, providing expanded features and improved user experience. For example: better handling of error responses, Bash autocompletion, and a variable system.</p>
+</div>
+<div class="paragraph">
+<p>This update includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A <a href="Comparison-Between-OSC-CLI-and-oapi-cli.html" class="xref page">Comparison Between OSC CLI and oapi-cli</a>.</p>
+</li>
+<li>
+<p>A page for <a href="Installing-and-Configuring-oapi-cli.html" class="xref page">Installing and Configuring oapi-cli</a>.</p>
+</li>
+<li>
+<p>Tabs for oapi-cli examples in the <a href="../../api%3Fconsole.html" class="xref page">OUTSCALE API documentation</a> and in the procedures of the User Guide.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3>Correlation Between OUTSCALE API and Terraform</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="improved">Improvement</span> </p>
+</li>
+<li>
+<p> <span class="tag">Documentation site</span>   <span class="tag">API / tools</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The <a href="../../api%3Fconsole.html" class="xref page">OUTSCALE API documentation</a> now also includes tabs for the HCL language, which is used by the OUTSCALE Terraform provider. These tabs contain links to the pages of the corresponding Terraform resources or data sources.</p>
+</div>
+<div class="paragraph">
+<p>This way, if you are a Terraform user, you can better identify the correlations between OUTSCALE API and OUTSCALE Terraform provider.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_october_16_2024_improved_object_storage_section"><a class="anchor" href="Release-Notes.html#_october_16_2024_improved_object_storage_section"></a><strong>October 16, 2024</strong> Improved Object Storage Section</h2>
+<div class="sectionbody">
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="improved">Improvement</span> </p>
+</li>
+<li>
+<p> <span class="tag">Object storage</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The introductory <code>About</code> section for OOS has been enhanced. To provide a clearer understanding of how the service works, a thorough overhaul of the section has been conducted. This update includes added context, illustrations, and even advice on how to best interact with and make the most of OOS.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_october_11_2024_new_subregion"><a class="anchor" href="Release-Notes.html#_october_11_2024_new_subregion"></a><strong>October 11, 2024</strong> New Subregion</h2>
+<div class="sectionbody">
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="added">New feature</span> </p>
+</li>
+<li>
+<p> <span class="tag">Infrastructure</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>A new SecNumCloud <span class="tooltip" data-tooltip="Availability Zone (AZ) in AWS-Compliant APIs">Subregion</span> named <code>cloudgouv-eu-west-1c</code> is now available. For more information, see <a href="About-Regions-and-Subregions.html" class="xref page">About Regions and Subregions</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_october_10_2024_nuage_public_ugap_market"><a class="anchor" href="Release-Notes.html#_october_10_2024_nuage_public_ugap_market"></a><strong>October 10, 2024</strong> Nuage public (UGAP) Market</h2>
+<div class="sectionbody">
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="added">New feature</span> </p>
+</li>
+<li>
+<p> <span class="tag">Marketplace</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>3DS OUTSCALE can now define organizations as belonging to the Nuage public market of the Union des groupements d&#8217;achats publics (UGAP). Seller partner organizations can create subscription offers for OUTSCALE machine image (OMI) products, and buyer organizations can subscribe to such offers. For more information, see <a href="https://www.ugap.fr/informatique-et-telephonie-2/telecom-reseaux-serveur-13034/solutions-d-infrastructure-de-stockage-et-cloud-437/cloud-103007/cloud-public-iaas-paas-125402?totalNews=1" target="_blank" rel="noopener">UGAP&#8217;s official website (French only)</a>, <a href="Creating-a-Nuage-public-Offer-UGAP.html" class="xref page">Creating a Nuage public Offer (UGAP)</a>, and <a href="Subscribing-To-a-Nuage-public-Offer-UGAP.html" class="xref page">Subscribing To a Nuage public Offer (UGAP)</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_october_3_2024_subscribing_to_microsoft_windows_license_offers"><a class="anchor" href="Release-Notes.html#_october_3_2024_subscribing_to_microsoft_windows_license_offers"></a><strong>October 3, 2024</strong> Subscribing To Microsoft Windows License Offers</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3>Buyer</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="added">New feature</span> </p>
+</li>
+<li>
+<p> <span class="tag">Marketplace</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>You can now subscribe to Microsoft Windows license offers. For more information, see <a href="Estimating-the-Cost-of-a-Product.html" class="xref page">Estimating the Cost of a Product</a> and <a href="Subscribing-To-an-OMI-Product.html#_Microsoft_Windows_License" class="xref page">Subscribing To an OMI Product &gt; Microsoft Windows License</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_september_18_2024_cockpit_2_19_10"><a class="anchor" href="Release-Notes.html#_september_18_2024_cockpit_2_19_10"></a><strong>September 18, 2024</strong> Cockpit 2.19.10</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following features are now available in Cockpit v2:</p>
+</div>
+<div class="sect2">
+<h3>EIM Users</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="improved">Improvement</span> </p>
+</li>
+<li>
+<p> <span class="tag">Cockpit</span>   <span class="tag">IAM</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You can now update the name, email, and path of a user. For more information, see <a href="Modifying-a-User.html" class="xref page">Modifying a User</a>.</p>
+</li>
+<li>
+<p>As a root user, you can now specify the email of a user at creation. For more information, see <a href="Creating-a-User.html" class="xref page">Creating a User</a>.</p>
+</li>
+<li>
+<p>The email associated with a user now appears in the <strong>EIM Users</strong> dashboard.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_september_16_2024_eim_update_in_outscale_api"><a class="anchor" href="Release-Notes.html#_september_16_2024_eim_update_in_outscale_api"></a><strong>September 16, 2024</strong> EIM Update in OUTSCALE API</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3>New Method: ReadEntitiesLinkedToPolicy</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="added">New feature</span> </p>
+</li>
+<li>
+<p> <span class="tag">IAM</span>   <span class="tag">API / tools</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>You can now get information about all the entities linked to a specific managed policy with the OUTSCALE API method <a href="../../api%3Fconsole.html#readentitieslinkedtopolicy" class="xref page">ReadEntitiesLinkedToPolicy</a>. For more information, see <a href="Getting-Information-About-Entities-Linked-to-a-Managed-Policy.html" class="xref page">Getting Information About Entities Linked to a Managed Policy</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3>Minor Improvements</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="improved">Improvement</span> </p>
+</li>
+<li>
+<p> <span class="tag">IAM</span>   <span class="tag">API / tools</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You can now assign an email address to an EIM user using the <a href="../../api%3Fconsole.html#createuser" class="xref page">CreateUser</a> and <a href="../../api%3Fconsole.html#updateuser" class="xref page">UpdateUser</a> OUTSCALE API methods.</p>
+</li>
+<li>
+<p>Pagination and filters are now available for the <a href="../../api%3Fconsole.html#readuser" class="xref page">ReadUser</a> OUTSCALE API method.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_september_16_2024_tina_os_update"><a class="anchor" href="Release-Notes.html#_september_16_2024_tina_os_update"></a><strong>September 16, 2024</strong> TINA OS Update</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3>Appliance in a <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span></h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="added">New feature</span> </p>
+</li>
+<li>
+<p> <span class="tag">Compute</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>For security reasons, or because of the capacity of your software solutions, you might want to delegate the control of network traffic to an appliance.</p>
+</div>
+<div class="paragraph">
+<p>To do this, you can send all external network traffic to a <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span> running an appliance.</p>
+</div>
+<div class="paragraph">
+<p>You can follow this tutorial to set up an appliance: <a href="Setting-Up-an-Appliance-in-a-Net.html" class="xref page">Setting Up an Appliance in a Net</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3>Matching Behavior Between CreateNetPeering (OUTSCALE API) and CreateVpcPeeringConnection (FCU API)</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="improved">Improvement</span> </p>
+</li>
+<li>
+<p> <span class="tag">API / tools</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>PeerOwnerId</code> parameter of the <a href="../../api%3Fconsole.html#createvpcpeeringconnection" class="xref page">CreateVpcPeeringConnection</a> FCU method is now added to its corresponding OUTSCALE API <a href="../../api%3Fconsole.html#createnetpeering" class="xref page">CreateNetPeering</a> method under the name <code>AccepterOwnerId</code>.</p>
+</div>
+<div class="paragraph">
+<p>This integration is done in two steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In this version, the <code>AccepterOwnerId</code> parameter is added as optional in the OUTSCALE API. It is included in this release to enable users and tools to integrate it as of now.</p>
+</li>
+<li>
+<p>In a future version, this parameter will be mandatory in the case of sharing a <span class="tooltip" data-tooltip="VPC peering connection in AWS-Compliant APIs">Net peering</span> connection between two Nets belonging to two different users.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3>Consistency of the <code>IsSourceDestChecked</code> Parameter</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="improved">Improvement</span> </p>
+</li>
+<li>
+<p> <span class="tag">API / tools</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>In the OUTSCALE API, the value of the <code>IsSourceDestChecked</code> parameter in the primary <span class="tooltip" data-tooltip="flexible network interface (FNI) in AWS-Compliant APIs">Network Interface Card (NIC)</span>, with <code>0</code> as device index, is now consistent with the <code>IsSourceDestChecked</code> parameter of the VM.</p>
+</div>
+<div class="paragraph">
+<p>This improvement is also applied in the Flexible Compute Unit (FCU) API with the <code>sourceDestCheck</code> parameter of the <span class="tooltip" data-tooltip="network interface card (NIC) in OUTSCALE API">Flexible Network Interface (FNI)</span> that is consistent with the <code>sourceDestCheck</code> parameter of the <span class="tooltip" data-tooltip="virtual machine (VM) in OUTSCALE API">instance</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_september_10_2024_cockpit_2_19_9"><a class="anchor" href="Release-Notes.html#_september_10_2024_cockpit_2_19_9"></a><strong>September 10, 2024</strong> Cockpit 2.19.9</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following features are now available in Cockpit v2:</p>
+</div>
+<div class="sect2">
+<h3>EIM Users</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="added">New feature</span> </p>
+</li>
+<li>
+<p> <span class="tag">Cockpit</span>   <span class="tag">IAM</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You can now update the name and path of a user. For more information, see <a href="Modifying-a-User.html" class="xref page">Modifying a User</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3>Improvements</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="improved">Improvement</span> </p>
+</li>
+<li>
+<p> <span class="tag">Cockpit</span>   <span class="tag">IAM</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The resource details view can now be displayed fullscreen.</p>
+</li>
+<li>
+<p>Interface buttons, dialog boxes, and form fields have been modernized.</p>
+</li>
+<li>
+<p>The total number of resources is now displayed on every dashboard, next to the documentation link, as follows: <span class="image"><img src="_images/IconBadgeResource.svg" alt="IconBadgeResource"></span>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_august_8_2024_improved_display_of_api_responses_and_nested_elements"><a class="anchor" href="Release-Notes.html#_august_8_2024_improved_display_of_api_responses_and_nested_elements"></a><strong>August 8, 2024</strong> Improved Display of API Responses and Nested Elements</h2>
+<div class="sectionbody">
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="improved">Improvement</span> </p>
+</li>
+<li>
+<p> <span class="tag">Documentation site</span>   <span class="tag">API / tools</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/Release-Notes-2024-08-08.png" alt="Release Notes 2024 08 08" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p>The layout of the <a href="../../api%3Fconsole.html" class="xref page">API documentation</a> has been improved:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Nested request parameters and nested response elements are now indicated by vertical lines and nodes, instead of indent symbols (<code>»</code>) previously.</p>
+</li>
+<li>
+<p>In the response part of each method, the response 200 elements are now directly listed, instead of only having a link to the response schema.</p>
+</li>
+<li>
+<p>When there are more than one examples for a response, the first example is visible by default while the other examples are enclosed in expandable blocks.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_august_6_2024_recommended_vm_definition"><a class="anchor" href="Release-Notes.html#_august_6_2024_recommended_vm_definition"></a><strong>August 6, 2024</strong> Recommended VM Definition</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3>Seller Partner</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="improved">Improvement</span> </p>
+</li>
+<li>
+<p> <span class="tag">Marketplace</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The definition of recommended <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">virtual machines (VMs)</span> when creating an OUTSCALE machine image (OMI) product has been improved. For more information, see <a href="Creating-and-Publishing-an-OMI-Product.html#_Offer" class="xref page">Creating and Publishing an OMI Product &gt; Offer</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_july_26_2024_pagination_tutorial"><a class="anchor" href="Release-Notes.html#_july_26_2024_pagination_tutorial"></a><strong>July 26, 2024</strong> Pagination Tutorial</h2>
+<div class="sectionbody">
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="improved">Improvement</span> </p>
+</li>
+<li>
+<p> <span class="tag">Documentation site</span>   <span class="tag">API / tools</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The <a href="Tutorial-Paginating-an-API-Request.html" class="xref page">Tutorial: Paginating an API Request</a> page has been updated to include the pagination method for OUTSCALE API calls pertaining to policies, users, and user groups.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_july_23_2024_outscale_marketplace_updates"><a class="anchor" href="Release-Notes.html#_july_23_2024_outscale_marketplace_updates"></a><strong>July 23, 2024</strong> OUTSCALE Marketplace Updates</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3>Business Provider Contract</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="added">New feature</span> </p>
+</li>
+<li>
+<p> <span class="tag">Marketplace</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>When creating an outsourced product, you must now read and accept the business provider contract in order to publish the product. For more information, see <a href="Creating-and-Publishing-an-Outsourced-Product.html#_Contractual_terms" class="xref page">Creating and Publishing an Outsourced Product &gt; Contractual terms</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3>Operating System Selection</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="improved">Improvement</span> </p>
+</li>
+<li>
+<p> <span class="tag">Marketplace</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>When creating an OUTSCALE machine image (OMI) product and specifying the Versions form, you must now select the operating system from a list and provide details on it. For more information, see <a href="Creating-and-Publishing-an-OMI-Product.html#_Versions" class="xref page">Creating and Publishing an OMI Product &gt; Versions</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_july_11_2024_cockpit_2_18"><a class="anchor" href="Release-Notes.html#_july_11_2024_cockpit_2_18"></a><strong>July 11, 2024</strong> Cockpit 2.18</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following features are now available in Cockpit v2:</p>
+</div>
+<div class="sect2">
+<h3>EIM Groups</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="added">New feature</span> </p>
+</li>
+<li>
+<p> <span class="tag">Cockpit</span>   <span class="tag">IAM</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Creating-a-Group.html" class="xref page">Creating a Group</a></p>
+</li>
+<li>
+<p><a href="Deleting-a-Group.html" class="xref page">Deleting a Group</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3>EIM Policies</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="added">New feature</span> </p>
+</li>
+<li>
+<p> <span class="tag">Cockpit</span>   <span class="tag">IAM</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Attaching-a-Managed-Policy-to-a-User-or-a-Group.html#_attaching_a_managed_policy_to_a_group" class="xref page">Attaching a Managed Policy to a Group</a></p>
+</li>
+<li>
+<p><a href="Detaching-a-Managed-Policy-from-a-User-or-a-Group.html#_detaching_a_managed_policy_from_a_group" class="xref page">Detaching a Managed Policy from a Group</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3>Load Balancers</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="added">New feature</span> </p>
+</li>
+<li>
+<p> <span class="tag">Cockpit</span>   <span class="tag">Network</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Adding-or-Deleting-Listeners.html" class="xref page">Adding or Deleting Listeners</a></p>
+</li>
+<li>
+<p><a href="Configuring-Health-Checks.html" class="xref page">Configuring Health Checks</a></p>
+</li>
+<li>
+<p><a href="Enabling-Access-Logs.html" class="xref page">Enabling Access Logs</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3>Load Balancers Improvements</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="improved">Improvement</span> </p>
+</li>
+<li>
+<p> <span class="tag">Cockpit</span>   <span class="tag">Network</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You can now configure new options when creating an internet-facing load balancer in the public Cloud, such as the privacy, the <span class="tooltip" data-tooltip="External IP (EIP) in AWS-Compliant APIs">public IP</span>, and the <span class="tooltip" data-tooltip="Availability Zone (AZ) in AWS-Compliant APIs">Subregion</span>. For more information, see <a href="Creating-an-Internet-facing-Load-Balancer-in-the-Public-Cloud.html" class="xref page">Creating an Internet-facing Load Balancer in the Public Cloud</a>.</p>
+</li>
+<li>
+<p>You can now configure new options when creating an internet-facing load balancer in a <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span>, such as the privacy, the load balancer type, the public IP, the Subnet, and the security group. For more information, see <a href="Creating-an-Internet-facing-Load-Balancer-in-a-Net.html" class="xref page">Creating an Internet-facing Load Balancer in a Net</a>.</p>
+</li>
+<li>
+<p>You can now configure listeners, health check, access logs, and backend <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VMs</span> when creating an internal load balancer. For more information, see <a href="Creating-an-Internal-Load-Balancer.html" class="xref page">Creating an Internal Load Balancer</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3>Other Improvements</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="improved">Improvement</span> </p>
+</li>
+<li>
+<p> <span class="tag">Cockpit</span>   <span class="tag">Compute</span>   <span class="tag">Network</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Dashboards routing has been updated. You need to replace any previously bookmarked URLs.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You can now release an fGPU linked to a VM. For more information, see <a href="Allocating-or-Releasing-an-fGPU.html#_releasing_an_fgpu_linked_to_a_vm" class="xref page">Releasing an fGPU linked to a VM</a>.</p>
+</li>
+<li>
+<p>You are now provided with an estimation of the VM cost type when creating a VM. For more information, see <a href="Creating-VMs.html#_confirm_the_creation" class="xref page">Creating VMs</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_july_10_2024_estimating_the_cost_of_a_product_on_several_vms"><a class="anchor" href="Release-Notes.html#_july_10_2024_estimating_the_cost_of_a_product_on_several_vms"></a><strong>July 10, 2024</strong> Estimating the Cost of a Product on Several VMs</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3>Buyer</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="improved">Improvement</span> </p>
+</li>
+<li>
+<p> <span class="tag">Marketplace</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>You can now estimate the cost of using an OMI product on several <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">virtual machines (VMs)</span>. For more information, see <a href="Estimating-the-Cost-of-a-Product.html" class="xref page">Estimating the Cost of a Product</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_july_8_2024_new_sync_feature_in_oos_documentation"><a class="anchor" href="Release-Notes.html#_july_8_2024_new_sync_feature_in_oos_documentation"></a><strong>July 8, 2024</strong> New Sync Feature in OOS Documentation</h2>
+<div class="sectionbody">
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="added">New feature</span> </p>
+</li>
+<li>
+<p> <span class="tag">Documentation site</span>   <span class="tag">Object storage</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The OUTSCALE Object Storage (OOS) documentation now includes the <code>sync</code> command. For more information, see <a href="Synchronizing-Objects-to-a-Bucket.html" class="xref page">Synchronizing Objects to a Bucket</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_july_1_2024_license_agreements_of_byol_and_freeopen_source_omis"><a class="anchor" href="Release-Notes.html#_july_1_2024_license_agreements_of_byol_and_freeopen_source_omis"></a><strong>July 1, 2024</strong> License Agreements of BYOL and Free/Open Source OMIs</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3>Seller Partner</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="improved">Improvement</span> </p>
+</li>
+<li>
+<p> <span class="tag">Marketplace</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>When creating an OMI product whose pricing mode is bring your own license (BYOL) or free/open source, you must now specify a link to the product&#8217;s license agreement in the Legal section. For more information, see <a href="Creating-and-Publishing-an-OMI-Product.html#_Legal" class="xref page">Creating and Publishing an OMI Product &gt; Legal</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3>Buyer</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="improved">Improvement</span> </p>
+</li>
+<li>
+<p> <span class="tag">Marketplace</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>When subscribing to an OMI product whose pricing mode is bring your own license (BYOL) or free/open source, you can now view the license agreement of the product in the My subscriptions page. For more information, see <a href="Subscribing-To-an-OMI-Product.html" class="xref page">Subscribing To an OMI Product</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_june_17_2024_tina_os_update"><a class="anchor" href="Release-Notes.html#_june_17_2024_tina_os_update"></a><strong>June 17, 2024</strong> TINA OS Update</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3>CPU Performances</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="improved">Improvement</span> </p>
+</li>
+<li>
+<p> <span class="tag">Compute</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>CPU performance has been improved across all our Regions.</p>
+</div>
+<div class="paragraph">
+<p>The placement of vCores of new <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">virtual machines</span> has been optimized, through better support for <a href="https://en.wikipedia.org/wiki/Non-uniform_memory_access" target="_blank" rel="noopener">NUMA</a> (non-uniform memory access) zones in Intel processors.</p>
+</div>
+</div>
+<div class="sect2">
+<h3>Network Performances</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="improved">Improvement</span> </p>
+</li>
+<li>
+<p> <span class="tag">Network</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The network performance has been improved across all our Regions.</p>
+</div>
+<div class="paragraph">
+<p>For the newly created <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Nets</span>, the network can now handle a larger number of packets per second, and bandwidth capacity has been increased.</p>
+</div>
+</div>
+<div class="sect2">
+<h3>Fixes and Minor Improvements</h3>
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="improved">Improvement</span> </p>
+</li>
+<li>
+<p> <span class="tag">API / tools</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In the <a href="../../api%3Fconsole.html#createroutetable" class="xref page">RouteTable</a> methods of the OUTSCALE API, the <code>GatewayId</code> parameter can now return the <code>local</code> value.</p>
+</li>
+<li>
+<p>In the OUTSCALE API, the creation of a <span class="tooltip" data-tooltip="VPC peering connection in AWS-Compliant APIs">Net peering</span> between a Net you own and a Net that belongs to another account has been fixed.</p>
+</li>
+<li>
+<p>You can no longer use <code>outscale-elb-sg</code> as the name of a security group. This name is reserved to OUTSCALE&#8217;s usage.</p>
+</li>
+<li>
+<p>The performance of the FCU API <a href="../../fcu.html#describeinstances" class="xref page">DescribeInstances</a> method has been improved. You can now get information from a larger number of VMs simultaneously.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_june_17_2024_new_release_notes_page"><a class="anchor" href="Release-Notes.html#_june_17_2024_new_release_notes_page"></a><strong>June 17, 2024</strong> New Release Notes Page</h2>
+<div class="sectionbody">
+<div class="openblock tags">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p> <span class="added">New feature</span>   <span class="improved">Improvement</span>   <span class="removed">Removal</span> </p>
+</li>
+<li>
+<p> <span class="tag">API / tools</span>   <span class="tag">Cockpit</span>   <span class="tag">Billing</span>   <span class="tag">IAM</span>   <span class="tag">Marketplace</span>   <span class="tag">Compute</span>   <span class="tag">Network</span>   <span class="tag">Documentation site</span>   <span class="tag">Block storage</span>   <span class="tag">Object storage</span> </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>For better visibility, the release notes for all the products and services of the OUTSCALE Cloud are now presented on a new page.</p>
+</div>
+<div class="paragraph">
+<p>On this new page, each entry is categorized with tags on the left column, and you can use the menu on the right to filter the entries by tags.</p>
+</div>
+<div class="paragraph">
+<p>The release notes from before June 17 are still located in the older pages:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Documentation-History-Old-Page.html" class="xref page">Documentation History (Old Page)</a></p>
+</li>
+<li>
+<p><a href="API-Release-Notes-Old-Page.html" class="xref page">API Release Notes (Old Page)</a></p>
+</li>
+<li>
+<p><a href="Cockpit-Release-Notes-Old-Page.html" class="xref page">Cockpit v2 Release Notes (Old Page)</a></p>
+</li>
+<li>
+<p><a href="OUTSCALE-Marketplace-Release-Notes-Old-Page.html" class="xref page">OUTSCALE Marketplace Release Notes (Old Page)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+    <script async src="../../_/js/release-notes.js"></script>
+  </body>
+</html>

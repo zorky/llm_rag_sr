@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Cockpit v2 Release Notes (Old Page) – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="Cockpit-Release-Notes-Old-Page.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/Cockpit-Release-Notes-Old-Page.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Notes-de-releases-Cockpit-ancienne-page.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="1">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Cockpit v2 Release Notes (Old Page)</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This page lists the new features contained in each release of Cockpit v2.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2024"><a class="anchor" href="Cockpit-Release-Notes-Old-Page.html#_2024"></a>2024</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_june_17_2024"><a class="anchor" href="Cockpit-Release-Notes-Old-Page.html#_june_17_2024"></a>June 17, 2024</h3>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>As of June 17, 2024, the release notes are located on a new page: <a href="Release-Notes.html" class="xref page">Release Notes</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_april_23_2024_cockpit_2_16"><a class="anchor" href="Cockpit-Release-Notes-Old-Page.html#_april_23_2024_cockpit_2_16"></a>April 23, 2024 (Cockpit 2.16)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The following features are now available in Cockpit v2:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>EIM Groups:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Adding-or-Removing-a-User-from-a-Group.html" class="xref page">Adding or Removing a User from a Group</a></p>
+</li>
+<li>
+<p><a href="Getting-Information-About-Your-Groups.html" class="xref page">Getting Information About Your Groups</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>EIM Policies:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Listing-Managed-Policies.html#_listing_managed_policies_attached_to_a_group" class="xref page">Listing Managed Policies Attached to a Group</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_march_14_2024_cockpit_2_15"><a class="anchor" href="Cockpit-Release-Notes-Old-Page.html#_march_14_2024_cockpit_2_15"></a>March 14, 2024 (Cockpit 2.15)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The following features are now available in Cockpit v2:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>API Logs:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Getting-Information-About-Your-API-Logs.html" class="xref page">Getting Information About Your API Logs</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Consumption:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Getting-the-Price-of-Your-Resources.html" class="xref page">Getting the Price of Your Resources</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>TINA v3 CPU generation are no longer available when creating a <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span>. For more information, see <a href="End-of-Life-Policy.html" class="xref page">End-of-Life Policy</a>.</p>
+</li>
+<li>
+<p>You can now add tags to DHCP options. For more information, see <a href="About-Tags.html" class="xref page">About Tags</a>.</p>
+</li>
+<li>
+<p>A new graphic charter is available on Cockpit v2.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_february_20_2024_cockpit_2_14"><a class="anchor" href="Cockpit-Release-Notes-Old-Page.html#_february_20_2024_cockpit_2_14"></a>February 20, 2024 (Cockpit 2.14)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The following features are now available in Cockpit v2:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>API Access Rules:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Creating-an-API-Access-Rule.html" class="xref page">Creating an API Access Rule</a></p>
+</li>
+<li>
+<p><a href="Getting-Information-About-Your-API-Access-Rules.html" class="xref page">Getting Information About Your API Access Rules</a></p>
+</li>
+<li>
+<p><a href="Modifying-an-API-Access-Rule.html" class="xref page">Modifying an API Access Rule</a></p>
+</li>
+<li>
+<p><a href="Deleting-an-API-Access-Rule.html" class="xref page">Deleting an API Access Rule</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_january_29_2024_cockpit_2_13"><a class="anchor" href="Cockpit-Release-Notes-Old-Page.html#_january_29_2024_cockpit_2_13"></a>January 29, 2024 (Cockpit 2.13)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The following features are now available in Cockpit v2:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>EIM Users:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Modifying-an-EIM-Access-Key.html" class="xref page">Modifying an EIM Access Key</a></p>
+</li>
+<li>
+<p><a href="Deleting-an-EIM-Access-Key.html" class="xref page">Deleting an EIM Access Key</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>EIM Policies:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Listing-Managed-Policies.html" class="xref page">Listing Managed Policies Attached to a User</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2023"><a class="anchor" href="Cockpit-Release-Notes-Old-Page.html#_2023"></a>2023</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_december_13_2023_cockpit_2_12"><a class="anchor" href="Cockpit-Release-Notes-Old-Page.html#_december_13_2023_cockpit_2_12"></a>December 13, 2023 (Cockpit 2.12)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The following features are now available in Cockpit v2:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>EIM Users:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Creating-an-EIM-Access-Key.html" class="xref page">Creating an EIM Access Key</a></p>
+</li>
+<li>
+<p><a href="Listing-the-EIM-Access-Keys-Associated-with-a-User.html" class="xref page">Listing the EIM Access Keys Associated with a User</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>EIM Policies:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Creating-a-Managed-Policy.html" class="xref page">Creating a Managed Policy</a></p>
+</li>
+<li>
+<p><a href="Getting-Information-About-a-Managed-Policy.html" class="xref page">Getting Information About a Managed Policy</a></p>
+</li>
+<li>
+<p><a href="Attaching-a-Managed-Policy-to-a-User-or-a-Group.html" class="xref page">Attaching a Managed Policy to a User or a Group</a></p>
+</li>
+<li>
+<p><a href="Detaching-a-Managed-Policy-from-a-User-or-a-Group.html" class="xref page">Detaching a Managed Policy from a User or a Group</a></p>
+</li>
+<li>
+<p><a href="Listing-Managed-Policies.html" class="xref page">Listing Managed Policies</a></p>
+</li>
+<li>
+<p><a href="Deleting-a-Managed-Policy.html" class="xref page">Deleting a Managed Policy</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Snapshots:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Managing-Permissions-for-a-Snapshot.html" class="xref page">Managing Permissions for a Snapshot</a></p>
+</li>
+<li>
+<p><a href="Importing-a-Snapshot-from-a-Bucket.html" class="xref page">Importing a Snapshot from a Bucket</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Nets</span>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Creating-a-DHCP-Options-Set.html" class="xref page">Creating a DHCP Options Set</a></p>
+</li>
+<li>
+<p><a href="Getting-Information-About-DHCP-Options-Sets.html" class="xref page">Getting Information About DHCP Options Sets</a></p>
+</li>
+<li>
+<p><a href="Deleting-a-DHCP-Options-Set.html" class="xref page">Deleting a DHCP Options Set</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Load Balancers:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Registering-VMs-with-a-Load-Balancer.html" class="xref page">Registering VMs with a Load Balancer</a></p>
+</li>
+<li>
+<p><a href="Deregistering-VMs-from-a-Load-Balancer.html" class="xref page">Deregistering VMs from a Load Balancer</a></p>
+</li>
+<li>
+<p><a href="Getting-Information-About-the-Health-of-a-Backend-VM.html" class="xref page">Getting Information About the Health of a Backend VM</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>VPN Connections:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Creating-a-VPN-Connection-Route.html" class="xref page">Creating a VPN Connection Route</a></p>
+</li>
+<li>
+<p><a href="Deleting-a-VPN-Connection-Route.html" class="xref page">Deleting a VPN Connection Route</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_november_30_2023_cockpit_2_11"><a class="anchor" href="Cockpit-Release-Notes-Old-Page.html#_november_30_2023_cockpit_2_11"></a>November 30, 2023 (Cockpit 2.11)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The following features are now available in Cockpit v2:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>EIM Users:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Creating-a-User.html" class="xref page">Creating a User</a></p>
+</li>
+<li>
+<p><a href="Getting-Information-About-Your-Users.html" class="xref page">Getting Information About Your Users</a></p>
+</li>
+<li>
+<p><a href="Deleting-a-User.html" class="xref page">Deleting a User</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Load Balancers:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Creating-an-Internet-facing-Load-Balancer-in-the-Public-Cloud.html" class="xref page">Creating an Internet-facing Load Balancer in the Public Cloud</a></p>
+</li>
+<li>
+<p><a href="Creating-an-Internal-Load-Balancer.html" class="xref page">Creating an Internal Load Balancer</a></p>
+</li>
+<li>
+<p><a href="Modifying-the-Attributes-of-a-Load-Balancer.html" class="xref page">Modifying the Attributes of a Load Balancer</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><span class="tooltip" data-tooltip="virtual private gateway in AWS-Compliant APIs">Virtual Gateways</span>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Linking-a-Virtual-Gateway.html" class="xref page">Linking a Virtual Gateway</a></p>
+</li>
+<li>
+<p><a href="Unlinking-a-Virtual-Gateway.html" class="xref page">Unlinking a Virtual Gateway</a></p>
+</li>
+<li>
+<p><a href="Deleting-a-Virtual-Gateway.html" class="xref page">Deleting a Virtual Gateway</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Route Tables:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Disabling-Route-Propagation.html" class="xref page">Disabling Route Propagation</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_november_17_2023_cockpit_2_10"><a class="anchor" href="Cockpit-Release-Notes-Old-Page.html#_november_17_2023_cockpit_2_10"></a>November 17, 2023 (Cockpit 2.10)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The following features are now available in Cockpit v2:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Images:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Modifying-the-Attributes-of-an-OMI.html#_Modifying_the_Attributes_of_an_Image_Using_Cockpit%C2%A0v2-beta" class="xref page">Updating Privacy for an Image</a></p>
+</li>
+<li>
+<p><a href="Copying-an-OMI-Within-One-Region.html" class="xref page">Copying an Image Within One Region</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Route Tables:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Enabling-Route-Propagation.html" class="xref page">Enabling Route Propagation</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Virtual Gateways:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Creating-a-Virtual-Gateway.html" class="xref page">Creating a Virtual Gateway</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_september_20_2023_cockpit_2_9"><a class="anchor" href="Cockpit-Release-Notes-Old-Page.html#_september_20_2023_cockpit_2_9"></a>September 20, 2023 (Cockpit 2.9)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The following features are now available in Cockpit v2:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Images:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Modifying-the-Attributes-of-an-OMI.html#_Modifying_the_Attributes_of_an_Image" class="xref page">Modifying the Attributes of an Image</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Flexible GPUs:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Allocating-or-Releasing-an-fGPU.html#_Allocating_or_Releasing_an_fGPU" class="xref page">Allocating or Releasing an fGPU</a></p>
+</li>
+<li>
+<p><a href="Attaching-or-Detaching-an-fGPU.html#_Linking_or_Unlinking_an_fGPU" class="xref page">Linking or Unlinking an fGPU</a></p>
+</li>
+<li>
+<p><a href="Modifying-the-Behavior-of-an-fGPU.html#_Modifying_the_Behavior_of_an_fGPU" class="xref page">Modifying the Behavior of an fGPU</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Snapshots:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Exporting-a-Snapshot-to-a-Bucket.html#_Exporting_a_Snapshot_to_a_Bucket" class="xref page">Exporting a Snapshot to a Bucket</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Route Tables:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Creating-a-Route.html#_Creating_a_Route" class="xref page">Creating a Route</a></p>
+</li>
+<li>
+<p><a href="Deleting-a-Route.html#_Deleting_a_Route" class="xref page">Deleting a Route</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Load Balancers:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Deleting-a-Load-Balancer.html#_Deleting_a_Load_Balancer" class="xref page">Deleting a Load Balancer</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>DirectLink:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Getting-Information-About-DirectLink-Locations.html#_Getting_Information_About_DirectLink_Locations" class="xref page">Getting Information About DirectLink Locations</a></p>
+</li>
+<li>
+<p><a href="Requesting-a-Connection.html#_Requesting_a_Connection" class="xref page">Requesting a Connection</a></p>
+</li>
+<li>
+<p><a href="Getting-Information-About-Your-Connections.html#_Getting_Information_About_Your_Connections" class="xref page">Getting Information About Your Connections</a></p>
+</li>
+<li>
+<p><a href="Deleting-a-Connection.html#_Deleting_a_Connection" class="xref page">Deleting a Connection</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><span class="tooltip" data-tooltip="private virtual interface in AWS-Compliant APIs">DirectLink Interfaces</span>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Creating-a-DirectLink-Interface.html#_Creating_a_DirectLink_Interface" class="xref page">Creating a DirectLink Interface</a></p>
+</li>
+<li>
+<p><a href="Getting-Information-About-Your-Virtual-Gateways-for-DirectLink.html#_Getting_Information_About_Your_Virtual_Gateways_for_DirectLink" class="xref page">Getting Information About Your Virtual Gateways for DirectLink</a></p>
+</li>
+<li>
+<p><a href="Getting-Information-About-Your-DirectLink-Interfaces.html#_Getting_Information_About_Your_DirectLink_Interfaces" class="xref page">Getting Information About Your DirectLink Interfaces</a></p>
+</li>
+<li>
+<p><a href="Deleting-a-DirectLink-Interface.html#_Deleting_a_DirectLink_Interface" class="xref page">Deleting a DirectLink Interface</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_september_18_2023_cockpit_2_8"><a class="anchor" href="Cockpit-Release-Notes-Old-Page.html#_september_18_2023_cockpit_2_8"></a>September 18, 2023 (Cockpit 2.8)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The following features are now available in Cockpit v2:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Account:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Modifying-Your-Personal-Information-and-Password.html#_Modifying_Your_Password" class="xref page">Modifying Your Password</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Keypairs:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Importing-a-Keypair.html#_Importing_a_Keypair" class="xref page">Importing a Keypair</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><span class="tooltip" data-tooltip="VPC endpoint in AWS-Compliant APIs">Net Access Points</span>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Adding-or-Removing-a-Route-Table-Associated-with-a-Net-Access-Point.html#_Adding_or_Removing_a_Route_Table_Associated_with_a_Net_Access_Point" class="xref page">Adding or Removing a Route Table Associated with a Net Access Point</a></p>
+</li>
+<li>
+<p><a href="Deleting-a-Net-Access-Point.html#_Deleting_a_Net_Access_Point" class="xref page">Deleting a Net Access Point</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><span class="tooltip" data-tooltip="flexible network interface (FNI) in AWS-Compliant APIs">NICs</span>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Modifying-a-NIC-Attribute.html#_Modifying_the_Security_Groups_Associated_with_a_NIC" class="xref page">Modifying the Security Groups Associated with a NIC</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_june_8_2023_cockpit_2_7"><a class="anchor" href="Cockpit-Release-Notes-Old-Page.html#_june_8_2023_cockpit_2_7"></a>June 8, 2023 (Cockpit 2.7)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The following features are now available in Cockpit v2:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Images:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Exporting-an-OMI-to-a-Bucket.html#_Exporting_an_Image_to_a_Bucket" class="xref page">Exporting an Image to a Bucket</a></p>
+</li>
+<li>
+<p><a href="Deleting-an-OMI.html#_Deleting_an_Image" class="xref page">Deleting an Image</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><span class="tooltip" data-tooltip="VPC peering connection in AWS-Compliant APIs">Net peerings</span>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Creating-a-Net-Peering.html#_Creating_a_Net_Peering" class="xref page">Creating a Net Peering</a></p>
+</li>
+<li>
+<p><a href="Accepting-a-Net-Peering.html#_Accepting_a_Net_Peering" class="xref page">Accepting a Net Peering</a></p>
+</li>
+<li>
+<p><a href="Rejecting-a-Net-Peering.html#_Rejecting_a_Net_Peering" class="xref page">Rejecting a Net Peering</a></p>
+</li>
+<li>
+<p><a href="Getting-Information-About-Your-Net-Peerings.html#_Getting_Information_About_Your_Net_Peerings" class="xref page">Getting Information About your Net Peerings</a></p>
+</li>
+<li>
+<p><a href="Deleting-a-Net-Peering.html#_Deleting_a_Net_Peering" class="xref page">Deleting a Net Peering</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>NICs:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Assigning-Secondary-Private-IPs-to-a-NIC.html#_Linking_Secondary_Private_IPs_to_a_NIC" class="xref page">Linking Secondary Private IPs to a NIC</a></p>
+</li>
+<li>
+<p><a href="Unassigning-Secondary-Private-IPs-from-a-NIC.html#_Unlinking_Secondary_Private_IPs_from_a_NIC" class="xref page">Unlinking Secondary Private IPs from a NIC</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_may_23_2023_cockpit_2_6"><a class="anchor" href="Cockpit-Release-Notes-Old-Page.html#_may_23_2023_cockpit_2_6"></a>May 23, 2023 (Cockpit 2.6)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The following features are now available in Cockpit v2:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Creating-a-Security-Group.html#_Creating_a_Security_Group" class="xref page">Creating a Security Group</a></p>
+</li>
+<li>
+<p><a href="Deleting-a-Security-Group.html#_Deleting_a_Security_Group" class="xref page">Deleting a Security Group</a></p>
+</li>
+<li>
+<p><a href="Creating-a-Net-Access-Point.html#_Creating_a_Net_Access_Point" class="xref page">Creating a Net Access Point</a></p>
+</li>
+<li>
+<p><a href="Getting-Information-About-Your-Net-Access-Points.html#_Getting_Information_About_Your_Net_Access_Points" class="xref page">Getting Information About Your Net Access Points</a></p>
+</li>
+<li>
+<p><a href="Releasing-a-Public-IP-from-Your-Account.html#_Releasing_a_Public_IP" class="xref page">Releasing a Public IP</a></p>
+</li>
+<li>
+<p><a href="Creating-a-NIC.html#_Creating_a_NIC" class="xref page">Creating a NIC</a></p>
+</li>
+<li>
+<p><a href="Getting-Information-About-Your-NICs.html#_Getting_Information_About_Your_NICs" class="xref page">Getting Information About Your NICs</a></p>
+</li>
+<li>
+<p><a href="Attaching-a-NIC-to-a-VM.html#_Linking_a_NIC_to_a_VM" class="xref page">Linking a NIC to a VM</a></p>
+</li>
+<li>
+<p><a href="Detaching-a-NIC-from-a-VM.html#_Unlinking_a_NIC_from_a_VM" class="xref page">Unlinking a NIC from a VM</a></p>
+</li>
+<li>
+<p><a href="Deleting-a-NIC.html#_Deleting_a_NIC" class="xref page">Deleting a NIC</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_april_12_2023_cockpit_2_5"><a class="anchor" href="Cockpit-Release-Notes-Old-Page.html#_april_12_2023_cockpit_2_5"></a>April 12, 2023 (Cockpit 2.5)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The following features are now available in Cockpit v2:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Creating-an-Access-Key.html#_Creating_an_Access_Key" class="xref page">Creating an Access Key</a></p>
+</li>
+<li>
+<p><a href="Getting-Information-About-Your-Access-Keys.html#_Getting_Information_About_Your_Access_Keys" class="xref page">Getting Information About Your Access Keys</a></p>
+</li>
+<li>
+<p><a href="Modifying-an-Access-Key.html#_Modifying_an_Access_Key" class="xref page">Modifying an Access Key</a></p>
+</li>
+<li>
+<p><a href="Deleting-an-Access-Key.html#_Deleting_an_Access_Key" class="xref page">Deleting an Access Key</a></p>
+</li>
+<li>
+<p><a href="Attaching-a-Volume-to-a-VM.html#_Linking_a_Volume_to_a_VM" class="xref page">Linking a Volume to a VM</a></p>
+</li>
+<li>
+<p><a href="Detaching-a-Volume-from-a-VM.html#_Unlinking_a_Volume_from_a_VM" class="xref page">Unlinking a Volume from a VM</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_february_6_2023_cockpit_2_4"><a class="anchor" href="Cockpit-Release-Notes-Old-Page.html#_february_6_2023_cockpit_2_4"></a>February 6, 2023 (Cockpit 2.4)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The following features are now available in Cockpit v2:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Creating-a-Volume.html#_Creating_a_Volume" class="xref page">Creating a Volume</a></p>
+</li>
+<li>
+<p><a href="Creating-a-Volume-from-a-Snapshot.html#_Creating_a_Volume_from_a_Snapshot" class="xref page">Creating a Volume from a Snapshot</a></p>
+</li>
+<li>
+<p><a href="Deleting-a-Volume.html#_Deleting_a_Volume" class="xref page">Deleting a Volume</a></p>
+</li>
+<li>
+<p><a href="Creating-a-Snapshot-of-a-Volume.html#_Creating_a_Snapshot_of_a_Volume" class="xref page">Creating a Snapshot of a Volume</a></p>
+</li>
+<li>
+<p><a href="Deleting-a-Snapshot.html#_Deleting_a_Snapshot" class="xref page">Deleting a Snapshot</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2022"><a class="anchor" href="Cockpit-Release-Notes-Old-Page.html#_2022"></a>2022</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_december_8_2022_cockpit_2_3"><a class="anchor" href="Cockpit-Release-Notes-Old-Page.html#_december_8_2022_cockpit_2_3"></a>December 8, 2022 (Cockpit 2.3)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>When creating a <span class="tooltip" data-tooltip="customer gateway in AWS-Compliant APIs">client gateway</span>, you can now specify its name.</p>
+</li>
+<li>
+<p>This release includes stability and error message improvements.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_september_20_2022_cockpit_2_2"><a class="anchor" href="Cockpit-Release-Notes-Old-Page.html#_september_20_2022_cockpit_2_2"></a>September 20, 2022 (Cockpit 2.2)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The <a href="Creating-a-VPN-Connection.html#_Creating_a_VPN_Connection" class="xref page">Creating a VPN Connection</a> feature is now available.</p>
+</li>
+<li>
+<p>In Personal Space &gt; My Consumption, you can now choose whether to show the <strong>overall</strong> consumption of your paying account and its linked accounts, or the individual consumption of your account. For more information, see <a href="Getting-Information-About-Your-Resource-Consumption.html#_Getting_Information_About_Your_Resource_Consumption" class="xref page">Getting Information About Your Resource Consumption</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_august_1_2022_cockpit_2_1"><a class="anchor" href="Cockpit-Release-Notes-Old-Page.html#_august_1_2022_cockpit_2_1"></a>August 1, 2022 (Cockpit 2.1)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The following features are now available in Cockpit v2:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Creating-a-Route-Table.html#_Creating_a_Route_Table" class="xref page">Creating a Route Table</a></p>
+</li>
+<li>
+<p><a href="Unlinking-a-Route-Table-from-a-Subnet.html#_Unlinking_a_Route_Table_from_a_Subnet" class="xref page">Unlinking a Route Table from a Subnet</a></p>
+</li>
+<li>
+<p><a href="Deleting-a-Route-Table.html#_Deleting_a_Route_Table" class="xref page">Deleting a Route Table</a></p>
+</li>
+<li>
+<p><a href="Deleting-a-VPN-Connection.html#_Deleting_a_VPN_Connection" class="xref page">Deleting a VPN Connection</a></p>
+</li>
+<li>
+<p><a href="Creating-a-NAT-Service.html#_Creating_a_NAT_Service" class="xref page">Creating a NAT Service</a></p>
+</li>
+<li>
+<p><a href="Deleting-a-NAT-Service.html#_Deleting_a_NAT_Service" class="xref page">Deleting a NAT Service</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_june_20_2022_cockpit_2_0"><a class="anchor" href="Cockpit-Release-Notes-Old-Page.html#_june_20_2022_cockpit_2_0"></a>June 20, 2022 (Cockpit 2.0)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Cockpit v2-beta is released. For more information about Cockpit v2, see <a href="About-Cockpit.html#_About_Cockpit%C2%A0v2-beta" class="xref page">About Cockpit &gt; Cockpit v2-beta</a> and for more information about available features, see <a href="Cockpit-v2-Features-Reference.html" class="xref page">Cockpit v2 Features Reference</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Documentation-History-Old-Page.html" class="xref page">Documentation History (Old Page)</a></p>
+</li>
+<li>
+<p><a href="API-Release-Notes-Old-Page.html" class="xref page">API Release Notes (Old Page)</a></p>
+</li>
+<li>
+<p><a href="OUTSCALE-Marketplace-Release-Notes-Old-Page.html" class="xref page">OUTSCALE Marketplace Release Notes (Old Page)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

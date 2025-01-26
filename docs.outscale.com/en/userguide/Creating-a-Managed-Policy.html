@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Creating a Managed Policy – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="Creating-a-Managed-Policy.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/Creating-a-Managed-Policy.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Créer-une-politique-gérée.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Creating a Managed Policy</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can create managed policies that you can then apply to users or groups. This enables you to create a library of policies in your account to manage permissions on your account.</p>
+</div>
+<div class="paragraph">
+<p>After creating a managed policy, you need to attach it to a user or a group. For more information, see <a href="Attaching-a-Managed-Policy-to-a-User-or-a-Group.html" class="xref page">Attaching a Managed Policy to a User or a Group</a>.</p>
+</div>
+<div class="paragraph">
+<p>You can use versions to modify the permissions in a policy, which are automatically applied to all users and groups it is attached to. For more information, see <a href="Editing-Managed-Policies-Using-Policy-Versions.html" class="xref page">Editing Managed Policies Using Policy Versions</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Cockpit v2_0"><a class="anchor" href="Creating-a-Managed-Policy.html#Cockpit v2_0"></a>Creating a Managed Policy Using Cockpit v2</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In the <strong>EIM Policies</strong> dashboard, click <span class="image"><img src="_images/IconAddFull.svg" alt="IconAddFull"></span> <strong>Create Policy</strong>.<br>
+The CREATE EIM POLICY dialog box appears.</p>
+</li>
+<li>
+<p>In the <strong>Name</strong> field, type the name you want to give to the policy.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This name must be unique and must contain between 1 and 128 characters. Allowed characters are a-z, A-Z, 0-9, and +=,.@-_.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>From the <strong>Permissions</strong> list, select:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Full access</strong>, to allow all actions for the OUTSCALE API.</p>
+</li>
+<li>
+<p><strong>Read-only</strong>, to give read-only permissions for all actions related to <code>Read</code> API calls, except accessing and reading the root user’s credentials.</p>
+</li>
+<li>
+<p><strong>Read consumption account</strong>, to give the permission to get information about the account consumption only.</p>
+</li>
+<li>
+<p><strong>Custom policy</strong>, to type the policy directly in JSON format. For more information about the JSON structure, grammar, and elements to use for EIM policy documents, see <a href="EIM-Reference-Information.html" class="xref page">EIM Reference Information</a> and <a href="EIM-Policy-Generator.html" class="xref page">EIM Policy Generator</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Click <strong>Create</strong>.<br>
+The policy is created.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="OSC CLI_1"><a class="anchor" href="Creating-a-Managed-Policy.html#OSC CLI_1"></a>Creating a Managed Policy Using OSC CLI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <strong>CreatePolicy</strong> command creates a managed policy to apply to a user.<br>
+This action creates a policy version and sets v1 as the default one.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api CreatePolicy --profile "default" \
+    --Description "Example of description" \
+    --Document '"{\"Statement\": [ {\"Effect\": \"Allow\", \"Action\": [\"*\"], \"Resource\": [\"*\"]} ]}"' \
+    --Path "/example/" \
+    --PolicyName "example-user-policy"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Description</code>: (optional) A description for the policy.</p>
+</li>
+<li>
+<p><code>Document</code>: The policy document, corresponding to a JSON string that contains the policy. This policy document can contain a maximum of 5120 non-whitespace characters. For more information, see <a href="EIM-Reference-Information.html" target="_blank" rel="noopener">EIM Reference Information</a> and <a href="EIM-Policy-Generator.html" target="_blank" rel="noopener">EIM Policy Generator</a>.</p>
+</li>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Path</code>: (optional) The path of the policy.</p>
+</li>
+<li>
+<p><code>PolicyName</code>: The name of the policy.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>CreatePolicy</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Policy</code>: Information about the policy.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CreationDate</code>: The date and time (UTC) at which the policy was created.</p>
+</li>
+<li>
+<p><code>Description</code>: A friendly name for the policy (between 0 and 1000 characters).</p>
+</li>
+<li>
+<p><code>IsLinkable</code>: Indicates whether the policy can be linked to a group or an EIM user.</p>
+</li>
+<li>
+<p><code>LastModificationDate</code>: The date and time (UTC) at which the policy was last modified.</p>
+</li>
+<li>
+<p><code>Orn</code>: The OUTSCALE Resource Name (ORN) of the policy. For more information, see <a href="Resource-Identifiers.html" target="_blank" rel="noopener">Resource Identifiers</a>.</p>
+</li>
+<li>
+<p><code>Path</code>: The path to the policy.</p>
+</li>
+<li>
+<p><code>PolicyDefaultVersionId</code>: The ID of the policy default version.</p>
+</li>
+<li>
+<p><code>PolicyId</code>: The ID of the policy.</p>
+</li>
+<li>
+<p><code>PolicyName</code>: The name of the policy.</p>
+</li>
+<li>
+<p><code>ResourcesCount</code>: The number of resources attached to the policy.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "Policy": {
+    "ResourcesCount": 0,
+    "PolicyName": "example-user-policy",
+    "PolicyDefaultVersionId": "v1",
+    "Path": "/example/",
+    "CreationDate": "2010-10-01T12:34:56.789+0000",
+    "Description": "Example of description",
+    "PolicyId": "ABCDEFGHIJKLMNOPQRSTUVWXYZ01234",
+    "Orn": "orn:ows:idauth::012345678910:policy/example/example-user-policy",
+    "IsLinkable": true,
+    "LastModificationDate": "2010-10-01T12:34:56.789+0000"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="oapi-cli_2"><a class="anchor" href="Creating-a-Managed-Policy.html#oapi-cli_2"></a>Creating a Managed Policy Using oapi-cli</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <strong>CreatePolicy</strong> command creates a managed policy to apply to a user.<br>
+This action creates a policy version and sets v1 as the default one.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" CreatePolicy \
+    --Description "Example of description" \
+    --Document --jsonstr-file "policy.json" \
+    --Path "/example/" \
+    --PolicyName "example-user-policy"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Description</code>: (optional) A description for the policy.</p>
+</li>
+<li>
+<p><code>Document</code>: The policy document, corresponding to a JSON string that contains the policy. This policy document can contain a maximum of 5120 non-whitespace characters. For more information, see <a href="EIM-Reference-Information.html" target="_blank" rel="noopener">EIM Reference Information</a> and <a href="EIM-Policy-Generator.html" target="_blank" rel="noopener">EIM Policy Generator</a>.</p>
+</li>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Path</code>: (optional) The path of the policy.</p>
+</li>
+<li>
+<p><code>PolicyName</code>: The name of the policy.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>CreatePolicy</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Policy</code>: Information about the policy.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CreationDate</code>: The date and time (UTC) at which the policy was created.</p>
+</li>
+<li>
+<p><code>Description</code>: A friendly name for the policy (between 0 and 1000 characters).</p>
+</li>
+<li>
+<p><code>IsLinkable</code>: Indicates whether the policy can be linked to a group or an EIM user.</p>
+</li>
+<li>
+<p><code>LastModificationDate</code>: The date and time (UTC) at which the policy was last modified.</p>
+</li>
+<li>
+<p><code>Orn</code>: The OUTSCALE Resource Name (ORN) of the policy. For more information, see <a href="Resource-Identifiers.html" target="_blank" rel="noopener">Resource Identifiers</a>.</p>
+</li>
+<li>
+<p><code>Path</code>: The path to the policy.</p>
+</li>
+<li>
+<p><code>PolicyDefaultVersionId</code>: The ID of the policy default version.</p>
+</li>
+<li>
+<p><code>PolicyId</code>: The ID of the policy.</p>
+</li>
+<li>
+<p><code>PolicyName</code>: The name of the policy.</p>
+</li>
+<li>
+<p><code>ResourcesCount</code>: The number of resources attached to the policy.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "Policy": {
+    "ResourcesCount": 0,
+    "PolicyName": "example-user-policy",
+    "PolicyDefaultVersionId": "v1",
+    "Path": "/example/",
+    "CreationDate": "2010-10-01T12:34:56.789+0000",
+    "Description": "Example of description",
+    "PolicyId": "ABCDEFGHIJKLMNOPQRSTUVWXYZ01234",
+    "Orn": "orn:ows:idauth::012345678910:policy/example/example-user-policy",
+    "IsLinkable": true,
+    "LastModificationDate": "2010-10-01T12:34:56.789+0000"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI_3"><a class="anchor" href="Creating-a-Managed-Policy.html#AWS CLI_3"></a>Creating a Managed Policy Using AWS CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Before you begin:</strong> Install and configure AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>To create a new managed policy, use the <strong>create-policy</strong> command following this syntax:</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws iam create-policy \
+    --profile YOUR_PROFILE \
+    --policy-name MY_POLICY \
+    --path / \
+    --policy-document file://policy \
+    --description "Admin policy allowing all actions on all resources" \
+    --endpoint https://eim.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optional) <code>profile</code>: The named profile you want to use, created when configuring AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>policy-name</code>: The name of the policy you want to create.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This name must be unique and must contain between 1 and 128 characters. Allowed characters are a-z, A-Z, 0-9, and +=,.@-_.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optional) <code>path</code>: The path for the policy (by default, set to a slash /).</p>
+</li>
+<li>
+<p><code>policy-document</code>: The policy document, corresponding to a JSON string that contains the policy. This policy document can contain a maximum of 5120 non-whitespace characters. For more information, see <a href="EIM-Reference-Information.html" class="xref page">EIM Reference Information</a> and <a href="EIM-Policy-Generator.html" class="xref page">EIM Policy Generator</a>.</p>
+</li>
+<li>
+<p>(optional) <code>description</code>: A description for the policy.</p>
+</li>
+<li>
+<p><code>endpoint</code>: The endpoint corresponding to the Region you want to send the request to. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>create-policy</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Policy</code>: Information about the newly created policy. This element contains the following information:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>PolicyName</code>: The name of the policy.</p>
+</li>
+<li>
+<p><code>PolicyId</code>: The ID of the policy.</p>
+</li>
+<li>
+<p><code>Arn</code>: The OUTSCALE Resource Name (ORN) of the policy. For more information, see <a href="Resource-Identifiers.html" class="xref page">Resource Identifiers</a>.</p>
+</li>
+<li>
+<p><code>Path</code>: The path for the policy.</p>
+</li>
+<li>
+<p><code>DefaultVersionId</code>: The ID of the policy version set as the default one.</p>
+</li>
+<li>
+<p><code>AttachmentCount</code>: The number of EIM identities (users or groups) that the policy is attached to.</p>
+</li>
+<li>
+<p><code>IsAttachable</code>: If <code>true</code>, the policy can be attached to an EIM identity. If <code>false</code>, it cannot.</p>
+</li>
+<li>
+<p><code>CreateDate</code>: The date and time of creation of the policy.</p>
+</li>
+<li>
+<p><code>UpdateDate</code>: The date and time of the last update of the policy.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "Policy": {
+        "PolicyName": "MY_POLICY",
+        "PolicyId": "ABCDEF1GHIJKLMN2OP3QR",
+        "Arn": "arn:aws:iam::0123456789012:policy/my-policy",
+        "Path": "/",
+        "DefaultVersionId": "v1",
+        "AttachmentCount": 0,
+        "IsAttachable": true,
+        "CreateDate": "2018-05-12T18:43:14.524Z",
+        "UpdateDate": "2018-05-12T18:43:14.524Z"
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The policy is created and can be attached to EIM users or groups in your account.</p>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="About-Policies.html" class="xref page">About Policies</a></p>
+</li>
+<li>
+<p><a href="Attaching-a-Managed-Policy-to-a-User-or-a-Group.html" class="xref page">Attaching a Managed Policy to a User or a Group</a></p>
+</li>
+<li>
+<p><a href="Listing-Managed-Policies.html" class="xref page">Listing Managed Policies</a></p>
+</li>
+<li>
+<p><a href="Deleting-a-Managed-Policy.html" class="xref page">Deleting a Managed Policy</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Corresponding API Method</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#createpolicy" class="xref page">CreatePolicy (OUTSCALE API)</a></p>
+</li>
+<li>
+<p><a href="../../eim.html#createpolicy" class="xref page">CreatePolicy (EIM)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ and Amazon Web Services™ are trademarks of Amazon Technologies, Inc or its affiliates in the United States and/or other countries.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

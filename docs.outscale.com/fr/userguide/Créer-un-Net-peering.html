@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Créer un Net peering – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Créer-un-Net-peering.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Créer-un-Net-peering.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Creating-a-Net-Peering.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Créer un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span> peering</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez créer un <span class="tooltip" data-tooltip="VPC peering connection dans les API AWS-compliant">Net peering</span> entre l&#8217;un de vos Nets et un autre Net pour que ceux-ci puissent communiquer entre eux.</p>
+</div>
+<div class="paragraph">
+<p>Cette action envoie une requête depuis l&#8217;un de vos Nets pour se connecter à un autre Net, lequel peut appartenir à votre compte ou à un compte différent.</p>
+</div>
+<div class="paragraph">
+<p>Le propriétaire de l&#8217;autre Net doit accepter la requête pour que la connexion se crée. Pour en savoir plus, voir <a href="Accepter-un-Net-peering.html" class="xref page">Accepter un Net peering</a>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Les Nets pairs doivent contenir au moins une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machine virtuelle (VM)</span> chacun avant la création du Net peering.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Si vous utilisez Cockpit pour créer un Net peering entre deux Nets qui appartiennent à votre compte, la requête est automatiquement acceptée.</p>
+</li>
+<li>
+<p>Une peering connection entre deux Nets se fait dans les deux sens. Si une connexion de A vers B a déjà été créée et acceptée, créer une connexion de B vers A n&#8217;est pas nécessaire et serait automatiquement rejetée.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Cockpit v2_0"><a class="anchor" href="Créer-un-Net-peering.html#Cockpit v2_0"></a>Créer un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span> peering avec Cockpit v2</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Avant de commencer :</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Créez un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span>. Pour en savoir plus, voir <a href="Créer-un-Net.html" class="xref page">Créer un Net</a>.</p>
+</li>
+<li>
+<p>Assurez-vous d&#8217;avoir l&#8217;ID du Net auquel vous voulez vous connecter.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Les blocs CIDR des Nets pairs ne doivent pas se chevaucher. Sinon, la connexion échoue automatiquement et passe à l&#8217;état <code>failed</code>. Pour en savoir plus, voir <a href="À-propos-des-Net-peerings.html" class="xref page">À propos des Net peerings</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans le dashboard <strong>Net Peerings</strong>, cliquez sur click <span class="image"><img src="_images/IconAddFull.svg" alt="IconAddFull"></span> <strong>Créer un Net peering</strong>.<br>
+La boîte de dialogue CRÉER UN NET PEERING apparaît.</p>
+</li>
+<li>
+<p>Dans le champ <strong>Nom</strong>, tapez un nom pour le Net peering.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Cette action ajoute un tag Name de 255 caractères maximum. Vous pouvez utiliser tous les caractères, y compris les lettres accentuées.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Dans la liste <strong>Net source</strong>, sélectionnez le Net à partir duquel vous envoyez la requête.</p>
+</li>
+<li>
+<p>Si vous connectez deux Nets dans votre propre compte :</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Laissez <strong>Mon compte</strong> activé.</p>
+</li>
+<li>
+<p>Dans la liste <strong>Net cible</strong>, sélectionnez le Net auquel vous voulez vous connecter.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Si vous connectez l&#8217;un de vos Nets avec un Net d&#8217;un compte différent :</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Désactivez <strong>Mon compte</strong>.</p>
+</li>
+<li>
+<p>Dans le champ <strong>ID du propriétaire du compte</strong>, tapez l&#8217;ID du compte du propriétaire du Net auquel vous voulez vous connecter.</p>
+</li>
+<li>
+<p>Dans le champ <strong>Net cible</strong>, tapez l&#8217;ID du Net auquel vous voulez vous connecter.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Cliquez sur <strong>Créer</strong>.<br>
+Le Net peering est créé.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="OSC CLI_1"><a class="anchor" href="Créer-un-Net-peering.html#OSC CLI_1"></a>Créer un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span> peering avec OSC CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Avant de commencer :</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Créez un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span>. Pour en savoir plus, voir <a href="Créer-un-Net.html" class="xref page">Créer un Net</a>.</p>
+</li>
+<li>
+<p>Assurez-vous d&#8217;avoir l&#8217;ID du Net auquel vous voulez vous connecter.</p>
+</li>
+<li>
+<p>Si le Net accepteur appartient à un compte différent, assurez-vous d&#8217;avoir l&#8217;ID du compte de son propriétaire.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateNetPeering</strong> command requests a <span class="tooltip" data-tooltip="VPC peering connection dans les API AWS-compliant">Net peering</span> between a Net you own and a peer Net that belongs to you or another account.<br>
+This action creates a Net peering that remains in the <code>pending-acceptance</code> state until it is accepted by the owner of the peer Net. If the owner of the peer Net does not accept the request within 7 days, the state of the Net peering becomes <code>expired</code>. For more information, see <a href="../../api%3Fconsole.html#acceptnetpeering" class="xref page">AcceptNetPeering</a>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Peered Nets must contain at least one <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">virtual machine (VM)</span> each before the creation of the Net peering.<br></p>
+</li>
+<li>
+<p>The two Nets must not have overlapping IP ranges. Otherwise, the Net peering is in the <code>failed</code> state.<br></p>
+</li>
+<li>
+<p>A peering connection between two Nets works both ways. If an A-to-B connection is already created and accepted, creating a B-to-A connection is not necessary and would be automatically rejected.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="../../en/userguide/About-Net-Peerings.html" target="_blank" rel="noopener">About Net Peerings</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Creating a Net peering between two Nets belonging to you</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api CreateNetPeering --profile "default" \
+    --SourceNetId "vpc-12345678" \
+    --AccepterNetId "vpc-87654321"</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Creating a Net peering with a Net that belongs to another account</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api CreateNetPeering --profile "default" \
+    --SourceNetId "vpc-12345678" \
+    --AccepterNetId "vpc-87654321" \
+    --AccepterOwnerId '"987654321098"'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccepterNetId</code>: The ID of the Net you want to connect with. &lt;br/ &gt; &lt;br/ &gt;
+If the Net does not belong to you, you must also specify the <code>AccepterOwnerId</code> parameter with the account ID owning the Net you want to connect with.</p>
+</li>
+<li>
+<p><code>AccepterOwnerId</code>: (optional) The account ID of the owner of the Net you want to connect with. By default, the account ID of the owner of the Net from which the peering request is sent. <br>
+&lt;br/ &gt;
+This parameter is required if the Net you want to connect with does not belong to you.</p>
+</li>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>SourceNetId</code>: The ID of the Net you send the peering request from.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateNetPeering</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>NetPeering</code>: Information about the Net peering.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccepterNet</code>: Information about the accepter Net.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountId</code>: The account ID of the owner of the accepter Net.</p>
+</li>
+<li>
+<p><code>IpRange</code>: The IP range for the accepter Net, in CIDR notation (for example, <code>10.0.0.0/16</code>).</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the accepter Net.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ExpirationDate</code>: The date and time (UTC) at which the Net peerings expire.</p>
+</li>
+<li>
+<p><code>NetPeeringId</code>: The ID of the Net peering.</p>
+</li>
+<li>
+<p><code>SourceNet</code>: Information about the source Net.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountId</code>: The account ID of the owner of the source Net.</p>
+</li>
+<li>
+<p><code>IpRange</code>: The IP range for the source Net, in CIDR notation (for example, <code>10.0.0.0/16</code>).</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the source Net.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>State</code>: Information about the state of the Net peering.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Message</code>: Additional information about the state of the Net peering.</p>
+</li>
+<li>
+<p><code>Name</code>: The state of the Net peering (<code>pending-acceptance</code> | <code>active</code> | <code>rejected</code> | <code>failed</code> | <code>expired</code> | <code>deleted</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the Net peering.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Creating a Net peering between two Nets belonging to you</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "NetPeering": {
+    "Tags": [],
+    "State": {
+      "Name": "pending-acceptance",
+      "Message": "Pending acceptance by 123456789012"
+    },
+    "AccepterNet": {
+      "NetId": "vpc-12345678",
+      "IpRange": "172.16.0.0/16",
+      "AccountId": "123456789012"
+    },
+    "SourceNet": {
+      "NetId": "vpc-87654321",
+      "IpRange": "10.0.0.0/16",
+      "AccountId": "123456789012"
+    },
+    "NetPeeringId": "pcx-12345678"
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Creating a Net peering with a Net that belongs to another account</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "NetPeering": {
+    "Tags": [],
+    "State": {
+      "Name": "pending-acceptance",
+      "Message": "Pending acceptance by 123456789012"
+    },
+    "AccepterNet": {
+      "NetId": "vpc-87654321",
+      "IpRange": "172.16.0.0/16",
+      "AccountId": "987654321098"
+    },
+    "SourceNet": {
+      "NetId": "vpc-12345678",
+      "IpRange": "10.0.0.0/16",
+      "AccountId": "123456789012"
+    },
+    "NetPeeringId": "pcx-12345678"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="oapi-cli_2"><a class="anchor" href="Créer-un-Net-peering.html#oapi-cli_2"></a>Créer un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span> peering avec oapi-cli</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Avant de commencer :</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Créez un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span>. Pour en savoir plus, voir <a href="Créer-un-Net.html" class="xref page">Créer un Net</a>.</p>
+</li>
+<li>
+<p>Assurez-vous d&#8217;avoir l&#8217;ID du Net auquel vous voulez vous connecter.</p>
+</li>
+<li>
+<p>Si le Net accepteur appartient à un compte différent, assurez-vous d&#8217;avoir l&#8217;ID du compte de son propriétaire.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateNetPeering</strong> command requests a <span class="tooltip" data-tooltip="VPC peering connection dans les API AWS-compliant">Net peering</span> between a Net you own and a peer Net that belongs to you or another account.<br>
+This action creates a Net peering that remains in the <code>pending-acceptance</code> state until it is accepted by the owner of the peer Net. If the owner of the peer Net does not accept the request within 7 days, the state of the Net peering becomes <code>expired</code>. For more information, see <a href="../../api%3Fconsole.html#acceptnetpeering" class="xref page">AcceptNetPeering</a>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Peered Nets must contain at least one <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">virtual machine (VM)</span> each before the creation of the Net peering.<br></p>
+</li>
+<li>
+<p>The two Nets must not have overlapping IP ranges. Otherwise, the Net peering is in the <code>failed</code> state.<br></p>
+</li>
+<li>
+<p>A peering connection between two Nets works both ways. If an A-to-B connection is already created and accepted, creating a B-to-A connection is not necessary and would be automatically rejected.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="../../en/userguide/About-Net-Peerings.html" target="_blank" rel="noopener">About Net Peerings</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Creating a Net peering between two Nets belonging to you</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" CreateNetPeering \
+    --SourceNetId "vpc-12345678" \
+    --AccepterNetId "vpc-87654321"</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Creating a Net peering with a Net that belongs to another account</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" CreateNetPeering \
+    --SourceNetId "vpc-12345678" \
+    --AccepterNetId "vpc-87654321" \
+    --AccepterOwnerId "987654321098"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccepterNetId</code>: The ID of the Net you want to connect with. &lt;br/ &gt; &lt;br/ &gt;
+If the Net does not belong to you, you must also specify the <code>AccepterOwnerId</code> parameter with the account ID owning the Net you want to connect with.</p>
+</li>
+<li>
+<p><code>AccepterOwnerId</code>: (optional) The account ID of the owner of the Net you want to connect with. By default, the account ID of the owner of the Net from which the peering request is sent. <br>
+&lt;br/ &gt;
+This parameter is required if the Net you want to connect with does not belong to you.</p>
+</li>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>SourceNetId</code>: The ID of the Net you send the peering request from.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateNetPeering</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>NetPeering</code>: Information about the Net peering.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccepterNet</code>: Information about the accepter Net.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountId</code>: The account ID of the owner of the accepter Net.</p>
+</li>
+<li>
+<p><code>IpRange</code>: The IP range for the accepter Net, in CIDR notation (for example, <code>10.0.0.0/16</code>).</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the accepter Net.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ExpirationDate</code>: The date and time (UTC) at which the Net peerings expire.</p>
+</li>
+<li>
+<p><code>NetPeeringId</code>: The ID of the Net peering.</p>
+</li>
+<li>
+<p><code>SourceNet</code>: Information about the source Net.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountId</code>: The account ID of the owner of the source Net.</p>
+</li>
+<li>
+<p><code>IpRange</code>: The IP range for the source Net, in CIDR notation (for example, <code>10.0.0.0/16</code>).</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the source Net.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>State</code>: Information about the state of the Net peering.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Message</code>: Additional information about the state of the Net peering.</p>
+</li>
+<li>
+<p><code>Name</code>: The state of the Net peering (<code>pending-acceptance</code> | <code>active</code> | <code>rejected</code> | <code>failed</code> | <code>expired</code> | <code>deleted</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the Net peering.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Creating a Net peering between two Nets belonging to you</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "NetPeering": {
+    "Tags": [],
+    "State": {
+      "Name": "pending-acceptance",
+      "Message": "Pending acceptance by 123456789012"
+    },
+    "AccepterNet": {
+      "NetId": "vpc-12345678",
+      "IpRange": "172.16.0.0/16",
+      "AccountId": "123456789012"
+    },
+    "SourceNet": {
+      "NetId": "vpc-87654321",
+      "IpRange": "10.0.0.0/16",
+      "AccountId": "123456789012"
+    },
+    "NetPeeringId": "pcx-12345678"
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Creating a Net peering with a Net that belongs to another account</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "NetPeering": {
+    "Tags": [],
+    "State": {
+      "Name": "pending-acceptance",
+      "Message": "Pending acceptance by 123456789012"
+    },
+    "AccepterNet": {
+      "NetId": "vpc-87654321",
+      "IpRange": "172.16.0.0/16",
+      "AccountId": "987654321098"
+    },
+    "SourceNet": {
+      "NetId": "vpc-12345678",
+      "IpRange": "10.0.0.0/16",
+      "AccountId": "123456789012"
+    },
+    "NetPeeringId": "pcx-12345678"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI_3"><a class="anchor" href="Créer-un-Net-peering.html#AWS CLI_3"></a>Créer une VPC peering connection avec AWS CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Avant de commencer :</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Installez et configurez AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p>Créez un <span class="tooltip" data-tooltip="Net dans l'API OUTSCALE">VPC</span>. Pour en savoir plus, voir <a href="Créer-un-Net.html" class="xref page">Créer un Net</a>.</p>
+</li>
+<li>
+<p>Assurez-vous d&#8217;avoir l&#8217;ID du VPC auquel vous voulez vous connecter.</p>
+</li>
+<li>
+<p>Si le VPC accepteur appartient à un compte différent, assurez-vous d&#8217;avoir l&#8217;ID du compte de son propriétaire.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Pour créer une <span class="tooltip" data-tooltip="Net peering dans l'API OUTSCALE">VPC peering connection</span>, utilisez la commande <strong>create-vpc-peering-connection</strong> en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws ec2 create-vpc-peering-connection \
+    --profile YOUR_PROFILE \
+    --vpc-id vpc-1a2b3c4d \
+    --peer-vpc-id vpc-11122233 \
+    --peer-owner-id 888877776666 \
+    --endpoint https://fcu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>profile</code> : Le profil nommé que vous voulez utiliser, créé pendant la configuration d&#8217;AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>vpc-id</code> : L&#8217;ID du VPC à partir duquel vous envoyez la requête.</p>
+</li>
+<li>
+<p><code>peer-vpc-id</code> : L&#8217;ID du VPC auquel vous voulez vous connecter.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Les blocs CIDR des Nets pairs ne doivent pas se chevaucher. Sinon, l&#8217;état de la connexion est automatiquement <code>failed</code>. Pour en savoir plus, voir <a href="À-propos-des-Net-peerings.html" class="xref page">À propos des Net peerings</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>peer-owner-id</code> : L&#8217;ID du compte du propriétaire du VPC auquel vous voulez vous connecter. Par défaut, l&#8217;ID de votre compte.</p>
+</li>
+<li>
+<p><code>endpoint</code> : Le endpoint correspondant à la Région à laquelle vous voulez envoyer la requête. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>La commande <strong>create-vpc-peering-connection</strong> renvoie les éléments suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VpcPeeringConnection</code> : Informations à propos de la VPC peering connection que vous avez demandée. Cet élément contient les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>AccepterVpcInfo : Informations à propos du VPC auquel vous voulez vous connecter. Cet élément contient les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CidrBlock</code> : La plage d&#8217;IP du VPC, en notation CIDR.</p>
+</li>
+<li>
+<p><code>OwnerId</code> : L&#8217;ID de compte du propriétaire du VPC.</p>
+</li>
+<li>
+<p><code>VpcId</code> : L&#8217;ID du VPC.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>RequesterVpcInfo</code> : Informations à propos du VPC à partir duquel vous envoyez la requête. Cet élément contient les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CidrBlock</code> : La plage d&#8217;IP du VPC, en notation CIDR.</p>
+</li>
+<li>
+<p><code>OwnerId</code> : L&#8217;ID de compte du propriétaire du VPC.</p>
+</li>
+<li>
+<p><code>VpcId</code> : L&#8217;ID du VPC.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Status</code> : Informations à propos de l&#8217;état de la VPC peering connection. Cet élément contient les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Code</code> : L&#8217;état de la VPC peering connection (<code>pending-acceptance | failed</code>). Pour en savoir plus, voir <a href="À-propos-des-Net-peerings.html#_cycle_de_vie" class="xref page">À propos des VPC peering connections &gt; Cycle de vie</a>.</p>
+</li>
+<li>
+<p><code>Message</code> : Informations supplémentaires sur l&#8217;état de la VPC peering connection.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Tags</code> : Un ou plusieurs tags associés à la VPC peering connection. Cet élément contient les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code> : La clé du tag.</p>
+</li>
+<li>
+<p><code>Value</code> : La valeur du tag.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>VpcPeeringConnectionId</code> : L&#8217;ID de la VPC peering connection.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de résultat</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "VpcPeeringConnection": {
+        "AccepterVpcInfo": {
+            "CidrBlock": "172.16.0.0/28",
+            "OwnerId": "888877776666",
+            "VpcId": "vpc-11122233"
+        },
+        "RequesterVpcInfo": {
+            "CidrBlock": "10.0.0.0/28",
+            "OwnerId": "444455556666",
+            "VpcId": "vpc-1a2b3c4d"
+        },
+        "Status": {
+            "Code": "pending-acceptance",
+            "Message": "Pending acceptance by 888877776666"
+        },
+        "Tags": [],
+        "VpcPeeringConnectionId": "pcx-111aaa11"
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Une requête de connexion est envoyée de votre VPC au VPC accepteur.</p>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-Net-peerings.html" class="xref page">À propos des Net peerings</a></p>
+</li>
+<li>
+<p><a href="Accepter-un-Net-peering.html" class="xref page">Accepter un Net peering</a></p>
+</li>
+<li>
+<p><a href="Rejeter-un-Net-peering.html" class="xref page">Rejeter un Net peering</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-vos-Net-peerings.html" class="xref page">Obtenir des informations sur vos Net peerings</a></p>
+</li>
+<li>
+<p><a href="Supprimer-un-Net-peering.html" class="xref page">Supprimer un Net peering</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Méthodes API correspondantes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#createnetpeering" class="xref page">CreateNetPeering (API OUTSCALE)</a></p>
+</li>
+<li>
+<p><a href="../../fcu.html#createvpcpeeringconnection" class="xref page">CreateVpcPeeringConnection (FCU)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

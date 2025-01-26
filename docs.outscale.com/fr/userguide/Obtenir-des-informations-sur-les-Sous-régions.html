@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Obtenir des informations sur les Sous-régions – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Obtenir-des-informations-sur-les-Sous-régions.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Obtenir-des-informations-sur-les-Sous-régions.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Getting-Information-About-Subregions.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Obtenir des informations sur les Sous-régions</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez obtenir des informations à propos des <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Sous-régions</span> d&#8217;une Région.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Cela vous permet d&#8217;identifier quelle Sous-région correspond à quelle zone physique pour votre compte en particulier. Pour en savoir plus, voir <a href="À-propos-des-Régions-et-Sous-régions.html#_mapping_entre_sous_régions_et_zones_physiques" class="xref page">À propos des Régions et Sous-régions &gt; Mapping entre Sous-régions et zones physiques</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="OSC CLI_0"><a class="anchor" href="Obtenir-des-informations-sur-les-Sous-régions.html#OSC CLI_0"></a>Obtenir des informations sur les Sous-régions avec OSC CLI</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadSubregions</strong> command lists one or more of the enabled <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Subregions</span> that you can access in the current Region.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="../../en/userguide/About-Regions-and-Subregions.html" target="_blank" rel="noopener">About Regions and Subregions</a>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Listing a specific Subregion in the current Region</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api ReadSubregions --profile "default" \
+    --Filters '{
+        "SubregionNames": ["eu-west-2a"]
+      }'</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Listing two specific Subregions in the current Region</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api ReadSubregions --profile "default" \
+    --Filters '{
+        "SubregionNames": ["eu-west-2a", "eu-west-2b"]
+      }'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Filters</code>: (optional) One or more filters.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RegionNames</code>: (optional) The names of the Regions containing the Subregions.</p>
+</li>
+<li>
+<p><code>States</code>: (optional) The states of the Subregions.</p>
+</li>
+<li>
+<p><code>SubregionNames</code>: (optional) The names of the Subregions.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>NextPageToken</code>: (optional) The token to request the next page of results. Each token refers to a specific page.</p>
+</li>
+<li>
+<p><code>ResultsPerPage</code>: (optional) The maximum number of logs returned in a single response (between <code>1</code> and <code>1000</code>, both included). By default, <code>100</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadSubregions</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>NextPageToken</code>: The token to request the next page of results. Each token refers to a specific page.</p>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Subregions</code>: Information about one or more Subregions.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LocationCode</code>: The location code (physical zone) of the Subregion. For more information, see <a href="../../en/userguide/About-Regions-and-Subregions.html#_mapping_between_subregions_and_physical_zones" target="_blank" rel="noopener">About Regions &gt; Mapping Between Subregions and Physical Zones</a>.</p>
+</li>
+<li>
+<p><code>RegionName</code>: The name of the Region containing the Subregion.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the Subregion.</p>
+</li>
+<li>
+<p><code>SubregionName</code>: The name of the Subregion.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Listing a specific Subregion in the current Region</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "Subregions": [
+    {
+      "State": "available",
+      "RegionName": "eu-west-2",
+      "SubregionName": "eu-west-2a",
+      "LocationCode": "PAR1"
+    }
+  ],
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Listing two specific Subregions in the current Region</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "Subregions": [
+    {
+      "State": "available",
+      "RegionName": "eu-west-2",
+      "SubregionName": "eu-west-2a",
+      "LocationCode": "PAR1"
+    },
+    {
+      "State": "available",
+      "RegionName": "eu-west-2",
+      "SubregionName": "eu-west-2b",
+      "LocationCode": "PAR4"
+    }
+  ],
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="oapi-cli_1"><a class="anchor" href="Obtenir-des-informations-sur-les-Sous-régions.html#oapi-cli_1"></a>Obtenir des informations sur les Sous-régions avec oapi-cli</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadSubregions</strong> command lists one or more of the enabled <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Subregions</span> that you can access in the current Region.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="../../en/userguide/About-Regions-and-Subregions.html" target="_blank" rel="noopener">About Regions and Subregions</a>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Listing a specific Subregion in the current Region</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" ReadSubregions \
+    --Filters '{
+        "SubregionNames": ["eu-west-2a"]
+      }'</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Listing two specific Subregions in the current Region</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" ReadSubregions \
+    --Filters '{
+        "SubregionNames": ["eu-west-2a", "eu-west-2b"]
+      }'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Filters</code>: (optional) One or more filters.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RegionNames</code>: (optional) The names of the Regions containing the Subregions.</p>
+</li>
+<li>
+<p><code>States</code>: (optional) The states of the Subregions.</p>
+</li>
+<li>
+<p><code>SubregionNames</code>: (optional) The names of the Subregions.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>NextPageToken</code>: (optional) The token to request the next page of results. Each token refers to a specific page.</p>
+</li>
+<li>
+<p><code>ResultsPerPage</code>: (optional) The maximum number of logs returned in a single response (between <code>1</code> and <code>1000</code>, both included). By default, <code>100</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>ReadSubregions</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>NextPageToken</code>: The token to request the next page of results. Each token refers to a specific page.</p>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Subregions</code>: Information about one or more Subregions.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LocationCode</code>: The location code (physical zone) of the Subregion. For more information, see <a href="../../en/userguide/About-Regions-and-Subregions.html#_mapping_between_subregions_and_physical_zones" target="_blank" rel="noopener">About Regions &gt; Mapping Between Subregions and Physical Zones</a>.</p>
+</li>
+<li>
+<p><code>RegionName</code>: The name of the Region containing the Subregion.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the Subregion.</p>
+</li>
+<li>
+<p><code>SubregionName</code>: The name of the Subregion.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Listing a specific Subregion in the current Region</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "Subregions": [
+    {
+      "State": "available",
+      "RegionName": "eu-west-2",
+      "SubregionName": "eu-west-2a",
+      "LocationCode": "PAR1"
+    }
+  ],
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Listing two specific Subregions in the current Region</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "Subregions": [
+    {
+      "State": "available",
+      "RegionName": "eu-west-2",
+      "SubregionName": "eu-west-2a",
+      "LocationCode": "PAR1"
+    },
+    {
+      "State": "available",
+      "RegionName": "eu-west-2",
+      "SubregionName": "eu-west-2b",
+      "LocationCode": "PAR4"
+    }
+  ],
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI_2"><a class="anchor" href="Obtenir-des-informations-sur-les-Sous-régions.html#AWS CLI_2"></a>Obtenir des informations sur les Availability Zones avec AWS CLI</h2>
+<div class="sectionbody">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous pouvez utiliser cette commande uniquement pour obtenir des informations sur les <span class="tooltip" data-tooltip="Sous-région dans l'API OUTSCALE">Availability Zones</span> d&#8217;une Région de votre compte. Sinon, un message d&#8217;erreur est renvoyé.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Avant de commencer :</strong> Installez et configurez AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Pour obtenir des informations sur une ou plusieurs Availability Zones, utilisez la commande <strong>describe-availability-zones</strong> en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell"> $ aws ec2 describe-availability-zones \
+    --profile YOUR_PROFILE \
+    --zone-names NOT_SPECIFIED \
+    --filters Name=X,Values=Y \
+    --endpoint https://fcu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>profile</code> : Le profil nommé que vous voulez utiliser, créé pendant la configuration d&#8217;AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p>(optionnel) <code>zone-names</code> : Le nom d&#8217;une ou plusieurs Availability Zones.</p>
+</li>
+<li>
+<p>(optionnel) <code>filters</code> : Un ou plusieurs filtres, au format "Name=X,Values=Y".</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous pouvez spécifier plusieurs valeurs pour un même filtre en utilisant le format "Name=X,Values=Y, Z".</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Les filtres suivants sont disponibles :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>region-name</code> : Le nom de la Région qui contient les Availability Zones.</p>
+</li>
+<li>
+<p><code>state</code> : L&#8217;état actuel de l&#8217;Availability Zone (<code>available</code> | <code>information</code> | <code>impaired</code> | <code>unavailable</code>).</p>
+</li>
+<li>
+<p><code>zone-name</code> : Le nom de l&#8217;Availability Zone.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>endpoint</code> : Le endpoint correspondant à la Région à laquelle vous voulez envoyer la requête. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>La commande <strong>describe-availability-zones</strong> renvoie les éléments suivants :</p>
+</div>
+<div class="paragraph">
+<p><code>AvailabilityZones</code> : Informations à propos d&#8217;une ou plusieurs Availability Zones. Cet élément contient les informations suivantes pour chaque Availability Zone :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>State</code> : L&#8217;état actuel de l&#8217;Availability Zone (toujours <code>available</code>).</p>
+</li>
+<li>
+<p><code>RegionName</code> : Le nom de la Région où l&#8217;Availability Zone est située.</p>
+</li>
+<li>
+<p><code>ZoneName</code> : Le nom de l&#8217;Availability Zone.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de résultat</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "AvailabilityZones": [
+        {
+            "State": "available",
+            "RegionName": "eu-west-2",
+            "ZoneName": "eu-west-2b"
+        },
+        {
+            "State": "available",
+            "RegionName": "eu-west-2",
+            "ZoneName": "eu-west-2a"
+        }
+    ]
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-Régions-et-Sous-régions.html" class="xref page">À propos des Régions et Sous-régions</a></p>
+</li>
+<li>
+<p><a href="Obtenir-des-informations-sur-les-Régions.html" class="xref page">Obtenir des informations sur les Régions</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Méthodes API correspondantes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#readsubregions" class="xref page">ReadSubregions (API OUTSCALE)</a></p>
+</li>
+<li>
+<p><a href="../../fcu.html#describeavailabilityzones" class="xref page">DescribeAvailabilityZones (FCU)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

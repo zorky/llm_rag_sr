@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Tutorial: Using Multipart Upload With AWS CLI (s3) – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="Tutorial-Using-Multipart-Upload-With-AWS-CLI-s3.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/Tutorial-Using-Multipart-Upload-With-AWS-CLI-s3.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Tutoriel-Utiliser-un-dépôt-partitionné-avec-AWS-CLI-s3.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Tutorial: Using Multipart Upload With AWS CLI (s3)</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Multipart upload allows for the efficient and reliable upload of large objects in a bucket. It works by breaking down an object into smaller parts for parallel uploading.</p>
+</div>
+<div class="paragraph">
+<p>The feature is both supported by high-level s3 commands and low-level s3api commands. Using multipart upload through s3 commands simplifies the uploading process for users seeking a straightforward method.</p>
+</div>
+<div class="paragraph">
+<p>For operations requiring more granular control, see <a href="Using-Multipart-Upload-With-AWS-CLI-s3api.html" class="xref page">Using Multipart Upload With AWS CLI (s3api)</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_retrieving_the_md5_checksum_value_of_your_object"><a class="anchor" href="Tutorial-Using-Multipart-Upload-With-AWS-CLI-s3.html#_retrieving_the_md5_checksum_value_of_your_object"></a>Retrieving the MD5 Checksum Value of Your Object</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Before you begin:</strong> Install and configure AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>An MD5 checksum is a 32-character hexadecimal number that acts as a digital fingerprint for your object. For a single-part upload (usually objects that are 5GB or smaller), the MD5 checksum of the object will automatically match the ETag provided upon successful upload.</p>
+</div>
+<div class="paragraph">
+<p>That is not the case during the multipart upload process that is automatically initiated for large objects when using high-level commands. This is because large objects are split into smaller parts, of which each are uploaded separately. Once all parts are uploaded, they are combined to form the original object. Because s3 adds up the checksums of each part in a multipart upload to calculate ETags, the returned ETag will not match the original MD5 checksum of the object.</p>
+</div>
+<div class="paragraph">
+<p>Before initiating a multipart upload using high-level s3 commands, you thus need to calculate the MD5 checksum of your object to ensure its integrity.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Navigate to the directory where the large object you want to upload is located.</p>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ cd LOCAL_PATH</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Run the following command to calculate the MD5 checksum of your object:</p>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ md5 LARGE_OBJECT_TO_UPLOAD</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The MD5 checksum of your object is returned.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_creating_and_completing_a_multipart_upload_with_aws_cli_s3"><a class="anchor" href="Tutorial-Using-Multipart-Upload-With-AWS-CLI-s3.html#_creating_and_completing_a_multipart_upload_with_aws_cli_s3"></a>Creating and Completing a Multipart Upload With AWS CLI (s3)</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Before you begin:</strong> Install and configure AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>To upload a large file to your bucket and automatically trigger the multipart upload process, use the <strong>cp</strong> command following this syntax:</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws s3 cp LOCAL_PATH/LARGE_OBJECT_TO_UPLOAD s3://BUCKET/ \
+   --profile YOUR_PROFILE \
+   --debug \
+   --acl public-read \
+   --grant-full-control "id=USER_ID, id=USER_ID" \
+   --grant-read "id=USER_ID, id=USER_ID" \
+   --grant-read-acp "id=USER_ID, id=USER_ID" \
+   --grant-write "id=USER_ID, id=USER_ID" \
+   --cache-control "no-cache" \
+   --content-disposition "inline" \
+   --content-encoding "gzip" \
+   --content-language "en" \
+   --content-type text/plain \
+   --expires "2024-03-01T00:00:00Z" \
+   --metadata "{\"md5\": \"98ecc26f79229e2388dba73f8f521a95\"}" \
+   --metadata-directive "REPLACE" \
+   --expected-size 123456789 \
+   --website-redirect "/new-page.html" \
+   --endpoint https://oos.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Some of the attributes used in this request sample are optional but are highly recommended if you want to keep track of the multipart upload process. Such attributes are <code>debug</code>, <code>metadata</code> and <code>expected-size</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>s3://BUCKET/LARGE_OBJECT_TO_UPLOAD</code>: The path to the large object you want to upload in the bucket. S3 automatically performs a multipart upload for large objects by splitting them into smaller parts for efficient and reliable upload and then reassembling these parts at the designated location in the bucket.</p>
+</li>
+<li>
+<p>(optional) <code>profile</code>: The named profile you want to use, created when configuring AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+<li>
+<p>(optional) <code>debug</code>: When included, returns the detailed log of the operation that are useful to analyze and troubleshoot issues. In the context of the multipart upload process, it allows you to see how exactly your object was partitioned and then reassembled, as well as the ETags that were assigned to each part.</p>
+</li>
+<li>
+<p>(optional) <code>acl</code>: The permissions you grant for your bucket (<code>private</code> | <code>public-read</code> | <code>public-read-write</code> | <code>authenticated-read</code>).</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>If you do not specify a permission for your bucket upon creation, it will automatically be set to private.</p>
+</li>
+<li>
+<p>When specifying new permissions, all the previous permissions are replaced. Therefore, you need to specify both the existing permissions that you want to keep and the new permissions that you want to give in a single command.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For more information about existing permissions, see <a href="Getting-Information-About-a-Bucket-ACL.html" class="xref page">Getting Information About a Bucket ACL</a> and <a href="Getting-Information-About-an-Object-ACL.html" class="xref page">Getting Information About an Object ACL</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optional) <code>grant-full-control</code>: One or more IDs of users to whom you grant the <code>full-control</code> permission.</p>
+</li>
+<li>
+<p>(optional) <code>grant-read</code>: One or more IDs of users to whom you grant the <code>read</code> permission.</p>
+</li>
+<li>
+<p>(optional) <code>grant-read-acp</code>: One or more IDs of users to whom you grant the <code>read-acp</code> permission.</p>
+</li>
+<li>
+<p>(optional) <code>grant-write</code>: One or more IDs of users to whom you grant the <code>write</code> permission.</p>
+</li>
+<li>
+<p>(optional) <code>grant-write-acp</code>: One or more IDs of users to whom you grant the <code>write-acp</code> permission.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>You need to specify S3 user IDs. You can retrieve S3 user IDs via the <a href="Listing-Your-Buckets.html" class="xref page">Listing Your Buckets</a> and <a href="Listing-the-Objects-of-a-Bucket.html" class="xref page">Listing the Objects of a Bucket</a> methods.</p>
+</li>
+<li>
+<p>You can also specify user email addresses using the <code>emailaddress=name@domain.com</code> format.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optional) <code>cache-control</code>: How you want the object to be handled in terms of caching (<code>max-age</code> | <code>max-stale</code> | <code>min-fresh</code> | <code>no-cache</code> | <code>no-store</code> | <code>no-transform</code> | <code>only-if-cached</code> | <code>stale-if-error</code>).</p>
+</li>
+<li>
+<p>(optional) <code>content-disposition</code>: How you want the object to be displayed when accessed via a browser (<code>"inline"</code> | <code>"attachment"</code> | <code>"attachment; filename="&lt;NAME_OF_DOWNLOADED_FILE&gt;""</code>).</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>inline</code>: When possible, prompts the browser to display the content within the browser window itself. This is useful for images, PDFs, and other media types that browsers can easily render.</p>
+</li>
+<li>
+<p><code>attachment</code>: Regardless of file type, prompts the browser to download the content instead of displaying it inline. The file is thus saved locally.</p>
+</li>
+<li>
+<p><code>"attachment; filename="&lt;NAME_OF_DOWNLOADED_FILE&gt;""</code>: Regardless of file type, prompts the browser to download the content instead of displaying it inline. The file is thus saved locally with the specified filename.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>(optional) <code>content-encoding</code>: The encoding format of the object (<code>gzip</code> | <code>compress</code> | <code>deflate</code> | <code>identity</code> | <code>br</code>).</p>
+</li>
+<li>
+<p>(optional) <code>content-language</code>: The language the content of the object is in, in language code (ISO 639 format).</p>
+</li>
+<li>
+<p>(optional) <code>content-type</code>: The MIME (Multipurpose Internet Mail Extensions) type of the object.<br></p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>An inaccurately set or absent <code>content-type</code> attribute can cause objects to be misinterpreted or mishandled by browsers. As a result, you may encounter difficulties accessing or viewing your objects using your preferred browser.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optional) <code>expected-size</code>: Specifies the expected size of the upload, in bytes. This is useful for objects larger than 50GB since it optimizes part allocation and resource usage during the multipart upload process.</p>
+</li>
+<li>
+<p>(optional) <code>expires</code>: The date and time, in UTC format, at which you consider the object can no longer be cached, and is considered stale.</p>
+</li>
+<li>
+<p>(optional) <code>metadata</code>: A map of additional metadata entries you can freely specify.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>key</code>: The name of the metadata.</p>
+</li>
+<li>
+<p><code>value</code>: The value of the metadata.<br></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>As per the provided example, you can store the MD5 checksum value of your object using the <code>metadata</code> attribute.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optional) <code>metadata-directive</code>: Whether you want the metadata to be copied from the source object or replaced with the metadata provided in the request (<code>COPY</code> or <code>REPLACE</code>).</p>
+</li>
+<li>
+<p>(optional) <code>website-redirect</code>: If you configured the destination bucket as a website, redirects requests for this object to another object in the same bucket or to an external URL.</p>
+</li>
+<li>
+<p><code>endpoint</code>: The endpoint corresponding to the Region you want to send the request to. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Your large object is uploaded to your bucket with the multipart upload process being automatically enabled in the background. To retrieve information about the object, see <a href="Getting-Information-About-the-Metadata-of-an-Object.html" class="xref page">Getting Information About the Metadata of an Object</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Using-Multipart-Upload-With-AWS-CLI-s3api.html" class="xref page">Using Multipart Upload With AWS CLI (s3api)</a></p>
+</li>
+<li>
+<p><a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a></p>
+</li>
+<li>
+<p><a href="Getting-Information-About-the-Metadata-of-an-Object.html" class="xref page">Getting Information About the Metadata of an Object</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ and Amazon Web Services™ are trademarks of Amazon Technologies, Inc or its affiliates in the United States and/or other countries.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<plist version="1.0">
+<dict>
+<key>Protocol</key>
+<string>s3</string>
+    <key>Provider</key>
+    <string>s3-osc</string>
+    <key>Nickname</key>
+	<string>OUTSCALE Object Storage</string>
+    <key>UUID</key>
+    <string>8cf604f7-b8d1-4c4a-82b0-6fe139d6e063c</string>
+    <key>Hostname</key>
+    <string>oos.eu-west-2.outscale.com</string>
+    <key>Port</key>
+    <string>443</string>
+    <key>Username</key>
+    <string>RETRIEVE YOUR KEY FROM COCKPIT</string>
+    <key>Access Timestamp</key>
+    <string>1556274703343</string>
+    <key>Custom</key>
+    <dict>
+    <key>s3.location</key>
+    <string>eu-west-2</string>
+</dict>
+</dict>
+</plist>

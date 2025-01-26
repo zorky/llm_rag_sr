@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Billing Glossary – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="Billing-Glossary.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/Billing-Glossary.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Glossaire-de-facturation.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Billing Glossary</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This page provides a glossary of item lines on OUTSCALE invoices, with information about billing guidelines.</p>
+</div>
+<div class="paragraph">
+<p>OUTSCALE resources are billed on a pay-as-you-go basis with accuracy to the second: every incomplete hour you consume is billed per second, not as a full hour. You can monitor your consumption at any time. For more information, see <a href="Getting-Information-About-Your-Resource-Consumption.html" class="xref page">Getting Information About Your Resource Consumption</a>.</p>
+</div>
+<div class="paragraph">
+<p>Billing applies to compute, storage, and network resources. Rates may vary by Region and by hardware generation. For more information, see <a href="https://en.outscale.com/pricing/" target="_blank" rel="noopener">official price lists on the OUTSCALE website</a>, or contact <a href="mailto:sales@outscale.com">sales@outscale.com</a>.</p>
+</div>
+<div class="paragraph">
+<p>Item lines on invoices follow the <code>Product_name - Offer - Unit and Duration</code> format. Resources not listed in this glossary, such as <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Nets</span>, are not billed.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bsu"><a class="anchor" href="Billing-Glossary.html#_bsu"></a>BSU</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_bsu_magnetic_storage_per_gib_and_per_month"><a class="anchor" href="Billing-Glossary.html#_bsu_magnetic_storage_per_gib_and_per_month"></a><code>BSU - Magnetic storage - per GiB and per month</code></h3>
+<div class="paragraph">
+<p>The storage capacity (in GiB) you provisioned when creating a <code>standard</code> volume, per month.</p>
+</div>
+<div class="paragraph">
+<p>The volume is in one of the following states in your account:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>in-use</code> (attached to a <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">virtual machine</span> (VM))</p>
+</li>
+<li>
+<p><code>available</code> (not attached to a VM)</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This rate includes IOPS (input/output operations per second).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_bsu_performance_storage_per_gib_and_per_month"><a class="anchor" href="Billing-Glossary.html#_bsu_performance_storage_per_gib_and_per_month"></a><code>BSU - Performance storage - per GiB and per month</code></h3>
+<div class="paragraph">
+<p>The storage capacity (in GiB) you provisioned when creating a <code>gp2</code> volume, per month.</p>
+</div>
+<div class="paragraph">
+<p>The volume is in one of the following states in your account:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>in-use</code> (attached to a VM)</p>
+</li>
+<li>
+<p><code>available</code> (not attached to a VM)</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This rate includes IOPS (input/output operations per second).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_bsu_enterprise_storage_per_gib_and_per_month"><a class="anchor" href="Billing-Glossary.html#_bsu_enterprise_storage_per_gib_and_per_month"></a><code>BSU - Enterprise storage - per GiB and per month</code></h3>
+<div class="paragraph">
+<p>The storage capacity (in GiB) you provisioned when creating an <code>io1</code> volume, per month.</p>
+</div>
+<div class="paragraph">
+<p>The volume is in one of the following states in your account:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>in-use</code> (attached to a VM)</p>
+</li>
+<li>
+<p><code>available</code> (not attached to a VM)</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This rate does not include IOPS (input/output operations per second). For more information, see the <a href="Billing-Glossary.html#BSU - Enterprise storage - per IOPS and per month">[BSU - Enterprise storage - per IOPS and per month]</a> entry below.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_bsu_enterprise_storage_per_iops_and_per_month"><a class="anchor" href="Billing-Glossary.html#_bsu_enterprise_storage_per_iops_and_per_month"></a><code>BSU - Enterprise storage - per IOPS and per month</code></h3>
+<div class="paragraph">
+<p>The amount of input/output operations per second (IOPS) you provisioned when creating an <code>io1</code> volume, per month.</p>
+</div>
+<div class="paragraph">
+<p>The volume is in one of the following states in your account:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>in-use</code> (attached to a VM)</p>
+</li>
+<li>
+<p><code>available</code> (not attached to a VM)</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This rate does not include storage capacity. For more information, see the <a href="Billing-Glossary.html#BSU - Enterprise storage - per GiB and per month">[BSU - Enterprise storage - per GiB and per month]</a> entry above.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_directlink"><a class="anchor" href="Billing-Glossary.html#_directlink"></a>DirectLink</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_directlink_1_gbps_10_gbps_port_usage_per_month"><a class="anchor" href="Billing-Glossary.html#_directlink_1_gbps_10_gbps_port_usage_per_month"></a><code>DirectLink - 1 Gbps / 10 Gbps port usage - per month</code></h3>
+<div class="paragraph">
+<p>The use of a DirectLink port, per month.</p>
+</div>
+<div class="paragraph">
+<p>If you need several ports for redundancy, this rate is multiplied by the number of ports.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Traffic is free of charge for all Regions where the service is available. For more information, see the <a href="https://en.outscale.com/pricing/#directlink" target="_blank" rel="noopener">official price list for DirectLink</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_fcu"><a class="anchor" href="Billing-Glossary.html#_fcu"></a>FCU</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_fcu_data_transfer_outbound_traffic_per_gib"><a class="anchor" href="Billing-Glossary.html#_fcu_data_transfer_outbound_traffic_per_gib"></a><code>FCU Data transfer - Outbound traffic - per GiB</code></h3>
+<div class="paragraph">
+<p>The amount of data (in GiB) transferred from your <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VMs</span> to the internet.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Outbound traffic (from your VMs to the internet) is free of charge for the following Regions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>eu-west-2</p>
+</li>
+<li>
+<p>us-east-2</p>
+</li>
+<li>
+<p>us-west-1</p>
+</li>
+<li>
+<p>cloudgouv-eu-west-1</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Inbound traffic (from the internet to your VMs) is free of charge for all Regions.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_lbu"><a class="anchor" href="Billing-Glossary.html#_lbu"></a>LBU</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_lbu_usage_per_unit_and_per_hour"><a class="anchor" href="Billing-Glossary.html#_lbu_usage_per_unit_and_per_hour"></a><code>LBU - Usage - per unit and per hour</code></h3>
+<div class="paragraph">
+<p>The use of a running load balancer in the public Cloud or in a <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span>, per hour.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This rate does not include data transferred through the load balancer. For more information, see the <a href="Billing-Glossary.html#LBU - Total outbound traffic - per GiB">[LBU - Total outbound traffic - per GiB]</a> entry below.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_lbu_total_outbound_traffic_per_gib"><a class="anchor" href="Billing-Glossary.html#_lbu_total_outbound_traffic_per_gib"></a><code>LBU - Total outbound traffic - per GiB</code></h3>
+<div class="paragraph">
+<p>The amount of data (in GiB) transferred through your load balancer to the internet.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Outbound traffic (from your load balancer to the internet) is free of charge for the following Regions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>eu-west-2</p>
+</li>
+<li>
+<p>us-east-2</p>
+</li>
+<li>
+<p>us-west-1</p>
+</li>
+<li>
+<p>cloudgouv-eu-west-1</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Inbound traffic (from the internet to your load balancer) is free of charge for all Regions.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_nat_service"><a class="anchor" href="Billing-Glossary.html#_nat_service"></a>NAT Service</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_nat_gateway_usage_per_hour"><a class="anchor" href="Billing-Glossary.html#_nat_gateway_usage_per_hour"></a><code>NAT Gateway - Usage - per hour</code></h3>
+<div class="paragraph">
+<p>The use of a running <span class="tooltip" data-tooltip="NAT gateway in AWS-Compliant APIs">NAT service</span>, per hour.</p>
+</div>
+<div class="paragraph">
+<p>The NAT service is in the <code>available</code> state in your account.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Inbound traffic (from the internet to the NAT service) is free of charge for all Regions.<br></p>
+</li>
+<li>
+<p>Outbound traffic (from the NAT gateway to the internet) incurs additional charges for data transfer. For more information, see the <a href="https://en.outscale.com/pricing/#nat" target="_blank" rel="noopener">official price list for NAT services</a>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Deleted resources may still appear in your account for one hour, but are not charged anymore.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_oos"><a class="anchor" href="Billing-Glossary.html#_oos"></a>OOS</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_oos_enterprise_storage_per_gib_and_per_month"><a class="anchor" href="Billing-Glossary.html#_oos_enterprise_storage_per_gib_and_per_month"></a><code>OOS - Enterprise storage - per GiB and per month</code></h3>
+<div class="paragraph">
+<p>The amount of data (in GiB) stored in your OOS buckets, per month.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Storage rates vary by Region. For more information, see the <a href="https://en.outscale.com/pricing/#stockageobj" target="_blank" rel="noopener">official price list for object storage</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_oos_outbound_traffic_per_gib"><a class="anchor" href="Billing-Glossary.html#_oos_outbound_traffic_per_gib"></a><code>OOS - Outbound traffic - per GiB</code></h3>
+<div class="paragraph">
+<p>The amount of data (in GiB) transferred from your OOS buckets to the internet.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Outbound traffic (from your OOS buckets to the internet) traffic is free of charge for the following Regions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>eu-west-2</p>
+</li>
+<li>
+<p>us-east-2</p>
+</li>
+<li>
+<p>us-west-1</p>
+</li>
+<li>
+<p>cloudgouv-eu-west-1</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Inbound traffic (from the internet to your OOS buckets) is free of charge for all Regions.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_public_ip"><a class="anchor" href="Billing-Glossary.html#_public_ip"></a>Public IP</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_eip_external_ip_not_associated_with_a_running_instance_per_hour"><a class="anchor" href="Billing-Glossary.html#_eip_external_ip_not_associated_with_a_running_instance_per_hour"></a><code>EIP</span> - External IP not associated with a running <span class="tooltip" data-tooltip="virtual machine (VM) in OUTSCALE API">instance - per hour</code></h3>
+<div class="paragraph">
+<p>The allocation (reservation) to your account of a <span class="tooltip" data-tooltip="External IP (EIP) in AWS-Compliant APIs">public IP</span>, per month.</p>
+</div>
+<div class="paragraph">
+<p>The public IP is not associated (not used) with a running <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span> or network interface in the public Cloud.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_eip_external_ip_in_a_vpc_not_associated_with_a_running_instance_per_hour"><a class="anchor" href="Billing-Glossary.html#_eip_external_ip_in_a_vpc_not_associated_with_a_running_instance_per_hour"></a><code>EIP - External IP in a VPC not associated with a running instance - per hour</code></h3>
+<div class="paragraph">
+<p>The allocation (reservation) to your account of a public IP, per month.</p>
+</div>
+<div class="paragraph">
+<p>The public IP is not associated (not used) with a running VM or network interface in a <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_eip_additional_external_ip_in_a_vpc_associated_with_a_running_instance_per_hour"><a class="anchor" href="Billing-Glossary.html#_eip_additional_external_ip_in_a_vpc_associated_with_a_running_instance_per_hour"></a><code>EIP - Additional External IP in a VPC associated with a running instance - per hour</code></h3>
+<div class="paragraph">
+<p>An additional public IP that is associated (used) with a VM or network interface in a Net, per hour.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The first public IP you associate in each Net is free of charge. This rate applies to any public IP you associate after the first one.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_snapshot"><a class="anchor" href="Billing-Glossary.html#_snapshot"></a>Snapshot</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_snapshot_storage_per_gib_and_per_month"><a class="anchor" href="Billing-Glossary.html#_snapshot_storage_per_gib_and_per_month"></a><code>Snapshot - Storage - per GiB and per month</code></h3>
+<div class="paragraph">
+<p>First snapshot of a volume: The size (in GiB) of your stored snapshot, per month.</p>
+</div>
+<div class="paragraph">
+<p>Subsequent snapshots of the same volume: The size (in GiB) of the changed data from the previous snapshot, per month.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>This rate applies to all snapshots, including those automatically created when you create an OUTSCALE Machine Image (OMI) from a <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span>. For more information, see <a href="About-OMIs.html" class="xref page">About OMIs</a>.</p>
+</li>
+<li>
+<p>Copying a snapshot across Regions incurs additional charges for data transfer through the internet. If the snapshot you copy is stored in OUTSCALE Object Storage (OOS), the source and destination Regions may also have different storage rates. For more information, see the <a href="Billing-Glossary.html#_oos">OOS</a> section above.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vm"><a class="anchor" href="Billing-Glossary.html#_vm"></a>VM</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_instance_on_demand_xx_size_linux_windows_per_hour"><a class="anchor" href="Billing-Glossary.html#_instance_on_demand_xx_size_linux_windows_per_hour"></a><code>Instance - On demand - xx.size Linux / Windows - per hour</code></h3>
+<div class="paragraph">
+<p>The use of a <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span>, either predefined or custom, per hour.</p>
+</div>
+<div class="paragraph">
+<p>This rate includes all the components of the VM: compute, memory, and required licenses. For more information, see <a href="Getting-the-Price-of-Your-Resources.html" class="xref page">Getting the Price of Your Resources</a>.</p>
+</div>
+<div class="paragraph">
+<p>This rate applies to VMs in the <code>running</code> state only. Stopped and terminated VMs are not charged. For more information, see <a href="About-VM-Lifecycle.html" class="xref page">About VM Lifecycle</a>.</p>
+</div>
+<div class="paragraph">
+<p>For more information on available VM types and their dedicated purposes, see <a href="VM-Types.html" class="xref page">VM Types</a>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Instances incur additional charges for data transfer. For more information, see the <a href="Billing-Glossary.html#_fcu">FCU</a> section above.</p>
+</li>
+<li>
+<p>Dedicated VMs are charged an additional 10% fee to the regular hourly price of the VM. For more information, see <a href="Getting-the-Price-of-Your-Resources.html#_calculating_the_price_of_dedicated_vms" class="xref page">Getting the Price of Your Resources &gt; Calculating the Price of Dedicated VMs</a>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Terminated VMs may still appear in your account for one hour, but are not charged anymore.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_instance_dedicated_instance_additional_price_per_hour"><a class="anchor" href="Billing-Glossary.html#_instance_dedicated_instance_additional_price_per_hour"></a><code>Instance - Dedicated Instance - Additional price - per hour</code></h3>
+<div class="paragraph">
+<p>A 2€ fee for the use of dedicated VMs.</p>
+</div>
+<div class="paragraph">
+<p>This fee applies once per hour when you have at least one running dedicated VM in the Region. For more information, see <a href="Getting-the-Price-of-Your-Resources.html" class="xref page">Getting the Price of Your Resources &gt; Calculating the Price of Dedicated VMs</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vpn"><a class="anchor" href="Billing-Glossary.html#_vpn"></a>VPN</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_vpn_usage_per_hour"><a class="anchor" href="Billing-Glossary.html#_vpn_usage_per_hour"></a><code>VPN - Usage - per hour</code></h3>
+<div class="paragraph">
+<p>The use of a deployed VPN connection, per hour.</p>
+</div>
+<div class="paragraph">
+<p>The VPN connection is in the <code>available</code> state in your account.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Inbound traffic (from the internet to your VPN connection) is free of charge for all Regions.<br></p>
+</li>
+<li>
+<p>Outbound traffic (from your VPN connection to the internet) incurs additional charges for data transfer. For more information, see the <a href="https://en.outscale.com/pricing/#vpn" target="_blank" rel="noopener">official price list for network services</a>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Deleted resources may still appear in your account for one hour, but are not charged anymore.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Getting-Information-About-Your-Resource-Consumption.html" class="xref page">Getting Information About Your Resource Consumption</a></p>
+</li>
+<li>
+<p><a href="Getting-Information-About-Your-Account-and-Quotas.html" class="xref page">Getting Information About Your Account and Quotas</a></p>
+</li>
+<li>
+<p><a href="Getting-the-Price-of-Your-Resources.html" class="xref page">Getting the Price of Your Resources</a></p>
+</li>
+<li>
+<p><a href="About-Regions-and-Subregions.html" class="xref page">About Regions and Subregions</a></p>
+</li>
+<li>
+<p><a href="Software-Licenses.html" class="xref page">Software Licenses</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

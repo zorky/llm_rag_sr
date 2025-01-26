@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Créer un load balancer interne – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Créer-un-load-balancer-interne.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Créer-un-load-balancer-interne.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Creating-an-Internal-Load-Balancer.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Créer un load balancer interne</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez créer un load balancer interne pour distribuer le trafic réseau entrant entre plusieurs <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machines virtuelles (VM)</span> d&#8217;un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span>.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Cockpit v2_0"><a class="anchor" href="Créer-un-load-balancer-interne.html#Cockpit v2_0"></a>Créer un load balancer interne avec Cockpit v2</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Avant de commencer :</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Créez un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span> avec un Subnet. Pour en savoir plus, voir <a href="Nets.html" class="xref page">Nets</a>.</p>
+</li>
+<li>
+<p>(optionnel) Créez un security group pour le load balancer avec les règles suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Autorisez les flux entrants en protocole TCP sur le port que vous souhaitez.</p>
+</li>
+<li>
+<p>Autorisez les flux entrants venant des security groups des <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> qui envoient les requêtes.</p>
+</li>
+<li>
+<p>Autorisez les flux sortants vers l&#8217;ensemble des security groups des VM backend.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>(optionnel) Configurez le security group des futures VM backend avec les règles suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Autorisez les flux entrants en protocole TCP sur le port que vous souhaitez.</p>
+</li>
+<li>
+<p>Autorisez les flux entrants venant du security group du load balancer.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus, voir <a href="Security-Groups.html" class="xref page">Security Groups</a>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="_ouvrir_la_fenêtre_créer_un_load_balancer"><a class="anchor" href="Créer-un-load-balancer-interne.html#_ouvrir_la_fenêtre_créer_un_load_balancer"></a>Ouvrir la fenêtre Créer un load balancer</h3>
+<div class="paragraph">
+<p>Dans le dashboard <strong>Load Balancers</strong>, cliquez sur <span class="image"><img src="_images/IconAddFull.svg" alt="IconAddFull"></span> <strong>Créer un load balancer</strong>.<br>
+La boîte de dialogue CRÉER UN LOAD BALANCER apparaît.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configurer_votre_load_balancer"><a class="anchor" href="Créer-un-load-balancer-interne.html#_configurer_votre_load_balancer"></a>Configurer votre load balancer</h3>
+<div class="sect3">
+<h4 id="_choisir_un_nom"><a class="anchor" href="Créer-un-load-balancer-interne.html#_choisir_un_nom"></a>Choisir un nom</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans le champ <strong>Nom</strong>, tapez un nom pour le load balancer.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Ce nom doit être unique pour l&#8217;ensemble de la Région.</p>
+</li>
+<li>
+<p>Il doit suivre des règles de noms de domaine, c&#8217;est-à-dire qu&#8217;il peut contenir au maximum 32 caractères alphanumériques ou tirets, mais ne peut pas commencer ou finir par un tiret.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Cliquez sur <strong>Suivant</strong>.<br>
+L&#8217;écran Type de load balancer apparaît.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_sélectionner_la_confidentalité_le_type_de_load_balancer_le_subnet_et_le_security_group"><a class="anchor" href="Créer-un-load-balancer-interne.html#_sélectionner_la_confidentalité_le_type_de_load_balancer_le_subnet_et_le_security_group"></a>Sélectionner la confidentalité, le type de load balancer, le Subnet, et le security group</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans la liste <strong>Confidentialité</strong>, sélectionnez <strong>Cloud privé</strong>.</p>
+</li>
+<li>
+<p>Dans la liste <strong>Type de load balancer</strong>, sélectionnez <strong>interne</strong>.</p>
+</li>
+<li>
+<p>Dans la liste <strong>Subnet</strong>, sélectionnez le Subnet dans lequel vous souhaitez créer le load balancer.</p>
+</li>
+<li>
+<p>Dans la liste <strong>Security group</strong>, sélectionnez :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Créer un nouveau security group</strong> pour associer un nouveau security group au load balancer.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Dans le champ <strong>Nom</strong>, tapez un nom pour le security group.</p>
+</li>
+<li>
+<p>Dans le champ <strong>Description</strong>, tapez sa description.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Le nom doit être unique dans votre compte pour le Cloud public ou pour chaque Net.</p>
+</li>
+<li>
+<p>Le nom du security group ne doit pas commencer par <code>sg-</code>.</p>
+</li>
+<li>
+<p>Chaque nom et description peut contenir entre 1 et 255 caractères. Les caractères autorisés sont a-z, A-Z, 0-9, l&#8217;espace et _.-:/()#,@[]+=&amp;;\{}!$*.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Sélectionner un ou plusieurs security groups</strong> pour sélectionner un security group pour le load balancer.</p>
+</li>
+<li>
+<p><strong>Poursuivre avec un security group par défaut</strong> pour sélectionner le security group par défaut du Net.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cliquez sur <strong>Suivant</strong>.<br>
+L&#8217;écran Listeners apparaît.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_configurer_les_listeners"><a class="anchor" href="Créer-un-load-balancer-interne.html#_configurer_les_listeners"></a>Configurer les listeners</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans la liste <strong>Protocole</strong>, sélectionnez le protocole de routage du load balancer (<code>HTTP</code>, <code>HTTPS</code>, <code>TCP</code>, <code>SSL</code>).</p>
+</li>
+<li>
+<p>Dans le champ <strong>Port du load balancer</strong>, tapez le port d&#8217;écoute du load balancer ou sélectionnez-le avec les flèches (entre <code>1</code> et <code>65535</code>, les deux étant inclus).</p>
+</li>
+<li>
+<p>Dans le champ <strong>Port de la VM backend</strong>, tapez le port d&#8217;écoute de la VM backend ou sélectionnez-le avec les flèches (entre <code>1</code> et <code>65535</code>, les deux étant inclus).</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Suivant</strong>.<br>
+L&#8217;écran Listeners apparaît.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_configurer_un_health_check"><a class="anchor" href="Créer-un-load-balancer-interne.html#_configurer_un_health_check"></a>Configurer un health check</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Depuis la liste <strong>Protocole</strong>, sélectionnez le protocole pour l&#8217;URL de la VM (<code>HTTP</code>, <code>HTTPS</code>, <code>TCP</code>, <code>SSL</code>).</p>
+</li>
+<li>
+<p>Dans le champ <strong>Port</strong>, tapez le numéro d&#8217;écoute ou sélectionnez-le avec les flèches (entre <code>1</code> et <code>65535</code>, les deux étant inclus).</p>
+</li>
+<li>
+<p>Dans le champ <strong>Intervalle</strong>, tapez le nombre de secondes entre deux requêtes ou sélectionnez-le avec les flèches (entre <code>5</code> et <code>600</code>, les deux étant inclus).</p>
+</li>
+<li>
+<p>Dans le champ <strong>Délai d&#8217;expiration</strong>, tapez le temps d&#8217;attente maximum d&#8217;une réponse, en secondes, avant de considérer la VM comme défaillante ou sélectionnez-le avec les flèches (entre <code>2</code> et <code>60</code>, les deux étant inclus).</p>
+</li>
+<li>
+<p>Dans le champ <strong>Seuil satisfaisant</strong>, tapez le nombre de requêtes successives réussies avant de considérer la VM comme saine ou sélectionnez-le avec les flèches (entre <code>2</code> et <code>10</code>, les deux étant inclus).</p>
+</li>
+<li>
+<p>Dans le champ <strong>Seuil insuffisant</strong>, tapez le nombre de requêtes successives échouées avant de considérer la VM comme défaillante ou sélectionnez-le avec les flèches (entre <code>2</code> et <code>10</code>, les deux étant inclus).</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Suivant</strong>.<br>
+L&#8217;écran Access logs apparaît.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_configurer_les_access_logs"><a class="anchor" href="Créer-un-load-balancer-interne.html#_configurer_les_access_logs"></a>Configurer les access logs</h4>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Le volume de données (en Gio) stockées dans votre bucket OOS sera ajouté à la consommation de vos ressources.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>(optionnel) Laissez <strong>Personnaliser les access logs</strong> activé, puis spécifiez les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Dans le champ <strong>Nom du bucket OOS</strong>, tapez le nom du bucket OOS pour les access logs.</p>
+</li>
+<li>
+<p>(optionnel) Dans le champ <strong>Préfixe du bucket OOS</strong>, tapez le chemin d&#8217;accès au dossier des access logs dans votre bucket OOS (par défaut, le niveau <code>root</code> de votre bucket).</p>
+</li>
+<li>
+<p>Depuis la liste <strong>Intervalle de publication</strong>, sélectionnez l&#8217;intervalle de temps, en minutes, pour la publication des access logs dans votre bucket OOS. Cette valeur peut être soit <code>5</code> ou <code>60</code> (par défaut, <code>60</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cliquez sur <strong>Suivant</strong>.<br>
+L&#8217;écran VM backend apparaît.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_configurer_des_vm_backend"><a class="anchor" href="Créer-un-load-balancer-interne.html#_configurer_des_vm_backend"></a>Configurer des VM backend</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Depuis la liste <strong>Enregistrer des VM backend</strong>, sélectionnez :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Sélectionner des VM backend</strong> pour sélectionner une ou plusieurs VM backend à enregistrer auprès du load balancer.</p>
+</li>
+<li>
+<p><strong>Poursuivre sans VM backend</strong> si vous ne souhaitez pas enregistrer de VM backend auprès du load balancer.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cliquez sur <strong>Suivant</strong>.<br>
+L&#8217;écran Récapitulatif apparaît.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_confirmer_la_création_du_load_balancer"><a class="anchor" href="Créer-un-load-balancer-interne.html#_confirmer_la_création_du_load_balancer"></a>Confirmer la création du load balancer</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Vérifiez l’ensemble des paramètres du load balancer.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Créer</strong>.<br>
+Le load balancer est créé.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Le load balancer est disponible environ 1 minute après sa création.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="OSC CLI_1"><a class="anchor" href="Créer-un-load-balancer-interne.html#OSC CLI_1"></a>Créer un load balancer interne avec OSC CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Avant de commencer :</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Créez un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span>. Pour en savoir plus, voir <a href="Nets.html" class="xref page">Nets</a>.</p>
+</li>
+<li>
+<p>Créez un security group pour le load balancer avec les règles suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Autorisez les flux entrants en protocole TCP sur le port que vous souhaitez.</p>
+</li>
+<li>
+<p>Autorisez les flux entrants venant des security groups des <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> qui envoient les requêtes.</p>
+</li>
+<li>
+<p>Autorisez les flux sortants vers l&#8217;ensemble des security groups des VM backend.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Configurez le security group des futures VM backend avec les règles suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Autorisez les flux entrants en protocole TCP sur le port que vous souhaitez.</p>
+</li>
+<li>
+<p>Autorisez les flux entrants venant du security group du load balancer.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus, voir <a href="Security-Groups.html" class="xref page">Security Groups</a>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateLoadBalancer</strong> command creates a load balancer.<br>
+The load balancer is created with a unique Domain Name Service (DNS) name. It receives the incoming traffic and routes it to its registered virtual machines (VMs).<br>
+By default, this action creates an Internet-facing load balancer, resolving to <span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">public IPs</span>. To create an internal load balancer in a Net, resolving to private IPs, use the <code>LoadBalancerType</code> parameter.<br>
+You must specify either the <code>Subnets</code> or the <code>SubregionNames</code> parameters.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="../../en/userguide/About-Load-Balancers.html" target="_blank" rel="noopener">About Load Balancers</a>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Creating an internal load balancer in a Net</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api CreateLoadBalancer --profile "default" \
+    --LoadBalancerName "private-lb-example" \
+    --Listeners '[
+        {
+          "BackendPort": 80,
+          "BackendProtocol": "TCP",
+          "LoadBalancerPort": 80,
+          "LoadBalancerProtocol": "TCP"
+        }
+      ]' \
+    --Subnets '["subnet-12345678"]' \
+    --SecurityGroups '["sg-12345678"]' \
+    --LoadBalancerType "internal"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Listeners</code>: One or more listeners to create.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>BackendPort</code>: (optional) The port on which the backend VM is listening (between <code>1</code> and <code>65535</code>, both included).</p>
+</li>
+<li>
+<p><code>BackendProtocol</code>: (optional) The protocol for routing traffic to backend VMs (<code>HTTP</code> | <code>HTTPS</code> | <code>TCP</code> | <code>SSL</code>).</p>
+</li>
+<li>
+<p><code>LoadBalancerPort</code>: (optional) The port on which the load balancer is listening (between <code>1</code> and <code>65535</code>, both included).</p>
+</li>
+<li>
+<p><code>LoadBalancerProtocol</code>: (optional) The routing protocol (<code>HTTP</code> | <code>HTTPS</code> | <code>TCP</code> | <code>SSL</code>).</p>
+</li>
+<li>
+<p><code>ServerCertificateId</code>: (optional) The OUTSCALE Resource Name (ORN) of the server certificate. For more information, see <a href="../../en/userguide/Resource-Identifiers.html#_outscale_resource_names_orns" target="_blank" rel="noopener">Resource Identifiers &gt; OUTSCALE Resource Names (ORNs)</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>LoadBalancerName</code>: The unique name of the load balancer, with a maximum length of 32 alphanumeric characters and dashes (<code>-</code>). This name must not start or end with a dash.</p>
+</li>
+<li>
+<p><code>LoadBalancerType</code>: (optional) The type of load balancer: <code>internet-facing</code> or <code>internal</code>. Use this parameter only for load balancers in a Net.</p>
+</li>
+<li>
+<p><code>SecurityGroups</code>: (optional) (Net only) One or more IDs of security groups you want to assign to the load balancer. If not specified, the default security group of the Net is assigned to the load balancer.</p>
+</li>
+<li>
+<p><code>Subnets</code>: (optional) (Net only) The ID of the Subnet in which you want to create the load balancer. Regardless of this Subnet, the load balancer can distribute traffic to all Subnets. This parameter is required in a Net.</p>
+</li>
+<li>
+<p><code>Tags</code>: (optional) One or more tags assigned to the load balancer.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: (optional) The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: (optional) The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateLoadBalancer</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LoadBalancer</code>: Information about the load balancer.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccessLog</code>: Information about access logs.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>IsEnabled</code>: If true, access logs are enabled for your load balancer. If false, they are not. If you set this to true in your request, the <code>OsuBucketName</code> parameter is required.</p>
+</li>
+<li>
+<p><code>OsuBucketName</code>: The name of the OOS bucket for the access logs.</p>
+</li>
+<li>
+<p><code>OsuBucketPrefix</code>: The path to the folder of the access logs in your OOS bucket (by default, the <code>root</code> level of your bucket).</p>
+</li>
+<li>
+<p><code>PublicationInterval</code>: The time interval for the publication of access logs in the OOS bucket, in minutes. This value can be either <code>5</code> or <code>60</code> (by default, <code>60</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ApplicationStickyCookiePolicies</code>: The stickiness policies defined for the load balancer.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CookieName</code>: The name of the application cookie used for stickiness.</p>
+</li>
+<li>
+<p><code>PolicyName</code>: The mnemonic name for the policy being created. The name must be unique within a set of policies for this load balancer.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>BackendIps</code>: One or more public IPs of backend VMs.</p>
+</li>
+<li>
+<p><code>BackendVmIds</code>: One or more IDs of backend VMs for the load balancer.</p>
+</li>
+<li>
+<p><code>DnsName</code>: The DNS name of the load balancer.</p>
+</li>
+<li>
+<p><code>HealthCheck</code>: Information about the health check configuration.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CheckInterval</code>: The number of seconds between two requests (between <code>5</code> and <code>600</code> both included).</p>
+</li>
+<li>
+<p><code>HealthyThreshold</code>: The number of consecutive successful requests before considering the VM as healthy (between <code>2</code> and <code>10</code> both included).</p>
+</li>
+<li>
+<p><code>Path</code>: If you use the HTTP or HTTPS protocols, the request URL path.</p>
+</li>
+<li>
+<p><code>Port</code>: The port number (between <code>1</code> and <code>65535</code>, both included).</p>
+</li>
+<li>
+<p><code>Protocol</code>: The protocol for the URL of the VM (<code>HTTP</code> | <code>HTTPS</code> | <code>TCP</code> | <code>SSL</code>).</p>
+</li>
+<li>
+<p><code>Timeout</code>: The maximum waiting time for a response before considering the VM as unhealthy, in seconds (between <code>2</code> and <code>60</code> both included).</p>
+</li>
+<li>
+<p><code>UnhealthyThreshold</code>: The number of consecutive failed requests before considering the VM as unhealthy (between <code>2</code> and <code>10</code> both included).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Listeners</code>: The listeners for the load balancer.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>BackendPort</code>: The port on which the backend VM is listening (between <code>1</code> and <code>65535</code>, both included).</p>
+</li>
+<li>
+<p><code>BackendProtocol</code>: The protocol for routing traffic to backend VMs (<code>HTTP</code> | <code>HTTPS</code> | <code>TCP</code> | <code>SSL</code>).</p>
+</li>
+<li>
+<p><code>LoadBalancerPort</code>: The port on which the load balancer is listening (between <code>1</code> and <code>65535</code>, both included).</p>
+</li>
+<li>
+<p><code>LoadBalancerProtocol</code>: The routing protocol (<code>HTTP</code> | <code>HTTPS</code> | <code>TCP</code> | <code>SSL</code>).</p>
+</li>
+<li>
+<p><code>PolicyNames</code>: The names of the policies. If there are no policies enabled, the list is empty.</p>
+</li>
+<li>
+<p><code>ServerCertificateId</code>: The OUTSCALE Resource Name (ORN) of the server certificate. For more information, see <a href="../../en/userguide/Resource-Identifiers.html#_outscale_resource_names_orns" target="_blank" rel="noopener">Resource Identifiers &gt; OUTSCALE Resource Names (ORNs)</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>LoadBalancerName</code>: The name of the load balancer.</p>
+</li>
+<li>
+<p><code>LoadBalancerStickyCookiePolicies</code>: The policies defined for the load balancer.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CookieExpirationPeriod</code>: The time period, in seconds, after which the cookie should be considered stale.<br>
+If <code>1</code>, the stickiness session lasts for the duration of the browser session.</p>
+</li>
+<li>
+<p><code>PolicyName</code>: The name of the stickiness policy.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>LoadBalancerType</code>: The type of load balancer. Valid only for load balancers in a Net.<br>
+If <code>LoadBalancerType</code> is <code>internet-facing</code>, the load balancer has a public DNS name that resolves to a public IP.<br>
+If <code>LoadBalancerType</code> is <code>internal</code>, the load balancer has a public DNS name that resolves to a private IP.</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net for the load balancer.</p>
+</li>
+<li>
+<p><code>PublicIp</code>: (internet-facing only) The public IP associated with the load balancer.</p>
+</li>
+<li>
+<p><code>SecuredCookies</code>: Whether secure cookies are enabled for the load balancer.</p>
+</li>
+<li>
+<p><code>SecurityGroups</code>: One or more IDs of security groups for the load balancers. Valid only for load balancers in a Net.</p>
+</li>
+<li>
+<p><code>SourceSecurityGroup</code>: Information about the source security group of the load balancer, which you can use as part of your inbound rules for your registered VMs.<br>
+To only allow traffic from load balancers, add a security group rule that specifies this source security group as the inbound source.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SecurityGroupAccountId</code>: The account ID of the owner of the security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: The name of the security group.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Subnets</code>: The ID of the Subnet in which the load balancer was created.</p>
+</li>
+<li>
+<p><code>SubregionNames</code>: The ID of the <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Subregion</span> in which the load balancer was created.</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the load balancer.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Creating an internal load balancer in a Net</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "LoadBalancer": {
+    "Tags": [],
+    "SourceSecurityGroup": {
+      "SecurityGroupName": "security-group-example",
+      "SecurityGroupAccountId": "123456789012"
+    },
+    "SecuredCookies": false,
+    "Subnets": [
+      "subnet-12345678"
+    ],
+    "NetId": "vpc-12345678",
+    "BackendVmIds": [],
+    "ApplicationStickyCookiePolicies": [],
+    "SecurityGroups": [
+      "sg-12345678"
+    ],
+    "LoadBalancerType": "internal",
+    "AccessLog": {
+      "PublicationInterval": 60,
+      "IsEnabled": false
+    },
+    "DnsName": "internal-private-lb-example.123456789.eu-west-2.lbu.outscale.com",
+    "HealthCheck": {
+      "UnhealthyThreshold": 2,
+      "Timeout": 5,
+      "CheckInterval": 30,
+      "Protocol": "TCP",
+      "HealthyThreshold": 10,
+      "Port": 80
+    },
+    "LoadBalancerStickyCookiePolicies": [],
+    "SubregionNames": [
+      "eu-west-2a"
+    ],
+    "Listeners": [
+      {
+        "BackendPort": 80,
+        "BackendProtocol": "TCP",
+        "LoadBalancerPort": 80,
+        "LoadBalancerProtocol": "TCP"
+      }
+    ],
+    "LoadBalancerName": "private-lb-example"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="oapi-cli_2"><a class="anchor" href="Créer-un-load-balancer-interne.html#oapi-cli_2"></a>Créer un load balancer interne avec oapi-cli</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Avant de commencer :</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Créez un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span>. Pour en savoir plus, voir <a href="Nets.html" class="xref page">Nets</a>.</p>
+</li>
+<li>
+<p>Créez un security group pour le load balancer avec les règles suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Autorisez les flux entrants en protocole TCP sur le port que vous souhaitez.</p>
+</li>
+<li>
+<p>Autorisez les flux entrants venant des security groups des <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> qui envoient les requêtes.</p>
+</li>
+<li>
+<p>Autorisez les flux sortants vers l&#8217;ensemble des security groups des VM backend.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Configurez le security group des futures VM backend avec les règles suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Autorisez les flux entrants en protocole TCP sur le port que vous souhaitez.</p>
+</li>
+<li>
+<p>Autorisez les flux entrants venant du security group du load balancer.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus, voir <a href="Security-Groups.html" class="xref page">Security Groups</a>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateLoadBalancer</strong> command creates a load balancer.<br>
+The load balancer is created with a unique Domain Name Service (DNS) name. It receives the incoming traffic and routes it to its registered virtual machines (VMs).<br>
+By default, this action creates an Internet-facing load balancer, resolving to <span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">public IPs</span>. To create an internal load balancer in a Net, resolving to private IPs, use the <code>LoadBalancerType</code> parameter.<br>
+You must specify either the <code>Subnets</code> or the <code>SubregionNames</code> parameters.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="../../en/userguide/About-Load-Balancers.html" target="_blank" rel="noopener">About Load Balancers</a>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Creating an internal load balancer in a Net</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" CreateLoadBalancer \
+    --LoadBalancerName "private-lb-example" \
+    --Listeners '[
+        {
+          "BackendPort": 80,
+          "BackendProtocol": "TCP",
+          "LoadBalancerPort": 80,
+          "LoadBalancerProtocol": "TCP"
+        }
+      ]' \
+    --Subnets '["subnet-12345678"]' \
+    --SecurityGroups '["sg-12345678"]' \
+    --LoadBalancerType "internal"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>Listeners</code>: One or more listeners to create.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>BackendPort</code>: (optional) The port on which the backend VM is listening (between <code>1</code> and <code>65535</code>, both included).</p>
+</li>
+<li>
+<p><code>BackendProtocol</code>: (optional) The protocol for routing traffic to backend VMs (<code>HTTP</code> | <code>HTTPS</code> | <code>TCP</code> | <code>SSL</code>).</p>
+</li>
+<li>
+<p><code>LoadBalancerPort</code>: (optional) The port on which the load balancer is listening (between <code>1</code> and <code>65535</code>, both included).</p>
+</li>
+<li>
+<p><code>LoadBalancerProtocol</code>: (optional) The routing protocol (<code>HTTP</code> | <code>HTTPS</code> | <code>TCP</code> | <code>SSL</code>).</p>
+</li>
+<li>
+<p><code>ServerCertificateId</code>: (optional) The OUTSCALE Resource Name (ORN) of the server certificate. For more information, see <a href="../../en/userguide/Resource-Identifiers.html#_outscale_resource_names_orns" target="_blank" rel="noopener">Resource Identifiers &gt; OUTSCALE Resource Names (ORNs)</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>LoadBalancerName</code>: The unique name of the load balancer, with a maximum length of 32 alphanumeric characters and dashes (<code>-</code>). This name must not start or end with a dash.</p>
+</li>
+<li>
+<p><code>LoadBalancerType</code>: (optional) The type of load balancer: <code>internet-facing</code> or <code>internal</code>. Use this parameter only for load balancers in a Net.</p>
+</li>
+<li>
+<p><code>SecurityGroups</code>: (optional) (Net only) One or more IDs of security groups you want to assign to the load balancer. If not specified, the default security group of the Net is assigned to the load balancer.</p>
+</li>
+<li>
+<p><code>Subnets</code>: (optional) (Net only) The ID of the Subnet in which you want to create the load balancer. Regardless of this Subnet, the load balancer can distribute traffic to all Subnets. This parameter is required in a Net.</p>
+</li>
+<li>
+<p><code>Tags</code>: (optional) One or more tags assigned to the load balancer.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: (optional) The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: (optional) The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateLoadBalancer</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LoadBalancer</code>: Information about the load balancer.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccessLog</code>: Information about access logs.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>IsEnabled</code>: If true, access logs are enabled for your load balancer. If false, they are not. If you set this to true in your request, the <code>OsuBucketName</code> parameter is required.</p>
+</li>
+<li>
+<p><code>OsuBucketName</code>: The name of the OOS bucket for the access logs.</p>
+</li>
+<li>
+<p><code>OsuBucketPrefix</code>: The path to the folder of the access logs in your OOS bucket (by default, the <code>root</code> level of your bucket).</p>
+</li>
+<li>
+<p><code>PublicationInterval</code>: The time interval for the publication of access logs in the OOS bucket, in minutes. This value can be either <code>5</code> or <code>60</code> (by default, <code>60</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ApplicationStickyCookiePolicies</code>: The stickiness policies defined for the load balancer.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CookieName</code>: The name of the application cookie used for stickiness.</p>
+</li>
+<li>
+<p><code>PolicyName</code>: The mnemonic name for the policy being created. The name must be unique within a set of policies for this load balancer.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>BackendIps</code>: One or more public IPs of backend VMs.</p>
+</li>
+<li>
+<p><code>BackendVmIds</code>: One or more IDs of backend VMs for the load balancer.</p>
+</li>
+<li>
+<p><code>DnsName</code>: The DNS name of the load balancer.</p>
+</li>
+<li>
+<p><code>HealthCheck</code>: Information about the health check configuration.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CheckInterval</code>: The number of seconds between two requests (between <code>5</code> and <code>600</code> both included).</p>
+</li>
+<li>
+<p><code>HealthyThreshold</code>: The number of consecutive successful requests before considering the VM as healthy (between <code>2</code> and <code>10</code> both included).</p>
+</li>
+<li>
+<p><code>Path</code>: If you use the HTTP or HTTPS protocols, the request URL path.</p>
+</li>
+<li>
+<p><code>Port</code>: The port number (between <code>1</code> and <code>65535</code>, both included).</p>
+</li>
+<li>
+<p><code>Protocol</code>: The protocol for the URL of the VM (<code>HTTP</code> | <code>HTTPS</code> | <code>TCP</code> | <code>SSL</code>).</p>
+</li>
+<li>
+<p><code>Timeout</code>: The maximum waiting time for a response before considering the VM as unhealthy, in seconds (between <code>2</code> and <code>60</code> both included).</p>
+</li>
+<li>
+<p><code>UnhealthyThreshold</code>: The number of consecutive failed requests before considering the VM as unhealthy (between <code>2</code> and <code>10</code> both included).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Listeners</code>: The listeners for the load balancer.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>BackendPort</code>: The port on which the backend VM is listening (between <code>1</code> and <code>65535</code>, both included).</p>
+</li>
+<li>
+<p><code>BackendProtocol</code>: The protocol for routing traffic to backend VMs (<code>HTTP</code> | <code>HTTPS</code> | <code>TCP</code> | <code>SSL</code>).</p>
+</li>
+<li>
+<p><code>LoadBalancerPort</code>: The port on which the load balancer is listening (between <code>1</code> and <code>65535</code>, both included).</p>
+</li>
+<li>
+<p><code>LoadBalancerProtocol</code>: The routing protocol (<code>HTTP</code> | <code>HTTPS</code> | <code>TCP</code> | <code>SSL</code>).</p>
+</li>
+<li>
+<p><code>PolicyNames</code>: The names of the policies. If there are no policies enabled, the list is empty.</p>
+</li>
+<li>
+<p><code>ServerCertificateId</code>: The OUTSCALE Resource Name (ORN) of the server certificate. For more information, see <a href="../../en/userguide/Resource-Identifiers.html#_outscale_resource_names_orns" target="_blank" rel="noopener">Resource Identifiers &gt; OUTSCALE Resource Names (ORNs)</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>LoadBalancerName</code>: The name of the load balancer.</p>
+</li>
+<li>
+<p><code>LoadBalancerStickyCookiePolicies</code>: The policies defined for the load balancer.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CookieExpirationPeriod</code>: The time period, in seconds, after which the cookie should be considered stale.<br>
+If <code>1</code>, the stickiness session lasts for the duration of the browser session.</p>
+</li>
+<li>
+<p><code>PolicyName</code>: The name of the stickiness policy.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>LoadBalancerType</code>: The type of load balancer. Valid only for load balancers in a Net.<br>
+If <code>LoadBalancerType</code> is <code>internet-facing</code>, the load balancer has a public DNS name that resolves to a public IP.<br>
+If <code>LoadBalancerType</code> is <code>internal</code>, the load balancer has a public DNS name that resolves to a private IP.</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net for the load balancer.</p>
+</li>
+<li>
+<p><code>PublicIp</code>: (internet-facing only) The public IP associated with the load balancer.</p>
+</li>
+<li>
+<p><code>SecuredCookies</code>: Whether secure cookies are enabled for the load balancer.</p>
+</li>
+<li>
+<p><code>SecurityGroups</code>: One or more IDs of security groups for the load balancers. Valid only for load balancers in a Net.</p>
+</li>
+<li>
+<p><code>SourceSecurityGroup</code>: Information about the source security group of the load balancer, which you can use as part of your inbound rules for your registered VMs.<br>
+To only allow traffic from load balancers, add a security group rule that specifies this source security group as the inbound source.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SecurityGroupAccountId</code>: The account ID of the owner of the security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: The name of the security group.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Subnets</code>: The ID of the Subnet in which the load balancer was created.</p>
+</li>
+<li>
+<p><code>SubregionNames</code>: The ID of the <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Subregion</span> in which the load balancer was created.</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the load balancer.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Creating an internal load balancer in a Net</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  },
+  "LoadBalancer": {
+    "Tags": [],
+    "SourceSecurityGroup": {
+      "SecurityGroupName": "security-group-example",
+      "SecurityGroupAccountId": "123456789012"
+    },
+    "SecuredCookies": false,
+    "Subnets": [
+      "subnet-12345678"
+    ],
+    "NetId": "vpc-12345678",
+    "BackendVmIds": [],
+    "ApplicationStickyCookiePolicies": [],
+    "SecurityGroups": [
+      "sg-12345678"
+    ],
+    "LoadBalancerType": "internal",
+    "AccessLog": {
+      "PublicationInterval": 60,
+      "IsEnabled": false
+    },
+    "DnsName": "internal-private-lb-example.123456789.eu-west-2.lbu.outscale.com",
+    "HealthCheck": {
+      "UnhealthyThreshold": 2,
+      "Timeout": 5,
+      "CheckInterval": 30,
+      "Protocol": "TCP",
+      "HealthyThreshold": 10,
+      "Port": 80
+    },
+    "LoadBalancerStickyCookiePolicies": [],
+    "SubregionNames": [
+      "eu-west-2a"
+    ],
+    "Listeners": [
+      {
+        "BackendPort": 80,
+        "BackendProtocol": "TCP",
+        "LoadBalancerPort": 80,
+        "LoadBalancerProtocol": "TCP"
+      }
+    ],
+    "LoadBalancerName": "private-lb-example"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI_3"><a class="anchor" href="Créer-un-load-balancer-interne.html#AWS CLI_3"></a>Créer un load balancer interne avec AWS CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Avant de commencer :</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Installez et configurez AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p>Créez un <span class="tooltip" data-tooltip="Net dans l'API OUTSCALE">VPC</span>. Pour en savoir plus, voir <a href="Nets.html" class="xref page">Nets</a>.</p>
+</li>
+<li>
+<p>Créez un security group pour le load balancer avec les règles suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Autorisez les flux entrants en protocole TCP sur le port que vous souhaitez.</p>
+</li>
+<li>
+<p>Autorisez les flux entrants venant des security groups des <span class="tooltip" data-tooltip="machine virtuelle (VM) dans l'API OUTSCALE">instances</span> qui envoient les requêtes.</p>
+</li>
+<li>
+<p>Autorisez les flux sortants vers l&#8217;ensemble des security groups des instances backend.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Configurez le security group des futures instances backend avec les règles suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Autorisez les flux entrants en protocole TCP sur le port que vous souhaitez.</p>
+</li>
+<li>
+<p>Autorisez les flux entrants venant du security group du load balancer.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus, voir <a href="Security-Groups.html" class="xref page">Security Groups</a>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Pour créer un load balancer interne, utilisez la commande <strong>create-load-balancer</strong> en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws elb create-load-balancer \
+    --profile YOUR_PROFILE \
+    --load-balancer-name my_load_balancer \
+    --listeners Protocol=TCP,LoadBalancerPort=62,InstanceProtocol=TCP,InstancePort=58 \
+    --subnets subnet-12345678 \
+    --security-groups sg-12345678 sg-87654321 \
+    --scheme internal \
+    --endpoint https://lbu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>load-balancer-name</code> : Le nom du load balancer.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Ce nom doit être unique pour l&#8217;ensemble de la Région.</p>
+</li>
+<li>
+<p>Il doit suivre des règles de noms de domaine, c&#8217;est-à-dire qu&#8217;il peut contenir au maximum 32 caractères alphanumériques ou tirets, mais ne peut pas commencer ou finir par un tiret.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><code>listeners</code> : Un ou plusieurs listeners pour le load balancer. Cet attribut requiert les éléments suivants pour chaque listener :</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour ajouter plusieurs listeners, séparez-les à l&#8217;aide d&#8217;une espace.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Protocol</code> : Le protocole de routage pour le load balancer (<code>HTTP</code>, <code>HTTPS</code>, <code>TCP</code> ou <code>SSL</code>).</p>
+</li>
+<li>
+<p><code>LoadBalancerPort</code> : Le port sur lequel le load balancer écoute (entre 1 et 65535, tous deux inclus).</p>
+</li>
+<li>
+<p><code>InstancePort</code> : Le port sur lequel les instances backend écoutent (entre 1 et 65535, tous deux inclus).</p>
+</li>
+<li>
+<p>(optionnel) <code>InstanceProtocol</code> : Le protocole utilisé pour router le trafic vers les instances backend (<code>HTTP</code>, <code>HTTPS</code>, <code>TCP</code> ou <code>SSL</code>).</p>
+</li>
+<li>
+<p>(optionnel) <code>SSLCertificateId</code> : L&#8217;OUTSCALE Resource Name (ORN) d&#8217;un certificat SSL. Pour en savoir plus, voir <a href="Obtenir-des-informations-sur-vos-certificats-serveur.html" class="xref page">Obtenir des informations sur vos certificats serveur</a>.<br></p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Un certificat SSL est requis si le protocole du load balancer est HTTPS ou SSL.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour en savoir plus sur comment configurer votre listener lorsque vous utilisez des certificats SSL, voir <a href="Configurer-un-load-balancer-pour-une-redirection-SSL.html" class="xref page">Configurer un load balancer pour une redirection SSL</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>subnets</code> : L&#8217;ID du subnet dans lequel vous voulez créer le load balancer. Quel que soit ce subnet, le load balancer peut distribuer du trafic vers tous les subnets.</p>
+</li>
+<li>
+<p>(optionnel) <code>security-groups</code> : Un ou plusieurs ID de security groups que vous voulez attribuer au load balancer. Si rien n&#8217;est spécifié, le security group par défaut du VPC est attribué au load balancer.</p>
+</li>
+<li>
+<p><code>scheme</code> : Le type de load balancer que vous voulez créer (ici, <code>internal</code>).</p>
+</li>
+<li>
+<p><code>endpoint</code> : Le endpoint correspondant à la Région à laquelle vous voulez envoyer la requête. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>La commande <strong>create-load-balancer</strong> renvoie l&#8217;élément suivant :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DNSName</code> : Le nom de DNS attribué au load balancer.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de résultat</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json"> {
+    "DNSName": "my_load_balancer_1234567890.lbu.eu-west-2.outscale.com"
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-load-balancers.html" class="xref page">À propos des load balancers</a></p>
+</li>
+<li>
+<p><a href="Nets.html" class="xref page">Nets</a></p>
+</li>
+<li>
+<p><a href="Créer-un-load-balancer-relié-à-Internet-dans-un-Net.html" class="xref page">Créer un load balancer relié à Internet dans un Net</a></p>
+</li>
+<li>
+<p><a href="Ajouter-ou-supprimer-des-listeners.html" class="xref page">Ajouter ou supprimer des listeners</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Méthodes API correspondantes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#createloadbalancer" class="xref page">CreateLoadBalancer (API OUTSCALE)</a></p>
+</li>
+<li>
+<p><a href="../../lbu.html#createloadbalancer" class="xref page">CreateLoadBalancer (LBU)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

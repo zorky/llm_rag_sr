@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Lister les versions d&#8217;un objet – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Lister-les-versions-d-un-objet.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Lister-les-versions-d-un-objet.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Listing-the-Versions-of-an-Object.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Lister les versions d&#8217;un objet</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez lister la version actuelle et les versions précédentes d&#8217;un objet que vous avez déposé ou copié dans votre bucket. Cette action renvoie également des informations à propos du propriétaire de l&#8217;objet et de la date et l&#8217;heure de chaque version.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez télécharger n&#8217;importe quelle version d&#8217;un objet. Ces versions sont disponibles si vous avez activé le versioning du bucket. Vous pouvez toujours télécharger n&#8217;importe quelle version d&#8217;un objet après avoir désactivé le versioning du bucket. Pour en savoir plus, voir <a href="Activer-ou-désactiver-le-versioning-d-un-bucket.html" class="xref page">Activer ou désactiver le versioning d&#8217;un bucket</a>.</p>
+</div>
+<div class="paragraph">
+<p>Si vous supprimez un objet sans spécifier son ID de version alors que le versioning du bucket a été activé, un delete marker est créé. Pour en savoir plus, voir <a href="Supprimer-les-objets-d-un-bucket.html" class="xref page">Supprimer les objets d&#8217;un bucket</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI"><a class="anchor" href="Lister-les-versions-d-un-objet.html#AWS CLI"></a>Lister les versions d&#8217;un objet avec AWS CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Avant de commencer :</strong> Installez et configurez AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Pour lister les différentes versions d&#8217;un objet, utilisez la commande <strong>list-object-versions</strong> en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws s3api list-object-versions \
+    --profile YOUR_PROFILE \
+    --bucket BUCKET \
+    --key NOT_SPECIFIED \
+    --prefix PREFIX/OBJECT \
+    --delimiter NOT_SPECIFIED \
+    --endpoint https://oos.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>profile</code> : Le profil nommé que vous voulez utiliser, créé pendant la configuration d&#8217;AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>bucket</code> : Le nom de votre bucket.</p>
+</li>
+<li>
+<p>(optionnel) <code>key</code> : Le nom de l&#8217;objet.</p>
+</li>
+<li>
+<p>(optionnel) <code>prefix</code> : Une lettre ou une chaîne de caractères pour filtrer vos objets. Cet attribut renvoie les objets qui commencent avec la lettre ou la chaîne de caractères que vous spécifiez.</p>
+</li>
+<li>
+<p>(optionnel) <code>delimiter</code> : Une lettre pour filtrer vos objets. Cet attribut exclut les objets qui contiennent ou qui commencent par la lettre que vous spécifiez.</p>
+</li>
+<li>
+<p><code>endpoint</code> : Le endpoint correspondant à la Région à laquelle vous voulez envoyer la requête. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>La commande <strong>list-object-versions</strong> renvoie les éléments suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Name</code> : Le nom du bucket.</p>
+</li>
+<li>
+<p><code>Versions</code> : Informations à propos des versions d&#8217;un objet. Cet élément contient les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LastModified</code> : La date et l&#8217;heure à laquelle l&#8217;objet a été déposé ou copié.</p>
+</li>
+<li>
+<p><code>VersionId</code> : L&#8217;ID d&#8217;une version précédente ou de la version actuelle de l&#8217;objet.</p>
+</li>
+<li>
+<p><code>ETag</code> : L&#8217;ETag de l&#8217;objet.</p>
+</li>
+<li>
+<p><code>StorageClass</code> : La classe de stockage de l&#8217;objet (toujours <code>STANDARD</code>).</p>
+</li>
+<li>
+<p><code>Key</code> : Le nom de l&#8217;objet.</p>
+</li>
+<li>
+<p><code>Owner</code> : Informations à propos du propriétaire de l&#8217;objet. Cet élément contient les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DisplayName</code> : L’ID du compte OUTSCALE du propriétaire de l’objet.</p>
+</li>
+<li>
+<p><code>ID</code> : L&#8217;ID utilisateur S3 du propriétaire de l&#8217;objet.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>IsLatest</code> : Si l&#8217;objet est la version actuelle ou non (<code>true</code> | <code>false</code>).</p>
+</li>
+<li>
+<p><code>Size</code> : La taille de l&#8217;objet, en octets.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Prefix</code> : Le préfixe que vous avez spécifié.</p>
+</li>
+<li>
+<p><code>MaxKeys</code> : Le nombre de clés renvoyées par la commande (par défaut, <code>1000</code>).</p>
+</li>
+<li>
+<p><code>Delimiter</code> : Le délimiteur que vous avez spécifié.</p>
+</li>
+<li>
+<p><code>KeyMarker</code> : La clé que vous avez spécifiée.</p>
+</li>
+<li>
+<p><code>DeleteMarkers</code> : Informations à propos des delete markers. Cet élément contient les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Owner</code> : Informations à propos du propriétaire de l&#8217;objet. Cet élément contient les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DisplayName</code> : L’ID du compte OUTSCALE du propriétaire de l’objet.</p>
+</li>
+<li>
+<p><code>ID</code> : L&#8217;ID utilisateur S3 du propriétaire de l&#8217;objet.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>IsLatest</code> : Si l&#8217;objet est la version actuelle ou non (<code>true</code> | <code>false</code>).</p>
+</li>
+<li>
+<p><code>Size</code> : La taille de l&#8217;objet, en octets.</p>
+</li>
+<li>
+<p><code>Key</code> : Le nom de l&#8217;objet.</p>
+</li>
+<li>
+<p><code>LastModified</code> : La date et l&#8217;heure à laquelle l&#8217;objet a été déposé ou copié.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>IsTruncated</code> : Si le résultat est tronqué (<code>true</code> | <code>false</code>).</p>
+</li>
+<li>
+<p><code>CommonPrefixes</code> : Informations à propos des common prefixes. Cet élément contient les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Prefix</code> : La chaîne de caractères formée par le préfixe suivi du délimiteur. Pour en savoir plus, voir <a href="À-propos-d-OOS.html#_objets" class="xref page"> À propos d&#8217;OOS &gt; Objets</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de résultat</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "Name": "BUCKET",
+    "Versions": [
+        {
+            "LastModified": "2017-05-02T13:59:23.714Z",
+            "VersionId": "7395H3JvbAV16lq1tBbxUbtaJ7K4PCP",
+            "ETag": "\"93494ed0663d6a689b5e1f90d9e29d41\"",
+            "StorageClass": "STANDARD",
+            "Key": "PREFIX/OBJECT_1",
+            "Owner": {
+                "DisplayName": "ACCOUNT_ID",
+                "ID": "USER_ID"
+            },
+            "IsLatest": true,
+            "Size": 42
+        },
+        {
+            "LastModified": "2017-05-02T13:59:33.643Z",
+            "VersionId": "hYamlBeJKxeixLh5SOG6li7FhdYeqhv",
+            "ETag": "\"a9e872119bfa18db39ed9207c3c5b81f\"",
+            "StorageClass": "STANDARD",
+            "Key": "PREFIX/OBJECT_2",
+            "Owner": {
+                "DisplayName": "ACCOUNT_ID",
+                "ID": "USER_ID"
+            },
+            "IsLatest": true,
+            "Size": 20
+        },
+        {
+            "LastModified": "2017-05-02T13:59:42.032Z",
+            "VersionId": "EB-pqyVSnVrbF2uv0.Mm1kS7OOvBZz5",
+            "ETag": "\"727479ef7cedf30c03459bec7d87b0f0\"",
+            "StorageClass": "STANDARD",
+            "Key": "PREFIX/OBJECT_3",
+            "Owner": {
+                "DisplayName": "ACCOUNT_ID",
+                "ID": "USER_ID"
+            },
+            "IsLatest": false,
+            "Size": 5
+        }
+    ],
+    "Prefix": "PREFIX/OBJECT",
+    "MaxKeys": 1000,
+    "Delimiter": "/",
+    "KeyMarker": "/",
+    "DeleteMarkers": [
+        {
+            "Owner": {
+                "DisplayName": "ACCOUNT_ID",
+                "ID": "USER_ID"
+            },
+            "IsLatest": true,
+            "VersionId": "gO.3oj9gKafUhoMzP77RDU-NYg4EkG7",
+            "Key": "PREFIX/OBJECT_4",
+            "LastModified": "2017-05-02T14:09:03.047Z"
+        }
+    ],
+    "IsTruncated": false,
+    "CommonPrefixes": [
+        {
+            "Prefix": "PREFIX/OBJECT"
+        }
+    ]
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Activer-ou-désactiver-le-versioning-d-un-bucket.html" class="xref page">Activer ou désactiver le versioning d&#8217;un bucket</a></p>
+</li>
+<li>
+<p><a href="Télécharger-un-objet-depuis-un-bucket.html" class="xref page">Télécharger un objet depuis un bucket</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

@@ -1,0 +1,3060 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Créer des VM – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Créer-des-VM.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Créer-des-VM.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Creating-VMs.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Créer des VM</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez créer une ou plusieurs <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machines virtuelles (VM)</span> personnalisées dans le Cloud public ou dans un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span>.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez définir les différentes caractéristiques des VM, et créer plusieurs VM dans une même requête de création. Ces VM sont groupées dans une même réservation. Pour modifier les caractéristiques que vous avez définies pour une VM, voir <a href="Modifier-un-attribut-d-une-VM.html" class="xref page">Modifier un attribut d&#8217;une VM</a>.</p>
+</div>
+<div class="paragraph">
+<p>Toutes les OMI officielles utilisent des keypairs comme système d&#8217;authentification. Pour créer une VM depuis une OMI officielle, vous devez spécifier une keypair. Cependant, les OMI non officielles peuvent utiliser n&#8217;importe quel système d&#8217;authentification. Pour créer une VM depuis une OMI non officielle, vous devez vérifier si une keypair est requise. Pour en savoir plus, voir <a href="À-propos-des-keypairs.html" class="xref page">À propos des keypairs</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Cockpit v2_0"><a class="anchor" href="Créer-des-VM.html#Cockpit v2_0"></a>Créer des VM avec Cockpit v2</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cockpit v2 vous permet de créer plusieurs <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> dans une même requête de création. Ces VM sont groupées dans une même réservation.</p>
+</div>
+<div class="sect2">
+<h3 id="_ouvrir_la_fenêtre_créer_une_vm"><a class="anchor" href="Créer-des-VM.html#_ouvrir_la_fenêtre_créer_une_vm"></a>Ouvrir la fenêtre Créer une VM</h3>
+<div class="paragraph">
+<p>Dans le dashboard <strong>VM</strong>, cliquez sur <span class="image"><img src="_images/IconAddFull.svg" alt="IconAddFull"></span> <strong>Créer des VMs</strong>.<br>
+La fenêtre CRÉER DES VM apparaît.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configurer_votre_vm"><a class="anchor" href="Créer-des-VM.html#_configurer_votre_vm"></a>Configurer votre VM</h3>
+<div class="sect3">
+<h4 id="_choisir_un_nom_une_option_dallocation_et_un_comportement_darrêt"><a class="anchor" href="Créer-des-VM.html#_choisir_un_nom_une_option_dallocation_et_un_comportement_darrêt"></a>Choisir un nom, une option d&#8217;allocation et un comportement d&#8217;arrêt</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>(optionnel) Dans le champ <strong>Nom de la VM</strong>, tapez un nom pour votre VM.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Ce nom doit contenir entre 1 et 255 <a href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange#Caract%C3%A8res_imprimables" target="_blank" rel="noopener">caractères ASCII imprimables</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Ce nom est utilisé comme tag associé à votre VM.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) Cochez la case <strong>Dédiée</strong> pour créer des VM dédiées.<br>
+Pour en savoir plus, voir <a href="À-propos-des-VM.html" class="xref page">À propos des VM</a>.</p>
+</li>
+<li>
+<p>(optionnel) Dans la liste <strong>Comportement à la coupure</strong>, sélectionnez une des valeurs suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Arrêter</code> : Lorsque vous coupez les VM, elles s&#8217;arrêtent.</p>
+</li>
+<li>
+<p><code>Terminer</code> : Lorsque vous coupez les VM, elles s&#8217;arrêtent puis sont terminées.</p>
+</li>
+<li>
+<p><code>Redémarrer</code> : Lorsque vous coupez les VM, elles s&#8217;arrêtent puis redémarrent automatiquement.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cliquez sur <strong>Suivant</strong>.<br>
+L&#8217;écran de sélection d&#8217;une image apparaît.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_choisir_une_image"><a class="anchor" href="Créer-des-VM.html#_choisir_une_image"></a>Choisir une image</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Sélectionnez une image pour vos VM.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Suivant</strong>.<br>
+L&#8217;écran de sélection du type de VM apparaît.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_choisir_un_type_de_vm_et_le_nombre_de_vm"><a class="anchor" href="Créer-des-VM.html#_choisir_un_type_de_vm_et_le_nombre_de_vm"></a>Choisir un type de VM et le nombre de VM</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Spécifiez les attributs suivants pour vos VM :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Génération du CPU :</strong> La génération du processeur.</p>
+</li>
+<li>
+<p><strong>Performance :</strong> L&#8217;indicateur de performance.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Très haute : Capacité de calcul maximum sur tous les vCPU de la VM. Cette valeur est idéale pour les applications de calcul intensif demandant des performances stables durant le cycle de vie de la VM.</p>
+</li>
+<li>
+<p>Haute : Haute capacité de calcul sur tous les vCPU de la VM. Cette valeur s&#8217;applique à la plupart des cas et offre des performances variables dans le temps.</p>
+</li>
+<li>
+<p>Moyenne : Performance à variation significative sur tous les vCPU de la VM. Cette valeur ne garantit pas des performances constantes, mais est idéale pour les machines à faible demande CPU.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><strong>Cœur(s) :</strong> Le nombre de vCores, jusqu&#8217;à 78.</p>
+</li>
+<li>
+<p><strong>Mémoire (Gio) :</strong> La quantité de mémoire, jusqu&#8217;à 1039 Gio.</p>
+</li>
+</ul>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>Pour en savoir plus sur les types de VM, voir <a href="Types-de-VM.html" class="xref page">Types de VM</a>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour fonctionner correctement, les VM Windows nécessitent au moins un processeur de génération v3, 2 vCores et 4 Gio de mémoire.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Spécifiez combien de VM vous voulez créer.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Suivant</strong>.<br>
+L&#8217;écran <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span> apparaît.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_choisir_entre_le_cloud_public_un_net_et_une_sous_région"><a class="anchor" href="Créer-des-VM.html#_choisir_entre_le_cloud_public_un_net_et_une_sous_région"></a>Choisir entre le Cloud public, un Net et une <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Sous-région</span></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Si vous voulez créer des VM dans le Cloud public :</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Laissez <strong>Cloud public</strong> activé.</p>
+</li>
+<li>
+<p>Sélectionnez la Sous-région dans laquelle vous voulez créer vos VM.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Dans le Cloud public, vous ne pouvez pas définir l&#8217;IP privée de vos VM.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Si vous voulez créer des VM dans un Net :</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Désactivez <strong>Cloud public</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez un de vos subnets dans la liste <strong>Subnet</strong>.</p>
+</li>
+<li>
+<p>(optionnel) Dans le champ <strong>IP privée</strong>, si vous créez une seule VM, tapez l&#8217;IP privée de la VM.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Lorsque vous créez des VM dans un Net avec Cockpit v2 :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Seule la Sous-région du Subnet choisi est affichée.</p>
+</li>
+<li>
+<p>Des <span class="tooltip" data-tooltip="flexible network interface (FNI) dans les API AWS-compliant">Network interface cards (NIC)</span> sont automatiquement créées et attachées aux VM.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Cliquez sur <strong>Suivant</strong>.<br>
+L&#8217;écran de sélection d&#8217;un volume système apparaît.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_choisir_un_volume_système"><a class="anchor" href="Créer-des-VM.html#_choisir_un_volume_système"></a>Choisir un volume système</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Si vous voulez que vos VM utilisent un volume système par défaut :</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Sélectionnez <strong>Poursuivre avec un volume système par défaut</strong>.</p>
+</li>
+<li>
+<p>(optionnel) Dans le champ <strong>Nom du volume</strong>, tapez un nom pour votre volume système.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Si vous voulez personnaliser le volume système de vos VM :</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Sélectionnez <strong>Personnaliser le volume système</strong>.</p>
+</li>
+<li>
+<p>(optionnel) Dans le champ <strong>Nom du volume</strong>, tapez un nom pour votre volume système.</p>
+</li>
+<li>
+<p>Sélectionnez une des valeurs suivantes dans la liste <strong>Volume Type</strong> :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>standard</code> pour un volume Magnetic</p>
+</li>
+<li>
+<p><code>gp2</code> pour un volume Performance</p>
+</li>
+<li>
+<p><code>io1</code> pour un volume Enterprise</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si vous sélectionnez <code>io1</code>, vous devez définir le nombre d&#8217;IOPS dont vous avez besoin.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus, voir <a href="À-propos-des-volumes.html#_types_de_volumes_et_iops" class="xref page">À propos des volumes &gt; Types de volumes et IOPS</a>.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Dans le champ <strong>Taille du volume</strong>, spécifiez la taille du volume (en Gio).</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Cliquez sur <strong>Suivant</strong>.<br>
+L&#8217;écran Security group apparaît.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_choisir_des_security_groups"><a class="anchor" href="Créer-des-VM.html#_choisir_des_security_groups"></a>Choisir des security groups</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Si vous voulez associer un nouveau security group à vos VM, sélectionnez <strong>Créer un nouveau security group</strong> :</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Dans le champ <strong>Nom</strong>, tapez un nom pour le security group.</p>
+</li>
+<li>
+<p>Dans le champ <strong>Description</strong>, tapez sa description.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Le nom doit être unique dans votre compte pour le Cloud public ou pour chaque Net.</p>
+</li>
+<li>
+<p>Le nom du security group ne doit pas commencer par <code>sg-</code>.</p>
+</li>
+<li>
+<p>Chaque nom et description peut contenir entre 1 et 255 caractères. Les caractères autorisés sont a-z, A-Z, 0-9, l&#8217;espace et _.-:/()#,@[]+=&amp;;\{}!$*.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Si vous voulez associer un ou plusieurs security groups existants à vos VM, sélectionnez <strong>Sélectionner un ou plusieurs security groups</strong> et sélectionnez-les dans la liste qui apparaît.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Cette liste dépend du choix effectué dans l&#8217;écran Public/Net. Si vous avez sélectionné un Net, seuls les security groups du Net choisi sont affichés.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Si vous voulez associer un security group par défaut à vos VM, sélectionnez <strong>Poursuivre avec un security group par défaut</strong>.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Suivant</strong>.<br>
+L&#8217;écran de sélection d&#8217;une keypair apparaît.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_choisir_une_keypair"><a class="anchor" href="Créer-des-VM.html#_choisir_une_keypair"></a>Choisir une keypair</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Si vous voulez attribuer une keypair existante à vos VM, sélectionnez-la dans la liste.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Seules les keypairs RSA peuvent déchiffrer le mot de passe d&#8217;une VM Windows.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Si vous voulez créer une nouvelle keypair à attribuer à vos VM, sélectionnez <strong>Créer une nouvelle keypair</strong> :</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Dans le champ <strong>Nom de la keypair</strong>, tapez un nom pour la keypair.</p>
+</li>
+<li>
+<p>Cliquez <strong>Créer et télécharger la keypair</strong>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Le nom de la keypair doit être unique dans votre compte.</p>
+</li>
+<li>
+<p>Il doit contenir entre 1 et 255 <a href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange#Caract%C3%A8res_imprimables" target="_blank" rel="noopener">caractères ASCII imprimables</a>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Attention"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Sauvegardez ce document avec précaution, car vous aurez besoin de son contenu à chaque connexion à vos ressources. Il ne peut pas être récupéré auprès de 3DS OUTSCALE en cas de perte.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Si vous ne voulez pas attribuer une keypair à vos VM, sélectionnez <strong>Poursuivre sans keypair</strong>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Avec Cockpit v2, vous pouvez créer une VM sans y associer de keypair. Cependant, toutes les images officielles utilisent des keypairs comme système d&#8217;authentification. Si vous voulez accéder à une VM créée à partir d&#8217;une image officielle, vous devez donc y associer une keypair pendant cette étape ou plus tard. Pour associer une keypair plus tard, voir <a href="Modifier-un-attribut-d-une-VM.html" class="xref page">Modifier un attribut d&#8217;une VM</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Cliquez sur <strong>Suivant</strong>.<br>
+L&#8217;écran User data / Cloud-init apparaît.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_spécifier_des_user_data"><a class="anchor" href="Créer-des-VM.html#_spécifier_des_user_data"></a>Spécifier des user data</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>(optionnel) Tapez des user data pour les VM dans le champ <strong>Section Outscale</strong>.<br>
+Pour en savoir plus, voir <a href="Configurer-une-VM-avec-les-user-data-et-les-tags-OUTSCALE.html" class="xref page">Configurer une VM avec les user data et les tags OUTSCALE</a>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Cockpit v2 encode ensuite ces user data en Base64.
+La taille des user data encodées en Base64 ne doit pas dépasser 500 kibioctets (Kio).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) Tapez des user data pour les VM dans le champ <strong>Section libre / Cloud-init</strong>.<br>
+Pour en savoir plus, voir <a href="Utiliser-cloud-init-avec-les-user-data.html" class="xref page">Utiliser cloud-init avec les user data</a>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Cockpit v2 encode ensuite ces user data en Base64.
+La taille des user data encodées en Base64 ne doit pas dépasser 500 kibioctets (Kio).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Cliquez sur <strong>Suivant</strong>.<br>
+L&#8217;écran Récapitulatif apparaît.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_confirmer_la_création_des_vm"><a class="anchor" href="Créer-des-VM.html#_confirmer_la_création_des_vm"></a>Confirmer la création des VM</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Vérifiez l&#8217;ensemble des paramètres des VM.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>L&#8217;estimation du coût du type de VM est basée sur le catalogue des prix publics OUTSCALE et prend uniquement en compte la génération de CPU, l&#8217;indicateur de performance, et la quantité de mémoire.<br>
+Cette estimation ne fait pas office de devis ou de facture et n’est valable que pour une durée limitée. Les prix indiqués sont sujets à changement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Cliquez sur <strong>Créer des VM</strong>.<br>
+Les VM sont créées.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="OSC CLI_1"><a class="anchor" href="Créer-des-VM.html#OSC CLI_1"></a>Créer des VM avec OSC CLI</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateVms</strong> command creates <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">virtual machines (VMs)</span>, and then launches them.<br>
+This action enables you to create a specified number of VMs using an OUTSCALE machine image (OMI) that you are allowed to use, and then to automatically launch them.<br>
+The VMs remain in the <code>pending</code> state until they are created and ready to be used. Once automatically launched, they are in the <code>running</code> state.<br>
+To check the state of your VMs, call the <a href="../../api%3Fconsole.html#readvms" class="xref page">ReadVms</a> method.<br>
+If not specified, the security group used by the service is the default one.<br>
+The metadata server enables you to get the public key provided when the VM is launched. Official OMIs contain a script to get this public key and put it inside the VM to provide secure access without password.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="../../en/userguide/About-VMs.html" target="_blank" rel="noopener">About VMs</a>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Creating a VM (minimal syntax)</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api CreateVms --profile "default" \
+    --ImageId "ami-12345678"</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Creating a VM in a <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api CreateVms --profile "default" \
+    --ImageId "ami-12345678" \
+    --VmType "tinav5.c1r1p2" \
+    --KeypairName "keypair-example" \
+    --SecurityGroupIds '["sg-12345678"]' \
+    --SubnetId "subnet-12345678" \
+    --UserData "$(base64 -i user_data.txt)"</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Creating a VM with block device mappings</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api CreateVms --profile "default" \
+    --ImageId "ami-12345678" \
+    --VmType "tinav5.c1r1p2" \
+    --KeypairName "keypair-example" \
+    --SecurityGroupIds '["sg-12345678"]' \
+    --SubnetId "subnet-12345678" \
+    --UserData "$(base64 -i user_data.txt)" \
+    --BlockDeviceMappings '[
+        {
+          "DeviceName": "/dev/sda1",
+          "Bsu": {"VolumeSize": 15, "VolumeType": "gp2"}
+        },
+        {
+          "DeviceName": "/dev/sdb",
+          "Bsu": {"SnapshotId": "snap-12345678", "VolumeSize": 22, "VolumeType": "io1", "Iops": 150}
+        }
+      ]'</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Creating a VM with a <span class="tooltip" data-tooltip="flexible network interface (FNI) dans les API AWS-compliant">NIC</span></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api CreateVms --profile "default" \
+    --ImageId "ami-12345678" \
+    --VmType "tinav5.c1r1p2" \
+    --KeypairName "keypair-example" \
+    --UserData "$(base64 -i user_data.txt)" \
+    --Nics '[
+        {
+          "DeviceNumber": 0,
+          "NicId": "eni-12345678"
+        }
+      ]'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>BlockDeviceMappings</code>: (optional) One or more block device mappings.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Bsu</code>: (optional) Information about the BSU volume to create.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteOnVmDeletion</code>: (optional) By default or if set to true, the volume is deleted when terminating the VM. If false, the volume is not deleted when terminating the VM.</p>
+</li>
+<li>
+<p><code>Iops</code>: (optional) The number of I/O operations per second (IOPS). This parameter must be specified only if you create an <code>io1</code> volume. The maximum number of IOPS allowed for <code>io1</code> volumes is <code>13000</code> with a maximum performance ratio of 300 IOPS per gibibyte.</p>
+</li>
+<li>
+<p><code>SnapshotId</code>: (optional) The ID of the snapshot used to create the volume.</p>
+</li>
+<li>
+<p><code>VolumeSize</code>: (optional) The size of the volume, in gibibytes (GiB).<br>
+If you specify a snapshot ID, the volume size must be at least equal to the snapshot size.<br>
+If you specify a snapshot ID but no volume size, the volume is created with a size similar to the snapshot one.</p>
+</li>
+<li>
+<p><code>VolumeType</code>: (optional) The type of the volume (<code>standard</code> | <code>io1</code> | <code>gp2</code>). If not specified in the request, a <code>standard</code> volume is created.<br>
+For more information about volume types, see <a href="../../en/userguide/About-Volumes.html#_volume_types_and_iops" target="_blank" rel="noopener">About Volumes &gt; Volume Types and IOPS</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>DeviceName</code>: (optional) The device name for the volume. For a root device, you must use <code>/dev/sda1</code>. For other volumes, you must use <code>/dev/sdX</code>, <code>/dev/sdXX</code>, <code>/dev/xvdX</code>, or <code>/dev/xvdXX</code> (where the first <code>X</code> is a letter between <code>b</code> and <code>z</code>, and the second <code>X</code> is a letter between <code>a</code> and <code>z</code>).</p>
+</li>
+<li>
+<p><code>NoDevice</code>: (optional) Removes the device which is included in the block device mapping of the OMI.</p>
+</li>
+<li>
+<p><code>VirtualDeviceName</code>: (optional) The name of the virtual device (<code>ephemeralN</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>BootOnCreation</code>: (optional) By default or if true, the VM is started on creation. If false, the VM is stopped on creation.</p>
+</li>
+<li>
+<p><code>BsuOptimized</code>: (optional) This parameter is not available. It is present in our API for the sake of historical compatibility with AWS.</p>
+</li>
+<li>
+<p><code>ClientToken</code>: (optional) A unique identifier which enables you to manage the idempotency.</p>
+</li>
+<li>
+<p><code>DeletionProtection</code>: (optional) If true, you cannot delete the VM unless you change this parameter back to false.</p>
+</li>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>ImageId</code>: The ID of the OMI used to create the VM. You can find the list of OMIs by calling the <a href="../../api%3Fconsole.html#readimages" class="xref page">ReadImages</a> method.</p>
+</li>
+<li>
+<p><code>KeypairName</code>: (optional) The name of the keypair.</p>
+</li>
+<li>
+<p><code>MaxVmsCount</code>: (optional) The maximum number of VMs you want to create. If all the VMs cannot be created, the largest possible number of VMs above MinVmsCount is created.</p>
+</li>
+<li>
+<p><code>MinVmsCount</code>: (optional) The minimum number of VMs you want to create. If this number of VMs cannot be created, no VMs are created.</p>
+</li>
+<li>
+<p><code>NestedVirtualization</code>: (optional) (dedicated tenancy only) If true, nested virtualization is enabled. If false, it is disabled.</p>
+</li>
+<li>
+<p><code>Nics</code>: (optional) One or more NICs. If you specify this parameter, you must not specify the <code>SubnetId</code> and <code>SubregionName</code> parameters. You also must define one NIC as the primary network interface of the VM with <code>0</code> as its device number.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteOnVmDeletion</code>: (optional) If true, the NIC is deleted when the VM is terminated. You can specify this parameter only for a new NIC. To modify this value for an existing NIC, see <a href="../../api%3Fconsole.html#updatenic" class="xref page">UpdateNic</a>.</p>
+</li>
+<li>
+<p><code>Description</code>: (optional) The description of the NIC, if you are creating a NIC when creating the VM.</p>
+</li>
+<li>
+<p><code>DeviceNumber</code>: (optional) The index of the VM device for the NIC attachment (between <code>0</code> and <code>7</code>, both included). This parameter is required if you create a NIC when creating the VM.</p>
+</li>
+<li>
+<p><code>NicId</code>: (optional) The ID of the NIC, if you are attaching an existing NIC when creating a VM.</p>
+</li>
+<li>
+<p><code>PrivateIps</code>: (optional) One or more private IPs to assign to the NIC, if you create a NIC when creating a VM. Only one private IP can be the primary private IP.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>IsPrimary</code>: (optional) If true, the IP is the primary private IP of the NIC.</p>
+</li>
+<li>
+<p><code>PrivateIp</code>: (optional) The private IP of the NIC.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>SecondaryPrivateIpCount</code>: (optional) The number of secondary private IPs, if you create a NIC when creating a VM. This parameter cannot be specified if you specified more than one private IP in the <code>PrivateIps</code> parameter.</p>
+</li>
+<li>
+<p><code>SecurityGroupIds</code>: (optional) One or more IDs of security groups for the NIC, if you create a NIC when creating a VM.</p>
+</li>
+<li>
+<p><code>SubnetId</code>: (optional) The ID of the Subnet for the NIC, if you create a NIC when creating a VM. This parameter is required if you create a NIC when creating the VM.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Performance</code>: (optional) The performance of the VM (<code>medium</code> | <code>high</code> |  <code>highest</code>). By default, <code>high</code>. This parameter is ignored if you specify a performance flag directly in the <code>VmType</code> parameter.</p>
+</li>
+<li>
+<p><code>Placement</code>: (optional) Information about the placement of the VM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SubregionName</code>: (optional) The name of the <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Subregion</span>. If you specify this parameter, you must not specify the <code>Nics</code> parameter.</p>
+</li>
+<li>
+<p><code>Tenancy</code>: (optional) The tenancy of the VM (<code>default</code>, <code>dedicated</code>, or a dedicated group ID).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>PrivateIps</code>: (optional) One or more private IPs of the VM.</p>
+</li>
+<li>
+<p><code>SecurityGroupIds</code>: (optional) One or more IDs of security group for the VMs.</p>
+</li>
+<li>
+<p><code>SecurityGroups</code>: (optional) One or more names of security groups for the VMs.</p>
+</li>
+<li>
+<p><code>SubnetId</code>: (optional) The ID of the Subnet in which you want to create the VM. If you specify this parameter, you must not specify the <code>Nics</code> parameter.</p>
+</li>
+<li>
+<p><code>UserData</code>: (optional) Data or script used to add a specific configuration to the VM. It must be Base64-encoded and is limited to 500 kibibytes (KiB). For more information about user data, see <a href="../../en/userguide/Configuring-a-VM-with-User-Data-and-OUTSCALE-Tags.html" target="_blank" rel="noopener">Configuring a VM with User Data and OUTSCALE Tags</a>.</p>
+</li>
+<li>
+<p><code>VmInitiatedShutdownBehavior</code>: (optional) The VM behavior when you stop it. By default or if set to <code>stop</code>, the VM stops. If set to <code>restart</code>, the VM stops then automatically restarts. If set to <code>terminate</code>, the VM stops and is terminated.</p>
+</li>
+<li>
+<p><code>VmType</code>: (optional) The type of VM. You can specify a TINA type (in the <code>tinavW.cXrYpZ</code> or <code>tinavW.cXrY</code> format), or an AWS type (for example, <code>t2.small</code>, which is the default value).<br>
+If you specify an AWS type, it is converted in the background to its corresponding TINA type, but the AWS type is still returned. If the specified or converted TINA type includes a performance flag, this performance flag is applied regardless of the value you may have provided in the <code>Performance</code> parameter. For more information, see <a href="../../en/userguide/VM-Types.html" target="_blank" rel="noopener">VM Types</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateVms</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Vms</code>: Information about one or more created VMs.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Architecture</code>: The architecture of the VM (<code>i386</code> | <code>x86_64</code>).</p>
+</li>
+<li>
+<p><code>BlockDeviceMappings</code>: The block device mapping of the VM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Bsu</code>: Information about the created BSU volume.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteOnVmDeletion</code>: If true, the volume is deleted when terminating the VM. If false, the volume is not deleted when terminating the VM.</p>
+</li>
+<li>
+<p><code>LinkDate</code>: The date and time (UTC) at which the volume was attached to the VM, in ISO 8601 date-time format.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the volume.</p>
+</li>
+<li>
+<p><code>VolumeId</code>: The ID of the volume.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>DeviceName</code>: The name of the device.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>BsuOptimized</code>: This parameter is not available. It is present in our API for the sake of historical compatibility with AWS.</p>
+</li>
+<li>
+<p><code>ClientToken</code>: The idempotency token provided when launching the VM.</p>
+</li>
+<li>
+<p><code>CreationDate</code>: The date and time (UTC) at which the VM was created.</p>
+</li>
+<li>
+<p><code>DeletionProtection</code>: If true, you cannot delete the VM unless you change this parameter back to false.</p>
+</li>
+<li>
+<p><code>Hypervisor</code>: The hypervisor type of the VMs (<code>ovm</code> | <code>xen</code>).</p>
+</li>
+<li>
+<p><code>ImageId</code>: The ID of the OMI used to create the VM.</p>
+</li>
+<li>
+<p><code>IsSourceDestChecked</code>: (Net only) If true, the source/destination check is enabled. If false, it is disabled.</p>
+</li>
+<li>
+<p><code>KeypairName</code>: The name of the keypair used when launching the VM.</p>
+</li>
+<li>
+<p><code>LaunchNumber</code>: The number for the VM when launching a group of several VMs (for example, <code>0</code>, <code>1</code>, <code>2</code>, and so on).</p>
+</li>
+<li>
+<p><code>NestedVirtualization</code>: If true, nested virtualization is enabled. If false, it is disabled.</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net in which the VM is running.</p>
+</li>
+<li>
+<p><code>Nics</code>: (Net only) The network interface cards (NICs) the VMs are attached to.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountId</code>: The account ID of the owner of the NIC.</p>
+</li>
+<li>
+<p><code>Description</code>: The description of the NIC.</p>
+</li>
+<li>
+<p><code>IsSourceDestChecked</code>: (Net only) If true, the source/destination check is enabled. If false, it is disabled.</p>
+</li>
+<li>
+<p><code>LinkNic</code>: Information about the network interface card (NIC).</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteOnVmDeletion</code>: If true, the NIC is deleted when the VM is terminated.</p>
+</li>
+<li>
+<p><code>DeviceNumber</code>: The device index for the NIC attachment (between <code>1</code> and <code>7</code>, both included).</p>
+</li>
+<li>
+<p><code>LinkNicId</code>: The ID of the NIC to attach.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the attachment (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>LinkPublicIp</code>: Information about the <span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">public IP</span> associated with the NIC.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>PublicDnsName</code>: The name of the public DNS.</p>
+</li>
+<li>
+<p><code>PublicIp</code>: The public IP associated with the NIC.</p>
+</li>
+<li>
+<p><code>PublicIpAccountId</code>: The account ID of the owner of the public IP.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>MacAddress</code>: The Media Access Control (MAC) address of the NIC.</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net for the NIC.</p>
+</li>
+<li>
+<p><code>NicId</code>: The ID of the NIC.</p>
+</li>
+<li>
+<p><code>PrivateDnsName</code>: The name of the private DNS.</p>
+</li>
+<li>
+<p><code>PrivateIps</code>: The private IP or IPs of the NIC.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>IsPrimary</code>: If true, the IP is the primary private IP of the NIC.</p>
+</li>
+<li>
+<p><code>LinkPublicIp</code>: Information about the public IP associated with the NIC.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>PublicDnsName</code>: The name of the public DNS.</p>
+</li>
+<li>
+<p><code>PublicIp</code>: The public IP associated with the NIC.</p>
+</li>
+<li>
+<p><code>PublicIpAccountId</code>: The account ID of the owner of the public IP.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>PrivateDnsName</code>: The name of the private DNS.</p>
+</li>
+<li>
+<p><code>PrivateIp</code>: The private IP.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>SecurityGroups</code>: One or more IDs of security groups for the NIC.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SecurityGroupId</code>: The ID of the security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: The name of the security group.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>State</code>: The state of the NIC (<code>available</code> | <code>attaching</code> | <code>in-use</code> | <code>detaching</code>).</p>
+</li>
+<li>
+<p><code>SubnetId</code>: The ID of the Subnet for the NIC.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>OsFamily</code>: Indicates the operating system (OS) of the VM.</p>
+</li>
+<li>
+<p><code>Performance</code>: The performance of the VM (<code>medium</code> | <code>high</code> |  <code>highest</code>).</p>
+</li>
+<li>
+<p><code>Placement</code>: Information about the placement of the VM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SubregionName</code>: The name of the Subregion. If you specify this parameter, you must not specify the <code>Nics</code> parameter.</p>
+</li>
+<li>
+<p><code>Tenancy</code>: The tenancy of the VM (<code>default</code>, <code>dedicated</code>, or a dedicated group ID).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>PrivateDnsName</code>: The name of the private DNS.</p>
+</li>
+<li>
+<p><code>PrivateIp</code>: The primary private IP of the VM.</p>
+</li>
+<li>
+<p><code>ProductCodes</code>: The product codes associated with the OMI used to create the VM.</p>
+</li>
+<li>
+<p><code>PublicDnsName</code>: The name of the public DNS.</p>
+</li>
+<li>
+<p><code>PublicIp</code>: The public IP of the VM.</p>
+</li>
+<li>
+<p><code>ReservationId</code>: The reservation ID of the VM.</p>
+</li>
+<li>
+<p><code>RootDeviceName</code>: The name of the root device for the VM (for example, <code>/dev/sda1</code>).</p>
+</li>
+<li>
+<p><code>RootDeviceType</code>: The type of root device used by the VM (always <code>bsu</code>).</p>
+</li>
+<li>
+<p><code>SecurityGroups</code>: One or more security groups associated with the VM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SecurityGroupId</code>: The ID of the security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: The name of the security group.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>State</code>: The state of the VM (<code>pending</code> | <code>running</code> | <code>stopping</code> | <code>stopped</code> | <code>shutting-down</code> | <code>terminated</code> | <code>quarantine</code>).</p>
+</li>
+<li>
+<p><code>StateReason</code>: The reason explaining the current state of the VM.</p>
+</li>
+<li>
+<p><code>SubnetId</code>: The ID of the Subnet for the VM.</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the VM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>UserData</code>: The Base64-encoded MIME user data.</p>
+</li>
+<li>
+<p><code>VmId</code>: The ID of the VM.</p>
+</li>
+<li>
+<p><code>VmInitiatedShutdownBehavior</code>: The VM behavior when you stop it. If set to <code>stop</code>, the VM stops. If set to <code>restart</code>, the VM stops then automatically restarts. If set to <code>terminate</code>, the VM stops and is deleted.</p>
+</li>
+<li>
+<p><code>VmType</code>: The type of VM. For more information, see <a href="../../en/userguide/VM-Types.html" target="_blank" rel="noopener">VM Types</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Creating a VM (minimal syntax)</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "Vms": [
+    {
+      "VmType": "t2.small",
+      "VmInitiatedShutdownBehavior": "stop",
+      "State": "pending",
+      "StateReason": "",
+      "RootDeviceType": "ebs",
+      "RootDeviceName": "/dev/sda1",
+      "IsSourceDestChecked": true,
+      "ImageId": "ami-12345678",
+      "DeletionProtection": false,
+      "Architecture": "x86_64",
+      "NestedVirtualization": false,
+      "BlockDeviceMappings": [
+        {
+          "DeviceName": "/dev/sda1",
+          "Bsu": {
+            "VolumeId": "vol-12345678",
+            "State": "attaching",
+            "LinkDate": "2010-10-01T12:34:56.789Z",
+            "DeleteOnVmDeletion": true
+          }
+        }
+      ],
+      "VmId": "i-12345678",
+      "ReservationId": "r-12345678",
+      "Hypervisor": "xen",
+      "Placement": {
+        "Tenancy": "default",
+        "SubregionName": "eu-west-2a"
+      },
+      "ProductCodes": [
+        "0001"
+      ],
+      "CreationDate": "2010-10-01T12:34:56.789Z",
+      "UserData": "...",
+      "PrivateIp": "10.0.0.4",
+      "SecurityGroups": [
+        {
+          "SecurityGroupName": "default",
+          "SecurityGroupId": "sg-12345678"
+        }
+      ],
+      "BsuOptimized": false,
+      "LaunchNumber": 0,
+      "Performance": "medium",
+      "Tags": [],
+      "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal"
+    }
+  ],
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Creating a VM in a Net</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "Vms": [
+    {
+      "VmType": "tinav5.c1r1p2",
+      "VmInitiatedShutdownBehavior": "stop",
+      "State": "pending",
+      "StateReason": "",
+      "RootDeviceType": "ebs",
+      "RootDeviceName": "/dev/sda1",
+      "IsSourceDestChecked": true,
+      "KeypairName": "keypair-example",
+      "ImageId": "ami-12345678",
+      "DeletionProtection": false,
+      "Architecture": "x86_64",
+      "NestedVirtualization": false,
+      "BlockDeviceMappings": [
+        {
+          "DeviceName": "/dev/sda1",
+          "Bsu": {
+            "VolumeId": "vol-12345678",
+            "State": "attaching",
+            "LinkDate": "2010-10-01T12:34:56.789Z",
+            "DeleteOnVmDeletion": true
+          }
+        }
+      ],
+      "VmId": "i-12345678",
+      "ReservationId": "r-12345678",
+      "Hypervisor": "xen",
+      "Placement": {
+        "Tenancy": "default",
+        "SubregionName": "eu-west-2a"
+      },
+      "ProductCodes": [
+        "0001"
+      ],
+      "CreationDate": "2010-10-01T12:34:56.789Z",
+      "UserData": "...",
+      "SubnetId": "subnet-12345678",
+      "PrivateIp": "10.0.0.4",
+      "SecurityGroups": [
+        {
+          "SecurityGroupName": "security-group-example",
+          "SecurityGroupId": "sg-12345678"
+        }
+      ],
+      "BsuOptimized": false,
+      "LaunchNumber": 0,
+      "NetId": "vpc-12345678",
+      "Nics": [
+        {
+          "SubnetId": "subnet-12345678",
+          "State": "in-use",
+          "LinkNic": {
+            "State": "attached",
+            "DeviceNumber": 0,
+            "LinkNicId": "eni-attach-12345678",
+            "DeleteOnVmDeletion": true
+          },
+          "IsSourceDestChecked": true,
+          "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal",
+          "Description": "Primary network interface",
+          "AccountId": "123456789012",
+          "SecurityGroups": [
+            {
+              "SecurityGroupName": "security-group-example",
+              "SecurityGroupId": "sg-12345678"
+            }
+          ],
+          "MacAddress": "A1:B2:C3:D4:E5:F6",
+          "NetId": "vpc-12345678",
+          "NicId": "eni-12345678",
+          "PrivateIps": [
+            {
+              "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal",
+              "PrivateIp": "10.0.0.4",
+              "IsPrimary": true
+            }
+          ]
+        }
+      ],
+      "Performance": "high",
+      "Tags": [],
+      "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal"
+    }
+  ],
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Creating a VM with block device mappings</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "Vms": [
+    {
+      "VmType": "tinav5.c1r1p2",
+      "VmInitiatedShutdownBehavior": "stop",
+      "State": "pending",
+      "StateReason": "",
+      "RootDeviceType": "ebs",
+      "RootDeviceName": "/dev/sda1",
+      "IsSourceDestChecked": true,
+      "KeypairName": "keypair-example",
+      "ImageId": "ami-12345678",
+      "DeletionProtection": false,
+      "Architecture": "x86_64",
+      "NestedVirtualization": false,
+      "BlockDeviceMappings": [
+        {
+          "DeviceName": "/dev/sda1",
+          "Bsu": {
+            "VolumeId": "vol-12345678",
+            "State": "attaching",
+            "LinkDate": "2010-10-01T12:34:56.789Z",
+            "DeleteOnVmDeletion": true
+          }
+        },
+        {
+          "DeviceName": "/dev/sda1",
+          "Bsu": {
+            "VolumeId": "vol-87654321",
+            "State": "attaching",
+            "LinkDate": "2010-10-01T12:34:56.789Z",
+            "DeleteOnVmDeletion": true
+          }
+        }
+      ],
+      "VmId": "i-12345678",
+      "ReservationId": "r-12345678",
+      "Hypervisor": "xen",
+      "Placement": {
+        "Tenancy": "default",
+        "SubregionName": "eu-west-2a"
+      },
+      "ProductCodes": [
+        "0001"
+      ],
+      "CreationDate": "2010-10-01T12:34:56.789Z",
+      "UserData": "...",
+      "SubnetId": "subnet-12345678",
+      "PrivateIp": "10.0.0.4",
+      "SecurityGroups": [
+        {
+          "SecurityGroupName": "security-group-example",
+          "SecurityGroupId": "sg-12345678"
+        }
+      ],
+      "BsuOptimized": false,
+      "LaunchNumber": 0,
+      "NetId": "vpc-12345678",
+      "Nics": [
+        {
+          "SubnetId": "subnet-12345678",
+          "State": "in-use",
+          "LinkNic": {
+            "State": "attached",
+            "DeviceNumber": 0,
+            "LinkNicId": "eni-attach-12345678",
+            "DeleteOnVmDeletion": true
+          },
+          "IsSourceDestChecked": true,
+          "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal",
+          "Description": "Primary network interface",
+          "AccountId": "123456789012",
+          "SecurityGroups": [
+            {
+              "SecurityGroupName": "security-group-example",
+              "SecurityGroupId": "sg-12345678"
+            }
+          ],
+          "MacAddress": "A1:B2:C3:D4:E5:F6",
+          "NetId": "vpc-12345678",
+          "NicId": "eni-12345678",
+          "PrivateIps": [
+            {
+              "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal",
+              "PrivateIp": "10.0.0.4",
+              "IsPrimary": true
+            }
+          ]
+        }
+      ],
+      "Performance": "high",
+      "Tags": [],
+      "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal"
+    }
+  ],
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Creating a VM with a NIC</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "Vms": [
+    {
+      "VmType": "tinav5.c1r1p2",
+      "VmInitiatedShutdownBehavior": "stop",
+      "State": "pending",
+      "StateReason": "",
+      "RootDeviceType": "ebs",
+      "RootDeviceName": "/dev/sda1",
+      "IsSourceDestChecked": true,
+      "KeypairName": "keypair-example",
+      "ImageId": "ami-12345678",
+      "DeletionProtection": false,
+      "Architecture": "x86_64",
+      "NestedVirtualization": false,
+      "BlockDeviceMappings": [
+        {
+          "DeviceName": "/dev/sda1",
+          "Bsu": {
+            "VolumeId": "vol-12345678",
+            "State": "attaching",
+            "LinkDate": "2010-10-01T12:34:56.789Z",
+            "DeleteOnVmDeletion": true
+          }
+        }
+      ],
+      "VmId": "i-12345678",
+      "ReservationId": "r-12345678",
+      "Hypervisor": "xen",
+      "Placement": {
+        "Tenancy": "default",
+        "SubregionName": "eu-west-2a"
+      },
+      "ProductCodes": [
+        "0001"
+      ],
+      "CreationDate": "2010-10-01T12:34:56.789Z",
+      "UserData": "...",
+      "SubnetId": "subnet-12345678",
+      "PrivateIp": "10.0.0.4",
+      "SecurityGroups": [
+        {
+          "SecurityGroupName": "security-group-example",
+          "SecurityGroupId": "sg-12345678"
+        }
+      ],
+      "BsuOptimized": false,
+      "LaunchNumber": 0,
+      "NetId": "vpc-12345678",
+      "Nics": [
+        {
+          "SubnetId": "subnet-12345678",
+          "State": "in-use",
+          "LinkNic": {
+            "State": "attached",
+            "DeviceNumber": 0,
+            "LinkNicId": "eni-attach-12345678",
+            "DeleteOnVmDeletion": true
+          },
+          "IsSourceDestChecked": true,
+          "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal",
+          "Description": "Example NIC",
+          "AccountId": "123456789012",
+          "SecurityGroups": [
+            {
+              "SecurityGroupName": "security-group-example",
+              "SecurityGroupId": "sg-12345678"
+            }
+          ],
+          "MacAddress": "A1:B2:C3:D4:E5:F6",
+          "NetId": "vpc-12345678",
+          "NicId": "eni-12345678",
+          "PrivateIps": [
+            {
+              "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal",
+              "PrivateIp": "10.0.0.4",
+              "IsPrimary": true
+            }
+          ]
+        }
+      ],
+      "Performance": "high",
+      "Tags": [],
+      "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal"
+    }
+  ],
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="oapi-cli_2"><a class="anchor" href="Créer-des-VM.html#oapi-cli_2"></a>Créer des VM avec oapi-cli</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>À ce jour, cette section est disponible en anglais uniquement.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateVms</strong> command creates <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">virtual machines (VMs)</span>, and then launches them.<br>
+This action enables you to create a specified number of VMs using an OUTSCALE machine image (OMI) that you are allowed to use, and then to automatically launch them.<br>
+The VMs remain in the <code>pending</code> state until they are created and ready to be used. Once automatically launched, they are in the <code>running</code> state.<br>
+To check the state of your VMs, call the <a href="../../api%3Fconsole.html#readvms" class="xref page">ReadVms</a> method.<br>
+If not specified, the security group used by the service is the default one.<br>
+The metadata server enables you to get the public key provided when the VM is launched. Official OMIs contain a script to get this public key and put it inside the VM to provide secure access without password.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="../../en/userguide/About-VMs.html" target="_blank" rel="noopener">About VMs</a>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Creating a VM (minimal syntax)</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" CreateVms \
+    --ImageId "ami-12345678"</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Creating a VM in a <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" CreateVms \
+    --ImageId "ami-12345678" \
+    --VmType "tinav5.c1r1p2" \
+    --KeypairName "keypair-example" \
+    --SecurityGroupIds '["sg-12345678"]' \
+    --SubnetId "subnet-12345678" \
+    --UserData "$(base64 -i user_data.txt)"</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Creating a VM with block device mappings</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" CreateVms \
+    --ImageId "ami-12345678" \
+    --VmType "tinav5.c1r1p2" \
+    --KeypairName "keypair-example" \
+    --SecurityGroupIds '["sg-12345678"]' \
+    --SubnetId "subnet-12345678" \
+    --UserData "$(base64 -i user_data.txt)" \
+    --BlockDeviceMappings '[
+        {
+          "DeviceName": "/dev/sda1",
+          "Bsu": {"VolumeSize": 15, "VolumeType": "gp2"}
+        },
+        {
+          "DeviceName": "/dev/sdb",
+          "Bsu": {"SnapshotId": "snap-12345678", "VolumeSize": 22, "VolumeType": "io1", "Iops": 150}
+        }
+      ]'</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample: Creating a VM with a <span class="tooltip" data-tooltip="flexible network interface (FNI) dans les API AWS-compliant">NIC</span></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" CreateVms \
+    --ImageId "ami-12345678" \
+    --VmType "tinav5.c1r1p2" \
+    --KeypairName "keypair-example" \
+    --UserData "$(base64 -i user_data.txt)" \
+    --Nics '[
+        {
+          "DeviceNumber": 0,
+          "NicId": "eni-12345678"
+        }
+      ]'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>BlockDeviceMappings</code>: (optional) One or more block device mappings.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Bsu</code>: (optional) Information about the BSU volume to create.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteOnVmDeletion</code>: (optional) By default or if set to true, the volume is deleted when terminating the VM. If false, the volume is not deleted when terminating the VM.</p>
+</li>
+<li>
+<p><code>Iops</code>: (optional) The number of I/O operations per second (IOPS). This parameter must be specified only if you create an <code>io1</code> volume. The maximum number of IOPS allowed for <code>io1</code> volumes is <code>13000</code> with a maximum performance ratio of 300 IOPS per gibibyte.</p>
+</li>
+<li>
+<p><code>SnapshotId</code>: (optional) The ID of the snapshot used to create the volume.</p>
+</li>
+<li>
+<p><code>VolumeSize</code>: (optional) The size of the volume, in gibibytes (GiB).<br>
+If you specify a snapshot ID, the volume size must be at least equal to the snapshot size.<br>
+If you specify a snapshot ID but no volume size, the volume is created with a size similar to the snapshot one.</p>
+</li>
+<li>
+<p><code>VolumeType</code>: (optional) The type of the volume (<code>standard</code> | <code>io1</code> | <code>gp2</code>). If not specified in the request, a <code>standard</code> volume is created.<br>
+For more information about volume types, see <a href="../../en/userguide/About-Volumes.html#_volume_types_and_iops" target="_blank" rel="noopener">About Volumes &gt; Volume Types and IOPS</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>DeviceName</code>: (optional) The device name for the volume. For a root device, you must use <code>/dev/sda1</code>. For other volumes, you must use <code>/dev/sdX</code>, <code>/dev/sdXX</code>, <code>/dev/xvdX</code>, or <code>/dev/xvdXX</code> (where the first <code>X</code> is a letter between <code>b</code> and <code>z</code>, and the second <code>X</code> is a letter between <code>a</code> and <code>z</code>).</p>
+</li>
+<li>
+<p><code>NoDevice</code>: (optional) Removes the device which is included in the block device mapping of the OMI.</p>
+</li>
+<li>
+<p><code>VirtualDeviceName</code>: (optional) The name of the virtual device (<code>ephemeralN</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>BootOnCreation</code>: (optional) By default or if true, the VM is started on creation. If false, the VM is stopped on creation.</p>
+</li>
+<li>
+<p><code>BsuOptimized</code>: (optional) This parameter is not available. It is present in our API for the sake of historical compatibility with AWS.</p>
+</li>
+<li>
+<p><code>ClientToken</code>: (optional) A unique identifier which enables you to manage the idempotency.</p>
+</li>
+<li>
+<p><code>DeletionProtection</code>: (optional) If true, you cannot delete the VM unless you change this parameter back to false.</p>
+</li>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>ImageId</code>: The ID of the OMI used to create the VM. You can find the list of OMIs by calling the <a href="../../api%3Fconsole.html#readimages" class="xref page">ReadImages</a> method.</p>
+</li>
+<li>
+<p><code>KeypairName</code>: (optional) The name of the keypair.</p>
+</li>
+<li>
+<p><code>MaxVmsCount</code>: (optional) The maximum number of VMs you want to create. If all the VMs cannot be created, the largest possible number of VMs above MinVmsCount is created.</p>
+</li>
+<li>
+<p><code>MinVmsCount</code>: (optional) The minimum number of VMs you want to create. If this number of VMs cannot be created, no VMs are created.</p>
+</li>
+<li>
+<p><code>NestedVirtualization</code>: (optional) (dedicated tenancy only) If true, nested virtualization is enabled. If false, it is disabled.</p>
+</li>
+<li>
+<p><code>Nics</code>: (optional) One or more NICs. If you specify this parameter, you must not specify the <code>SubnetId</code> and <code>SubregionName</code> parameters. You also must define one NIC as the primary network interface of the VM with <code>0</code> as its device number.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteOnVmDeletion</code>: (optional) If true, the NIC is deleted when the VM is terminated. You can specify this parameter only for a new NIC. To modify this value for an existing NIC, see <a href="../../api%3Fconsole.html#updatenic" class="xref page">UpdateNic</a>.</p>
+</li>
+<li>
+<p><code>Description</code>: (optional) The description of the NIC, if you are creating a NIC when creating the VM.</p>
+</li>
+<li>
+<p><code>DeviceNumber</code>: (optional) The index of the VM device for the NIC attachment (between <code>0</code> and <code>7</code>, both included). This parameter is required if you create a NIC when creating the VM.</p>
+</li>
+<li>
+<p><code>NicId</code>: (optional) The ID of the NIC, if you are attaching an existing NIC when creating a VM.</p>
+</li>
+<li>
+<p><code>PrivateIps</code>: (optional) One or more private IPs to assign to the NIC, if you create a NIC when creating a VM. Only one private IP can be the primary private IP.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>IsPrimary</code>: (optional) If true, the IP is the primary private IP of the NIC.</p>
+</li>
+<li>
+<p><code>PrivateIp</code>: (optional) The private IP of the NIC.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>SecondaryPrivateIpCount</code>: (optional) The number of secondary private IPs, if you create a NIC when creating a VM. This parameter cannot be specified if you specified more than one private IP in the <code>PrivateIps</code> parameter.</p>
+</li>
+<li>
+<p><code>SecurityGroupIds</code>: (optional) One or more IDs of security groups for the NIC, if you create a NIC when creating a VM.</p>
+</li>
+<li>
+<p><code>SubnetId</code>: (optional) The ID of the Subnet for the NIC, if you create a NIC when creating a VM. This parameter is required if you create a NIC when creating the VM.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Performance</code>: (optional) The performance of the VM (<code>medium</code> | <code>high</code> |  <code>highest</code>). By default, <code>high</code>. This parameter is ignored if you specify a performance flag directly in the <code>VmType</code> parameter.</p>
+</li>
+<li>
+<p><code>Placement</code>: (optional) Information about the placement of the VM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SubregionName</code>: (optional) The name of the <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Subregion</span>. If you specify this parameter, you must not specify the <code>Nics</code> parameter.</p>
+</li>
+<li>
+<p><code>Tenancy</code>: (optional) The tenancy of the VM (<code>default</code>, <code>dedicated</code>, or a dedicated group ID).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>PrivateIps</code>: (optional) One or more private IPs of the VM.</p>
+</li>
+<li>
+<p><code>SecurityGroupIds</code>: (optional) One or more IDs of security group for the VMs.</p>
+</li>
+<li>
+<p><code>SecurityGroups</code>: (optional) One or more names of security groups for the VMs.</p>
+</li>
+<li>
+<p><code>SubnetId</code>: (optional) The ID of the Subnet in which you want to create the VM. If you specify this parameter, you must not specify the <code>Nics</code> parameter.</p>
+</li>
+<li>
+<p><code>UserData</code>: (optional) Data or script used to add a specific configuration to the VM. It must be Base64-encoded and is limited to 500 kibibytes (KiB). For more information about user data, see <a href="../../en/userguide/Configuring-a-VM-with-User-Data-and-OUTSCALE-Tags.html" target="_blank" rel="noopener">Configuring a VM with User Data and OUTSCALE Tags</a>.</p>
+</li>
+<li>
+<p><code>VmInitiatedShutdownBehavior</code>: (optional) The VM behavior when you stop it. By default or if set to <code>stop</code>, the VM stops. If set to <code>restart</code>, the VM stops then automatically restarts. If set to <code>terminate</code>, the VM stops and is terminated.</p>
+</li>
+<li>
+<p><code>VmType</code>: (optional) The type of VM. You can specify a TINA type (in the <code>tinavW.cXrYpZ</code> or <code>tinavW.cXrY</code> format), or an AWS type (for example, <code>t2.small</code>, which is the default value).<br>
+If you specify an AWS type, it is converted in the background to its corresponding TINA type, but the AWS type is still returned. If the specified or converted TINA type includes a performance flag, this performance flag is applied regardless of the value you may have provided in the <code>Performance</code> parameter. For more information, see <a href="../../en/userguide/VM-Types.html" target="_blank" rel="noopener">VM Types</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateVms</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Vms</code>: Information about one or more created VMs.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Architecture</code>: The architecture of the VM (<code>i386</code> | <code>x86_64</code>).</p>
+</li>
+<li>
+<p><code>BlockDeviceMappings</code>: The block device mapping of the VM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Bsu</code>: Information about the created BSU volume.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteOnVmDeletion</code>: If true, the volume is deleted when terminating the VM. If false, the volume is not deleted when terminating the VM.</p>
+</li>
+<li>
+<p><code>LinkDate</code>: The date and time (UTC) at which the volume was attached to the VM, in ISO 8601 date-time format.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the volume.</p>
+</li>
+<li>
+<p><code>VolumeId</code>: The ID of the volume.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>DeviceName</code>: The name of the device.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>BsuOptimized</code>: This parameter is not available. It is present in our API for the sake of historical compatibility with AWS.</p>
+</li>
+<li>
+<p><code>ClientToken</code>: The idempotency token provided when launching the VM.</p>
+</li>
+<li>
+<p><code>CreationDate</code>: The date and time (UTC) at which the VM was created.</p>
+</li>
+<li>
+<p><code>DeletionProtection</code>: If true, you cannot delete the VM unless you change this parameter back to false.</p>
+</li>
+<li>
+<p><code>Hypervisor</code>: The hypervisor type of the VMs (<code>ovm</code> | <code>xen</code>).</p>
+</li>
+<li>
+<p><code>ImageId</code>: The ID of the OMI used to create the VM.</p>
+</li>
+<li>
+<p><code>IsSourceDestChecked</code>: (Net only) If true, the source/destination check is enabled. If false, it is disabled.</p>
+</li>
+<li>
+<p><code>KeypairName</code>: The name of the keypair used when launching the VM.</p>
+</li>
+<li>
+<p><code>LaunchNumber</code>: The number for the VM when launching a group of several VMs (for example, <code>0</code>, <code>1</code>, <code>2</code>, and so on).</p>
+</li>
+<li>
+<p><code>NestedVirtualization</code>: If true, nested virtualization is enabled. If false, it is disabled.</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net in which the VM is running.</p>
+</li>
+<li>
+<p><code>Nics</code>: (Net only) The network interface cards (NICs) the VMs are attached to.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountId</code>: The account ID of the owner of the NIC.</p>
+</li>
+<li>
+<p><code>Description</code>: The description of the NIC.</p>
+</li>
+<li>
+<p><code>IsSourceDestChecked</code>: (Net only) If true, the source/destination check is enabled. If false, it is disabled.</p>
+</li>
+<li>
+<p><code>LinkNic</code>: Information about the network interface card (NIC).</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteOnVmDeletion</code>: If true, the NIC is deleted when the VM is terminated.</p>
+</li>
+<li>
+<p><code>DeviceNumber</code>: The device index for the NIC attachment (between <code>1</code> and <code>7</code>, both included).</p>
+</li>
+<li>
+<p><code>LinkNicId</code>: The ID of the NIC to attach.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the attachment (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>LinkPublicIp</code>: Information about the <span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">public IP</span> associated with the NIC.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>PublicDnsName</code>: The name of the public DNS.</p>
+</li>
+<li>
+<p><code>PublicIp</code>: The public IP associated with the NIC.</p>
+</li>
+<li>
+<p><code>PublicIpAccountId</code>: The account ID of the owner of the public IP.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>MacAddress</code>: The Media Access Control (MAC) address of the NIC.</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net for the NIC.</p>
+</li>
+<li>
+<p><code>NicId</code>: The ID of the NIC.</p>
+</li>
+<li>
+<p><code>PrivateDnsName</code>: The name of the private DNS.</p>
+</li>
+<li>
+<p><code>PrivateIps</code>: The private IP or IPs of the NIC.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>IsPrimary</code>: If true, the IP is the primary private IP of the NIC.</p>
+</li>
+<li>
+<p><code>LinkPublicIp</code>: Information about the public IP associated with the NIC.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>PublicDnsName</code>: The name of the public DNS.</p>
+</li>
+<li>
+<p><code>PublicIp</code>: The public IP associated with the NIC.</p>
+</li>
+<li>
+<p><code>PublicIpAccountId</code>: The account ID of the owner of the public IP.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>PrivateDnsName</code>: The name of the private DNS.</p>
+</li>
+<li>
+<p><code>PrivateIp</code>: The private IP.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>SecurityGroups</code>: One or more IDs of security groups for the NIC.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SecurityGroupId</code>: The ID of the security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: The name of the security group.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>State</code>: The state of the NIC (<code>available</code> | <code>attaching</code> | <code>in-use</code> | <code>detaching</code>).</p>
+</li>
+<li>
+<p><code>SubnetId</code>: The ID of the Subnet for the NIC.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>OsFamily</code>: Indicates the operating system (OS) of the VM.</p>
+</li>
+<li>
+<p><code>Performance</code>: The performance of the VM (<code>medium</code> | <code>high</code> |  <code>highest</code>).</p>
+</li>
+<li>
+<p><code>Placement</code>: Information about the placement of the VM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SubregionName</code>: The name of the Subregion. If you specify this parameter, you must not specify the <code>Nics</code> parameter.</p>
+</li>
+<li>
+<p><code>Tenancy</code>: The tenancy of the VM (<code>default</code>, <code>dedicated</code>, or a dedicated group ID).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>PrivateDnsName</code>: The name of the private DNS.</p>
+</li>
+<li>
+<p><code>PrivateIp</code>: The primary private IP of the VM.</p>
+</li>
+<li>
+<p><code>ProductCodes</code>: The product codes associated with the OMI used to create the VM.</p>
+</li>
+<li>
+<p><code>PublicDnsName</code>: The name of the public DNS.</p>
+</li>
+<li>
+<p><code>PublicIp</code>: The public IP of the VM.</p>
+</li>
+<li>
+<p><code>ReservationId</code>: The reservation ID of the VM.</p>
+</li>
+<li>
+<p><code>RootDeviceName</code>: The name of the root device for the VM (for example, <code>/dev/sda1</code>).</p>
+</li>
+<li>
+<p><code>RootDeviceType</code>: The type of root device used by the VM (always <code>bsu</code>).</p>
+</li>
+<li>
+<p><code>SecurityGroups</code>: One or more security groups associated with the VM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SecurityGroupId</code>: The ID of the security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: The name of the security group.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>State</code>: The state of the VM (<code>pending</code> | <code>running</code> | <code>stopping</code> | <code>stopped</code> | <code>shutting-down</code> | <code>terminated</code> | <code>quarantine</code>).</p>
+</li>
+<li>
+<p><code>StateReason</code>: The reason explaining the current state of the VM.</p>
+</li>
+<li>
+<p><code>SubnetId</code>: The ID of the Subnet for the VM.</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the VM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>UserData</code>: The Base64-encoded MIME user data.</p>
+</li>
+<li>
+<p><code>VmId</code>: The ID of the VM.</p>
+</li>
+<li>
+<p><code>VmInitiatedShutdownBehavior</code>: The VM behavior when you stop it. If set to <code>stop</code>, the VM stops. If set to <code>restart</code>, the VM stops then automatically restarts. If set to <code>terminate</code>, the VM stops and is deleted.</p>
+</li>
+<li>
+<p><code>VmType</code>: The type of VM. For more information, see <a href="../../en/userguide/VM-Types.html" target="_blank" rel="noopener">VM Types</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Creating a VM (minimal syntax)</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "Vms": [
+    {
+      "VmType": "t2.small",
+      "VmInitiatedShutdownBehavior": "stop",
+      "State": "pending",
+      "StateReason": "",
+      "RootDeviceType": "ebs",
+      "RootDeviceName": "/dev/sda1",
+      "IsSourceDestChecked": true,
+      "ImageId": "ami-12345678",
+      "DeletionProtection": false,
+      "Architecture": "x86_64",
+      "NestedVirtualization": false,
+      "BlockDeviceMappings": [
+        {
+          "DeviceName": "/dev/sda1",
+          "Bsu": {
+            "VolumeId": "vol-12345678",
+            "State": "attaching",
+            "LinkDate": "2010-10-01T12:34:56.789Z",
+            "DeleteOnVmDeletion": true
+          }
+        }
+      ],
+      "VmId": "i-12345678",
+      "ReservationId": "r-12345678",
+      "Hypervisor": "xen",
+      "Placement": {
+        "Tenancy": "default",
+        "SubregionName": "eu-west-2a"
+      },
+      "ProductCodes": [
+        "0001"
+      ],
+      "CreationDate": "2010-10-01T12:34:56.789Z",
+      "UserData": "...",
+      "PrivateIp": "10.0.0.4",
+      "SecurityGroups": [
+        {
+          "SecurityGroupName": "default",
+          "SecurityGroupId": "sg-12345678"
+        }
+      ],
+      "BsuOptimized": false,
+      "LaunchNumber": 0,
+      "Performance": "medium",
+      "Tags": [],
+      "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal"
+    }
+  ],
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Creating a VM in a Net</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "Vms": [
+    {
+      "VmType": "tinav5.c1r1p2",
+      "VmInitiatedShutdownBehavior": "stop",
+      "State": "pending",
+      "StateReason": "",
+      "RootDeviceType": "ebs",
+      "RootDeviceName": "/dev/sda1",
+      "IsSourceDestChecked": true,
+      "KeypairName": "keypair-example",
+      "ImageId": "ami-12345678",
+      "DeletionProtection": false,
+      "Architecture": "x86_64",
+      "NestedVirtualization": false,
+      "BlockDeviceMappings": [
+        {
+          "DeviceName": "/dev/sda1",
+          "Bsu": {
+            "VolumeId": "vol-12345678",
+            "State": "attaching",
+            "LinkDate": "2010-10-01T12:34:56.789Z",
+            "DeleteOnVmDeletion": true
+          }
+        }
+      ],
+      "VmId": "i-12345678",
+      "ReservationId": "r-12345678",
+      "Hypervisor": "xen",
+      "Placement": {
+        "Tenancy": "default",
+        "SubregionName": "eu-west-2a"
+      },
+      "ProductCodes": [
+        "0001"
+      ],
+      "CreationDate": "2010-10-01T12:34:56.789Z",
+      "UserData": "...",
+      "SubnetId": "subnet-12345678",
+      "PrivateIp": "10.0.0.4",
+      "SecurityGroups": [
+        {
+          "SecurityGroupName": "security-group-example",
+          "SecurityGroupId": "sg-12345678"
+        }
+      ],
+      "BsuOptimized": false,
+      "LaunchNumber": 0,
+      "NetId": "vpc-12345678",
+      "Nics": [
+        {
+          "SubnetId": "subnet-12345678",
+          "State": "in-use",
+          "LinkNic": {
+            "State": "attached",
+            "DeviceNumber": 0,
+            "LinkNicId": "eni-attach-12345678",
+            "DeleteOnVmDeletion": true
+          },
+          "IsSourceDestChecked": true,
+          "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal",
+          "Description": "Primary network interface",
+          "AccountId": "123456789012",
+          "SecurityGroups": [
+            {
+              "SecurityGroupName": "security-group-example",
+              "SecurityGroupId": "sg-12345678"
+            }
+          ],
+          "MacAddress": "A1:B2:C3:D4:E5:F6",
+          "NetId": "vpc-12345678",
+          "NicId": "eni-12345678",
+          "PrivateIps": [
+            {
+              "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal",
+              "PrivateIp": "10.0.0.4",
+              "IsPrimary": true
+            }
+          ]
+        }
+      ],
+      "Performance": "high",
+      "Tags": [],
+      "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal"
+    }
+  ],
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Creating a VM with block device mappings</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "Vms": [
+    {
+      "VmType": "tinav5.c1r1p2",
+      "VmInitiatedShutdownBehavior": "stop",
+      "State": "pending",
+      "StateReason": "",
+      "RootDeviceType": "ebs",
+      "RootDeviceName": "/dev/sda1",
+      "IsSourceDestChecked": true,
+      "KeypairName": "keypair-example",
+      "ImageId": "ami-12345678",
+      "DeletionProtection": false,
+      "Architecture": "x86_64",
+      "NestedVirtualization": false,
+      "BlockDeviceMappings": [
+        {
+          "DeviceName": "/dev/sda1",
+          "Bsu": {
+            "VolumeId": "vol-12345678",
+            "State": "attaching",
+            "LinkDate": "2010-10-01T12:34:56.789Z",
+            "DeleteOnVmDeletion": true
+          }
+        },
+        {
+          "DeviceName": "/dev/sda1",
+          "Bsu": {
+            "VolumeId": "vol-87654321",
+            "State": "attaching",
+            "LinkDate": "2010-10-01T12:34:56.789Z",
+            "DeleteOnVmDeletion": true
+          }
+        }
+      ],
+      "VmId": "i-12345678",
+      "ReservationId": "r-12345678",
+      "Hypervisor": "xen",
+      "Placement": {
+        "Tenancy": "default",
+        "SubregionName": "eu-west-2a"
+      },
+      "ProductCodes": [
+        "0001"
+      ],
+      "CreationDate": "2010-10-01T12:34:56.789Z",
+      "UserData": "...",
+      "SubnetId": "subnet-12345678",
+      "PrivateIp": "10.0.0.4",
+      "SecurityGroups": [
+        {
+          "SecurityGroupName": "security-group-example",
+          "SecurityGroupId": "sg-12345678"
+        }
+      ],
+      "BsuOptimized": false,
+      "LaunchNumber": 0,
+      "NetId": "vpc-12345678",
+      "Nics": [
+        {
+          "SubnetId": "subnet-12345678",
+          "State": "in-use",
+          "LinkNic": {
+            "State": "attached",
+            "DeviceNumber": 0,
+            "LinkNicId": "eni-attach-12345678",
+            "DeleteOnVmDeletion": true
+          },
+          "IsSourceDestChecked": true,
+          "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal",
+          "Description": "Primary network interface",
+          "AccountId": "123456789012",
+          "SecurityGroups": [
+            {
+              "SecurityGroupName": "security-group-example",
+              "SecurityGroupId": "sg-12345678"
+            }
+          ],
+          "MacAddress": "A1:B2:C3:D4:E5:F6",
+          "NetId": "vpc-12345678",
+          "NicId": "eni-12345678",
+          "PrivateIps": [
+            {
+              "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal",
+              "PrivateIp": "10.0.0.4",
+              "IsPrimary": true
+            }
+          ]
+        }
+      ],
+      "Performance": "high",
+      "Tags": [],
+      "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal"
+    }
+  ],
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Result sample: Creating a VM with a NIC</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "Vms": [
+    {
+      "VmType": "tinav5.c1r1p2",
+      "VmInitiatedShutdownBehavior": "stop",
+      "State": "pending",
+      "StateReason": "",
+      "RootDeviceType": "ebs",
+      "RootDeviceName": "/dev/sda1",
+      "IsSourceDestChecked": true,
+      "KeypairName": "keypair-example",
+      "ImageId": "ami-12345678",
+      "DeletionProtection": false,
+      "Architecture": "x86_64",
+      "NestedVirtualization": false,
+      "BlockDeviceMappings": [
+        {
+          "DeviceName": "/dev/sda1",
+          "Bsu": {
+            "VolumeId": "vol-12345678",
+            "State": "attaching",
+            "LinkDate": "2010-10-01T12:34:56.789Z",
+            "DeleteOnVmDeletion": true
+          }
+        }
+      ],
+      "VmId": "i-12345678",
+      "ReservationId": "r-12345678",
+      "Hypervisor": "xen",
+      "Placement": {
+        "Tenancy": "default",
+        "SubregionName": "eu-west-2a"
+      },
+      "ProductCodes": [
+        "0001"
+      ],
+      "CreationDate": "2010-10-01T12:34:56.789Z",
+      "UserData": "...",
+      "SubnetId": "subnet-12345678",
+      "PrivateIp": "10.0.0.4",
+      "SecurityGroups": [
+        {
+          "SecurityGroupName": "security-group-example",
+          "SecurityGroupId": "sg-12345678"
+        }
+      ],
+      "BsuOptimized": false,
+      "LaunchNumber": 0,
+      "NetId": "vpc-12345678",
+      "Nics": [
+        {
+          "SubnetId": "subnet-12345678",
+          "State": "in-use",
+          "LinkNic": {
+            "State": "attached",
+            "DeviceNumber": 0,
+            "LinkNicId": "eni-attach-12345678",
+            "DeleteOnVmDeletion": true
+          },
+          "IsSourceDestChecked": true,
+          "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal",
+          "Description": "Example NIC",
+          "AccountId": "123456789012",
+          "SecurityGroups": [
+            {
+              "SecurityGroupName": "security-group-example",
+              "SecurityGroupId": "sg-12345678"
+            }
+          ],
+          "MacAddress": "A1:B2:C3:D4:E5:F6",
+          "NetId": "vpc-12345678",
+          "NicId": "eni-12345678",
+          "PrivateIps": [
+            {
+              "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal",
+              "PrivateIp": "10.0.0.4",
+              "IsPrimary": true
+            }
+          ]
+        }
+      ],
+      "Performance": "high",
+      "Tags": [],
+      "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal"
+    }
+  ],
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI_3"><a class="anchor" href="Créer-des-VM.html#AWS CLI_3"></a>Lancer des instances avec AWS CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Avant de commencer :</strong> Installez et configurez AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Pour lancer une ou plusieurs <span class="tooltip" data-tooltip="machine virtuelle (VM) dans l'API OUTSCALE">instances</span>, utilisez la commande <strong>run-instances</strong> en suivant une de ces syntaxes :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de requête (syntaxe minimale)</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws ec2 run-instances \
+    --profile YOUR_PROFILE \
+    --image-id ami-12345678 \
+    --endpoint https://fcu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de requête (syntaxe complète)</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws ec2 run-instances \
+    --profile YOUR_PROFILE \
+    --image-id ami-12345678 \
+    --key-name \
+    --security-groups \
+    --security-group-ids sg-187654321 \
+    --user-data YOUR_USER_DATA \
+    --instance-type t2.small \
+    --placement  \
+           "{ \
+           \"AvailabilityZone\": \"eu-west-2a\", \
+           \"Tenancy\": \"default\", \
+           }" \
+    --block-device-mappings YOUR_BLOCK_DEVICE_MAPPINGS \
+    --subnet-id subnet-12345678 \
+    --disable-api-termination \
+    --instance-initiated-shutdown-behavior stop \
+    --private-ip-address 10.0.1.100 \
+    --client-token "" \
+    --network-interfaces \
+           "{ \
+           \"NetworkInterfaceId\": \"eni-12345678\", \
+           \"DeviceIndex\": 0, \
+           \"SubnetId\": \"subnet-12345678\", \
+           \"Description\": \"Network interface description\", \
+           \"PrivateIpAddress\": \"10.0.1.100\", \
+           \"Groups\": \"sg-187654321\", \
+           \"DeleteOnTermination\": false \
+           \"PrivateIpAddresses\": [ \
+                                     { \
+                                     \"PrivateIpAddress\": \"10.0.1.100\", \
+                                     \"Primary\": true \
+                                     } \
+           }" \
+    --ebs-optimized NOT_SPECIFIED \
+    --count 1 \
+    --endpoint https://fcu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>profile</code> : Le profil nommé que vous voulez utiliser, créé pendant la configuration d&#8217;AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>image-id</code> : L&#8217;ID de l&#8217;OMI à utiliser pour lancer l&#8217;instance. Pour en savoir plus, voir <a href="Obtenir-des-informations-sur-vos-OMI.html" class="xref page">Obtenir des informations sur vos OMI</a>.</p>
+</li>
+<li>
+<p>(optionnel) <code>key-name</code> : Le nom de la keypair à utiliser pour l&#8217;instance. Pour en savoir plus, voir <a href="À-propos-des-keypairs.html" class="xref page">À propos des keypairs</a>.</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Attention"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Il est fortement recommandé de spécifier une keypair au lancement de l&#8217;instance. Sinon, vous ne pouvez pas vous connecter à l&#8217;instance avant de lui avoir ajouté une keypair. Pour en savoir plus, voir <a href="Modifier-la-keypair-d-une-VM.html" class="xref page">Modifier la keypair d&#8217;une VM</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>security-groups</code> : Un ou plusieurs noms de security groups (seulement dans le Cloud public). Si non spécifié, le security group Default est utilisé.</p>
+</li>
+<li>
+<p>(optionnel) <code>security-group-ids</code> : Un ou plusieurs ID de security groups. Si non spécifié, le security group Default est utilisé.</p>
+</li>
+<li>
+<p>(optionnel) <code>user-data</code> : Les user data pour l&#8217;instance. Pour en savoir plus, voir <a href="Configurer-une-VM-avec-les-user-data-et-les-tags-OUTSCALE.html" class="xref page">Configurer une VM avec les user data et les tags OUTSCALE</a>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>AWS CLI encode ensuite ces user data en Base64.
+La taille des user data encodées en Base64 ne doit pas dépasser 500 kibioctets (Kio).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>instance-type</code> : Le type d&#8217;instance. Si non spécifié, une instance t2.small est lancée. Pour en savoir plus, voir <a href="Types-de-VM.html" class="xref page">Types de VM</a>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour fonctionner correctement, les VMs Windows nécessitent au moins un processeur de génération v3, 2 vCores et 4 Gio de mémoire.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>placement</code> : Le placement de l&#8217;instance. Cet attribut contient les éléments suivants que vous devez spécifier :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AvailabilityZone</code> : L&#8217;<span class="tooltip" data-tooltip="Sous-région dans l'API OUTSCALE">Availability Zone (AZ)</span> dans laquelle vous voulez lancer l&#8217;instance.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si vous ne spécifiez aucune <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Sous-région</span>, la Sous-région A est utilisée par défaut.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><code>Tenancy</code> : L&#8217;option d&#8217;allocation de l&#8217;instance (<code>dedicated</code> | <code>default</code>). Pour en savoir plus, voir <a href="À-propos-des-VM.html#_allocation_des_vm_et_vm_dédiées" class="xref page">À propos des VM &gt; Allocation des VM et VM dédiées</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>block-device-mappings</code> : Un ou plusieurs block device mappings pour l&#8217;instance. Pour en savoir plus, voir <a href="Définir-des-block-device-mappings.html" class="xref page">Définir des block device mappings</a>.</p>
+</li>
+<li>
+<p>(optionnel) <code>subnet-id</code> : Dans un <span class="tooltip" data-tooltip="Net dans l'API OUTSCALE">VPC</span>, l&#8217;ID du subnet dans lequel vous souhaitez lancer l&#8217;instance.</p>
+</li>
+<li>
+<p>(optionnel) <code>disable-api-termination|enable-api-termination</code> : Désactive ou active la possibilité de terminer l&#8217;instance (par défaut, activé).</p>
+</li>
+<li>
+<p>(optionnel) <code>instance-initiated-shutdown-behavior</code> : Par défaut ou si paramétré sur <code>stop</code>, l&#8217;instance est arrêtée lorsque vous l&#8217;arrêtez ou la terminez. Si paramétré sur <code>terminate</code>, elle est arrêtée puis terminée. Si paramétré sur restart, l&#8217;instance est arrêtée puis automatiquement redémarrée. Pour en savoir plus, voir <a href="À-propos-du-cycle-de-vie-des-VM.html#_suppression" class="xref page">À propos du cycle de vie des VM &gt; Suppression</a>.</p>
+</li>
+<li>
+<p>(optionnel) <code>private-ip-address</code> : Dans un VPC, l&#8217;IP principale.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>L&#8217;IP doit faire partie de la plage d&#8217;IP du subnet.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>client-token</code> : Un identifiant unique qui vous permet de gérer l&#8217;idempotence (s&#8217;il y en a un).</p>
+</li>
+<li>
+<p>(optionnel) <code>network-interfaces</code> : Une ou plusieurs interfaces réseau. Si vous spécifiez ce paramètre, vous devez définir l&#8217;interface réseau principale de l&#8217;instance avec 0 en index du périphérique.<br>
+Cet attribut contient les éléments suivants que vous devez spécifier :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>NetworkInterfaceId</code> : L&#8217;ID de l&#8217;interface réseau de l&#8217;instance.</p>
+</li>
+<li>
+<p><code>DeviceIndex</code> : L&#8217;index du périphérique pour l&#8217;interface réseau (entre 0 et 7, tous deux inclus).</p>
+</li>
+<li>
+<p><code>SubnetId</code> : L&#8217;ID du subnet associé à l&#8217;interface réseau, si vous en créez une en lançant l&#8217;instance.<br></p>
+</li>
+<li>
+<p><code>Description</code> : Une description de l&#8217;interface réseau.</p>
+</li>
+<li>
+<p><code>PrivateIpAddress</code> : L&#8217;IP privée de l&#8217;interface réseau.</p>
+</li>
+<li>
+<p><code>Groups</code> : L&#8217;ID d&#8217;un ou plusieurs security groups à associer à l&#8217;interface réseau.</p>
+</li>
+<li>
+<p><code>DeleteOnTermination</code> : Par défaut ou si paramétré sur <code>true</code>, l&#8217;interface réseau est supprimée lorsque l&#8217;instance est terminée. Vous pouvez spécifier ce paramètre uniquement pour une nouvelle interface réseau. Pour modifier cette valeur pour une interface réseau existante, voir <a href="Modifier-un-attribut-d-une-NIC.html" class="xref page">Modifier un attribut d&#8217;une NIC</a>.</p>
+</li>
+<li>
+<p><code>PrivateIpAddresses</code> : Une ou plusieurs IP privées à associer à l&#8217;interface réseau.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Primary</code> : Si paramétré sur <code>true</code>, l&#8217;IP est la principale.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Une seule IP peut être principale.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><code>PrivateIpAddress</code> : L&#8217;IP privée.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>(optionnel) <code>ebs-optimized</code> : Indique si l&#8217;instance est optimisée pour BSU.</p>
+</li>
+<li>
+<p>(optionnel) <code>count</code> : Le nombre d&#8217;instances à lancer.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous pouvez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Un nombre seul, considéré comme le nombre minimum d&#8217;instances à lancer (par défaut, 1).</p>
+</li>
+<li>
+<p>Une plage de nombres au format min:max. Le premier nombre est le nombre minimum d&#8217;instances à lancer, le deuxième est le maximum.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><code>endpoint</code> : Le endpoint correspondant à la Région à laquelle vous voulez envoyer la requête. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>La commande <strong>run-instances</strong> renvoie les éléments suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>OwnerId</code> : L&#8217;ID de compte du propriétaire de l&#8217;instance.</p>
+</li>
+<li>
+<p><code>Reservation</code> : L&#8217;ID de la réservation. Pour en savoir plus, voir <a href="À-propos-des-VM.html#_informations_générales_sur_les_vm" class="xref page">À propos des VM &gt; Informations générales sur les VM</a>.</p>
+</li>
+<li>
+<p><code>Groups</code> : Informations à propos des security groups associés à l&#8217;instance.</p>
+</li>
+<li>
+<p><code>Instances</code> : Informations à propos d&#8217;une ou plusieurs instances. Cet élément contient les informations suivantes pour chaque instance :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Monitoring</code> : Indique si le monitoring est activé pour l&#8217;instance (toujours <code>disabled</code>).</p>
+</li>
+<li>
+<p><code>PublicDnsName</code> : Le nom DNS public de l&#8217;instance.</p>
+</li>
+<li>
+<p><code>Platform</code> : Pas d&#8217;information renvoyée.</p>
+</li>
+<li>
+<p><code>State</code> : Informations à propos de l&#8217;état de l&#8217;instance (le code et le nom de l&#8217;état).</p>
+</li>
+<li>
+<p><code>EbsOptimized</code> : Indique si l&#8217;instance est optimisée pour BSU.</p>
+</li>
+<li>
+<p><code>LaunchTime</code> : Le moment auquel l&#8217;instance a été lancée.</p>
+</li>
+<li>
+<p><code>PublicIpAddress</code> : Dans un Cloud public, l&#8217;<span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">IP publique</span> associée à l&#8217;instance (remplacée par l&#8217;<span class="tooltip" data-tooltip="IP publique dans l'API OUTSCALE">External IP</span>, s&#8217;il y en a une). Dans un VPC, l&#8217;External IP associée à l&#8217;instance, s&#8217;il y en a une.</p>
+</li>
+<li>
+<p><code>PrivateIpAddress</code> : L&#8217;IP privée de l&#8217;instance.</p>
+</li>
+<li>
+<p><code>ProductCodes</code> : Pas d&#8217;information renvoyée si vous utilisez une OMI officielle.<br></p>
+</li>
+<li>
+<p><code>Tags</code> : Un ou plusieurs tags associés à l&#8217;instance, avec leur <code>Value</code> et leur <code>Key</code> (s&#8217;il y en a).</p>
+</li>
+<li>
+<p><code>VpcId</code> : L&#8217;ID du VPC dans lequel l&#8217;instance est.</p>
+</li>
+<li>
+<p><code>InstanceId</code> : L&#8217;ID de l&#8217;instance.</p>
+</li>
+<li>
+<p><code>ImageId</code> : L&#8217;ID de l&#8217;OMI utilisée pour lancer l&#8217;instance.</p>
+</li>
+<li>
+<p><code>PrivateDnsName</code> : Le nom DNS privé de l&#8217;instance.</p>
+</li>
+<li>
+<p><code>KeyName</code> : Le nom de la keypair utilisée pour l&#8217;instance. Pour en savoir plus, voir <a href="À-propos-des-keypairs.html" class="xref page">À propos des keypairs</a>.</p>
+</li>
+<li>
+<p><code>SecurityGroups</code> : Les security groups associés à l&#8217;instance (nom et ID).</p>
+</li>
+<li>
+<p><code>ClientToken</code> : Un identifiant unique qui vous permet de gérer l&#8217;idempotence (s&#8217;il y en a un).</p>
+</li>
+<li>
+<p><code>InstanceType</code> : Le type d&#8217;instance. Pour en savoir plus, voir <a href="Types-de-VM.html" class="xref page">Types de VM</a>.</p>
+</li>
+<li>
+<p><code>NetworkInterfaces</code> : Dans un VPC, une ou plusieurs interfaces réseau pour l&#8217;instance.</p>
+</li>
+<li>
+<p><code>Placement</code> : Information à propos du placement de l&#8217;instance. Cet élément contient les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Tenancy</code> : L&#8217;allocation de l&#8217;instance (<code>dedicated</code> | <code>default</code>). Pour en savoir plus, voir <a href="À-propos-des-VM.html#_allocation_des_vm_et_vm_dédiées" class="xref page">À propos des VM &gt; Allocation des VM et VM dédiées</a>.</p>
+</li>
+<li>
+<p><code>GroupName</code> : Pas d&#8217;information renvoyée.</p>
+</li>
+<li>
+<p><code>AvailabilityZone</code> : L&#8217;Availability Zone de l&#8217;instance.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>SourceDestCheck</code> : Si <code>true</code>, la vérification source/destination du trafic réseau est activée. Si <code>false</code>, elle ne l&#8217;est pas.</p>
+</li>
+<li>
+<p><code>Hypervisor</code> : Le type d&#8217;hyperviseur de l&#8217;instance (toujours <code>xen</code>).</p>
+</li>
+<li>
+<p><code>BlockDeviceMappings</code> : Un ou plusieurs block device mappings pour l&#8217;nstance. Pour en savoir plus, voir <a href="Définir-des-block-device-mappings.html" class="xref page">Définir des block device mappings</a>.</p>
+</li>
+<li>
+<p><code>Architecture</code> : L&#8217;architecture de l&#8217;instance.</p>
+</li>
+<li>
+<p><code>KernelId</code> : Pas d&#8217;information renvoyée.</p>
+</li>
+<li>
+<p><code>RootDeviceName</code> : Le nom du périphérique associé au volume système de l&#8217;instance.</p>
+</li>
+<li>
+<p><code>VirtualizationType</code> : Le type de virtualisation (toujours <code>hvm</code>).</p>
+</li>
+<li>
+<p><code>RootDeviceType</code> : Le type de volume système de l&#8217;instance (toujours <code>ebs</code>).</p>
+</li>
+<li>
+<p><code>AmiLaunchIndex</code> : L&#8217;index de lancement de l&#8217;instance. Pour en savoir plus, voir <a href="À-propos-des-VM.html#_informations_générales_sur_les_vm" class="xref page">À propos des VM &gt; Informations générales sur les VM</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de résultat</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "OwnerId": "1234567890000",
+    "ReservationId": "r-87654321",
+    "Groups": [
+        {
+            "GroupName": "default",
+            "GroupId": "sg-12345678"
+        }
+    ],
+    "Instances": [
+        {
+            "Monitoring": {
+                "State": "disabled"
+            },
+            "PublicDnsName": "",
+            "Platform": "",
+            "State": {
+                "Code": 0,
+                "Name": "pending"
+            },
+            "EbsOptimized": false,
+            "LaunchTime": "2016-04-20T08:26:26.540Z",
+            "PrivateIpAddress": "10.10.10.0",
+            "ProductCodes": [],
+            "VpcId": "vpc-56781234",
+            "InstanceId": "i-12345678",
+            "ImageId": "ami-87654321",
+            "PrivateDnsName": "ip-10-10-10-0.eu-west-2.compute.internal",
+            "KeyName": "key name",
+            "SecurityGroups": [
+                {
+                    "GroupName": "default",
+                    "GroupId": "sg-12345678"
+                }
+            ],
+            "ClientToken": "",
+            "SubnetId": "subnet-56781234",
+            "InstanceType": "t2.small",
+            "NetworkInterfaces": [
+                {
+                    "Status": "in-use",
+                    "MacAddress": "aa:c0:00:00:00:00",
+                    "SourceDestCheck": true,
+                    "VpcId": "vpc-56781234",
+                    "Description": "Primary network interface",
+                    "NetworkInterfaceId": "eni-12345678",
+                    "PrivateIpAddresses": [
+                        {
+                            "PrivateDnsName": "ip-10-10-10-0.eu-west-2.compute.internal",
+                            "Primary": true,
+                            "PrivateIpAddress": "10.10.10.0"
+                        }
+                    ],
+                    "PrivateDnsName": "ip-10-10-10-0.eu-west-2.compute.internal",
+                    "Attachment": {
+                        "Status": "attached",
+                        "DeviceIndex": 0,
+                        "DeleteOnTermination": true,
+                        "AttachmentId": "eni-attach-12345678",
+                        "AttachTime": "2016-04-20T08:26:26.540Z"
+                    },
+                    "Groups": [
+                        {}
+                    ],
+                    "SubnetId": "subnet-56781234",
+                    "OwnerId": "249064296596",
+                    "PrivateIpAddress": "10.10.10.0"
+                }
+            ],
+            "SourceDestCheck": true,
+            "Placement": {
+                "Tenancy": "default",
+                "GroupName": "",
+                "AvailabilityZone": "eu-west-2a"
+            },
+            "Hypervisor": "xen",
+            "BlockDeviceMappings": [
+                {
+                    "DeviceName": "/dev/sda1",
+                    "Ebs": {
+                        "Status": "attaching",
+                        "DeleteOnTermination": true,
+                        "VolumeId": "vol-87654321",
+                        "AttachTime": "2016-04-20T08:26:26.540Z"
+                    }
+                }
+            ],
+            "Architecture": "x86_64",
+            "KernelId": "",
+            "RootDeviceName": "/dev/sda1",
+            "VirtualizationType": "hvm",
+            "RootDeviceType": "ebs",
+            "AmiLaunchIndex": 0
+        }
+    ]
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Les instances sont lancées.</p>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-VM.html" class="xref page">À propos des VM</a></p>
+</li>
+<li>
+<p><a href="À-propos-des-keypairs.html" class="xref page">À propos des keypairs</a></p>
+</li>
+<li>
+<p><a href="À-propos-des-Nets.html" class="xref page">À propos des Nets</a></p>
+</li>
+<li>
+<p><a href="À-propos-du-cycle-de-vie-des-VM.html" class="xref page">À propos du cycle de vie des VM</a></p>
+</li>
+<li>
+<p><a href="Ajouter-ou-retirer-des-tags.html" class="xref page">Ajouter ou retirer des tags</a></p>
+</li>
+<li>
+<p><a href="À-propos-des-OMI.html" class="xref page">À propos des OMI</a></p>
+</li>
+<li>
+<p><a href="À-propos-des-Régions-et-Sous-régions.html" class="xref page">À propos des Régions et Sous-régions</a></p>
+</li>
+<li>
+<p><a href="Accéder-à-vos-VM.html" class="xref page">Accéder à vos VM</a></p>
+</li>
+<li>
+<p><a href="À-propos-des-security-groups.html" class="xref page">À propos des security groups</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Méthodes API correspondantes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#createvms" class="xref page">CreateVms (API OUTSCALE)</a></p>
+</li>
+<li>
+<p><a href="../../fcu.html#runinstances" class="xref page">RunInstances (FCU)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

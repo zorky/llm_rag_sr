@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Creating a VPN Connection – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="Creating-a-VPN-Connection.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/Creating-a-VPN-Connection.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Créer-une-connexion-VPN.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Creating a VPN Connection</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can create a VPN connection between your corporate network and one of your <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Nets</span> in the OUTSCALE Cloud.</p>
+</div>
+<div class="paragraph">
+<p>This action creates a secure VPN tunnel between a <span class="tooltip" data-tooltip="customer gateway in AWS-Compliant APIs">client gateway</span> and a <span class="tooltip" data-tooltip="virtual private gateway in AWS-Compliant APIs">virtual gateway</span>. The VPN connection remains in the <code>pending</code> state until traffic is generated from the client gateway. For more information, see <a href="About-VPN-Connections.html" class="xref page">About VPN Connections</a>.</p>
+</div>
+<div class="paragraph">
+<p>After you create a VPN connection, you need to configure it. For more information, see <a href="Tutorial-Setting-Up-a-VPN-Connection.html" class="xref page">Tutorial: Setting Up a VPN Connection</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Cockpit v2_0"><a class="anchor" href="Creating-a-VPN-Connection.html#Cockpit v2_0"></a>Creating a VPN Connection Using Cockpit v2</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Before you begin:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Create the required resources. For more information, see <a href="Tutorial-Setting-Up-a-VPN-Connection.html" class="xref page">Tutorial: Setting Up a VPN Connection</a>.</p>
+</li>
+<li>
+<p>Make sure the <span class="tooltip" data-tooltip="virtual private gateway in AWS-Compliant APIs">virtual gateway</span> is in the <code>available</code> state. For more information, see <a href="Getting-Information-About-Your-Virtual-Gateways.html" class="xref page">Getting Information About Your Virtual Gateways</a>.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In the <strong>VPN Connections</strong> dashboard, click <span class="image"><img src="_images/IconAddFull.svg" alt="IconAddFull"></span> <strong>Create VPN Connection</strong>.<br>
+The CREATE VPN CONNECTION dialog box appears.</p>
+</li>
+<li>
+<p>Specify the following information:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>In the <strong>Name</strong> field, type a name for the VPN connection.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This action adds a Name tag of 255 characters maximum. You can use any character, including accented letters.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>From the <strong>Client Gateway ID</strong> list, select the ID of the client gateway you want to use.</p>
+</li>
+<li>
+<p>From the <strong>Virtual Gateway ID</strong> list, select the ID of the virtual gateway you want to use.</p>
+</li>
+<li>
+<p>From the <strong>Routing</strong> list, select the type of routing you want to use. For more information, see <a href="About-Routing-Configuration-for-VPN-Connections.html#_static_and_dynamic_routing" class="xref page">About Network and Routing Configuration for VPN Connections &gt; Static and Dynamic Routing</a> and <a href="Managing-Routes-for-Your-VPN-Connections.html" class="xref page">Managing Routes for Your VPN Connections</a>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you select static routing, you can create routes for the VPN connection. If you select dynamic routing, you do not need to create routes. For more information, see <a href="Creating-a-VPN-Connection-Route.html" class="xref page">Creating a VPN Connection Route</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Click <strong>Create VPN Connection</strong>.<br>
+The VPN connection is created.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>To download the configuration information in XML format, select the VPN connection and click <span class="image"><img src="_images/IconSetting.svg" alt="IconSetting"></span> <strong>Configuration</strong>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="OSC CLI_1"><a class="anchor" href="Creating-a-VPN-Connection.html#OSC CLI_1"></a>Creating a VPN Connection Using OSC CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Before you begin:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Create the required resources. For more information, see <a href="Tutorial-Setting-Up-a-VPN-Connection.html" class="xref page">Tutorial: Setting Up a VPN Connection</a>.</p>
+</li>
+<li>
+<p>Make sure the <span class="tooltip" data-tooltip="virtual private gateway in AWS-Compliant APIs">virtual gateway</span> is in the <code>available</code> state. For more information, see <a href="Getting-Information-About-Your-Virtual-Gateways.html" class="xref page">Getting Information About Your Virtual Gateways</a>.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The <strong>CreateVpnConnection</strong> command creates a VPN connection between a specified virtual gateway and a specified <span class="tooltip" data-tooltip="customer gateway in AWS-Compliant APIs">client gateway</span>.<br>
+You can create only one VPN connection between a virtual gateway and a client gateway.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This action can be done only if the virtual gateway is in the <code>available</code> state.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="About-VPN-Connections.html" target="_blank" rel="noopener">About VPN Connections</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api CreateVpnConnection --profile "default" \
+    --ClientGatewayId "cgw-12345678" \
+    --VirtualGatewayId "vgw-12345678" \
+    --ConnectionType "ipsec.1" \
+    --StaticRoutesOnly True</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ClientGatewayId</code>: The ID of the client gateway.</p>
+</li>
+<li>
+<p><code>ConnectionType</code>: The type of VPN connection (always <code>ipsec.1</code>).</p>
+</li>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>StaticRoutesOnly</code>: (optional) By default or if false, the VPN connection uses dynamic routing with Border Gateway Protocol (BGP). If true, routing is controlled using static routes. For more information about how to create and delete static routes, see <a href="../../api%3Fconsole.html#createvpnconnectionroute" class="xref page">CreateVpnConnectionRoute</a> and <a href="../../api%3Fconsole.html#deletevpnconnectionroute" class="xref page">DeleteVpnConnectionRoute</a>.</p>
+</li>
+<li>
+<p><code>VirtualGatewayId</code>: The ID of the virtual gateway.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateVpnConnection</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>VpnConnection</code>: Information about a VPN connection.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ClientGatewayConfiguration</code>: Example configuration for the client gateway.</p>
+</li>
+<li>
+<p><code>ClientGatewayId</code>: The ID of the client gateway used on the client end of the connection.</p>
+</li>
+<li>
+<p><code>ConnectionType</code>: The type of VPN connection (always <code>ipsec.1</code>).</p>
+</li>
+<li>
+<p><code>Routes</code>: Information about one or more static routes associated with the VPN connection, if any.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DestinationIpRange</code>: The IP range used for the destination match, in CIDR notation (for example, <code>10.0.0.0/24</code>).</p>
+</li>
+<li>
+<p><code>RouteType</code>: The type of route (always <code>static</code>).</p>
+</li>
+<li>
+<p><code>State</code>: The current state of the static route (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>State</code>: The state of the VPN connection (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p>
+</li>
+<li>
+<p><code>StaticRoutesOnly</code>: If false, the VPN connection uses dynamic routing with Border Gateway Protocol (BGP). If true, routing is controlled using static routes. For more information about how to create and delete static routes, see <a href="../../api%3Fconsole.html#createvpnconnectionroute" class="xref page">CreateVpnConnectionRoute</a> and <a href="../../api%3Fconsole.html#deletevpnconnectionroute" class="xref page">DeleteVpnConnectionRoute</a>.</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the VPN connection.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>VgwTelemetries</code>: Information about the current state of one or more of the VPN tunnels.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AcceptedRouteCount</code>: The number of routes accepted through BGP (Border Gateway Protocol) route exchanges.</p>
+</li>
+<li>
+<p><code>LastStateChangeDate</code>: The date and time (UTC) of the latest state update.</p>
+</li>
+<li>
+<p><code>OutsideIpAddress</code>: The IP on the OUTSCALE side of the tunnel.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the IPSEC tunnel (<code>UP</code> | <code>DOWN</code>).</p>
+</li>
+<li>
+<p><code>StateDescription</code>: A description of the current state of the tunnel.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>VirtualGatewayId</code>: The ID of the virtual gateway used on the OUTSCALE end of the connection.</p>
+</li>
+<li>
+<p><code>VpnConnectionId</code>: The ID of the VPN connection.</p>
+</li>
+<li>
+<p><code>VpnOptions</code>: Information about the VPN options.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Phase1Options</code>: Information about Phase 1 of the Internet Key Exchange (IKE) negotiation. When Phase 1 finishes successfully, peers proceed to Phase 2 negotiations.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DpdTimeoutAction</code>: The action to carry out after a Dead Peer Detection (DPD) timeout occurs.</p>
+</li>
+<li>
+<p><code>DpdTimeoutSeconds</code>: The maximum waiting time for a Dead Peer Detection (DPD) response before considering the peer as dead, in seconds.</p>
+</li>
+<li>
+<p><code>IkeVersions</code>: The Internet Key Exchange (IKE) versions allowed for the VPN tunnel.</p>
+</li>
+<li>
+<p><code>Phase1DhGroupNumbers</code>: The Diffie-Hellman (DH) group numbers allowed for the VPN tunnel for phase 1.</p>
+</li>
+<li>
+<p><code>Phase1EncryptionAlgorithms</code>: The encryption algorithms allowed for the VPN tunnel for phase 1.</p>
+</li>
+<li>
+<p><code>Phase1IntegrityAlgorithms</code>: The integrity algorithms allowed for the VPN tunnel for phase 1.</p>
+</li>
+<li>
+<p><code>Phase1LifetimeSeconds</code>: The lifetime for phase 1 of the IKE negotiation process, in seconds.</p>
+</li>
+<li>
+<p><code>ReplayWindowSize</code>: The number of packets in an IKE replay window.</p>
+</li>
+<li>
+<p><code>StartupAction</code>: The action to carry out when establishing tunnels for a VPN connection.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Phase2Options</code>: Information about Phase 2 of the Internet Key Exchange (IKE) negotiation.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Phase2DhGroupNumbers</code>: The Diffie-Hellman (DH) group numbers allowed for the VPN tunnel for phase 2.</p>
+</li>
+<li>
+<p><code>Phase2EncryptionAlgorithms</code>: The encryption algorithms allowed for the VPN tunnel for phase 2.</p>
+</li>
+<li>
+<p><code>Phase2IntegrityAlgorithms</code>: The integrity algorithms allowed for the VPN tunnel for phase 2.</p>
+</li>
+<li>
+<p><code>Phase2LifetimeSeconds</code>: The lifetime for phase 2 of the Internet Key Exchange (IKE) negotiation process, in seconds.</p>
+</li>
+<li>
+<p><code>PreSharedKey</code>: The pre-shared key to establish the initial authentication between the client gateway and the virtual gateway. This key can contain any character except line breaks and double quotes (&quot;).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>TunnelInsideIpRange</code>: The range of inside IPs for the tunnel. This must be a /30 CIDR block from the 169.254.254.0/24 range.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "VpnConnection": {
+    "Routes": [],
+    "Tags": [],
+    "ClientGatewayConfiguration": "...",
+    "StaticRoutesOnly": true,
+    "VirtualGatewayId": "vgw-12345678",
+    "ConnectionType": "ipsec.1",
+    "ClientGatewayId": "cgw-12345678",
+    "State": "pending",
+    "VgwTelemetries": [
+      {
+        "StateDescription": "IPSEC IS DOWN",
+        "AcceptedRouteCount": 0,
+        "LastStateChangeDate": "2017-05-10T12:34:56.789Z",
+        "OutsideIpAddress": "192.0.2.0"
+      }
+    ],
+    "VpnConnectionId": "vpn-12345678"
+  },
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="oapi-cli_2"><a class="anchor" href="Creating-a-VPN-Connection.html#oapi-cli_2"></a>Creating a VPN Connection Using oapi-cli</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Before you begin:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Create the required resources. For more information, see <a href="Tutorial-Setting-Up-a-VPN-Connection.html" class="xref page">Tutorial: Setting Up a VPN Connection</a>.</p>
+</li>
+<li>
+<p>Make sure the <span class="tooltip" data-tooltip="virtual private gateway in AWS-Compliant APIs">virtual gateway</span> is in the <code>available</code> state. For more information, see <a href="Getting-Information-About-Your-Virtual-Gateways.html" class="xref page">Getting Information About Your Virtual Gateways</a>.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The <strong>CreateVpnConnection</strong> command creates a VPN connection between a specified virtual gateway and a specified <span class="tooltip" data-tooltip="customer gateway in AWS-Compliant APIs">client gateway</span>.<br>
+You can create only one VPN connection between a virtual gateway and a client gateway.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This action can be done only if the virtual gateway is in the <code>available</code> state.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="About-VPN-Connections.html" target="_blank" rel="noopener">About VPN Connections</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" CreateVpnConnection \
+    --ClientGatewayId "cgw-12345678" \
+    --VirtualGatewayId "vgw-12345678" \
+    --ConnectionType "ipsec.1" \
+    --StaticRoutesOnly True</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ClientGatewayId</code>: The ID of the client gateway.</p>
+</li>
+<li>
+<p><code>ConnectionType</code>: The type of VPN connection (always <code>ipsec.1</code>).</p>
+</li>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>StaticRoutesOnly</code>: (optional) By default or if false, the VPN connection uses dynamic routing with Border Gateway Protocol (BGP). If true, routing is controlled using static routes. For more information about how to create and delete static routes, see <a href="../../api%3Fconsole.html#createvpnconnectionroute" class="xref page">CreateVpnConnectionRoute</a> and <a href="../../api%3Fconsole.html#deletevpnconnectionroute" class="xref page">DeleteVpnConnectionRoute</a>.</p>
+</li>
+<li>
+<p><code>VirtualGatewayId</code>: The ID of the virtual gateway.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>CreateVpnConnection</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>VpnConnection</code>: Information about a VPN connection.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ClientGatewayConfiguration</code>: Example configuration for the client gateway.</p>
+</li>
+<li>
+<p><code>ClientGatewayId</code>: The ID of the client gateway used on the client end of the connection.</p>
+</li>
+<li>
+<p><code>ConnectionType</code>: The type of VPN connection (always <code>ipsec.1</code>).</p>
+</li>
+<li>
+<p><code>Routes</code>: Information about one or more static routes associated with the VPN connection, if any.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DestinationIpRange</code>: The IP range used for the destination match, in CIDR notation (for example, <code>10.0.0.0/24</code>).</p>
+</li>
+<li>
+<p><code>RouteType</code>: The type of route (always <code>static</code>).</p>
+</li>
+<li>
+<p><code>State</code>: The current state of the static route (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>State</code>: The state of the VPN connection (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p>
+</li>
+<li>
+<p><code>StaticRoutesOnly</code>: If false, the VPN connection uses dynamic routing with Border Gateway Protocol (BGP). If true, routing is controlled using static routes. For more information about how to create and delete static routes, see <a href="../../api%3Fconsole.html#createvpnconnectionroute" class="xref page">CreateVpnConnectionRoute</a> and <a href="../../api%3Fconsole.html#deletevpnconnectionroute" class="xref page">DeleteVpnConnectionRoute</a>.</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the VPN connection.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>VgwTelemetries</code>: Information about the current state of one or more of the VPN tunnels.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AcceptedRouteCount</code>: The number of routes accepted through BGP (Border Gateway Protocol) route exchanges.</p>
+</li>
+<li>
+<p><code>LastStateChangeDate</code>: The date and time (UTC) of the latest state update.</p>
+</li>
+<li>
+<p><code>OutsideIpAddress</code>: The IP on the OUTSCALE side of the tunnel.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the IPSEC tunnel (<code>UP</code> | <code>DOWN</code>).</p>
+</li>
+<li>
+<p><code>StateDescription</code>: A description of the current state of the tunnel.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>VirtualGatewayId</code>: The ID of the virtual gateway used on the OUTSCALE end of the connection.</p>
+</li>
+<li>
+<p><code>VpnConnectionId</code>: The ID of the VPN connection.</p>
+</li>
+<li>
+<p><code>VpnOptions</code>: Information about the VPN options.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Phase1Options</code>: Information about Phase 1 of the Internet Key Exchange (IKE) negotiation. When Phase 1 finishes successfully, peers proceed to Phase 2 negotiations.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DpdTimeoutAction</code>: The action to carry out after a Dead Peer Detection (DPD) timeout occurs.</p>
+</li>
+<li>
+<p><code>DpdTimeoutSeconds</code>: The maximum waiting time for a Dead Peer Detection (DPD) response before considering the peer as dead, in seconds.</p>
+</li>
+<li>
+<p><code>IkeVersions</code>: The Internet Key Exchange (IKE) versions allowed for the VPN tunnel.</p>
+</li>
+<li>
+<p><code>Phase1DhGroupNumbers</code>: The Diffie-Hellman (DH) group numbers allowed for the VPN tunnel for phase 1.</p>
+</li>
+<li>
+<p><code>Phase1EncryptionAlgorithms</code>: The encryption algorithms allowed for the VPN tunnel for phase 1.</p>
+</li>
+<li>
+<p><code>Phase1IntegrityAlgorithms</code>: The integrity algorithms allowed for the VPN tunnel for phase 1.</p>
+</li>
+<li>
+<p><code>Phase1LifetimeSeconds</code>: The lifetime for phase 1 of the IKE negotiation process, in seconds.</p>
+</li>
+<li>
+<p><code>ReplayWindowSize</code>: The number of packets in an IKE replay window.</p>
+</li>
+<li>
+<p><code>StartupAction</code>: The action to carry out when establishing tunnels for a VPN connection.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Phase2Options</code>: Information about Phase 2 of the Internet Key Exchange (IKE) negotiation.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Phase2DhGroupNumbers</code>: The Diffie-Hellman (DH) group numbers allowed for the VPN tunnel for phase 2.</p>
+</li>
+<li>
+<p><code>Phase2EncryptionAlgorithms</code>: The encryption algorithms allowed for the VPN tunnel for phase 2.</p>
+</li>
+<li>
+<p><code>Phase2IntegrityAlgorithms</code>: The integrity algorithms allowed for the VPN tunnel for phase 2.</p>
+</li>
+<li>
+<p><code>Phase2LifetimeSeconds</code>: The lifetime for phase 2 of the Internet Key Exchange (IKE) negotiation process, in seconds.</p>
+</li>
+<li>
+<p><code>PreSharedKey</code>: The pre-shared key to establish the initial authentication between the client gateway and the virtual gateway. This key can contain any character except line breaks and double quotes (&quot;).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>TunnelInsideIpRange</code>: The range of inside IPs for the tunnel. This must be a /30 CIDR block from the 169.254.254.0/24 range.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "VpnConnection": {
+    "Routes": [],
+    "Tags": [],
+    "ClientGatewayConfiguration": "...",
+    "StaticRoutesOnly": true,
+    "VirtualGatewayId": "vgw-12345678",
+    "ConnectionType": "ipsec.1",
+    "ClientGatewayId": "cgw-12345678",
+    "State": "pending",
+    "VgwTelemetries": [
+      {
+        "StateDescription": "IPSEC IS DOWN",
+        "AcceptedRouteCount": 0,
+        "LastStateChangeDate": "2017-05-10T12:34:56.789Z",
+        "OutsideIpAddress": "192.0.2.0"
+      }
+    ],
+    "VpnConnectionId": "vpn-12345678"
+  },
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI_3"><a class="anchor" href="Creating-a-VPN-Connection.html#AWS CLI_3"></a>Creating a VPN Connection Using AWS CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Before you begin:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Install and configure AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+<li>
+<p>Create the required resources. For more information, see <a href="Tutorial-Setting-Up-a-VPN-Connection.html" class="xref page">Tutorial: Setting Up a VPN Connection</a>.</p>
+</li>
+<li>
+<p>Make sure the <span class="tooltip" data-tooltip="Virtual gateway in OUTSCALE API">virtual private gateway</span> is in the <code>available</code> state. For more information, see <a href="Getting-Information-About-Your-Virtual-Gateways.html" class="xref page">Getting Information About Your Virtual Gateways</a>.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>To create a VPN connection, use the <strong>create-vpn-connection</strong> command following this syntax:</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws ec2 create-vpn-connection \
+    --profile YOUR_PROFILE \
+    --customer-gateway-id cgw-f491f6d9 \
+    --vpn-gateway-id vgw-00ac2c82 \
+    --type ipsec.1 \
+    --options {\"StaticRoutesOnly\":true} \
+    --endpoint https://fcu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optional) <code>profile</code>: The named profile you want to use, created when configuring AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>customer-gateway-id</code>: The ID of the <span class="tooltip" data-tooltip="client gateway in OUTSCALE API">customer gateway</span> you want to use. For more information, see <a href="Managing-Your-Client-Gateways.html" class="xref page">Managing Your Client Gateways</a>.</p>
+</li>
+<li>
+<p><code>vpn-gateway-id</code>: The ID of the virtual private gateway you want to use. For more information, see <a href="Managing-Your-Virtual-Gateways.html" class="xref page">Managing Your Virtual Gateways</a>.</p>
+</li>
+<li>
+<p><code>type</code>: The type of VPN connection (always <code>ipsec.1</code>). For more information, see <a href="About-VPN-Connections.html" class="xref page">About VPN Connections</a>.</p>
+</li>
+<li>
+<p>(optional) <code>options</code>: Information about the routing options for the VPN connection. This attribute contains the following element that you need to specify:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>StaticRoutesOnly</code>: By default or if set to <code>false</code>, the VPN connection uses dynamic routing with Border Gateway Protocol (BGP). If set to <code>true</code>, it uses static routing. For more information, see <a href="About-Routing-Configuration-for-VPN-Connections.html" class="xref page">About Routing Configuration for VPN Connections</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>endpoint</code>: The endpoint corresponding to the Region you want to send the request to. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>create-vpn-connection</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VpnConnection</code>: Information about the newly created VPN connection. This element contains the following information:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VpnConnectionId</code>: The ID of the VPN connection.</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the <span class="tooltip" data-tooltip="Net in OUTSCALE API">VPC</span> peering connection. This element contains the following information:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>CustomerGatewayConfiguration</code>: Example configuration for the customer gateway, in XML format. For more information, see <a href="Tutorial-Setting-Up-a-VPN-Connection.html" class="xref page">Tutorial: Setting Up a VPN Connection</a>.</p>
+</li>
+<li>
+<p><code>Routes</code>: Information about the static routes associated with the connection, if any. This element contains the following information:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DestinationCidrBlock</code>: The destination range of IPs of the route, in CIDR notation.</p>
+</li>
+<li>
+<p><code>Source</code>: The type of route (always <code>static</code>).</p>
+</li>
+<li>
+<p><code>State</code>: The state of the static route (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>VgwTelemetry</code>: Information about the state of the VPN tunnel. This element contains the following information:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Status</code>: The state of the VPN tunnel (<code>UP</code> | <code>DOWN</code>). For more information, see <a href="About-VPN-Connections.html" class="xref page">About VPN Connections</a>.</p>
+</li>
+<li>
+<p><code>AcceptedRouteCount</code>: The number of accepted routes through the Border Gateway Protocol (BGP) route exchanges.</p>
+</li>
+<li>
+<p><code>OutsideIpAddress</code>: The IP on the external interface of the virtual private gateway.</p>
+</li>
+<li>
+<p><code>LastStatusChange</code>: The date and time of the last state change of the VPN tunnel.</p>
+</li>
+<li>
+<p><code>StatusMessage</code>: A description of the current state of the VPN tunnel.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>State</code>: The state of the VPN connection (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>). For more information, see <a href="About-VPN-Connections.html" class="xref page">About VPN Connections</a>.</p>
+</li>
+<li>
+<p><code>VpnGatewayId</code>: The ID of the virtual private gateway.</p>
+</li>
+<li>
+<p><code>CustomerGatewayId</code>: The ID of the customer gateway.</p>
+</li>
+<li>
+<p><code>Type</code>: The type of VPN connection (always <code>ipsec.1</code>).</p>
+</li>
+<li>
+<p><code>Options</code>: Information about the routing options of the VPN connection. This element contains the following information:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>StaticRoutesOnly</code>: By default or if set to <code>false</code>, the VPN connection uses dynamic routing with Border Gateway Protocol (BGP). If set to <code>true</code>, it uses static routing. For more information, see <a href="About-Routing-Configuration-for-VPN-Connections.html" class="xref page">About Routing Configuration for VPN Connections</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "VpnConnection": {
+        "VpnConnectionId": "vpn-c750ea06",
+        "Tags": [],
+        "CustomerGatewayConfiguration": CONFIGURATION_INFORMATION,
+        "Routes": [],
+        "VgwTelemetry": [
+            {
+                "Status": "DOWN",
+                "AcceptedRouteCount": 0,
+                "OutsideIpAddress": "171.33.67.245",
+                "LastStatusChange": "2017-02-01T14:08:51.649Z",
+                "StatusMessage": "IPSEC IS DOWN"
+            }
+        ],
+        "State": "pending",
+        "VpnGatewayId": "vgw-00ac2c82",
+        "CustomerGatewayId": "cgw-f491f6d9",
+        "Type": "ipsec.1",
+        "Options": {
+            "StaticRoutesOnly": false
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The VPN connection is created.</p>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="About-VPN-Connections.html" class="xref page">About VPN Connections</a></p>
+</li>
+<li>
+<p><a href="Managing-Your-Client-Gateways.html" class="xref page">Managing Your Client Gateways</a></p>
+</li>
+<li>
+<p><a href="Managing-Your-Virtual-Gateways.html" class="xref page">Managing Your Virtual Gateways</a></p>
+</li>
+<li>
+<p><a href="Managing-Routes-for-Your-VPN-Connections.html" class="xref page">Managing Routes for Your VPN Connections</a></p>
+</li>
+<li>
+<p><a href="Tutorial-Setting-Up-a-VPN-Connection.html" class="xref page">Tutorial: Setting Up a VPN Connection</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Corresponding API Methods</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#createvpnconnection" class="xref page">CreateVpnConnection (OUTSCALE API)</a></p>
+</li>
+<li>
+<p><a href="../../fcu.html#createvpnconnection" class="xref page">CreateVpnConnection (FCU)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ and Amazon Web Services™ are trademarks of Amazon Technologies, Inc or its affiliates in the United States and/or other countries.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+  <title>Historique de la documentation (ancienne page) – Documentation publique OUTSCALE</title>
+  <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+  <description>Ce flux liste les changements majeurs de la documentation publique. Les changements plus mineurs ne sont pas mentionnés.</description>
+  <language>fr</language>
+  <copyright>Copyright © 2025 Outscale SAS</copyright>
+  <pubDate>Thu, 23 Jan 2025 14:30:16 GMT</pubDate>
+  <item>
+    <title>17 juin 2024</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_17_juin_2024</guid>
+    <description><![CDATA[<div class="sect2"><div class="admonitionblock tip"><table><tbody><tr><td class="icon"><i class="fa icon-tip" title="Astuce"></i></td><td class="content"><div class="paragraph"><p>Depuis le 17 juin 2024, les notes de mise à jour se trouvent sur une nouvelle page&nbsp;: <a href="https:/docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html" class="xref page">Notes de mise à jour</a>.</p></div></td></tr></tbody></table></div></div>]]></description>
+    <pubDate>Mon, 17 Jun 2024 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>23 mai 2024</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_23_mai_2024</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>Un guide technique expliquant comment utiliser la pagination des requêtes API est maintenant disponible&nbsp;: <a href="https:/docs.outscale.com/fr/userguide/Tutoriel-Paginer-une-requete-API.html" class="xref page">Tutoriel&nbsp;: Paginer une requête API</a>.</p></li></ul></div></div>]]></description>
+    <pubDate>Thu, 23 May 2024 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>26 avril 2024</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_26_avril_2024</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>La page <a href="https:/docs.outscale.com/fr/userguide/Matrice-de-compatibilité-avec-AWS.html" class="xref page">Matrice de compatibilité avec AWS</a> est plus exhaustive&nbsp;:</p><div class="ulist"><ul><li><p>Auparavant, cette page listait les correspondances de méthodes d’API uniquement dans le sens AWS → OUTSCALE, ce qui signifie que les méthodes de l’API OUTSCALE n’ayant pas d’équivalents AWS n’étaient pas mentionnées. Désormais, cette page mentionne toutes les méthodes y compris celles exclusives à l’API OUTSCALE.</p></li><li><p>En outre, vous pouvez désormais trier le tableau en cliquant sur les en-têtes des colonnes.</p></li></ul></div></li><li><p>Le <a href="https:/docs.outscale.com/fr/userguide/Générateur-de-politiques-EIM.html" class="xref page">Générateur de politiques EIM</a> offre désormais un deuxième format de sortie&nbsp;:</p><div class="ulist"><ul><li><p>En plus du format JSON brut, utilisable par exemple avec Cockpit, la politique générée est également présentée sous la forme d’une chaîne JSON, qui est la forme nécessaire si vous voulez coller ce résultat dans le paramètre d’une commande OSC CLI.</p></li></ul></div></li></ul></div></div>]]></description>
+    <pubDate>Fri, 26 Apr 2024 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>14 mars 2024</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_14_mars_2024</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>Le thème visuel du site web de documentation a été mis à jour, afin d’être en harmonie avec les couleurs des autres sites web OUTSCALE.</p></li></ul></div></div>]]></description>
+    <pubDate>Thu, 14 Mar 2024 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>19 février 2024</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_19_février_2024</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>Les conditions Wait sont à présent documentées dans la section OUTSCALE Object Storage (OOS)&nbsp;: <a href="https:/docs.outscale.com/fr/userguide/Utiliser-les-conditions-Wait.html" class="xref page">Utiliser les conditions Wait</a>.</p></li></ul></div></div>]]></description>
+    <pubDate>Mon, 19 Feb 2024 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>23 janvier 2024</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_23_janvier_2024</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>Une page interactive est désormais disponible pour vous aider à générer des politiques EIM&nbsp;: <a href="https:/docs.outscale.com/fr/userguide/Générateur-de-politiques-EIM.html" class="xref page">Générateur de politiques EIM</a>.</p></li></ul></div></div>]]></description>
+    <pubDate>Tue, 23 Jan 2024 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>15 janvier 2024</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_15_janvier_2024</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>Un guide technique expliquant comment configurer et utiliser la fonctionnalité Discard est maintenant disponible&nbsp;: <a href="https:/docs.outscale.com/fr/userguide/Configurer-et-utiliser-le-Discard.html" class="xref page">Configurer et utiliser le Discard</a>.</p></li></ul></div></div>]]></description>
+    <pubDate>Mon, 15 Jan 2024 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>29 décembre 2023</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_29_décembre_2023</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>Fin de vie (EOL) de Cockpit&nbsp;v1. À compter de cette date, Cockpit&nbsp;v1 n’est plus disponible sur aucune de nos Régions. Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/Politique-de-fin-de-vie.html" class="xref page">Politique de fin de vie</a>.</p></li></ul></div></div>]]></description>
+    <pubDate>Fri, 29 Dec 2023 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>30 novembre 2023</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_30_novembre_2023</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>La fonctionnalité Object Lock est à présent disponible dans la documentation OUTSCALE Object Storage (OOS). Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/Gérer-Object-Lock.html" class="xref page">Gérer Object Lock</a>.</p></li><li><p>À compter de cette date, Cockpit&nbsp;v1 n’est plus disponible sur la Région cloudgouv-eu-west-1. Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/Politique-de-fin-de-vie.html" class="xref page">Politique de fin de vie</a>.</p></li></ul></div></div>]]></description>
+    <pubDate>Thu, 30 Nov 2023 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>29 novembre 2023</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_29_novembre_2023</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>La page documentant les codes d’erreurs de l’API OUTSCALE a été mise à jour. Pour en savoir plus, voir <a href="https:/docs.outscale.com/api-errors.html" class="xref page">Liste des erreurs de l’API OUTSCALE</a>.</p></li></ul></div></div>]]></description>
+    <pubDate>Wed, 29 Nov 2023 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>27 novembre 2023</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_27_novembre_2023</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>La politique de mot de passe a été mise à jour. Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/À-propos-de-la-protection-par-mot-de-passe.html" class="xref page">À propos de la protection par mot de passe</a>.</p></li></ul></div></div>]]></description>
+    <pubDate>Mon, 27 Nov 2023 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>20 octobre 2023</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_20_octobre_2023</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>Fin de support et maintenance (EOSM) de Cockpit&nbsp;v1. À compter de cette date, Cockpit&nbsp;v1 n’est plus supporté ni corrigé. Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/Politique-de-fin-de-vie.html" class="xref page">Politique de fin de vie</a>.</p></li></ul></div></div>]]></description>
+    <pubDate>Fri, 20 Oct 2023 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>5 octobre 2023</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_5_octobre_2023</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>Dans le Guide utilisateur, les pages de procédures incluent désormais des descriptions et des exemples pour OSC CLI, au lieu d’uniquement renvoyer vers des sections de la documentation OUTSCALE API. Par exemple, voir <a href="https:/docs.outscale.com/fr/userguide/Créer-des-VM.html#_Créer_des_VM_avec_OSC_CLI" class="xref page">Créer des VM &gt; Créer des VM avec OSC CLI</a>.</p></li><li><p>Ces descriptions et exemples d’OSC CLI (actuellement uniquement en anglais) sont les mêmes entre le Guide utilisateur et la documentation OUTSCALE API. Vous pouvez donc choisir d’utiliser l’une ou l’autre partie du site en fonction de votre préférence de navigation.</p></li></ul></div></div>]]></description>
+    <pubDate>Thu, 05 Oct 2023 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>20 septembre 2023</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_20_septembre_2023</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>Cockpit&nbsp;v2 sort de bêta suite au déploiement de la version 2.9.</p><div class="ulist"><ul><li><p>En conséquence, le Guide utilisateur utilisera principalement désormais les termes employés par Cockpit&nbsp;v2, qui sont aussi ceux de l’API OUTSCALE (par exemple, les ressources sont appelées machines virtuelles, <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Nets</span>, etc.), plutôt que la terminologie historique AWS qui était précédemment employée (par exemple, <span class="tooltip" data-tooltip="machine virtuelle (VM) dans l'API OUTSCALE">instances</span>, <span class="tooltip" data-tooltip="Net dans l'API OUTSCALE">VPC</span>, etc.). Les infobulles restent disponibles au survol de la souris pour faciliter la transition. Ce changement de terminologie s’applique aussi aux titres des pages (par exemple, <a href="https:/docs.outscale.com/fr/userguide/https:/docs.outscale.com/fr/userguide/À-propos-des-VM.html" class="xref page">À propos des instances</a> redirige désormais vers <a href="À-propos-des-VM.html" class="xref page">À propos des VM</a>).</p></li><li><p>Pour en savoir plus sur la version 2.9 de Cockpit&nbsp;v2, voir les <a href="https:/docs.outscale.com/fr/userguide/Notes-de-mise-à-jour.html" class="xref page">Notes de mise à jour</a>.</p></li></ul></div></li></ul></div></div>]]></description>
+    <pubDate>Wed, 20 Sep 2023 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>18 septembre 2023</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_18_septembre_2023</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>Une nouvelle version de IAM est sortie. Une page résumant toutes les nouvelles fonctionnalités et mises à jour est disponible&nbsp;: <a href="https:/docs.outscale.com/fr/userguide/Référence-des-fonctionnalités-IAM-1-5.html" class="xref page">Référence des fonctionnalités IAM 1.5</a>.</p></li><li><p>Par conséquent, vous pouvez trouver les nouveaux contenus suivants dans la documentation&nbsp;:</p><div class="ulist"><ul><li><p><a href="https:/docs.outscale.com/fr/userguide/À-propos-de-l-authentification.html" class="xref page">À propos de l’authentification</a></p></li><li><p><a href="https:/docs.outscale.com/fr/userguide/Authentification-multifacteur.html" class="xref page">Authentification multifacteur</a></p></li><li><p><a href="https:/docs.outscale.com/fr/userguide/Activer-une-session-de-confiance.html" class="xref page">Activer une session de confiance</a></p></li><li><p><a href="https:/docs.outscale.com/fr/userguide/Créer-un-mot-de-passe-en-tant-qu-utilisateur-EIM.html" class="xref page">Créer un mot de passe en tant qu’utilisateur EIM</a></p></li></ul></div></li></ul></div></div>]]></description>
+    <pubDate>Mon, 18 Sep 2023 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>30 août 2023</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_30_août_2023</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>La <a href="https:/docs.outscale.com/api.html" class="xref page">documentation de l’API OUTSCALE</a> inclut désormais des exemples de code pleinement fonctionnels&nbsp;:</p><div class="ulist"><ul><li><p>Chacune des 180 méthodes disponibles comporte au moins un exemple de code par langage de programmation.</p></li><li><p>Certaines des méthodes comportent plusieurs exemples de code par langage de programmation. Par exemple, la méthode <a href="https:/docs.outscale.com/api.html#createimage" class="xref page">CreateImage</a> comporte quatre exemples différents, chacun pour un cas d’usage différent au niveau des paramètres de requête.</p></li><li><p>Par commodité, deux boutons copier s’affichent à côté de chaque exemple de code au survol de la souris&nbsp;:</p><div class="ulist"><ul><li><p><span class="image"><img src="https:/docs.outscale.com/fr/userguide/_images/copy-to-clipboard.png" alt="copy to clipboard"></span>&nbsp;: Le premier bouton copie le code tel quel, donc sous forme de chaîne multiligne.</p></li><li><p><span class="image"><img src="https:/docs.outscale.com/fr/userguide/_images/copy-to-clipboard-single-line.png" alt="copy to clipboard single line"></span>&nbsp;: Le second bouton copie le code sous la forme d’une commande monoligne (lorsque possible).</p></li></ul></div></li></ul></div></li></ul></div></div>]]></description>
+    <pubDate>Wed, 30 Aug 2023 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>27 juillet 2023</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_27_juillet_2023</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>La fonctionnalité de recherche du Guide utilisateur a été améliorée&nbsp;:</p><div class="ulist"><ul><li><p>Lorsque vous utilisez la barre de recherche en haut à droite, vous pouvez désormais consulter les résultats dans une page distincte et non plus seulement dans la liste déroulante.</p></li><li><p>Vous pouvez désormais ajouter la documentation publique aux moteurs de recherche de votre navigateur. Cela vous permet de rechercher rapidement dans le site de documentation à l’aide d’un raccourci/mot-clé. Par exemple, vous pouvez taper <code>osc vm types</code> dans votre barre d’URL pour lancer directement une recherche pour "vm types" dans la documentation, même si vous n’êtes pas déjà sur le site. Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/Rechercher-dans-la-documentation-publique-depuis-votre-barre-d-URL.html" class="xref page">Rechercher dans la documentation publique depuis votre barre d’URL</a>.</p></li></ul></div></li><li><p>Vous pouvez désormais exporter au format PDF toute page du Guide utilisateur, en utilisant le bouton situé dans la colonne de droite de chaque page.</p></li></ul></div></div>]]></description>
+    <pubDate>Thu, 27 Jul 2023 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>27 juin 2023</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_27_juin_2023</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>Les <a href="https:/docs.outscale.com/api.html" class="xref page">documentations API</a> ont été mises à jour&nbsp;:</p><div class="ulist"><ul><li><p>Les sections <a href="https:/docs.outscale.com/api.html#authentication-schemes" class="xref page">Authentication</a> ont été réécrites.</p></li><li><p>Des exemples de code pour l’authentification par login/mot de passe sont désormais inclus.<br>Notez que l’authentification par login/mot de passe est supportée uniquement pour certaines actions, dans l’API OUTSCALE (par exemple, <a href="https:/docs.outscale.com/api.html#readaccesskeys" class="xref page">ReadAccessKeys</a>) et dans l’API ICU (par exemple, <a href="https:/docs.outscale.com/icu.html#listaccesskeys" class="xref page">ListAccessKeys</a>).</p></li><li><p>Des exemples de code en JavaScript sont désormais inclus pour l’API OUTSCALE.<br>Ils sont basés sur le <a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK OUTSCALE pour TypeScript/JavaScript</a>.</p></li><li><p>Vous pouvez désormais basculer entre les langages de programmation en utilisant les boutons au-dessus de chaque exemple de code, ainsi que dans le coin supérieur gauche.</p></li></ul></div></li></ul></div></div>]]></description>
+    <pubDate>Tue, 27 Jun 2023 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>23 juin 2023</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_23_juin_2023</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>La <a href="https:/docs.outscale.com/fr/userguide/Matrice-de-compatibilité-avec-AWS.html" class="xref page">Matrice de compatibilité avec AWS</a> a été mise à jour. Cette page liste les correspondances entre méthodes API AWS-compliant et méthodes API OUTSCALE.</p></li></ul></div></div>]]></description>
+    <pubDate>Fri, 23 Jun 2023 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>3 mai 2023</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_3_mai_2023</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>Des flux RSS sont désormais disponibles pour vous aider à suivre les mises à jour de la documentation. Vous pouvez vous abonner aux flux suivants, qui correspondent aux trois onglets de la page d’accueil&nbsp;:</p><div class="ulist"><ul><li><p><a href="https:/docs.outscale.com/fr/userguide/_rss/Historique-de-la-documentation.xml">Mises à jour majeures de la documentation</a></p></li><li><p><a href="https:/docs.outscale.com/fr/userguide/_rss/Notes-de-releases-Cockpit.xml">Notes de releases Cockpit&nbsp;v2</a></p></li><li><p><a href="https:/docs.outscale.com/fr/userguide/_rss/Notes-de-releases-API.xml">Notes de releases API</a></p></li></ul></div></li></ul></div></div>]]></description>
+    <pubDate>Wed, 03 May 2023 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>23 février 2023</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_23_février_2023</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>Les documentations API incluent désormais une barre de recherche dans le coin supérieur gauche.</p></li></ul></div></div>]]></description>
+    <pubDate>Thu, 23 Feb 2023 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>31 janvier 2023</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_31_janvier_2023</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>Une page décrivant les différents niveaux de maturité des projets open source OUTSCALE est désormais disponible&nbsp;: <a href="https:/docs.outscale.com/fr/userguide/Projets-open-source.html" class="xref page">Projets open source</a>.</p></li></ul></div></div>]]></description>
+    <pubDate>Tue, 31 Jan 2023 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>20 décembre 2022</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_20_décembre_2022</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>Deux guides techniques concernant cloud-init sont désormais disponibles&nbsp;:</p><div class="ulist"><ul><li><p>L’un constitue une introduction générale à l’outil cloud-init&nbsp;: <a href="https:/docs.outscale.com/fr/userguide/Introduction-à-cloud-init.html" class="xref page">Introduction à cloud-init</a>.</p></li><li><p>L’autre présente une approche pas à pas pour utiliser cloud-init dans une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> OUTSCALE&nbsp;: <a href="https:/docs.outscale.com/fr/userguide/Utiliser-cloud-init-avec-les-user-data.html" class="xref page">Utiliser cloud-init avec les user data</a>.</p></li></ul></div></li></ul></div></div>]]></description>
+    <pubDate>Tue, 20 Dec 2022 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>16 novembre 2022</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_16_novembre_2022</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>Un guide technique expliquant comment activer la virtualisation imbriquée est désormais disponible&nbsp;: <a href="https:/docs.outscale.com/fr/userguide/Activer-la-virtualisation-imbriquée.html" class="xref page">Activer la virtualisation imbriquée</a>.</p></li></ul></div></div>]]></description>
+    <pubDate>Wed, 16 Nov 2022 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>4 octobre 2022</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_4_octobre_2022</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>Toutes les procédures du Guide utilisateur pouvant être exécutées avec OSC CLI incluent désormais des liens vers les sections correspondantes de la documentation API OUTSCALE.</p></li></ul></div></div>]]></description>
+    <pubDate>Tue, 04 Oct 2022 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>20 septembre 2022</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_20_septembre_2022</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>Une page résumant les concepts et la compatibilité du service Elastic Identity Management (EIM) est désormais disponible&nbsp;: <a href="https:/docs.outscale.com/fr/userguide/À-propos-d-EIM.html" class="xref page">À propos d’EIM</a>.</p></li></ul></div></div>]]></description>
+    <pubDate>Tue, 20 Sep 2022 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>22 août 2022</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_22_août_2022</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>Publication de la page d’historique.</p></li></ul></div></div>]]></description>
+    <pubDate>Mon, 22 Aug 2022 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>19 août 2022</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_19_août_2022</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>Pour améliorer l’expérience utilisateur des documentations API, les bannières rouges et vertes indiquant les méthodes d’authentification ont été déplacées vers le début de chaque section de méthode API.</p></li></ul></div></div>]]></description>
+    <pubDate>Fri, 19 Aug 2022 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>16 août 2022</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_16_août_2022</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>En termes de gouvernance pour votre compte, une bonne pratique peut être de créer un utilisateur EIM dont le seul droit est de lire vos informations de consommation. Ainsi, un nouveau tutoriel est disponible&nbsp;: <a href="https:/docs.outscale.com/fr/userguide/Tutoriel-Obtenir-votre-consommation-avec-un-utilisateur-EIM.html" class="xref page">Tutoriel&nbsp;: Obtenir votre consommation avec un utilisateur EIM</a>.</p></li></ul></div></div>]]></description>
+    <pubDate>Tue, 16 Aug 2022 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>12 août 2022</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_12_août_2022</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>L’affichage des descriptions de paramètres multilignes a été corrigé dans les documentations API.</p></li></ul></div></div>]]></description>
+    <pubDate>Fri, 12 Aug 2022 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>13 juillet 2022</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_13_juillet_2022</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>Dans les documentations API, les exemples de code ont été mis à jour&nbsp;:</p><div class="ulist"><ul><li><p>Pour l’<a href="https:/docs.outscale.com/api.html" class="xref page">API OUTSCALE</a>&nbsp;: Les exemples existants avec OSC CLI, Curl, et en Python ont été améliorés.</p></li><li><p>Pour les API <a href="https:/docs.outscale.com/fcu.html" class="xref page">FCU</a>, <a href="https:/docs.outscale.com/lbu.html" class="xref page">LBU</a>, <a href="https:/docs.outscale.com/eim.html" class="xref page">EIM</a>, <a href="https:/docs.outscale.com/icu.html" class="xref page">ICU</a>, et <a href="https:/docs.outscale.com/directlink.html" class="xref page">DirectLink</a>&nbsp;: Des exemples avec OSC CLI et Curl sont désormais inclus.</p></li></ul></div></li></ul></div></div>]]></description>
+    <pubDate>Wed, 13 Jul 2022 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>23 juin 2022</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_23_juin_2022</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>La documentation de Cockpit v2-beta est désormais en ligne. Pour en savoir plus sur Cockpit&nbsp;v2, voir <a href="https:/docs.outscale.com/fr/userguide/À-propos-de-Cockpit.html#_À_propos_de_Cockpit%C2%A0v2-beta" class="xref page">À propos de Cockpit &gt; Cockpit&nbsp;v2</a> et pour en savoir plus sur les fonctionnalités disponibles, voir <a href="https:/docs.outscale.com/fr/userguide/Référence-des-fonctionnalités-Cockpit-v2.html" class="xref page">Référence des fonctionnalités Cockpit&nbsp;v2</a>.</p></li></ul></div></div>]]></description>
+    <pubDate>Thu, 23 Jun 2022 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>23 mai 2022</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_23_mai_2022</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>Une page listant les erreurs de l’API OUTSCALE est désormais disponible (en anglais uniquement). Pour en savoir plus, voir <a href="https:/docs.outscale.com/api-errors.html" class="xref page">Liste des erreurs de l’API OUTSCALE</a>.</p></li></ul></div></div>]]></description>
+    <pubDate>Mon, 23 May 2022 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>3 mai 2022</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_3_mai_2022</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>Les FAQ ont été mises à jour et sont désormais disponibles sur le site de notre Support. Pour en savoir plus, voir <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">https://support.outscale.com</a>.</p></li></ul></div></div>]]></description>
+    <pubDate>Tue, 03 May 2022 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>14 mars 2022</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_14_mars_2022</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>Un nouveau tutoriel pour OUTSCALE Monitoring Services (OMS) est désormais disponible&nbsp;: <a href="https:/docs.outscale.com/fr/userguide/Tutoriel-Archiver-vos-logs-d-API.html" class="xref page">Tutoriel&nbsp;: Archiver vos logs d’API</a>.</p></li></ul></div></div>]]></description>
+    <pubDate>Mon, 14 Mar 2022 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>18 février 2022</title>
+    <link>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html</link>
+    <guid>https://docs.outscale.com/fr/userguide/Historique-de-la-documentation-ancienne-page.html#_18_février_2022</guid>
+    <description><![CDATA[<div class="sect2"><div class="ulist"><ul><li><p>La documentation <a href="https:/docs.outscale.com/fr/userguide/OUTSCALE-Object-Storage-OOS.html" class="xref page">OUTSCALE Object Storage (OOS)</a> a été mise à jour. Des procédures détaillées sont désormais disponibles à propos du partage de ressources cross-origin (CORS) pour les buckets, du cycle de vie des objets, et des tags des objets. Pour en savoir plus, voir <a href="https:/docs.outscale.com/fr/userguide/Gérer-CORS-sur-vos-buckets.html" class="xref page">Gérer CORS sur vos buckets</a>, <a href="https:/docs.outscale.com/fr/userguide/Gérer-le-cycle-de-vie-de-vos-buckets.html" class="xref page">Gérer le cycle de vie de vos buckets</a>, et <a href="https:/docs.outscale.com/fr/userguide/Gérer-les-tags-d-un-objet.html" class="xref page">Gérer les tags d’un objet</a>.</p></li></ul></div><div class="paragraph"><p><strong>Pages connexes</strong></p></div><div class="ulist"><ul><li><p><a href="https:/docs.outscale.com/fr/userguide/Notes-de-releases-Cockpit-ancienne-page.html" class="xref page">Notes de releases Cockpit&nbsp;v2 (ancienne page)</a></p></li><li><p><a href="https:/docs.outscale.com/fr/userguide/Notes-de-releases-API-ancienne-page.html" class="xref page">Notes de releases API (ancienne page)</a></p></li><li><p><a href="https:/docs.outscale.com/fr/userguide/Notes-de-releases-OUTSCALE-Marketplace-ancienne-page.html" class="xref page">Notes de releases OUTSCALE Marketplace (ancienne page)</a></p></li></ul></div></div>]]></description>
+    <pubDate>Fri, 18 Feb 2022 00:00:00 GMT</pubDate>
+  </item>
+</channel>
+</rss>

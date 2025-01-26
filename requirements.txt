@@ -1,0 +1,5 @@
+langchain_community
+langchain
+sentence-transformers # SentenceTransformerEmbeddings > 1 Go
+bs4 # traitement HTML https://pypi.org/project/bs4/ Beautiful Soup
+chromadb # DB https://pypi.org/project/chromadb/ pour stockage des vecteurs LangChain Community

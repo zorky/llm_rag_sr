@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Installer et configurer oapi-cli – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Installer-et-configurer-oapi-cli.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Installer-et-configurer-oapi-cli.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Installing-and-Configuring-oapi-cli.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Installer et configurer oapi-cli</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez gérer vos ressources du Cloud OUTSCALE avec oapi-cli, une interface en ligne de commande (CLI) développée par 3DS OUTSCALE.</p>
+</div>
+<div class="paragraph">
+<p>oapi-cli est exclusivement compatible avec l&#8217;API OUTSCALE. C&#8217;est le successeur d&#8217;OSC CLI, avec des fonctionnalités enrichies et une expérience utilisateur améliorée. Pour en savoir plus, voir <a href="Comparaison-entre-OSC-CLI-et-oapi-cli.html" class="xref page">Comparaison entre OSC CLI et oapi-cli</a>.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez aussi utiliser Cockpit, OSC CLI, ou AWS CLI. Pour en savoir plus, voir <a href="À-propos-de-Cockpit.html" class="xref page">À propos de Cockpit</a>, <a href="Installer-et-configurer-OSC-CLI.html" class="xref page">Installer et configurer OSC CLI</a>, et <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installer_oapi_cli"><a class="anchor" href="Installer-et-configurer-oapi-cli.html#_installer_oapi_cli"></a>Installer oapi-cli</h2>
+<div class="sectionbody">
+<div class="sect2 tab">
+<h3 id="Linux_0"><a class="anchor" href="Installer-et-configurer-oapi-cli.html#Linux_0"></a>Installer oapi-cli sur Linux</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Téléchargez le fichier <strong>oapi-cli-x86_64.AppImage</strong> en utilisant la commande suivante :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ curl -LO https://github.com/outscale/oapi-cli/releases/latest/download/oapi-cli-x86_64.AppImage</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Rendez le fichier exécutable en utilisant la commande suivante :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ chmod a+x ./oapi-cli-x86_64.AppImage</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Vous pouvez maintenant lancer oapi-cli comme suit :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ ./oapi-cli-x86_64.AppImage</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si vous rencontrez une erreur <code>fuse</code>, installez <a href="https://github.com/AppImage/AppImageKit/wiki/FUSE" target="_blank" rel="noopener">fuse</a>.</p>
+</div>
+<div class="paragraph">
+<p>Si vous ne pouvez pas installer <code>fuse</code>, lancez <strong>oapi-cli-x86_64.AppImage</strong> avec l&#8217;option <code>--appimage-extract-and-run</code> :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ ./oapi-cli-x86_64.AppImage --appimage-extract-and-run ReadImages</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande va extraire le contenu du fichier dans un répertoire temporaire et l&#8217;exécuter. Notez qu&#8217;utiliser cette méthode prend beaucoup plus de temps qu&#8217;utiliser <code>fuse</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) Pour rendre oapi-cli accessible à tous les utilisateurs, déplacez le fichier comme suit :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ sudo mv oapi-cli-x86_64.AppImage /usr/local/bin/oapi-cli</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2 tab">
+<h3 id="macOS_1"><a class="anchor" href="Installer-et-configurer-oapi-cli.html#macOS_1"></a>Installer oapi-cli sur macOS</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Avant de commencer :</strong> Installez <a href="https://brew.sh/" target="_blank" rel="noopener">Homebrew</a> sur votre machine.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Lancez les commandes suivantes dans votre terminal :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ brew tap outscale/tap
+$ brew install outscale/tap/oapi-cli</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Vous pouvez maintenant lancer oapi-cli comme suit :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2 tab">
+<h3 id="Windows_2"><a class="anchor" href="Installer-et-configurer-oapi-cli.html#Windows_2"></a>Installer oapi-cli sur Windows</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Téléchargez <a href="https://github.com/outscale/oapi-cli/releases/tag/nightly-windows" target="_blank" rel="noopener">oapi-cli-x86_64.zip</a> et extrayez le contenu du fichier.</p>
+</li>
+<li>
+<p>Vous pouvez maintenant lancer oapi-cli comme suit :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli.exe</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configurer_oapi_cli"><a class="anchor" href="Installer-et-configurer-oapi-cli.html#_configurer_oapi_cli"></a>Configurer oapi-cli</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>(Linux et macOS) Dans votre répertoire home, créez un répertoire <code>.osc</code>.</p>
+</li>
+<li>
+<p>Créez un fichier nommé <code>config.json</code> avec le contenu suivant :</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "default": {
+        "access_key": "ACCESSKEY",
+        "secret_key": "SECRETKEY",
+        "region": "eu-west-2"
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>où :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>eu-west-2</code> est la Région de votre compte.</p>
+</li>
+<li>
+<p><code>ACCESSKEY</code> et <code>SECRETKEY</code> sont l’ID d’access key et la secret key correspondante de votre compte. Pour en savoir plus, voir <a href="Créer-une-access-key.html" class="xref page">Créer une access key</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>(Linux et macOS) Enregistrez ce fichier dans le répertoire <strong>.osc</strong>.<br>
+(Windows) Enregistrez ce fichier dans le même répertoire que <strong>oapi-cli.exe</strong>.</p>
+</li>
+<li>
+<p>Vous pouvez maintenant exécuter des requêtes d&#8217;API avec oapi-cli.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour des options de configuration plus avancées, voir le <a href="https://github.com/outscale/oapi-cli" target="_blank" rel="noopener">dépôt GitHub d&#8217;oapi-cli</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_utiliser_oapi_cli"><a class="anchor" href="Installer-et-configurer-oapi-cli.html#_utiliser_oapi_cli"></a>Utiliser oapi-cli</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Pour envoyer une requête avec oapi-cli, spécifiez dans votre commande :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>La requête que vous demandez.</p>
+</li>
+<li>
+<p>Toute autre option attendue par la commande.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli CreateVolume \
+   --SubregionName eu-west-2a \
+   --Size 10</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Avec OSC CLI, vous devez spécifier le nom de l&#8217;API dans votre commande (par exemple, <code>api</code> ou <code>fcu</code>). Ceci n&#8217;est pas nécessaire avec oapi-cli, puisque oapi-cli n&#8217;est compatible qu&#8217;avec l&#8217;API OUTSCALE.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_utiliser_des_syntaxes_alternatives"><a class="anchor" href="Installer-et-configurer-oapi-cli.html#_utiliser_des_syntaxes_alternatives"></a>Utiliser des syntaxes alternatives</h3>
+<div class="paragraph">
+<p>Vous pouvez utiliser différentes syntaxes pour envoyer des requêtes avec oapi-cli. Les exemples suivants se basent sur la requête CreateTags pour illustrer les syntaxes possibles pour les arguments complexes.</p>
+</div>
+<div class="listingblock">
+<div class="title">Syntaxe similaire à OSC CLI</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli CreateTags \
+    --ResourceIds '["i-11111111", "i-22222222"]'  \
+    --Tags '[{"Key": "key", "Value": "example1"}]'</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Syntaxe alternative pour les paramètres imbriqués</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli CreateTags \
+    --ResourceIds '["i-11111111", "i-22222222"]' \
+    --Tags.0.Key key \
+    --Tags.0.Value example2</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Notation en cascade pour les paramètres imbriqués</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli CreateTags \
+    --ResourceIds '["i-11111111", "i-22222222"]' \
+    --Tags.0.Key key ..Value example3</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Notation en crochets pour les tableaux</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli CreateTags \
+    --ResourceIds[] "i-11111111" \
+    --ResourceIds[] "i-22222222"  \
+    --Tags.0.Key key ..Value example4</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour exécuter une commande avec la notation en crochets, certains shells (comme zsh) nécessitent l&#8217;ajout de guillemets autour de l&#8217;option.</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli CreateTags \
+    "--ResourceIds[]" "i-11111111" \
+    "--Tags.0.Key" key ..Value example4</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-de-Cockpit.html" class="xref page">À propos de Cockpit</a></p>
+</li>
+<li>
+<p><a href="Comparaison-entre-OSC-CLI-et-oapi-cli.html" class="xref page">Comparaison entre OSC CLI et oapi-cli</a></p>
+</li>
+<li>
+<p><a href="Installer-et-configurer-OSC-CLI.html" class="xref page">Installer et configurer OSC CLI</a></p>
+</li>
+<li>
+<p><a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a></p>
+</li>
+<li>
+<p><a href="https://github.com/outscale/oapi-cli" target="_blank" rel="noopener">Dépôt GitHub d&#8217;oapi-cli</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

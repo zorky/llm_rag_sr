@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>User Data Tags Reference – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="User-Data-Tags-Reference.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/User-Data-Tags-Reference.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Référence-des-tags-user-data.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">User Data Tags Reference</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This page lists OUTSCALE tags that you can use to manage the behavior of your Cloud resources according to your hardware or network needs.</p>
+</div>
+<div class="paragraph">
+<p>You can apply these tags in the metadata of your <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">virtual machines (VMs)</span>, or using the classic method. For more information, see <a href="Configuring-a-VM-with-User-Data-and-OUTSCALE-Tags.html" class="xref page">Configuring a VM with User Data and OUTSCALE Tags</a> or <a href="Adding-or-Removing-Tags.html" class="xref page">Adding or Removing Tags</a>.</p>
+</div>
+<div class="paragraph">
+<p>Tags are available for the following needs:</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vms_placement"><a class="anchor" href="User-Data-Tags-Reference.html#_vms_placement"></a>VMs Placement</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Tag Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Tag Value</th>
+<th class="tableblock halign-left valign-top">Application</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>osc.fcu.repulse_server</code></p></td>
+<td class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock">Places <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VMs</span> with the same tag value on different servers</p></td>
+<td class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock">Free</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>At VM creation</p>
+</li>
+<li>
+<p>After a stop/start of the VM</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>osc.fcu.attract_server</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Places VMs with the same tag value on the same server</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>osc.fcu.repulse_cluster</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Places VMs with the same tag value on different Cisco UCS clusters</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>osc.fcu.attract_cluster</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Places VMs with the same tag value on the same Cisco UCS cluster</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>These tags can be used in <code>strict</code> mode, which means that if the requested placement options are not possible, an <code>InsufficientCapacity</code> error is returned. If you do not use <code>strict</code> mode, the requested placement options are bypassed if they are not possible.</p>
+</div>
+<div class="paragraph">
+<p>To define <code>strict</code> mode, add <code>_strict</code> to the tag name (for example, <code>osc.fcu.repulse_server_strict</code>).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_association_of_ips_to_vms"><a class="anchor" href="User-Data-Tags-Reference.html#_association_of_ips_to_vms"></a>Association of IPs to VMs</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Tag Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Tag Value</th>
+<th class="tableblock halign-left valign-top">Application</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>osc.fcu.eip.auto-attach</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Automatically associates a <span class="tooltip" data-tooltip="External IP (EIP) in AWS-Compliant APIs">public IP</span> with a <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span>, and keeps them associated through the stop and start process</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The public IP you want to associate.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="About-Public-IPs.html#_public_ip_association" class="xref page">About Public IPs &gt; Public IP Association</a>.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top" rowspan="2"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>At VM creation</p>
+</li>
+<li>
+<p>After a stop/start of the VM</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>private_only</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Blocks attribution of a public IP to a VM in the public Cloud</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code> or <code>false</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_firewall_bypass"><a class="anchor" href="User-Data-Tags-Reference.html#_firewall_bypass"></a>Firewall Bypass</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Firewall bypass consists in disabling security groups in order to reduce overall latency between <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VMs</span>. For more information, see <a href="About-Nets.html#_subnet_routing_and_security" class="xref page">About Nets &gt; Subnet Routing and Security</a>.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Use Case</th>
+<th class="tableblock halign-left valign-top">Tag Name to Put on the Net</th>
+<th class="tableblock halign-left valign-top">Tag Name to Put on the VMs</th>
+<th class="tableblock halign-left valign-top">Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">VMs in a Net</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>osc.fcu.disable_lan_security_groups</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">n/a</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Security groups are disabled between VMs of the same Subnets.</p>
+</div>
+<div class="paragraph">
+<p>This is the default behavior if no tag is applied.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>osc.fcu.enable_lan_security_groups</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">n/a</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Security groups are enabled between VMs of the same Subnets.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">VMs in the Public Cloud</p></td>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>osc.fcu.enable_lan_security_groups</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Security groups are enabled between the VMs.</p>
+</div>
+<div class="paragraph">
+<p>This is the default behavior if no tag is applied.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>osc.fcu.disable_lan_security_groups</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Security groups are disabled between the VMs if they have the same tag and tag value.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Tags on a Net must be applied after creating the Net, but before creating any Subnet in it. Once you have created a Subnet in the Net, the tags cannot modify the behavior any longer.</p>
+</li>
+<li>
+<p>Tags on VMs must be applied at VM creation, or must be followed by a stop/start on the VMs.</p>
+</li>
+<li>
+<p>The tag values can be any value, except for <code>osc.fcu.disable_lan_security_groups</code> in the public Cloud, where it must be at least one character long.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_use_of_both_outscale_tags_and_free_section"><a class="anchor" href="User-Data-Tags-Reference.html#_use_of_both_outscale_tags_and_free_section"></a>Use of Both OUTSCALE Tags and Free Section</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Tag Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Tag Value</th>
+<th class="tableblock halign-left valign-top">Application</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter_private_section</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Filters the OUTSCALE tags of the <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span> so that you can use both a section of OUTSCALE tags and a free section of user data in the same VM.</p>
+</div>
+<div class="paragraph">
+<p>If <code>true</code>, all your OUTSCALE tags take effect, but they are not visible when reading the user data of the VM.</p>
+</div>
+<div class="paragraph">
+<p>If <code>false</code> or not defined, you cannot use both a section of OUTSCALE tags and a free section of user data.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code> or <code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>At VM creation</p>
+</li>
+<li>
+<p>After a stop/start of the VM</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This tag is available for the OUTSCALE API only. It is not compatible with the FCU API.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Configuring-a-VM-with-User-Data-and-OUTSCALE-Tags.html" class="xref page">Configuring a VM with User Data and OUTSCALE Tags</a></p>
+</li>
+<li>
+<p><a href="Adding-or-Removing-Tags.html" class="xref page">Adding or Removing Tags</a></p>
+</li>
+<li>
+<p><a href="Creating-VMs.html" class="xref page">Creating VMs</a></p>
+</li>
+<li>
+<p><a href="Stopping-and-Starting-VMs.html" class="xref page">Stopping and Starting VMs</a></p>
+</li>
+<li>
+<p><a href="Allocating-a-Public-IP-to-Your-Account.html" class="xref page">Allocating a Public IP to Your Account</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Estimer le coût d&#8217;un produit – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Estimer-le-coût-d-un-produit.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Estimer-le-coût-d-un-produit.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Estimating-the-Cost-of-a-Product.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Estimer le coût d&#8217;un produit</h1>
+<div id="preamble" class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>En tant que visiteur ou acheteur sur OUTSCALE Marketplace, vous pouvez estimer le coût d&#8217;un produit image machine OUTSCALE (OMI) utilisé sur une ou plusieurs <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machines virtuelles (VM)</span> avant d&#8217;y souscrire.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez choisir d&#8217;estimer le coût du produit utilisé sur des VM OUTSCALE recommandées par le vendeur partenaire, ou sur des VM OUTSCALE personnalisables. L&#8217;estimation peut porter sur la Région cloudgouv-eu-west-1, et éventuellement sur eu-west-2 si le produit a été publié dans cette seconde Région.<br></p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Cette estimation ne constitue pas un devis ou une facture. Elle est valide pour une durée limitée et le coût indiqué est susceptible d&#8217;évoluer.</p>
+</li>
+<li>
+<p>Pour obtenir une estimation valide dans le cadre du marché Nuage public, voir <a href="Souscrire-à-une-offre-Nuage-public-UGAP.html" class="xref page">Souscrire à une offre Nuage public (UGAP)</a>.</p>
+</li>
+<li>
+<p>Le coût de VM indiqué n&#8217;inclut pas le stockage. Pour en savoir plus, voir <a href="Block-Storage-Unit-BSU.html" class="xref page">Block Storage Unit (BSU)</a> et la <a href="https://fr.outscale.com/tarifs/" target="_blank" rel="noopener">grille tarifaire de 3DS OUTSCALE</a>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Lorsque vous estimez le coût d&#8217;un produit sur la base d&#8217;une durée d&#8217;engagement, vous estimez le coût du produit utilisé sur une ou plusieurs VM réservées. Pour en savoir plus sur les VM réservées et les remises associées, voir <a href="À-propos-des-VM.html#_les_VM_réservées" class="xref page">À propos des VM &gt; VM réservées</a> et notre <a href="https://fr.outscale.com/tarifs/reservation-de-ressources-cloud/" target="_blank" rel="noopener">site officiel</a>.</p>
+</li>
+<li>
+<p>Pour en savoir plus sur la tarification des produits, voir <a href="Tarification-des-produits-OMI.html" class="xref page">Tarification des produits OMI</a>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Pour estimer le coût d&#8217;un produit :</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans l&#8217;interface Marketplace, cliquez sur l&#8217;onglet <strong>Catalogue</strong>.<br>
+Le catalogue de produits apparaît.</p>
+</li>
+<li>
+<p>Utilisez les filtres à gauche pour trouver le produit souhaité.</p>
+</li>
+<li>
+<p>Cliquez sur la vignette du produit souhaité.<br>
+La page du produit apparaît.</p>
+</li>
+<li>
+<p></p>
+<details>
+<summary class="title">Si vous souhaitez souscrire à une offre abonnement :</summary>
+<div class="content">
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Dans la section Logiciel, sélectionnez l’offre souhaitée s’il en existe plusieurs.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>La durée d’engagement et la fréquence de facturation sont automatiquement définies sur la base de l’offre sélectionnée.</p>
+</li>
+<li>
+<p>Vous pouvez directement passer à <a href="Estimer-le-coût-d-un-produit.html#step7">l&#8217;étape 7</a> de la procédure.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">Si vous souhaitez souscrire à une offre horaire et annuelle par type de VM :</summary>
+<div class="content">
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Dans la section Logiciel, sélectionnez la durée d&#8217;engagement, soit <strong>Sans engagement</strong> soit <strong>1 an</strong>.</p>
+</li>
+<li>
+<p>Si vous choisissez de vous engager sur un an, sélectionnez le nombre de licences auquel vous souhaitez souscrire.<br>
+Vous pouvez ensuite directement passer à <a href="Estimer-le-coût-d-un-produit.html#step7">l&#8217;étape 7</a> de la procédure.</p>
+</li>
+</ol>
+</div>
+</div>
+</details>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si vous souhaitez souscrire à un autre type d&#8217;offre du catalogue, aucun paramétrage n&#8217;est nécessaire à cette étape. Vous pouvez directement passer à l&#8217;étape suivante.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Dans la section Configuration des VM, sélectionnez votre durée d&#8217;engagement, soit <strong>Sans engagement</strong>, <strong>1 mois</strong>, <strong>1 an</strong>, <strong>2 ans</strong>, ou <strong>3 ans</strong>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>La durée d’engagement sélectionnée détermine les fréquences de facturation disponibles à l’étape suivante.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Sélectionnez votre fréquence de facturation, soit <strong>À la souscription</strong>, <strong>Au mois</strong>, ou <strong>À l&#8217;année</strong>.</p>
+</li>
+<li>
+<p><a id="step7"></a>Sélectionnez la Région de déploiement, soit <strong>cloudgouv-eu-west-1</strong> ou <strong>eu-west-2</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez un type de VM, soit <strong>VM recommandée</strong> ou <strong>VM personnalisable</strong>.</p>
+<details>
+<summary class="title">Si vous avez sélectionné VM recommandée :</summary>
+<div class="content">
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Sélectionnez une VM recommandée par le vendeur partenaire.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Les types de VM listés sont recommandés par le vendeur partenaire pour un déploiement viable du produit.
+Pour en savoir plus sur une VM recommandée, vous pouvez survoler le type de VM en bleu.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">Si vous avez sélectionné VM personnalisable :</summary>
+<div class="content">
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Configurez le type de VM souhaité.<br>
+Le type de VM et les prix sont mis à jour.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour en savoir plus sur les types de VM, voir <a href="Types-de-VM.html" class="xref page">Types de VM</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</details>
+</li>
+<li>
+<p>Sélectionnez le nombre de VM.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si vous souscrivez à une offre annuelle par type de VM, le nombre de licences sélectionné à l&#8217;étape 4 détermine le nombre de VM. Vous n&#8217;avez donc aucune sélection à effectuer pour cette étape.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Le coût du logiciel et de VM est mis à jour dans la section Estimation à droite.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-d-OUTSCALE-Marketplace.html" class="xref page">À propos d&#8217;OUTSCALE Marketplace</a></p>
+</li>
+<li>
+<p><a href="À-propos-des-VM.html" class="xref page">À propos des VM</a></p>
+</li>
+<li>
+<p><a href="Types-de-VM.html" class="xref page">Types de VM</a></p>
+</li>
+<li>
+<p><a href="Glossaire-de-facturation.html" class="xref page">Glossaire de facturation</a></p>
+</li>
+</ul>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>About Load Balancers – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="About-Load-Balancers.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/About-Load-Balancers.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/À-propos-des-load-balancers.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">About Load Balancers</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>A load balancer distributes incoming network traffic between multiple <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">virtual machines (VMs)</span> of the public Cloud or of a <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span> to avoid overload and to improve the availability and reliability of your services.</p>
+</div>
+<div class="paragraph">
+<p>You can:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Load balance using the TCP/SSL and HTTP/HTTPS protocols.</p>
+</li>
+<li>
+<p>Distribute the load between several <span class="tooltip" data-tooltip="Availability Zone (AZ) in AWS-Compliant APIs">Subregions</span> or Subnets.</p>
+</li>
+<li>
+<p>Set up health checks to verify the status of each VM and send traffic only to the healthy ones.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_general_information"><a class="anchor" href="About-Load-Balancers.html#_general_information"></a>General Information</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_load_balancers_and_backend_vms"><a class="anchor" href="About-Load-Balancers.html#_load_balancers_and_backend_vms"></a>Load Balancers and Backend <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VMs</span></h3>
+<div class="paragraph">
+<p>The VMs registered with a load balancer are called backend VMs, or backends. You can register as many backend VMs as you need with a load balancer, and register or deregister backend VMs at any time depending on your needs.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>You can register backend VMs using either their VM IDs or their <span class="tooltip" data-tooltip="External IP (EIP) in AWS-Compliant APIs">public IPs</span>. For more information, see <a href="Registering-VMs-with-a-Load-Balancer.html" class="xref page">Registering VMs with a Load Balancer</a>.</p>
+</li>
+<li>
+<p>A load balancer is created in a specific <span class="tooltip" data-tooltip="Availability Zone (AZ) in AWS-Compliant APIs">Subregion</span> or a specific Subnet, but it can distribute traffic to any Subregions of its Region or any Subnets of its <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Depending on its security group rules, a backend VM can receive either only the traffic coming from the load balancer or both the traffic coming from the load balancer and from elsewhere (another load balancer, directly from the internet, and so on).</p>
+</div>
+<div class="paragraph">
+<p>Load balancers work in round-robin mode: frontend requests are evenly distributed to backend VMs. The number of frontend requests received by one backend VM corresponds to the total number of frontend requests divided by the total number of backend VMs.</p>
+</div>
+<div class="paragraph">
+<p>The load balancer checks the health of backend VMs to determine the healthy ones that it can distribute the traffic to. For more information about health checks, see <a href="Configuring-Health-Checks.html" class="xref page">Configuring Health Checks</a>.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can configure only one type of health checks per load balancer, by specifying the protocol and port of backend VMs to check. We recommend creating one load balancer per service to avoid any undetected failure.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_load_balancer_types"><a class="anchor" href="About-Load-Balancers.html#_load_balancer_types"></a>Load Balancer Types</h3>
+<div class="paragraph">
+<p>A load balancer can be either internet-facing or internal:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>An internet-facing load balancer can be created in either the public Cloud or in a Net. This type of load balancer distributes inbound flows coming from the internet between its backend VMs that can be placed in different Subregions of a same Region or different Subnets of a same Net. This load balancer can be accessed through the internet.</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<div class="title">Internet-facing Load Balancer in the Public Cloud</div>
+<p><span class="image"><img src="_images/sch-LBU-InternetLBPublicCloud.png" alt="sch LBU InternetLBPublicCloud"></span></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<div class="title">Internet-facing Load Balancer in a Net</div>
+<p><span class="image"><img src="_images/sch-LBU-InternetLBNet.png" alt="sch LBU InternetLBNet"></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p>An internal load balancer can only be created in a Net. This type of load balancer distributes the traffic between its backend VMs within one or more Subnets of the Net. This load balancer can only be accessed from within the CIDR of the Net.</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<div class="title">Internal Load Balancer</div>
+<p><span class="image"><img src="_images/sch-LBU-InternalLB.png" alt="sch LBU InternalLB"></span></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_dns_name"><a class="anchor" href="About-Load-Balancers.html#_dns_name"></a>DNS Name</h3>
+<div class="paragraph">
+<p>A DNS name is automatically assigned to each load balancer and is composed of the name of the load balancer and its endpoint (<code>load-balancer-name.endpoint</code>). This DNS name enables you to access your load balancer and send requests to it.</p>
+</div>
+<div class="paragraph">
+<p>Internet-facing load balancers receive a public DNS name, while internal load balancers receive a private one.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Whether privately (in the Net) or publicly (on the internet), the DNS name of an internal load balancer is resolved to the private IP of the load balancer.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_public_ip"><a class="anchor" href="About-Load-Balancers.html#_public_ip"></a>Public IP</h3>
+<div class="paragraph">
+<p>Public IPs are public IPv4 addresses that you can allocate to your account. You can associate public IPs with internet-facing load balancers only, either in the Public Cloud or in a Net.</p>
+</div>
+<div class="paragraph">
+<p>Public IPs are owned either by 3DS OUTSCALE or by you, depending on what you specify when associating them.</p>
+</div>
+<div class="paragraph">
+<p>The table below covers the different association behaviors when using the <code>PublicIp</code> parameter:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">OUTSCALE API method</th>
+<th class="tableblock halign-left valign-top">public IP specification</th>
+<th class="tableblock halign-left valign-top">Association behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createloadbalancer" class="xref page">CreateLoadBalancer</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The public IP you specify is associated with the internet-facing load balancer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#createloadbalancer" class="xref page">CreateLoadBalancer</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not specified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A public IP owned by 3DS OUTSCALE is automatically created and associated with the internet-facing load balancer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updateloadbalancer" class="xref page">UpdateLoadBalancer</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If the previous public IP is yours, it is disassociated. If the previous public IP is owned by 3DS OUTSCALE, it is deleted.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updateloadbalancer" class="xref page">UpdateLoadBalancer</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specified with an empty value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If the previous public IP is yours, it is disassociated and replaced with a public IP owned by 3DS OUTSCALE. If the previous public IP is owned by 3DS OUTSCALE, it is kept and an error is returned.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#updateloadbalancer" class="xref page">UpdateLoadBalancer</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not specified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No change.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../../api%3Fconsole.html#deleteloadbalancer" class="xref page">DeleteLoadBalancer</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not required</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If the public IP is yours, it is disassociated. If the public IP is owned by 3DS OUTSCALE, it is deleted.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>For more information about public IPs, see <a href="About-Public-IPs.html" class="xref page">About Public IPs</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuration"><a class="anchor" href="About-Load-Balancers.html#_configuration"></a>Configuration</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_listeners"><a class="anchor" href="About-Load-Balancers.html#_listeners"></a>Listeners</h3>
+<div class="paragraph">
+<p>Each load balancer must be created with a listener to be able to receive requests. A listener corresponds to the process handling the requests coming to the load balancer from the internet or from a corporate network, configured with a protocol and a port, using a port between 1 and 65535 both included.</p>
+</div>
+<div class="paragraph">
+<p>You also configure the protocol and port to route traffic to backend <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VMs</span>.</p>
+</div>
+<div class="paragraph">
+<p>OUTSCALE load balancers support the HTTP/HTTPS and TCP/SSL protocols. Secure protocols are only supported between the client and the load balancer. The frontend and backend protocols must be on the same level, therefore:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the frontend protocol is HTTP or HTTPS, the backend protocol must be HTTP.</p>
+</li>
+<li>
+<p>If the frontend protocol is TCP or SSL, the backend protocol must be TCP.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The port number on which backend VMs are listening must be between 1 and 65535 both included.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>For the SSL protocol, OUTSCALE load balancers support the successor protocols TLS 1.1 and TLS 1.2. They do not support TLS 1.0 and deprecated versions of the original SSL.</p>
+</li>
+<li>
+<p>You cannot modify the configuration of a listener once it is created. However, you can add as many listeners as you need to a load balancer, and remove them if needed. For more information, see <a href="Adding-or-Deleting-Listeners.html" class="xref page">Adding or Deleting Listeners</a>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can also manage the behavior of a load balancer using listener rules. These rules enable you to redirect traffic to a specific backend VM based on a path in the URI of the request. For more information, see <a href="Creating-a-Listener-Rule.html" class="xref page">Creating a Listener Rule</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sticky_sessions"><a class="anchor" href="About-Load-Balancers.html#_sticky_sessions"></a>Sticky Sessions</h3>
+<div class="paragraph">
+<p>By default, a load balancer distributes each network request independently, which means that two successive requests of the same user may be routed to two different backend VMs. However, you can use a sticky session policy to bind the user to the backend VM that handled the first request.</p>
+</div>
+<div class="paragraph">
+<p>Sticky sessions work by creating a stickiness cookie with a specific duration. When the stickiness cookie expires, the sticky session is reset and the next request creates a new sticky session.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Sticky sessions can be configured for load balancers with HTTP and HTTPS listeners only.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>There are two types of sticky session policies:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Duration-based: The stickiness cookie has a specific time duration.</p>
+</li>
+<li>
+<p>Application-controlled: The stickiness cookie has the same duration as a cookie of the backend VM.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If the backend VM that the user is bound to becomes unhealthy, the sticky session is reset among the remaining healthy VMs. The session is then stuck to another VM until the cookie expires, even if the original VM becomes healthy again.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="Configuring-Sticky-Sessions-for-Your-Load-Balancers.html" class="xref page">Configuring Sticky Sessions for Your Load Balancers</a>.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can activate secure cookies on your load balancers. A secure cookie is a cookie that can only be emitted through HTTPS connections.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="Modifying-the-Attributes-of-a-Load-Balancer.html" class="xref page">Modifying the Attributes of a Load Balancer</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ssl_termination_and_ssl_passthrough"><a class="anchor" href="About-Load-Balancers.html#_ssl_termination_and_ssl_passthrough"></a>SSL Termination and SSL Passthrough</h3>
+<div class="paragraph">
+<p>You can create a listener with an x509 SSL server certificate for a load balancer to enable encrypted traffic in SSL or HTTPS protocol between the client initiating SSL or HTTPS connections and the load balancer. x509 server certificates are delivered by a certification authority, and contain authentication information like a public key and the signature of the certification authority. This certificate is used by the load balancer to decrypt connection requests from this client, which are then forwarded to its registered backend VMs in the protocol of your choice (TCP or HTTP).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The certificate used by the load balancer for SSL termination can be replaced at any time. For more information, see <a href="Replacing-the-SSL-Certificate-Used-by-an-HTTPS-or-SSL-Load-Balancer.html" class="xref page">Replacing the SSL Certificate Used by an HTTPS or SSL Load Balancer</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>SSL termination ensures the confidentiality of the communication between the client and the load balancer by checking the authentication information. The communication between your load balancer and its registered backend VMs is unencrypted and its security is ensured by the rules you add to the security groups of your backend VMs. You may need to use load balancers SSL termination for cases where you have to ensure confidentiality, for example, a website that requires a login and password authentication.</p>
+</div>
+<div class="paragraph">
+<p>You can also forward HTTPS flows to backend VMs that have an SSL certificate using the TCP protocol. With this method, called SSL passthrough, the server certificate is uploaded on the backend VMs instead of the load balancer. The load balancer does not decrypt data flowing between the client and the backend VMs through TCP protocol.</p>
+</div>
+<div class="paragraph">
+<p>For more information about how to configure load balancer listeners for load balancers with SSL termination or SSL passthrough, see <a href="Configuring-a-Load-Balancer-for-SSL-Termination-or-SSL-Passthrough.html" class="xref page">Configuring a Load Balancer for SSL Termination or SSL Passthrough</a>.</p>
+</div>
+<div class="paragraph">
+<p>You can create the SSL or HTTPS listener when creating the load balancer, or you can add it to the load balancer at any time. You first need to upload your server certificate in Elastic Identity Management (EIM), and then specify it when creating the listener using its OUTSCALE Resource Name (ORN). For more information, see <a href="Working-with-Server-Certificates.html" class="xref page">Working with Server Certificates</a>.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>It is recommended to use one certificate per load balancer.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="About-VMs.html" class="xref page">About VMs</a></p>
+</li>
+<li>
+<p><a href="About-Security-Groups-in-LBU.html" class="xref page">About Security Groups in LBU</a></p>
+</li>
+<li>
+<p><a href="About-Public-IPs.html" class="xref page">About Public IPs</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

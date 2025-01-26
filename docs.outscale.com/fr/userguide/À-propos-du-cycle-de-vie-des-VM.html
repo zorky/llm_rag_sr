@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>À propos du cycle de vie des VM – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="À-propos-du-cycle-de-vie-des-VM.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/À-propos-du-cycle-de-vie-des-VM.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/About-VM-Lifecycle.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">À propos du cycle de vie des VM</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Les <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machines virtuelles (VM)</span> Flexible Compute Unit (FCU) ont un cycle de vie spécifique depuis le moment où vous les créez jusqu&#8217;au moment où vous les terminez. Vous pouvez gérer leur cycle de vie, ce qui a des conséquences sur les ressources qui lui sont allouées ou attachées.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vue_densemble"><a class="anchor" href="À-propos-du-cycle-de-vie-des-VM.html#_vue_densemble"></a>Vue d&#8217;ensemble</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<div class="title">Cycle de vie d&#8217;une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span></div>
+<p><span class="image"><img src="_images/FR-sch-FCU-InstanceLifecycle.png" alt="FR sch FCU InstanceLifecycle"></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_création"><a class="anchor" href="À-propos-du-cycle-de-vie-des-VM.html#_création"></a>Création</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Créer une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> correspond à la fois à la créer puis à la démarrer. Une fois la VM créée, elle est à l&#8217;état pending jusqu&#8217;à ce qu&#8217;elle soit créée, démarrée et prête à l&#8217;usage. L&#8217;état de la VM passe alors à running.</p>
+</div>
+<div class="paragraph">
+<p>Le fait de créer une VM lui alloue les ressources matérielles correspondantes. Vous définissez la configuration matérielle du serveur qui l&#8217;héberge grâce à un type de VM, et le système d&#8217;exploitation, sa configuration et possiblement des applications logicielles grâce à une image machine OUTSCALE (OMI). Pour en savoir plus, voir <a href="À-propos-des-OMI.html" class="xref page">À propos des OMI</a>.</p>
+</div>
+<div class="paragraph">
+<p>La VM reçoit un ID unique, ainsi qu&#8217;une IP privée et un nom DNS privé associé qui peuvent uniquement être contactés depuis le Cloud. Si vous créez une VM dans le Cloud public, elle reçoit également une <span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">IP publique</span> et un nom DNS public associé. Cette IP publique est temporaire et change à chaque fois que vous arrêtez et démarrez la VM. Pour en savoir plus, voir <a href="À-propos-des-VM.html#_informations_générales_sur_les_vm" class="xref page">À propos des VM &gt; Informations générales sur les VM</a>.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Pour fixer une IP publique à une VM du Cloud public ou pour ajouter une IP publique fixe à une VM d&#8217;un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span>, vous pouvez lui attacher une <span class="tooltip" data-tooltip="IP publique dans l'API OUTSCALE">External IP (EIP)</span> puis utiliser le tag OUTSCALE osc.fcu.eip.auto-attach qui la fixe même lors du processus d&#8217;arrêt et de démarrage de la VM. Pour en savoir plus, voir <a href="À-propos-des-IP-publiques.html" class="xref page">À propos des IP publiques</a></p>
+</li>
+<li>
+<p>Pour créer une VM dans le Cloud public sans IP publique et sans nom DNS public associé, utilisez le tag OUTSCALE private-only.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus, voir <a href="Configurer-une-VM-avec-les-user-data-et-les-tags-OUTSCALE.html" class="xref page">Configurer une VM avec les user data et les tags OUTSCALE</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Vous pouvez également attacher des <span class="tooltip" data-tooltip="flexible network interface (FNI) dans les API AWS-compliant">network interface cards (NIC)</span> à une VM lors de sa création ou ultérieurement pour fragmenter son réseau. Pour en savoir plus, voir <a href="Network-interface-cards-NIC.html" class="xref page">Network interface cards (NIC)</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_arrêt_et_démarrage"><a class="anchor" href="À-propos-du-cycle-de-vie-des-VM.html#_arrêt_et_démarrage"></a>Arrêt et démarrage</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez arrêter une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> en cours de fonctionnement (running) à tout moment, puis la démarrer à nouveau. Arrêter une VM avec l&#8217;API correspond à la couper avec la commande du système d&#8217;exploitation.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez également forcer l&#8217;arrêt d&#8217;une VM. Cette action arrête la VM sans quitter proprement les applications en cours d&#8217;utilisation.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Attention"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Forcer l&#8217;arrêt d&#8217;une VM peut endommager son système.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Lorsque vous arrêtez une VM, celle-ci passe à l&#8217;état stopping, puis à l&#8217;état stopped. Lorsque vous démarrez une VM arrêtée, celle-ci est à l&#8217;état pending, puis passe ensuite à l&#8217;état running.</p>
+</div>
+<div class="paragraph">
+<p>Lors de l&#8217;arrêt et du démarrage de la VM, celle-ci conserve :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Son ID</p>
+</li>
+<li>
+<p>Son IP privée et son nom DNS privé associé</p>
+</li>
+<li>
+<p>L&#8217;<span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">IP publique</span> qui lui est attachée et fixée avec le tag OUTSCALE osc.fcu.eip.auto-attach (s&#8217;il y en a une)</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si la VM n&#8217;est pas taguée avec le tag OUTSCALE osc.fcu.eip.auto-attach, l&#8217;IP publique est détachée de la VM lorsque celle-ci est arrêtée.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Les volumes qui lui sont attachés (s&#8217;il y en a)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>À l&#8217;inverse, l&#8217;IP publique et le nom DNS public associé qui sont attribués à une VM du Cloud public lors de sa création changent lorsque celle-ci est arrêtée. La mémoire est également effacée.</p>
+</div>
+<div class="paragraph">
+<p>Lorsqu&#8217;une VM est à l&#8217;état stopped, vous pouvez modifier ses attributs comme le type de VM (quantité de vCores et de mémoire). Pour en savoir plus, voir <a href="Modifier-un-attribut-d-une-VM.html" class="xref page">Modifier un attribut d&#8217;une VM</a>.</p>
+</div>
+<div class="paragraph">
+<p>Il est également recommandé d&#8217;arrêter la VM si vous souhaitez traiter un volume attaché à celle-ci. Pour ce faire, détachez le volume de la VM lorsque celle-ci est arrêtée et attachez-le à une autre VM afin de le traiter. Lorsque vous réattachez le volume à la VM d&#8217;origine arrêtée, assurez-vous d&#8217;utiliser le même nom de périphérique que celui précisé dans le block device mapping avant de démarrer la VM. Pour en savoir plus, voir <a href="Attacher-un-volume-à-une-VM.html" class="xref page">Attacher un volume à une VM</a>, <a href="Détacher-un-volume-d-une-VM.html" class="xref page">Détacher un volume d&#8217;une VM</a> et <a href="Définir-des-block-device-mappings.html" class="xref page">Définir des block device mappings</a>.<br>
+Si souhaitez arrêter une VM qui est enregistrée auprès d&#8217;un load balancer, il est recommandé de la désenregistrer avant de l&#8217;arrêter, puis de la démarrer avant de l&#8217;enregistrer à nouveau si besoin. Pour en savoir plus, voir <a href="Load-Balancing-Unit-LBU.html" class="xref page">Load Balancing Unit (LBU)</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_arrêt_forcé"><a class="anchor" href="À-propos-du-cycle-de-vie-des-VM.html#_arrêt_forcé"></a>Arrêt forcé</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Si vous n&#8217;arrivez pas à arrêter votre <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> avec un arrêt classique, vous pouvez également forcer celle-ci à s&#8217;arrêter. Forcer l&#8217;arrêt d&#8217;une VM correspond à la débrancher, ce qui signifie que le système peut ne pas s&#8217;éteindre correctement.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Attention"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Forcer l&#8217;arrêt d&#8217;une VM peut endommager le système et corrompre les données. Assurez-vous que vous n&#8217;en avez plus besoin ou que vous avez une sauvegarde.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous pouvez consulter la sortie de la console de la VM et ainsi vérifier s&#8217;il y a un problème. Pour ce faire, voir <a href="Consulter-la-sortie-de-la-console-d-une-VM.html" class="xref page">Consulter la sortie de la console d&#8217;une VM</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>La liste ci-dessous recense les causes classiques pouvant expliquer pourquoi une VM ne s&#8217;arrête pas :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Un programme est en cours, ce qui empêche la VM de s&#8217;arrêter.<br>
+La cause la plus fréquente est qu&#8217;un programme utilise un filesystem, ce qui signifie qu&#8217;un programme est toujours en cours d&#8217;exécution sur un volume. Ceci empêche le filesystem d&#8217;être démonté, ce qui est requis pour que la VM s&#8217;arrête. Vous devez donc vous assurer qu&#8217;aucun programme n&#8217;utilise un filesystem (par exemple, NFS ou CRFS). Si c&#8217;est le cas, suivez l&#8217;une des trois options suivantes avant d&#8217;essayer d&#8217;arrêter la VM à nouveau :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Attendez que le programme s&#8217;arrête.</p>
+</li>
+<li>
+<p>Arrêtez le programme.</p>
+</li>
+<li>
+<p>Démontez le volume sur lequel le programme est en cours d&#8217;exécution.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Une mise à jour est en cours (par exemple, une mise à jour Windows).</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Attention"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Ne forcez pas une VM à s&#8217;arrêter pendant une mise à jour. Ceci pourrait endommager votre VM ou l&#8217;empêcher de redémarrer. Certaines mises à jour peuvent prendre beaucoup de temps (plusieurs heures) sur les types de VM de faible capacité.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Il y a des problèmes avec vos requêtes ACPI, qui permettent aux VM de s&#8217;arrêter convenablement.<br>
+Les deux raisons principales sont :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>La VM est hors-service. Dans ce cas, les requêtes ACPI sont ignorées.</p>
+</li>
+<li>
+<p>Les modules pci-hotplug et acpiphp ne sont pas installés sur votre VM, donc les requêtes ACPI ne sont pas supportées. Ceci peut se produire si vous avez utilisé votre propre OMI pour créer votre VM.<br>
+Vous pouvez vérifier dans le répertoire /etc/modules si ces modules sont installés ou non :</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell"># /etc/modules: kernel modules to load at boot time.
+#
+# This file contains the names of kernel modules that should be loaded
+# at boot time, one per line. Lines beginning with "#" are ignored.
+# Parameters can be specified after the module name.
+pci-hotplug
+acpiphp</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Si les modules ne sont pas installés, vous pouvez créer votre propre OMI en utilisant une OMI officielle et créer une nouvelle VM.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si la VM ne s&#8217;arrête pas malgré l&#8217;arrêt forcé, contactez notre équipe Support. Attention, le support n&#8217;aura pas d&#8217;autre choix que de couper votre VM, ce qui pourrait corrompre vos données. Pensez donc à les sauvegarder.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_redémarrage"><a class="anchor" href="À-propos-du-cycle-de-vie-des-VM.html#_redémarrage"></a>Redémarrage</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez redémarrer une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> en cours de fonctionnement à tout moment si besoin avec l&#8217;API, ce qui correspond à redémarrer le système d&#8217;exploitation. La VM redémarre sans suivre le processus d&#8217;arrêt et démarrage classique.</p>
+</div>
+<div class="paragraph">
+<p>La VM reste en fonctionnement (running) et conserve les ressources qui lui sont allouées. Les données stockées dans la mémoire restent disponibles après le redémarrage de la VM.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_suppression"><a class="anchor" href="À-propos-du-cycle-de-vie-des-VM.html#_suppression"></a>Suppression</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez terminer (supprimer) une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> dont vous n&#8217;avez plus besoin. Les VM terminées ne peuvent être récupérées. La VM passe à l&#8217;état <code>shutting-down</code>, puis l&#8217;état <code>terminated</code> une fois la suppression effectuée. La VM reste visible à l&#8217;état <code>terminated</code> pendant 1 heure, sans possibilité de la récupérer.</p>
+</div>
+<div class="paragraph">
+<p>Lorsque vous terminez une VM, ses ressources matérielles correspondantes sont libérées et les données stockées dans la mémoire sont effacées. Si une <span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">IP publique</span> est attachée à la VM, celle-ci est libérée mais reste allouée à votre compte.</p>
+</div>
+<div class="paragraph">
+<p>Le comportement des volumes BSU lorsque vous terminez la VM à laquelle ils sont attachés dépend du block device mapping. Par défaut, le volume système de la VM est supprimé alors que les autres volumes attachés sont détachés. Pour en savoir plus, voir <a href="Définir-des-block-device-mappings.html" class="xref page">Définir des block device mappings</a>.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez également configurer deux types de protection contre la suppression :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DisableApiTermination</code> : Cet attribut vous permet d&#8217;empêcher la suppression de la VM (par défaut, la suppression est autorisée).</p>
+</li>
+<li>
+<p><code>InstanceInitiatedShutDownBehavior</code> : Cet attribut vous permet de définir le comportement de la VM lorsque vous l&#8217;arrêtez ou la terminez. Par défaut ou si paramétré sur <code>stop</code>, la VM est arrêtée. Si paramétré sur <code>restart</code>, la VM est arrêtée puis automatiquement redémarrée. Si paramétré sur <code>terminate</code>, la VM est arrêtée puis terminée. Vous pouvez par exemple automatiquement terminer la VM à la fin d&#8217;une application en paramétrant cet attribut sur <code>terminate</code> et en demandant à la VM de s&#8217;arrêter quand l&#8217;application est fermée.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Ces deux attributs de protection contre la suppression peuvent être définis à la création de la VM et modifiés par la suite. Pour en savoir plus, voir <a href="Modifier-un-attribut-d-une-VM.html" class="xref page">Modifier un attribut d&#8217;une VM</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-VM.html" class="xref page">À propos des VM</a></p>
+</li>
+<li>
+<p><a href="Créer-des-VM.html" class="xref page">Créer des VM</a></p>
+</li>
+<li>
+<p><a href="Arrêter-et-démarrer-des-VM.html" class="xref page">Arrêter et démarrer des VM</a></p>
+</li>
+<li>
+<p><a href="Redémarrer-des-VM.html" class="xref page">Redémarrer des VM</a></p>
+</li>
+<li>
+<p><a href="Terminer-des-VM.html" class="xref page">Terminer des VM</a></p>
+</li>
+<li>
+<p><a href="Maintenance-de-notre-infrastructure.html" class="xref page">Maintenance de notre infrastructure</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

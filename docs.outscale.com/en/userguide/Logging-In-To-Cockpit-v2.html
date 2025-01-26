@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Logging In to Cockpit v2 – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="Logging-In-To-Cockpit-v2.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/Logging-In-To-Cockpit-v2.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Se-connecter-à-Cockpit-v2.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Logging In to Cockpit v2</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can log in to Cockpit v2, either as a root account or an Elastic Identity Management (EIM) user, using various methods with various degrees of security.</p>
+</div>
+<div class="paragraph">
+<p>You can log in to Cockpit v2 using single-factor authentication. This means you can authenticate in only one step, using one of the two available methods: your login and password, or your access keys.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you fail to authenticate four times in a row, further authentication attempts will be prevented for 1 minute. This locked time increases 1 minute every four consecutive failed attempts, for up to 10 minutes.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Additionally, you can increase the security of your account by using multi-factor authentication (MFA). This feature adds an extra step of authentication to the single-factor authentication by requesting either your enter a security key (either a physical USB key, or built-in your smartphone or computer), or a one-time password (OTP).</p>
+</div>
+<div class="paragraph">
+<p>For more information on authentication, see <a href="About-Authentication.html" class="xref page">About Authentication</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_single_factor_authentication"><a class="anchor" href="Logging-In-To-Cockpit-v2.html#_single_factor_authentication"></a>Single-Factor Authentication</h2>
+<div class="sectionbody">
+<div class="sect2 tab">
+<h3 id="As a Root Account_0"><a class="anchor" href="Logging-In-To-Cockpit-v2.html#As a Root Account_0"></a>As a Root Account</h3>
+<div class="sect3">
+<h4 id="_using_a_login_and_a_password"><a class="anchor" href="Logging-In-To-Cockpit-v2.html#_using_a_login_and_a_password"></a>Using a Login and a Password</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Access <a href="https://cockpit.outscale.com" target="_blank" rel="noopener">Cockpit v2</a>.</p>
+</li>
+<li>
+<p>Select the Region where your OUTSCALE account is located.</p>
+</li>
+<li>
+<p>In the <strong>Username</strong> field, type your email address.</p>
+</li>
+<li>
+<p>Click <strong>Log in</strong>.<br>
+The <strong>Password</strong> field appears.</p>
+</li>
+<li>
+<p>In the <strong>Password</strong> field, type your password.</p>
+</li>
+<li>
+<p>Click <strong>Log in</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_using_your_access_keys"><a class="anchor" href="Logging-In-To-Cockpit-v2.html#_using_your_access_keys"></a>Using Your Access Keys</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Access <a href="https://cockpit.outscale.com" target="_blank" rel="noopener">Cockpit v2</a>.</p>
+</li>
+<li>
+<p>Select the Region where your OUTSCALE account is located.</p>
+</li>
+<li>
+<p>Click <strong>Try another method</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Access key / Secret key</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Access key</strong> field, type the ID of your access key.</p>
+</li>
+<li>
+<p>In the <strong>Secret key</strong> field, type the corresponding secret key.</p>
+</li>
+<li>
+<p>Click <strong>Log in</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2 tab">
+<h3 id="As an EIM User_1"><a class="anchor" href="Logging-In-To-Cockpit-v2.html#As an EIM User_1"></a>As an EIM User</h3>
+<div class="sect3">
+<h4 id="_using_a_login_and_a_password_2"><a class="anchor" href="Logging-In-To-Cockpit-v2.html#_using_a_login_and_a_password_2"></a>Using a Login and a Password</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Before you begin</strong>: As an EIM user, you initially only have the option to log in to Cockpit v2 using the AK/SK created for you by the root account. Once logged in to Cockpit v2, you can then create your own password. For more information, see <a href="Creating-a-Password-as-an-EIM-User.html" class="xref page">Creating a Password as an EIM User</a>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Access <a href="https://cockpit.outscale.com" target="_blank" rel="noopener">Cockpit v2</a>.</p>
+</li>
+<li>
+<p>Select the Region where your OUTSCALE account is located.</p>
+</li>
+<li>
+<p>In the <strong>Username</strong> field, type your login.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Your login follows this format: <code>Account ID of the root account/your username</code> (for example: <code>012345678912/username</code>).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Click <strong>Log in</strong>.<br>
+The <strong>Password</strong> field appears.</p>
+</li>
+<li>
+<p>In the <strong>Password</strong> field, type your password.</p>
+</li>
+<li>
+<p>Click <strong>Log in</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_using_your_access_keys_2"><a class="anchor" href="Logging-In-To-Cockpit-v2.html#_using_your_access_keys_2"></a>Using Your Access Keys</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Access <a href="https://cockpit.outscale.com" target="_blank" rel="noopener">Cockpit v2</a>.</p>
+</li>
+<li>
+<p>Select the Region where your OUTSCALE account is located.</p>
+</li>
+<li>
+<p>Click <strong>Try another method</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Access key / Secret key</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Access key</strong> field, type the ID of your access key.</p>
+</li>
+<li>
+<p>In the <strong>Secret key</strong> field, type the corresponding secret key.</p>
+</li>
+<li>
+<p>Click <strong>Log in</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_multi_factor_authentication"><a class="anchor" href="Logging-In-To-Cockpit-v2.html#_multi_factor_authentication"></a>Multi-Factor Authentication</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Multi-factor authentication can be used in the same manner by both the root account and the EIM users.<br>
+To use multi-factor authentication you must authenticate using one of the two methods described in the previous section and one of the following methods.</p>
+</div>
+<div class="sect2 tab">
+<h3 id="WebAuthn_2"><a class="anchor" href="Logging-In-To-Cockpit-v2.html#WebAuthn_2"></a>Logging In and Out When Using WebAuthn</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>WebAuthn is a web standard using public key cryptography, that allows to authenticate on web applications through a security key (via USB, like a YubiKey, or built into your smartphone or tablet) or through the biometrics authentication on your computer or smartphone.</p>
+</li>
+<li>
+<p>An OTP is a short sequence of autogenerated numbers delivered in an application. It is only available for one short period of time, thus making it more difficult to use maliciously.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Before you begin</strong>: Set up MFA on your OUTSCALE account. For more information, see <a href="Setting-Up-MFA-for-Your-Account-Using-WebAuthn-or-an-OTP.html" class="xref page">Setting Up MFA for Your Account Using WebAuthn or an OTP</a>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Access <a href="https://cockpit.outscale.com" target="_blank" rel="noopener">Cockpit v2</a>.</p>
+</li>
+<li>
+<p>Select the Region where your OUTSCALE account is located.</p>
+</li>
+<li>
+<p>Enter your credentials and click <strong>Log in</strong>.<br>
+The Log in with second factor page appears.</p>
+</li>
+<li>
+<p>If you have only set up one compatible device, click <strong>Log in</strong>. If you have set up multiple compatible devices, select the appropriate one and click <strong>Log in</strong>.<br>
+A dialog box from your web browser appears.</p>
+</li>
+<li>
+<p>Follow the instructions from your web browser.</p>
+</li>
+<li>
+<p>To log out, click the <span class="image"><img src="_images/IconProfil.svg" alt="IconProfil"></span> icon in the top-right corner then <strong>Log Out</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2 tab">
+<h3 id="One-Time Password_3"><a class="anchor" href="Logging-In-To-Cockpit-v2.html#One-Time Password_3"></a>Logging In and Out When Using a One-Time Password</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>WebAuthn is a web standard using public key cryptography, that allows to authenticate on web applications through a security key (via USB, like a YubiKey, or built into your smartphone or tablet) or through the biometrics authentication on your computer or smartphone.</p>
+</li>
+<li>
+<p>An OTP is a short sequence of autogenerated numbers delivered in an application. It is only available for one short period of time, thus making it more difficult to use maliciously.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Before you begin</strong>: Set up MFA on your OUTSCALE account. For more information, see <a href="Setting-Up-MFA-for-Your-Account-Using-WebAuthn-or-an-OTP.html" class="xref page">Setting Up MFA for Your Account Using WebAuthn or an OTP</a>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Access <a href="https://cockpit.outscale.com" target="_blank" rel="noopener">Cockpit v2</a>.</p>
+</li>
+<li>
+<p>Select the Region where your OUTSCALE account is located.</p>
+</li>
+<li>
+<p>Enter your credentials and click <strong>Log in</strong>.<br>
+The Log in with second factor page appears.</p>
+</li>
+<li>
+<p>On your phone, open your chosen authentication application.</p>
+</li>
+<li>
+<p>In the <strong>One-time password</strong> field, enter the appropriate OTP given in the application.<br>
+You are logged into Cockpit v2.</p>
+</li>
+<li>
+<p>To log out, click the <span class="image"><img src="_images/IconProfil.svg" alt="IconProfil"></span> icon in the top-right corner then <strong>Log Out</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="About-Authentication.html" class="xref page">About Authentication</a></p>
+</li>
+<li>
+<p><a href="Creating-a-Password-as-an-EIM-User.html" class="xref page">Creating a Password as an EIM User</a></p>
+</li>
+<li>
+<p><a href="Setting-Up-MFA-for-Your-Account-Using-WebAuthn-or-an-OTP.html" class="xref page">Setting Up MFA for Your Account Using WebAuthn or an OTP</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

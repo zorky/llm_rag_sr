@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>À propos des volumes – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="À-propos-des-volumes.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/À-propos-des-volumes.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/About-Volumes.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">À propos des volumes</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Les volumes sont des disques durs virtuels que vous pouvez attacher à une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machine virtuelle (VM)</span> FCU créée dans la même <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Sous-région</span> afin de stocker des données. Un volume est défini par sa taille et sa capacité d&#8217;IOPS.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_volumes_et_vm"><a class="anchor" href="À-propos-des-volumes.html#_volumes_et_vm"></a>Volumes et VM</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Lorsque vous créez une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span>, un volume est automatiquement créé et attaché à celle-ci afin de stocker l&#8217;ensemble des données relatives au système d&#8217;exploitation (operating system - OS). Ce volume est appelé volume système et apparaît dans votre compte. Les volumes système ont une taille par défaut de 10 Gio pour les VM Linux (8 Gio pour les VM CentOS 7), et de 50 Gio pour les VM Windows. Vous pouvez stocker des données sur un volume système. En revanche, selon le block device mapping de l&#8217;OUTSCALE machine image (OMI) utilisée pour créer la VM, ce volume système peut être supprimé lorsque vous terminez la VM.</p>
+</div>
+<div class="paragraph">
+<p>Pour ajouter de la capacité de stockage à vos VM ou pour séparer vos données des fichiers de l&#8217;OS, vous pouvez créer des volumes avec la capacité de stockage de votre choix (dans les limites des quotas alloués à votre compte).</p>
+</div>
+<div class="paragraph">
+<p>Les volumes sont placés dans une <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Sous-région</span>.
+Si vous ne spécifiez aucune Sous-région, la Sous-région A est utilisée par défaut.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez attacher un volume à n&#8217;importe quelle VM au sein de cette Sous-région, dans le Cloud public ou dans un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span>. Lorsqu&#8217;un volume est attaché à une VM, celui-ci fonctionne comme un disque dur physique et peut-être utilisé de la même façon, après l&#8217;avoir initialisé comme vous l&#8217;auriez fait avec un disque dur physique. La VM peut ensuite interagir avec le volume et ainsi accéder à vos données. Lorsque vous arrêtez une VM, les volumes qui lui sont attachés restent attachés à celle-ci et vous pouvez ainsi y accéder à nouveau une fois la VM redémarrée.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Un volume attaché à une VM à l&#8217;état <code>running</code> est un volume chaud.</p>
+</li>
+<li>
+<p>Un volume attaché à une VM à l&#8217;état <code>stopped</code> ou un volume détaché est un volume froid.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>La persistance d&#8217;un volume est indépendante du cycle de vie de la VM : un volume peut facilement être détaché d&#8217;une VM à laquelle il était précédemment attaché, puis attaché à une autre VM. Lorsque vous terminez une VM, les volumes qui lui sont attachés sont soit supprimés ou détachés selon le block device mapping de la VM. Pour en savoir plus, voir <a href="Définir-des-block-device-mappings.html" class="xref page">Définir des block device mappings</a>.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez attacher jusqu&#8217;à 40 volumes (y compris le volume système) à une même VM. Cependant, un volume ne peut être attaché qu&#8217;à une seule VM à la fois.</p>
+</div>
+<div class="paragraph">
+<p>Un volume peut être dans un des états suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>creating</code> : Le processus de création du volume est en cours.</p>
+</li>
+<li>
+<p><code>available</code> : Le volume est créé mais pas attaché à une VM. Un volume est dans l&#8217;état <code>available</code> même si des données sont stockées sur celui-ci.</p>
+</li>
+<li>
+<p><code>in-use</code> : Le volume est attaché à une VM. Un volume est dans l&#8217;état <code>in-use</code> même si la VM à laquelle il est attaché est arrêtée.</p>
+</li>
+<li>
+<p><code>deleting</code> : Le processus de suppression du volume est en cours.</p>
+</li>
+<li>
+<p><code>error</code> : La création du volume a échoué.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour identifier vos ressources plus facilement, vous pouvez leur ajouter des tags. Pour en savoir plus, voir <a href="Ajouter-ou-retirer-des-tags.html" class="xref page">Ajouter ou retirer des tags</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_attachement_des_volumes_et_noms_de_périphériques"><a class="anchor" href="À-propos-des-volumes.html#_attachement_des_volumes_et_noms_de_périphériques"></a>Attachement des volumes et noms de périphériques</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous devez toujours attacher et monter le volume système (bootdisk) d&#8217;une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> en utilisant le nom de périphérique <code>/dev/sda1</code>, même si celui-ci apparaît en tant que <code>/dev/vda1</code> dans la VM elle-même. Pour tous les autres volumes que vous attachez à une VM, vous devez utiliser un nom de périphérique au format <code>/dev/xvdX</code> ou <code>/dev/xvdXX</code> (où le premier <code>X</code> est une lettre entre <code>b</code> et <code>z</code>, et le second <code>X</code> une lettre entre <code>a</code> et <code>z</code>).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Les OMI non officielles doivent supporter le PCI Hotplug. Sinon, le volume n&#8217;est pas visible lorsque vous l&#8217;attachez à une VM. Vous devez rebooter la VM et ajouter les modules suivants aux fichiers /etc/modules :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>pci-hotplug</p>
+</li>
+<li>
+<p>acpiphp</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_vm_linux"><a class="anchor" href="À-propos-des-volumes.html#_vm_linux"></a>VM Linux</h3>
+<div class="paragraph">
+<p>Pour les VM Linux, le nom de périphérique en <code>/dev/xvdX</code> ou <code>/dev/xvdXX</code> que vous choisissez pour vos volumes est transformé par Linux en nom de périphérique en <code>/dev/sdY</code> ou <code>/dev/sdYY</code>, suivant l&#8217;ordre dans lequel vous attachez vos volumes à la VM. Deux paquets OUTSCALE pour les VM CentOS et Ubuntu permettent de lier les noms de périphériques en <code>/dev/xvdX</code> ou <code>/dev/xvdXX</code> aux noms de périphériques Linux en <code>/dev/sdY</code> ou <code>/dev/sdYY</code>. Vous pouvez voir ces liens lorsque vous listez les périphériques depuis votre VM Linux dans le répertoire <code>/dev</code> :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de liste des périphériques</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ ls -l /dev/[svx][vd]*
+brw-rw---- 1 root disk   8,  0 30 mai   14:40 /dev/sda
+brw-rw---- 1 root disk   8, 16 30 mai   14:41 /dev/sdb
+brw-rw---- 1 root disk 253,  0 30 mai   14:16 /dev/vda
+brw-rw---- 1 root disk 253,  1 30 mai   14:16 /dev/vda1
+lrwxrwxrwx 1 root root       3 30 mai   14:41 /dev/xvdd -&gt; sdb
+lrwxrwxrwx 1 root root       3 30 mai   14:40 /dev/xvdh -&gt; sda</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Le fichier /etc/fstab de votre VM Linux doit être configuré avec des noms de périphériques au format /dev/xvdX et /dev/xvdXX.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_vm_windows"><a class="anchor" href="À-propos-des-volumes.html#_vm_windows"></a>VM Windows</h3>
+<div class="paragraph">
+<p>Dans une VM Windows, les volumes sont numérotés selon l&#8217;ordre dans lequel vous les avez attachés, indépendamment du nom de périphérique en <code>/dev/xvdX</code> ou <code>/dev/xvdXX</code> que vous choisissez. Le volume système est numéroté 0, le premier volume attaché est numéroté 1, et ainsi de suite. Si vous détachez un volume, le numéro qui lui est associé est libéré et réattribué au prochain volume que vous attachez à la VM.</p>
+</div>
+<div class="paragraph">
+<p>Pour récupérer le nom de périphérique de vos volumes dans une VM Windows, exécutez la commande PowerShell suivante :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-powershell hljs" data-lang="powershell">Get-WmiObject -class "Win32_DiskDrive" | Select-Object Name,SerialNumber</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de résultat</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">Name               SerialNumber
+----               ------------
+\\.\PHYSICALDRIVE0
+\\.\PHYSICALDRIVE1 sdb
+\\.\PHYSICALDRIVE2 sdh</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pour trouver le nom de périphérique, remplacez <code>sd</code> par <code>/dev/xvd</code>. Dans l&#8217;exemple ci-dessus, le volume 0 est le volume système, tandis que le volume 1 est le périphérique <code>/dev/xvdb</code> et le volume 2 est le périphérique <code>/dev/xvdh</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_persistance_des_données"><a class="anchor" href="À-propos-des-volumes.html#_persistance_des_données"></a>Persistance des données</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Les données stockées sur un volume persistent tant que le volume existe et vous pouvez y accéder tant que le volume est attaché à une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span>. Si vous supprimez un volume, les données stockées sur celui-ci sont supprimées également.</p>
+</div>
+<div class="paragraph">
+<p>Lorsque vous détachez un volume d&#8217;une VM, l&#8217;ensemble des données restent stockées sur celui-ci et le volume devient available. Vous pouvez alors l&#8217;attacher à une autre VM, ce qui vous permet d&#8217;accéder à vos données et les gérer à nouveau.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez sauvegarder vos données stockées sur un volume à l&#8217;aide de snapshots, qui peuvent par la suite être copiés dans une autre Région. Les snapshots vous permettent le retrouver vos données en cas de problème sur un volume ou après avoir supprimé un volume. Pour en savoir plus sur les snapshots et leur utilisation, voir <a href="Travailler-avec-les-snapshots.html" class="xref page">Travailler avec les snapshots</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_types_de_volumes_et_iops"><a class="anchor" href="À-propos-des-volumes.html#_types_de_volumes_et_iops"></a>Types de volumes et IOPS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>La performance d&#8217;un volume se mesure en IOPS (input output per second), c&#8217;est à dire le nombre d&#8217;opérations de lecture (input) et d&#8217;écriture (output) que peut faire un volume en une seconde.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez choisir entre différents types de volumes, selon les performances dont vous avez besoin :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Magnetic, avec un nombre d&#8217;IOPS fixe, peu importe la taille du volume.</p>
+</li>
+<li>
+<p>Performance, avec une possibilité de burst pour les volumes en dessous de 1 Tio.</p>
+</li>
+<li>
+<p>Enterprise, vous permettant de créer un volume avec le nombre d&#8217;IOPS dont vous avez besoin. Les volumes Enterprise sont des volumes SSD, qui ont donc une latence réduite entre le moment où l&#8217;ordre de l&#8217;opération est envoyé au volume et le moment où le volume l’exécute.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Astuce"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Les volumes BSU supportent la commande Discard pour nettoyer les blocs inutilisés. Pour en savoir plus, voir <a href="Configurer-et-utiliser-le-Discard.html" class="xref page">Configurer et utiliser le Discard</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Le tableau suivant présente des cas d&#8217;utilisation de base pour chaque type de volume et décrit leur caractéristiques de performance :</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top">Magnetic</th>
+<th class="tableblock halign-left valign-top">Performance (SSD)</th>
+<th class="tableblock halign-left valign-top">Enterprise (SSD)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Nom du volume pour l&#8217;API et AWS CLI</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>standard</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>gp2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>io1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cas d&#8217;utilisation</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Charges de travail froides où vous n&#8217;avez pas besoin d&#8217;accéder fréquemment à vos données</p>
+</li>
+<li>
+<p>Situations où avoir un prix de stockage bas est important</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>La plupart des charges de travail qui requièrent des performances modérées avec des coûts modérés</p>
+</li>
+<li>
+<p>Applications qui requièrent de hautes performances pour une durée limitée (par exemple, démarrer un système de fichier)</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Charges de travail où vous devez accéder fréquemment à vos données (par exemple, une base de données)</p>
+</li>
+<li>
+<p>Applications business critiques qui peuvent être bloquées par une faible performance du volume lorsque vous accédez aux données stockées dessus.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Taille du volume</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 Gio - 14,55 Tio (14901 Gio)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 Gio - 14,55 Tio (14901 Gio)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4 Gio - 14,55 Tio (14901 Gio)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Performance en IOPS</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>250 opérations en lecture par seconde</p>
+</li>
+<li>
+<p>150 opérations en écriture par seconde</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Entre 1 Gio et 1 Tio : Performance de base de 3 IOPS (opérations en lecture et écriture par seconde) par gibioctet, avec possibilité de burst</p>
+</li>
+<li>
+<p>Entre 1 Tio et 3,33 Tio : 3 IOPS (opérations en lecture et écriture par seconde) par gibioctet</p>
+</li>
+<li>
+<p>Entre 3,34 Tio et 14,55 Tio : 10000 IOPS (opérations en lecture et écriture par seconde)</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ratio de performance maximum de 300 IOPS par gibioctet</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Taille I/O</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16 Kio</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16 Kio</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16 Kio</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Minimum IOPS/volume</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Maximum IOPS/volume</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">13000</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Maximum IOPS/VM</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">36000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">36000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">36000</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Débit maximum/volume</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>12 Mio/s pour les opérations en lecture</p>
+</li>
+<li>
+<p>10 Mio/s pour les opérations en écrire</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">156 Mio/s</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">208 Mio/s</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Le débit maximum par VM est de 36000 IOPS, soit un débit de 562.5 Mio/s.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_crédit_diops_et_possibilité_de_burst_pour_les_volumes_performance"><a class="anchor" href="À-propos-des-volumes.html#_crédit_diops_et_possibilité_de_burst_pour_les_volumes_performance"></a>Crédit d&#8217;IOPS et possibilité de burst pour les volumes performance</h3>
+<div class="paragraph">
+<p>La performance en IOPS des volumes Performance (<code>gp2</code>) dépend de leur taille. Entre 1 Gio et 1 Tio, leur performance est régie par le principe du seau percé, décrit ci-dessous.</p>
+</div>
+<div class="paragraph">
+<p>Chaque volume Performance entre 1 Gio et 1 Tio reçoit un crédit d&#8217;IOPS initial de 5,4 millions d&#8217;IOPS, ce qui donne au volume une possibilité de burst à 3000 IOPS par seconde pendant 30 minutes maximum. Toutes les secondes, votre crédit d&#8217;IOPS se remplit de 3 IOPS par gibioctet. Plus vous avez de crédit d&#8217;IOPS pour votre volume, plus la durée de cette possibilité de burst au dessus de la performance de base de 3 IOPS par gibioctet est longue.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>La possibilité de burst et le crédit d&#8217;IOPS sont uniquement disponibles pour les volumes Performance de taille inférieure à 1 Tio, les performances de base des volumes de taille supérieure dépassant la performance de burst maximum de 3000 IOPS par seconde.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>La durée du burst dépend des trois éléments suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Crédit d&#8217;IOPS (5,4 millions IOPS au maximum)</p>
+</li>
+<li>
+<p>Performance de burst (3000 IOPS au maximum)</p>
+</li>
+<li>
+<p>Taille du volume</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Pour calculer la durée de burst maximum en secondes, utilisez l&#8217;équation suivante :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">Durée de burst = Crédit d'IOPS / (Performance de burst - 3 x Taille du volume)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Lorsque votre crédit d&#8217;IOPS est vide, le volume n&#8217;a plus de possibilité de burst. Sa performance reste à son niveau de base de 3 IOPS par gibioctet jusqu&#8217;à ce que la demande en IOPS descende sous ce niveau de base et que les IOPS que vous n&#8217;utilisez pas soient ajoutés à votre crédit d&#8217;IOPS.</p>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-VM.html" class="xref page">À propos des VM</a></p>
+</li>
+<li>
+<p><a href="Travailler-avec-les-snapshots.html" class="xref page">Travailler avec les snapshots</a></p>
+</li>
+<li>
+<p><a href="Isolation-des-ressources.html" class="xref page">Isolation des ressources</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

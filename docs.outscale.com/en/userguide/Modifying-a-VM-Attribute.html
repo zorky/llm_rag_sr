@@ -1,0 +1,1872 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Modifying a VM Attribute – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="Modifying-a-VM-Attribute.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/Modifying-a-VM-Attribute.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Modifier-un-attribut-d-une-VM.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Modifying a VM Attribute</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can modify an attribute of a <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">virtual machine (VM)</span>, such as its type, user data, or termination behavior. Depending on the attribute you want to modify, the VM must be running or stopped.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Cockpit v2_0"><a class="anchor" href="Modifying-a-VM-Attribute.html#Cockpit v2_0"></a>Modifying a VM Attribute Using Cockpit v2</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all" style="width: 99%;">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Before you begin:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To modify the <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span> Type attribute, you must stop the VM.</p>
+</li>
+<li>
+<p>Other attributes can be modified when the VM is running or stopped.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="Stopping-and-Starting-VMs.html" class="xref page">Stopping and Starting VMs</a> and <a href="About-VMs.html#_vm_attributes" class="xref page">About VMs &gt; VM Attributes</a>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In the <strong>VMs</strong> dashboard, check the box of the VM whose attributes you want to update.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Multiselection is available.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The VM is selected.</p>
+</div>
+</li>
+<li>
+<p>Hover over <span class="image"><img src="_images/IconEdit.svg" alt="IconEdit"></span> <strong>Update VM</strong>.<br>
+The attributes available for modification appear.</p>
+</li>
+</ol>
+</div>
+<div class="sect2">
+<h3 id="_optional_modify_the_security_groups_associated_with_the_vm"><a class="anchor" href="Modifying-a-VM-Attribute.html#_optional_modify_the_security_groups_associated_with_the_vm"></a>(optional) Modify the Security Groups Associated with the VM</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Click <span class="image"><img src="_images/IconSecurityGroup.svg" alt="IconSecurityGroup"></span> <strong>Security Groups</strong>.<br>
+The UPDATE SECURITY GROUPS dialog box appears.</p>
+</li>
+<li>
+<p>Click in the field to make the list of security groups appear.<br>
+From the list, select the security group(s) you want to associate with the VM.</p>
+</li>
+<li>
+<p>To disassociate a security group from the VM, click <span class="image"><img src="_images/IconClose.svg" alt="IconClose"></span> next to the name of the security group.</p>
+</li>
+<li>
+<p>Click <strong>Update</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_optional_modify_the_vm_type"><a class="anchor" href="Modifying-a-VM-Attribute.html#_optional_modify_the_vm_type"></a>(optional) Modify the VM Type</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Click the <span class="image"><img src="_images/IconEdit.svg" alt="IconEdit"></span> <strong>VM Type</strong>.<br>
+The UPDATE VM TYPE dialog box appears.</p>
+</li>
+<li>
+<p>Specify the following attributes for your VM:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>CPU generation:</strong> The processor generation.</p>
+</li>
+<li>
+<p><strong>Performance:</strong> The performance flag.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Highest: Maximum compute capacity on all the cores of the VM. This option is ideal for intensive compute applications that require stable performances during the VM lifecycle.</p>
+</li>
+<li>
+<p>High: High compute capacity on all the cores of the VM. This option offers small performance variability and applies to most cases.</p>
+</li>
+<li>
+<p>Medium: Performance with significant variability on all the cores of the VM. This option does not guarantee consistent performance, but is ideal for machines with low CPU demand.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><strong>Core(s):</strong> The number of vCores, up to 78.</p>
+</li>
+<li>
+<p><strong>Memory (GiB):</strong> The amount of memory, up to 1039 GiB.</p>
+</li>
+</ul>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>For more information about VM types, see <a href="VM-Types.html" class="xref page">VM Types</a>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>To function properly, Windows VMs require at least a v3 processor generation, 2 vCores, and 4 GiB of memory.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Click <strong>Update</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_optional_modify_the_shutdown_behavior_of_the_vm"><a class="anchor" href="Modifying-a-VM-Attribute.html#_optional_modify_the_shutdown_behavior_of_the_vm"></a>(optional) Modify the Shutdown Behavior of the VM</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Click the <span class="image"><img src="_images/IconForceStop.svg" alt="IconForceStop"></span> <strong>Shutdown Behavior</strong>.<br>
+The UPDATE SHUTDOWN BEHAVIOR dialog box appears.</p>
+</li>
+<li>
+<p>From the list, select one of the following values:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Stop</code>: When you initiate the shutdown, the VM stops.</p>
+</li>
+<li>
+<p><code>Terminate</code>: When you initiate the shutdown, the VM stops and is terminated.</p>
+</li>
+<li>
+<p><code>Restart</code>: When you initiate the shutdown, the VM stops, then automatically restarts.</p>
+<div class="paragraph">
+<p>For more information, see <a href="About-VM-Lifecycle.html#_termination" class="xref page">About VM Lifecycle &gt; Termination</a>.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Click <strong>Update</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_optional_modify_the_deletion_protection_of_the_vm"><a class="anchor" href="Modifying-a-VM-Attribute.html#_optional_modify_the_deletion_protection_of_the_vm"></a>(optional) Modify the Deletion Protection of the VM</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Click the <span class="image"><img src="_images/IconDeletionProtection.svg" alt="IconDeletionProtection"></span> <strong>Deletion Protection</strong>.<br>
+The UPDATE DELETION PROTECTION dialog box appears.</p>
+</li>
+<li>
+<p>Switch the button on or off:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>If on, you cannot delete the VM.</p>
+</li>
+<li>
+<p>If off, you can delete it using any interface.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Click <strong>Update</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="OSC CLI_1"><a class="anchor" href="Modifying-a-VM-Attribute.html#OSC CLI_1"></a>Modifying a VM Attribute Using OSC CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Before you begin:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To modify the <code>VmType</code>, <code>UserData</code>, <code>Performance</code> and <code>NestedVirtualization</code> attributes, you must stop the <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span>.</p>
+</li>
+<li>
+<p>Other attributes can be modified when the VM is running or stopped.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="Stopping-and-Starting-VMs.html" class="xref page">Stopping and Starting VMs</a> and <a href="About-VMs.html#_vm_attributes" class="xref page">About VMs &gt; VM Attributes</a>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The <strong>UpdateVm</strong> command modifies the specified attributes of a virtual machine (VM).<br>
+You must stop the VM before modifying the following attributes:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>NestedVirtualization</code><br></p>
+</li>
+<li>
+<p><code>Performance</code><br></p>
+</li>
+<li>
+<p><code>UserData</code><br></p>
+</li>
+<li>
+<p><code>VmType</code></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api UpdateVm --profile "default" \
+    --VmId "i-12345678" \
+    --VmType "tinav5.c2r2p2"</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ osc-cli api UpdateVm --profile "default" \
+    --VmId "i-12345678" \
+    --UserData "$(base64 -i user_data.txt)"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>BlockDeviceMappings</code>: (optional) One or more block device mappings of the VM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Bsu</code>: (optional) Information about the BSU volume.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteOnVmDeletion</code>: (optional) If set to true, the volume is deleted when terminating the VM. If set to false, the volume is not deleted when terminating the VM.</p>
+</li>
+<li>
+<p><code>VolumeId</code>: (optional) The ID of the volume.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>DeviceName</code>: (optional) The device name for the volume. For a root device, you must use <code>/dev/sda1</code>. For other volumes, you must use <code>/dev/sdX</code>, <code>/dev/sdXX</code>, <code>/dev/xvdX</code>, or <code>/dev/xvdXX</code> (where the first <code>X</code> is a letter between <code>b</code> and <code>z</code>, and the second <code>X</code> is a letter between <code>a</code> and <code>z</code>).</p>
+</li>
+<li>
+<p><code>NoDevice</code>: (optional) Removes the device which is included in the block device mapping of the OMI.</p>
+</li>
+<li>
+<p><code>VirtualDeviceName</code>: (optional) The name of the virtual device (<code>ephemeralN</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>BsuOptimized</code>: (optional) This parameter is not available. It is present in our API for the sake of historical compatibility with AWS.</p>
+</li>
+<li>
+<p><code>DeletionProtection</code>: (optional) If true, you cannot delete the VM unless you change this parameter back to false.</p>
+</li>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>IsSourceDestChecked</code>: (optional) (<span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span> only) If true, the source/destination check is enabled. If false, it is disabled.</p>
+</li>
+<li>
+<p><code>KeypairName</code>: (optional) The name of a keypair you want to associate with the VM.<br>
+When you replace the keypair of a VM with another one, the metadata of the VM is modified to reflect the new public key, but the replacement is still not effective in the operating system of the VM. To complete the replacement and effectively apply the new keypair, you need to perform other actions inside the VM. For more information, see <a href="Modifying-the-Keypair-of-a-VM.html" target="_blank" rel="noopener">Modifying the Keypair of a VM</a>.</p>
+</li>
+<li>
+<p><code>NestedVirtualization</code>: (optional) (dedicated tenancy only) If true, nested virtualization is enabled. If false, it is disabled.</p>
+</li>
+<li>
+<p><code>Performance</code>: (optional) The performance of the VM (<code>medium</code> | <code>high</code> |  <code>highest</code>).</p>
+</li>
+<li>
+<p><code>SecurityGroupIds</code>: (optional) One or more IDs of security groups for the VM.</p>
+</li>
+<li>
+<p><code>UserData</code>: (optional) The Base64-encoded MIME user data, limited to 500 kibibytes (KiB).</p>
+</li>
+<li>
+<p><code>VmId</code>: The ID of the VM.</p>
+</li>
+<li>
+<p><code>VmInitiatedShutdownBehavior</code>: (optional) The VM behavior when you stop it. If set to <code>stop</code>, the VM stops. If set to <code>restart</code>, the VM stops then automatically restarts. If set to <code>terminate</code>, the VM stops and is terminated.</p>
+</li>
+<li>
+<p><code>VmType</code>: (optional) The type of VM. For more information, see <a href="VM-Types.html" target="_blank" rel="noopener">VM Types</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>UpdateVm</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Vm</code>: Information about the VM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Architecture</code>: The architecture of the VM (<code>i386</code> | <code>x86_64</code>).</p>
+</li>
+<li>
+<p><code>BlockDeviceMappings</code>: The block device mapping of the VM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Bsu</code>: Information about the created BSU volume.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteOnVmDeletion</code>: If true, the volume is deleted when terminating the VM. If false, the volume is not deleted when terminating the VM.</p>
+</li>
+<li>
+<p><code>LinkDate</code>: The date and time (UTC) at which the volume was attached to the VM, in ISO 8601 date-time format.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the volume.</p>
+</li>
+<li>
+<p><code>VolumeId</code>: The ID of the volume.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>DeviceName</code>: The name of the device.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>BsuOptimized</code>: This parameter is not available. It is present in our API for the sake of historical compatibility with AWS.</p>
+</li>
+<li>
+<p><code>ClientToken</code>: The idempotency token provided when launching the VM.</p>
+</li>
+<li>
+<p><code>CreationDate</code>: The date and time (UTC) at which the VM was created.</p>
+</li>
+<li>
+<p><code>DeletionProtection</code>: If true, you cannot delete the VM unless you change this parameter back to false.</p>
+</li>
+<li>
+<p><code>Hypervisor</code>: The hypervisor type of the VMs (<code>ovm</code> | <code>xen</code>).</p>
+</li>
+<li>
+<p><code>ImageId</code>: The ID of the OMI used to create the VM.</p>
+</li>
+<li>
+<p><code>IsSourceDestChecked</code>: (Net only) If true, the source/destination check is enabled. If false, it is disabled.</p>
+</li>
+<li>
+<p><code>KeypairName</code>: The name of the keypair used when launching the VM.</p>
+</li>
+<li>
+<p><code>LaunchNumber</code>: The number for the VM when launching a group of several VMs (for example, <code>0</code>, <code>1</code>, <code>2</code>, and so on).</p>
+</li>
+<li>
+<p><code>NestedVirtualization</code>: If true, nested virtualization is enabled. If false, it is disabled.</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net in which the VM is running.</p>
+</li>
+<li>
+<p><code>Nics</code>: (Net only) The <span class="tooltip" data-tooltip="flexible network interface (FNI) in AWS-Compliant APIs">network interface cards (NICs)</span> the VMs are attached to.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountId</code>: The account ID of the owner of the NIC.</p>
+</li>
+<li>
+<p><code>Description</code>: The description of the NIC.</p>
+</li>
+<li>
+<p><code>IsSourceDestChecked</code>: (Net only) If true, the source/destination check is enabled. If false, it is disabled.</p>
+</li>
+<li>
+<p><code>LinkNic</code>: Information about the network interface card (NIC).</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteOnVmDeletion</code>: If true, the NIC is deleted when the VM is terminated.</p>
+</li>
+<li>
+<p><code>DeviceNumber</code>: The device index for the NIC attachment (between <code>1</code> and <code>7</code>, both included).</p>
+</li>
+<li>
+<p><code>LinkNicId</code>: The ID of the NIC to attach.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the attachment (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>LinkPublicIp</code>: Information about the <span class="tooltip" data-tooltip="External IP (EIP) in AWS-Compliant APIs">public IP</span> associated with the NIC.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>PublicDnsName</code>: The name of the public DNS.</p>
+</li>
+<li>
+<p><code>PublicIp</code>: The public IP associated with the NIC.</p>
+</li>
+<li>
+<p><code>PublicIpAccountId</code>: The account ID of the owner of the public IP.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>MacAddress</code>: The Media Access Control (MAC) address of the NIC.</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net for the NIC.</p>
+</li>
+<li>
+<p><code>NicId</code>: The ID of the NIC.</p>
+</li>
+<li>
+<p><code>PrivateDnsName</code>: The name of the private DNS.</p>
+</li>
+<li>
+<p><code>PrivateIps</code>: The private IP or IPs of the NIC.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>IsPrimary</code>: If true, the IP is the primary private IP of the NIC.</p>
+</li>
+<li>
+<p><code>LinkPublicIp</code>: Information about the public IP associated with the NIC.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>PublicDnsName</code>: The name of the public DNS.</p>
+</li>
+<li>
+<p><code>PublicIp</code>: The public IP associated with the NIC.</p>
+</li>
+<li>
+<p><code>PublicIpAccountId</code>: The account ID of the owner of the public IP.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>PrivateDnsName</code>: The name of the private DNS.</p>
+</li>
+<li>
+<p><code>PrivateIp</code>: The private IP.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>SecurityGroups</code>: One or more IDs of security groups for the NIC.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SecurityGroupId</code>: The ID of the security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: The name of the security group.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>State</code>: The state of the NIC (<code>available</code> | <code>attaching</code> | <code>in-use</code> | <code>detaching</code>).</p>
+</li>
+<li>
+<p><code>SubnetId</code>: The ID of the Subnet for the NIC.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>OsFamily</code>: Indicates the operating system (OS) of the VM.</p>
+</li>
+<li>
+<p><code>Performance</code>: The performance of the VM (<code>medium</code> | <code>high</code> |  <code>highest</code>).</p>
+</li>
+<li>
+<p><code>Placement</code>: Information about the placement of the VM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SubregionName</code>: The name of the <span class="tooltip" data-tooltip="Availability Zone (AZ) in AWS-Compliant APIs">Subregion</span>. If you specify this parameter, you must not specify the <code>Nics</code> parameter.</p>
+</li>
+<li>
+<p><code>Tenancy</code>: The tenancy of the VM (<code>default</code>, <code>dedicated</code>, or a dedicated group ID).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>PrivateDnsName</code>: The name of the private DNS.</p>
+</li>
+<li>
+<p><code>PrivateIp</code>: The primary private IP of the VM.</p>
+</li>
+<li>
+<p><code>ProductCodes</code>: The product codes associated with the OMI used to create the VM.</p>
+</li>
+<li>
+<p><code>PublicDnsName</code>: The name of the public DNS.</p>
+</li>
+<li>
+<p><code>PublicIp</code>: The public IP of the VM.</p>
+</li>
+<li>
+<p><code>ReservationId</code>: The reservation ID of the VM.</p>
+</li>
+<li>
+<p><code>RootDeviceName</code>: The name of the root device for the VM (for example, <code>/dev/sda1</code>).</p>
+</li>
+<li>
+<p><code>RootDeviceType</code>: The type of root device used by the VM (always <code>bsu</code>).</p>
+</li>
+<li>
+<p><code>SecurityGroups</code>: One or more security groups associated with the VM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SecurityGroupId</code>: The ID of the security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: The name of the security group.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>State</code>: The state of the VM (<code>pending</code> | <code>running</code> | <code>stopping</code> | <code>stopped</code> | <code>shutting-down</code> | <code>terminated</code> | <code>quarantine</code>).</p>
+</li>
+<li>
+<p><code>StateReason</code>: The reason explaining the current state of the VM.</p>
+</li>
+<li>
+<p><code>SubnetId</code>: The ID of the Subnet for the VM.</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the VM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>UserData</code>: The Base64-encoded MIME user data.</p>
+</li>
+<li>
+<p><code>VmId</code>: The ID of the VM.</p>
+</li>
+<li>
+<p><code>VmInitiatedShutdownBehavior</code>: The VM behavior when you stop it. If set to <code>stop</code>, the VM stops. If set to <code>restart</code>, the VM stops then automatically restarts. If set to <code>terminate</code>, the VM stops and is deleted.</p>
+</li>
+<li>
+<p><code>VmType</code>: The type of VM. For more information, see <a href="VM-Types.html" target="_blank" rel="noopener">VM Types</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "Vm": {
+    "VmType": "tinav5.c2r2p2",
+    "VmInitiatedShutdownBehavior": "stop",
+    "State": "stopped",
+    "StateReason": "",
+    "RootDeviceType": "ebs",
+    "RootDeviceName": "/dev/sda1",
+    "IsSourceDestChecked": true,
+    "KeypairName": "keypair-example",
+    "ImageId": "ami-12345678",
+    "DeletionProtection": false,
+    "Architecture": "x86_64",
+    "NestedVirtualization": false,
+    "BlockDeviceMappings": [
+      {
+        "DeviceName": "/dev/sda1",
+        "Bsu": {
+          "VolumeId": "vol-12345678",
+          "State": "attached",
+          "LinkDate": "2010-10-01T12:34:56.789Z",
+          "DeleteOnVmDeletion": true
+        }
+      }
+    ],
+    "VmId": "i-12345678",
+    "ReservationId": "r-12345678",
+    "Hypervisor": "xen",
+    "Placement": {
+      "Tenancy": "default",
+      "SubregionName": "eu-west-2a"
+    },
+    "ProductCodes": [
+      "0001"
+    ],
+    "CreationDate": "2010-10-01T12:34:56.789Z",
+    "UserData": "",
+    "SubnetId": "subnet-12345678",
+    "PrivateIp": "10.0.0.4",
+    "SecurityGroups": [
+      {
+        "SecurityGroupName": "security-group-example",
+        "SecurityGroupId": "sg-12345678"
+      }
+    ],
+    "BsuOptimized": false,
+    "LaunchNumber": 0,
+    "NetId": "vpc-12345678",
+    "Nics": [
+      {
+        "SubnetId": "subnet-12345678",
+        "State": "in-use",
+        "LinkNic": {
+          "State": "attached",
+          "DeviceNumber": 0,
+          "LinkNicId": "eni-attach-12345678",
+          "DeleteOnVmDeletion": true
+        },
+        "IsSourceDestChecked": true,
+        "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal",
+        "Description": "Primary network interface",
+        "AccountId": "123456789012",
+        "SecurityGroups": [
+          {
+            "SecurityGroupName": "security-group-example",
+            "SecurityGroupId": "sg-12345678"
+          }
+        ],
+        "MacAddress": "A1:B2:C3:D4:E5:F6",
+        "NetId": "vpc-12345678",
+        "NicId": "eni-12345678",
+        "PrivateIps": [
+          {
+            "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal",
+            "PrivateIp": "10.0.0.4",
+            "IsPrimary": true
+          }
+        ]
+      }
+    ],
+    "Performance": "high",
+    "Tags": [
+      {
+        "Value": "prod",
+        "Key": "env"
+      }
+    ],
+    "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal"
+  },
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "Vm": {
+    "VmType": "tinav5.c1r1p2",
+    "VmInitiatedShutdownBehavior": "stop",
+    "State": "stopped",
+    "StateReason": "",
+    "RootDeviceType": "ebs",
+    "RootDeviceName": "/dev/sda1",
+    "IsSourceDestChecked": true,
+    "KeypairName": "keypair-example",
+    "ImageId": "ami-12345678",
+    "DeletionProtection": true,
+    "Architecture": "x86_64",
+    "NestedVirtualization": false,
+    "BlockDeviceMappings": [
+      {
+        "DeviceName": "/dev/sda1",
+        "Bsu": {
+          "VolumeId": "vol-12345678",
+          "State": "attached",
+          "LinkDate": "2010-10-01T12:34:56.789Z",
+          "DeleteOnVmDeletion": true
+        }
+      }
+    ],
+    "VmId": "i-12345678",
+    "ReservationId": "r-12345678",
+    "Hypervisor": "xen",
+    "Placement": {
+      "Tenancy": "default",
+      "SubregionName": "eu-west-2a"
+    },
+    "ProductCodes": [
+      "0001"
+    ],
+    "CreationDate": "2010-10-01T12:34:56.789Z",
+    "UserData": "...",
+    "SubnetId": "subnet-12345678",
+    "PrivateIp": "10.0.0.4",
+    "SecurityGroups": [
+      {
+        "SecurityGroupName": "security-group-example",
+        "SecurityGroupId": "sg-12345678"
+      }
+    ],
+    "BsuOptimized": false,
+    "LaunchNumber": 0,
+    "NetId": "vpc-12345678",
+    "Nics": [
+      {
+        "SubnetId": "subnet-12345678",
+        "State": "in-use",
+        "LinkNic": {
+          "State": "attached",
+          "DeviceNumber": 0,
+          "LinkNicId": "eni-attach-12345678",
+          "DeleteOnVmDeletion": true
+        },
+        "IsSourceDestChecked": true,
+        "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal",
+        "Description": "Primary network interface",
+        "AccountId": "123456789012",
+        "SecurityGroups": [
+          {
+            "SecurityGroupName": "security-group-example",
+            "SecurityGroupId": "sg-12345678"
+          }
+        ],
+        "MacAddress": "A1:B2:C3:D4:E5:F6",
+        "NetId": "vpc-12345678",
+        "NicId": "eni-12345678",
+        "PrivateIps": [
+          {
+            "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal",
+            "PrivateIp": "10.0.0.4",
+            "IsPrimary": true
+          }
+        ]
+      }
+    ],
+    "Performance": "high",
+    "Tags": [
+      {
+        "Value": "prod",
+        "Key": "env"
+      }
+    ],
+    "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal"
+  },
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="oapi-cli_2"><a class="anchor" href="Modifying-a-VM-Attribute.html#oapi-cli_2"></a>Modifying a VM Attribute Using oapi-cli</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Before you begin:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To modify the <code>VmType</code>, <code>UserData</code>, <code>Performance</code> and <code>NestedVirtualization</code> attributes, you must stop the <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">VM</span>.</p>
+</li>
+<li>
+<p>Other attributes can be modified when the VM is running or stopped.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="Stopping-and-Starting-VMs.html" class="xref page">Stopping and Starting VMs</a> and <a href="About-VMs.html#_vm_attributes" class="xref page">About VMs &gt; VM Attributes</a>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The <strong>UpdateVm</strong> command modifies the specified attributes of a virtual machine (VM).<br>
+You must stop the VM before modifying the following attributes:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>NestedVirtualization</code><br></p>
+</li>
+<li>
+<p><code>Performance</code><br></p>
+</li>
+<li>
+<p><code>UserData</code><br></p>
+</li>
+<li>
+<p><code>VmType</code></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" UpdateVm \
+    --VmId "i-12345678" \
+    --VmType "tinav5.c2r2p2"</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ oapi-cli --profile "default" UpdateVm \
+    --VmId "i-12345678" \
+    --UserData "$(base64 -i user_data.txt)"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>BlockDeviceMappings</code>: (optional) One or more block device mappings of the VM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Bsu</code>: (optional) Information about the BSU volume.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteOnVmDeletion</code>: (optional) If set to true, the volume is deleted when terminating the VM. If set to false, the volume is not deleted when terminating the VM.</p>
+</li>
+<li>
+<p><code>VolumeId</code>: (optional) The ID of the volume.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>DeviceName</code>: (optional) The device name for the volume. For a root device, you must use <code>/dev/sda1</code>. For other volumes, you must use <code>/dev/sdX</code>, <code>/dev/sdXX</code>, <code>/dev/xvdX</code>, or <code>/dev/xvdXX</code> (where the first <code>X</code> is a letter between <code>b</code> and <code>z</code>, and the second <code>X</code> is a letter between <code>a</code> and <code>z</code>).</p>
+</li>
+<li>
+<p><code>NoDevice</code>: (optional) Removes the device which is included in the block device mapping of the OMI.</p>
+</li>
+<li>
+<p><code>VirtualDeviceName</code>: (optional) The name of the virtual device (<code>ephemeralN</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>BsuOptimized</code>: (optional) This parameter is not available. It is present in our API for the sake of historical compatibility with AWS.</p>
+</li>
+<li>
+<p><code>DeletionProtection</code>: (optional) If true, you cannot delete the VM unless you change this parameter back to false.</p>
+</li>
+<li>
+<p><code>DryRun</code>: (optional) If true, checks whether you have the required permissions to perform the action.</p>
+</li>
+<li>
+<p><code>IsSourceDestChecked</code>: (optional) (<span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) in AWS-Compliant APIs">Net</span> only) If true, the source/destination check is enabled. If false, it is disabled.</p>
+</li>
+<li>
+<p><code>KeypairName</code>: (optional) The name of a keypair you want to associate with the VM.<br>
+When you replace the keypair of a VM with another one, the metadata of the VM is modified to reflect the new public key, but the replacement is still not effective in the operating system of the VM. To complete the replacement and effectively apply the new keypair, you need to perform other actions inside the VM. For more information, see <a href="Modifying-the-Keypair-of-a-VM.html" target="_blank" rel="noopener">Modifying the Keypair of a VM</a>.</p>
+</li>
+<li>
+<p><code>NestedVirtualization</code>: (optional) (dedicated tenancy only) If true, nested virtualization is enabled. If false, it is disabled.</p>
+</li>
+<li>
+<p><code>Performance</code>: (optional) The performance of the VM (<code>medium</code> | <code>high</code> |  <code>highest</code>).</p>
+</li>
+<li>
+<p><code>SecurityGroupIds</code>: (optional) One or more IDs of security groups for the VM.</p>
+</li>
+<li>
+<p><code>UserData</code>: (optional) The Base64-encoded MIME user data, limited to 500 kibibytes (KiB).</p>
+</li>
+<li>
+<p><code>VmId</code>: The ID of the VM.</p>
+</li>
+<li>
+<p><code>VmInitiatedShutdownBehavior</code>: (optional) The VM behavior when you stop it. If set to <code>stop</code>, the VM stops. If set to <code>restart</code>, the VM stops then automatically restarts. If set to <code>terminate</code>, the VM stops and is terminated.</p>
+</li>
+<li>
+<p><code>VmType</code>: (optional) The type of VM. For more information, see <a href="VM-Types.html" target="_blank" rel="noopener">VM Types</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>UpdateVm</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ResponseContext</code>: Information about the context of the response.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RequestId</code>: The ID of the request.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Vm</code>: Information about the VM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Architecture</code>: The architecture of the VM (<code>i386</code> | <code>x86_64</code>).</p>
+</li>
+<li>
+<p><code>BlockDeviceMappings</code>: The block device mapping of the VM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Bsu</code>: Information about the created BSU volume.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteOnVmDeletion</code>: If true, the volume is deleted when terminating the VM. If false, the volume is not deleted when terminating the VM.</p>
+</li>
+<li>
+<p><code>LinkDate</code>: The date and time (UTC) at which the volume was attached to the VM, in ISO 8601 date-time format.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the volume.</p>
+</li>
+<li>
+<p><code>VolumeId</code>: The ID of the volume.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>DeviceName</code>: The name of the device.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>BsuOptimized</code>: This parameter is not available. It is present in our API for the sake of historical compatibility with AWS.</p>
+</li>
+<li>
+<p><code>ClientToken</code>: The idempotency token provided when launching the VM.</p>
+</li>
+<li>
+<p><code>CreationDate</code>: The date and time (UTC) at which the VM was created.</p>
+</li>
+<li>
+<p><code>DeletionProtection</code>: If true, you cannot delete the VM unless you change this parameter back to false.</p>
+</li>
+<li>
+<p><code>Hypervisor</code>: The hypervisor type of the VMs (<code>ovm</code> | <code>xen</code>).</p>
+</li>
+<li>
+<p><code>ImageId</code>: The ID of the OMI used to create the VM.</p>
+</li>
+<li>
+<p><code>IsSourceDestChecked</code>: (Net only) If true, the source/destination check is enabled. If false, it is disabled.</p>
+</li>
+<li>
+<p><code>KeypairName</code>: The name of the keypair used when launching the VM.</p>
+</li>
+<li>
+<p><code>LaunchNumber</code>: The number for the VM when launching a group of several VMs (for example, <code>0</code>, <code>1</code>, <code>2</code>, and so on).</p>
+</li>
+<li>
+<p><code>NestedVirtualization</code>: If true, nested virtualization is enabled. If false, it is disabled.</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net in which the VM is running.</p>
+</li>
+<li>
+<p><code>Nics</code>: (Net only) The <span class="tooltip" data-tooltip="flexible network interface (FNI) in AWS-Compliant APIs">network interface cards (NICs)</span> the VMs are attached to.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountId</code>: The account ID of the owner of the NIC.</p>
+</li>
+<li>
+<p><code>Description</code>: The description of the NIC.</p>
+</li>
+<li>
+<p><code>IsSourceDestChecked</code>: (Net only) If true, the source/destination check is enabled. If false, it is disabled.</p>
+</li>
+<li>
+<p><code>LinkNic</code>: Information about the network interface card (NIC).</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteOnVmDeletion</code>: If true, the NIC is deleted when the VM is terminated.</p>
+</li>
+<li>
+<p><code>DeviceNumber</code>: The device index for the NIC attachment (between <code>1</code> and <code>7</code>, both included).</p>
+</li>
+<li>
+<p><code>LinkNicId</code>: The ID of the NIC to attach.</p>
+</li>
+<li>
+<p><code>State</code>: The state of the attachment (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>LinkPublicIp</code>: Information about the <span class="tooltip" data-tooltip="External IP (EIP) in AWS-Compliant APIs">public IP</span> associated with the NIC.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>PublicDnsName</code>: The name of the public DNS.</p>
+</li>
+<li>
+<p><code>PublicIp</code>: The public IP associated with the NIC.</p>
+</li>
+<li>
+<p><code>PublicIpAccountId</code>: The account ID of the owner of the public IP.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>MacAddress</code>: The Media Access Control (MAC) address of the NIC.</p>
+</li>
+<li>
+<p><code>NetId</code>: The ID of the Net for the NIC.</p>
+</li>
+<li>
+<p><code>NicId</code>: The ID of the NIC.</p>
+</li>
+<li>
+<p><code>PrivateDnsName</code>: The name of the private DNS.</p>
+</li>
+<li>
+<p><code>PrivateIps</code>: The private IP or IPs of the NIC.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>IsPrimary</code>: If true, the IP is the primary private IP of the NIC.</p>
+</li>
+<li>
+<p><code>LinkPublicIp</code>: Information about the public IP associated with the NIC.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>PublicDnsName</code>: The name of the public DNS.</p>
+</li>
+<li>
+<p><code>PublicIp</code>: The public IP associated with the NIC.</p>
+</li>
+<li>
+<p><code>PublicIpAccountId</code>: The account ID of the owner of the public IP.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>PrivateDnsName</code>: The name of the private DNS.</p>
+</li>
+<li>
+<p><code>PrivateIp</code>: The private IP.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>SecurityGroups</code>: One or more IDs of security groups for the NIC.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SecurityGroupId</code>: The ID of the security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: The name of the security group.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>State</code>: The state of the NIC (<code>available</code> | <code>attaching</code> | <code>in-use</code> | <code>detaching</code>).</p>
+</li>
+<li>
+<p><code>SubnetId</code>: The ID of the Subnet for the NIC.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>OsFamily</code>: Indicates the operating system (OS) of the VM.</p>
+</li>
+<li>
+<p><code>Performance</code>: The performance of the VM (<code>medium</code> | <code>high</code> |  <code>highest</code>).</p>
+</li>
+<li>
+<p><code>Placement</code>: Information about the placement of the VM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SubregionName</code>: The name of the <span class="tooltip" data-tooltip="Availability Zone (AZ) in AWS-Compliant APIs">Subregion</span>. If you specify this parameter, you must not specify the <code>Nics</code> parameter.</p>
+</li>
+<li>
+<p><code>Tenancy</code>: The tenancy of the VM (<code>default</code>, <code>dedicated</code>, or a dedicated group ID).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>PrivateDnsName</code>: The name of the private DNS.</p>
+</li>
+<li>
+<p><code>PrivateIp</code>: The primary private IP of the VM.</p>
+</li>
+<li>
+<p><code>ProductCodes</code>: The product codes associated with the OMI used to create the VM.</p>
+</li>
+<li>
+<p><code>PublicDnsName</code>: The name of the public DNS.</p>
+</li>
+<li>
+<p><code>PublicIp</code>: The public IP of the VM.</p>
+</li>
+<li>
+<p><code>ReservationId</code>: The reservation ID of the VM.</p>
+</li>
+<li>
+<p><code>RootDeviceName</code>: The name of the root device for the VM (for example, <code>/dev/sda1</code>).</p>
+</li>
+<li>
+<p><code>RootDeviceType</code>: The type of root device used by the VM (always <code>bsu</code>).</p>
+</li>
+<li>
+<p><code>SecurityGroups</code>: One or more security groups associated with the VM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SecurityGroupId</code>: The ID of the security group.</p>
+</li>
+<li>
+<p><code>SecurityGroupName</code>: The name of the security group.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>State</code>: The state of the VM (<code>pending</code> | <code>running</code> | <code>stopping</code> | <code>stopped</code> | <code>shutting-down</code> | <code>terminated</code> | <code>quarantine</code>).</p>
+</li>
+<li>
+<p><code>StateReason</code>: The reason explaining the current state of the VM.</p>
+</li>
+<li>
+<p><code>SubnetId</code>: The ID of the Subnet for the VM.</p>
+</li>
+<li>
+<p><code>Tags</code>: One or more tags associated with the VM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The key of the tag, with a minimum of 1 character.</p>
+</li>
+<li>
+<p><code>Value</code>: The value of the tag, between 0 and 255 characters.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>UserData</code>: The Base64-encoded MIME user data.</p>
+</li>
+<li>
+<p><code>VmId</code>: The ID of the VM.</p>
+</li>
+<li>
+<p><code>VmInitiatedShutdownBehavior</code>: The VM behavior when you stop it. If set to <code>stop</code>, the VM stops. If set to <code>restart</code>, the VM stops then automatically restarts. If set to <code>terminate</code>, the VM stops and is deleted.</p>
+</li>
+<li>
+<p><code>VmType</code>: The type of VM. For more information, see <a href="VM-Types.html" target="_blank" rel="noopener">VM Types</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "Vm": {
+    "VmType": "tinav5.c2r2p2",
+    "VmInitiatedShutdownBehavior": "stop",
+    "State": "stopped",
+    "StateReason": "",
+    "RootDeviceType": "ebs",
+    "RootDeviceName": "/dev/sda1",
+    "IsSourceDestChecked": true,
+    "KeypairName": "keypair-example",
+    "ImageId": "ami-12345678",
+    "DeletionProtection": false,
+    "Architecture": "x86_64",
+    "NestedVirtualization": false,
+    "BlockDeviceMappings": [
+      {
+        "DeviceName": "/dev/sda1",
+        "Bsu": {
+          "VolumeId": "vol-12345678",
+          "State": "attached",
+          "LinkDate": "2010-10-01T12:34:56.789Z",
+          "DeleteOnVmDeletion": true
+        }
+      }
+    ],
+    "VmId": "i-12345678",
+    "ReservationId": "r-12345678",
+    "Hypervisor": "xen",
+    "Placement": {
+      "Tenancy": "default",
+      "SubregionName": "eu-west-2a"
+    },
+    "ProductCodes": [
+      "0001"
+    ],
+    "CreationDate": "2010-10-01T12:34:56.789Z",
+    "UserData": "",
+    "SubnetId": "subnet-12345678",
+    "PrivateIp": "10.0.0.4",
+    "SecurityGroups": [
+      {
+        "SecurityGroupName": "security-group-example",
+        "SecurityGroupId": "sg-12345678"
+      }
+    ],
+    "BsuOptimized": false,
+    "LaunchNumber": 0,
+    "NetId": "vpc-12345678",
+    "Nics": [
+      {
+        "SubnetId": "subnet-12345678",
+        "State": "in-use",
+        "LinkNic": {
+          "State": "attached",
+          "DeviceNumber": 0,
+          "LinkNicId": "eni-attach-12345678",
+          "DeleteOnVmDeletion": true
+        },
+        "IsSourceDestChecked": true,
+        "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal",
+        "Description": "Primary network interface",
+        "AccountId": "123456789012",
+        "SecurityGroups": [
+          {
+            "SecurityGroupName": "security-group-example",
+            "SecurityGroupId": "sg-12345678"
+          }
+        ],
+        "MacAddress": "A1:B2:C3:D4:E5:F6",
+        "NetId": "vpc-12345678",
+        "NicId": "eni-12345678",
+        "PrivateIps": [
+          {
+            "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal",
+            "PrivateIp": "10.0.0.4",
+            "IsPrimary": true
+          }
+        ]
+      }
+    ],
+    "Performance": "high",
+    "Tags": [
+      {
+        "Value": "prod",
+        "Key": "env"
+      }
+    ],
+    "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal"
+  },
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Result sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "Vm": {
+    "VmType": "tinav5.c1r1p2",
+    "VmInitiatedShutdownBehavior": "stop",
+    "State": "stopped",
+    "StateReason": "",
+    "RootDeviceType": "ebs",
+    "RootDeviceName": "/dev/sda1",
+    "IsSourceDestChecked": true,
+    "KeypairName": "keypair-example",
+    "ImageId": "ami-12345678",
+    "DeletionProtection": true,
+    "Architecture": "x86_64",
+    "NestedVirtualization": false,
+    "BlockDeviceMappings": [
+      {
+        "DeviceName": "/dev/sda1",
+        "Bsu": {
+          "VolumeId": "vol-12345678",
+          "State": "attached",
+          "LinkDate": "2010-10-01T12:34:56.789Z",
+          "DeleteOnVmDeletion": true
+        }
+      }
+    ],
+    "VmId": "i-12345678",
+    "ReservationId": "r-12345678",
+    "Hypervisor": "xen",
+    "Placement": {
+      "Tenancy": "default",
+      "SubregionName": "eu-west-2a"
+    },
+    "ProductCodes": [
+      "0001"
+    ],
+    "CreationDate": "2010-10-01T12:34:56.789Z",
+    "UserData": "...",
+    "SubnetId": "subnet-12345678",
+    "PrivateIp": "10.0.0.4",
+    "SecurityGroups": [
+      {
+        "SecurityGroupName": "security-group-example",
+        "SecurityGroupId": "sg-12345678"
+      }
+    ],
+    "BsuOptimized": false,
+    "LaunchNumber": 0,
+    "NetId": "vpc-12345678",
+    "Nics": [
+      {
+        "SubnetId": "subnet-12345678",
+        "State": "in-use",
+        "LinkNic": {
+          "State": "attached",
+          "DeviceNumber": 0,
+          "LinkNicId": "eni-attach-12345678",
+          "DeleteOnVmDeletion": true
+        },
+        "IsSourceDestChecked": true,
+        "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal",
+        "Description": "Primary network interface",
+        "AccountId": "123456789012",
+        "SecurityGroups": [
+          {
+            "SecurityGroupName": "security-group-example",
+            "SecurityGroupId": "sg-12345678"
+          }
+        ],
+        "MacAddress": "A1:B2:C3:D4:E5:F6",
+        "NetId": "vpc-12345678",
+        "NicId": "eni-12345678",
+        "PrivateIps": [
+          {
+            "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal",
+            "PrivateIp": "10.0.0.4",
+            "IsPrimary": true
+          }
+        ]
+      }
+    ],
+    "Performance": "high",
+    "Tags": [
+      {
+        "Value": "prod",
+        "Key": "env"
+      }
+    ],
+    "PrivateDnsName": "ip-10-0-0-4.eu-west-2.compute.internal"
+  },
+  "ResponseContext": {
+    "RequestId": "0475ca1e-d0c5-441d-712a-da55a4175157"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI_3"><a class="anchor" href="Modifying-a-VM-Attribute.html#AWS CLI_3"></a>Modifying an Instance Attribute Using AWS CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all" style="width: 99%;">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Before you begin:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Install and configure AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+<li>
+<p>To modify the <code>instance-type</code> and <code>user-data</code> attributes, you must stop the instance.</p>
+</li>
+<li>
+<p>Other attributes can be modified when the instance is running or stopped.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="Stopping-and-Starting-VMs.html" class="xref page">Stopping and Starting VMs</a> and <a href="About-VMs.html#_vm_attributes" class="xref page">About VMs &gt; VM Attributes</a>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>To modify an instance attribute, use the <strong>modify-instance-attribute</strong> command following this syntax:</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can modify only one attribute at a time.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws ec2 modify-instance-attribute \
+    --profile YOUR_PROFILE \
+    --instance-id i-12345678 \
+    --attribute ATTRIBUTE_NAME \
+    --value ATTRIBUTE_VALUE \
+    --disable-api-termination \
+    --block-device-mappings VALUE \
+    --instance-type m1.large \
+    --user-data VALUE \
+    --instance-initiated-shutdown-behavior ATTRIBUTE_VALUE \
+    --groups sg-12345678 \
+    --source-dest-check \
+    --ebs-optimized NOT_SPECIFIED \
+    --endpoint https://fcu.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optional) <code>profile</code>: The named profile you want to use, created when configuring AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>instance-id</code>: The ID of the instance whose attribute you want to modify.</p>
+</li>
+<li>
+<p>(optional) <code>attribute</code>: The name of the attribute (<code>userData</code> | <code>rootDeviceName</code> | <code>instanceType</code> | <code>groupSet</code> | <code>ebsOptimized</code> | <code>sourceDestCheck</code> | <code>blockDeviceMapping</code> | <code>disableApiTermination</code> | <code>instanceInitiatedShutdownBehavior</code>).</p>
+</li>
+<li>
+<p>(optional) <code>value</code>: The value of the attribute (only for the following attributes: <code>userData</code>, <code>disableApiTermination</code>, or <code>instanceInitiatedShutdownBehavior</code>).</p>
+</li>
+<li>
+<p>(optional) <code>disable-api-termination</code>: If <code>true</code>, you cannot terminate the instance, whatever the interface is. If <code>false</code>, you can.</p>
+</li>
+<li>
+<p>(optional) <code>block-device-mappings</code>: Information about BSU volumes attached to the instance. This attribute contains the following elements that you need to specify:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>(optional) <code>DeviceName</code>: The device name used to attach the volume to the instance. For more information, see <a href="About-Volumes.html#_volumes_attachment_and_device_names" class="xref page">About Volumes &gt; Volumes Attachment and Device Names</a>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>To modify the <code>DeleteOnTermination</code> attribute, this element is required.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>(optional) <code>Ebs</code>: Information about the volume attached to the instance. This element contains the following element that you need to specify:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>(optional) <code>DeleteOnTermination</code>: By default or if set to <code>true</code>, the volume is deleted when the instance is terminated. If set to <code>false</code>, it is not.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>To modify the <code>block-device-mappings</code> attribute for several volumes at the same time, use the following syntax:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">'[{"DeviceName": "/dev/sda1", "Ebs": {"DeleteOnTermination": false}}, {"DeviceName": "/dev/sdb", "Ebs": {"DeleteOnTermination": false}}]'</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>(optional) <code>instance-type</code>: The type of instance (amount of vCores, memory, storage). For more information about instance types, see <a href="VM-Types.html" class="xref page">VM Types</a>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>To function properly, Windows VMs require at least a v3 processor generation, 2 vCores, and 4 GiB of memory.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optional) <code>user-data</code>: New user data for the instance. For more information, see <a href="Configuring-a-VM-with-User-Data-and-OUTSCALE-Tags.html" class="xref page">Configuring a VM with User Data and OUTSCALE Tags</a>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Existing user data is erased and replaced by the one you specify here.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>AWS CLI then encodes this user data to Base64.
+The maximum size for the Base64-encoded user data is 500 kibibytes (KiB).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optional) <code>instance-initiated-shutdown-behavior</code>: The behavior when you initiate the shutdown of the instance. By default or if set to <code>stop</code>, the instance stops. If set to <code>terminate</code>, the instance stops and is terminated. If set to <code>restart</code>, the instance stops, then automatically restarts.</p>
+</li>
+<li>
+<p>(optional) <code>groups</code>: One or more security groups IDs for the instance.</p>
+</li>
+<li>
+<p>(optional) <code>source-dest-check|no-source-dest-check</code>: If set to <code>source-dest-check</code>, source/destination check of network traffic is enabled. If set to <code>no-source-dest-check</code>, it is disabled.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can modify the <code>sourceDestCheck</code> attribute only if the instance is in a <span class="tooltip" data-tooltip="Net in OUTSCALE API">VPC</span>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optional) <code>ebs-optimized</code>: Whether the instance is BSU-optimized.</p>
+</li>
+<li>
+<p><code>endpoint</code>: The endpoint corresponding to the Region you want to send the request to. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The specified attribute is modified.</p>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="About-VMs.html" class="xref page">About VMs</a></p>
+</li>
+<li>
+<p><a href="Stopping-and-Starting-VMs.html" class="xref page">Stopping and Starting VMs</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Corresponding API Methods</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../../api%3Fconsole.html#updatevm" class="xref page">UpdateVm (OUTSCALE API)</a></p>
+</li>
+<li>
+<p><a href="../../fcu.html#modifyinstanceattribute" class="xref page">ModifyInstanceAttribute (FCU)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ and Amazon Web Services™ are trademarks of Amazon Technologies, Inc or its affiliates in the United States and/or other countries.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

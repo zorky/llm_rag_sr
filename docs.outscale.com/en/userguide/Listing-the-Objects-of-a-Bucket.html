@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Listing the Objects of a Bucket – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="Listing-the-Objects-of-a-Bucket.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/Listing-the-Objects-of-a-Bucket.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/Lister-les-objets-d-un-bucket.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Listing the Objects of a Bucket</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can list the objects contained in your buckets or in the buckets for which you have the appropriate permissions. For more information, see <a href="Configuring-an-Object-ACL.html" class="xref page">Configuring an Object ACL</a>.</p>
+</div>
+<div class="paragraph">
+<p>This action also returns information about the date and time at which you uploaded or copied an object to your bucket.</p>
+</div>
+<div class="paragraph">
+<p>If you organized a virtual architecture in your bucket using the keys of the objects, you can retrieve the resources that you named according to a <code>xxx/yyy</code> format, using the <code>prefix</code> and <code>delimiter</code> attributes. For more information, see <a href="About-OOS.html#_objects" class="xref page">About OOS &gt; Objects</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI (s3api)_0"><a class="anchor" href="Listing-the-Objects-of-a-Bucket.html#AWS CLI (s3api)_0"></a>Listing the Objects of a Bucket Using AWS CLI (s3api)</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Before you begin:</strong> Install and configure AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This page used to feature the <strong>list-objects</strong> command, which has been deprecated in favor of the newer <strong>list-objects-v2</strong> command. The <strong>list-objects</strong> command is still operational but has less features than the newer command.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>To list the objects contained in a bucket, use the <strong>list-objects-v2</strong> command following this syntax:</p>
+</div>
+<div class="listingblock">
+<div class="title">Request sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws s3api list-objects-v2 \
+    --profile YOUR_PROFILE \
+    --bucket BUCKET \
+    --prefix "bank-data/2023/" \
+    --delimiter "/" \
+    --encoding-type url \
+    --fetch-owner \
+    --start-after NOT_SPECIFIED \
+    --page-size 100 \
+    --max-items 500 \
+    --endpoint https://oos.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optional) <code>profile</code>: The named profile you want to use, created when configuring AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>bucket</code>: The name of the bucket whose objects you want to list.</p>
+</li>
+<li>
+<p>(optional) <code>prefix</code>: A letter or a string of characters to filter your objects. It displays the objects that begin with the letter or the characters you specify.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you specify a prefix, objects not starting with the specified prefix will be excluded from the output entirely.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optional) <code>delimiter</code>: A character or group of characters to filter your objects by effectively excluding them from the returned list if the delimiter appears in their key name. This is useful for hierarchical naming schemes.</p>
+</li>
+<li>
+<p>(optional) <code>encoding-type</code>: Specifies the encoding format for object key names (always <code>url</code>).</p>
+</li>
+<li>
+<p>(optional) <code>fetch-owner</code> or <code>no-fetch-owner</code>: Whether you want to fetch the owner of the objects. When not included, the owner is not returned.</p>
+</li>
+<li>
+<p>(optional) <code>start-after</code>: Filters the list of objects in your bucket by only showing objects coming after the key you specify, in alphabetical order.</p>
+</li>
+<li>
+<p>(optional) <code>page-size</code>: Determines the number of requests made in a call to retrieve all objects. A smaller page size increases the number of calls but helps prevent timeouts by retrieving fewer items in each request. For example, if you have a bucket of 120 objects and you set the page size to 10, the CLI will need to perform 12 requests to retrieve all objects. If you set the page size to 60, only 2 requests will need to be performed.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The default value is <code>1000</code>.</p>
+</li>
+<li>
+<p>The minimum and maximum values are <code>1</code> and <code>1000</code>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optional) <code>max-items</code>: The maximum number of objects to return.</p>
+</li>
+<li>
+<p><code>endpoint</code>: The endpoint corresponding to the Region you want to send the request to. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>list-objects-v2</strong> command returns the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Contents</code>: Information about the contents of your bucket. This element contains the following information:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Key</code>: The name of the object in the bucket.</p>
+</li>
+<li>
+<p><code>LastModified</code>: The date and time when the object was uploaded or copied into the bucket.</p>
+</li>
+<li>
+<p><code>ETag</code>: The ETag of the object.</p>
+</li>
+<li>
+<p><code>Size</code>: The size of your object, in bytes.</p>
+</li>
+<li>
+<p><code>StorageClass</code>: The storage class of your object (always <code>STANDARD</code>)</p>
+</li>
+<li>
+<p><code>Owner</code>: Information about the owner of the object. This element contains the following information:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DisplayName</code>: The OUTSCALE account ID of the owner of the object.</p>
+</li>
+<li>
+<p><code>ID</code>: The S3 user ID of the owner of the object.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>CommonPrefixes</code>: Information about the common prefixes. This element contains the following information:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Prefix</code>: The delimiter you specified, or the string of characters from your prefix to your delimiter. For more information about prefixes, see <a href="About-OOS.html#_objects" class="xref page">About OOS &gt; Objects</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>RequestCharged</code>: Indicates whether the requester has been charged for the request. If the value is <code>requester</code>, it means that the cost of the operation has been billed to the account making the request. A <code>null</code> value suggests no charges were applied to the requester for the operation.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Result Sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "Contents": [
+        {
+            "Key": "bank-data/2023/annual-overview.txt",
+            "LastModified": "2024-01-04T16:42:52.922000+00:00",
+            "ETag": "\"93494ed0663d6a689b5e1f90d9e29d41\"",
+            "Size": 2048,
+            "StorageClass": "STANDARD",
+            "Owner": {
+                "DisplayName": "ACCOUNT_ID",
+                "ID": "USER_ID"
+            }
+        },
+        {
+            "Key": "bank-data/2023/report-summary.txt",
+            "LastModified": "2024-01-04T16:42:53.694000+00:00",
+            "ETag": "\"b4fb2aaa356797d9a28bfc640a973720\"",
+            "Size": 1024,
+            "StorageClass": "STANDARD",
+            "Owner": {
+                "DisplayName": "ACCOUNT_ID",
+                "ID": "USER_ID"
+            }
+        }
+    ],
+    "CommonPrefixes": [
+        {
+            "Prefix": "bank-data/2023/monthly-reports/"
+        },
+        {
+            "Prefix": "bank-data/2023/transaction-logs/"
+        }
+    ],
+    "RequestCharged": null
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI (s3)_1"><a class="anchor" href="Listing-the-Objects-of-a-Bucket.html#AWS CLI (s3)_1"></a>Listing the Objects of a Bucket Using AWS CLI (s3)</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Before you begin:</strong> Install and configure AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>To list the objects contained in a bucket, use the <strong>ls</strong> command following this syntax:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws s3 ls s3://YOUR_BUCKET \
+    --profile YOUR_PROFILE \
+    --debug \
+    --summarize \
+    --endpoint https://oos.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command contains the following attributes that you need to specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>s3://YOUR_BUCKET</code>: The name of the bucket whose objects you want to list.</p>
+</li>
+<li>
+<p>(optional) <code>profile</code>: The named profile you want to use, created when configuring AWS CLI. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+<li>
+<p>(optional) <code>debug</code>: When included, returns the detailed log of the operation. This is useful to analyze and troubleshoot issues you may be encountering.</p>
+</li>
+<li>
+<p>(optional) <code>summarize</code>: If included, the response also returns the number of objects contained in the bucket and the total size they amount to.</p>
+</li>
+<li>
+<p><code>endpoint</code>: The endpoint corresponding to the Region you want to send the request to. For more information, see <a href="Installing-and-Configuring-AWS-CLI.html" class="xref page">Installing and Configuring AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>ls</strong> command returns a list of objects, their date and time of creation (in local time), and size (in bytes).</p>
+</div>
+<div class="listingblock">
+<div class="title">Result Sample</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">2023-11-29 09:51:46 111 object1
+2024-01-30 10:30:46 222 object2
+2024-01-30 15:59:21 333 object3</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="s3cmd_2"><a class="anchor" href="Listing-the-Objects-of-a-Bucket.html#s3cmd_2"></a>Listing the Objects of a Bucket Using s3cmd</h2>
+<div class="sectionbody">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can manage your object storage resources using s3cmd commands. For more information, see <a href="s3cmd.html" class="xref page">s3cmd</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Related Page</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Listing-Your-Buckets.html" class="xref page">Listing Your Buckets</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ and Amazon Web Services™ are trademarks of Amazon Technologies, Inc or its affiliates in the United States and/or other countries.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

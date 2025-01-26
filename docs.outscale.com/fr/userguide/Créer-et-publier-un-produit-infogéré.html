@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Créer et publier un produit infogéré – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Créer-et-publier-un-produit-infogéré.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Créer-et-publier-un-produit-infogéré.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Creating-and-Publishing-an-Outsourced-Product.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Créer et publier un produit infogéré</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>En tant que vendeur partenaire sur OUTSCALE Marketplace, vous pouvez créer un produit infogéré et le publier sur la Marketplace pour que les acheteurs puissent le consulter et y souscrire.</p>
+</div>
+<div class="paragraph">
+<p>Vous avez accès au tableau Mes produits listant vos produits existants et leur ID produit unique. Vos produits sont publiés, dépubliés, ou à l&#8217;état brouillon, c&#8217;est-à-dire avec des informations complétées, mais pas encore publiées.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Vous devez compléter et enregistrer toutes les sections, dans l&#8217;ordre de votre choix, pour pouvoir publier le produit sur la Marketplace. Les sections à compléter sont marquées par un tag <span class="image"><img src="_images/ico-Marketplace-To-Be-Completed-Tag.svg" alt="ico Marketplace To Be Completed Tag"></span>.</p>
+</li>
+<li>
+<p>Lorsque vous créez un produit, vous devez fournir toutes les informations et tous les documents en anglais et en français dans les onglets donnés pour pouvoir publier votre produit sur la Marketplace.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Sélection du type de produit_0"><a class="anchor" href="Créer-et-publier-un-produit-infogéré.html#Sélection du type de produit_0"></a>Sélection du type de produit</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans le coin supérieur droit de l&#8217;interface, cliquez sur votre nom d&#8217;utilisateur ou votre adresse e-mail.<br>
+Un menu déroulant apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Mes produits</strong>.<br>
+La page Mes produits apparaît.</p>
+</li>
+<li>
+<p>Cliquez sur <strong>Créer un produit</strong>.<br>
+La page Type de produit apparaît.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>Produit infogéré</strong>.<br>
+La page de Création de votre produit apparaît, avec différentes sections à compléter.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Informations générales_1"><a class="anchor" href="Créer-et-publier-un-produit-infogéré.html#Informations générales_1"></a>Informations générales</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans la page Création de votre produit, cliquez sur <strong>Accéder</strong> dans la section Informations générales.<br>
+Le formulaire Informations générales apparaît.</p>
+</li>
+<li>
+<p>Importez un logo pour votre produit.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Ce logo doit être inférieur à 2 Mo.</p>
+</li>
+<li>
+<p>Nous recommandons d&#8217;importer un logo transparent et sans bordures pour un affichage correct.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Saisissez un titre pour votre produit.</p>
+</li>
+<li>
+<p>Sélectionnez une ou plusieurs catégories pour votre produit.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous pouvez sélectionner jusqu&#8217;à trois catégories pour votre produit. Les catégories sélectionnées seront utilisées pour filtrer votre produit.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Saisissez un lien de souscription vers lequel les acheteurs seront redirigés pour souscrire.</p>
+</li>
+<li>
+<p>Dans la section Synthèse :</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Saisissez une description courte pour votre produit.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Ce champ doit contenir entre 1 et 200 caractères.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Saisissez une description longue pour votre produit.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Ce champ doit contenir entre 1 et 4000 caractères.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Saisissez les points clés de votre produit.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Ce champ doit contenir entre 1 et 4000 caractères.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>(optionnel) Dans la section Médias :</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Importez les fichiers JPG souhaités pour illustrer votre produit.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Vous pouvez ajouter jusqu&#8217;à 6 fichiers JPG inférieurs à 2 Mo.</p>
+</li>
+<li>
+<p>Le format recommandé est 1440 pixels par 1024 pixels.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Saisissez l&#8217;URL d&#8217;une vidéo YouTube.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Dans la section Support :</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Saisissez les informations concernant le support de votre produit.</p>
+</li>
+<li>
+<p>Saisissez la politique de mise à jour de votre produit.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Cliquez sur <strong>Enregistrer</strong>.<br>
+Le formulaire est enregistré et un tag <span class="image"><img src="_images/ico-Marketplace-Completed-Tag.svg" alt="ico Marketplace Completed Tag"></span> est affiché dans la section Informations générales.</p>
+</li>
+<li>
+<p></p>
+<div class="openblock">
+<div class="content">
+<details>
+<summary class="title">Si vous avez complété toutes les sections du produit et que vous êtes prêt à le publier :</summary>
+<div class="content">
+<div class="paragraph">
+<p>Dans la page Création de votre produit, cliquez sur <strong>Publier le produit</strong> pour publier votre produit.<br>
+Votre produit est publié sur la Marketplace et peut être consulté et souscrit par des acheteurs. 3DS OUTSCALE est notifié de la création du produit.</p>
+</div>
+</div>
+</details>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="Conditions contractuelles_2"><a class="anchor" href="Créer-et-publier-un-produit-infogéré.html#Conditions contractuelles_2"></a>Conditions contractuelles</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans la page Création de votre produit, cliquez sur <strong>Accéder</strong> dans la section Conditions contractuelles.<br>
+Le formulaire Conditions contractuelles apparaît.</p>
+</li>
+<li>
+<p>Prenez connaissance du contrat d&#8217;apporteur d&#8217;affaires et acceptez le en cochant la case correspondante.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Une fois le contrat accepté, vous ne pouvez pas modifier votre choix.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Cliquez sur <strong>Enregistrer</strong>.<br>
+Le formulaire est enregistré et un tag <span class="image"><img src="_images/ico-Marketplace-Completed-Tag.svg" alt="ico Marketplace Completed Tag"></span> est affiché dans la section Conditions contractuelles.</p>
+</li>
+<li>
+<p></p>
+<div class="openblock">
+<div class="content">
+<details>
+<summary class="title">Si vous avez complété toutes les sections du produit et que vous êtes prêt à le publier :</summary>
+<div class="content">
+<div class="paragraph">
+<p>Dans la page Création de votre produit, cliquez sur <strong>Publier le produit</strong> pour publier votre produit.<br>
+Votre produit est publié sur la Marketplace et peut être consulté et souscrit par des acheteurs. 3DS OUTSCALE est notifié de la création du produit.</p>
+</div>
+</div>
+</details>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-d-OUTSCALE-Marketplace.html" class="xref page">À propos d&#8217;OUTSCALE Marketplace</a></p>
+</li>
+<li>
+<p><a href="Vendeur-partenaire.html" class="xref page">Vendeur partenaire</a></p>
+</li>
+<li>
+<p><a href="Modifier-un-produit.html" class="xref page">Modifier un produit</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

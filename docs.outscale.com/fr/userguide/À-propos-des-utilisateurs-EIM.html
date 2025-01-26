@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>À propos des utilisateurs EIM – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="À-propos-des-utilisateurs-EIM.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/À-propos-des-utilisateurs-EIM.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/About-EIM-Users.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">À propos des utilisateurs EIM</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez créer des utilisateurs au sein de votre compte pour chaque personne ou service ayant besoin d&#8217;accéder à l&#8217;ensemble ou à une partie de vos ressources Cloud. Ceci vous permet de contrôler l&#8217;accès à vos ressources en paramétrant des identifiants et permissions pour chaque utilisateur.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_informations_générales"><a class="anchor" href="À-propos-des-utilisateurs-EIM.html#_informations_générales"></a>Informations générales</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Un utilisateur EIM correspond à une identité qui représente une personne ou un service. Cette identité permet à la personne ou service correspondant d&#8217;interagir avec vos ressources OUTSCALE avec ses propres identifiants.</p>
+</div>
+<div class="paragraph">
+<p>Les utilisateurs EIM sont créés au sein de votre compte et vous permettent de contrôler quelles actions ils peuvent exécuter selon les autorisations que vous leur accordez. Pour en savoir plus, voir la section <a href="À-propos-des-utilisateurs-EIM.html#_utilisateurs_et_autorisations">Utilisateurs et autorisations</a> ci-dessous.</p>
+</div>
+<div class="paragraph">
+<p>Un utilisateur a les trois attributs suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Un nom d&#8217;utilisateur : le nom usuel que vous spécifiez pour l&#8217;utilisateur lors de sa création. Ce nom d&#8217;utilisateur doit être unique pour votre compte.</p>
+</li>
+<li>
+<p>Un ID d&#8217;utilisateur : un identifiant unique qui est automatiquement créé pour l&#8217;utilisateur.</p>
+</li>
+<li>
+<p>Un OUTSCALE Resource Name (ORN) : Un identifiant unique de ressource, qui indique où celle-ci se trouve dans le Cloud (service, compte, type de ressource, et ainsi de suite).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Vous pouvez également spécifier un chemin d&#8217;accès pour indiquer la position de l&#8217;utilisateur dans votre organisation et l&#8217;utiliser comme filtre lorsque vous listez vos utilisateurs.</p>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus, voir <a href="Identifiants-de-ressources.html" class="xref page">Identifiants de ressources</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_identifiants_pour_vos_utilisateurs"><a class="anchor" href="À-propos-des-utilisateurs-EIM.html#_identifiants_pour_vos_utilisateurs"></a>Identifiants pour vos utilisateurs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez créer plusieurs utilisateurs dans votre compte selon vos besoins. Ces utilisateurs appartiennent à votre compte mais s&#8217;authentifient aux services OUTSCALE avec leurs propres access keys que vous créez et gérez. Vous pouvez créer jusqu&#8217;à 10 access keys par utilisateur.</p>
+</div>
+<div class="paragraph">
+<p>Lorsque vous créez une access key, les informations suivantes sont renvoyées :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>L&#8217;ID de l&#8217;access key, qui identifie l&#8217;access key</p>
+</li>
+<li>
+<p>L&#8217;access key secrète, qui permet à l&#8217;utilisateur de signer les requêtes</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Attention"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pour des raisons de sécurité, l&#8217;access key secrète est uniquement disponible lors de sa création. Sauvegardez-là soigneusement car vous ne pourrez pas la retrouver ultérieurement.</p>
+</div>
+<div class="paragraph">
+<p>Si vous perdez votre access key secrète, vous pouvez la supprimer et vous devez en créer une nouvelle pour l&#8217;utilisateur.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Une access key peut être dans l&#8217;un des états suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Active</code> : l&#8217;access key est activée. L&#8217;utilisateur auquel elle est associée peut l&#8217;utiliser pour signer les requêtes API.</p>
+</li>
+<li>
+<p><code>Inactive</code> : l&#8217;access key est désactivée. L&#8217;utilisateur auquel elle est associée ne peut pas l&#8217;utiliser pour signer les requêtes API.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Vous pouvez modifier l&#8217;état d&#8217;une access key à tout moment, ou la supprimer si besoin. Pour en savoir plus, voir <a href="Modifier-une-access-key-EIM.html" class="xref page">Modifier une access key EIM</a> ou <a href="Supprimer-une-access-key-EIM.html" class="xref page">Supprimer une access key EIM</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_utilisateurs_et_autorisations"><a class="anchor" href="À-propos-des-utilisateurs-EIM.html#_utilisateurs_et_autorisations"></a>Utilisateurs et autorisations</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Les utilisateurs que vous venez de créer n&#8217;ont l&#8217;autorisation d&#8217;exécuter aucune action. Vous devez leur attribuer des autorisations d&#8217;exécuter des actions spécifiques à l&#8217;aide de politiques incluses ou gérées. Pour en savoir plus, voir <a href="À-propos-des-politiques.html" class="xref page">À propos des politiques</a>.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez donner des autorisations individuelles à un utilisateur, ou organiser vos utilisateurs en groupes et donner des autorisations à tous les utilisateurs appartenant à ce groupe. Un utilisateur peut appartenir à plusieurs groupes en même temps. Pour en savoir plus, voir <a href="À-propos-des-groupes-EIM.html" class="xref page">À propos des groupes EIM</a>.</p>
+</div>
+<div class="paragraph">
+<p>Par exemple, vous pouvez donner des droits d&#8217;administration à quelques utilisateurs qui peuvent par la suite gérer toutes vos ressources, et potentiellement gérer les permissions pour les autres utilisateurs et groupes au sein de votre organisation. Vous pouvez également limiter les autorisations des utilisateurs aux seules actions et ressources dont ils ont besoin pour leur activité.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Dans Cockpit v2, la politique <strong>Read-Only</strong> donne des autorisations aux utilisateurs EIM pour toutes actions liées aux requêtes API <code>Describe</code>, excepté l&#8217;accès et la lecture des identifiants de l&#8217;utilisateur root.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_utilisateur_root"><a class="anchor" href="À-propos-des-utilisateurs-EIM.html#_utilisateur_root"></a>Utilisateur root</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>L&#8217;utilisateur root (racine) est une identité EIM par défaut automatiquement créée avec un compte. Cet utilisateur racine possède toutes les autorisations pour toutes les actions, et peut gérer les utilisateurs et groupes au sein du compte.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous ne pouvez pas restreindre les autorisations de l&#8217;utilisateur root.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Nous vous recommandons de :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Ne pas utiliser les identifiants de l&#8217;utilisateur root pour vos accès quotidiens à vos ressources.</p>
+</li>
+<li>
+<p>Ne pas partager les identifiants de votre utilisateur root.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Vous pouvez par exemple créer un utilisateur EIM pour vous-même avec des droits d&#8217;administration.</p>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="À-propos-des-groupes-EIM.html" class="xref page">À propos des groupes EIM</a></p>
+</li>
+<li>
+<p><a href="Gérer-les-politiques-d-accès-à-vos-ressources.html" class="xref page">Gérer les politiques d&#8217;accès à vos ressources</a></p>
+</li>
+<li>
+<p><a href="Identifiants-de-ressources.html" class="xref page">Identifiants de ressources</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

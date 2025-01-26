@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>À propos des NIC – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="À-propos-des-NIC.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/À-propos-des-NIC.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/About-NICs.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">À propos des NIC</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Les <span class="tooltip" data-tooltip="flexible network interface (FNI) dans les API AWS-compliant">network interface cards (NIC)</span> sont des interfaces réseau virtuelles additionnelles que vous pouvez attacher à des <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">machines virtuelles (VM)</span> dans un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span>. Elles agissent comme des cartes réseau virtuelles vous permettant de fragmenter votre réseau et de rediriger le trafic vers une autre machine virtuelle (VM). Elles peuvent être détachées et attachées à une autre VM à tout moment.</p>
+</div>
+<div class="paragraph">
+<p>Les NIC ont une ou plusieurs IP privées attribuées, et éventuellement une <span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">IP publique</span>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_interface_réseau_principale_et_nic"><a class="anchor" href="À-propos-des-NIC.html#_interface_réseau_principale_et_nic"></a>Interface réseau principale et NIC</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Les <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> sont créées avec une interface réseau par défaut, avec une IP privée. Cette interface réseau est appelée l&#8217;interface réseau principale et ne peut pas être détachée de la VM. Les IP attribuées à une VM sont en réalité attribuées à cette interface réseau principale.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez créer des interfaces réseau additionnelles que vous pouvez attacher à des VM dans un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span> ou les détacher, à tout moment. Ces interfaces réseau additionnelles sont appelées <span class="tooltip" data-tooltip="flexible network interface (FNI) dans les API AWS-compliant">network interface cards (NIC)</span>. Les NIC permettent aux VM d&#8217;être connectées sur plusieurs réseaux. Cela peut par exemple être requis pour des raisons de sécurité si vous souhaitez utiliser différents réseaux pour différents rôles dans votre organisation, ou différents services pour différents clients. Les NIC vous permettent donc de fragmenter le réseau de la VM.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Les NIC n&#8217;augmentent pas la bande passante du réseau de la VM.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Le nombre maximum de NIC que vous pouvez attacher à une VM dépend du type de VM. Pour en savoir plus, voir <a href="Types-de-VM.html" class="xref page">Types de VM</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_attributs_des_nic"><a class="anchor" href="À-propos-des-NIC.html#_attributs_des_nic"></a>Attributs des NIC</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Une <span class="tooltip" data-tooltip="flexible network interface (FNI) dans les API AWS-compliant">NIC</span> inclut les attributs suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Un ID au format <code>eni-XXXXXX</code>, automatiquement attribué à la NIC lors de sa création.</p>
+</li>
+<li>
+<p>(optionnel) Une description.</p>
+</li>
+<li>
+<p>Une IP privée principale, automatiquement attribuée par le serveur DHCP ou que vous pouvez définir manuellement.</p>
+</li>
+<li>
+<p>(optionnel) Une ou plusieurs IP privées secondaires. Ajouter plusieurs IP privées fragmente le réseau de la <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span>. Cela vous permet également d&#8217;avoir plusieurs IP pour une VM. Pour en savoir plus, voir <a href="Attribuer-des-IP-privées-secondaires-à-une-NIC.html" class="xref page">Attribuer des IP privées secondaires à une NIC</a>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Toutes les IP privées (principales et secondaires) attribuées à une NIC doivent appartenir à la plage d&#8217;IP du Subnet dans lequel se trouve la NIC.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>(optionnel) Une <span class="tooltip" data-tooltip="External IP (EIP) dans les API AWS-compliant">IP publique</span>, via une IP publique attachée à la NIC. Pour en savoir plus, voir <a href="Attacher-une-IP-publique-à-une-VM-ou-à-une-interface-réseau.html" class="xref page">Attacher une IP publique à une VM ou à une interface réseau</a>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Par défaut, les VM dans un <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Net</span> n&#8217;ont pas accès à et ne sont pas accessibles depuis Internet. Pour donner ces accès, vous devez attacher une IP publique à la VM (à l&#8217;interface réseau principale) ou à une NIC, une route table au Subnet dans lequel se trouve la VM ou la NIC, et un <span class="tooltip" data-tooltip="Internet gateway dans les API AWS-compliant">internet service</span> au Net. Le trafic Internet passe donc de la NIC à Internet via la route table et l&#8217;internet service correspondants. Pour en savoir plus, voir <a href="Nets.html" class="xref page">Nets</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Un ou plusieurs security groups associés à la NIC. Comme les IP attribuées à la VM sont en réalité attribuées à son interface réseau principale, le comportement des security groups est le même pour la VM et pour la NIC. Pour en savoir plus, voir <a href="Security-Groups.html" class="xref page">Security Groups</a>.</p>
+</li>
+<li>
+<p>Une adresse MAC (Media Access Control) pour identifier physiquement la NIC.</p>
+</li>
+<li>
+<p>(optionnel) Un flag de vérification source/destination du trafic réseau, pour envoyer ou recevoir du trafic au nom d&#8217;une autre VM.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Un nom DNS privé associé à l&#8217;IP privée principale est attribué à la NIC. Si vous attribuez une ou plusieurs IP privées secondaires, un nom DNS privé associé à chacune d&#8217;entre elles est aussi attribué à la NIC. Toutefois, le nom DNS privé utilisé et renvoyé par défaut est celui associé à l&#8217;IP privée principale. Si vous attachez une IP publique à une NIC, le nom DNS public qui lui est associé est également attribué à cette NIC.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_attachement_des_nic_aux_vm"><a class="anchor" href="À-propos-des-NIC.html#_attachement_des_nic_aux_vm"></a>Attachement des NIC</span> aux <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez attacher ou détacher une <span class="tooltip" data-tooltip="flexible network interface (FNI) dans les API AWS-compliant">NIC</span> d&#8217;une <span class="tooltip" data-tooltip="instance dans les API AWS-compliant">VM</span> à tout moment, quel que soit l&#8217;état de la VM. Pour en savoir plus, voir <a href="Attacher-une-NIC-à-une-VM.html" class="xref page">Attacher une NIC à une VM</a> et <a href="Détacher-une-NIC-d-une-VM.html" class="xref page">Détacher une NIC d&#8217;une VM</a>.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez également créer et attacher une NIC à une VM dès la création de la VM. Pour en savoir plus, voir <a href="Créer-des-VM.html" class="xref page">Créer des VM</a>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si vous voulez attacher plus d&#8217;une NIC à une VM, la configuration de l&#8217;interface réseau peut être nécessaire en fonction du système d&#8217;exploitation (OS) choisi. Cela inclut l&#8217;adressage IP et le routage. Vous pouvez configurer l&#8217;interface réseau directement au niveau de l&#8217;OS dans la VM.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Un ID d&#8217;attachement au format <code>eni-attach-XXXXXXXX</code> est attribué à la NIC à chaque fois que vous attachez une NIC à une VM. Quand vous attachez une NIC à une VM, vous devez également spécifier un index de périphérique pour l&#8217;attachement entre 1 et 7 (tous deux inclus). L&#8217;index de périphérique 0 est réservé pour l&#8217;interface réseau principale de la VM.</p>
+</div>
+<div class="paragraph">
+<p>Les attributs des NIC suivent les NIC lorsque celles-ci sont détachées et attachées à une autre VM. Quand vous déplacez une NIC sur une autre VM, le trafic associé à cette NIC est automatiquement redirigé vers cette VM. Une NIC ne peut être attachée qu&#8217;à une VM à la fois.</p>
+</div>
+<div class="paragraph">
+<p>Par défaut, lorsque des VM auxquelles sont attachées des NIC sont terminées, les NIC créées à la création des VM sont supprimées, alors que les NIC créées après la création des VM sont détachées.</p>
+</div>
+<div class="paragraph">
+<p>Alors que les <span class="tooltip" data-tooltip="Virtual Private Cloud (VPC) dans les API AWS-compliant">Nets</span> sont disponibles pour une Région, les NIC sont créées dans un Subnet et sont disponibles dans la <span class="tooltip" data-tooltip="Availability Zone (AZ) dans les API AWS-compliant">Sous-région</span> de ce Subnet uniquement. Par conséquent, vous ne pouvez attacher des NIC qu&#8217;à des VM elles-mêmes situées dans les Subnets de cette Sous-région.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Attacher à une VM plusieurs NIC du même Subnet peut causer des problèmes de réseau comme, par exemple, un routage asymétrique. Si possible, utilisez des NIC de Subnets différents ou des IP privées secondaires sur l&#8217;interface réseau principale ou sur une NIC.</p>
+</li>
+<li>
+<p>Les NIC dépendent du Subnet dans lequel elles sont situées. Ainsi, le trafic réseau d&#8217;une NIC est routé à l&#8217;aide de la route table associée à ce Subnet, indépendamment de la VM à laquelle elle est attachée.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Le schéma suivant montre :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Une VM A, associées à deux NIC (<span class="tooltip" data-tooltip="network interface card (NIC) dans l'API OUTSCALE">FNI</span> 1 et NIC 2) du Subnet 1 et du Subnet 2, appartenant à la même Sous-région.</p>
+</li>
+<li>
+<p>Une VM B, associée à une NIC (FNI 3) du Subnet 2.</p>
+</li>
+<li>
+<p>La façon dont le trafic est routé de la NIC 3 à la NIC 1 à l&#8217;aide de la route table 2 associée au Subnet 2.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Infrastructure de Subnets, VM et NIC</div>
+<p><span class="image"><img src="_images/FR-sch-NIC-Infrastructure.png" alt="FR sch NIC Infrastructure" width="500"></span></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Le trafic entre des NIC du même Subnet est routé localement.</p>
+</li>
+<li>
+<p>Les interfaces réseau sont placées dans des Subnets, mais les VM en elles-mêmes ne le sont pas. Ainsi, lorsque vous créez une infrastructure Net, le fait de placer une VM dans un Subnet correspond à placer son interface réseau principale dans ce Subnet. Le fait d&#8217;attacher des NIC additionnelles placées dans des Subnets différents permet donc à cette VM d&#8217;être présente dans des Subnets différents.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Une NIC peut avoir l&#8217;un des états suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>available</code> : La NIC est créée et prête à être attachée à une VM.</p>
+</li>
+<li>
+<p><code>attaching</code> : Le processus d&#8217;attachement de la NIC à une VM est en cours.</p>
+</li>
+<li>
+<p><code>in-use</code> : La NIC est attachée à une VM et peut envoyer et recevoir du trafic réseau.</p>
+</li>
+<li>
+<p><code>detaching</code> : Le processus de détachement de la NIC d&#8217;une VM est en cours.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Une NIC peut avoir l&#8217;un des états d&#8217;attachement suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>attaching</code> : Le processus d&#8217;attachement de la NIC à la VM spécifiée est en cours.</p>
+</li>
+<li>
+<p><code>attached</code> : Le processus d&#8217;attachement de la NIC à la VM spécifiée est terminé.</p>
+</li>
+<li>
+<p><code>detaching</code> : Le processus de détachement de la NIC de la VM spécifiée est en cours.</p>
+</li>
+<li>
+<p><code>detached</code> : Le processus de détachement de la NIC de la VM spécifiée est terminé.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Flexible-Compute-Unit-FCU.html" class="xref page">Flexible Compute Unit (FCU)</a></p>
+</li>
+<li>
+<p><a href="Nets.html" class="xref page">Nets</a></p>
+</li>
+<li>
+<p><a href="Créer-une-NIC.html" class="xref page">Créer une NIC</a></p>
+</li>
+<li>
+<p><a href="IP-publiques.html" class="xref page">IP publiques</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

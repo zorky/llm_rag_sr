@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Copier un objet existant en tant que partie – Documentation publique OUTSCALE</title>
+    <link rel="canonical" href="Copier-un-objet-existant-en-tant-que-partie.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs FR">
+    <meta name="page-component" content="fr">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/fr/userguide/Copier-un-objet-existant-en-tant-que-partie.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://fr.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Accueil.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">Compatibilité AWS</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="Référence-API-OOS.html">OOS</a></li>
+                      <li><a href="Matrice-de-compatibilité-avec-AWS.html">Matrice de compatibilité</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Outils</button>
+                  <ul id="entry-4">
+                      <li><a href="À-propos-de-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installer-et-configurer-OSC-CLI.html">Interface en ligne de commande (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK pour Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK pour Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK pour JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK pour Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Utiliser l&#x27;API OUTSCALE avec libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/fr-fr" target="_blank" rel="noopener">FAQ</a>
+              </li>
+              <li class="entry">
+                <a href="Notes-de-mise-à-jour.html">Notes de mise à jour</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">Français<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../en/userguide/Copying-an-Existing-Object-as-a-Part.html">English</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/fr/userguide/Recherche.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Rechercher"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:fr" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Sommaire" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Copier un objet existant en tant que partie</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez prendre un objet existant (ou une partie spécifiée de celui-ci) qui est stocké dans l&#8217;un de vos buckets et le copier en tant que partie unique d&#8217;un nouvel objet, dans le cadre du processus de dépôt partitionné.</p>
+</div>
+<div class="paragraph">
+<p>Cela permet de réutiliser les données d&#8217;un objet original pour en faire une partie d&#8217;un nouvel objet.</p>
+</div>
+<div class="paragraph">
+<p>Cette approche exploite les objets existants et vous permet d&#8217;éviter de recharger les données de votre environnement local en les intégrant directement dans de nouveaux dépôts partitionnés.</p>
+</div>
+</div>
+</div>
+<div class="sect1 tab">
+<h2 id="AWS CLI"><a class="anchor" href="Copier-un-objet-existant-en-tant-que-partie.html#AWS CLI"></a>Copier un objet existant en tant que partie avec AWS CLI</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Avant de commencer :</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Installez et configurez AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p>Créer un bucket et y initier un dépôt partitionné. Pour en savoir plus, voir <a href="Créer-un-dépôt-partitionné.html" class="xref page">Créer un dépôt partitionné</a>.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Pour copier un objet existant en tant que partie, utilisez la commande <strong>upload-part-copy</strong> en suivant cette syntaxe :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de requête</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ aws s3api upload-part-copy \
+    --profile YOUR_PROFILE \
+    --bucket DESTINATION_BUCKET \
+    --copy-source SOURCE_BUCKET/OBJECT \
+    --copy-source-if-match "\"b4fb2aaa356797d9a28bfc640a973720\"" \
+    --copy-source-if-modified-since "2024-01-01T00:00:00Z" \
+    --copy-source-if-none-match "\"b4fb2aaa356797d9a28bfc640a973720\"" \
+    --copy-source-if-unmodified-since "2024-01-01T00:00:00Z"  \
+    --copy-source-range bytes=O-9 \
+    --key MULTIPART_UPLOAD \
+    --part-number 1 \
+    --upload-id 2~xrosnH8pbKTk3sjXijfGIUN1KAEM3Yc \
+    --endpoint https://oos.eu-west-2.outscale.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande contient les attributs suivants que vous devez spécifier :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(optionnel) <code>profile</code> : Le profil nommé que vous voulez utiliser, créé pendant la configuration d&#8217;AWS CLI. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+<li>
+<p><code>bucket</code> : Le bucket de destination dans lequel l&#8217;objet sera copié comme partie dans le cadre d&#8217;un dépôt partitionné.</p>
+</li>
+<li>
+<p><code>copy-source</code> : Le chemin vers le bucket source contenant l&#8217;objet que vous souhaitez copier.</p>
+</li>
+<li>
+<p>(optionnel) <code>copy-source-if-match</code> : Copie l’objet uniquement si son ETag correspond à l’ETag indiqué pour cet attribut.</p>
+</li>
+<li>
+<p>(optionnel) <code>copy-source-if-modified-since</code> : Copie l’objet seulement s’il a été modifié après la date et l’heure indiquées au format UTC pour cet attribut.</p>
+</li>
+<li>
+<p>(optionnel) <code>copy-source-if-none-match</code> : Copie l’objet uniquement si son ETag ne correspond pas à l’ETag indiqué pour cet attribut.</p>
+</li>
+<li>
+<p>(optionnel) <code>copy-source-if-unmodified-since</code> : Copie l’objet uniquement s’il n’a pas été modifié depuis la date et l’heure indiquées au format UTC pour cet attribut.</p>
+</li>
+<li>
+<p>(optionnel) <code>copy-source-range</code> : Spécifie la partie de l&#8217;objet que vous souhaitez copier. Le format est <code>bytes=premier-dernier</code>, où <code>premier</code> et <code>dernier</code> sont les points de départ et de fin de la partie que vous souhaitez copier. Par exemple, <code>bytes=O-9</code> signifie que vous copiez les dix premiers octets de l&#8217;objet.<br></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Vous ne pouvez utiliser cet attribut que si l&#8217;objet que vous copiez a une taille supérieure à 5 Mo.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>key</code> : Le nom donné au dépôt partitionné dans lequel vous souhaitez déposer l&#8217;objet copié.</p>
+</li>
+<li>
+<p><code>part-number</code> : Le numéro de la partie. Ce nombre doit être un entier compris entre <code>1</code> et <code>10000</code>.</p>
+</li>
+<li>
+<p><code>upload-id</code> : L’ID du dépôt que vous avez reçu en créant le dépôt partitionné sur le bucket de destination. Pour en savoir plus, voir <a href="Créer-un-dépôt-partitionné.html" class="xref page">Créer un dépôt partitionné</a>.</p>
+</li>
+<li>
+<p><code>endpoint</code> : Le endpoint correspondant à la Région à laquelle vous voulez envoyer la requête. Pour en savoir plus, voir <a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>La commande <strong>upload-part-copy</strong> renvoie les éléments suivants :</p>
+</div>
+<div class="listingblock">
+<div class="title">Exemple de résultat</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "CopySourceVersionId": "aJavne0zwQtV00000000001I4j3QKItW",
+    "CopyPartResult": {
+        "ETag": "\"a367ed62e9d2353a3336d431fa4da763\"",
+        "LastModified": "2024-02-28T09:22:19.123000+00:00"
+    }
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CopySourceVersionId</code> : Si le versioning a été activé sur le bucket source, la version de l&#8217;ID de l&#8217;objet en train d&#8217;être copié dans le bucket de destination. Pour en savoir plus, voir <a href="Utiliser-le-bucket-versioning.html" class="xref page">Utiliser le bucket versioning</a>.</p>
+</li>
+<li>
+<p><code>CopyPartResult</code> : Contient les données de réponse pour une partie copiée dans un dépôt partitionné.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ETag</code> : L&#8217;ETAG de la partie.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Conservez précieusement cet élément, vous en aurez besoin dans d&#8217;autres commande pour le dépôt partitionné.</p>
+</div>
+<div class="paragraph">
+<p>Si vous perdez cet élément, vous pouvez le retrouver. Pour en savoir plus, voir <a href="Lister-les-dépôts-partitionnés-d-un-bucket.html" class="xref page">Lister les dépôts partitionnés d&#8217;un bucket</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><code>LastModified</code> : La date et l&#8217;heure, au format UTC, auxquelles l&#8217;objet a été copié.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Remarque"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>L&#8217;objet que vous avez copié en tant que partie n&#8217;apparaît pas immédiatement dans le bucket de destination car le processus de dépôt partitionné n&#8217;est pas encore finalisé. En effet, les parties que vous déposez ne sont pas combinées et visibles en tant qu&#8217;objet unique dans le bucket de destination tant que vous n&#8217;avez pas explicitement finalisé le dépôt partitionné. Pour en savoir plus, voir <a href="Finaliser-un-dépôt-partitionné.html" class="xref page">Finaliser un dépôt partitionné</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Pages connexes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Installer-et-configurer-AWS-CLI.html" class="xref page">Installer et configurer AWS CLI</a></p>
+</li>
+<li>
+<p><a href="Créer-un-dépôt-partitionné.html" class="xref page">Créer un dépôt partitionné</a></p>
+</li>
+<li>
+<p><a href="Finaliser-un-dépôt-partitionné.html" class="xref page">Finaliser un dépôt partitionné</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="disclaimer" class="paragraph page-wrapper api">
+<p>AWS™ et Amazon Web Services™ sont des marques de commerce d'Amazon Technologies, Inc. ou de ses affiliées aux États-Unis et/ou dans les autres pays.</p>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Exporter en PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. Tous droits réservés. | <a href="Mentions-légales.html" class="xref page">Mentions légales</a></p>
+      <p>Ce site a été construit avec <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> et <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

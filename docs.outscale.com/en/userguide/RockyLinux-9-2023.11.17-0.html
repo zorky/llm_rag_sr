@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>RockyLinux-9-2023.11.17-0 – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="RockyLinux-9-2023.11.17-0.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/RockyLinux-9-2023.11.17-0.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/RockyLinux-9-2023.11.17-0.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">RockyLinux-9-2023.11.17-0</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This topic contains technical specifications for the RockyLinux-9-2023.11.17-0 OUTSCALE Machine Image (OMI).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_omi_ids"><a class="anchor" href="RockyLinux-9-2023.11.17-0.html#_omi_ids"></a>OMI IDs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This OMI has the following IDs depending on the Regions:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Region</th>
+<th class="tableblock halign-left valign-top">eu-west-2</th>
+<th class="tableblock halign-left valign-top">us-east-2</th>
+<th class="tableblock halign-left valign-top">us-west-1</th>
+<th class="tableblock halign-left valign-top">cloudgouv-eu-west-1</th>
+<th class="tableblock halign-left valign-top">ap-northeast-1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">ID</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ami-0baeccc5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ami-57042109</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ami-def7482e</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ami-201bce2a</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ami-49b840db</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_specifications"><a class="anchor" href="RockyLinux-9-2023.11.17-0.html#_specifications"></a>Specifications</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Specification</th>
+<th class="tableblock halign-left valign-top">Information</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Official image used</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://dl.rockylinux.org/pub/rocky/9/images/x86_64/Rocky-9-GenericCloud.latest.x86_64.qcow2" target="_blank" rel="noopener">https://dl.rockylinux.org/pub/rocky/9/images/x86_64/Rocky-9-GenericCloud.latest.x86_64.qcow2</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kernel options added</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N/A</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SE Linux</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disabled</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Custom packages added</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">osc-udev-rules-20230103-1.x86_64.rpm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud-Init configuration</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">20_user.cfg</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">system_info:
+  default_user:
+    name: outscale</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">99_metadata.cfg</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">disable-ec2-metadata: false
+
+datasource_list: [ Ec2 ]
+datasource:
+  Ec2:
+    strict_id: false
+    metadata_urls: [ 'http://169.254.169.254:80' ]
+    timeout: 5
+    max_wait: 10</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default SSH configuration</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">X11Forwarding no
+PermitTunnel no
+PermitRootLogin no
+RSAAuthentication yes
+PubkeyAuthentication yes
+PasswordAuthentication no
+UseDNS no
+ChallengeResponseAuthentication no
+GSSAPIAuthentication no</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SSH user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>outscale</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_package_list"><a class="anchor" href="RockyLinux-9-2023.11.17-0.html#_package_list"></a>Package List</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">Installed Packages
+NetworkManager.x86_64                1:1.42.2-1.el9                @anaconda
+NetworkManager-libnm.x86_64          1:1.42.2-1.el9                @anaconda
+NetworkManager-team.x86_64           1:1.42.2-1.el9                @anaconda
+NetworkManager-tui.x86_64            1:1.42.2-1.el9                @anaconda
+PackageKit.x86_64                    1.2.4-2.el9                   @AppStream
+PackageKit-glib.x86_64               1.2.4-2.el9                   @AppStream
+abattis-cantarell-fonts.noarch       0.301-4.el9                   @AppStream
+acl.x86_64                           2.3.1-3.el9                   @anaconda
+adobe-source-code-pro-fonts.noarch   2.030.1.050-12.el9.1          @anaconda
+alternatives.x86_64                  1.20-2.el9                    @anaconda
+audit.x86_64                         3.0.7-103.el9                 @anaconda
+audit-libs.x86_64                    3.0.7-103.el9                 @anaconda
+authselect.x86_64                    1.2.6-1.el9                   @anaconda
+authselect-compat.x86_64             1.2.6-1.el9                   @AppStream
+authselect-libs.x86_64               1.2.6-1.el9                   @anaconda
+basesystem.noarch                    11-13.el9                     @anaconda
+bash.x86_64                          5.1.8-6.el9_1                 @anaconda
+bzip2.x86_64                         1.0.8-8.el9                   @anaconda
+bzip2-libs.x86_64                    1.0.8-8.el9                   @anaconda
+c-ares.x86_64                        1.17.1-5.el9_2.1              @baseos
+ca-certificates.noarch               2022.2.54-90.2.el9            @anaconda
+checkpolicy.x86_64                   3.5-1.el9                     @AppStream
+chrony.x86_64                        4.3-1.el9                     @anaconda
+cloud-init.noarch                    22.1-9.el9.0.2                @AppStream
+cloud-utils-growpart.x86_64          0.33-1.el9                    @AppStream
+cockpit-bridge.x86_64                286.1-1.el9                   @anaconda
+cockpit-system.noarch                286.1-1.el9                   @anaconda
+cockpit-ws.x86_64                    286.1-1.el9                   @anaconda
+coreutils.x86_64                     8.32-34.el9                   @anaconda
+coreutils-common.x86_64              8.32-34.el9                   @anaconda
+cpio.x86_64                          2.13-16.el9                   @anaconda
+cracklib.x86_64                      2.9.6-27.el9                  @anaconda
+cracklib-dicts.x86_64                2.9.6-27.el9                  @anaconda
+cronie.x86_64                        1.5.7-8.el9                   @anaconda
+cronie-anacron.x86_64                1.5.7-8.el9                   @anaconda
+crontabs.noarch                      1.11-27.20190603git.el9       @anaconda
+crypto-policies.noarch               20221215-1.git9a18988.el9     @anaconda
+crypto-policies-scripts.noarch       20221215-1.git9a18988.el9     @anaconda
+cryptsetup-libs.x86_64               2.6.0-2.el9                   @anaconda
+curl.x86_64                          7.76.1-23.el9_2.1             @anaconda
+cyrus-sasl-lib.x86_64                2.1.27-21.el9                 @anaconda
+dbus.x86_64                          1:1.12.20-7.el9_2.1           @baseos
+dbus-broker.x86_64                   28-7.el9                      @anaconda
+dbus-common.noarch                   1:1.12.20-7.el9_2.1           @baseos
+dbus-libs.x86_64                     1:1.12.20-7.el9_2.1           @baseos
+dbus-tools.x86_64                    1:1.12.20-7.el9_2.1           @baseos
+dejavu-sans-fonts.noarch             2.37-18.el9                   @anaconda
+device-mapper.x86_64                 9:1.02.187-7.el9              @anaconda
+device-mapper-libs.x86_64            9:1.02.187-7.el9              @anaconda
+dhcp-client.x86_64                   12:4.4.2-18.b1.el9            @anaconda
+dhcp-common.noarch                   12:4.4.2-18.b1.el9            @anaconda
+diffutils.x86_64                     3.7-12.el9                    @anaconda
+dmidecode.x86_64                     1:3.3-7.el9                   @anaconda
+dnf.noarch                           4.14.0-5.el9_2                @anaconda
+dnf-data.noarch                      4.14.0-5.el9_2                @anaconda
+dnf-plugins-core.noarch              4.3.0-5.el9_2                 @anaconda
+dosfstools.x86_64                    4.2-3.el9                     @anaconda
+dracut.x86_64                        057-21.git20230214.el9        @anaconda
+dracut-config-generic.x86_64         057-21.git20230214.el9        @anaconda
+dracut-network.x86_64                057-21.git20230214.el9        @anaconda
+dracut-squash.x86_64                 057-21.git20230214.el9        @anaconda
+e2fsprogs.x86_64                     1.46.5-3.el9                  @anaconda
+e2fsprogs-libs.x86_64                1.46.5-3.el9                  @anaconda
+efi-filesystem.noarch                6-2.el9_0                     @anaconda
+efibootmgr.x86_64                    16-12.el9                     @anaconda
+efivar-libs.x86_64                   38-3.el9                      @anaconda
+elfutils-default-yama-scope.noarch   0.188-3.el9                   @anaconda
+elfutils-libelf.x86_64               0.188-3.el9                   @anaconda
+elfutils-libs.x86_64                 0.188-3.el9                   @anaconda
+ethtool.x86_64                       2:5.16-1.el9                  @anaconda
+expat.x86_64                         2.5.0-1.el9                   @anaconda
+file.x86_64                          5.39-12.el9                   @anaconda
+file-libs.x86_64                     5.39-12.el9                   @anaconda
+filesystem.x86_64                    3.16-2.el9                    @anaconda
+findutils.x86_64                     1:4.8.0-5.el9                 @anaconda
+flashrom.x86_64                      1.2-10.el9                    @AppStream
+fonts-filesystem.noarch              1:2.0.5-7.el9.1               @anaconda
+freetype.x86_64                      2.10.4-9.el9                  @baseos
+fuse-libs.x86_64                     2.9.9-15.el9                  @anaconda
+fwupd.x86_64                         1.8.10-2.el9                  @anaconda
+fwupd-plugin-flashrom.x86_64         1.8.10-2.el9                  @AppStream
+gawk.x86_64                          5.1.0-6.el9                   @anaconda
+gawk-all-langpacks.x86_64            5.1.0-6.el9                   @AppStream
+gdbm-libs.x86_64                     1:1.19-4.el9                  @anaconda
+gdisk.x86_64                         1.0.7-5.el9                   @AppStream
+gdk-pixbuf2.x86_64                   2.42.6-3.el9                  @AppStream
+geolite2-city.noarch                 20191217-6.el9                @AppStream
+geolite2-country.noarch              20191217-6.el9                @AppStream
+gettext.x86_64                       0.21-7.el9                    @anaconda
+gettext-libs.x86_64                  0.21-7.el9                    @anaconda
+glib-networking.x86_64               2.68.3-3.el9                  @anaconda
+glib2.x86_64                         2.68.4-6.el9                  @anaconda
+glibc.x86_64                         2.34-60.el9                   @anaconda
+glibc-common.x86_64                  2.34-60.el9                   @anaconda
+glibc-gconv-extra.x86_64             2.34-60.el9                   @anaconda
+glibc-langpack-en.x86_64             2.34-60.el9                   @anaconda
+gmp.x86_64                           1:6.2.0-10.el9                @anaconda
+gnupg2.x86_64                        2.3.3-2.el9_0                 @anaconda
+gnutls.x86_64                        3.7.6-20.el9_2                @anaconda
+gobject-introspection.x86_64         1.68.0-11.el9                 @anaconda
+gpgme.x86_64                         1.15.1-6.el9                  @anaconda
+graphite2.x86_64                     1.3.14-9.el9                  @baseos
+grep.x86_64                          3.6-5.el9                     @anaconda
+groff-base.x86_64                    1.22.4-10.el9                 @anaconda
+grub2-common.noarch                  1:2.06-61.el9_2.1.rocky.0.2   @baseos
+grub2-efi-x64.x86_64                 1:2.06-61.el9_2.1.rocky.0.2   @baseos
+grub2-pc.x86_64                      1:2.06-61.el9_2.1.rocky.0.2   @baseos
+grub2-pc-modules.noarch              1:2.06-61.el9_2.1.rocky.0.2   @baseos
+grub2-tools.x86_64                   1:2.06-61.el9_2.1.rocky.0.2   @baseos
+grub2-tools-efi.x86_64               1:2.06-61.el9_2.1.rocky.0.2   @baseos
+grub2-tools-extra.x86_64             1:2.06-61.el9_2.1.rocky.0.2   @baseos
+grub2-tools-minimal.x86_64           1:2.06-61.el9_2.1.rocky.0.2   @baseos
+grubby.x86_64                        8.40-63.el9                   @anaconda
+gsettings-desktop-schemas.x86_64     40.0-6.el9                    @anaconda
+gssproxy.x86_64                      0.8.4-5.el9_2                 @anaconda
+gzip.x86_64                          1.12-1.el9                    @anaconda
+harfbuzz.x86_64                      2.7.4-8.el9                   @baseos
+hostname.x86_64                      3.23-6.el9                    @anaconda
+hwdata.noarch                        0.348-9.7.el9                 @anaconda
+ima-evm-utils.x86_64                 1.4-4.el9                     @anaconda
+inih.x86_64                          49-6.el9                      @anaconda
+initscripts-rename-device.x86_64     10.11.5-1.el9                 @anaconda
+initscripts-service.noarch           10.11.5-1.el9                 @anaconda
+ipcalc.x86_64                        1.0.0-5.el9                   @anaconda
+iproute.x86_64                       6.1.0-1.el9                   @anaconda
+iproute-tc.x86_64                    6.1.0-1.el9                   @anaconda
+iptables-libs.x86_64                 1.8.8-6.el9_1                 @anaconda
+iputils.x86_64                       20210202-8.el9_1.1            @anaconda
+irqbalance.x86_64                    2:1.9.0-3.el9                 @anaconda
+jansson.x86_64                       2.14-1.el9                    @anaconda
+jitterentropy.x86_64                 3.4.1-2.el9                   @anaconda
+json-c.x86_64                        0.14-11.el9                   @anaconda
+json-glib.x86_64                     1.6.6-1.el9                   @anaconda
+kbd.x86_64                           2.4.0-8.el9                   @anaconda
+kbd-misc.noarch                      2.4.0-8.el9                   @anaconda
+kernel.x86_64                        5.14.0-284.11.1.el9_2         @anaconda
+kernel-core.x86_64                   5.14.0-284.11.1.el9_2         @anaconda
+kernel-modules.x86_64                5.14.0-284.11.1.el9_2         @anaconda
+kernel-modules-core.x86_64           5.14.0-284.11.1.el9_2         @anaconda
+kernel-tools.x86_64                  5.14.0-284.11.1.el9_2         @anaconda
+kernel-tools-libs.x86_64             5.14.0-284.11.1.el9_2         @anaconda
+kexec-tools.x86_64                   2.0.25-13.el9_2               @anaconda
+keyutils.x86_64                      1.6.3-1.el9                   @anaconda
+keyutils-libs.x86_64                 1.6.3-1.el9                   @anaconda
+kmod.x86_64                          28-7.el9                      @anaconda
+kmod-libs.x86_64                     28-7.el9                      @anaconda
+kpartx.x86_64                        0.8.7-20.el9                  @anaconda
+krb5-libs.x86_64                     1.20.1-8.el9                  @anaconda
+langpacks-core-en_GB.noarch          3.0-16.el9                    @AppStream
+langpacks-core-font-en.noarch        3.0-16.el9                    @AppStream
+langpacks-en_GB.noarch               3.0-16.el9                    @AppStream
+less.x86_64                          590-2.el9_2                   @baseos
+libacl.x86_64                        2.3.1-3.el9                   @anaconda
+libappstream-glib.x86_64             0.7.18-4.el9                  @AppStream
+libarchive.x86_64                    3.5.3-4.el9                   @anaconda
+libassuan.x86_64                     2.5.5-3.el9                   @anaconda
+libatasmart.x86_64                   0.19-22.el9                   @AppStream
+libatomic.x86_64                     11.3.1-4.3.el9                @anaconda
+libattr.x86_64                       2.5.1-3.el9                   @anaconda
+libbasicobjects.x86_64               0.1.1-53.el9                  @anaconda
+libblkid.x86_64                      2.37.4-11.el9_2               @anaconda
+libblockdev.x86_64                   2.28-4.el9                    @AppStream
+libblockdev-crypto.x86_64            2.28-4.el9                    @AppStream
+libblockdev-fs.x86_64                2.28-4.el9                    @AppStream
+libblockdev-loop.x86_64              2.28-4.el9                    @AppStream
+libblockdev-mdraid.x86_64            2.28-4.el9                    @AppStream
+libblockdev-part.x86_64              2.28-4.el9                    @AppStream
+libblockdev-swap.x86_64              2.28-4.el9                    @AppStream
+libblockdev-utils.x86_64             2.28-4.el9                    @AppStream
+libbpf.x86_64                        2:1.0.0-2.el9                 @anaconda
+libbrotli.x86_64                     1.0.9-6.el9                   @anaconda
+libbytesize.x86_64                   2.5-3.el9                     @AppStream
+libcap.x86_64                        2.48-8.el9                    @anaconda
+libcap-ng.x86_64                     0.8.2-7.el9                   @anaconda
+libcbor.x86_64                       0.7.0-5.el9                   @anaconda
+libcollection.x86_64                 0.7.0-53.el9                  @anaconda
+libcom_err.x86_64                    1.46.5-3.el9                  @anaconda
+libcomps.x86_64                      0.1.18-1.el9                  @anaconda
+libcurl.x86_64                       7.76.1-23.el9_2.1             @anaconda
+libdaemon.x86_64                     0.14-23.el9                   @anaconda
+libdb.x86_64                         5.3.28-53.el9                 @anaconda
+libdhash.x86_64                      0.5.0-53.el9                  @anaconda
+libdnf.x86_64                        0.69.0-3.el9_2                @anaconda
+libeconf.x86_64                      0.4.1-2.el9                   @anaconda
+libedit.x86_64                       3.1-37.20210216cvs.el9        @anaconda
+libestr.x86_64                       0.1.11-4.el9                  @AppStream
+libev.x86_64                         4.33-5.el9                    @anaconda
+libevent.x86_64                      2.1.12-6.el9                  @anaconda
+libfastjson.x86_64                   0.99.9-3.el9                  @AppStream
+libfdisk.x86_64                      2.37.4-11.el9_2               @anaconda
+libffi.x86_64                        3.4.2-7.el9                   @anaconda
+libfido2.x86_64                      1.6.0-7.el9                   @anaconda
+libgcab1.x86_64                      1.4-6.el9                     @anaconda
+libgcc.x86_64                        11.3.1-4.3.el9                @anaconda
+libgcrypt.x86_64                     1.10.0-10.el9_2               @anaconda
+libgomp.x86_64                       11.3.1-4.3.el9                @anaconda
+libgpg-error.x86_64                  1.42-5.el9                    @anaconda
+libgudev.x86_64                      237-1.el9                     @anaconda
+libgusb.x86_64                       0.3.8-1.el9                   @anaconda
+libibverbs.x86_64                    44.0-2.el9                    @anaconda
+libicu.x86_64                        67.1-9.el9                    @anaconda
+libidn2.x86_64                       2.3.0-7.el9                   @anaconda
+libini_config.x86_64                 1.3.1-53.el9                  @anaconda
+libjcat.x86_64                       0.1.6-3.el9                   @anaconda
+libjpeg-turbo.x86_64                 2.0.90-6.el9_1                @AppStream
+libkcapi.x86_64                      1.3.1-3.el9                   @anaconda
+libkcapi-hmaccalc.x86_64             1.3.1-3.el9                   @anaconda
+libksba.x86_64                       1.5.1-6.el9_1                 @anaconda
+libldb.x86_64                        2.6.1-1.el9                   @anaconda
+libmaxminddb.x86_64                  1.5.2-3.el9                   @AppStream
+libmnl.x86_64                        1.0.4-15.el9                  @anaconda
+libmodulemd.x86_64                   2.13.0-2.el9                  @anaconda
+libmount.x86_64                      2.37.4-11.el9_2               @anaconda
+libndp.x86_64                        1.8-4.el9                     @anaconda
+libnetfilter_conntrack.x86_64        1.0.9-1.el9                   @anaconda
+libnfnetlink.x86_64                  1.0.1-21.el9                  @anaconda
+libnfsidmap.x86_64                   1:2.5.4-18.el9                @anaconda
+libnghttp2.x86_64                    1.43.0-5.el9                  @anaconda
+libnl3.x86_64                        3.7.0-1.el9                   @anaconda
+libnl3-cli.x86_64                    3.7.0-1.el9                   @anaconda
+libpath_utils.x86_64                 0.2.1-53.el9                  @anaconda
+libpcap.x86_64                       14:1.10.0-4.el9               @anaconda
+libpipeline.x86_64                   1.5.3-4.el9                   @anaconda
+libpng.x86_64                        2:1.6.37-12.el9               @anaconda
+libproxy.x86_64                      0.4.15-35.el9                 @anaconda
+libproxy-webkitgtk4.x86_64           0.4.15-35.el9                 @AppStream
+libpsl.x86_64                        0.21.1-5.el9                  @anaconda
+libpwquality.x86_64                  1.4.4-8.el9                   @anaconda
+libref_array.x86_64                  0.1.5-53.el9                  @anaconda
+librepo.x86_64                       1.14.5-1.el9                  @anaconda
+libreport-filesystem.noarch          2.15.2-6.el9.rocky.0.2        @anaconda
+libseccomp.x86_64                    2.5.2-2.el9                   @anaconda
+libselinux.x86_64                    3.5-1.el9                     @anaconda
+libselinux-utils.x86_64              3.5-1.el9                     @anaconda
+libsemanage.x86_64                   3.5-1.el9                     @anaconda
+libsepol.x86_64                      3.5-1.el9                     @anaconda
+libsigsegv.x86_64                    2.13-4.el9                    @anaconda
+libsmartcols.x86_64                  2.37.4-11.el9_2               @anaconda
+libsmbios.x86_64                     2.4.3-4.el9                   @anaconda
+libsolv.x86_64                       0.7.22-4.el9                  @anaconda
+libsoup.x86_64                       2.72.0-8.el9                  @AppStream
+libss.x86_64                         1.46.5-3.el9                  @anaconda
+libssh.x86_64                        0.10.4-8.el9                  @anaconda
+libssh-config.noarch                 0.10.4-8.el9                  @anaconda
+libsss_certmap.x86_64                2.8.2-2.el9                   @anaconda
+libsss_idmap.x86_64                  2.8.2-2.el9                   @anaconda
+libsss_nss_idmap.x86_64              2.8.2-2.el9                   @anaconda
+libsss_sudo.x86_64                   2.8.2-2.el9                   @anaconda
+libstdc++.x86_64                     11.3.1-4.3.el9                @anaconda
+libstemmer.x86_64                    0-18.585svn.el9               @AppStream
+libsysfs.x86_64                      2.1.1-10.el9                  @anaconda
+libtalloc.x86_64                     2.3.4-1.el9                   @anaconda
+libtasn1.x86_64                      4.16.0-8.el9_1                @anaconda
+libtdb.x86_64                        1.4.7-1.el9                   @anaconda
+libteam.x86_64                       1.31-16.el9_1                 @anaconda
+libtevent.x86_64                     0.13.0-1.el9                  @anaconda
+libtirpc.x86_64                      1.3.3-1.el9                   @anaconda
+libudisks2.x86_64                    2.9.4-7.el9                   @AppStream
+libunistring.x86_64                  0.9.10-15.el9                 @anaconda
+libusbx.x86_64                       1.0.26-1.el9                  @anaconda
+libuser.x86_64                       0.63-12.el9                   @anaconda
+libutempter.x86_64                   1.2.1-6.el9                   @anaconda
+libuuid.x86_64                       2.37.4-11.el9_2               @anaconda
+libverto.x86_64                      0.3.2-3.el9                   @anaconda
+libverto-libev.x86_64                0.3.2-3.el9                   @anaconda
+libxcrypt.x86_64                     4.4.18-3.el9                  @anaconda
+libxcrypt-compat.x86_64              4.4.18-3.el9                  @AppStream
+libxml2.x86_64                       2.9.13-3.el9_1                @anaconda
+libxmlb.x86_64                       0.3.10-1.el9                  @anaconda
+libyaml.x86_64                       0.2.5-7.el9                   @anaconda
+libzstd.x86_64                       1.5.1-2.el9                   @anaconda
+lmdb-libs.x86_64                     0.9.29-3.el9                  @anaconda
+logrotate.x86_64                     3.18.0-8.el9                  @anaconda
+lshw.x86_64                          B.02.19.2-9.el9               @anaconda
+lsscsi.x86_64                        0.32-6.el9                    @anaconda
+lua-libs.x86_64                      5.4.4-3.el9                   @anaconda
+lz4-libs.x86_64                      1.9.3-5.el9                   @anaconda
+lzo.x86_64                           2.10-7.el9                    @anaconda
+man-db.x86_64                        2.9.3-7.el9                   @anaconda
+mdadm.x86_64                         4.2-8.el9                     @anaconda
+microcode_ctl.noarch                 4:20220809-2.el9              @anaconda
+mokutil.x86_64                       2:0.6.0-4.el9                 @anaconda
+mpfr.x86_64                          4.1.0-7.el9                   @anaconda
+ncurses.x86_64                       6.2-8.20210508.el9            @anaconda
+ncurses-base.noarch                  6.2-8.20210508.el9            @anaconda
+ncurses-libs.x86_64                  6.2-8.20210508.el9            @anaconda
+nettle.x86_64                        3.8-3.el9_0                   @anaconda
+newt.x86_64                          0.52.21-11.el9                @anaconda
+nfs-utils.x86_64                     1:2.5.4-18.el9                @anaconda
+npth.x86_64                          1.6-8.el9                     @anaconda
+nspr.x86_64                          4.34.0-18.el9_1               @AppStream
+nss.x86_64                           3.79.0-18.el9_1               @AppStream
+nss-softokn.x86_64                   3.79.0-18.el9_1               @AppStream
+nss-softokn-freebl.x86_64            3.79.0-18.el9_1               @AppStream
+nss-sysinit.x86_64                   3.79.0-18.el9_1               @AppStream
+nss-util.x86_64                      3.79.0-18.el9_1               @AppStream
+numactl-libs.x86_64                  2.0.14-9.el9                  @anaconda
+oddjob.x86_64                        0.34.7-7.el9                  @AppStream
+oddjob-mkhomedir.x86_64              0.34.7-7.el9                  @AppStream
+openldap.x86_64                      2.6.2-3.el9                   @anaconda
+openssh.x86_64                       8.7p1-29.el9_2                @anaconda
+openssh-clients.x86_64               8.7p1-29.el9_2                @anaconda
+openssh-server.x86_64                8.7p1-29.el9_2                @anaconda
+openssl.x86_64                       1:3.0.7-6.el9_2               @anaconda
+openssl-libs.x86_64                  1:3.0.7-6.el9_2               @anaconda
+os-prober.x86_64                     1.77-10.el9                   @anaconda
+osc-udev.x86_64                      2.2-1                         @@commandline
+p11-kit.x86_64                       0.24.1-2.el9                  @anaconda
+p11-kit-trust.x86_64                 0.24.1-2.el9                  @anaconda
+pam.x86_64                           1.5.1-14.el9                  @anaconda
+parted.x86_64                        3.5-2.el9                     @anaconda
+passwd.x86_64                        0.80-12.el9                   @anaconda
+pciutils-libs.x86_64                 3.7.0-5.el9                   @anaconda
+pcre.x86_64                          8.44-3.el9.3                  @anaconda
+pcre2.x86_64                         10.40-2.el9                   @anaconda
+pcre2-syntax.noarch                  10.40-2.el9                   @anaconda
+pigz.x86_64                          2.5-4.el9                     @anaconda
+policycoreutils.x86_64               3.5-1.el9                     @anaconda
+policycoreutils-python-utils.noarch  3.5-1.el9                     @AppStream
+polkit.x86_64                        0.117-11.el9                  @anaconda
+polkit-libs.x86_64                   0.117-11.el9                  @anaconda
+polkit-pkla-compat.x86_64            0.1-21.el9                    @anaconda
+popt.x86_64                          1.18-8.el9                    @anaconda
+prefixdevname.x86_64                 0.1.0-8.el9                   @anaconda
+procps-ng.x86_64                     3.3.17-11.el9                 @anaconda
+psmisc.x86_64                        23.4-3.el9                    @anaconda
+publicsuffix-list-dafsa.noarch       20210518-3.el9                @anaconda
+python-unversioned-command.noarch    3.9.16-1.el9_2.2              @appstream
+python3.x86_64                       3.9.16-1.el9_2.2              @baseos
+python3-attrs.noarch                 20.3.0-7.el9                  @AppStream
+python3-audit.x86_64                 3.0.7-103.el9                 @AppStream
+python3-babel.noarch                 2.9.1-2.el9                   @AppStream
+python3-chardet.noarch               4.0.0-5.el9                   @anaconda
+python3-configobj.noarch             5.0.6-25.el9                  @AppStream
+python3-dasbus.noarch                1.4-5.el9                     @AppStream
+python3-dateutil.noarch              1:2.8.1-6.el9                 @anaconda
+python3-dbus.x86_64                  1.2.18-2.el9                  @anaconda
+python3-distro.noarch                1.5.0-7.el9                   @AppStream
+python3-dnf.noarch                   4.14.0-5.el9_2                @anaconda
+python3-dnf-plugins-core.noarch      4.3.0-5.el9_2                 @anaconda
+python3-file-magic.noarch            5.39-12.el9                   @AppStream
+python3-gobject-base.x86_64          3.40.1-6.el9                  @anaconda
+python3-gobject-base-noarch.noarch   3.40.1-6.el9                  @anaconda
+python3-gpg.x86_64                   1.15.1-6.el9                  @anaconda
+python3-hawkey.x86_64                0.69.0-3.el9_2                @anaconda
+python3-idna.noarch                  2.10-7.el9                    @anaconda
+python3-jinja2.noarch                2.11.3-4.el9                  @AppStream
+python3-jsonpatch.noarch             1.21-16.el9                   @AppStream
+python3-jsonpointer.noarch           2.0-4.el9                     @AppStream
+python3-jsonschema.noarch            3.2.0-13.el9                  @AppStream
+python3-libcomps.x86_64              0.1.18-1.el9                  @anaconda
+python3-libdnf.x86_64                0.69.0-3.el9_2                @anaconda
+python3-libs.x86_64                  3.9.16-1.el9_2.2              @baseos
+python3-libselinux.x86_64            3.5-1.el9                     @AppStream
+python3-libsemanage.x86_64           3.5-1.el9                     @AppStream
+python3-libxml2.x86_64               2.9.13-3.el9_1                @anaconda
+python3-markupsafe.x86_64            1.1.1-12.el9                  @AppStream
+python3-netifaces.x86_64             0.10.6-15.el9                 @AppStream
+python3-oauthlib.noarch              3.1.1-5.el9                   @AppStream
+python3-pexpect.noarch               4.8.0-7.el9                   @anaconda
+python3-pip-wheel.noarch             21.2.3-6.el9                  @anaconda
+python3-policycoreutils.noarch       3.5-1.el9                     @AppStream
+python3-prettytable.noarch           0.7.2-27.el9                  @AppStream
+python3-ptyprocess.noarch            0.6.0-12.el9                  @anaconda
+python3-pyrsistent.x86_64            0.17.3-8.el9                  @AppStream
+python3-pyserial.noarch              3.4-12.el9                    @AppStream
+python3-pysocks.noarch               1.7.1-12.el9                  @anaconda
+python3-pytz.noarch                  2021.1-4.el9                  @AppStream
+python3-pyyaml.x86_64                5.4.1-6.el9                   @anaconda
+python3-requests.noarch              2.25.1-6.el9                  @anaconda
+python3-rpm.x86_64                   4.16.1.3-22.el9               @anaconda
+python3-setools.x86_64               4.4.1-1.el9                   @anaconda
+python3-setuptools.noarch            53.0.0-12.el9                 @anaconda
+python3-setuptools-wheel.noarch      53.0.0-12.el9                 @anaconda
+python3-six.noarch                   1.15.0-9.el9                  @anaconda
+python3-systemd.x86_64               234-18.el9                    @anaconda
+python3-urllib3.noarch               1.26.5-3.el9                  @anaconda
+qemu-guest-agent.x86_64              17:7.2.0-14.el9_2             @AppStream
+quota.x86_64                         1:4.06-6.el9                  @anaconda
+quota-nls.noarch                     1:4.06-6.el9                  @anaconda
+readline.x86_64                      8.1-4.el9                     @anaconda
+rng-tools.x86_64                     6.15-3.el9                    @anaconda
+rocky-gpg-keys.noarch                9.2-1.4.el9                   @anaconda
+rocky-logos.x86_64                   90.14-1.el9                   @AppStream
+rocky-release.noarch                 9.2-1.4.el9                   @anaconda
+rocky-repos.noarch                   9.2-1.4.el9                   @anaconda
+rootfiles.noarch                     8.1-31.el9                    @anaconda
+rpcbind.x86_64                       1.2.6-5.el9                   @anaconda
+rpm.x86_64                           4.16.1.3-22.el9               @anaconda
+rpm-build-libs.x86_64                4.16.1.3-22.el9               @anaconda
+rpm-libs.x86_64                      4.16.1.3-22.el9               @anaconda
+rpm-plugin-audit.x86_64              4.16.1.3-22.el9               @anaconda
+rpm-plugin-selinux.x86_64            4.16.1.3-22.el9               @anaconda
+rpm-plugin-systemd-inhibit.x86_64    4.16.1.3-22.el9               @AppStream
+rpm-sign-libs.x86_64                 4.16.1.3-22.el9               @anaconda
+rsync.x86_64                         3.2.3-19.el9                  @anaconda
+rsyslog.x86_64                       8.2102.0-113.el9_2            @AppStream
+rsyslog-logrotate.x86_64             8.2102.0-113.el9_2            @AppStream
+sed.x86_64                           4.8-9.el9                     @anaconda
+selinux-policy.noarch                38.1.11-2.el9_2.2             @anaconda
+selinux-policy-targeted.noarch       38.1.11-2.el9_2.2             @anaconda
+setroubleshoot-plugins.noarch        3.3.14-4.el9                  @AppStream
+setroubleshoot-server.x86_64         3.3.31-2.el9_2                @AppStream
+setup.noarch                         2.13.7-9.el9                  @anaconda
+sg3_utils.x86_64                     1.47-9.el9                    @anaconda
+sg3_utils-libs.x86_64                1.47-9.el9                    @anaconda
+shadow-utils.x86_64                  2:4.9-6.el9                   @anaconda
+shared-mime-info.x86_64              2.1-5.el9                     @anaconda
+shim-x64.x86_64                      15.6-1.el9.rocky.0.2          @anaconda
+slang.x86_64                         2.3.2-11.el9                  @anaconda
+snappy.x86_64                        1.1.8-8.el9                   @anaconda
+sos.noarch                           4.5.1-3.el9_2                 @anaconda
+sqlite-libs.x86_64                   3.34.1-6.el9_1                @anaconda
+squashfs-tools.x86_64                4.4-8.git1.el9                @anaconda
+sscg.x86_64                          3.0.0-7.el9                   @AppStream
+sssd-client.x86_64                   2.8.2-2.el9                   @anaconda
+sssd-common.x86_64                   2.8.2-2.el9                   @anaconda
+sssd-kcm.x86_64                      2.8.2-2.el9                   @anaconda
+sssd-nfs-idmap.x86_64                2.8.2-2.el9                   @anaconda
+sudo.x86_64                          1.9.5p2-9.el9                 @anaconda
+systemd.x86_64                       252-13.el9_2                  @anaconda
+systemd-libs.x86_64                  252-13.el9_2                  @anaconda
+systemd-pam.x86_64                   252-13.el9_2                  @anaconda
+systemd-rpm-macros.noarch            252-13.el9_2                  @anaconda
+systemd-udev.x86_64                  252-13.el9_2                  @anaconda
+tar.x86_64                           2:1.34-6.el9_1                @anaconda
+tcpdump.x86_64                       14:4.99.0-6.el9               @AppStream
+teamd.x86_64                         1.31-16.el9_1                 @anaconda
+tpm2-tss.x86_64                      3.0.3-8.el9                   @anaconda
+tzdata.noarch                        2023c-1.el9                   @anaconda
+udisks2.x86_64                       2.9.4-7.el9                   @AppStream
+userspace-rcu.x86_64                 0.12.1-6.el9                  @anaconda
+util-linux.x86_64                    2.37.4-11.el9_2               @anaconda
+util-linux-core.x86_64               2.37.4-11.el9_2               @anaconda
+vim-minimal.x86_64                   2:8.2.2637-20.el9_1           @anaconda
+virt-what.x86_64                     1.25-3.el9                    @anaconda
+volume_key-libs.x86_64               0.3.12-15.el9                 @AppStream
+webkit2gtk3-jsc.x86_64               2.38.5-1.el9_2.3              @appstream
+which.x86_64                         2.21-28.el9                   @anaconda
+xfsprogs.x86_64                      5.14.2-1.el9                  @anaconda
+xz.x86_64                            5.2.5-8.el9_0                 @anaconda
+xz-libs.x86_64                       5.2.5-8.el9_0                 @anaconda
+yum.noarch                           4.14.0-5.el9_2                @anaconda
+yum-utils.noarch                     4.3.0-5.el9_2                 @anaconda
+zlib.x86_64                          1.2.11-39.el9                 @anaconda</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="About-OMIs.html" class="xref page">About OMIs</a></p>
+</li>
+<li>
+<p><a href="Official-OMIs-Reference.html" class="xref page">Official OMIs Reference</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>

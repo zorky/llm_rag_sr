@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>About Policies – OUTSCALE Public Documentation</title>
+    <link rel="canonical" href="About-Policies.html">
+    <meta name="generator" content="Antora 3.1.9">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/outscale.css">
+    <link rel="stylesheet" media="screen" href="../../_/css/vendor/jstable.min.css">
+    <link rel="shortcut icon" href="../../_/img/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="_xml/opensearch.xml" title="OUTSCALE Docs EN">
+    <meta name="page-component" content="en">
+    <meta name="page-version" content="">
+    <meta name="page-url" content="/en/userguide/About-Policies.html">
+    <!-- Matomo -->
+    <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        _paq.push(['setTrackerUrl', 'https://outscale.matomo.cloud/matomo.php']);
+        _paq.push(['setSiteId', '15']);
+        _paq.push(['HeatmapSessionRecording::disable']);
+    })();
+    </script>
+    <script async defer src="../../_/js/vendor/matomo.min.js"></script>
+    <!-- End Matomo Code -->
+  </head>
+  <body class="article">
+    <header class="header" role="banner">
+      <nav id="top-menu" aria-label="Main Navigation">
+          <button id="top-menu-button" aria-expanded="false" aria-controls="entry-0">
+            <span></span>
+          </button>
+          <ul id="entry-0">
+              <li class="logo entry">
+                  <a href="https://en.outscale.com"><img src="../../_/img/logo.svg" alt="Logo"></a>
+              </li>
+              <li class="entry">
+                <a href="Home.html">Docs</a>
+              </li>
+              <li class="entry">
+                <a href="../../api%3Fconsole.html">API</a>
+              </li>
+              <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-3">AWS Compatibility</button>
+                  <ul id="entry-3">
+                      <li><a href="../../fcu.html">FCU</a></li>
+                      <li><a href="../../lbu.html">LBU</a></li>
+                      <li><a href="../../eim.html">EIM</a></li>
+                      <li><a href="../../icu.html">ICU</a></li>
+                      <li><a href="../../directlink.html">DirectLink</a></li>
+                      <li><a href="OOS-API-Reference.html">OOS</a></li>
+                      <li><a href="AWS-Compatibility-Matrix.html">Compatibility Matrix</a></li>
+                  </ul>
+              </li>
+                            <li class="dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-4">Tooling</button>
+                  <ul id="entry-4">
+                      <li><a href="About-Cockpit.html">Cockpit</a></li>
+                      <li><a href="Installing-and-Configuring-OSC-CLI.html">Command-Line Interface (CLI)</a></li>
+                      <li><a href="Terraform.html">Terraform</a></li>
+                      <li><a href="https://www.packer.io/docs/builders/outscale.html" target="_blank" rel="noopener">Packer</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-python" target="_blank" rel="noopener">SDK for Python</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-go" target="_blank" rel="noopener">SDK for Go</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-js" target="_blank" rel="noopener">SDK for JavaScript</a></li>
+                      <li><a href="https://github.com/outscale/osc-sdk-rust" target="_blank" rel="noopener">SDK for Rust</a></li>
+                      <li><a href="https://github.com/outscale/frieza" target="_blank" rel="noopener">Frieza</a></li>
+                      <li><a href="https://github.com/outscale/osc-logs" target="_blank" rel="noopener">osc-logs</a></li>
+                      <li><a href="https://github.com/outscale/osc-libcurl-examples" target="_blank" rel="noopener">Using OUTSCALE API with libcurl</a></li>
+                  </ul>
+              </li>
+                            <li class="entry">
+                <a href="https://support.outscale.com/hc/en-us" target="_blank" rel="noopener">FAQs</a>
+              </li>
+              <li class="entry">
+                <a href="Release-Notes.html">Release Notes</a>
+              </li>
+              <li class="right dropdown entry">
+                  <button aria-expanded="false" aria-controls="entry-lang">English<span class="fa fa-globe fa-fw"></span></button>
+                  <ul id="entry-lang">
+                      <li><a href="../../fr/userguide/À-propos-des-politiques.html">Français</a></li>
+                  </ul>
+              </li>
+              <form id="search-field" class="right entry field has-filter" action="https://docs.outscale.com/en/userguide/Search.html" autocomplete="off">
+                  <a>
+                    <input id="search-input" name="q" type="text" placeholder="Search"><button type="submit" value=""></button>
+                  </a>
+                  <input type="checkbox" data-facet-filter="component:en" checked style="display: none">
+              </form>
+          </ul>
+      </nav>
+      <button class="nav-toggle"></button>
+    </header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <nav class="nav-panel-menu nav-menu is-active"></nav>
+    <div data-panel="menu"></div>
+  </aside>
+</div>
+
+<main class="article">
+  <div class="content ">
+<aside class="toc sidebar" data-title="Contents" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">About Policies</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Policies enable you to grant permissions to users or groups. In a policy, you define the actions you allow or deny a user or group.</p>
+</div>
+<div class="paragraph">
+<p>You can define these permissions in inline policies, that are embedded in a user or group, or in managed policies, that you can attach to several users or groups and detach at any time.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_permissions_and_policies"><a class="anchor" href="About-Policies.html#_permissions_and_policies"></a>Permissions and Policies</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Permissions enable you to manage and control who can perform which actions on your account. These permissions are contained in policies using policy documents you define when creating policies.</p>
+</div>
+<div class="paragraph">
+<p>When you create a user or a group, they have no permissions by default, meaning that they cannot perform any action. To give permissions to a user or group, you need to use policies. For more information, see <a href="About-EIM-Users.html" class="xref page">About EIM Users</a> and <a href="About-EIM-Groups.html" class="xref page">About EIM Groups</a>.</p>
+</div>
+<div class="paragraph">
+<p>Permissions enable you to specify what actions the user or group can perform. For example, you can give permission to perform the <code>CreateVolume</code> and <code>AttachVolume</code> actions. For more information, see the <a href="About-Policies.html#_policy_documents_and_statements">Policy Documents and Statements</a> section below.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Resource creators do not automatically have permissions to access and perform actions on the resources they create. Users only have permissions that have been explicitly granted to them.</p>
+</div>
+<div class="paragraph">
+<p>For example, if a user has the permission to create <span class="tooltip" data-tooltip="instance in AWS-Compliant APIs">virtual machines (VMs)</span>, but not to describe VMs, they are not able to describe the VMs they create unless you grant them the permission to do so.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_inline_and_managed_policies"><a class="anchor" href="About-Policies.html#_inline_and_managed_policies"></a>Inline and Managed Policies</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can give permissions to users or groups using either inline or managed policies:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Inline policies are embedded in a user or group, and are part of the EIM identity.</p>
+</li>
+<li>
+<p>Managed policies are standalone policies that you can attach to several users or groups, and detach at any time.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>As permissions are incremental, you can apply both managed and inline policies simultaneously, and users can benefit simultaneously from policies individually applied to them and from policies applied to groups they belong to.</p>
+</div>
+<div class="sect2">
+<h3 id="_inline_policies"><a class="anchor" href="About-Policies.html#_inline_policies"></a>Inline Policies</h3>
+<div class="paragraph">
+<p>An inline policy only applies to the EIM identity (user or group) it is embedded in and cannot be shared with another EIM identity. You can however create copies granting the same permissions embedded in other EIM identities, but they are independent from one another.</p>
+</div>
+<div class="paragraph">
+<p>You can add an inline policy to a user or group at any time. However, you cannot modify an existing inline policy. To update the permissions contained in inline policies, you must delete the inline policy and add a new one to the user or group, preventing you from reverting a policy to an earlier state. For more information, see <a href="Working-with-Inline-Policies.html" class="xref page">Working with Inline Policies</a>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you delete a user or a group, all their embedded inline policies are also deleted.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can use inline policies when you want to ensure that a policy is only assigned to one intended EIM identity and cannot inadvertently be assigned to another one. A same user or group can have several embedded inline policies. You can list all the inline policies embedded in a specified user or group. However, you cannot list all inline policies for your account.</p>
+</div>
+<div class="paragraph">
+<div class="title">Inline Policies</div>
+<p><span class="image"><img src="_images/sch-EIM-InlinePolicies.png" alt="sch EIM InlinePolicies"></span></p>
+</div>
+<div class="paragraph">
+<p>In the above schema, the following inline policies are applied:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>User 1: Inline policies A and C</p>
+</li>
+<li>
+<p>User 2: Inline policies A', B and C</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Inline policies A and A' may contain similar permissions, but are independent from one another.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>User 3: Inline policy C</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_managed_policies"><a class="anchor" href="About-Policies.html#_managed_policies"></a>Managed policies</h3>
+<div class="paragraph">
+<p>Managed policies are standalone policies that you can attach to several users or groups, and detach at any time. This enables you to create a library of policies in your account, and attach them to users or groups depending on their profile. To do so, you can list all the managed policies available for your account. For more information, see <a href="Working-with-Managed-Policies.html" class="xref page">Working with Managed Policies</a>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can attach up to two managed policies to a user or a group at the same time, if they need different permission profiles.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can modify a managed policy at any time, which creates a new policy version. You can then set this new policy version as the default one, that is, the active one applied to users or groups the policy is attached to. Managed policies enable you to centrally manage permissions for all users or groups the policy is attached to, as the same policy document version is applied to all of them. For example, it is impossible to apply a v1 version to a user and a v2 version to another user. For more information, see <a href="Editing-Managed-Policies-Using-Policy-Versions.html" class="xref page">Editing Managed Policies Using Policy Versions</a>.</p>
+</div>
+<div class="paragraph">
+<p>As previous versions are not deleted when you create a new one, you can revert to an earlier version of a policy at any time. For more information, see <a href="Setting-the-Default-Version-of-a-Managed-Policy.html" class="xref page">Setting the Default Version of a Managed Policy</a>.</p>
+</div>
+<div class="paragraph">
+<p>If you detach a policy from a user or a group, the permissions it contains are not applied anymore, but the policy is not deleted. To delete a managed policy, you first need to detach it from all users and groups it is attached to, and then delete it manually. For more information, see <a href="Deleting-a-Managed-Policy.html" class="xref page">Deleting a Managed Policy</a>.</p>
+</div>
+<div class="paragraph">
+<div class="title">Managed Policies</div>
+<p><span class="image"><img src="_images/sch-EIM-ManagedPolicies.png" alt="sch EIM ManagedPolicies"></span></p>
+</div>
+<div class="paragraph">
+<p>In the above schema, the v2 version of managed policy A is applied to User 1, User 2, and users that are in the Dev group. Any modification in this policy is applied to all of these users.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_policy_documents_and_statements"><a class="anchor" href="About-Policies.html#_policy_documents_and_statements"></a>Policy Documents and Statements</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Policy documents contain permissions that are organized in statements (one permission per statement). For each statement, you can define the following elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Actions: The actions that the user or group can perform.</p>
+</li>
+<li>
+<p>Effect: Whether the permissions is granted (<code>allow</code>) or denied (<code>deny</code>). By default, all permissions are set to <code>deny</code>.</p>
+</li>
+<li>
+<p>Statement ID (SID): A unique identifier for the statement chosen by the user who creates it.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="EIM-Policy-Elements.html" class="xref page">EIM Policy Elements</a>.</p>
+</div>
+<div class="paragraph">
+<p>To modify policy documents, you can only:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>For inline policies, delete the current policy and add a new one to the user or group.</p>
+</li>
+<li>
+<p>For managed policies, create a new policy version and set it as the default one.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Related Pages</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="About-EIM-Users.html" class="xref page">About EIM Users</a></p>
+</li>
+<li>
+<p><a href="About-EIM-Groups.html" class="xref page">About EIM Groups</a></p>
+</li>
+<li>
+<p><a href="EIM-Reference-Information.html" class="xref page">EIM Reference Information</a></p>
+</li>
+<li>
+<p><a href="Working-with-Inline-Policies.html" class="xref page">Working with Inline Policies</a></p>
+</li>
+<li>
+<p><a href="Working-with-Managed-Policies.html" class="xref page">Working with Managed Policies</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sidebar-button paragraph"><a onclick="printPage()"><strong>Export to PDF</strong> <i class="fa fa-file-pdf-o"></i></a></div>
+</article>
+  </div>
+</main>
+</div>
+    <footer class="footer">
+      <p>Copyright © 2025 Outscale SAS. All rights reserved. | <a href="Legal-Mentions.html" class="xref page">Legal Mentions</a></p>
+      <p>This site was built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://github.com/outscale/osc-doc-framework" target="_blank" rel="noopener">osc-doc-framework</a>.</p>
+    </footer>
+    <script src="../../_/js/site-navigation-data.js"></script>
+    <script id="navigator-script" src="../../_/js/nav.js"></script>
+    <script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+    <script src="../../_/js/outscale-right-sidebar.js"></script>
+    <script src="../../_/js/outscale-tabs.js"></script>
+    <script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="120" data-stylesheet="../../_/css/outscale-search.css"></script>
+<script async src="../../_/js/search-index.js"></script>
+<script async src="../../_/js/search-page.js"></script>
+
+    <script src="../../_/js/vendor/highlight.js"></script>
+    <script async src="../../_/js/outscale-extra-highlight.js"></script>
+    <script src="../../_/js/vendor/jstable.es5.min.js"></script>
+    <script async src="../../_/js/outscale-tables.js"></script>
+    <script async src="../../_/js/outscale-print.js"></script>
+  </body>
+</html>
