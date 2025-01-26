@@ -21,6 +21,7 @@ L'extraction a été stocké sur le dépôt.
 Un environnement virtuel python est recommandé
 
 ```bash
+$ virtualenv env
 $ source env/Scripts/activate
 $ pip install -r requirements.txt
 ```
