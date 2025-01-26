@@ -11,7 +11,7 @@ import re
 ROOT_DIRECTORY = "./docs.outscale.com/en/userguide"
 
 # Set the batch size (number of files to process in each batch)
-batch_size = 100
+batch_size = 20
 
 def _cleaned_link(url, link):
     link = urljoin(url, link["href"])

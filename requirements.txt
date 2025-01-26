@@ -3,3 +3,5 @@ langchain
 sentence-transformers # SentenceTransformerEmbeddings > 1 Go
 bs4 # traitement HTML https://pypi.org/project/bs4/ Beautiful Soup
 chromadb # DB https://pypi.org/project/chromadb/ pour stockage des vecteurs LangChain Community
+torch==2.0.* # pistes fix coredump PyTorch https://stackoverflow.com/a/77293545/55465 / https://github.com/UKPLab/sentence-transformers/issues/2228#issuecomment-1837129592
+
