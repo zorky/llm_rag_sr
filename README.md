@@ -1,6 +1,6 @@
 # Création d'un RAG sur la documentation d'Outscale
 
-A partir d'un post LinkedIn de [Stéphane Robert](https://www.linkedin.com/in/stephanerobert1/), afin de m'autoformer, j'ai repris le source python d'un POC qui permet de créer un RAG sur la documentation d'Outscale.
+A partir d'un post LinkedIn de [Stéphane Robert](https://www.linkedin.com/in/stephanerobert1/), afin d'appréhender ce domaine de l'IA générative, j'ai repris le source python d'un POC pour qu'il soit modulaire, ce source permet de créer un RAG sur la documentation d'Outscale.
 
 Post LinkedIn qui cite les articles de Stéphane : https://www.linkedin.com/feed/update/urn:li:activity:7289224764785635328/
 
