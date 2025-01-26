@@ -31,3 +31,21 @@ $ pip install -r requirements.txt
 ```bash
 $ python main.py
 ```
+
+NB : chez moi, cela se termine par un **Segmentation fault** 
+
+Une astuce serait https://github.com/UKPLab/sentence-transformers/issues/2332 mais j'ai toujours le core dump
+
+```bash
+$ export OMP_NUM_THREADS=1
+$ python main.py
+Embedding model loaded: sentence-transformers/all-mpnet-base-v2
+Embedding : client=SentenceTransformer(
+  (0): Transformer({'max_seq_length': 384, 'do_lower_case': False}) with Transformer model: MPNetModel
+  (1): Pooling({'word_embedding_dimension': 768, 'pooling_mode_cls_token': False, 'pooling_mode_mean_tokens': True, 'pooling_mode_max_tokens': False, 'pooling_mode_mean_sqrt_len_tokens': False, 'pooling_mode_weightedmean_tokens': False, 'pooling_mode_lasttoken': False, '
+include_prompt': True})
+  (2): Normalize()
+) model_name='sentence-transformers/all-mpnet-base-v2' cache_folder=None model_kwargs={} encode_kwargs={} multi_process=False show_progress=False
+persisting to ./chroma
+Segmentation fault
+```
