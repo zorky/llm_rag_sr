@@ -8,12 +8,12 @@ Source python initial de Stéphane Robert : https://blog.stephane-robert.info/do
 
 ## Prérequis
 
-$ pip install -r requirements.txt
+Un environnement virtuel python est recommandé
 
-un environnement virtuel python est recommandé
-
+```bash
 $ source env/Scripts/activate
 $ pip install -r requirements.txt
+```
 
 ## Utilisation
 
