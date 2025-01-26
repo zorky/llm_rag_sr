@@ -39,6 +39,14 @@ Une astuce serait https://github.com/UKPLab/sentence-transformers/issues/2332 ma
 ou https://github.com/UKPLab/sentence-transformers/issues/2228#issuecomment-1837129592 descendre PyTorch à la 2.0.* : à tester
 
 ```bash
+$ pip show torch
+Name: torch
+Version: 2.5.1
+Summary: Tensors and Dynamic neural networks in Python with strong GPU acceleration
+Home-page: https://pytorch.org/
+```
+
+```bash
 $ export OMP_NUM_THREADS=1
 $ python main.py
 Embedding model loaded: sentence-transformers/all-mpnet-base-v2
@@ -52,7 +60,7 @@ persisting to ./chroma
 Segmentation fault
 ```
 
-Autre piste (j'utilise WSL2) : https://discuss.huggingface.co/t/segmentation-fault-core-dumped/58046/14 
+Autre piste avec WSL2 : https://discuss.huggingface.co/t/segmentation-fault-core-dumped/58046/14 
 
 ```
 [wsl2]
