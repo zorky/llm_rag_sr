@@ -49,3 +49,11 @@ include_prompt': True})
 persisting to ./chroma
 Segmentation fault
 ```
+
+Autre piste (j'utilise WSL2) : https://discuss.huggingface.co/t/segmentation-fault-core-dumped/58046/14 
+
+```
+[wsl2]
+memory=16GB 
+processors=2
+```
